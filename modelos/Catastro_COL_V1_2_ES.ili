@@ -341,6 +341,25 @@ MODEL Catastro_COL_V1_2_ES
          otrasAlertas              
       );
 	  
+	  COL_FormalidadTipo = (
+         formal, 
+         informal
+      );
+	  
+	  COL_Genero = (
+		 femenino,
+		 masculino,
+		 otro
+	  );
+	  
+	  COL_TipoZona = (
+		 PerimetroUrbano, 
+		 Rural, 
+		 Corregimiento, 
+		 Caserios, 
+		 InspecionPolicia
+	  );
+	  
 	  
 	  !! Dominios por Topic Auxiliares
 	  
@@ -667,7 +686,7 @@ MODEL Catastro_COL_V1_2_ES
          exactitudHorizontal: MANDATORY 0 .. 1000 [cm];
          monumentation (EXTENDED): MANDATORY COL_MonumentacionTipo;
          tipoPuntoControl: COL_PuntoControlTipo;
-		 confiabilidad: (si,no);
+		 confiabilidad: BOOLEAN;
       UNIQUE 
          pID->namespace, pID->localId;
       END PuntoControl;
@@ -699,10 +718,7 @@ MODEL Catastro_COL_V1_2_ES
          predioTipo: MANDATORY COL_PredioTipo;
 		 tipoPredioPublico: COL_PredioTipoPublicoTipo;
 		 estrato: COL_EstratoTipo;
-         informalidad: MANDATORY (
-            formal, 
-            informal
-         );
+         informalidad: MANDATORY COL_FormalidadTipo;
 		 geometria: GM_Surface2D;
       END Predio;
 	
@@ -716,9 +732,9 @@ MODEL Catastro_COL_V1_2_ES
          descripcionPunto: COL_DescripcionPuntoTipo;
 		 exactitudVertical: 0 .. 1000 [cm];
          exactitudHorizontal: MANDATORY 0 .. 1000 [cm];
-		 confiabilidad: (si,no);
+		 confiabilidad: BOOLEAN;
          interpolationRole (EXTENDED): COL_InterpolacionTipo;
-         monumentation (EXTENDED): COL_MonumentacionTipo;
+         monumentation (EXTENDED): MANDATORY COL_MonumentacionTipo;
 		 nombrePunto: TEXT*10;
       UNIQUE 
          pID->namespace, pID->localId;
@@ -820,7 +836,7 @@ MODEL Catastro_COL_V1_2_ES
          defPunto: MANDATORY COL_DefPuntoTipo;
          exactitudVertical: 0 .. 1000 [cm];
          exactitudHorizontal: 0 .. 1000 [cm];
-         monumentation (EXTENDED): COL_MonumentacionTipo;        
+         monumentation (EXTENDED): MANDATORY COL_MonumentacionTipo;        
          nombrePunto: TEXT*10;
       UNIQUE 
          pID->namespace, pID->localId;
@@ -858,10 +874,7 @@ MODEL Catastro_COL_V1_2_ES
 		 !! datos para procesos de tierras (ANT)
 		 cabeza_hogar: BOOLEAN;
 		 discapacidad: BOOLEAN;
-		 genero: MANDATORY (
-			femenino,
-			masculino,
-			otro);
+		 genero: MANDATORY COL_Genero;
 		 habita_predio: BOOLEAN;
 		 etnia: TEXT*20;
       END InteresadoNatural;
@@ -900,7 +913,7 @@ MODEL Catastro_COL_V1_2_ES
       END Fuente;
       
       CLASS FuenteAdministrativa EXTENDS LA_AdministrativeSource =
-         type (EXTENDED): COL_FuenteAdministrativaTipo;
+         type (EXTENDED): MANDATORY COL_FuenteAdministrativaTipo;
 		 tipoTransaccion: MANDATORY COL_TransaccionRegistralTipo;
 		 codigoRegistralTrans: MANDATORY TEXT*3;
 	  END FuenteAdministrativa;
@@ -1014,8 +1027,8 @@ MODEL Catastro_COL_V1_2_ES
          defPunto: MANDATORY COL_DefPuntoTipo;
 		 exactitudVertical: 0 .. 1000 [cm];
          exactitudPosicional: MANDATORY 0 .. 1000 [cm];
-		 confiabilidad: (si,no);
-         monumentation (EXTENDED): COL_MonumentacionTipo;
+		 confiabilidad: BOOLEAN;
+         monumentation (EXTENDED): MANDATORY COL_MonumentacionTipo;
 		 nombrePunto: TEXT*10;
       UNIQUE 
          pID->namespace, pID->localId;
@@ -1048,7 +1061,7 @@ MODEL Catastro_COL_V1_2_ES
       CLASS Zona = 	
          codigo: MANDATORY TEXT*2;
          nombre: MANDATORY TEXT*50;
-		 tipoZona: (PerimetroUrbano, Rural, Corregimiento, Caserios, InspecionPolicia);
+		 tipoZona: COL_TipoZona;
          geometria: GM_Surface2D;
       END Zona;
 
@@ -1289,11 +1302,8 @@ MODEL Catastro_COL_V1_2_ES
 			lugarNacimiento: TEXT*100;
 			nacionalidad: TEXT*20;
 			discapacidad: BOOLEAN;
-			genero: (
-				masculino,
-				femenino,
-				otro
-			);		habitaPredio: BOOLEAN;
+			genero: COL_Genero;		
+			habitaPredio: BOOLEAN;
 			parentesco: TEXT*20;
 			etnia: TEXT*20;
 			direccion: TEXT*100;
