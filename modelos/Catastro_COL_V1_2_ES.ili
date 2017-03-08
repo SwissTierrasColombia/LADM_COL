@@ -1,0 +1,1486 @@
+!!-----------------------------------------------------------
+!!
+!! ISO 19152 LADM country profile COL modeled with INTERLIS 2
+!!
+!!-----------------------------------------------------------
+!! revision history
+!!-----------------------------------------------------------
+!! 
+!! 10.05.2016/mg: EJEMPLO INTERLIS POR OFERTAS
+!! 16.06.2016/mg: Taller IGAC/SNR
+!! 23.08.2016/mg: Relaciones
+!! 15.09.2016/mg: Comentarios Modelo
+!! 20.11.2016/aa: Topic Ficha
+!! 25.11.2016/aa: Ajustes FichaPredio
+!! 02.12.2016/ss: Nuevas clases, atributos y tipos
+!! 15.12.2016/lj: Ajuste tipos (IGAC/SNR), BAUnit GM_surface
+!!
+!!-----------------------------------------------------------
+!!
+!! (c) IGAC y SNR con apoyo de la Cooperacion Suiza
+!!
+!!-----------------------------------------------------------
+
+INTERLIS 2.3;
+
+MODEL Catastro_COL_V1_2_ES
+
+   AT "http://www.igac.gov.co/models"
+   VERSION "2016-12-14" =
+
+   IMPORTS UNQUALIFIED INTERLIS;  !! modelo piloto catastro multiproposito
+   IMPORTS UNQUALIFIED ISO19107_V1_MAGNABOG;  !! modelo espacial, coordenadas proyectadas MAGNA Bogota
+   IMPORTS LADM_V1_ES;  !! modelo LADM_ISO19152 core en espanol
+   
+   UNIT
+   
+      PesoColombiano [COP] EXTENDS INTERLIS.MONEY;
+	  Area (ABSTRACT) = (INTERLIS.LENGTH*INTERLIS.LENGTH);
+	  MetroCuadrado [m2] EXTENDS Area = (INTERLIS.m*INTERLIS.m);
+	  Centrimetro [cm] = 1/100 [m];
+
+   DOMAIN
+   
+      Integer = 0 .. 999999999;
+      Real = 0.000 .. 999999999.999;
+      Peso = 0 .. 999999999999 [COP];
+
+
+            !! Dominios por Topic Catastro_Registro
+
+	  COL_MonumentacionTipo = (
+         incrustacion,
+         mojon,
+         noMaterializado,
+         otros,
+         pilastra
+      );
+	  
+	  COL_PuntoControlTipo = (
+         control,
+         apoyo
+      );
+	  
+	  COL_PredioTipo = (
+         privado (
+			 individual,
+			 enComunidad,
+			 propiedadColectiva (				
+				resguardoIndigena,
+				comunidadAfrodescendiente,
+				comunidadRaizal,
+				comunidadPalenquera
+			 )
+		 ),
+		 publico (
+		   	 nacional,
+			 departamental,
+			 municipal
+	 	 )
+      );
+	  
+	  COL_PredioTipoPublicoTipo = (
+		 parqueNacional,
+		 reservaNatural,
+		 ejido,
+		 presuntoBaldio,
+		 fiscalPatrimonial,
+		 bienUsoPublico (
+			 alameda,
+			 anden,
+			 areaControlAmbiental,
+			 bahiaEstacionamiento,
+			 berma,
+			 calzada,
+			 cicloRuta,
+			 escenarioCultural,
+			 escenarioDeportivo,
+			 estacionamientoPublico,
+			 humedal,
+			 lago,
+			 madreVieja,
+			 malecon,
+			 parqueUrbano,
+			 playa,
+			 playon,
+			 plaza,
+			 plazoleta,
+			 puente,
+			 rio,
+			 sabanaComunal,
+			 sardinel,
+			 separador,
+			 terrenoBajamar,
+			 tunelPeatonal,
+			 via,
+			 zonaEquipamientoComunal
+      	 ), 
+		 otro
+	  );
+	  
+      COL_EstratoTipo = (
+        estrato0,
+		estrato1,
+		estrato2,
+		estrato3,
+		estrato4,
+		estrato5,
+		estrato6
+      );
+	  
+	  COL_AcuerdoTipo = (		!! ajustar en el Catalogo de Objetos
+         acuerdo,
+         desacuerdo
+      );
+	  
+	  COL_DefPuntoTipo = (
+         bienDefinido,
+         noBienDefinido
+      );
+	  
+	  COL_DescripcionPuntoTipo = (
+         esquinaConstruccion,
+         interseccionCercaDePiedra,
+         interseccionCercaViva,
+         posteDeCerca,
+		 otros                      !! por definir durante pilotos
+      );
+	  
+	  COL_InterpolacionTipo = (     !! extiende tipo LA_InterpolationType original
+         aislado,
+         final,
+         inicio,
+         intermedioArco,
+         intermedioLinea
+      );
+	  
+	  COL_TipoConstruccionTipo = (   
+         anexo,
+         noPH,
+         parqueCementerio,
+         PH
+      );
+	  
+	  COL_RolInteresadoTipo = (
+         abogadoDemandas,
+         administradorEstado,
+         banco,
+         ciudadano,
+         juez,
+         notario,
+         reconocedorAgrimensor
+      );
+
+      COL_InteresadoDocumentoTipo = (
+         cedulaCiudadania,
+         cedulaExtranjeria,
+         NIT,
+         pasaporte,
+         tarjetaIdentidad
+      );
+	  
+	  COL_InstitucionTipo = (
+         registraduriaNacional,
+		 registroPropiedad,
+		 catastroIGAC,
+		 catastroDescentralizado,
+		 URT,
+		 ANT		 
+      );
+	  
+	  COL_GrupoInteresadoTipo = (
+         grupoBAUnit,
+         grupoCivil,
+         grupoEmpresarial,
+         grupoEtnico,
+         grupoFamiliar
+      );
+
+      COL_EstadoDisponibilidadTipo = (       !! Extiende ISO LA_AvailabilityStatusType
+         convertido,
+         desconocido,
+         disponible
+      );
+	  
+	  COL_FuenteAdministrativaTipo = (		 !! por ampliar con base en los resultados de los pilotos
+         certificado,
+		 contrato,
+         documentoIdentidad,
+         escritura,
+         informe,
+		 formularioPredial,
+		 promesaCompraventa,
+         reglamento,
+         resolucion,
+         sentencia,
+         solicitud,
+		 acta,
+		 acuerdo,
+		 auto,
+		 estatutoSocial,
+		 decreto,
+		 providencia,
+		 otro
+      );
+	  
+      COL_TransaccionRegistralTipo = (   
+         saneamientoTitulacionPrescripcionPrivados,
+         sobreBaldiosFiscales,
+         transferenciaDominioPropPrivada,
+         adjudicacionCesionPropiedad,
+         expropiacionRecuperacionExtincion,
+         otrasTransaPropiedad,
+         falsaTradicion,
+         particionesyLoteos,
+         transaccionesDerechoCuota,
+         relativoaContratos,
+         relativoaSociedades,
+         relativoaUsufructo,
+         restitucionLey1448,
+         revocatoriaNulidad,
+         transaccionesMineriaSubsuelo,
+         sobreNudaPropiedad
+      );	  
+	  
+	  COL_FuenteEspacialTipo = (      !! extiende tipo LA_SpatialSourceType original. En general es relacion n:m
+         croquisCampo,
+		 protocoloPosicionamiento,
+		 informeCalculo,
+		 datosCrudos
+      );
+	  
+	  COL_DerechoTipo = (
+         derechoColectivo,
+         mineriaDerecho (
+		    explotacion,
+		    exploracion
+		 ),
+         nudaPropiedad,
+         ocupacion,
+         posesion,
+         propiedad,
+         tenencia (
+            arrendamiento,
+		    anticresis,
+		    comodato,
+		    aparceria,
+		    otro
+         ),
+         usufructo
+      );
+
+      COL_ResponsabilidadTipo = (
+         constitucional (
+            funcionEcologica,
+            funcionSocial,
+            cargasImpositivas
+         ),
+         legal (
+            preferenciaArt21Ley1537,
+            opcionAdquisicionINCODERLey160,
+            derechoPreferencia,
+			prohibicionAportarBaldioSociedadAreaExcedaUAF,
+			prohibicionAdquisicionPrediosAdjudicadosBaldiosSiExcedeUAF
+         ),
+         contractual (
+            pactoComisorio,
+            pactoIndivision,
+            pactoReservaDominio,
+            pactoRetroventa
+         ),
+         administrativa (
+            administracionBienes,
+            liquidacionEfectoPlusvalia,
+            valorizacion
+         ),
+         judicial (                
+            administracionBienes
+         ),
+         otros (                     
+            mantenimientoAcueducto,
+            mantenimientoCercas,
+            mantenimientoFlujoHidrico,
+            provisionAguaConcesion
+         )
+      );
+	  
+	  COL_RestriccionTipo = (
+         afectacionesInteresGeneral,
+		 ambientales,
+		 desplazamientoForzadoRestitucion,
+		 embargo,
+		 fideicomisoCivil,
+		 normasUrbanismo,
+		 prohibicionesExpresas,
+		 proteccionFamilia,
+		 servidumbre,
+		 noRegistrada
+      );
+	  
+	  COL_HipotecaTipo = (
+         abierta,
+         bienesEnUsufructo,
+         cuantiaIndeterminada,
+         derechosDeCuota,
+         derechosyAcciones,
+         gananciales,
+         minasAntecedenteRegistral,
+         nudaPropiedad,
+		 UAF,
+		 conservacionCalidadAcreedor,
+		 ratificacionAmpliacion,
+		 ratificacion,
+         abiertaSinLimiteCuantia,
+         hipoteca,
+         ampliacion
+      );
+
+      COL_AlertaTipo = (
+         inicioProcesoAdministrativo,
+         demanda,
+         otrasAlertas              
+      );
+	  
+	  
+	  !! Dominios por Topic Auxiliares
+	  
+	  COL_EstructuraLinealTipo = (     !! responsabilidad de las instituciones para generar la informacion
+         viaMetroOmetrovia,
+         viaTroncal,
+         viaFerrea,
+         autopista,
+         arteria,
+         viaPrincipal,
+         viaSecundaria,
+         viaColectora,
+         viaOrdinaria,
+         viaLocal,
+         viaPrivada,
+         ciclorruta,
+         viaPeatonal,
+         viaCarreteable,
+         tunel,
+         pistaAterrizaje,
+         puente,
+         carreteraElevadaViaducto
+      );
+	  
+	  COL_EstructuraPuntualTipo = (
+         carreteraElevadaViaducto,
+         pistaAterrizaje,
+         puente,
+         puertoViaNavegable,
+         represa,
+         sistemaDeRiego,
+         tunel
+      );
+
+      
+      !! Dominios por Topic Avaluo
+	  
+	  COL_AprovechamientoTipo = (       !! por definir por operador pilotos CM en la propuesta metodologica
+         AprovDeficiente,
+         AprovEficiente,
+         AprovOptimo,
+         AprovRegular,
+         SinAprovechamiento
+      );
+	  
+	  COL_DisponibilidadAguaTipo = (    !! por definir por operador pilotos CM en la propuesta metodologica
+         AAcueductoMpio,
+         AAcueductoVeredal,
+         AEstancadasNoPerma,
+         AEstancadasPerma,
+         APozosProfundos,
+         SinAccesoaAguas
+      );
+	  
+	  COL_ObrasAlInteriorTipo = (    !! por definir por operador pilotos CM en la propuesta metodologica
+         noPosee,
+         obraInfraestructura,
+         plantaTrataAgua,
+         plantaTrataResiduo,
+         viaAdoquin,
+         viaAsfaltada,
+         viaEnRecebo,
+         zonasDuras
+      );
+	  
+	  COL_CapaVegetalTipo = (    !! por definir por operador pilotos CM en la propuesta metodologica
+         Bosque,
+         PastosArtificiales,
+         PastosNaturales,
+         Rastrojos,
+         Selva,
+         SinCobertVegetal,
+         TierradeLabor
+      );
+	  
+	  COL_PendienteTipo = (      !! por definir por operador pilotos CM en la propuesta metodologica
+         empinada,
+         escarpada,
+         fuertementeInclinada,
+         inclinada,
+         ligeramenteEscarpada,
+         ligeramenteInclinada,
+         moderadamenteInclinada,
+         muyEscarpada,
+         planaU,
+         plano
+      );
+	  
+	  COL_TipoDesarrolloTipo = (
+		autoConstruccion,
+		urbanizacion
+	  );
+	  
+	  COL_FormaTipo = (
+         irregular,
+         regular
+      );
+
+      COL_ComunExclusivoTipo = (    !! por definir por operador pilotos CM en la propuesta metodologica
+         Balcon,
+         Deposito,
+         GarajeDoble,
+         GarajeSencillo,
+         Patio,
+         Terraza
+      );
+	  
+	  COL_CercaniaHitosTipo = (       !! por definir por operador pilotos CM en la propuesta metodologica
+         alejado,
+         cercano,
+         frenteDirecto,
+         medianamenteAlejado,
+         medianamenteCercano
+      );
+	   
+	  COL_AccesoTipo = (     !! por definir por operador pilotos CM en la propuesta metodologica
+         ascensorAPiso,
+         ascensorEntrePisos,
+         ascensorPrivado,
+         escaleras,
+         escalerasElectricas
+      );
+	  
+	  COL_ActividadEconoTipo = (      !! por definir por operador pilotos CM en la propuesta metodologica
+		 definirPilotos
+	  );
+
+	  COL_DestinacionEconomicaTipo = (       !! por definir por operador pilotos CM en la propuesta metodologica
+         definirOperador
+      );
+	  
+	  COL_EstiloTipo = (       !! por definir por operador pilotos CM en la propuesta metodologica
+		 clasico,
+         colonial,
+         minimalista,
+         moderno,
+         otrosEstilos,
+         postModerno,
+         republicano,
+         tradicional
+      );
+
+      COL_ConstruccionTipo = (		 !! por definir por operador pilotos CM en la propuesta metodologica
+         convencional,
+         noConvencional
+      );
+
+      COL_EstadoConservacionTipo = (      !! por definir por operador pilotos CM en la propuesta metodologica
+         bueno,
+         demolicion,
+         intermedio,
+         malo,
+         muyBueno,
+         muyMalo,
+         optimo,
+         regularDeficiente
+      );
+	  
+	  COL_FuncionalidadTipo = (  !! por definir por operador pilotos CM en la propuesta metodologica
+         funcional,
+         medianamenteFuncional,
+         pocoFuncional
+      );
+      
+      COL_UbicacionEnCopropiedadTipo = (    !! por definir por operador pilotos CM en la propuesta metodologica
+         otrasUbicaciones,
+         pasilloPrincipal,
+         pasilloSecundario,
+         plazoletaComidas
+      );
+	  
+	  COL_MaterialConstrTipo = (    !! por definir por operador pilotos CM en la propuesta metodologica
+         definirPilotos
+      );
+	  
+	  COL_TipologiaTipo = (      !! por definir por operador pilotos CM en la propuesta metodologica
+         almacenamiento,
+         asamblea,
+         deAltoRiesgo,
+         educativo,
+         facilidadesyOtros,
+         industrial,
+         institucional,
+         mercantil,
+         negocios,
+         residencial
+      );
+
+      COL_EquipamientoComunalTipo = (	  	
+		 salonComunal,
+		 piscina,
+		 parqueaderoVisitante,
+		 ascensor,
+		 zonaBBQ,
+		 canchasTenisSquash,
+		 canchaMultifuncional,
+		 porteria,
+		 gimnasio,
+		 campoGolf,
+		 lago,
+		 zonaVerde,
+	 	 zonaRecreativa,
+		 clubHouse,
+		 zonasCargue
+      );
+	  
+     
+     !! Dominios por Topic Avaluo
+	  
+	  COL_UsoTipo = (      !! por definir por operador pilotos CM en la propuesta metodologica
+         agricola,
+         agroindustrial,
+         agropecuario,
+         comercial,
+         cultural,
+         educativo,
+         forestal,
+         habitacional,
+         industrial,
+         institucional,
+         minero,
+         pecuario,
+         recreacional,
+         religioso,
+         salubridad,
+         serviciosEspeciales,
+         usoPublico,
+		 loteUrbanizanleNoUrbanizado,
+		 loteUrbanizanleNoConstruido,
+		 loteNoUrbanizable,
+		 tierrasAparentementeInexplotadas,
+		 acuicola,
+		 infraestructuraTransporte,
+		 infraestructuraHidraulica,
+		 infraestructuraSaneamiento,
+		 infraestructuraSeguridad,
+		 infraestructuraAsociadaExplotacion
+      );
+	  
+	  COL_AreaTipo = (
+         areaCalculadaAlturaLocal,
+		 areaCalculadaAlturaMar,
+         areaCatastralAdministrativa,
+         areaEstimadoConstruccion,
+         areaNoOficial,
+         areaRegistral
+      );
+
+      
+	  !! Dominios extendidos de la ISO19152 pero por el momento no usados
+	  
+	  COL_EstructuraTipo = (    !! sin usarlo se mantiene ese tipo extendido del tipo original LA_StructureType  
+		 croquis,				!! (atributo "structure") de clase LA_Level para usar posteriormente
+         lineaNoEstructurada,
+         texto,
+         topologico
+      );
+
+      COL_RegistroTipo = (      !! sin usarlo se mantiene ese tipo extendido del tipo original LA_RegisterType
+		 forestal,              !! (atributo "registerType" de clase LA_Level para usar posteriormente
+         mineria,
+         restriccionPublica
+      );				
+ 
+      COL_LevelContentTipo = (      !! sin usarlo se mantiene ese tipo extendido del tipo original LA_LevelContentType        
+         construccionConvencional,  !! (atributo "registerType" de clase LA_Level para usar posteriormente
+         construccionNoConvencional,
+         consuetudinario,
+         formal,
+		 informal,
+         responsabilidad,
+         restriccionDerechoPublico,
+         restrictionDerechoPrivado
+      );
+
+      COL_BuildingUnitTipo = (      !! sin usarlo se mantiene ese tipo extendido del tipo original LA_BuildingUnitType        
+		 compartido,                !! (atributo "type" de clase LA_LegalSpaceBuildingUnit para usar posteriormente
+         individual
+      );
+
+      COL_UtilityNetworkTipo = (     !! sin usarlo se mantiene ese tipo extendido del tipo original LA_LA_UtilityNetworkType  
+         petroleo,                   !! (atributo "type" de clase LA_LegalSpaceUtilityNetwork para usar posteriormente 
+         quimicos,
+         redTermica,
+         telecomunicacion
+      );
+
+      COL_ViaTipo = (				!! revisar con catalogo de objetos (clase EstructuraLineal)
+         arteria,
+         autopista,
+         carreteable,
+         cicloruta,
+         colectora,
+         departamental,
+         ferrea,
+         local,
+         metroOMetrovia,
+         nacional,
+         ordinaria,
+         peatonal,
+         principal,
+         privada,
+         secundaria,
+         troncal
+      );
+	  
+
+	  STRUCTURE COL_AreaValor =
+            areaSize: MANDATORY 0.0 .. 99999999999999.9 [m2];
+            type : MANDATORY COL_AreaTipo;
+	  END COL_AreaValor;
+   
+   
+   
+   
+   TOPIC Catastro_Registro EXTENDS LADM_V1_ES.LADM_Core =
+
+ 
+   !! Puntos de Control  -  Catalogo de Objetos: Grupo Auxiliar
+
+      CLASS PuntoControl EXTENDS LA_Point = 
+         nombrePunto: MANDATORY TEXT*20;
+         exactitudVertical: MANDATORY 0 .. 1000 [cm];
+         exactitudHorizontal: MANDATORY 0 .. 1000 [cm];
+         monumentation (EXTENDED): MANDATORY COL_MonumentacionTipo;
+         tipoPuntoControl: COL_PuntoControlTipo;
+		 confiabilidad: (si,no);
+      UNIQUE 
+         pID->namespace, pID->localId;
+      END PuntoControl;
+ 
+
+ 
+   !! Predio  -  Catalogo de Objetos: Grupo Catastro
+   
+      CLASS Predio EXTENDS LA_BAUnit =
+         departamento: MANDATORY TEXT*2;
+		 municipio: MANDATORY TEXT*3;
+		 zona: MANDATORY TEXT*2;
+		 sector: MANDATORY TEXT*2;
+		 localidadComuna: MANDATORY TEXT*2;		
+		 barrio: MANDATORY TEXT*2;
+		 manzana_vereda: MANDATORY TEXT*4;
+		 terreno: MANDATORY TEXT*4;
+		 condicion_prop: MANDATORY TEXT*1;
+		 edificio: MANDATORY TEXT*2;
+		 piso: MANDATORY TEXT*2;
+		 unidad: MANDATORY TEXT*4;
+		 vigenciaFiscal: XMLDate;
+		 avaluoPredio: MANDATORY Peso;				!! funcion de sumar avaluoTerreno + avaluoConstrucction
+         FMI: TEXT*20;
+         nomenclatura: TEXT*100;
+         NUIP: Integer;								!! por definir por operadores pilotos CM
+         numeroPredial: MANDATORY TEXT*30;
+         numeroPredialAnterior: TEXT*20;
+         predioTipo: MANDATORY COL_PredioTipo;
+		 tipoPredioPublico: COL_PredioTipoPublicoTipo;
+		 estrato: COL_EstratoTipo;
+         informalidad: MANDATORY (
+            formal, 
+            informal
+         );
+		 geometria: GM_Surface2D;
+      END Predio;
+	
+
+	
+	!! Punto Levantamiento  -  Catalogo de Objetos: Grupo Catastro
+	
+      CLASS PuntoLindero EXTENDS LA_Point =
+         acuerdo: MANDATORY COL_AcuerdoTipo;
+         defPunto: MANDATORY COL_DefPuntoTipo;
+         descripcionPunto: COL_DescripcionPuntoTipo;
+		 exactitudVertical: 0 .. 1000 [cm];
+         exactitudHorizontal: MANDATORY 0 .. 1000 [cm];
+		 confiabilidad: (si,no);
+         interpolationRole (EXTENDED): COL_InterpolacionTipo;
+         monumentation (EXTENDED): COL_MonumentacionTipo;
+		 nombrePunto: TEXT*10;
+      UNIQUE 
+         pID->namespace, pID->localId;
+      END PuntoLindero;
+
+	  
+	  
+	!! Lindero  -  Catalogo de Objetos: Grupo Catastro
+	  
+      CLASS Lindero EXTENDS LA_BoundaryFaceString =
+         longitud: MANDATORY 0.0 .. 10000.0 [m];	
+      END Lindero;
+
+	  
+	  
+	!! Terreno  -  Catalogo de Objetos: Grupo Catastro
+     
+ 	  CLASS Terreno EXTENDS LA_BAUnit =
+         areaRegistral: MANDATORY 0.0 .. 99999999999999.9 [m2];
+		 areaCalculada: MANDATORY 0.0 .. 99999999999999.9 [m2];		!! levantamiento en Magna Bogota
+         avaluoTerreno: MANDATORY Peso;
+		 cultivosTransitorios: BOOLEAN;
+	     cultivosPermanentes: BOOLEAN;
+         geometria: GM_Surface2D;
+	     confinados: BOOLEAN;
+		 tierrasPreparacion: BOOLEAN;
+		 areasAgricolasHeterogeneas: BOOLEAN;
+		 pastos: BOOLEAN;
+		 bosquesAreasSeminaturales:BOOLEAN;
+		 areaBoscosa: BOOLEAN;
+		 plantacionComercial:BOOLEAN;
+		 nacimientosAgua: BOOLEAN;
+		 cuerpoAgua:BOOLEAN;
+		 zonasPantanosas:BOOLEAN;
+		 explotacionMinera: BOOLEAN;
+		 explotacionHidrocarburos: BOOLEAN;
+		 explotacionOtras: BOOLEAN;
+		 afectacionInundacion: BOOLEAN;
+		 afectacionRemocionMasa: BOOLEAN;
+		 afectacionOtras: BOOLEAN;
+		 servidumbreViales: BOOLEAN;
+		 servidumbrePetroleras: BOOLEAN;
+		 servidumbreElectricas:BOOLEAN;
+		 servidumbreOtras: BOOLEAN;
+      END Terreno;
+          
+      ASSOCIATION PredioTerreno =
+         Apredio -<> {1} Predio;
+         Aterreno -- {0..*} Terreno; 
+      END PredioTerreno;
+
+	  
+	  
+	!! Servidumbres  -  Catalogo de Objetos: Grupo Restricciones
+      
+	  CLASS ServidumbrePaso EXTENDS LA_BAUnit =
+         identificador: MANDATORY TEXT*20;
+         geometria: GM_Surface2D;
+		 fechaInscripcionCatastral: XMLDate;
+      END ServidumbrePaso;
+	  
+
+	  
+	!! Construccion  -  Catalogo de Objetos: Grupo Catastro	
+    
+   	  CLASS Construccion EXTENDS LA_BAUnit =
+         avaluoConstrucction: MANDATORY Peso;			!! suma de unidades de construccion (avaluoUnidadCons)
+         geometria: GM_Surface2D;
+	  END Construccion;
+
+      ASSOCIATION PredioConstruccion =
+         predio -<> {1} Predio;
+         construccion -- {0..*} Construccion; 
+      END PredioConstruccion;
+
+
+	  
+    !! Unidad de Construccion  -  Catalogo de Objetos: Grupo Catastro	
+	  
+      CLASS UnidadConstruccion EXTENDS LA_BAUnit = 
+         areaEstimadoConstruccion: MANDATORY 0.0 .. 99999999999999.9 [m2];
+         avaluoUnidadCons: Peso;
+         numeroPisos: MANDATORY 1 .. 100;
+         tipoConstruccion: COL_TipoConstruccionTipo;
+		 geometria: GM_Surface2D;
+      END UnidadConstruccion;
+
+      ASSOCIATION ConstructionUnidadConstruccion =
+         construccion -<> {1} Construccion; 
+         uConstruction -- {1..*} UnidadConstruccion;
+      END ConstructionUnidadConstruccion;
+
+
+	  
+	!! Punto de Levantamiento  -  Catalogo de Objetos: Grupo Catastro	
+	
+      CLASS PuntoLevantamiento EXTENDS LA_Point =
+         tipoPuntoLev: (auxiliar,construccion,servidumbre);
+         defPunto: MANDATORY COL_DefPuntoTipo;
+         exactitudVertical: 0 .. 1000 [cm];
+         exactitudHorizontal: 0 .. 1000 [cm];
+         monumentation (EXTENDED): COL_MonumentacionTipo;        
+         nombrePunto: TEXT*10;
+      UNIQUE 
+         pID->namespace, pID->localId;
+      END PuntoLevantamiento;
+
+
+	  
+   !! Paquete Interesados de la ISO19152
+   
+      STRUCTURE COL_RolInteresadoEstruct =
+         tipo: COL_RolInteresadoTipo;
+      END COL_RolInteresadoEstruct;
+      
+      CLASS Interesado EXTENDS LA_Party = !! COL_Party
+         COLrol: LIST {0..*} OF COL_RolInteresadoEstruct;
+      END Interesado;
+      
+      CLASS InteresadoNatural EXTENDS Interesado =
+         documentoIdentidad: TEXT*10;
+         tipoDocumento: COL_InteresadoDocumentoTipo;		 
+		 organoEmisor: TEXT*20;
+		 fechaEmision: XMLDate;
+         primerApellido: TEXT*50;
+         primerNombre: TEXT*50;
+         segundoApellido: TEXT*50;
+         segundoNombre: TEXT*50;
+		 nacionalidad: TEXT*20;
+         fechaNacimiento: MANDATORY XMLDate;
+		 lugarNacimiento: TEXT*100;
+         telefono1: TEXT*20;
+		 telefono2: TEXT*20;
+		 direccion: TEXT*100;
+         correoElectronico: TEXT*50;
+         origenDatos: COL_InstitucionTipo;
+		 !! datos para procesos de tierras (ANT)
+		 cabeza_hogar: BOOLEAN;
+		 discapacidad: BOOLEAN;
+		 genero: MANDATORY (
+			femenino,
+			masculino,
+			otro);
+		 habita_predio: BOOLEAN;
+		 etnia: TEXT*20;
+      END InteresadoNatural;
+	  
+      CLASS InteresadoJuridico EXTENDS Interesado =
+         numeroNIT: MANDATORY TEXT*20;
+         razonSocial: TEXT*100;
+         tipo: (publico, privado);
+		 fechaConstitucion: XMLDate;
+		 lugarInscripcion: TEXT*100;			
+		 nacionalidad: TEXT*20;			
+		 domicilioNotificacion: TEXT*100;         
+		 telefono1: TEXT*20;
+		 telefono2: TEXT*20;
+		 correoElectronico: TEXT*50;			
+         origenDatos: COL_InstitucionTipo;
+      END InteresadoJuridico;
+
+      CLASS InteresadoNacion EXTENDS Interesado =	
+      END InteresadoNacion;
+	  
+	  CLASS InteresadoBAUnit EXTENDS Interesado =
+      END InteresadoBAUnit;
+
+      CLASS GrupoInteresado EXTENDS LA_GroupParty =
+		 ptype (EXTENDED): COL_GrupoInteresadoTipo;
+      END GrupoInteresado;
+
+
+	  
+   !! Clase principal Fuente (Source) de la ISO19152
+
+      CLASS Fuente EXTENDS LA_Source =
+         oficialidad: BOOLEAN;
+		 availabilityStatus (EXTENDED): MANDATORY COL_EstadoDisponibilidadTipo;
+      END Fuente;
+      
+      CLASS FuenteAdministrativa EXTENDS LA_AdministrativeSource =
+         type (EXTENDED): COL_FuenteAdministrativaTipo;
+		 tipoTransaccion: MANDATORY COL_TransaccionRegistralTipo;
+		 codigoRegistralTrans: MANDATORY TEXT*3;
+	  END FuenteAdministrativa;
+
+      CLASS FuenteEspacial EXTENDS LA_SpatialSource =
+         type (EXTENDED): MANDATORY COL_FuenteEspacialTipo;
+      END FuenteEspacial;
+   
+  
+  
+   !! Clase RRR de la ISO19152
+
+      CLASS Derecho EXTENDS LA_Derecho =
+         tipo (EXTENDED): MANDATORY COL_DerechoTipo;
+		 codigoRegistralDerecho: MANDATORY TEXT*3;     
+      END Derecho;
+
+      CLASS Responsabilidad EXTENDS LA_Responsibility =
+         type (EXTENDED): MANDATORY COL_ResponsabilidadTipo;
+		 codigoRegistralResponsabilidad: TEXT*3;    
+      END Responsabilidad;
+
+      CLASS Restriccion EXTENDS LA_Restriction =
+         tipoRestriccion: COL_RestriccionTipo;
+ 		 codigoRegistralRestriccion: MANDATORY TEXT*3;
+      END Restriccion;
+
+      CLASS Hipoteca EXTENDS LA_Hipoteca =
+         tipo: MANDATORY COL_HipotecaTipo;
+		 codigoRegistralHipoteca: MANDATORY TEXT*3;  
+      END Hipoteca;
+      
+      ASSOCIATION HipotecaDerecho =
+         derecho -- {0..*} Derecho;
+         hipoteca -- {0..*} Hipoteca;
+      END HipotecaDerecho;
+      
+      CLASS Alerta = !! Preinscripcion 
+         lifeStamp: MANDATORY XMLDateTime;
+         tipo: MANDATORY COL_AlertaTipo;
+		 codigoRegistralAlerta: MANDATORY TEXT*3;  
+      END Alerta;
+      
+      ASSOCIATION AlertaBAUnit =
+         baunit (EXTERNAL) -- {1} LA_BAUnit; !! Predio
+         alerta -- {1..*} Alerta;
+      END AlertaBAUnit;
+
+      ASSOCIATION AlertaInteresado =
+         alerta -- {1..*} Alerta;
+         interesado (EXTERNAL) -- {0..*} Interesado;
+      END AlertaInteresado;
+      
+      ASSOCIATION AlertaFuente =
+         alerta -- {1} Alerta;
+         fuente (EXTERNAL) -- {1..*} FuenteAdministrativa;
+      END AlertaFuente;
+      
+   END Catastro_Registro;
+
+ 
+  
+   TOPIC LimitesPoliticoAdministrativos EXTENDS LADM_V1_ES.LADM_Core =  !! tema de Limites y Fronteras
+
+
+      CLASS FronteraNacional =
+         nombre: MANDATORY TEXT*8;
+         geometria: GM_Surface2D;
+      END FronteraNacional;
+
+
+	  
+	  CLASS DivisionDepartamento =
+         codigo: MANDATORY TEXT*2;
+         nombre: MANDATORY TEXT*40;
+		 normatividad: XMLDateTime;
+         geometria: GM_Surface2D;
+      END DivisionDepartamento;
+
+
+      
+      CLASS DivisionDistrito =
+         codigo: MANDATORY TEXT*2;
+         nombre: MANDATORY TEXT*50;
+		 normatividad: XMLDateTime;
+         geometria: GM_Surface2D;
+      END DivisionDistrito;
+
+
+	  
+	  CLASS DivisionMunicipio =
+         codigo: MANDATORY TEXT*5;
+         nombre: MANDATORY TEXT*50;
+		 normatividad: XMLDateTime;
+         geometria: GM_Surface2D;
+      END DivisionMunicipio;
+
+
+	  
+	  CLASS DivisionCentroPoblado =
+         codigo: TEXT*8;
+         nombre: TEXT*50;
+		 normatividad: XMLDateTime;
+         geometria: GM_Surface2D;
+      END DivisionCentroPoblado;
+
+
+	  
+	  CLASS PuntoLimite EXTENDS LA_Point =
+         acuerdo: MANDATORY COL_AcuerdoTipo;
+         defPunto: MANDATORY COL_DefPuntoTipo;
+		 exactitudVertical: 0 .. 1000 [cm];
+         exactitudPosicional: MANDATORY 0 .. 1000 [cm];
+		 confiabilidad: (si,no);
+         monumentation (EXTENDED): COL_MonumentacionTipo;
+		 nombrePunto: TEXT*10;
+      UNIQUE 
+         pID->namespace, pID->localId;
+      END PuntoLimite;
+       
+   END LimitesPoliticoAdministrativos;
+   
+ 
+
+   TOPIC LimitesOperativosCatastro =
+      
+      CLASS SectorCatastral = 
+         codigo: MANDATORY TEXT*2;
+         nombre: MANDATORY TEXT*50;
+         geometria: GM_Surface2D;
+      END SectorCatastral;
+      
+      CLASS LocalidadComuna = 
+         codigo: MANDATORY TEXT*2;
+         nombre: MANDATORY TEXT*50;
+         geometria: GM_Surface2D;
+      END LocalidadComuna;
+	  
+	  CLASS Barrio = 
+         codigo: MANDATORY TEXT*2;
+         nombre: MANDATORY TEXT*50;
+         geometria: GM_Surface2D;
+      END Barrio;
+
+      CLASS Zona = 	
+         codigo: MANDATORY TEXT*2;
+         nombre: MANDATORY TEXT*50;
+		 tipoZona: (PerimetroUrbano, Rural, Corregimiento, Caserios, InspecionPolicia);
+         geometria: GM_Surface2D;
+      END Zona;
+
+      CLASS ManzanaVereda =
+         codigo: MANDATORY TEXT*4;
+         nombre: MANDATORY TEXT*50;
+         geometria: GM_Surface2D;
+      END ManzanaVereda;
+	  
+	  CLASS ZonaNivelTolerancia = 
+         codigo: MANDATORY TEXT*1;
+         geometria: GM_Surface2D;
+      END ZonaNivelTolerancia;
+	       
+   END LimitesOperativosCatastro; 
+
+
+
+   !! Catalogo de Objetos: Auxiliar 
+ 
+   TOPIC Auxiliares EXTENDS LADM_V1_ES.LADM_Core =   !! responsabilidad de otras instituciones para generar la informacion
+	  
+	  CLASS EstructuraLineal EXTENDS LA_BoundaryFaceString =  
+         tipo: COL_EstructuraLinealTipo;
+      END EstructuraLineal;
+
+      CLASS EstructuraPuntual EXTENDS LA_Point = 
+         tipo: COL_EstructuraPuntualTipo;
+      END EstructuraPuntual;
+
+   END Auxiliares;
+
+   
+
+   TOPIC Avaluos =				!! Topic que posteriormente debe ser un modelo aparte
+
+      DEPENDS ON Catastro_Registro;
+
+      CLASS Predio =			!! Atributos dependen de la metodologia propuesta en pilotos (terreno o predio)
+ 		 areaCalculadaPlanoLocal: MANDATORY 0.0 .. 99999999999999.9 [m2];
+		 aprovechamiento: MANDATORY COL_AprovechamientoTipo;
+         disponibilidadAgua: MANDATORY COL_DisponibilidadAguaTipo;
+ 		 distanciaFuentesAgua: Integer;
+		 obraAlInterior: MANDATORY COL_ObrasAlInteriorTipo;
+         capaVegetal: MANDATORY COL_CapaVegetalTipo;
+		 !! en el formulario predial asociados a construccion
+		 pendiente: MANDATORY COL_PendienteTipo;		
+		 tipoDesarrollo: COL_TipoDesarrolloTipo;
+		 forma: COL_FormaTipo;
+		 numBalcones: Integer;
+		 numTerrazas: Integer;
+		 numMezanines: Integer;
+         comunUsoExclusivo: MANDATORY COL_ComunExclusivoTipo;
+         cercaniaHitos: MANDATORY COL_CercaniaHitosTipo;
+		 ubicacionManzana: TEXT*20;
+		 frente: Real;
+		 fondo: Real;		 
+      END Predio;
+      
+      ASSOCIATION AvaluoPredio =
+         APredio -- {1} Predio;
+         Predio (EXTERNAL) -- {1} Catastro_COL_V1_2_ES.Catastro_Registro.Predio;
+      END AvaluoPredio;
+
+      CLASS Construccion =					
+         numeroPisos: MANDATORY 1 .. 100;		
+      END Construccion;
+      
+      ASSOCIATION AvaluoConstruccion =
+         ACons -- {1} Construccion;
+         Cons (EXTERNAL) -- {1} Catastro_COL_V1_2_ES.Catastro_Registro.Construccion;
+      END AvaluoConstruccion;
+   
+      CLASS UnidadConstruccion =
+	  	 numeroTotalPisos: MANDATORY 1 .. 100;
+		 disposicion:(
+		     vistaInterior,
+			 vistaExterior		  
+	     );
+         acceso: MANDATORY COL_AccesoTipo;
+		 niveldeAcceso: MANDATORY 1 .. 100;
+		 actividadEcono: MANDATORY COL_ActividadEconoTipo;
+		 destinoEcono: MANDATORY COL_DestinacionEconomicaTipo;
+		 estilo: MANDATORY COL_EstiloTipo;
+         anioconstruction: MANDATORY XMLDate;
+         constructionTipo: MANDATORY COL_ConstruccionTipo;
+         estadoConservacion: MANDATORY COL_EstadoConservacionTipo;
+         funcionalidad: MANDATORY COL_FuncionalidadTipo;
+		 ubicacionEnCopropiedad: COL_UbicacionEnCopropiedadTipo;
+		 material: MANDATORY COL_MaterialConstrTipo;
+         puntuacion: MANDATORY Integer;
+         tipologia: MANDATORY COL_TipologiaTipo;
+		 numHabitaciones: Integer;
+		 numBanos: Integer;
+		 numCocinas: Integer;
+		 numOficinas: Integer;
+		 numEstudios: Integer;
+		 numBodegas: Integer;
+		 numLocales: Integer;
+		 numSalas: Integer;
+		 numComedores: Integer;
+      END UnidadConstruccion;
+      
+      ASSOCIATION AvaluoUnidadConstruccion =
+         AUCons -- {1} UnidadConstruccion;
+         UCons (EXTERNAL) -- {1} Catastro_COL_V1_2_ES.Catastro_Registro.UnidadConstruccion;
+      END AvaluoUnidadConstruccion;
+    
+	
+	  !! Propiedad Horizontal
+	  
+	  CLASS PredioMatrizPH =
+		 numEtapas: Integer;
+		 numInteriores: Integer;
+		 numTorres: Integer;
+		 numPisosPorTorre: Integer;
+		 numUnidadesPrivadas:Integer;
+		 areaTerrenoTotal: COL_AreaValor;
+		 areaTerrenoComun: COL_AreaValor;
+		 areaTerrenoPrivada: COL_AreaValor;
+		 areaConstruidaTotal: COL_AreaValor;
+		 areaConstruidaPrivada: COL_AreaValor;
+		 areaConstruidaComun: COL_AreaValor;
+		 tipologiaConstructivaCopropiedad:TEXT*20;
+		 anioConstruccionEtapa: XMLDate;
+		 estadoConservacionCopropiedad: COL_EstadoConservacionTipo;
+		 materialesConstruccionAreasComunes: TEXT*100;
+		 disenioFuncionalidadCopropiedad: TEXT*100;
+	  END PredioMatrizPH;			
+	  
+	  ASSOCIATION AvaluoPredioMatrizPH =
+         AvPredMatrizPH -- {1} PredioMatrizPH;
+         predio -- {0..*} Predio;
+      END AvaluoPredioMatrizPH;
+	  
+	  
+	  CLASS EquipamientoComunal =	
+		 tipoEquipamientoComunal: COL_EquipamientoComunalTipo;
+		 area: COL_AreaValor;
+		 categoria: TEXT*100;
+	  END EquipamientoComunal;	
+	  
+	  ASSOCIATION AvaluoEquipamientoPredioMatrizPH =
+         AvPredMatrizPH -- {1} PredioMatrizPH;
+         AvEquipComunal -- {0..*} EquipamientoComunal;
+      END AvaluoEquipamientoPredioMatrizPH;
+
+	  
+	!! Catalogo de Objetos: Grupo Zonas Homogeneas	
+	
+      CLASS ZonaHomogeneaFisica =
+         identificador: MANDATORY TEXT*20;
+         geometria: MANDATORY GM_Surface2D;
+      END ZonaHomogeneaFisica;
+
+      CLASS ZonaHomogeneaGeoeconomica =
+         identificador: MANDATORY TEXT*20;
+         valor: MANDATORY Integer;
+         geometria: MANDATORY GM_Surface2D;
+      END ZonaHomogeneaGeoeconomica;
+   
+   END Avaluos;
+  
+
+
+   TOPIC Ficha =
+   
+        
+		DEPENDS ON Catastro_Registro;
+        DEPENDS ON Avaluos;
+		
+		CLASS Predio  =
+			servicioAcueducto: BOOLEAN;
+			servicioAlcantarillado: BOOLEAN;
+			servicioGas: BOOLEAN;
+			servicioElectrico: BOOLEAN;
+			servicioTelefono: BOOLEAN;
+			servicioInternet: BOOLEAN;
+			claseSueloPOT: (
+				urbano,
+				rural,
+				expansionUrbana
+			);
+			categoriaSueloPOT: (
+				suburbano,
+				proteccion
+			);
+			actividadEconomica: COL_UsoTipo;
+			derechoFMI: (
+				propiedad,
+				falsa_tradicion
+			);
+			inscritoRUPTA: BOOLEAN;
+			fechaMedidaRUPTA: XMLDate;
+			anotacionFMI_RUPTA: MANDATORY BOOLEAN;
+			inscritoProteccionColectiva: BOOLEAN;
+			fechaProteccionColectiva: XMLDate;
+			anotacionFMI_proteccionColectiva: MANDATORY BOOLEAN;
+			incritoProteccion_Ley1448: BOOLEAN;
+			fechaProteccion_Ley1448: XMLDate;
+			anotacionFMI_Ley1448: MANDATORY BOOLEAN;		
+			inscripcionURT: BOOLEAN;
+			fechaInscripcionURT:XMLDate;
+			anotacionFMI_URT: MANDATORY BOOLEAN;	
+			observaciones: TEXT*255;
+			nombreQuienAtendio: TEXT*40;
+			numeroDocumentoQuienAtendio: TEXT*10;
+			categoriaQuienAtendio: (
+				propietario, 
+				arrendatario, 
+				cuidandero, 
+				vigilante, 
+				visitante_ocasional,
+				otro
+			);
+			tipoDocumentoQuienAtendio: COL_InteresadoDocumentoTipo;
+			nombreEncuestador: TEXT*40;
+			numeroDocumentoEncuestador: TEXT*10;
+			tipoDocumentoEncuestador:COL_InteresadoDocumentoTipo;
+			
+		END Predio;
+		
+		ASSOCIATION FichaPredioPredio =
+			fichaPredio -- {1} Predio;
+			crPredio (EXTERNAL) -- {1} Catastro_COL_V1_2_ES.Catastro_Registro.Predio;
+		END FichaPredioPredio;
+		
+		CLASS NucleoFamiliar =
+			documentoIdentidad: TEXT*10;
+			tipoDocumento: COL_InteresadoDocumentoTipo;
+			organoEmisor: TEXT*20;
+			fechaEmision: XMLDate;
+			primerNombre: TEXT*20;
+			segundoNombre: TEXT*20;
+			primerApellido: TEXT*20;
+			segundoApellido: TEXT*20;
+			fechaNacimiento: XMLDate;
+			lugarNacimiento: TEXT*100;
+			nacionalidad: TEXT*20;
+			discapacidad: BOOLEAN;
+			genero: (
+				masculino,
+				femenino,
+				otro
+			);		habitaPredio: BOOLEAN;
+			parentesco: TEXT*20;
+			etnia: TEXT*20;
+			direccion: TEXT*100;
+			celular: TEXT*10;		
+		END NucleoFamiliar;
+				
+		ASSOCIATION NucleoPredio =
+			FichaPredio -- {1} Predio;
+			FichaNucleoFamiliar -- {1..*} NucleoFamiliar;
+		END NucleoPredio;
+
+		CLASS InvestigacionMercado =
+			disponibleMercado: BOOLEAN;
+			tipoOferta: (
+				venta,
+				alquiler
+			);
+			valor: Peso;
+			nombreOferente: TEXT*40;
+			telefonoContactoOferente: TEXT*10;
+			observaciones: TEXT*100;
+		END InvestigacionMercado;
+
+		ASSOCIATION InvestigacionMercadoPredio =
+			FichaPredio -- {1} Predio;
+			FichaInvestigacionMercado -- {0..*} InvestigacionMercado;
+		END InvestigacionMercadoPredio;		
+		
+		CLASS AvaluoUConstruccion = 
+			!!  Calificacion de los Construcciones Tradicional
+			tipoCalificar: (
+				residencial,
+				industrial
+			);
+			!!  Estructuras	
+			armazon:(
+				madera,
+				prefabricado,
+				ladrilloBloque,
+				concretoHastaTresPisos,
+				concretoCuatro
+			);
+			puntosArmazon: 1 .. 100;
+			muros: (
+				materialesDesecho,
+				adobe,
+				madera,
+				concretoPrefabricado,
+				bloqueLadrillo
+			);
+			puntosMuro: 1 .. 100;
+			cubierta: (
+				materialesDesecho,
+				zinc,
+				entrepisoCubiertaProvisional,
+				eternitCubiertaSencilla,
+				azotea,
+				placaImpermeabilizada
+			);
+			puntosCubierta: 1 .. 100;
+			conservacionCubierta:(
+				malo,
+				regular,
+				bueno,
+				excelente
+			);
+			puntosCubiertaConservacion: 1 .. 100;
+			subTotalEstructura: Integer;
+			!! Acabados Principales
+			fachada:(
+				pobre,
+				sencilla,
+				regular,
+				buena,
+				lujosa			
+			);
+			puntosFachada: 1 .. 100;
+			cubrimientoMuros: (
+				sinCubrimiento,
+				panete,
+				estuco,
+				madera,
+				marmol
+			);
+			puntosCubrimientoMuros: 1 .. 100;
+			piso:(
+				tierraPisada,
+				cemento,
+				baldosaComun,
+				listonMachembrado,
+				tableta,
+				parquet,
+				retalMarmol
+			);
+			puntosPiso: 1 .. 100;
+			conservacionAcabados:(
+				malo,
+				regular,
+				bueno,
+				excelente
+			);
+			puntosConservacionAcabados: 1 .. 100;
+			subTotalAcabados: Integer;
+			!!  Banio
+			tamanioBanio:(
+				sinBanio,
+				pequenio,
+				mediano,
+				grande
+			);
+			puntosTamanioBanio: 1 .. 100;
+			enchapeBanio:(
+				sinCubrimiento,
+				paniete,
+				baldosinUnicolor,
+				baldosinDecorado,
+				ceramica,
+				marmol
+			);
+			puntosEnchapeBanio: 1 .. 100;
+			mobiliarioBanio:(
+				pobre,
+				sencillo,
+				regular,
+				bueno,
+				lujoso
+			);
+			puntosMobiliarioBanio: 1 .. 100;
+			conservacionBanio:(
+				malo,
+				regular,
+				bueno,
+				excelente
+			);
+			puntosConservacionBanio: 1 .. 100;
+			subTotalBanio: Integer;
+			!!  Cocinas
+			tamanioCocina:(
+				sinCocina,
+				pequenia,
+				mediana,
+				grande
+			);
+			puntosTamanioCocina: 1 .. 100;
+			enchapeCocina:(
+				sinCubrimiento,
+				paniete,
+				baldosinUnicolor,
+				baldosinDecorado,
+				ceramica,
+				marmol
+			);
+			puntosEnchapeCocina: 1 .. 100;
+			mobiliarioCocina:(
+				pobre,
+				sencillo,
+				regular,
+				bueno,
+				lujoso
+			);
+			puntosMobiliarioCocina: 1 .. 100;
+			conservacionCocina:(
+				malo,
+				regular,
+				bueno,
+				excelente
+			);
+			puntosConservacionCocina: 1 .. 100;
+			subTotalCocina: Integer;
+			totalResidencialYComercial: Integer;
+			!! Complemento Industrial
+			cerchas:(
+				madera,
+				metalicaLiviana,
+				metalicaMediana,
+				metalicaPesada,
+				altura
+			);
+			puntosCerchas: 1 .. 100;
+			totalIndustrial: Integer;
+		END AvaluoUConstruccion;
+		
+		ASSOCIATION FichaAvaluoUconstruccion =
+			FichaPredio (EXTERNAL) -- {1} Catastro_COL_V1_2_ES.Avaluos.UnidadConstruccion;
+			FichaAvUConstruccion -- {1..*} AvaluoUConstruccion;
+		END FichaAvaluoUconstruccion;
+	
+   END Ficha;
+
+END Catastro_COL_V1_2_ES.
