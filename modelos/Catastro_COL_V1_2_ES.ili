@@ -1155,7 +1155,7 @@ MODEL Catastro_COL_V1_2_ES
          puntuacion: MANDATORY Integer;
          tipologia: MANDATORY COL_TipologiaTipo;
 		 numHabitaciones: Integer;
-		 numBanos: Integer;
+		 numBanios: Integer;
 		 numCocinas: Integer;
 		 numOficinas: Integer;
 		 numEstudios: Integer;
@@ -1383,7 +1383,7 @@ MODEL Catastro_COL_V1_2_ES
 			puntosFachada: 1 .. 100;
 			cubrimientoMuros: (
 				sinCubrimiento,
-				panete,
+				paniete,
 				estuco,
 				madera,
 				marmol
