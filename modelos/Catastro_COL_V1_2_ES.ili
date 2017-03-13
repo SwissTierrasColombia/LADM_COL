@@ -963,12 +963,12 @@ MODEL Catastro_COL_V1_2_ES
       END AlertaBAUnit;
 
       ASSOCIATION AlertaInteresado =
-         alerta -- {1..*} Alerta;
+         alerta -- {0..*} Alerta; 
          interesado (EXTERNAL) -- {0..*} Interesado;
       END AlertaInteresado;
       
       ASSOCIATION AlertaFuente =
-         alerta -- {1} Alerta;
+         alerta -- {0..1} Alerta; 
          fuente (EXTERNAL) -- {1..*} FuenteAdministrativa;
       END AlertaFuente;
       
