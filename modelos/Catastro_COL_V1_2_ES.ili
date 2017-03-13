@@ -684,7 +684,8 @@ MODEL Catastro_COL_V1_2_ES
          nombrePunto: MANDATORY TEXT*20;
          exactitudVertical: MANDATORY 0 .. 1000 [cm];
          exactitudHorizontal: MANDATORY 0 .. 1000 [cm];
-         monumentation (EXTENDED): MANDATORY COL_MonumentacionTipo;
+         interpolationRole (EXTENDED): COL_InterpolacionTipo;
+		 monumentation (EXTENDED): MANDATORY COL_MonumentacionTipo;
          tipoPuntoControl: COL_PuntoControlTipo;
 		 confiabilidad: BOOLEAN;
       UNIQUE 
@@ -836,7 +837,8 @@ MODEL Catastro_COL_V1_2_ES
          defPunto: MANDATORY COL_DefPuntoTipo;
          exactitudVertical: 0 .. 1000 [cm];
          exactitudHorizontal: 0 .. 1000 [cm];
-         monumentation (EXTENDED): MANDATORY COL_MonumentacionTipo;        
+         interpolationRole (EXTENDED): COL_InterpolacionTipo;
+		 monumentation (EXTENDED): MANDATORY COL_MonumentacionTipo;        
          nombrePunto: TEXT*10;
       UNIQUE 
          pID->namespace, pID->localId;
@@ -1028,7 +1030,8 @@ MODEL Catastro_COL_V1_2_ES
 		 exactitudVertical: 0 .. 1000 [cm];
          exactitudPosicional: MANDATORY 0 .. 1000 [cm];
 		 confiabilidad: BOOLEAN;
-         monumentation (EXTENDED): MANDATORY COL_MonumentacionTipo;
+         interpolationRole (EXTENDED): COL_InterpolacionTipo;
+		 monumentation (EXTENDED): MANDATORY COL_MonumentacionTipo;
 		 nombrePunto: TEXT*10;
       UNIQUE 
          pID->namespace, pID->localId;
