@@ -61,12 +61,6 @@ ALTER TABLE puntocontrol ADD CONSTRAINT puntocontrol_confiabilidad
     'NO'
   ));
 
-ALTER TABLE puntocontrol ADD CONSTRAINT puntocontrol_exactitudvertical
-  CHECK (exactitudvertical >= 0 AND exactitudvertical <= 1000);
-
-ALTER TABLE puntocontrol ADD CONSTRAINT puntocontrol_exactitudhorizontal
-  CHECK (exactitudhorizontal >= 0 AND exactitudhorizontal <= 1000);
-
 --Tabla predio
 
 ALTER TABLE col_prediotipo ADD CONSTRAINT col_prediotipo_ilicode_unique UNIQUE (ilicode);
@@ -131,39 +125,13 @@ ALTER TABLE puntolindero ADD CONSTRAINT puntolindero_monumentacion_tipo_fkey
       REFERENCES col_monumentaciontipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
-ALTER TABLE puntolindero ADD CONSTRAINT puntolindero_exactitudvertical
-  CHECK (exactitudvertical >= 0 AND exactitudvertical <= 1000);
-
-ALTER TABLE puntolindero ADD CONSTRAINT puntolindero_exactitudhorizontal
-  CHECK (exactitudhorizontal >= 0 AND exactitudhorizontal <= 1000);
-
---Tabla lindero
-
-ALTER TABLE lindero ADD CONSTRAINT lindero_longitud
-  CHECK (longitud >= 0 AND longitud <= 1000);
-
---Tabla terreno
-
-ALTER TABLE terreno ADD CONSTRAINT terreno_arearegistral
-  CHECK (arearegistral >= 0.0 AND arearegistral <= 99999999999999.9 );
-
-ALTER TABLE terreno ADD CONSTRAINT terreno_areacalculada
-  CHECK (areacalculada >= 0.0 AND areacalculada <= 99999999999999.9 );
-
 --Tabla unidadconstruccion
-
 
 ALTER TABLE col_tipoconstrucciontipo ADD CONSTRAINT col_tipoconstrucciontipo_ilicode_unique UNIQUE (ilicode);
 ALTER TABLE unidadconstruccion ADD CONSTRAINT unidadconstruccion_tipoconstruccion_tipo_fkey
     FOREIGN KEY (tipoconstruccion)
       REFERENCES col_tipoconstrucciontipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
-
-ALTER TABLE unidadconstruccion ADD CONSTRAINT unidadconstruccion_areaestimadoconstruccion
-  CHECK (areaestimadoconstruccion >= 0.0 AND areaestimadoconstruccion <= 99999999999999.9 );
-
-ALTER TABLE unidadconstruccion ADD CONSTRAINT unidadconstruccion_numeropisos
-  CHECK (numeropisos >= 0 AND numeropisos <= 100);
 
 --Tabla puntolevantamiento
 
@@ -185,12 +153,6 @@ ALTER TABLE puntolevantamiento ADD CONSTRAINT puntolevantamiento_monumentacion_t
     FOREIGN KEY (monumentation)
       REFERENCES col_monumentaciontipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
-
-ALTER TABLE puntolevantamiento ADD CONSTRAINT puntolevantamiento_exactitudvertical
-  CHECK (exactitudvertical >= 0 AND exactitudvertical <= 1000);
-
-ALTER TABLE puntolevantamiento ADD CONSTRAINT puntolevantamiento_exactitudhorizontal
-  CHECK (exactitudhorizontal >= 0 AND exactitudhorizontal <= 1000);
 
 --Tabla fuente
 
@@ -288,12 +250,6 @@ ALTER TABLE puntolimite ADD CONSTRAINT puntolimite_monumentacion_tipo_fkey
       REFERENCES col_monumentaciontipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
-ALTER TABLE puntolimite ADD CONSTRAINT puntolimite_exactitudvertical
-  CHECK (exactitudvertical >= 0 AND exactitudvertical <= 1000);
-
-ALTER TABLE puntolimite ADD CONSTRAINT puntolimite_exactitudposicional
-  CHECK (exactitudposicional >= 0 AND exactitudposicional <= 1000);
-
 --Tabla zona
 
 ALTER TABLE zona ADD CONSTRAINT zona_tipozona
@@ -377,19 +333,7 @@ ALTER TABLE catstr_v1_2_esavaluos_predio ADD CONSTRAINT catstr_v1_2_esavaluos_pr
       REFERENCES col_cercaniahitostipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
-ALTER TABLE catstr_v1_2_esavaluos_predio ADD CONSTRAINT catstr_v1_2_esavaluos_predio_areacalculadaplanolocal
-  CHECK (areacalculadaplanolocal >= 0.0 AND areacalculadaplanolocal <= 99999999999999.9 );
-
---Tabla catstr_v1_2_esavaluos_construccion
-
-ALTER TABLE catstr_v1_2_esavaluos_construccion ADD CONSTRAINT catstr_v1_2_esavaluos_construccion_numeropisos
-  CHECK (numeropisos >= 0 AND numeropisos <= 100);
-
 --Tabla catstr_v1_2_esavaluos_unidadconstruccion
-
-ALTER TABLE catstr_v1_2_esavaluos_unidadconstruccion ADD CONSTRAINT catstr_v1_2_esavaluos_unidadconstruccion_numerototalpisos
-  CHECK (numerototalpisos >= 0 AND numerototalpisos <= 100);
-
 
 ALTER TABLE catstr_v1_2_esavaluos_unidadconstruccion ADD CONSTRAINT catstr_v1_2_esavaluos_unidadconstruccion_disposicion
   CHECK (disposicion IN (
@@ -456,9 +400,6 @@ ALTER TABLE catstr_v1_2_esavaluos_unidadconstruccion ADD CONSTRAINT catstr_v1_2_
     FOREIGN KEY (tipologia)
       REFERENCES col_tipologiatipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
-
-ALTER TABLE catstr_v1_2_esavaluos_unidadconstruccion ADD CONSTRAINT catstr_v1_2_esavaluos_unidadconstruccion_niveldeacceso
-  CHECK (niveldeacceso >= 0 AND niveldeacceso <= 100);
 
 --Tabla prediomatrizph
 
@@ -707,57 +648,6 @@ ALTER TABLE avaluouconstruccion ADD CONSTRAINT avaluouconstruccion_cerchas
 	'metalicaPesada',
 	'altura'
   ));
-
-ALTER TABLE avaluouconstruccion ADD CONSTRAINT avaluouconstruccion_puntosarmazon
-  CHECK (puntosarmazon >= 0 AND puntosarmazon <= 100);
-
-ALTER TABLE avaluouconstruccion ADD CONSTRAINT avaluouconstruccion_puntosmuro
-  CHECK (puntosmuro >= 0 AND puntosmuro <= 100);
-
-ALTER TABLE avaluouconstruccion ADD CONSTRAINT avaluouconstruccion_puntoscubierta
-  CHECK (puntoscubierta >= 0 AND puntoscubierta <= 100);
-
-ALTER TABLE avaluouconstruccion ADD CONSTRAINT avaluouconstruccionn_puntoscubiertaconservacion
-  CHECK (puntoscubiertaconservacion >= 0 AND puntoscubiertaconservacion <= 100);
-
-ALTER TABLE avaluouconstruccion ADD CONSTRAINT avaluouconstruccion_puntosfachada
-  CHECK (puntosfachada >= 0 AND puntosfachada <= 100);
-
-ALTER TABLE avaluouconstruccion ADD CONSTRAINT avaluouconstruccion_puntoscubrimientomuros
-  CHECK (puntoscubrimientomuros >= 0 AND puntoscubrimientomuros <= 100);
-
-ALTER TABLE avaluouconstruccion ADD CONSTRAINT avaluouconstruccion_puntospiso
-  CHECK (puntospiso >= 0 AND puntospiso <= 100);
-
-ALTER TABLE avaluouconstruccion ADD CONSTRAINT avaluouconstruccion_puntosconservacionacabados
-  CHECK (puntosconservacionacabados >= 0 AND puntosconservacionacabados <= 100);
-
-ALTER TABLE avaluouconstruccion ADD CONSTRAINT avaluouconstruccion_puntostamaniobanio
-  CHECK (puntostamaniobanio >= 0 AND puntostamaniobanio <= 100);
-
-ALTER TABLE avaluouconstruccion ADD CONSTRAINT avaluouconstruccion_puntosenchapebanio
-  CHECK (puntosenchapebanio >= 0 AND puntosenchapebanio <= 100);
-
-ALTER TABLE avaluouconstruccion ADD CONSTRAINT avaluouconstruccion_puntosmobiliariobanio
-  CHECK (puntosmobiliariobanio >= 0 AND puntosmobiliariobanio <= 100);
-
-ALTER TABLE avaluouconstruccion ADD CONSTRAINT avaluouconstruccion_puntosconservacionbanio
-  CHECK (puntosconservacionbanio >= 0 AND puntosconservacionbanio <= 100);
-
-ALTER TABLE avaluouconstruccion ADD CONSTRAINT avaluouconstruccion_puntostamaniococina
-  CHECK (puntostamaniococina >= 0 AND puntostamaniococina <= 100);
-
-ALTER TABLE avaluouconstruccion ADD CONSTRAINT avaluouconstruccion_puntosenchapecocina
-  CHECK (puntosenchapecocina >= 0 AND puntosenchapecocina <= 100);
-
-ALTER TABLE avaluouconstruccion ADD CONSTRAINT avaluouconstruccion_puntosmobiliariococina
-  CHECK (puntosmobiliariococina >= 0 AND puntosmobiliariococina <= 100);
-
-ALTER TABLE avaluouconstruccion ADD CONSTRAINT avaluouconstruccion_puntosconservacioncocina
-  CHECK (puntosconservacioncocina >= 0 AND puntosconservacioncocina <= 100);
-
-ALTER TABLE avaluouconstruccion ADD CONSTRAINT avaluouconstruccion_puntoscerchas
-  CHECK (puntoscerchas >= 0 AND puntoscerchas <= 100);
 
 SET search_path = public, pg_catalog;
 
