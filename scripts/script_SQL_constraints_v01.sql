@@ -17,24 +17,24 @@ ALTER TABLE interesadonatural ADD CONSTRAINT interesadonatural_origendatos_fkey
       REFERENCES col_instituciontipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
-ALTER TABLE interesadonatural ADD CONSTRAINT interesadonatural_genero
-  CHECK (genero IN (
-    'femenino',
-    'masculino',
-    'otro'
-  ));
+ALTER TABLE col_genero ADD CONSTRAINT col_genero_inter_ilicode_unique UNIQUE (ilicode);
+ALTER TABLE interesadonatural ADD CONSTRAINT interesadonatural_genero_fkey
+    FOREIGN KEY (genero)
+      REFERENCES col_genero (ilicode) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
+ALTER TABLE col_instituciontipo ADD CONSTRAINT col_instituciontipo_ij_ilicode_unique UNIQUE (ilicode);
 ALTER TABLE interesadojuridico ADD CONSTRAINT interesadojuridico_origendatos_fkey
     FOREIGN KEY (origendatos)
       REFERENCES col_instituciontipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
-ALTER TABLE interesadojuridico ADD CONSTRAINT interesadonatural_tipo
-  CHECK (tipo IN (
-    'publico',
-    'privado'
-  ));
-
+ALTER TABLE col_interesadojuridicotipo ADD CONSTRAINT col_interesadojuridicotipo_ilicode_unique UNIQUE (ilicode)
+ALTER TABLE interesadojuridico ADD CONSTRAINT interesadojuridico_interesadojuridicotipo_fkey
+    FOREIGN KEY (tipo)
+      REFERENCES col_interesadojuridicotipo (ilicode) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
+	  
 ALTER TABLE col_grupointeresadotipo ADD CONSTRAINT col_grupointeresadotipo_ilicode_unique UNIQUE (ilicode);
 ALTER TABLE grupointeresado ADD CONSTRAINT grupointeresado_ptype_fkey
     FOREIGN KEY (ptype)
@@ -55,11 +55,6 @@ ALTER TABLE puntocontrol ADD CONSTRAINT puntocontrol_tipo_fkey
       REFERENCES col_puntocontroltipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
-ALTER TABLE puntocontrol ADD CONSTRAINT puntocontrol_confiabilidad
-  CHECK (confiabilidad IN (
-    'SI',
-    'NO'
-  ));
 
 --Tabla predio
 
@@ -81,11 +76,12 @@ ALTER TABLE predio ADD CONSTRAINT predio_estratotipo_fkey
       REFERENCES col_estratotipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
-ALTER TABLE predio ADD CONSTRAINT predio_informalidad
-  CHECK (informalidad IN (
-    'formal',
-    'informal'
-  ));
+ALTER TABLE col_formalidadtipo ADD CONSTRAINT col_formalidadtipo_ilicode_unique UNIQUE (ilicode);
+ALTER TABLE predio ADD CONSTRAINT predio_formalidadtipo_fkey
+    FOREIGN KEY (informalidad)
+      REFERENCES col_formalidadtipo (ilicode) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
+
 
 --Tabla puntolindero
 
@@ -106,12 +102,6 @@ ALTER TABLE puntolindero ADD CONSTRAINT puntolindero_descripcionpuntotipo_fkey
     FOREIGN KEY (descripcionpunto)
       REFERENCES col_descripcionpuntotipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
-
-ALTER TABLE puntolindero ADD CONSTRAINT puntolindero_confiabilidad
-  CHECK (confiabilidad IN (
-    'SI',
-    'NO'
-  ));
 
 ALTER TABLE col_interpolaciontipo ADD CONSTRAINT col_interpolaciontipo_ilicode_unique UNIQUE (ilicode);
 ALTER TABLE puntolindero ADD CONSTRAINT puntolindero_interpolaciontipo_fkey
@@ -135,13 +125,13 @@ ALTER TABLE unidadconstruccion ADD CONSTRAINT unidadconstruccion_tipoconstruccio
 
 --Tabla puntolevantamiento
 
-ALTER TABLE puntolevantamiento ADD CONSTRAINT puntolevantamiento_tipo
-  CHECK (tipopuntolev IN (
-    'auxiliar',
-    'construccion',
-	'servidumbre'
-  ));
 
+ALTER TABLE col_puntolevtipo ADD CONSTRAINT col_puntolevtipo_ilicode_unique UNIQUE (ilicode);
+ALTER TABLE puntolevantamiento ADD CONSTRAINT puntolevantamiento_puntolev_tipo_fkey
+    FOREIGN KEY (tipopuntolev)
+      REFERENCES col_puntolevtipo (ilicode) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;  
+  
 ALTER TABLE col_defpuntotipo ADD CONSTRAINT col_defpuntotipolev_ilicode_unique UNIQUE (ilicode);
 ALTER TABLE puntolevantamiento ADD CONSTRAINT puntolevantamiento_defpunto_tipo_fkey
     FOREIGN KEY (defpunto)
@@ -238,12 +228,6 @@ ALTER TABLE puntolimite ADD CONSTRAINT puntolimite_defpuntotipo_tipo_fkey
       REFERENCES col_defpuntotipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
-ALTER TABLE puntolimite ADD CONSTRAINT puntolimite_confiabilidad
-  CHECK (confiabilidad IN (
-    'SI',
-    'NO'
-  ));
-
 ALTER TABLE col_monumentaciontipo ADD CONSTRAINT col_monumentaciontipo_plim_ilicode_unique UNIQUE (ilicode);
 ALTER TABLE puntolimite ADD CONSTRAINT puntolimite_monumentacion_tipo_fkey
     FOREIGN KEY (monumentation)
@@ -252,14 +236,12 @@ ALTER TABLE puntolimite ADD CONSTRAINT puntolimite_monumentacion_tipo_fkey
 
 --Tabla zona
 
-ALTER TABLE zona ADD CONSTRAINT zona_tipozona
-  CHECK (tipozona IN (
-    'PerimetroUrbano',
-    'Rural',
-	'Corregimiento',
-	'Caserios',
-	'InspecionPolicia'
-  ));
+ALTER TABLE col_tipozona ADD CONSTRAINT col_tipozona_ilicode_unique UNIQUE (ilicode);
+ALTER TABLE zona ADD CONSTRAINT zona_tipozona_fkey
+    FOREIGN KEY (tipozona)
+      REFERENCES col_tipozona (ilicode) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
+
 
 --Tabla estructuralineal
 

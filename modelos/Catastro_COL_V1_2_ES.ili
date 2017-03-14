@@ -352,6 +352,17 @@ MODEL Catastro_COL_V1_2_ES
 		 otro
 	  );
 	  
+	  COL_InteresadoJuridicoTipo = (
+		 publico,
+		 privado
+	  );
+	  
+	  COL_PuntoLevTipo = (
+		 auxiliar,
+		 construccion,
+		 servidumbre
+	  );
+	  
 	  COL_TipoZona = (
 		 PerimetroUrbano, 
 		 Rural, 
@@ -833,7 +844,7 @@ MODEL Catastro_COL_V1_2_ES
 	!! Punto de Levantamiento  -  Catalogo de Objetos: Grupo Catastro	
 	
       CLASS PuntoLevantamiento EXTENDS LA_Point =
-         tipoPuntoLev: (auxiliar,construccion,servidumbre);
+         tipoPuntoLev: COL_PuntoLevTipo;
          defPunto: MANDATORY COL_DefPuntoTipo;
          exactitudVertical: 0 .. 1000 [cm];
          exactitudHorizontal: 0 .. 1000 [cm];
@@ -884,7 +895,7 @@ MODEL Catastro_COL_V1_2_ES
       CLASS InteresadoJuridico EXTENDS Interesado =
          numeroNIT: MANDATORY TEXT*20;
          razonSocial: TEXT*100;
-         tipo: (publico, privado);
+         tipo: COL_InteresadoJuridicoTipo;
 		 fechaConstitucion: XMLDate;
 		 lugarInscripcion: TEXT*100;			
 		 nacionalidad: TEXT*20;			
