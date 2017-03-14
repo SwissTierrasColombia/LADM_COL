@@ -29,7 +29,7 @@ ALTER TABLE interesadojuridico ADD CONSTRAINT interesadojuridico_origendatos_fke
       REFERENCES col_instituciontipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
-ALTER TABLE col_interesadojuridicotipo ADD CONSTRAINT col_interesadojuridicotipo_ilicode_unique UNIQUE (ilicode)
+ALTER TABLE col_interesadojuridicotipo ADD CONSTRAINT col_interesadojuridicotipo_ilicode_unique UNIQUE (ilicode);
 ALTER TABLE interesadojuridico ADD CONSTRAINT interesadojuridico_interesadojuridicotipo_fkey
     FOREIGN KEY (tipo)
       REFERENCES col_interesadojuridicotipo (ilicode) MATCH SIMPLE
