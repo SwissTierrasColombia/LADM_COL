@@ -138,6 +138,12 @@ ALTER TABLE puntolevantamiento ADD CONSTRAINT puntolevantamiento_defpunto_tipo_f
       REFERENCES col_defpuntotipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
+ALTER TABLE col_interpolaciontipo ADD CONSTRAINT col_interpolaciontipolev_ilicode_unique UNIQUE (ilicode);
+ALTER TABLE puntolevantamiento ADD CONSTRAINT puntolevantamiento_interpolacion_tipo_fkey
+    FOREIGN KEY (interpolationrole)
+      REFERENCES col_interpolaciontipo (ilicode) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;	  
+	  
 ALTER TABLE col_monumentaciontipo ADD CONSTRAINT col_monumentaciontipo_plev_ilicode_unique UNIQUE (ilicode);
 ALTER TABLE puntolevantamiento ADD CONSTRAINT puntolevantamiento_monumentacion_tipo_fkey
     FOREIGN KEY (monumentation)
@@ -178,7 +184,7 @@ ALTER TABLE fuenteespacial ADD CONSTRAINT fuenteespacial_type_fkey
 
 ALTER TABLE col_derechotipo ADD CONSTRAINT col_derechotipo_ilicode_unique UNIQUE (ilicode);
 ALTER TABLE derecho ADD CONSTRAINT derecho_tipo_fkey
-    FOREIGN KEY (tipo)
+    FOREIGN KEY (atype)
       REFERENCES col_derechotipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
@@ -228,6 +234,12 @@ ALTER TABLE puntolimite ADD CONSTRAINT puntolimite_defpuntotipo_tipo_fkey
       REFERENCES col_defpuntotipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
+ALTER TABLE col_interpolaciontipo ADD CONSTRAINT col_interpolaciontipopl_ilicode_unique UNIQUE (ilicode);
+ALTER TABLE puntolimite ADD CONSTRAINT puntolimite_interpolaciontipo_fkey
+    FOREIGN KEY (interpolationrole)
+      REFERENCES col_interpolaciontipo (ilicode) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;	  
+	  
 ALTER TABLE col_monumentaciontipo ADD CONSTRAINT col_monumentaciontipo_plim_ilicode_unique UNIQUE (ilicode);
 ALTER TABLE puntolimite ADD CONSTRAINT puntolimite_monumentacion_tipo_fkey
     FOREIGN KEY (monumentation)
@@ -259,126 +271,126 @@ ALTER TABLE estructurapuntual ADD CONSTRAINT estructurapuntual_tipo_fkey
       REFERENCES col_estructurapuntualtipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
---Tabla catstr_v1_2_esavaluos_predio
+--Tabla catstr_0170331avaluos_predio
 
 ALTER TABLE col_aprovechamientotipo ADD CONSTRAINT col_aprovechamientotipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_predio ADD CONSTRAINT catstr_v1_2_esavaluos_predio_aprovechamiento_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_predio ADD CONSTRAINT catstr_0170331avaluos_predio_aprovechamiento_tipo_fkey
     FOREIGN KEY (aprovechamiento)
       REFERENCES col_aprovechamientotipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE col_disponibilidadaguatipo ADD CONSTRAINT col_disponibilidadaguatipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_predio ADD CONSTRAINT catstr_v1_2_esavaluos_predio_disponibilidadagua_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_predio ADD CONSTRAINT catstr_0170331avaluos_predio_disponibilidadagua_tipo_fkey
     FOREIGN KEY (disponibilidadagua)
       REFERENCES col_disponibilidadaguatipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE col_obrasalinteriortipo ADD CONSTRAINT col_obrasalinteriortipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_predio ADD CONSTRAINT catstr_v1_2_esavaluos_predio_obrasalinterior_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_predio ADD CONSTRAINT catstr_0170331avaluos_predio_obrasalinterior_tipo_fkey
     FOREIGN KEY (obraalinterior)
       REFERENCES col_obrasalinteriortipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE col_capavegetaltipo ADD CONSTRAINT col_capavegetaltipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_predio ADD CONSTRAINT catstr_v1_2_esavaluos_predio_capavegetal_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_predio ADD CONSTRAINT catstr_0170331avaluos_predio_capavegetal_tipo_fkey
     FOREIGN KEY (capavegetal)
       REFERENCES col_capavegetaltipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE col_pendientetipo ADD CONSTRAINT col_pendientetipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_predio ADD CONSTRAINT catstr_v1_2_esavaluos_predio_pendiente_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_predio ADD CONSTRAINT catstr_0170331avaluos_predio_pendiente_tipo_fkey
     FOREIGN KEY (pendiente)
       REFERENCES col_pendientetipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE col_tipodesarrollotipo ADD CONSTRAINT col_tipodesarrollotipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_predio ADD CONSTRAINT catstr_v1_2_esavaluos_predio_tipodesarrollo_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_predio ADD CONSTRAINT catstr_0170331avaluos_predio_tipodesarrollo_tipo_fkey
     FOREIGN KEY (tipodesarrollo)
       REFERENCES col_tipodesarrollotipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE col_formatipo ADD CONSTRAINT col_formatipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_predio ADD CONSTRAINT catstr_v1_2_esavaluos_predio_forma_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_predio ADD CONSTRAINT catstr_0170331avaluos_predio_forma_tipo_fkey
     FOREIGN KEY (forma)
       REFERENCES col_formatipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE col_comunexclusivotipo ADD CONSTRAINT col_comunexclusivotipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_predio ADD CONSTRAINT catstr_v1_2_esavaluos_predio_comunexclusivo_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_predio ADD CONSTRAINT catstr_0170331avaluos_predio_comunexclusivo_tipo_fkey
     FOREIGN KEY (comunusoexclusivo)
       REFERENCES col_comunexclusivotipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE col_cercaniahitostipo ADD CONSTRAINT col_cercaniahitostipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_predio ADD CONSTRAINT catstr_v1_2_esavaluos_predio_cercaniahitos_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_predio ADD CONSTRAINT catstr_0170331avaluos_predio_cercaniahitos_tipo_fkey
     FOREIGN KEY (cercaniahitos)
       REFERENCES col_cercaniahitostipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
---Tabla catstr_v1_2_esavaluos_unidadconstruccion
+--Tabla catstr_0170331avaluos_unidadconstruccion
 
-ALTER TABLE catstr_v1_2_esavaluos_unidadconstruccion ADD CONSTRAINT catstr_v1_2_esavaluos_unidadconstruccion_disposicion
+ALTER TABLE catstr_0170331avaluos_unidadconstruccion ADD CONSTRAINT catstr_0170331avaluos_unidadconstruccion_disposicion
   CHECK (disposicion IN (
     'vistaInterior',
     'vistaExterior'
   ));
 
 ALTER TABLE col_accesotipo ADD CONSTRAINT col_accesotipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_unidadconstruccion ADD CONSTRAINT catstr_v1_2_esavaluos_unidadconstruccion_acceso_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_unidadconstruccion ADD CONSTRAINT catstr_0170331avaluos_unidadconstruccion_acceso_tipo_fkey
     FOREIGN KEY (acceso)
       REFERENCES col_accesotipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE col_actividadeconotipo ADD CONSTRAINT col_actividadeconotipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_unidadconstruccion ADD CONSTRAINT catstr_v1_2_esavaluos_unidadconstruccion_actividadecono_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_unidadconstruccion ADD CONSTRAINT catstr_0170331avaluos_unidadconstruccion_actividadecono_tipo_fkey
     FOREIGN KEY (actividadecono)
       REFERENCES col_actividadeconotipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE col_destinacioneconomicatipo ADD CONSTRAINT col_destinacioneconomicatipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_unidadconstruccion ADD CONSTRAINT catstr_v1_2_esavaluos_unidadconstruccion_destinoecono_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_unidadconstruccion ADD CONSTRAINT catstr_0170331avaluos_unidadconstruccion_destinoecono_tipo_fkey
     FOREIGN KEY (destinoecono)
       REFERENCES col_destinacioneconomicatipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE col_estilotipo ADD CONSTRAINT col_estilotipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_unidadconstruccion ADD CONSTRAINT catstr_v1_2_esavaluos_unidadconstruccion_estilo_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_unidadconstruccion ADD CONSTRAINT catstr_0170331avaluos_unidadconstruccion_estilo_tipo_fkey
     FOREIGN KEY (estilo)
       REFERENCES col_estilotipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE col_construcciontipo ADD CONSTRAINT col_construcciontipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_unidadconstruccion ADD CONSTRAINT catstr_v1_2_esavaluos_unidadconstruccion_construction_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_unidadconstruccion ADD CONSTRAINT catstr_0170331avaluos_unidadconstruccion_construction_tipo_fkey
     FOREIGN KEY (constructiontipo)
       REFERENCES col_construcciontipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE col_estadoconservaciontipo ADD CONSTRAINT col_estadoconservaciontipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_unidadconstruccion ADD CONSTRAINT catstr_v1_2_esavaluos_unidadconstruccion_estadoconservacion_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_unidadconstruccion ADD CONSTRAINT catstr_0170331avaluos_unidadconstruccion_estadoconservacion_tipo_fkey
     FOREIGN KEY (estadoconservacion)
       REFERENCES col_estadoconservaciontipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE col_funcionalidadtipo ADD CONSTRAINT col_funcionalidadtipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_unidadconstruccion ADD CONSTRAINT catstr_v1_2_esavaluos_unidadconstruccion_funcionalidad_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_unidadconstruccion ADD CONSTRAINT catstr_0170331avaluos_unidadconstruccion_funcionalidad_tipo_fkey
     FOREIGN KEY (funcionalidad)
       REFERENCES col_funcionalidadtipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE col_ubicacionencopropiedadtipo ADD CONSTRAINT col_ubicacionencopropiedadtipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_unidadconstruccion ADD CONSTRAINT catstr_v1_2_esavaluos_unidadconstruccion_ubicacionencopropiedad_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_unidadconstruccion ADD CONSTRAINT catstr_0170331avaluos_unidadconstruccion_ubicacionencopropiedad_tipo_fkey
     FOREIGN KEY (ubicacionencopropiedad)
       REFERENCES col_ubicacionencopropiedadtipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE col_materialconstrtipo ADD CONSTRAINT col_materialconstrdtipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_unidadconstruccion ADD CONSTRAINT catstr_v1_2_esavaluos_unidadconstruccion_materialconstr_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_unidadconstruccion ADD CONSTRAINT catstr_0170331avaluos_unidadconstruccion_materialconstr_tipo_fkey
     FOREIGN KEY (material)
       REFERENCES col_materialconstrtipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE col_tipologiatipo ADD CONSTRAINT col_tipologiatipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esavaluos_unidadconstruccion ADD CONSTRAINT catstr_v1_2_esavaluos_unidadconstruccion_tipologia_tipo_fkey
+ALTER TABLE catstr_0170331avaluos_unidadconstruccion ADD CONSTRAINT catstr_0170331avaluos_unidadconstruccion_tipologia_tipo_fkey
     FOREIGN KEY (tipologia)
       REFERENCES col_tipologiatipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
@@ -399,34 +411,34 @@ ALTER TABLE equipamientocomunal ADD CONSTRAINT equipamientocomunal_equipamientoc
       REFERENCES col_equipamientocomunaltipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
---Tabla catstr_v1_2_esficha_predio
+--Tabla catstr_0170331ficha_predio
 
-ALTER TABLE catstr_v1_2_esficha_predio ADD CONSTRAINT catstr_v1_2_esficha_predio_clasesuelopot
+ALTER TABLE catstr_0170331ficha_predio ADD CONSTRAINT catstr_0170331ficha_predio_clasesuelopot
   CHECK (clasesuelopot IN (
     'urbano',
     'rural',
 	'expansionUrbana'
   ));
 
-ALTER TABLE catstr_v1_2_esficha_predio ADD CONSTRAINT catstr_v1_2_esficha_predio_categoriasuelopot
+ALTER TABLE catstr_0170331ficha_predio ADD CONSTRAINT catstr_0170331ficha_predio_categoriasuelopot
   CHECK (categoriasuelopot IN (
     'suburbano',
     'proteccion'
   ));
 
 ALTER TABLE col_usotipo ADD CONSTRAINT col_usotipo_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esficha_predio ADD CONSTRAINT catstr_v1_2_esficha_predio_actividadeconomica_tipo_fkey
+ALTER TABLE catstr_0170331ficha_predio ADD CONSTRAINT catstr_0170331ficha_predio_actividadeconomica_tipo_fkey
     FOREIGN KEY (actividadeconomica)
       REFERENCES col_usotipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
-ALTER TABLE catstr_v1_2_esficha_predio ADD CONSTRAINT catstr_v1_2_esficha_predio_derechofmi
+ALTER TABLE catstr_0170331ficha_predio ADD CONSTRAINT catstr_0170331ficha_predio_derechofmi
   CHECK (derechofmi IN (
     'propiedad',
     'falsa_tradicion'
   ));
 
-ALTER TABLE catstr_v1_2_esficha_predio ADD CONSTRAINT catstr_v1_2_esficha_predio_categoriaquienatendio
+ALTER TABLE catstr_0170331ficha_predio ADD CONSTRAINT catstr_0170331ficha_predio_categoriaquienatendio
   CHECK (categoriaquienatendio IN (
     'propietario',
     'arrendatario',
@@ -437,13 +449,13 @@ ALTER TABLE catstr_v1_2_esficha_predio ADD CONSTRAINT catstr_v1_2_esficha_predio
   ));
 
 ALTER TABLE col_interesadodocumentotipo ADD CONSTRAINT col_interesadodocumentotipoqa_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esficha_predio ADD CONSTRAINT catstr_v1_2_esficha_predio_tipodocumentoquienatendio_tipo_fkey
+ALTER TABLE catstr_0170331ficha_predio ADD CONSTRAINT catstr_0170331ficha_predio_tipodocumentoquienatendio_tipo_fkey
     FOREIGN KEY (tipodocumentoquienatendio)
       REFERENCES col_interesadodocumentotipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
 
 ALTER TABLE col_interesadodocumentotipo ADD CONSTRAINT col_interesadodocumentotipoen_ilicode_unique UNIQUE (ilicode);
-ALTER TABLE catstr_v1_2_esficha_predio ADD CONSTRAINT catstr_v1_2_esficha_predio_tipodocumentoencuestador_tipo_fkey
+ALTER TABLE catstr_0170331ficha_predio ADD CONSTRAINT catstr_0170331ficha_predio_tipodocumentoencuestador_tipo_fkey
     FOREIGN KEY (tipodocumentoencuestador)
       REFERENCES col_interesadodocumentotipo (ilicode) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY DEFERRED;
