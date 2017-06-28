@@ -429,18 +429,18 @@ VERSION "2016-10-11"  =
       type : MANDATORY LA_RightType;
     END LA_Right;
 
-    CLASS LA_Restriction (ABSTRACT)
+    CLASS LA_Restriction
     EXTENDS LA_RRR =
       partyRequired : BOOLEAN;
       type : MANDATORY LA_RestrictionType;
     END LA_Restriction;
 
-    CLASS LA_Responsibility (ABSTRACT)
+    CLASS LA_Responsibility
     EXTENDS LA_RRR =
       type : MANDATORY LA_ResponsibilityType;
     END LA_Responsibility;
 
-    CLASS LA_Mortgage (ABSTRACT)
+    CLASS LA_Mortgage
     EXTENDS LA_Restriction =
       amount : Currency;
       interestRate : Real;
