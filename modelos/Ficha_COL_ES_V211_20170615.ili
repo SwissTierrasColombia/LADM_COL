@@ -3,10 +3,10 @@ INTERLIS 2.3;
 MODEL Ficha_COL_ES_V212 (es)
 AT "mailto:vmbp@localhost"
 VERSION "2017-06-02 V2.1.1"  =
-  IMPORTS Catastro_COL_ES_V212,Avaluos_COL_ES_V212;
+  IMPORTS Catastro_COL_ES_V213,Avaluos_COL_ES_V212;
 
   TOPIC Ficha =
-    DEPENDS ON Catastro_COL_ES_V212.Catastro_Registro,Avaluos_COL_ES_V212.Avaluos;
+    DEPENDS ON Catastro_COL_ES_V213.Catastro_Registro,Avaluos_COL_ES_V212.Avaluos;
 
     CLASS Predio =
       Servicio_Acueducto : BOOLEAN;
@@ -24,7 +24,7 @@ VERSION "2017-06-02 V2.1.1"  =
         Suburbano,
         Proteccion
       );
-      Actividad_Economica : Catastro_COL_ES_V212.COL_UsoTipo;
+      Actividad_Economica : Catastro_COL_ES_V213.COL_UsoTipo;
       Derecho_FMI : (
         Propiedad,
         Falsa_Tradicion
@@ -52,20 +52,20 @@ VERSION "2017-06-02 V2.1.1"  =
         Visitante_Ocasional,
         Otro
       );
-      Tipo_Documento_Quien_Atendio : Catastro_COL_ES_V212.COL_InteresadoDocumentoTipo;
+      Tipo_Documento_Quien_Atendio : Catastro_COL_ES_V213.COL_InteresadoDocumentoTipo;
       Nombre_Encuestador : TEXT*40;
       Numero_Documento_Encuestador : TEXT*10;
-      Tipo_Documento_Encuestador : Catastro_COL_ES_V212.COL_InteresadoDocumentoTipo;
+      Tipo_Documento_Encuestador : Catastro_COL_ES_V213.COL_InteresadoDocumentoTipo;
     END Predio;
 
     ASSOCIATION FichaPredioPredio =
       fichaPredio -- {1} Predio;
-      crPredio (EXTERNAL) -- {1} Catastro_COL_ES_V212.Catastro_Registro.Predio;
+      crPredio (EXTERNAL) -- {1} Catastro_COL_ES_V213.Catastro_Registro.Predio;
     END FichaPredioPredio;
 
     CLASS NucleoFamiliar =
       Documento_Identidad : TEXT*10;
-      Tipo_Documento : Catastro_COL_ES_V212.COL_InteresadoDocumentoTipo;
+      Tipo_Documento : Catastro_COL_ES_V213.COL_InteresadoDocumentoTipo;
       Organo_Emisor : TEXT*20;
       Fecha_Emision : INTERLIS.XMLDate;
       Primer_Nombre : TEXT*20;
@@ -76,7 +76,7 @@ VERSION "2017-06-02 V2.1.1"  =
       Lugar_Nacimiento : TEXT*100;
       Nacionalidad : TEXT*20;
       Discapacidad : BOOLEAN;
-      Genero : Catastro_COL_ES_V212.COL_Genero;
+      Genero : Catastro_COL_ES_V213.COL_Genero;
       Habita_Predio : BOOLEAN;
       Parentesco : TEXT*20;
       Etnia : TEXT*20;
@@ -95,7 +95,7 @@ VERSION "2017-06-02 V2.1.1"  =
         Venta,
         Alquiler
       );
-      Valor : Catastro_COL_ES_V212.Peso;
+      Valor : Catastro_COL_ES_V213.Peso;
       Nombre_Oferente : TEXT*40;
       Telefono_Contacto_Oferente : TEXT*10;
       Observaciones : TEXT*100;
@@ -143,7 +143,7 @@ VERSION "2017-06-02 V2.1.1"  =
         Excelente
       );
       Puntos_Cubierta_Conservacion : 1 .. 100;
-      Sub_Total_Estructura : Catastro_COL_ES_V212.Integer;
+      Sub_Total_Estructura : Catastro_COL_ES_V213.Integer;
       Fachada : (
         Pobre,
         Sencilla,
@@ -177,7 +177,7 @@ VERSION "2017-06-02 V2.1.1"  =
         Excelente
       );
       Puntos_Conservacion_Acabados : 1 .. 100;
-      Sub_Total_Acabados : Catastro_COL_ES_V212.Integer;
+      Sub_Total_Acabados : Catastro_COL_ES_V213.Integer;
       Tamanio_Banio : (
         Sin_Banio,
         Pequenio,
@@ -209,7 +209,7 @@ VERSION "2017-06-02 V2.1.1"  =
         Excelente
       );
       Puntos_Conservacion_Banio : 1 .. 100;
-      Sub_Total_Banio : Catastro_COL_ES_V212.Integer;
+      Sub_Total_Banio : Catastro_COL_ES_V213.Integer;
       Tamanio_Cocina : (
         Sin_Cocina,
         Pequenia,
@@ -241,8 +241,8 @@ VERSION "2017-06-02 V2.1.1"  =
         Excelente
       );
       Puntos_Conservacion_Cocina : 1 .. 100;
-      Sub_Total_Cocina : Catastro_COL_ES_V212.Integer;
-      Total_Residencial_Y_Comercial : Catastro_COL_ES_V212.Integer;
+      Sub_Total_Cocina : Catastro_COL_ES_V213.Integer;
+      Total_Residencial_Y_Comercial : Catastro_COL_ES_V213.Integer;
       Cerchas : (
         Madera,
         Metalica_Liviana,
@@ -251,7 +251,7 @@ VERSION "2017-06-02 V2.1.1"  =
         Altura
       );
       Puntos_Cerchas : 1 .. 100;
-      Total_Industrial : Catastro_COL_ES_V212.Integer;
+      Total_Industrial : Catastro_COL_ES_V213.Integer;
     END AvaluoUConstruccion;
 
     ASSOCIATION FichaAvaluoUconstruccion =
