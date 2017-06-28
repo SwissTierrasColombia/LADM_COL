@@ -22,6 +22,8 @@ MODEL Avaluos_COL_ES_V21 (es)
 AT "mailto:vmbp@localhost"
 VERSION "V21 2017-06-02"  // Inicia como V21 por provenir de la extraccion a partir del TOPIC "Avaluos" del modelo de Catastro-Registro V21 // =
 
+IMPORTS UNQUALIFIED ISO19107_V1_MAGNABOG,Catastro_COL_ES_V_2_1;
+
   TOPIC Avaluos =
     DEPENDS ON Catastro_COL_ES_V_2_1.Catastro_Registro;
 

@@ -4,6 +4,9 @@ MODEL LimitesPoliticoAdministrativos_COL_ES_V21 (es)
 AT "mailto:vmbp@localhost"
 VERSION "2017-06-02"  =
 
+IMPORTS UNQUALIFIED ISO19107_V1_MAGNABOG, LADM_V1revISO_EN, Catastro_COL_ES_V_2_1;
+
+TOPIC LimitesPoliticoAdministrativos =
   CLASS FronteraNacional =
     Nombre : MANDATORY TEXT*8;
     geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
@@ -38,7 +41,7 @@ VERSION "2017-06-02"  =
   END DivisionCentroPoblado;
 
   CLASS PuntoLimite
-  EXTENDS LADM_V1_EN.LADM_Core.LA_Point =
+  EXTENDS LADM_V1revISO_EN.LADM_Core.LA_Point =
     Acuerdo : MANDATORY Catastro_COL_ES_V_2_1.COL_AcuerdoTipo;
     Def_Punto : MANDATORY Catastro_COL_ES_V_2_1.COL_DefPuntoTipo;
     Exactitud_Vertical : 0 .. 1000 [Catastro_COL_ES_V_2_1.cm];
@@ -49,5 +52,6 @@ VERSION "2017-06-02"  =
     Nombre_Punto : TEXT*10;
     UNIQUE pID->namespace, pID->localId;
   END PuntoLimite;
+END LimitesPoliticoAdministrativos ;
 
 END LimitesPoliticoAdministrativos_COL_ES_V21.

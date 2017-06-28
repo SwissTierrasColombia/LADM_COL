@@ -1,0 +1,744 @@
+!!----------------------------------------------------------
+!!
+!! ISO 19152 LADM modelled with INTERLIS 2
+!!
+!!----------------------------------------------------------
+!! revision history
+!!----------------------------------------------------------
+!! 
+!! 27.01.2014/mg: initial version
+!! 02.02.2014/mg: checked with compiler version 4.4.14
+!! 17.11.2014/mg: checked with compiler version 4.5.3
+!! 07.03.2016/mg: simplification
+!! 17.08.2016/mg: associations
+!! 10.11.2016/mg: CONSTRAINT
+!! 01.06.2017/vb: Comparación del modelo INTERLIS con el de la (UNE-EN) ISO 19152
+!!
+!!----------------------------------------------------------
+!!
+!! (c) Swiss Land Management (www.swisslm.ch)
+!!
+!!----------------------------------------------------------
+
+INTERLIS 2.3;
+
+MODEL LADM_V1revISO_EN (en) 
+
+   AT "http://www.swisslm.ch/models" !!CAMBIAR
+   VERSION "2017-06-01 V1.01" =
+
+      IMPORTS UNQUALIFIED INTERLIS;
+      IMPORTS UNQUALIFIED ISO19107_V1_MAGNABOG; !! Spatial Schema
+
+   TOPIC LADM_Core (ABSTRACT) =
+
+      DOMAIN
+
+      Integer = -2000000000 .. 2000000000;
+      Real = -2000000000.000 .. 2000000000.000;
+      CharacterString = TEXT*255;
+      Currency = -2000000000.00 .. 2000000000.00;
+
+      LA_AvailabilityStatusType = (
+         original,
+         destroyed,
+         incomplete,
+         other
+      );
+
+      LA_GroupPartyType = (
+         association,
+         family,
+         other
+      );
+
+      LA_PartyType = (
+         natural_Person,
+         nonnatural_person,
+         other
+      );
+	  
+	  !! AÑADIDOS vmbp REVISION SEGUN ISO
+	  !! Posiblemente sean estructuras, porque la ISO dice que deben contener un código y una descripción. No obstante, como todos los demás están como dominios, de momento se va a dejar así para un próxima revisión.
+	  
+	  /*Paquete admin*/
+	  LA_BAUnitType =(
+         basic_propery_unit,
+         right_unit,
+         other
+	  );
+	  
+	  LA_RightType =(
+         ownership,
+		 customary,
+		 lease,
+		 other
+	  );
+
+	  LA_RestrictionType =(
+		 servitutes,
+		 other
+	  );
+
+	  LA_ResponsibilityType =(
+		 waterway_maintenance,
+		 other
+	  );
+	  
+	  LA_MortgageType =(
+         linear,
+         micro_credit,
+         other
+	  );
+	  
+	  LA_AdministrativeSourceType =(
+         deed,
+         title,
+	     other
+	  );
+	  
+	  /*Paquete Spatial*/
+	  LA_AreaType =(
+         official,
+         calculated,
+         other
+	  );
+	  LA_VolumeType =(
+         official,
+         calculated,
+         other
+         );
+	  
+	  LA_SpatialSourceType =(
+	     survey,
+         plan,
+         areal_photo,
+         other
+	  );
+	  
+	  LA_DimensionType =(
+         Dim2D,
+		 Dim3D,
+		 other
+	  );
+	  
+	  LA_SurfaceRelationType =(
+		 on_surface,
+         above_surface,
+         below_surface,
+         other
+         );
+	  
+	  LA_BuildingUnitType =(
+         private,
+         commercial,
+         state,
+         other
+	  );
+	  
+	  LA_UtilityNetworkStatusType =(
+         planned,
+         in_use,
+         out_of_service,
+         other
+	  );
+	  
+	  LA_UtilityNetworkType =(
+         electricity,
+         gas,
+         water,
+         waste_water,
+         other
+	  );
+	  
+	  LA_RegisterType =(
+         rural,
+	     urban,
+	     other
+	  );
+	  
+	  LA_StructureType =(
+         point,
+		 line,
+		 polygon,
+		 other
+	  );
+	  
+	  LA_LevelContentType =(
+         primary_right,
+		 customary,
+		 other
+	  );
+	  
+	  /*Paquete Topografia y representacion*/
+	  
+	  LA_InterpolationType =(
+         start,
+         end,
+         mid_arc,
+         other
+	  );
+	  
+	  LA_MonumentationType =(
+         beacon,
+         marker,
+         other
+	  );
+	  
+	  LA_PointType =(
+         control,
+         cadastral,
+         other
+	  );
+	  
+	  !! FIN AÑADIDOS vmbp REVISION SEGUN ISO
+
+      !! from ISO19125
+      ISO19125_Type = (
+         disjoint, 
+         touches, 
+         overlaps, 
+         unknown
+      );
+
+      DQ_EvaluationMethodTypeCode = (
+         directInteral,
+         directExternal,
+         indirect
+      );
+
+      CI_RoleCode = (
+         resourceProvider,
+         custodian,
+         owner,
+         user,
+         distributor,
+         originator,
+         pointOfContact,
+         pricipalInvesigator,
+         processor,
+         publisher,
+         author
+      );
+
+      CI_PresentationFormCode = (
+         image,
+         map,
+         model,
+         profile,
+         table,
+         video,
+         audio,
+         diagram,
+         multimedia,
+         physicalSample,
+         other
+      );
+
+      !! common structures
+
+      STRUCTURE Oid =	!! ESTRUCTURA REVISADA vmbp
+         localId: MANDATORY CharacterString;
+         namespace: MANDATORY CharacterString;         
+      END Oid;
+
+      STRUCTURE Fraction =	!! ESTRUCTURA REVISADA vmbp
+         denominator: MANDATORY Integer;
+         numerator: MANDATORY Integer;		 
+		 MANDATORY CONSTRAINT			!! estas tres constricciones han sido añadidas por vmbp
+         denominator >= 0;				
+		 MANDATORY CONSTRAINT			!! de acuerdo con la revisión de la norma ISO
+         numerator >= 0;
+		 MANDATORY CONSTRAINT			!! hasta aquí
+         denominator >= numerator;
+      END Fraction;
+
+      STRUCTURE Image =
+         uri: CharacterString;
+      END Image;
+
+      STRUCTURE DQ_Element =
+         nameOfMeasure: CharacterString;
+         measureIdentification: CharacterString;
+         measureDescription: CharacterString;
+         evaluationMethod: DQ_EvaluationMethodTypeCode;
+         evaluationMethodDescription: CharacterString;
+         evaluationProcedure: CharacterString;
+         dateTime: XMLDateTime;
+         result: CharacterString;
+      END DQ_Element;
+	  
+	  !! AÑADIDOS vmbp REVISION SEGUN ISO
+	  !! Se crean para revisar LA_Point, al que le faltan dos atributos*/	  
+	  !!TODAS REQUIEREN REVISION POR  PARTE DEL EQUIPO
+	  STRUCTURE DQ_PositionalAccuracy EXTENDS DQ_Element =
+         atributo21: CharacterString; !!no existe	  
+	  END DQ_PositionalAccuracy;
+	  
+	  STRUCTURE DQ_AbsoluteExternalPositionalAccuracy EXTENDS DQ_PositionalAccuracy =
+         atributo1: CharacterString; !!no existe	  
+	  END DQ_AbsoluteExternalPositionalAccuracy;
+	  
+	  STRUCTURE LI_Lineaje =
+         statement: CharacterString;
+	  END LI_Lineaje;
+	  !! FIN AÑADIDOS vmbp REVISION SEGUN ISO
+
+      STRUCTURE CI_Contact =
+         phone: CharacterString;
+         address: CharacterString;
+         onlinResource: CharacterString;
+         hoursOfService: CharacterString;
+         contactInstructions: CharacterString;
+      END CI_Contact;
+
+      STRUCTURE CI_ResponsibleParty =
+         invidualName: CharacterString;
+         organisationName: CharacterString;
+         positionName: CharacterString;
+         contactInfo: CI_Contact;
+         role: CI_RoleCode;
+      END CI_ResponsibleParty;
+
+      STRUCTURE CC_OperationMethod =
+         formula: MANDATORY CharacterString;
+         sourceDimensions: Integer;
+         targetDimensions: Integer;
+      END CC_OperationMethod;
+
+      STRUCTURE OM_Observation =
+         resultQuality: DQ_Element;
+      END OM_Observation;
+
+      STRUCTURE OM_Process =
+      END OM_Process;
+
+      STRUCTURE ExtAddress =
+         addressAreaName: CharacterString;
+         addressCoordinate : GM_Point2D;
+         addressID: MANDATORY Oid;
+         buildingName: CharacterString;
+         buildingNumber: CharacterString;
+         city: CharacterString;
+         country: CharacterString;
+         postalCode: CharacterString;
+         postBox: CharacterString;
+         state: CharacterString;
+         streetName: CharacterString;
+      END ExtAddress;
+
+      STRUCTURE ExtPhysicalBuildingUnit =
+         extAddressID: ExtAddress;
+      END ExtPhysicalBuildingUnit;
+
+      STRUCTURE ExtParty =
+         extAddressID: ExtAddress;
+         fingerprint: Image;
+         name: CharacterString;
+         partyID: Oid;
+         photo: Image;
+         signature: Image;        
+      END ExtParty;
+
+      STRUCTURE ExtPhysicalUtilityNetwork =
+         directed: BOOLEAN;
+         extPartyManagerID: ExtParty;
+      END ExtPhysicalUtilityNetwork;
+
+      STRUCTURE ExtArchive =
+         acceptance: XMLDate;
+         data: CharacterString;
+         extraction: XMLDate;
+         recordation: XMLDate;
+         sID: Oid;
+         submission: XMLDate;
+      END ExtArchive;
+
+      STRUCTURE LA_VolumeValue = !! ESTRUCTURA REVISADA vmbp
+         volumeSize: MANDATORY 0.0 .. 99999999999999.9 [m]; !!¿No debería ser metro cúbico, definido como en el modelo de Catastro?
+         type: MANDATORY LA_VolumeType;						!!LA_VolumeType a partir de valores de atributo 
+      END LA_VolumeValue;
+
+      STRUCTURE LA_AreaValue = !! ESTRUCTURA REVISADA vmbp
+         areaSize: MANDATORY 0.0 .. 99999999999999.9 [m];	!!¿No debería ser metro cuadrado, definido como en el modelo de Catastro?
+         type: MANDATORY LA_AreaType; !!original (official,calculated,other);
+      END LA_AreaValue;
+
+      STRUCTURE LA_Transformation =
+         transformation: MANDATORY CC_OperationMethod;
+         transformedLocation: MANDATORY GM_Point2D;
+      END LA_Transformation;
+
+      STRUCTURE LA_PartyRoleType =
+         type: (
+            surveyor,
+            notary,
+            other
+         );
+      END LA_PartyRoleType;
+
+   !! Package Special Classes
+
+      CLASS VersionedObject (ABSTRACT) = !! CLASE REVISADA vmbp
+         beginLifespanVersion: MANDATORY XMLDateTime;	!! añadido MANDATORY
+         endLifespanVersion: XMLDateTime;
+         quality: LIST {0..*} OF DQ_Element;			!! Original-> quality: DQ_Element; según ISO multiplicidad: 0..*
+         source: LIST {0..*} OF CI_ResponsibleParty;	!! Original-> source: CI_ResponsibleParty; multiplicidad según ISO: 0..*
+      MANDATORY CONSTRAINT
+         endLifespanVersion >= beginLifespanVersion;
+      END VersionedObject;
+
+      CLASS LA_Source (ABSTRACT) =	!! CLASE REVISADA vmbp
+         acceptance: XMLDateTime;
+         availabilityStatus: MANDATORY LA_AvailabilityStatusType;
+         extArchiveID: ExtArchive;
+         liveSpanStamp: XMLDateTime;
+         mainType: CI_PresentationFormCode; 			!!como curiosidad, la UNE EN ISO de AENOR pone maintype. Se considera una errata
+         quality: LIST {0..*} OF DQ_Element;
+         recordation: XMLDateTime;
+         sID: MANDATORY Oid;
+         source: LIST {0..*} OF CI_ResponsibleParty;	!!original-> source: CI_ResponsibleParty; ISO pone multiplicidad 0..*
+         submission: XMLDateTime;
+      END LA_Source;
+
+   !! Package Spatial Unit      
+
+      CLASS LA_SpatialUnit EXTENDS VersionedObject = !! CLASE REVISADA vmbp
+         area: LIST {0..*} OF LA_AreaValue;			!!Original-> area: LA_AreaValue; ISO pone multiplicidad 0..*
+		 dimension: LA_DimensionType;				!!Modificado a partir de valores incluidos en el atributo.
+		 extAddressID: LIST {0..*} OF Oid; 			!!Original extAddress: Oid; segun ISO: cambio de nombre y multiplicidad 0..*
+         label: CharacterString;					!!Estaba como TEXT*255
+         referencePoint: GM_Point2D;
+         suID: MANDATORY Oid;
+         surfaceRelation: LA_SurfaceRelationType;	!!Modificado a partir de los valores, incluidos en el atributo            
+         volume: LIST {0..*} OF LA_VolumeValue;		!!Original volume: LA_VolumeValue; ISO dice multiplicidad 0..*
+      END LA_SpatialUnit;      
+
+      CLASS LA_SpatialUnitGroup EXTENDS VersionedObject =	!! CLASE REVISADA vmbp
+         hirarchyLevel: MANDATORY Integer;
+         label: CharacterString;
+         name: CharacterString;
+         referencePoint: GM_Point2D;
+         sugID: MANDATORY Oid;
+         !! constraints
+         !! {count(part)+ count(element)>0}
+      END LA_SpatialUnitGroup;
+	  
+      CLASS LA_LegalSpaceBuildingUnit EXTENDS LA_SpatialUnit =	!! CLASE REVISADA vmbp
+         extPhysicalBuildingUnitID: ExtPhysicalBuildingUnit;
+         type: LA_BuildingUnitType;	!!Modificado segun la ISO a partir de los valores del atributo (private, commercial, state, other);
+      END LA_LegalSpaceBuildingUnit;
+
+      CLASS LA_LegalSpaceUtilityNetwork EXTENDS LA_SpatialUnit =	!! CLASE REVISADA vmbp
+         extPhysicalNetworkID: ExtPhysicalUtilityNetwork;
+         status: LA_UtilityNetworkStatusType; !! Modificado segun ISO a partir de att (planned, in_use, out_of_service, other);
+         type: LA_UtilityNetworkType;         !! Modificado segun ISO a partir de att (electricity, gas,water,waste_water,other);
+      END LA_LegalSpaceUtilityNetwork;
+	  
+      CLASS LA_Level EXTENDS VersionedObject =	!! CLASE REVISADA vmbp
+         lID: MANDATORY Oid;
+         name: CharacterString;
+         registerType: LA_RegisterType; !!Modificado según ISO a partir de los valores del att (rural,urban,other);
+         structure: LA_StructureType; 	!!Modificado según ISO a partir de los valores del att (point,line,polygon,other);
+         type: LA_LevelContentType;		!!Modificado según ISO a partir de los valores del att (primary_right,customary,other);
+         !! invariant
+         !! {if structure = text then 
+         !! geometrytopology is optional}
+      END LA_Level;      
+
+      CLASS LA_RequiredRelationshipSpatialUnit EXTENDS VersionedObject =	!! CLASE REVISADA vmbp
+         relationsship: MANDATORY ISO19125_Type;
+         !! comment
+         !! Topology relationship
+         !! ISO19125_Type as
+         !! defined in ISO 19125
+      END LA_RequiredRelationshipSpatialUnit;
+	  
+	  ASSOCIATION relationSu =	!! ASOCIACION REVISADA vmbp
+         rsu1 -- {0..*} LA_SpatialUnit;		!!ISO la identifica como su1 pero se repetiria con siguiente
+         rsu2 -- {0..*} LA_SpatialUnit;		!!ISO la identifica como su2 pero se repetiria con siguiente
+      END relationSu;
+
+      ASSOCIATION suHierarchy =	!! ASOCIACION REVISADA vmbp
+         hsu1 -- {0..*} LA_SpatialUnit;		!!ISO la identifica como su1 pero se repetiria con anterior
+         hsu2 -<> {0..1} LA_SpatialUnit;	!!ISO la identifica como su2 pero se repetiria con anterior
+      END suHierarchy;
+	  
+	  ASSOCIATION suGroupHirarchy =	!! ASOCIACION REVISADA vmbp
+         set -<> {0..1} LA_SpatialUnitGroup;
+         element -- {0..*} LA_SpatialUnitGroup;
+      END suGroupHirarchy; 
+
+      ASSOCIATION suSuGroup =	!! ASOCIACION REVISADA vmbp
+         part -- {0..*} LA_SpatialUnit;
+         whole -- {0..*} LA_SpatialUnitGroup;
+      END suSuGroup;
+	  
+	  ASSOCIATION suLevel =	!! ASOCIACION REVISADA vmbp
+         su -- {0..*} LA_SpatialUnit;
+         level -- {0..1} LA_Level;
+      END suLevel;
+
+   !! Package Administrative
+   
+      CLASS LA_RRR (ABSTRACT) EXTENDS VersionedObject =!! CLASE REVISADA vmbp. Se ha añadido (ABSTRACT) porque así la define al norma
+         description: CharacterString;
+		 rID: MANDATORY Oid;         
+         Share: Fraction;
+         ShareCheck: BOOLEAN;
+         timeSpec: CharacterString;			/*La norma ISO hace referencia a la ISO 8601 ó 14825. En otras fechas, como la de 
+		 VersionedObject, se hace referencia a la norma ISO 19103. No obstante, sería necesario comprobar si el tipo de dato
+		 no debería ser XMLDateTime como en VersionedObject.
+		 Sin embargo, el uso recurrente de cuando se da el derecho (ver ejemplo al final de la descripción de la clase
+		 en pgn 29 del PDF de la norma), parece indicar que si se refiere a otra cosa*/
+		 
+		 /*Las siguientes constricciones no están descritas en la norma*/
+		 
+		 !! constraints
+         !! {sum(RR.share)=1 per type if RRR.shareCheck}
+         !! no overlap RR.timeSpec perssummed type}
+         !! invariant
+         !! {share must be specified, unless this is meaningless for
+         !! the specific type (indicated by shareCheck=false; in
+         !! this case constraint "sum (LA_RRR.share) = 1 per type can
+         !! not be applied)}
+      END LA_RRR;
+
+      CLASS LA_BAUnit EXTENDS VersionedObject = !! CLASE REVISADA vmbp
+         name: CharacterString;
+         type: MANDATORY LA_BAUnitType;			!!antes (basic_propery_unit,right_unit,other) REVISADO vmbp segun ISO
+         uID: MANDATORY Oid;         
+      END LA_BAUnit;     
+
+      CLASS LA_RequiredRelationshipBAUnit EXTENDS VersionedObject = !! CLASE REVISADA vmbp
+         relationShip: MANDATORY CharacterString; !!Puesto como REQUERIDO siguiendo la ISO
+      END LA_RequiredRelationshipBAUnit;
+
+      CLASS LA_Right EXTENDS LA_RRR = !! CLASE REVISADA vmbp
+         type: MANDATORY LA_RightType; !!Cambiado según la ISO. Antestes estaba: tipo y (ownership,customary,lease,other);
+      END LA_Right;
+
+      CLASS LA_Restriction EXTENDS LA_RRR = !! CLASE REVISADA vmbp
+         partyRequired: BOOLEAN;
+         type: MANDATORY LA_RestrictionType;	!!Cambiado según norma ISO. Antes estaba (servitutes,other)
+      END LA_Restriction;
+
+      CLASS LA_Responsibility EXTENDS LA_RRR = !! CLASE REVISADA vmbp
+         type: MANDATORY LA_ResponsibilityType;	!!Cambiado según norma ISO.
+      END LA_Responsibility;
+
+      CLASS LA_Mortgage EXTENDS LA_Restriction = !! CLASE REVISADA vmbp
+         amount: Currency;
+         interestRate: Real;
+         ranking: Integer;
+         mtype: LA_MortgageType;!!ISO indica type, pero habría conflicto con supraclase. Se modifica el tipo segun valores de att: (linear, micro_credit, other);            
+      END LA_Mortgage;      
+
+      CLASS LA_AdministrativeSource EXTENDS LA_Source = !! CLASE REVISADA vmbp
+         text: CharacterString;							!!La norma ISO dice que es un MultiMediaType según ISO 13240
+         type: MANDATORY LA_AdministrativeSourceType; 	!!estaba (deed, title,other);
+      END LA_AdministrativeSource;
+
+       ASSOCIATION suBaunit = !! ASOCIACION REVISADA vmbp
+         su (EXTERNAL) -- {0..*} LA_SpatialUnit;
+         baunit -- {0..*} LA_BAUnit;
+      END suBaunit;
+
+      ASSOCIATION relationBaunit = !! ASOCIACION REVISADA vmbp
+         unit1 -- {0..*} LA_BAUnit;
+         unit2 -- {0..*} LA_BAUnit;
+      END relationBaunit;
+
+      ASSOCIATION baunitRrr = !! ASOCIACION REVISADA vmbp
+         unit -- {1..1} LA_BAUnit; !!¿{1}?
+         rrr -- {1..*} LA_RRR;
+      END baunitRrr;
+	  
+	  ASSOCIATION mortgageRight = !! ASOCIACION REVISADA vmbp
+         mortgage -- {0..*} LA_Mortgage; !! {ordered}
+         right -- {0..*} LA_Right;
+      END mortgageRight;
+	  
+	  ASSOCIATION rrrSource = !! ASOCIACION REVISADA vmbp
+         rsource -- {1..*} LA_AdministrativeSource;	!!ISO indica source, pero habría conflicto por repeticion de nombre con siguiente
+         rrr -- {0..*} LA_RRR; 						!!corregido a partir de rrrSource
+      END rrrSource;
+
+      ASSOCIATION relationSource = !! ASOCIACION REVISADA vmbp --- corregida a partir de relationAdminSource
+         resource -- {0..*} LA_AdministrativeSource;	!! ISO marca source pero habría conflicto
+         requiredRelationBaunit -- {0..*} LA_RequiredRelationshipBAUnit;
+      END relationSource; 
+
+      ASSOCIATION unitSource = !! ASOCIACION REVISADA vmbp
+         usource -- {0..*} LA_AdministrativeSource;	!! ISO marca source, pero habria conflicto con anterior
+         unit -- {0..*} LA_BAUnit;
+      END unitSource;
+
+   !! package Surveying and Representation      
+	  
+	  CLASS LA_Point EXTENDS VersionedObject = !! CLASE REVISADA vmbp - Resolver asunto relativo a DQ
+	  /*Clase incompleta Los atributos marcados con (*) la completan */
+         estimatedAccuracy: DQ_AbsoluteExternalPositionalAccuracy; !! (*)	  
+         interpolationRole: MANDATORY LA_InterpolationType; !!cambiado segun ISO a REQUERIDO valores de ATT (start,end,mid_arc,other);
+         monumentation: LA_MonumentationType;				!!Quitado MANDATORY y cambiado ISO a partir valores ATT (beacon,marker,other);
+         originalLocation: MANDATORY GM_Point2D;
+         pID: MANDATORY Oid;
+         pointType: MANDATORY LA_PointType;					!!cambiado segun ISO valores de ATT (control,cadastral,other);
+		 productionMethod: LI_Lineaje;						!! (*)
+         transAndResult: LIST {0..*} OF LA_Transformation;	!!original-> transAndResult: LA_Transformation; multiplicidad ISO 0..*
+      END LA_Point;  
+
+      CLASS LA_SpatialSource EXTENDS LA_Source = !! CLASE REVISADA vmbp
+         measurements: LIST {0 .. *} OF OM_Observation;
+         procedure: OM_Process;
+         type: MANDATORY LA_SpatialSourceType; 			!!cambiado segun ISO valores de ATT (survey,plan,areal_photo,other);
+      END LA_SpatialSource;      
+
+      CLASS LA_BoundaryFaceString EXTENDS VersionedObject = !! CLASE REVISADA vmbp
+         bfsID: MANDATORY Oid;
+         geometry: GM_MultiCurve3D; 						!!REVISION --> POR QUÉ NO GM_MultiCurve2D
+         locationByText: CharacterString;
+      END LA_BoundaryFaceString;
+	  
+	  CLASS LA_BoundaryFace EXTENDS VersionedObject = !! CLASE REVISADA vmbp
+         bfID: MANDATORY Oid;
+         geometry: GM_MultiSurface3D;
+         locationByText: CharacterString;
+      END LA_BoundaryFace;
+
+      ASSOCIATION referencePoint = !! ASOCIACION REVISADA vmbp
+         su (EXTERNAL) -- {0..1} LA_SpatialUnit;
+         point -- {0..1} LA_Point;
+      END referencePoint;
+
+      ASSOCIATION pointSource = !! ASOCIACION REVISADA vmbp
+         psource -- {0..*} LA_SpatialSource; !!ISO marca source pero habria conflicto con siguiente
+         point -- {1..*} LA_Point;
+      END pointSource;
+
+      ASSOCIATION suSource = !! ASOCIACION REVISADA vmbp
+         su (EXTERNAL) -- {0..*} LA_SpatialUnit;
+         ssource -- {0..*} LA_SpatialSource; !! ISO marca source pero habría conflicto
+      END suSource;
+
+      ASSOCIATION baunitSource = !! ASOCIACION REVISADA vmbp
+         bsource -- {0..*} LA_SpatialSource; !!eISO marca source pero habría conflicto con anterior
+         unit (EXTERNAL) -- {0..*} LA_BAUnit; 
+      END baunitSource;
+
+      ASSOCIATION relationSpatialSource = !! ASOCIACION REVISADA vmbp !!ISO indica como relationSource pero habría conflicto con Admin source
+         rsource -- {0..*} LA_SpatialSource; !!ISO marca source pero habría conflicto con anteriores
+         requiredRelationshipSu (EXTERNAL) -- {0..*} LA_RequiredRelationshipSpatialUnit; !! estaba como requiredRelationSu
+      END relationSpatialSource;
+	  
+	  ASSOCIATION bfsSource = !! ASOCIACION REVISADA vmbp 
+         bfs -- {0..*} LA_BoundaryFaceString;
+         bsource -- {0..*} LA_SpatialSource; !!ISO marca source pero habría conflicto
+      END bfsSource;
+
+      ASSOCIATION minus = !! ASOCIACION REVISADA vmbp !! estaba como minusBfs
+         bfs -- {0..*} LA_BoundaryFaceString; !!estaba como bfsM
+         su (EXTERNAL) -- {0..*} LA_SpatialUnit; !!estaba como suM
+      END minus;
+
+      ASSOCIATION plusBfs = !! ASOCIACION REVISADA vmbp !! eISO indica Bfs pero habria conflicto
+         bfsP -- {0..*} LA_BoundaryFaceString; !!ISO marca bfs pero habría conflicto
+         suP (EXTERNAL) -- {0..*} LA_SpatialUnit; !!ISO marca su pero daria conflicto
+      END plusBfs;
+
+      ASSOCIATION pointBfs = !! ASOCIACION REVISADA vmbp
+         point -- {2..*} LA_Point; !! {ordered} {0,2..*} OJO!!!!!
+         bfs -- {0..*} LA_BoundaryFaceString;
+      END pointBfs;      
+
+      ASSOCIATION bfSource = !! ASOCIACION REVISADA vmbp 
+         bf -- {0..*} LA_BoundaryFace;
+         bsource -- {0..*} LA_SpatialSource;	!!ISO indica source pero habría conflicto
+      END bfSource;
+
+      ASSOCIATION minusf = !! ASOCIACION REVISADA vmbp  !!estaba como minusBf
+         bf -- {0..*} LA_BoundaryFace;	!!estaba como bfM
+         su (EXTERNAL) -- {0..*} LA_SpatialUnit;	!!estaba como suM
+      END minusf;
+
+      ASSOCIATION plus = !! ASOCIACION REVISADA vmbp !!estaba como plusBf
+         bfP -- {0..*} LA_BoundaryFace;	!!ISO marca bf pero daría conflicto
+         suP (EXTERNAL) -- {0..*} LA_SpatialUnit;	!!segun ISO su pero daría conflicto
+      END plus;
+
+      ASSOCIATION pointBf = !! ASOCIACION REVISADA vmbp
+         point -- {3..*} LA_Point; !! {ordered} {0,3..*}  OJO
+         bf -- {0..*} LA_BoundaryFace;
+      END pointBf;
+
+   !! Package Party
+
+      CLASS LA_Party EXTENDS VersionedObject = !! CLASE REVISADA vmbp
+         extPID: Oid;			!! ANTES ExPID. REVISADA SEGUN ISO vmbp
+         name: CharacterString;
+         pID: MANDATORY Oid;
+         role: LIST {0..*} OF LA_PartyRoleType;
+         type: MANDATORY LA_PartyType;   
+      END LA_Party;
+
+      CLASS LA_GroupParty EXTENDS LA_Party = !! CLASE REVISADA vmbp
+         groupID: MANDATORY Oid;
+         ptype: MANDATORY LA_GroupPartyType;	!!ISO marca type pero daria conflicto con la superclase
+	  END LA_GroupParty;	  
+
+      ASSOCIATION baunitAsParty =
+         party -- {0..*} LA_Party;
+         unit (EXTERNAL) -- {0..*} LA_BAUnit;
+      END baunitAsParty;
+
+      ASSOCIATION conveyancerSource =
+         csource (EXTERNAL) -- {0..*} LA_AdministrativeSource;
+         conveyancer -- {1..*} LA_Party;
+      END conveyancerSource;
+
+      ASSOCIATION rrrParty = !! ASOCIACION REVISADA vmbp
+         rrr (EXTERNAL) -- {0..*} LA_RRR;
+         party -- {0..1} LA_Party;
+         !! invariant
+         !! {Party can only have 0 
+         !! RRR in case the party
+         !! has specific role}
+         !! invariant
+         !! {Instances of LA_Right and LA_Responsibility have always
+         !! one (= 1) party. Sometimes there can be 0 or 1 party; e.g. no
+         !! (= 0) party for object restriction and 1 party for right restriction
+         !! (indicated by partyRequired boolean attribute)}
+      END rrrParty;
+
+      ASSOCIATION surveyorSource = !! ASOCIACION REVISADA vmbp
+         ssource (EXTERNAL) -- {0..*} LA_SpatialSource;
+         surveyor -- {1..*} LA_Party;
+      END surveyorSource;
+
+      ASSOCIATION members = !! ASOCIACION REVISADA vmbp
+         parties -- {2..*} LA_Party;
+         group -<> {0..1} LA_GroupParty;
+         share: Fraction;	!!Se refiere a la clase definida inmediatamente debajo
+      END members;
+	  
+	  /*LA SIGUIENTE CLASE NO APARECE EN LA ISO, SE REFIERE A UNA RELACIÓN
+	  QUEDA DEFINIDA EN INTERLIS COMO SE VE EN "ASSOCIATION members" "ATRIBUTO share"
+	  EN uml APARECERÁ COMO CLASE, PERO EL NOMBRE SERÁ EL MISMO QUE EL DE LA ASOCIACION
+	 ----------------
+	 |members        |	EN VEZ DE LA_PartyMember
+	 |---------------|
+	 |share: Fraction|
+	 ----------------*/
+	  
+	  !!CLASS LA_PartyMember EXTENDS VersionedObject =
+      !!   share: Fraction;
+	  !!END LA_PartyMember;
+	  
+	  !!Constriccion que involucra a LA_GroupParty y LA_PartyMember --> si existe LA_PartyMember, las participaciones de los miembros de LA_GroupParty debe ser EXACTAMENTE = 1
+	  !!REVISIÓN--> LA_PartyMember es una asociación que se une a la asociación entre LA_GroupParty y LA_Party llamada members
+	  
+	  !!FIN CLASE AÑADIDA vmbp SEGUN LA REVISION
+
+   END LADM_Core;
+
+END LADM_V1revISO_EN.

@@ -1,0 +1,147 @@
+INTERLIS 2.3;
+
+/** * !!-----------------------------------------------------------
+ *  * !!
+ *  * !! Perfil Nacional colombiano de la ISO 19152 LADM COL generado con INTERLIS 2
+ *  * !! Extension de Avaluos
+ *  * !!
+ *  * !!-----------------------------------------------------------
+ *  * !! revisones historicas
+ *  * !!-----------------------------------------------------------
+ *  * !!
+ *  * !! 02.06.2017/vb: Generacion del modelo extraido a partir de version anterior del modelo de Catastro, donde aparecia como TOPIC
+ *  * !!
+ *  * !!-----------------------------------------------------------
+ *  * !!
+ *  * !! (c) IGAC y SNR con apoyo de la Cooperacion Suiza
+ *  * !!
+ *  * !!-----------------------------------------------------------
+ *  *
+ */
+MODEL Avaluos_COL_ES_V211 (es)
+AT "mailto:vmbp@localhost"
+VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a partir del TOPIC "Avaluos" del modelo de Catastro-Registro V21 // =
+
+IMPORTS UNQUALIFIED ISO19107_V1_MAGNABOG,Catastro_COL_ES_V211;
+
+  TOPIC Avaluos =
+    DEPENDS ON Catastro_COL_ES_V211.Catastro_Registro;
+
+    CLASS Predio =
+      Area_Calculada_Plano_Local : MANDATORY 0.0 .. 99999999999999.9 [Catastro_COL_ES_V211.m2];
+      Aprovechamiento : MANDATORY Catastro_COL_ES_V211.COL_AprovechamientoTipo;
+      Disponibilidad_Agua : MANDATORY Catastro_COL_ES_V211.COL_DisponibilidadAguaTipo;
+      Distancia_Fuentes_Agua : Catastro_COL_ES_V211.Integer;
+      Obra_al_Interior : MANDATORY Catastro_COL_ES_V211.COL_ObrasAlInteriorTipo;
+      Capa_Vegetal : MANDATORY Catastro_COL_ES_V211.COL_CapaVegetalTipo;
+      Pendiente : MANDATORY Catastro_COL_ES_V211.COL_PendienteTipo;
+      Tipo_Desarrollo : Catastro_COL_ES_V211.COL_TipoDesarrolloTipo;
+      Forma : Catastro_COL_ES_V211.COL_FormaTipo;
+      Num_Balcones : Catastro_COL_ES_V211.Integer;
+      Num_Terrazas : Catastro_COL_ES_V211.Integer;
+      Num_Mezanines : Catastro_COL_ES_V211.Integer;
+      Comun_Uso_Exclusivo : MANDATORY Catastro_COL_ES_V211.COL_ComunExclusivoTipo;
+      Cercania_Hitos : MANDATORY Catastro_COL_ES_V211.COL_CercaniaHitosTipo;
+      Ubicacion_Manzana : TEXT*20;
+      Frente : Catastro_COL_ES_V211.Real;
+      Fondo : Catastro_COL_ES_V211.Real;
+    END Predio;
+
+    ASSOCIATION AvaluoPredio =
+      APredio -- {1} Predio;
+      Predio (EXTERNAL) -- {1} Catastro_COL_ES_V211.Catastro_Registro.Predio;
+    END AvaluoPredio;
+
+    CLASS Construccion =
+      Numero_Pisos : MANDATORY 1 .. 100;
+    END Construccion;
+
+    ASSOCIATION AvaluoConstruccion =
+      ACons -- {1} Construccion;
+      Cons (EXTERNAL) -- {1} Catastro_COL_ES_V211.Catastro_Registro.Construccion;
+    END AvaluoConstruccion;
+
+    CLASS UnidadConstruccion =
+      Numero_Total_Pisos : MANDATORY 1 .. 100;
+      Disposicion : (
+        Vista_Interior,
+        Vista_Exterior
+      );
+      Acceso : MANDATORY Catastro_COL_ES_V211.COL_AccesoTipo;
+      Nivel_de_Acceso : MANDATORY 1 .. 100;
+      Actividad_Econo : MANDATORY Catastro_COL_ES_V211.COL_ActividadEconoTipo;
+      Destino_Econo : MANDATORY Catastro_COL_ES_V211.COL_DestinacionEconomicaTipo;
+      Estilo : MANDATORY Catastro_COL_ES_V211.COL_EstiloTipo;
+      Anio_Construction : MANDATORY INTERLIS.XMLDate;
+      Construction_Tipo : MANDATORY Catastro_COL_ES_V211.COL_ConstruccionTipo;
+      Estado_Conservacion : MANDATORY Catastro_COL_ES_V211.COL_EstadoConservacionTipo;
+      Funcionalidad : MANDATORY Catastro_COL_ES_V211.COL_FuncionalidadTipo;
+      Ubicacion_en_Copropiedad : Catastro_COL_ES_V211.COL_UbicacionEnCopropiedadTipo;
+      Material : MANDATORY Catastro_COL_ES_V211.COL_MaterialConstrTipo;
+      Puntuacion : MANDATORY Catastro_COL_ES_V211.Integer;
+      Tipologia : MANDATORY Catastro_COL_ES_V211.COL_TipologiaTipo;
+      Num_Habitaciones : Catastro_COL_ES_V211.Integer;
+      Num_Banios : Catastro_COL_ES_V211.Integer;
+      Num_Cocinas : Catastro_COL_ES_V211.Integer;
+      Num_Oficinas : Catastro_COL_ES_V211.Integer;
+      Num_Estudios : Catastro_COL_ES_V211.Integer;
+      Num_Bodegas : Catastro_COL_ES_V211.Integer;
+      Num_Locales : Catastro_COL_ES_V211.Integer;
+      Num_Salas : Catastro_COL_ES_V211.Integer;
+      Num_Comedores : Catastro_COL_ES_V211.Integer;
+    END UnidadConstruccion;
+
+    ASSOCIATION AvaluoUnidadConstruccion =
+      AUCons -- {1} UnidadConstruccion;
+      UCons (EXTERNAL) -- {1} Catastro_COL_ES_V211.Catastro_Registro.UnidadConstruccion;
+    END AvaluoUnidadConstruccion;
+
+    CLASS PredioMatrizPH =
+      Num_Etapas : Catastro_COL_ES_V211.Integer;
+      Num_Interiores : Catastro_COL_ES_V211.Integer;
+      Num_Torres : Catastro_COL_ES_V211.Integer;
+      Num_Pisos_por_Torre : Catastro_COL_ES_V211.Integer;
+      Num_Unidades_Privadas : Catastro_COL_ES_V211.Integer;
+      Area_Terreno_Total : Catastro_COL_ES_V211.COL_AreaValor;
+      Area_Terreno_Comun : Catastro_COL_ES_V211.COL_AreaValor;
+      Area_Terreno_Privada : Catastro_COL_ES_V211.COL_AreaValor;
+      Area_Construida_Total : Catastro_COL_ES_V211.COL_AreaValor;
+      Area_Construida_Privada : Catastro_COL_ES_V211.COL_AreaValor;
+      Area_Construida_Comun : Catastro_COL_ES_V211.COL_AreaValor;
+      Tipologia_Constructiva_Copropiedad : TEXT*20;
+      Anio_Construccion_Etapa : INTERLIS.XMLDate;
+      Estado_Conservacion_Copropiedad : Catastro_COL_ES_V211.COL_EstadoConservacionTipo;
+      Materiales_Construccion_Areas_Comunes : TEXT*100;
+      Disenio_Funcionalidad_Copropiedad : TEXT*100;
+    END PredioMatrizPH;
+
+    ASSOCIATION AvaluoPredioMatrizPH =
+      AvPredMatrizPH -- {1} PredioMatrizPH;
+      predio -- {0..*} Predio;
+    END AvaluoPredioMatrizPH;
+
+    CLASS EquipamientoComunal =
+      Tipo_Equipamiento_Comunal : Catastro_COL_ES_V211.COL_EquipamientoComunalTipo;
+      Area : Catastro_COL_ES_V211.COL_AreaValor;
+      Categoria : TEXT*100;
+    END EquipamientoComunal;
+
+    ASSOCIATION AvaluoEquipamientoPredioMatrizPH =
+      AvPredMatrizPH -- {1} PredioMatrizPH;
+      AvEquipComunal -- {0..*} EquipamientoComunal;
+    END AvaluoEquipamientoPredioMatrizPH;
+
+    CLASS ZonaHomogeneaFisica =
+      Identificador : MANDATORY TEXT*20;
+      Geometria : MANDATORY ISO19107_V1_MAGNABOG.GM_Surface2D;
+    END ZonaHomogeneaFisica;
+
+    CLASS ZonaHomogeneaGeoeconomica =
+      Identificador : MANDATORY TEXT*20;
+      Valor : MANDATORY Catastro_COL_ES_V211.Integer;
+      Geometria : MANDATORY ISO19107_V1_MAGNABOG.GM_Surface2D;
+    END ZonaHomogeneaGeoeconomica;
+
+  END Avaluos;
+
+END Avaluos_COL_ES_V211.
