@@ -1,0 +1,677 @@
+INTERLIS 2.3;
+
+MODEL LADM_V1revISO_ES (es)
+AT "http://www.swisslm.ch/models"
+VERSION "2017-06-01 V1.01"  =
+  IMPORTS ISO19107_V1_MAGNABOG;
+
+  TOPIC LADM_Nucleo(ABSTRACT) =
+
+    DOMAIN
+
+      Integer = -2000000000 .. 2000000000;
+
+      Real = -2000000000.000 .. 2000000000.000;
+
+      CharacterString = TEXT*255;
+
+      Currency = -2000000000.00 .. 2000000000.00;
+
+      LA_EstadoDisponibilidadTipo = (
+        original,
+        destruido,
+        incompleto,
+        otro
+      );
+
+      LA_AgrupacionInteresadosTipo = (
+        asociacion,
+        familia,
+        otro
+      );
+
+      LA_InteresadoTipo = (
+        persona_Natural,
+        Persona_NoNatural,
+        otro
+      );
+
+      LA_BAUnitTipo = (
+        unidad_propiedad_basica,
+        unidad_derecho,
+        otro
+      );
+
+      LA_DerechoTipo = (
+        propiedad,
+        consuetudinario,
+        arrendamiento,
+        otro
+      );
+
+      LA_RestriccionTipo = (
+        servidumbres,
+        otro
+      );
+
+      LA_ResponsabilidadTipo = (
+        policia_areas_inundables,
+        otro
+      );
+
+      LA_HipotecaTipo = (
+        lineal,
+        micro_credito,
+        otro
+      );
+
+      LA_FuenteAdministrativaTipo = (
+        escritura,
+        titulo,
+        otro
+      );
+
+      LA_AreaTipo = (
+        oficial,
+        calculada,
+        otro
+      );
+
+      LA_VolumenTipo = (
+        oficial,
+        calculado,
+        otro
+      );
+
+      LA_FuenteEspacialTipo = (
+        topografia,
+        plano,
+        fotografia_aerea,
+        otro
+      );
+
+      LA_DimensionTipo = (
+        Dim2D,
+        Dim3D,
+        otro
+      );
+
+      LA_RelacionSuperficieTipo = (
+        en_rasante,
+        en_vuelo,
+        en_subsuelo,
+        otro
+      );
+
+      LA_UnidadEdificacionTipo = (
+        privado,
+        comercial,
+        estado,
+        otro
+      );
+
+      LA_EstadoRedServiciosTipo = (
+        planeado,
+        en_uso,
+        fuera_de_servicio,
+        otro
+      );
+
+      LA_RedServiciosTipo = (
+        electricidad,
+        gas,
+        agua,
+        alcantarillado,
+        otro
+      );
+
+      LA_RegistroTipo = (
+        rural,
+        urbano,
+        otro
+      );
+
+      LA_EstructuraTipo = (
+        punto,
+        linea,
+        poligono,
+        otro
+      );
+
+      LA_ContenidoNivelTipo = (
+        derecho_primario,
+        consuetudinario,
+        otro
+      );
+
+      LA_InterpolacionTipo = (
+        inicio,
+        final,
+        centro_arco,
+        otro
+      );
+
+      LA_MonumentacionTipo = (
+        baliza,
+        poste,
+        otro
+      );
+
+      LA_PuntoTipo = (
+        control,
+        catastro,
+        otro
+      );
+
+      ISO19125_Type = (
+        disjunto,
+        toca,
+        superpone,
+        desconocido
+      );
+
+      DQ_MetodoEvaluacionCodigoTipo = (
+        internoDirecto,
+        externoDirecto,
+        indirecto
+      );
+
+      CI_CodigoTarea = (
+        ProveedorDeRecursos,
+        custodio,
+        propietario,
+        usuario,
+        distribuidor,
+        creador,
+        puntoDeContacto,
+        investigadorPrincipal,
+        procesador,
+        editor,
+        autor
+      );
+
+      CI_FormaPresentacionCodigo = (
+        Imagenn,
+        mapa,
+        modelo,
+        perfil,
+        tabla,
+        video,
+        audio,
+        diagrama,
+        multimedia,
+        muestraFisica,
+        otro
+      );
+
+    STRUCTURE Oid =
+      localId : MANDATORY CharacterString;
+      espacioDeNombres : MANDATORY CharacterString;
+    END Oid;
+
+    STRUCTURE Fraccion =
+      denominador : MANDATORY Integer;
+      numerador : MANDATORY Integer;
+      MANDATORY CONSTRAINT
+        denominador >= 0;
+      MANDATORY CONSTRAINT
+        numerador >= 0;
+      MANDATORY CONSTRAINT
+        denominador >= numerador;
+    END Fraccion;
+
+    STRUCTURE Imagen =
+      uri : CharacterString;
+    END Imagen;
+
+    STRUCTURE DQ_Element =
+      nombreMedida : CharacterString;
+      identificacionMedida : CharacterString;
+      DescripcionMedida : CharacterString;
+      metodoEvaluacion : DQ_MetodoEvaluacionCodigoTipo;
+      descripcionMetodoEvaluacion : CharacterString;
+      procedimientoEvaluacion : CharacterString;
+      fechaHora : INTERLIS.XMLDateTime;
+      resultado : CharacterString;
+    END DQ_Element;
+
+    STRUCTURE DQ_PositionalAccuracy
+    EXTENDS DQ_Element =
+      atributo21 : CharacterString;
+    END DQ_PositionalAccuracy;
+
+    STRUCTURE DQ_AbsoluteExternalPositionalAccuracy
+    EXTENDS DQ_PositionalAccuracy =
+      atributo1 : CharacterString;
+    END DQ_AbsoluteExternalPositionalAccuracy;
+
+    STRUCTURE LI_Lineaje =
+      statement : CharacterString;
+    END LI_Lineaje;
+
+    STRUCTURE CI_Contacto =
+      telefono : CharacterString;
+      direccion : CharacterString;
+      fuenteEnLinea : CharacterString;
+      horarioDeAtencion : CharacterString;
+      instruccionesContacto : CharacterString;
+    END CI_Contacto;
+
+    STRUCTURE CI_ParteResponsable =
+      nombreIndividual : CharacterString;
+      nombreOrganizacion : CharacterString;
+      posicion : CharacterString;
+      informacionContacto : LADM_V1revISO_ES.LADM_Nucleo.CI_Contacto;
+      funcion : CI_CodigoTarea;
+    END CI_ParteResponsable;
+
+    STRUCTURE CC_MetodoOperacion =
+      formula : MANDATORY CharacterString;
+      dimensionesOrigen : Integer;
+      dimensionesObjetivo : Integer;
+    END CC_MetodoOperacion;
+
+    STRUCTURE OM_Observacion =
+      resultadoCalidad : LADM_V1revISO_ES.LADM_Nucleo.DQ_Element;
+    END OM_Observacion;
+
+    STRUCTURE OM_Proceso =
+    END OM_Proceso;
+
+    STRUCTURE ExtDireccion =
+      nombreAreaDireccion : CharacterString;
+      coordenadaDireccion : ISO19107_V1_MAGNABOG.GM_Point2D;
+      direccionID : MANDATORY LADM_V1revISO_ES.LADM_Nucleo.Oid;
+      nombreEdificio : CharacterString;
+      numeroEdificio : CharacterString;
+      ciudad : CharacterString;
+      pais : CharacterString;
+      codigoPostal : CharacterString;
+      apartadoCorreos : CharacterString;
+      departamento : CharacterString;
+      nombreCalle : CharacterString;
+    END ExtDireccion;
+
+    STRUCTURE ExtUnidadEdificacionFisica =
+      ExtDireccionID : LADM_V1revISO_ES.LADM_Nucleo.ExtDireccion;
+    END ExtUnidadEdificacionFisica;
+
+    STRUCTURE ExtInteresado =
+      ExtDireccionID : LADM_V1revISO_ES.LADM_Nucleo.ExtDireccion;
+      huellaDactilar : LADM_V1revISO_ES.LADM_Nucleo.Imagen;
+      nombre : CharacterString;
+      interesadoID : LADM_V1revISO_ES.LADM_Nucleo.Oid;
+      fotografia : LADM_V1revISO_ES.LADM_Nucleo.Imagen;
+      firma : LADM_V1revISO_ES.LADM_Nucleo.Imagen;
+    END ExtInteresado;
+
+    STRUCTURE ExtRedServiciosFisica =
+      orientada : BOOLEAN;
+      ExtInteresadoAdministradorID : LADM_V1revISO_ES.LADM_Nucleo.ExtInteresado;
+    END ExtRedServiciosFisica;
+
+    STRUCTURE ExtArchivo =
+      fechaAceptacion : INTERLIS.XMLDate;
+      datos : CharacterString;
+      extraccion : INTERLIS.XMLDate;
+      fechaGrabacion : INTERLIS.XMLDate;
+      fechaEntrega : INTERLIS.XMLDate;
+      sEspacioDeNombres : MANDATORY CharacterString;
+      sLocalId : MANDATORY CharacterString;
+    END ExtArchivo;
+
+    STRUCTURE LA_VolumenValor =
+      volumenMedicion : MANDATORY 0.0 .. 99999999999999.9 [INTERLIS.m];
+      tipo : MANDATORY LA_VolumenTipo;
+    END LA_VolumenValor;
+
+    STRUCTURE LA_AreaValor =
+      areaMedicion : MANDATORY 0.0 .. 99999999999999.9 [INTERLIS.m];
+      tipo : MANDATORY LA_AreaTipo;
+    END LA_AreaValor;
+
+    STRUCTURE LA_Transformacion =
+      transformacion : MANDATORY LADM_V1revISO_ES.LADM_Nucleo.CC_MetodoOperacion;
+      localizacionTransformada : MANDATORY ISO19107_V1_MAGNABOG.GM_Point2D;
+    END LA_Transformacion;
+
+    STRUCTURE LA_TareaInteresadoTipo =
+      tipo : (
+        topografo,
+        notario,
+        otro
+      );
+    END LA_TareaInteresadoTipo;
+
+    CLASS ObjetoVersionado (ABSTRACT) =
+      comienzoVidaUtilVersion : MANDATORY INTERLIS.XMLDateTime;
+      finVidaUtilVersion : INTERLIS.XMLDateTime;
+      calidad : LIST {0..*} OF LADM_V1revISO_ES.LADM_Nucleo.DQ_Element;
+      procedencia : LIST {0..*} OF LADM_V1revISO_ES.LADM_Nucleo.CI_ParteResponsable;
+      MANDATORY CONSTRAINT
+        finVidaUtilVersion >= comienzoVidaUtilVersion;
+    END ObjetoVersionado;
+
+    CLASS LA_Fuente (ABSTRACT) =
+      fechaAceptacion : INTERLIS.XMLDateTime;
+      estadoDisponibilidad : MANDATORY LA_EstadoDisponibilidadTipo;
+      ExtArchivoID : LADM_V1revISO_ES.LADM_Nucleo.ExtArchivo;
+      selloIniciovalidez : INTERLIS.XMLDateTime;
+      tipoPrincipal : CI_FormaPresentacionCodigo;
+      calidad : LIST {0..*} OF LADM_V1revISO_ES.LADM_Nucleo.DQ_Element;
+      fechaGrabacion : INTERLIS.XMLDateTime;
+      procedencia : LIST {0..*} OF LADM_V1revISO_ES.LADM_Nucleo.CI_ParteResponsable;
+      fechaEntrega : INTERLIS.XMLDateTime;
+      sEspacioDeNombres : MANDATORY CharacterString;
+      sLocalId : MANDATORY CharacterString;
+    END LA_Fuente;
+
+    CLASS LA_UnidadEspacial
+    EXTENDS ObjetoVersionado =
+      area : LIST {0..*} OF LADM_V1revISO_ES.LADM_Nucleo.LA_AreaValor;
+      dimension : LA_DimensionTipo;
+      ExtDireccionID : LIST {0..*} OF LADM_V1revISO_ES.LADM_Nucleo.Oid;
+      etiqueta : CharacterString;
+      puntoReferencia : ISO19107_V1_MAGNABOG.GM_Point2D;
+      relacionSuperficie : LA_RelacionSuperficieTipo;
+      volumen : LIST {0..*} OF LADM_V1revISO_ES.LADM_Nucleo.LA_VolumenValor;
+      suEspacioDeNombres : MANDATORY CharacterString;
+      suLocalId : MANDATORY CharacterString;
+    END LA_UnidadEspacial;
+
+    CLASS LA_AgrupacionUnidadesEspaciales EXTENDS ObjetoVersionado =
+      nivelJerarquico: MANDATORY Integer;
+      etiqueta: CharacterString;
+      nombre: CharacterString;
+      puntoReferencia: GM_Point2D;
+      sugEspacioDeNombres : MANDATORY CharacterString;
+      sugLocalId : MANDATORY CharacterString;
+    END LA_AgrupacionUnidadesEspaciales;
+
+    CLASS LA_EspacioJuridicoUnidadEdificacion
+    EXTENDS LA_UnidadEspacial =
+      ExtUnidadEdificacionFisicaID : LADM_V1revISO_ES.LADM_Nucleo.ExtUnidadEdificacionFisica;
+      tipo : LA_UnidadEdificacionTipo;
+    END LA_EspacioJuridicoUnidadEdificacion;
+
+    CLASS LA_EspacioJuridicoRedServicios
+    EXTENDS LA_UnidadEspacial =
+      extIDRedFisica : LADM_V1revISO_ES.LADM_Nucleo.ExtRedServiciosFisica;
+      estado : LA_EstadoRedServiciosTipo;
+      tipo : LA_RedServiciosTipo;
+    END LA_EspacioJuridicoRedServicios;
+
+    CLASS LA_Nivel
+    EXTENDS ObjetoVersionado =
+      nID : MANDATORY LADM_V1revISO_ES.LADM_Nucleo.Oid;
+      nombre : CharacterString;
+      registroTipo : LA_RegistroTipo;
+      estructura : LA_EstructuraTipo;
+      tipo : LA_ContenidoNivelTipo;
+    END LA_Nivel;
+
+    CLASS LA_RelacionNecesariaUnidadesEspaciales
+    EXTENDS ObjetoVersionado =
+      relacion : MANDATORY ISO19125_Type;
+    END LA_RelacionNecesariaUnidadesEspaciales;
+
+    ASSOCIATION relacionUe =
+      rue1 -- {0..*} LA_UnidadEspacial;
+      rue2 -- {0..*} LA_UnidadEspacial;
+    END relacionUe;
+
+    ASSOCIATION UeJerarquia =
+      uej1 -- {0..*} LA_UnidadEspacial;
+      uej2 -<> {0..1} LA_UnidadEspacial;
+    END UeJerarquia;
+
+    ASSOCIATION ueJerarquiaGrupo =
+      set -<> {0..1} LA_AgrupacionUnidadesEspaciales;
+      element -- {0..*} LA_AgrupacionUnidadesEspaciales;
+    END ueJerarquiaGrupo;
+
+    ASSOCIATION ueUeGrupo =
+      parte -- {0..*} LA_UnidadEspacial;
+      todo -- {0..*} LA_AgrupacionUnidadesEspaciales;
+    END ueUeGrupo;
+
+    ASSOCIATION ueNivel =
+      ue -- {0..*} LA_UnidadEspacial;
+      nivel -- {0..1} LA_Nivel;
+    END ueNivel;
+
+    CLASS LA_RRR (ABSTRACT)
+    EXTENDS ObjetoVersionado =
+      descripcion : CharacterString;
+      compartido : LADM_V1revISO_ES.LADM_Nucleo.Fraccion;
+      comprobacionComparte : BOOLEAN;
+      usoEfectivo : CharacterString;
+      rEspacioDeNombres : MANDATORY CharacterString;
+      rLocalId : MANDATORY CharacterString;
+    END LA_RRR;
+
+    CLASS LA_BAUnit
+    EXTENDS ObjetoVersionado =
+      nombre : CharacterString;
+      tipo : MANDATORY LA_BAUnitTipo;
+      uEspacioDeNombres : MANDATORY CharacterString;
+      uLocalId : CharacterString;
+    END LA_BAUnit;
+
+    CLASS LA_RelacionNecesariaBAUnits
+    EXTENDS ObjetoVersionado =
+      relacion : MANDATORY CharacterString;
+    END LA_RelacionNecesariaBAUnits;
+
+    CLASS LA_Derecho
+    EXTENDS LA_RRR =
+      tipo : MANDATORY LA_DerechoTipo;
+    END LA_Derecho;
+
+    CLASS LA_Restriccion
+    EXTENDS LA_RRR =
+      interesadoRequerido : BOOLEAN;
+      tipo : MANDATORY LA_RestriccionTipo;
+    END LA_Restriccion;
+
+    CLASS LA_Responsabilidad
+    EXTENDS LA_RRR =
+      tipo : MANDATORY LA_ResponsabilidadTipo;
+    END LA_Responsabilidad;
+
+    CLASS LA_Hipoteca
+    EXTENDS LA_Restriccion =
+      cantidad : Currency;
+      tipoInteres : Real;
+      clasificacion : Integer;
+      htipo : LA_HipotecaTipo;
+    END LA_Hipoteca;
+
+    CLASS LA_FuenteAdministrativa
+    EXTENDS LA_Fuente =
+      texto : CharacterString;
+      tipo : MANDATORY LA_FuenteAdministrativaTipo;
+    END LA_FuenteAdministrativa;
+
+    ASSOCIATION ueBaunit =
+      ue (EXTERNAL) -- {0..*} LA_UnidadEspacial;
+      baunit -- {0..*} LA_BAUnit;
+    END ueBaunit;
+
+    ASSOCIATION relacionBaunit =
+      unidad1 -- {0..*} LA_BAUnit;
+      unidad2 -- {0..*} LA_BAUnit;
+    END relacionBaunit;
+
+    ASSOCIATION baunitRrr =
+      unidad -- {1} LA_BAUnit;
+      rrr -- {1..*} LA_RRR;
+    END baunitRrr;
+
+    ASSOCIATION hipotecaDerecho =
+      hipoteca -- {0..*} LA_Hipoteca;
+      derecho -- {0..*} LA_Derecho;
+    END hipotecaDerecho;
+
+    ASSOCIATION rrrFuente =
+      rfuente -- {1..*} LA_FuenteAdministrativa;
+      rrr -- {0..*} LA_RRR;
+    END rrrFuente;
+
+    ASSOCIATION relacionFuente =
+      refuente -- {0..*} LA_FuenteAdministrativa;
+      relacionrequeridaBaunit -- {0..*} LA_RelacionNecesariaBAUnits;
+    END relacionFuente;
+
+    ASSOCIATION unidadFuente =
+      ufuente -- {0..*} LA_FuenteAdministrativa;
+      unidad -- {0..*} LA_BAUnit;
+    END unidadFuente;
+
+    CLASS LA_Punto
+    EXTENDS ObjetoVersionado =
+      exactitudEstimada : LADM_V1revISO_ES.LADM_Nucleo.DQ_AbsoluteExternalPositionalAccuracy;
+      posicionInterpolacion : MANDATORY LA_InterpolacionTipo;
+      monumentacion : LA_MonumentacionTipo;
+      LocalizacionOriginal : MANDATORY ISO19107_V1_MAGNABOG.GM_Point2D;
+      puntoTipo : MANDATORY LA_PuntoTipo;
+      metodoProduccion : LADM_V1revISO_ES.LADM_Nucleo.LI_Lineaje;
+      transformacionYResultado : LIST {0..*} OF LADM_V1revISO_ES.LADM_Nucleo.LA_Transformacion;
+      pEspacioDeNombres : MANDATORY CharacterString;
+      pLocalId : MANDATORY CharacterString;
+    END LA_Punto;
+
+    CLASS LA_FuenteEspacial
+    EXTENDS LA_Fuente =
+      mediciones : LIST {0..*} OF LADM_V1revISO_ES.LADM_Nucleo.OM_Observacion;
+      procedimiento : LADM_V1revISO_ES.LADM_Nucleo.OM_Proceso;
+      tipo : MANDATORY LA_FuenteEspacialTipo;
+    END LA_FuenteEspacial;
+
+    CLASS LA_CadenaCarasLindero
+    EXTENDS ObjetoVersionado =
+      geometria : ISO19107_V1_MAGNABOG.GM_MultiCurve3D;
+      localizacionTextual : CharacterString;
+      cclEspacioDeNombres : MANDATORY CharacterString;
+      cclLocalId : MANDATORY CharacterString;
+    END LA_CadenaCarasLindero;
+
+    CLASS LA_CarasLindero
+    EXTENDS ObjetoVersionado =
+      geometria : ISO19107_V1_MAGNABOG.GM_MultiSurface3D;
+      localizacionTextual : CharacterString;
+      clEspacioDeNombres : MANDATORY CharacterString;
+      clLocalId : MANDATORY CharacterString;
+    END LA_CarasLindero;
+
+    ASSOCIATION puntoReferencia =
+      ue (EXTERNAL) -- {0..1} LA_UnidadEspacial;
+      punto -- {0..1} LA_Punto;
+    END puntoReferencia;
+
+    ASSOCIATION puntoFuente =
+      pfuente -- {0..*} LA_FuenteEspacial;
+      punto -- {1..*} LA_Punto;
+    END puntoFuente;
+
+    ASSOCIATION ueFuente =
+      ue (EXTERNAL) -- {0..*} LA_UnidadEspacial;
+      pfuente -- {0..*} LA_FuenteEspacial;
+    END ueFuente;
+
+    ASSOCIATION baunitFuente =
+      bfuente -- {0..*} LA_FuenteEspacial;
+      unidad (EXTERNAL) -- {0..*} LA_BAUnit;
+    END baunitFuente;
+
+    ASSOCIATION relacionFuenteUespacial =
+      rfuente -- {0..*} LA_FuenteEspacial;
+      relacionrequeridaUe (EXTERNAL) -- {0..*} LA_RelacionNecesariaUnidadesEspaciales;
+    END relacionFuenteUespacial;
+
+    ASSOCIATION cclFuente =
+      ccl -- {0..*} LA_CadenaCarasLindero;
+      lfuente -- {0..*} LA_FuenteEspacial;
+    END cclFuente;
+
+    ASSOCIATION menos =
+      ccl -- {0..*} LA_CadenaCarasLindero;
+      eu (EXTERNAL) -- {0..*} LA_UnidadEspacial;
+    END menos;
+
+    ASSOCIATION masCcl =
+      cclP -- {0..*} LA_CadenaCarasLindero;
+      ueP (EXTERNAL) -- {0..*} LA_UnidadEspacial;
+    END masCcl;
+
+    ASSOCIATION puntoCcl =
+      punto -- {2..*} LA_Punto;
+      ccl -- {0..*} LA_CadenaCarasLindero;
+    END puntoCcl;
+
+    ASSOCIATION clFuente =
+      cl -- {0..*} LA_CarasLindero;
+      cfuente -- {0..*} LA_FuenteEspacial;
+    END clFuente;
+
+    ASSOCIATION menosf =
+      cl -- {0..*} LA_CarasLindero;
+      ue (EXTERNAL) -- {0..*} LA_UnidadEspacial;
+    END menosf;
+
+    ASSOCIATION mas =
+      clP -- {0..*} LA_CarasLindero;
+      ueP (EXTERNAL) -- {0..*} LA_UnidadEspacial;
+    END mas;
+
+    ASSOCIATION puntoCl =
+      punto -- {3..*} LA_Punto;
+      cl -- {0..*} LA_CarasLindero;
+    END puntoCl;
+
+    CLASS LA_Interesado
+    EXTENDS ObjetoVersionado =
+      extPID : LADM_V1revISO_ES.LADM_Nucleo.Oid;
+      nombre : CharacterString;
+      tarea : LIST {0..*} OF LADM_V1revISO_ES.LADM_Nucleo.LA_TareaInteresadoTipo;
+      tipo : MANDATORY LA_InteresadoTipo;
+      pEspacioDeNombres : MANDATORY CharacterString;
+      pLocalId : MANDATORY CharacterString;
+    END LA_Interesado;
+
+    CLASS LA_AgrupacionInteresados
+    EXTENDS LA_Interesado =
+      ptipo : MANDATORY LA_AgrupacionInteresadosTipo;
+      aiEspacioDeNombres : MANDATORY CharacterString;
+      aiLocalId : MANDATORY CharacterString;
+    END LA_AgrupacionInteresados;
+
+    ASSOCIATION baunitComoInteresado =
+      interesado -- {0..*} LA_Interesado;
+      unidad (EXTERNAL) -- {0..*} LA_BAUnit;
+    END baunitComoInteresado;
+
+    ASSOCIATION notarioFuente =
+      cfuente (EXTERNAL) -- {0..*} LA_FuenteAdministrativa;
+      notario -- {1..*} LA_Interesado;
+    END notarioFuente;
+
+    ASSOCIATION rrrInteresado =
+      rrr (EXTERNAL) -- {0..*} LA_RRR;
+      interesado -- {0..1} LA_Interesado;
+    END rrrInteresado;
+
+    ASSOCIATION topografoFuente =
+      sfuente (EXTERNAL) -- {0..*} LA_FuenteEspacial;
+      topografo -- {1..*} LA_Interesado;
+    END topografoFuente;
+
+    ASSOCIATION miembros =
+      interesados -- {2..*} LA_Interesado;
+      agrupacion -<> {0..1} LA_AgrupacionInteresados;
+      participacion : LADM_V1revISO_ES.LADM_Nucleo.Fraccion;
+    END miembros;
+
+  END LADM_Nucleo;
+
+END LADM_V1revISO_ES.
