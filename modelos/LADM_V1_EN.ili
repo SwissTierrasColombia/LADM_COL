@@ -1,617 +1,625 @@
-!!----------------------------------------------------------
-!!
-!! ISO 19152 LADM modelled with INTERLIS 2
-!!
-!!----------------------------------------------------------
-!! revision history
-!!----------------------------------------------------------
-!! 
-!! 27.01.2014/mg: initial version
-!! 02.02.2014/mg: checked with compiler version 4.4.14
-!! 17.11.2014/mg: checked with compiler version 4.5.3
-!! 07.03.2016/mg: simplification
-!! 17.08.2016/mg: associations
-!! 10.11.2016/mg: CONSTRAINT
-!!
-!!----------------------------------------------------------
-!!
-!! (c) Swiss Land Management (www.swisslm.ch)
-!!
-!!----------------------------------------------------------
-
 INTERLIS 2.3;
 
-MODEL LADM_V1_EN (en) 
+MODEL LADM_V1_EN (en)
+AT "http://www.swisslm.ch/models"
+VERSION "2016-10-11"  =
+  IMPORTS ISO19107_V1_MAGNABOG;
 
-   AT "http://www.swisslm.ch/models"
-   VERSION "2016-10-11" =
+  TOPIC LADM_Core(ABSTRACT) =
 
-      IMPORTS UNQUALIFIED INTERLIS;
-      IMPORTS UNQUALIFIED ISO19107_V1_MAGNABOG; !! Spatial Schema
-
-   TOPIC LADM_Core (ABSTRACT) =
-
-      DOMAIN
+    DOMAIN
 
       Integer = -2000000000 .. 2000000000;
+
+      LA_AdministrativeSourceType = (
+        deed,
+        title,
+        other
+      );
+
+      LA_AreaValueType = (
+        official,
+        calculated,
+        other
+      );
+
+      LA_BAUnitType = (
+        basic_propery_unit,
+        right_unit,
+        other
+      );
+
+      LA_PointMonumentationType = (
+        beacon,
+        marker,
+        other
+      );
+
+      LA_PointType = (
+        control,
+        cadastral,
+        other
+      );
+
+      LA_ResponsibilityType = (
+        waterway_maintenance,
+        other
+      );
+
+      LA_RestrictionType = (
+        servitutes,
+        other
+      );
+
+      LA_RightType = (
+        ownership,
+        customary,
+        lease,
+        other
+      );
+
+      LA_SpatialSourceType = (
+        survey,
+        plan,
+        areal_photo,
+        other
+      );
+
+      LA_VolumeValueType = (
+        official,
+        calculated,
+        other
+      );
+
       Real = -2000000000.000 .. 2000000000.000;
+
       CharacterString = TEXT*255;
+
       Currency = -2000000000.00 .. 2000000000.00;
 
       LA_AvailabilityStatusType = (
-         original,
-         destroyed,
-         incomplete,
-         other
+        original,
+        destroyed,
+        incomplete,
+        other
       );
 
       LA_GroupPartyType = (
-         association,
-         family,
-         other
+        association,
+        family,
+        other
       );
 
       LA_PartyType = (
-         natural_Person,
-         nonnatural_person,
-         other
+        natural_Person,
+        nonnatural_person,
+        other
       );
 
-      !! from ISO19125
       ISO19125_Type = (
-         disjoint, 
-         touches, 
-         overlaps, 
-         unknown
+        disjoint,
+        touches,
+        overlaps,
+        unknown
       );
 
       DQ_EvaluationMethodTypeCode = (
-         directInteral,
-         directExternal,
-         indirect
+        directInteral,
+        directExternal,
+        indirect
       );
 
       CI_RoleCode = (
-         resourceProvider,
-         custodian,
-         owner,
-         user,
-         distributor,
-         originator,
-         pointOfContact,
-         pricipalInvesigator,
-         processor,
-         publisher,
-         author
+        resourceProvider,
+        custodian,
+        owner,
+        user,
+        distributor,
+        originator,
+        pointOfContact,
+        pricipalInvesigator,
+        processor,
+        publisher,
+        author
       );
 
       CI_PresentationFormCode = (
-         image,
-         map,
-         model,
-         profile,
-         table,
-         video,
-         audio,
-         diagram,
-         multimedia,
-         physicalSample,
-         other
+        image,
+        map,
+        model,
+        profile,
+        table,
+        video,
+        audio,
+        diagram,
+        multimedia,
+        physicalSample,
+        other
       );
 
-      !! common structures
+    STRUCTURE Oid =
+      namespace : MANDATORY CharacterString;
+      localId : MANDATORY CharacterString;
+    END Oid;
 
-      STRUCTURE Oid =
-         namespace: MANDATORY CharacterString;
-         localId: MANDATORY CharacterString;
-      END Oid;
+    STRUCTURE Fraction =
+      denominator : MANDATORY Integer;
+      numerator : MANDATORY Integer;
+    END Fraction;
 
-      STRUCTURE Fraction =
-         denominator: MANDATORY Integer;
-         numerator: MANDATORY Integer;
-      END Fraction;
+    STRUCTURE Image =
+      uri : CharacterString;
+    END Image;
 
-      STRUCTURE Image =
-         uri: CharacterString;
-      END Image;
+    STRUCTURE DQ_Element =
+      nameOfMeasure : CharacterString;
+      measureIdentification : CharacterString;
+      measureDescription : CharacterString;
+      evaluationMethod : DQ_EvaluationMethodTypeCode;
+      evaluationMethodDescription : CharacterString;
+      evaluationProcedure : CharacterString;
+      dateTime : INTERLIS.XMLDateTime;
+      result : CharacterString;
+    END DQ_Element;
 
-      STRUCTURE DQ_Element =
-         nameOfMeasure: CharacterString;
-         measureIdentification: CharacterString;
-         measureDescription: CharacterString;
-         evaluationMethod: DQ_EvaluationMethodTypeCode;
-         evaluationMethodDescription: CharacterString;
-         evaluationProcedure: CharacterString;
-         dateTime: XMLDateTime;
-         result: CharacterString;
-      END DQ_Element;
+    STRUCTURE CI_Contact =
+      phone : CharacterString;
+      address : CharacterString;
+      onlinResource : CharacterString;
+      hoursOfService : CharacterString;
+      contactInstructions : CharacterString;
+    END CI_Contact;
 
-      STRUCTURE CI_Contact =
-         phone: CharacterString;
-         address: CharacterString;
-         onlinResource: CharacterString;
-         hoursOfService: CharacterString;
-         contactInstructions: CharacterString;
-      END CI_Contact;
+    STRUCTURE CI_ResponsibleParty =
+      invidualName : CharacterString;
+      organisationName : CharacterString;
+      positionName : CharacterString;
+      contactInfo : LADM_V1_EN.LADM_Core.CI_Contact;
+      role : CI_RoleCode;
+    END CI_ResponsibleParty;
 
-      STRUCTURE CI_ResponsibleParty =
-         invidualName: CharacterString;
-         organisationName: CharacterString;
-         positionName: CharacterString;
-         contactInfo: CI_Contact;
-         role: CI_RoleCode;
-      END CI_ResponsibleParty;
+    STRUCTURE CC_OperationMethod =
+      formula : MANDATORY CharacterString;
+      sourceDimensions : Integer;
+      targetDimensions : Integer;
+    END CC_OperationMethod;
 
-      STRUCTURE CC_OperationMethod =
-         formula: MANDATORY CharacterString;
-         sourceDimensions: Integer;
-         targetDimensions: Integer;
-      END CC_OperationMethod;
+    STRUCTURE OM_Observation =
+      resultQuality : LADM_V1_EN.LADM_Core.DQ_Element;
+    END OM_Observation;
 
-      STRUCTURE OM_Observation =
-         resultQuality: DQ_Element;
-      END OM_Observation;
+    STRUCTURE OM_Process =
+    END OM_Process;
 
-      STRUCTURE OM_Process =
-      END OM_Process;
+    STRUCTURE ExtAddress =
+      addressAreaName : CharacterString;
+      addressCoordinate : ISO19107_V1_MAGNABOG.GM_Point2D;
+      addressID : MANDATORY LADM_V1_EN.LADM_Core.Oid;
+      buildingName : CharacterString;
+      buildingNumber : CharacterString;
+      city : CharacterString;
+      country : CharacterString;
+      postalCode : CharacterString;
+      postBox : CharacterString;
+      state : CharacterString;
+      streetName : CharacterString;
+    END ExtAddress;
 
-      STRUCTURE ExtAddress =
-         addressAreaName: CharacterString;
-         addressCoordinate : GM_Point2D;
-         addressID: MANDATORY Oid;
-         buildingName: CharacterString;
-         buildingNumber: CharacterString;
-         city: CharacterString;
-         country: CharacterString;
-         postalCode: CharacterString;
-         postBox: CharacterString;
-         state: CharacterString;
-         streetName: CharacterString;
-      END ExtAddress;
+    STRUCTURE ExtPhysicalBuildingUnit =
+      extAddressID : LADM_V1_EN.LADM_Core.ExtAddress;
+    END ExtPhysicalBuildingUnit;
 
-      STRUCTURE ExtPhysicalBuildingUnit =
-         extAddressID: ExtAddress;
-      END ExtPhysicalBuildingUnit;
+    STRUCTURE ExtParty =
+      extAddressID : LADM_V1_EN.LADM_Core.ExtAddress;
+      fingerprint : LADM_V1_EN.LADM_Core.Image;
+      name : CharacterString;
+      partyID : LADM_V1_EN.LADM_Core.Oid;
+      photo : LADM_V1_EN.LADM_Core.Image;
+      signature : LADM_V1_EN.LADM_Core.Image;
+    END ExtParty;
 
-      STRUCTURE ExtParty =
-         extAddressID: ExtAddress;
-         fingerprint: Image;
-         name: CharacterString;
-         partyID: Oid;
-         photo: Image;
-         signature: Image;        
-      END ExtParty;
+    STRUCTURE ExtPhysicalUtilityNetwork =
+      directed : BOOLEAN;
+      extPartyManagerID : LADM_V1_EN.LADM_Core.ExtParty;
+    END ExtPhysicalUtilityNetwork;
 
-      STRUCTURE ExtPhysicalUtilityNetwork =
-         directed: BOOLEAN;
-         extPartyManagerID: ExtParty;
-      END ExtPhysicalUtilityNetwork;
+    STRUCTURE ExtArchive =
+      acceptance : INTERLIS.XMLDate;
+      data : CharacterString;
+      extraction : INTERLIS.XMLDate;
+      recordation : INTERLIS.XMLDate;
+      sID : LADM_V1_EN.LADM_Core.Oid;
+      submission : INTERLIS.XMLDate;
+    END ExtArchive;
 
-      STRUCTURE ExtArchive =
-         acceptance: XMLDate;
-         data: CharacterString;
-         extraction: XMLDate;
-         recordation: XMLDate;
-         sID: Oid;
-         submission: XMLDate;
-      END ExtArchive;
+    STRUCTURE LA_VolumeValue =
+      volumeSize : MANDATORY 0.0 .. 99999999999999.9 [INTERLIS.m];
+      type : MANDATORY LA_VolumeValueType;
+    END LA_VolumeValue;
 
-      STRUCTURE LA_VolumeValue =
-         volumeSize: MANDATORY 0.0 .. 99999999999999.9 [m];
-         type: MANDATORY (
-            official,
-            calculated,
-            other
-         );
-      END LA_VolumeValue;
+    STRUCTURE LA_AreaValue =
+      areaSize : MANDATORY 0.0 .. 99999999999999.9 [INTERLIS.m];
+      type : MANDATORY LA_AreaValueType;
+    END LA_AreaValue;
 
-      STRUCTURE LA_AreaValue =
-         areaSize: MANDATORY 0.0 .. 99999999999999.9 [m];
-         type: MANDATORY (
-            official,
-            calculated,
-            other
-         );
-      END LA_AreaValue;
+    STRUCTURE LA_Transformation =
+      transformation : MANDATORY LADM_V1_EN.LADM_Core.CC_OperationMethod;
+      transformedLocation : MANDATORY ISO19107_V1_MAGNABOG.GM_Point2D;
+    END LA_Transformation;
 
-      STRUCTURE LA_Transformation =
-         transformation: MANDATORY CC_OperationMethod;
-         transformedLocation: MANDATORY GM_Point2D;
-      END LA_Transformation;
+    STRUCTURE LA_PartyRoleType =
+      type : (
+        surveyor,
+        notary,
+        other
+      );
+    END LA_PartyRoleType;
 
-      STRUCTURE LA_PartyRoleType =
-         type: (
-            surveyor,
-            notary,
-            other
-         );
-      END LA_PartyRoleType;
-
-   !! Package Special Classes
-
-      CLASS VersionedObject (ABSTRACT) =
-         beginLifespanVersion: XMLDateTime;
-         endLifespanVersion: XMLDateTime;
-         quality: DQ_Element;
-         source: CI_ResponsibleParty;
+    CLASS VersionedObject (ABSTRACT) =
+      beginLifespanVersion : INTERLIS.XMLDateTime;
+      endLifespanVersion : INTERLIS.XMLDateTime;
+      quality : LADM_V1_EN.LADM_Core.DQ_Element;
+      source : LADM_V1_EN.LADM_Core.CI_ResponsibleParty;
       MANDATORY CONSTRAINT
-         endLifespanVersion >= beginLifespanVersion;
-      END VersionedObject;
+        endLifespanVersion >= beginLifespanVersion;
+    END VersionedObject;
 
-      CLASS LA_Source (ABSTRACT) =
-         acceptance: XMLDateTime;
-         availabilityStatus: MANDATORY LA_AvailabilityStatusType;
-         extArchiveID: ExtArchive;
-         liveSpanStamp: XMLDateTime;
-         mainType: CI_PresentationFormCode;
-         quality: LIST {0..*} OF DQ_Element;
-         recordation: XMLDateTime;
-         sID: MANDATORY Oid;
-         source: CI_ResponsibleParty;
-         submission: XMLDateTime;
-      END LA_Source;
+    CLASS LA_Source (ABSTRACT) =
+      acceptance : INTERLIS.XMLDateTime;
+      availabilityStatus : MANDATORY LA_AvailabilityStatusType;
+      extArchiveID : LADM_V1_EN.LADM_Core.ExtArchive;
+      liveSpanStamp : INTERLIS.XMLDateTime;
+      mainType : CI_PresentationFormCode;
+      quality : LIST {0..*} OF LADM_V1_EN.LADM_Core.DQ_Element;
+      recordation : INTERLIS.XMLDateTime;
+      sID : MANDATORY LADM_V1_EN.LADM_Core.Oid;
+      source : LADM_V1_EN.LADM_Core.CI_ResponsibleParty;
+      submission : INTERLIS.XMLDateTime;
+    END LA_Source;
 
-   !! Package Spatial Unit
+    CLASS LA_SpatialUnit (ABSTRACT)
+    EXTENDS VersionedObject =
+      extAddressID : LADM_V1_EN.LADM_Core.ExtAddress;
+      area : LADM_V1_EN.LADM_Core.LA_AreaValue;
+      dimension : (
+        Dim2D,
+        Dim3D,
+        other
+      );
+      label : TEXT*255;
+      referencePoint : ISO19107_V1_MAGNABOG.GM_Point2D;
+      suID : MANDATORY LADM_V1_EN.LADM_Core.Oid;
+      surfaceRelation : (
+        on_surface,
+        above_surface,
+        below_surface,
+        other
+      );
+      volume : LADM_V1_EN.LADM_Core.LA_VolumeValue;
+    END LA_SpatialUnit;
 
-      CLASS LA_SpatialUnit EXTENDS VersionedObject =
-         extAddressID: ExtAddress;
-         area: LA_AreaValue;
-         dimension: (
-            Dim2D,
-            Dim3D,
-            other
-         );
-         label: TEXT*255;
-         referencePoint: GM_Point2D;
-         suID: MANDATORY Oid;
-         surfaceRelation: (
-            on_surface,
-            above_surface,
-            below_surface,
-            other
-         );
-         volume: LA_VolumeValue;
-      END LA_SpatialUnit;
+    ASSOCIATION relationSu =
+      rsu1 -- {0..*} LA_SpatialUnit;
+      rsu2 -- {0..*} LA_SpatialUnit;
+    END relationSu;
 
-      ASSOCIATION relationSu =
-         rsu1 -- {0..*} LA_SpatialUnit;
-         rsu2 -- {0..*} LA_SpatialUnit;
-      END relationSu;
+    ASSOCIATION suHierarchy =
+      hsu1 -- {0..*} LA_SpatialUnit;
+      hsu2 -<> {0..1} LA_SpatialUnit;
+    END suHierarchy;
 
-      ASSOCIATION suHierarchy =
-         hsu1 -- {0..*} LA_SpatialUnit;
-         hsu2 -<> {0..1} LA_SpatialUnit;
-      END suHierarchy;
+    CLASS LA_SpatialUnitGroup
+    EXTENDS VersionedObject =
+      hirarchyLevel : MANDATORY Integer;
+      label : CharacterString;
+      name : CharacterString;
+      referencePoint : ISO19107_V1_MAGNABOG.GM_Point2D;
+      sugID : MANDATORY LADM_V1_EN.LADM_Core.Oid;
+    END LA_SpatialUnitGroup;
 
-      CLASS LA_SpatialUnitGroup EXTENDS VersionedObject =
-         hirarchyLevel: MANDATORY Integer;
-         label: CharacterString;
-         name: CharacterString;
-         referencePoint: GM_Point2D;
-         sugID: MANDATORY Oid;
-         !! constraints
-         !! {cout(part)+ count(element)>0}
-      END LA_SpatialUnitGroup;
+    ASSOCIATION suGroupHirarchy =
+      set -<> {0..1} LA_SpatialUnitGroup;
+      element -- {0..*} LA_SpatialUnitGroup;
+    END suGroupHirarchy;
 
-      ASSOCIATION suGroupHirarchy =
-         set -<> {0..1} LA_SpatialUnitGroup;
-         element -- {0..*} LA_SpatialUnitGroup;
-      END suGroupHirarchy; 
+    ASSOCIATION suSuGroup =
+      part -- {0..*} LA_SpatialUnit;
+      whole -- {0..*} LA_SpatialUnitGroup;
+    END suSuGroup;
 
-      ASSOCIATION suSuGroup =
-         part -- {0..*} LA_SpatialUnit;
-         whole -- {0..*} LA_SpatialUnitGroup;
-      END suSuGroup;
+    CLASS LA_LegalSpaceBuildingUnit
+    EXTENDS LA_SpatialUnit =
+      extPhysicalBuildingUnitID : LADM_V1_EN.LADM_Core.ExtPhysicalBuildingUnit;
+      type : (
+        private,
+        commercial,
+        state,
+        other
+      );
+    END LA_LegalSpaceBuildingUnit;
 
-      CLASS LA_LegalSpaceBuildingUnit EXTENDS LA_SpatialUnit =
-         extPhysicalBuildingUnitID: ExtPhysicalBuildingUnit;
-         type: (
-            private,
-            commercial,
-            state,
-            other
-         );
-      END LA_LegalSpaceBuildingUnit;
+    CLASS LA_LegalSpaceUtilityNetwork
+    EXTENDS LA_SpatialUnit =
+      extPhysicalNetworkID : LADM_V1_EN.LADM_Core.ExtPhysicalUtilityNetwork;
+      status : (
+        planned,
+        in_use,
+        out_of_service,
+        other
+      );
+      type : (
+        electricity,
+        gas,
+        water,
+        waste_water,
+        other
+      );
+    END LA_LegalSpaceUtilityNetwork;
 
-      CLASS LA_LegalSpaceUtilityNetwork EXTENDS LA_SpatialUnit =
-         extPhysicalNetworkID: ExtPhysicalUtilityNetwork;
-         status: (
-            planned,
-            in_use,
-            out_of_service,
-            other
-         );
-         type: (
-            electricity,
-            gas,
-            water,
-            waste_water,
-            other
-         );
-      END LA_LegalSpaceUtilityNetwork;
+    CLASS LA_Level
+    EXTENDS VersionedObject =
+      lID : MANDATORY LADM_V1_EN.LADM_Core.Oid;
+      name : CharacterString;
+      registerType : (
+        rural,
+        urban,
+        other
+      );
+      structure : (
+        point,
+        line,
+        polygon,
+        other
+      );
+      type : (
+        primary_right,
+        customary,
+        other
+      );
+    END LA_Level;
 
-      CLASS LA_Level EXTENDS VersionedObject =
-         lID: MANDATORY Oid;
-         name: CharacterString;
-         registerType: (rural,urban,other);
-         structure: (point,line,polygon,other);
-         type: (primary_right,customary,other);
-         !! invariant
-         !! {if structure = text then 
-         !! geometrytopology is optional}
-      END LA_Level;
+    ASSOCIATION suLevel =
+      su -- {0..*} LA_SpatialUnit;
+      level -- {0..1} LA_Level;
+    END suLevel;
 
-      ASSOCIATION suLevel =
-         su -- {0..*} LA_SpatialUnit;
-         level -- {0..1} LA_Level;
-      END suLevel;
+    CLASS LA_RequiredRelationshipSpatialUnit
+    EXTENDS VersionedObject =
+      relationsship : MANDATORY ISO19125_Type;
+    END LA_RequiredRelationshipSpatialUnit;
 
-      CLASS LA_RequiredRelationshipSpatialUnit EXTENDS VersionedObject =
-         relationsship: MANDATORY ISO19125_Type;
-         !! comment
-         !! Topology relationship
-         !! ISO19125_Type as
-         !! defined in ISO 19125
-      END LA_RequiredRelationshipSpatialUnit;
+    CLASS LA_RRR (ABSTRACT)
+    EXTENDS VersionedObject =
+      rID : MANDATORY LADM_V1_EN.LADM_Core.Oid;
+      description : CharacterString;
+      Share : LADM_V1_EN.LADM_Core.Fraction;
+      ShareCheck : BOOLEAN;
+      timeSpec : CharacterString;
+    END LA_RRR;
 
-   !! Package Administrative
-   
-      CLASS LA_RRR EXTENDS VersionedObject =
-         rID: MANDATORY Oid;
-         description: CharacterString;
-         Share: Fraction;
-         ShareCheck: BOOLEAN;
-         timeSpec: CharacterString;
-      END LA_RRR;
+    CLASS LA_BAUnit (ABSTRACT)
+    EXTENDS VersionedObject =
+      name : CharacterString;
+      type : MANDATORY LA_BAUnitType;
+      uID : MANDATORY LADM_V1_EN.LADM_Core.Oid;
+    END LA_BAUnit;
 
-      CLASS LA_BAUnit EXTENDS VersionedObject =
-         name: CharacterString;
-         type: MANDATORY (basic_propery_unit,right_unit,other);
-         uID: MANDATORY Oid;
-         !! constraints
-         !! {sum(RR.share)=1 per type if RRR.shareCheck}
-         !! no overlap RR.timeSpec perssummed type}
-         !! invariant
-         !! {share must be specified, unless this is meaningless for
-         !! the specific type (indicated by shareCheck=false; in
-         !! this case constraint "sum (LA_RRR.share) = 1 per type can
-         !! not be applied)}
-      END LA_BAUnit;
+    ASSOCIATION suBaunit =
+      su (EXTERNAL) -- {0..*} LA_SpatialUnit;
+      baunit -- {0..*} LA_BAUnit;
+    END suBaunit;
 
-      ASSOCIATION suBaunit =
-         su (EXTERNAL) -- {0..*} LA_SpatialUnit;
-         baunit -- {0..*} LA_BAUnit;
-      END suBaunit;
+    ASSOCIATION relationBaunit =
+      unit1 -- {0..*} LA_BAUnit;
+      unit2 -- {0..*} LA_BAUnit;
+    END relationBaunit;
 
-      ASSOCIATION relationBaunit =
-         unit1 -- {0..*} LA_BAUnit;
-         unit2 -- {0..*} LA_BAUnit;
-      END relationBaunit;
+    ASSOCIATION baunitRrr =
+      unit -- {1} LA_BAUnit;
+      rrr -- {1..*} LA_RRR;
+    END baunitRrr;
 
-      ASSOCIATION baunitRrr =
-         unit -- {1..1} LA_BAUnit;
-         rrr -- {1..*} LA_RRR;
-      END baunitRrr;
+    CLASS LA_RequiredRelationshipBAUnit
+    EXTENDS VersionedObject =
+      relationShip : CharacterString;
+    END LA_RequiredRelationshipBAUnit;
 
-      CLASS LA_RequiredRelationshipBAUnit EXTENDS VersionedObject =
-         relationShip: CharacterString;
-      END LA_RequiredRelationshipBAUnit;
+    CLASS LA_Right (ABSTRACT)
+    EXTENDS LA_RRR =
+      type : MANDATORY LA_RightType;
+    END LA_Right;
 
-      CLASS LA_Right EXTENDS LA_RRR =
-         tipo: MANDATORY (ownership,customary,lease,other);
-      END LA_Right;
+    CLASS LA_Restriction (ABSTRACT)
+    EXTENDS LA_RRR =
+      partyRequired : BOOLEAN;
+      type : MANDATORY LA_RestrictionType;
+    END LA_Restriction;
 
-      CLASS LA_Restriction EXTENDS LA_RRR =
-         partyRequired: BOOLEAN;
-         type: MANDATORY (servitutes,other);
-      END LA_Restriction;
+    CLASS LA_Responsibility (ABSTRACT)
+    EXTENDS LA_RRR =
+      type : MANDATORY LA_ResponsibilityType;
+    END LA_Responsibility;
 
-      CLASS LA_Responsibility EXTENDS LA_RRR =
-         type: MANDATORY (waterway_maintenance,other);
-      END LA_Responsibility;
+    CLASS LA_Mortgage (ABSTRACT)
+    EXTENDS LA_Restriction =
+      amount : Currency;
+      interestRate : Real;
+      ranking : Integer;
+      mtype : (
+        linear,
+        micro_credit,
+        other
+      );
+    END LA_Mortgage;
 
-      CLASS LA_Mortgage EXTENDS LA_Restriction =
-         amount: Currency;
-         interestRate: Real;
-         ranking: Integer;
-         mtype: (
-            linear,
-            micro_credit,
-            other
-         );
-      END LA_Mortgage;
+    ASSOCIATION mortgageRight =
+      mortgage -- {0..*} LA_Mortgage;
+      right -- {0..*} LA_Right;
+    END mortgageRight;
 
-      ASSOCIATION mortgageRight =
-         mortgage -- {0..*} LA_Mortgage; !! {ordered}
-         right -- {0..*} LA_Right;
-      END mortgageRight;
+    CLASS LA_AdministrativeSource (ABSTRACT)
+    EXTENDS LA_Source =
+      text : CharacterString;
+      type : MANDATORY LA_AdministrativeSourceType;
+    END LA_AdministrativeSource;
 
-      CLASS LA_AdministrativeSource EXTENDS LA_Source =
-         text: CharacterString;
-         type: MANDATORY (
-            deed,
-            title,
-            other
-         );
-      END LA_AdministrativeSource;
+    ASSOCIATION rrrSource =
+      rsource -- {1..*} LA_AdministrativeSource;
+      rrrSource -- {0..*} LA_RRR;
+    END rrrSource;
 
-      ASSOCIATION rrrSource =
-         rsource -- {1..*} LA_AdministrativeSource;
-         rrrSource -- {0..*} LA_RRR; 
-      END rrrSource;
+    ASSOCIATION relationAdminSource =
+      resource -- {0..*} LA_AdministrativeSource;
+      requiredRelationBaunit -- {0..*} LA_RequiredRelationshipBAUnit;
+    END relationAdminSource;
 
-      ASSOCIATION relationAdminSource =
-         resource -- {0..*} LA_AdministrativeSource;
-         requiredRelationBaunit -- {0..*} LA_RequiredRelationshipBAUnit;
-      END relationAdminSource; 
+    ASSOCIATION unitSource =
+      usource -- {0..*} LA_AdministrativeSource;
+      unit -- {0..*} LA_BAUnit;
+    END unitSource;
 
-      ASSOCIATION unitSource =
-         usource -- {0..*} LA_AdministrativeSource;
-         unit -- {0..*} LA_BAUnit;
-      END unitSource;
+    CLASS LA_Point (ABSTRACT)
+    EXTENDS VersionedObject =
+      interpolationRole : (
+        start,
+        end,
+        mid_arc,
+        other
+      );
+      monumentation : MANDATORY LA_PointMonumentationType;
+      originalLocation : MANDATORY ISO19107_V1_MAGNABOG.GM_Point2D;
+      pID : MANDATORY LADM_V1_EN.LADM_Core.Oid;
+      pointType : MANDATORY LA_PointType;
+      transAndResult : LADM_V1_EN.LADM_Core.LA_Transformation;
+    END LA_Point;
 
-   !! package Surveying and Representation
+    CLASS LA_SpatialSource (ABSTRACT)
+    EXTENDS LA_Source =
+      measurements : LIST {0..*} OF LADM_V1_EN.LADM_Core.OM_Observation;
+      procedure : LADM_V1_EN.LADM_Core.OM_Process;
+      type : MANDATORY LA_SpatialSourceType;
+    END LA_SpatialSource;
 
-      CLASS LA_Point EXTENDS VersionedObject =
-         interpolationRole: (
-            start,
-            end,
-            mid_arc,
-            other
-         );
-         monumentation: MANDATORY (
-            beacon,
-            marker,
-            other
-         );
-         originalLocation: MANDATORY GM_Point2D;
-         pID: MANDATORY Oid;
-         pointType: MANDATORY (
-            control,
-            cadastral,
-            other
-         );
-         transAndResult: LA_Transformation;
-      END LA_Point;
+    ASSOCIATION referencePoint =
+      su (EXTERNAL) -- {0..1} LA_SpatialUnit;
+      point -- {0..1} LA_Point;
+    END referencePoint;
 
-      CLASS LA_SpatialSource EXTENDS LA_Source =
-         measurements: LIST {0 .. *} OF OM_Observation;
-         procedure: OM_Process;
-         type: MANDATORY (
-            survey,
-            plan,
-            areal_photo,
-            other
-         );
-      END LA_SpatialSource;
+    ASSOCIATION pointSource =
+      psource -- {0..*} LA_SpatialSource;
+      point -- {1..*} LA_Point;
+    END pointSource;
 
-      ASSOCIATION referencePoint =
-         su (EXTERNAL) -- {0..1} LA_SpatialUnit;
-         point -- {0..1} LA_Point;
-      END referencePoint;
+    ASSOCIATION suSource =
+      su (EXTERNAL) -- {0..*} LA_SpatialUnit;
+      ssource -- {0..*} LA_SpatialSource;
+    END suSource;
 
-      ASSOCIATION pointSource =
-         psource -- {0..*} LA_SpatialSource;
-         point -- {1..*} LA_Point;
-      END pointSource;
+    ASSOCIATION baunitSource =
+      bsource -- {0..*} LA_SpatialSource;
+      unit (EXTERNAL) -- {0..*} LA_BAUnit;
+    END baunitSource;
 
-      ASSOCIATION suSource =
-         su (EXTERNAL) -- {0..*} LA_SpatialUnit;
-         ssource -- {0..*} LA_SpatialSource;
-      END suSource;
+    ASSOCIATION relationSpatialSource =
+      rsource -- {0..*} LA_SpatialSource;
+      requiredRelationSu (EXTERNAL) -- {0..*} LA_RequiredRelationshipSpatialUnit;
+    END relationSpatialSource;
 
-      ASSOCIATION baunitSource =
-         bsource -- {0..*} LA_SpatialSource; 
-         unit (EXTERNAL) -- {0..*} LA_BAUnit; 
-      END baunitSource;
+    CLASS LA_BoundaryFaceString (ABSTRACT)
+    EXTENDS VersionedObject =
+      bfsID : MANDATORY LADM_V1_EN.LADM_Core.Oid;
+      geometry : ISO19107_V1_MAGNABOG.GM_MultiCurve3D;
+      locationByText : CharacterString;
+    END LA_BoundaryFaceString;
 
-      ASSOCIATION relationSpatialSource =
-         rsource -- {0..*} LA_SpatialSource;
-         requiredRelationSu (EXTERNAL) -- {0..*} LA_RequiredRelationshipSpatialUnit;
-      END relationSpatialSource;
+    ASSOCIATION bfsSource =
+      bfs -- {0..*} LA_BoundaryFaceString;
+      bsource -- {0..*} LA_SpatialSource;
+    END bfsSource;
 
-      CLASS LA_BoundaryFaceString EXTENDS VersionedObject =
-         bfsID: MANDATORY Oid;
-         geometry: GM_MultiCurve3D;
-         locationByText: CharacterString;
-      END LA_BoundaryFaceString;
+    ASSOCIATION minusBfs =
+      bfsM -- {0..*} LA_BoundaryFaceString;
+      suM (EXTERNAL) -- {0..*} LA_SpatialUnit;
+    END minusBfs;
 
-      ASSOCIATION bfsSource =
-         bfs -- {0..*} LA_BoundaryFaceString;
-         bsource -- {0..*} LA_SpatialSource;
-      END bfsSource;
+    ASSOCIATION plusBfs =
+      bfsP -- {0..*} LA_BoundaryFaceString;
+      suP (EXTERNAL) -- {0..*} LA_SpatialUnit;
+    END plusBfs;
 
-      ASSOCIATION minusBfs =
-         bfsM -- {0..*} LA_BoundaryFaceString;
-         suM (EXTERNAL) -- {0..*} LA_SpatialUnit;
-      END minusBfs;
+    ASSOCIATION pointBfs =
+      point -- {2..*} LA_Point;
+      bfs -- {0..*} LA_BoundaryFaceString;
+    END pointBfs;
 
-      ASSOCIATION plusBfs =
-         bfsP -- {0..*} LA_BoundaryFaceString;
-         suP (EXTERNAL) -- {0..*} LA_SpatialUnit;
-      END plusBfs;
+    CLASS LA_BoundaryFace
+    EXTENDS VersionedObject =
+      bfID : MANDATORY LADM_V1_EN.LADM_Core.Oid;
+      geometry : ISO19107_V1_MAGNABOG.GM_MultiSurface3D;
+      locationByText : CharacterString;
+    END LA_BoundaryFace;
 
-      ASSOCIATION pointBfs =
-         point -- {2..*} LA_Point; !! {ordered} {0,2..*}
-         bfs -- {0..*} LA_BoundaryFaceString;
-      END pointBfs;
+    ASSOCIATION bfSource =
+      bf -- {0..*} LA_BoundaryFace;
+      bsource -- {0..*} LA_SpatialSource;
+    END bfSource;
 
-      CLASS LA_BoundaryFace EXTENDS VersionedObject =
-         bfID: MANDATORY Oid;
-         geometry: GM_MultiSurface3D;
-         locationByText: CharacterString;
-      END LA_BoundaryFace;
+    ASSOCIATION minusBf =
+      bfM -- {0..*} LA_BoundaryFace;
+      suM (EXTERNAL) -- {0..*} LA_SpatialUnit;
+    END minusBf;
 
-      ASSOCIATION bfSource = 
-         bf -- {0..*} LA_BoundaryFace;
-         bsource -- {0..*} LA_SpatialSource;
-      END bfSource;
+    ASSOCIATION plusBf =
+      bfP -- {0..*} LA_BoundaryFace;
+      suP (EXTERNAL) -- {0..*} LA_SpatialUnit;
+    END plusBf;
 
-      ASSOCIATION minusBf =
-         bfM -- {0..*} LA_BoundaryFace;
-         suM (EXTERNAL) -- {0..*} LA_SpatialUnit;
-      END minusBf;
+    ASSOCIATION pointBf =
+      point -- {3..*} LA_Point;
+      bf -- {0..*} LA_BoundaryFace;
+    END pointBf;
 
-      ASSOCIATION plusBf =
-         bfP -- {0..*} LA_BoundaryFace;
-         suP (EXTERNAL) -- {0..*} LA_SpatialUnit;
-      END plusBf;
+    CLASS LA_Party (ABSTRACT)
+    EXTENDS VersionedObject =
+      ExPID : LADM_V1_EN.LADM_Core.Oid;
+      name : CharacterString;
+      pID : MANDATORY LADM_V1_EN.LADM_Core.Oid;
+      role : LIST {0..*} OF LADM_V1_EN.LADM_Core.LA_PartyRoleType;
+      type : MANDATORY LA_PartyType;
+    END LA_Party;
 
-      ASSOCIATION pointBf =
-         point -- {3..*} LA_Point; !! {ordered} {0,3..*} 
-         bf -- {0..*} LA_BoundaryFace;
-      END pointBf;
+    CLASS LA_GroupParty
+    EXTENDS LA_Party =
+      groupID : MANDATORY LADM_V1_EN.LADM_Core.Oid;
+      ptype : MANDATORY LA_GroupPartyType;
+    END LA_GroupParty;
 
-   !! Package Party
+    ASSOCIATION baunitAsParty =
+      party -- {0..*} LA_Party;
+      unit (EXTERNAL) -- {0..*} LA_BAUnit;
+    END baunitAsParty;
 
-      CLASS LA_Party EXTENDS VersionedObject =
-         ExPID: Oid;
-         name: CharacterString;
-         pID: MANDATORY Oid;
-         role: LIST {0..*} OF LA_PartyRoleType;
-         type: MANDATORY LA_PartyType;   
-      END LA_Party;
+    ASSOCIATION conveyancerSource =
+      csource (EXTERNAL) -- {0..*} LA_AdministrativeSource;
+      conveyancer -- {1..*} LA_Party;
+    END conveyancerSource;
 
-      CLASS LA_GroupParty EXTENDS LA_Party =
-         groupID: MANDATORY Oid;
-         ptype: MANDATORY LA_GroupPartyType;
-	  END LA_GroupParty;
+    ASSOCIATION rrrParty =
+      rrr (EXTERNAL) -- {0..*} LA_RRR;
+      party -- {0..1} LA_Party;
+    END rrrParty;
 
-      ASSOCIATION baunitAsParty =
-         party -- {0..*} LA_Party;
-         unit (EXTERNAL) -- {0..*} LA_BAUnit;
-      END baunitAsParty;
+    ASSOCIATION surveyorSource =
+      ssource (EXTERNAL) -- {0..*} LA_SpatialSource;
+      surveyor -- {1..*} LA_Party;
+    END surveyorSource;
 
-      ASSOCIATION conveyancerSource =
-         csource (EXTERNAL) -- {0..*} LA_AdministrativeSource;
-         conveyancer -- {1..*} LA_Party;
-      END conveyancerSource;
+    ASSOCIATION members =
+      parties -- {2..*} LA_Party;
+      group -<> {0..1} LA_GroupParty;
+      share : LADM_V1_EN.LADM_Core.Fraction;
+    END members;
 
-      ASSOCIATION rrrParty =
-         rrr (EXTERNAL) -- {0..*} LA_RRR;
-         party -- {0..1} LA_Party;
-         !! invariant
-         !! {Party can only have 0 
-         !! RRR in case the party
-         !! has specific role}
-         !! invariant
-         !! {Instances of LA_Right and LA_Responsibility have always
-         !! one (= 1) party. Sometimes there can be 0 or 1 party; e.g. no
-         !! (= 0) party for object restriction and 1 party for right restriction
-         !! (indicated by partyRequired boolean attribute)}
-      END rrrParty;
-
-      ASSOCIATION surveyorSource =
-         ssource (EXTERNAL) -- {0..*} LA_SpatialSource;
-         surveyor -- {1..*} LA_Party;
-      END surveyorSource;
-
-      ASSOCIATION members =
-         parties -- {2..*} LA_Party;
-         group -<> {0..1} LA_GroupParty;
-         share: Fraction;
-      END members;
-
-   END LADM_Core;
+  END LADM_Core;
 
 END LADM_V1_EN.
