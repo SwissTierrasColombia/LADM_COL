@@ -3,7 +3,7 @@ INTERLIS 2.3;
 MODEL LimitesPolAdmin_COL_ES_V212 (es)
 AT "mailto:vmbp@localhost"
 VERSION "2017-06-02"  =
-  IMPORTS ISO19107_V1_MAGNABOG,LADM_V1revISO_ES,Catastro_COL_ES_V213;
+  IMPORTS ISO19107_V1_MAGNABOG,Catastro_COL_ES_V215;
 
   TOPIC LimitesPoliticoAdministrativos =
 
@@ -41,14 +41,14 @@ VERSION "2017-06-02"  =
     END DivisionCentroPoblado;
 
     CLASS PuntoLimite
-    EXTENDS LADM_V1revISO_ES.LADM_Nucleo.LA_Punto =
-      Acuerdo : MANDATORY Catastro_COL_ES_V213.COL_AcuerdoTipo;
-      Def_Punto : MANDATORY Catastro_COL_ES_V213.COL_DefPuntoTipo;
-      Exactitud_Vertical : 0 .. 1000 [Catastro_COL_ES_V213.cm];
-      Exactitud_Posicional : MANDATORY 0 .. 1000 [Catastro_COL_ES_V213.cm];
+    EXTENDS Catastro_COL_ES_V215.Catastro_Registro.LA_Punto =
+      Acuerdo : MANDATORY Catastro_COL_ES_V215.COL_AcuerdoTipo;
+      Def_Punto : MANDATORY Catastro_COL_ES_V215.COL_DefPuntoTipo;
+      Exactitud_Vertical : 0 .. 1000 [Catastro_COL_ES_V215.cm];
+      Exactitud_Posicional : MANDATORY 0 .. 1000 [Catastro_COL_ES_V215.cm];
       Confiabilidad : BOOLEAN;
-      Posicion_Interpolacion (EXTENDED) : Catastro_COL_ES_V213.COL_InterpolacionTipo;
-      Monumentacion (EXTENDED) : MANDATORY Catastro_COL_ES_V213.COL_MonumentacionTipo;
+      Posicion_Interpolacion (EXTENDED) : Catastro_COL_ES_V215.COL_InterpolacionTipo;
+      Monumentacion (EXTENDED) : MANDATORY Catastro_COL_ES_V215.COL_MonumentacionTipo;
       Nombre_Punto : TEXT*10;
     END PuntoLimite;
 
