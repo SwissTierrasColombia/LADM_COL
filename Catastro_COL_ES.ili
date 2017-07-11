@@ -25,6 +25,7 @@ INTERLIS 2.3;
  * !! 20.06.2017/fm: Ajuste a nombres de las clases y atributos LA_
  * !! 04.07.2017/sr: Ajuste de nombres de clases y atributos, creacion de relaciones, ajuste subdominios
  * !! 04.07.2017/fm: Se unifican los modelos LADM_ES y Catastro_COL, se eliminan las clases que extienden de responsabilidad, restriccion, derecho, hipoteca, fuente_administrativa y fuente espacial. eliminan atributos opcionales no usados de la clase hipoteca
+ * !! 11.07.2017/fm: se adiciona el atributo area_creada
  * !!
  * !!-----------------------------------------------------------
  * !!
@@ -850,6 +851,9 @@ VERSION "2017-03-31 V2.1.1"  =
       Volumen : LIST {0..*} OF Catastro_COL_ES_V2_1_5.Catastro_Registro.LA_VolumenValor;
       su_Espacio_De_Nombres : MANDATORY CharacterString;
       su_Local_Id : MANDATORY CharacterString;
+      /** Materializacion del metodo createArea()
+       */
+      area_creada : ISO19107_V1_MAGNABOG.GM_Surface2D;
     END LA_UnidadEspacial;
 
     CLASS LA_AgrupacionUnidadesEspaciales
