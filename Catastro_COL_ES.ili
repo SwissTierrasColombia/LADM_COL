@@ -26,6 +26,7 @@ INTERLIS 2.3;
  * !! 04.07.2017/sr: Ajuste de nombres de clases y atributos, creacion de relaciones, ajuste subdominios
  * !! 04.07.2017/fm: Se unifican los modelos LADM_ES y Catastro_COL, se eliminan las clases que extienden de responsabilidad, restriccion, derecho, hipoteca, fuente_administrativa y fuente espacial. eliminan atributos opcionales no usados de la clase hipoteca
  * !! 11.07.2017/fm: se adiciona el atributo area_creada
+ * !! 12.07.2017/fm: se adiciona el atributo Estado_Nupre en la clase predio
  * !!
  * !!-----------------------------------------------------------
  * !!
@@ -35,7 +36,7 @@ INTERLIS 2.3;
  */
 MODEL Catastro_COL_ES_V2_1_5 (es)
 AT "http://www.igac.gov.co/models"
-VERSION "2017-03-31 V2.1.1"  =
+VERSION "2017-07-12 V2.1.5"  =
   IMPORTS ISO19107_V1_MAGNABOG;
 
   UNIT
@@ -51,6 +52,25 @@ VERSION "2017-03-31 V2.1.1"  =
       Area_Estimado_Construccion,
       Area_No_Oficial,
       Area_Registral
+    );
+
+    COL_EstadoNupreTipo = (
+      /** El código ha sido asignado por el gestor catastral y refiere a un único predio de acuerdo al proceso de conformación o mantenimiento catastral multipropósito.
+       */
+      G,
+      /** El código ha sido asignado por el gestor catastral y refiere a un único predio de acuerdo al proceso de conformación o mantenimiento catastral multipropósito.
+       */
+      C,
+      /** El código ha sido anotado o inscrito en el sistema de registro de instrumentos públicos, en este estado el ciudadano podrá solicitar el Certificado Predial Registral, que contiene la información jurídica del Registro de Instrumentos Públicos y la información física y económica del Sistema Único de Información Catastral Multipropósito esta información goza con pleno mérito probatorio, cuya expedición está a cargo de la Superintendencia de Notariado y Registro y cuya vigencia se limita a su fecha y hora de expedición. 
+       *  
+       * El NUPRE del certificado Predial Registral es obligatorio para las actuaciones o modificaciones que se realicen sobre el predio por vía de actuación privada o pública y para todas las transacciones inmobiliarias, y permite prescindir de la transcripción de linderos en todos los documentos públicos que contengan actos jurídicos.
+       */
+      R,
+      /** El código ha sido anotado o inscrito en el sistema de registro de instrumentos públicos, en este estado el ciudadano podrá solicitar el Certificado Predial Registral, que contiene la información jurídica del Registro de Instrumentos Públicos y la información física y económica del Sistema Único de Información Catastral Multipropósito esta información goza con pleno mérito probatorio, cuya expedición está a cargo de la Superintendencia de Notariado y Registro y cuya vigencia se limita a su fecha y hora de expedición. 
+       *  
+       * El NUPRE del certificado Predial Registral es obligatorio para las actuaciones o modificaciones que se realicen sobre el predio por vía de actuación privada o pública y para todas las transacciones inmobiliarias, y permite prescindir de la transcripción de linderos en todos los documentos públicos que contengan actos jurídicos.
+       */
+      E
     );
 
     COL_EstructuraTipo = (
@@ -948,39 +968,40 @@ VERSION "2017-03-31 V2.1.1"  =
 
     CLASS Predio
     EXTENDS LA_BAUnit =
-      Departamento : MANDATORY TEXT*2;
-      Municipio : MANDATORY TEXT*3;
-      Zona : MANDATORY TEXT*2;
-      Sector : MANDATORY TEXT*2;
-      Localidad_Comuna : MANDATORY TEXT*2;
-      Barrio : MANDATORY TEXT*2;
-      Manzana_Vereda : MANDATORY TEXT*4;
-      Terreno : MANDATORY TEXT*4;
-      Condicion_Prop : MANDATORY TEXT*1;
-      Edificio : MANDATORY TEXT*2;
-      Piso : MANDATORY TEXT*2;
-      Unidad : MANDATORY TEXT*4;
+      Departamento : TEXT*2;
+      Municipio : TEXT*3;
+      Zona : TEXT*2;
+      Sector : TEXT*2;
+      Localidad_Comuna : TEXT*2;
+      Barrio : TEXT*2;
+      Manzana_Vereda : TEXT*4;
+      Terreno : TEXT*4;
+      Condicion_Prop : TEXT*1;
+      Edificio : TEXT*2;
+      Piso : TEXT*2;
+      Unidad : TEXT*4;
       Vigencia_Fiscal : INTERLIS.XMLDate;
-      Avaluo_Predio : MANDATORY Catastro_COL_ES_V2_1_5.Peso;
+      Avaluo_Predio : Catastro_COL_ES_V2_1_5.Peso;
       FMI : TEXT*20;
       Nomenclatura : TEXT*100;
-      NUPRE : TEXT*20;
-      Numero_Predial : MANDATORY TEXT*30;
+      NUPRE : MANDATORY TEXT*20;
+      Numero_Predial : TEXT*30;
       Numero_Predial_Anterior : TEXT*20;
       Predio_Tipo : MANDATORY Catastro_COL_ES_V2_1_5.COL_PredioTipo;
       Tipo_Predio_Publico : Catastro_COL_ES_V2_1_5.COL_PredioTipoPublicoTipo;
       Estrato : Catastro_COL_ES_V2_1_5.COL_EstratoTipo;
-      Informalidad : MANDATORY Catastro_COL_ES_V2_1_5.COL_FormalidadTipo;
+      Informalidad : Catastro_COL_ES_V2_1_5.COL_FormalidadTipo;
       /** Pendiente crear dominio de valores (Activo, cerrado)
        */
       Estado_FMI : TEXT*20;
       Folio_Matriz : TEXT*20;
       Folios_Segregados : TEXT*20;
+      Estado_NUPRE : Catastro_COL_ES_V2_1_5.COL_EstadoNupreTipo;
       UNIQUE NUPRE; 
     END Predio;
 
     ASSOCIATION AlertaBAUnit =
-      alerta -- {0..1} Alerta;
+      alerta -- {0..*} Alerta;
       baunit -- {1} LA_BAUnit;
     END AlertaBAUnit;
 
@@ -1309,7 +1330,7 @@ VERSION "2017-03-31 V2.1.1"  =
 
     ASSOCIATION AlertaInteresado =
       alerta -- {0..*} Alerta;
-      interesado (EXTERNAL) -- {0..*} LA_Interesado;
+      interesado (EXTERNAL) -- {0..1} LA_Interesado;
     END AlertaInteresado;
 
     ASSOCIATION notarioFuente =
