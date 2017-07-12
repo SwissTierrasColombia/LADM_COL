@@ -24,7 +24,7 @@ INTERLIS 2.3;
 MODEL Avaluos_COL_ES_V2_1 (es)
 AT "mailto:vmbp@localhost"
 VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a partir del TOPIC "Avaluos" del modelo de Catastro-Registro V21 // =
-  IMPORTS ISO19107_V1_MAGNABOG,Catastro_COL_ES_V2_1_5;
+  IMPORTS ISO19107_V1_MAGNABOG,Catastro_COL_ES_V2_1_6;
 
   DOMAIN
 
@@ -246,31 +246,31 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
     );
 
   TOPIC Avaluos =
-    DEPENDS ON Catastro_COL_ES_V2_1_5.Catastro_Registro;
+    DEPENDS ON Catastro_COL_ES_V2_1_6.Catastro_Registro;
 
     CLASS Predio =
-      Area_Calculada_Plano_Local : MANDATORY 0.0 .. 99999999999999.9 [Catastro_COL_ES_V2_1_5.m2];
+      Area_Calculada_Plano_Local : MANDATORY 0.0 .. 99999999999999.9 [Catastro_COL_ES_V2_1_6.m2];
       Aprovechamiento : MANDATORY Avaluos_COL_ES_V2_1.COL_AprovechamientoTipo;
       Disponibilidad_Agua : MANDATORY Avaluos_COL_ES_V2_1.COL_DisponibilidadAguaTipo;
-      Distancia_Fuentes_Agua : Catastro_COL_ES_V2_1_5.Integer;
+      Distancia_Fuentes_Agua : Catastro_COL_ES_V2_1_6.Integer;
       Obra_al_Interior : MANDATORY Avaluos_COL_ES_V2_1.COL_ObrasAlInteriorTipo;
       Capa_Vegetal : MANDATORY Avaluos_COL_ES_V2_1.COL_CapaVegetalTipo;
       Pendiente : MANDATORY Avaluos_COL_ES_V2_1.COL_PendienteTipo;
       Tipo_Desarrollo : Avaluos_COL_ES_V2_1.COL_TipoDesarrolloTipo;
       Forma : Avaluos_COL_ES_V2_1.COL_FormaTipo;
-      Num_Balcones : Catastro_COL_ES_V2_1_5.Integer;
-      Num_Terrazas : Catastro_COL_ES_V2_1_5.Integer;
-      Num_Mezanines : Catastro_COL_ES_V2_1_5.Integer;
+      Num_Balcones : Catastro_COL_ES_V2_1_6.Integer;
+      Num_Terrazas : Catastro_COL_ES_V2_1_6.Integer;
+      Num_Mezanines : Catastro_COL_ES_V2_1_6.Integer;
       Comun_Uso_Exclusivo : MANDATORY Avaluos_COL_ES_V2_1.COL_ComunExclusivoTipo;
       Cercania_Hitos : MANDATORY Avaluos_COL_ES_V2_1.COL_CercaniaHitosTipo;
       Ubicacion_Manzana : TEXT*20;
-      Frente : Catastro_COL_ES_V2_1_5.Real;
-      Fondo : Catastro_COL_ES_V2_1_5.Real;
+      Frente : Catastro_COL_ES_V2_1_6.Real;
+      Fondo : Catastro_COL_ES_V2_1_6.Real;
     END Predio;
 
     ASSOCIATION AvaluoPredio =
       APredio -- {1} Predio;
-      Predio (EXTERNAL) -- {1} Catastro_COL_ES_V2_1_5.Catastro_Registro.Predio;
+      Predio (EXTERNAL) -- {1} Catastro_COL_ES_V2_1_6.Catastro_Registro.Predio;
     END AvaluoPredio;
 
     CLASS Construccion =
@@ -279,7 +279,7 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
 
     ASSOCIATION AvaluoConstruccion =
       ACons -- {1} Construccion;
-      Cons (EXTERNAL) -- {1} Catastro_COL_ES_V2_1_5.Catastro_Registro.Construccion;
+      Cons (EXTERNAL) -- {1} Catastro_COL_ES_V2_1_6.Catastro_Registro.Construccion;
     END AvaluoConstruccion;
 
     CLASS UnidadConstruccion =
@@ -296,36 +296,36 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Funcionalidad : MANDATORY Avaluos_COL_ES_V2_1.COL_FuncionalidadTipo;
       Ubicacion_en_Copropiedad : Avaluos_COL_ES_V2_1.COL_UbicacionEnCopropiedadTipo;
       Material : MANDATORY Avaluos_COL_ES_V2_1.COL_MaterialConstrTipo;
-      Puntuacion : MANDATORY Catastro_COL_ES_V2_1_5.Integer;
+      Puntuacion : MANDATORY Catastro_COL_ES_V2_1_6.Integer;
       Tipologia : MANDATORY Avaluos_COL_ES_V2_1.COL_TipologiaTipo;
-      Num_Habitaciones : Catastro_COL_ES_V2_1_5.Integer;
-      Num_Banios : Catastro_COL_ES_V2_1_5.Integer;
-      Num_Cocinas : Catastro_COL_ES_V2_1_5.Integer;
-      Num_Oficinas : Catastro_COL_ES_V2_1_5.Integer;
-      Num_Estudios : Catastro_COL_ES_V2_1_5.Integer;
-      Num_Bodegas : Catastro_COL_ES_V2_1_5.Integer;
-      Num_Locales : Catastro_COL_ES_V2_1_5.Integer;
-      Num_Salas : Catastro_COL_ES_V2_1_5.Integer;
-      Num_Comedores : Catastro_COL_ES_V2_1_5.Integer;
+      Num_Habitaciones : Catastro_COL_ES_V2_1_6.Integer;
+      Num_Banios : Catastro_COL_ES_V2_1_6.Integer;
+      Num_Cocinas : Catastro_COL_ES_V2_1_6.Integer;
+      Num_Oficinas : Catastro_COL_ES_V2_1_6.Integer;
+      Num_Estudios : Catastro_COL_ES_V2_1_6.Integer;
+      Num_Bodegas : Catastro_COL_ES_V2_1_6.Integer;
+      Num_Locales : Catastro_COL_ES_V2_1_6.Integer;
+      Num_Salas : Catastro_COL_ES_V2_1_6.Integer;
+      Num_Comedores : Catastro_COL_ES_V2_1_6.Integer;
     END UnidadConstruccion;
 
     ASSOCIATION AvaluoUnidadConstruccion =
       AUCons -- {1} UnidadConstruccion;
-      UCons (EXTERNAL) -- {1} Catastro_COL_ES_V2_1_5.Catastro_Registro.UnidadConstruccion;
+      UCons (EXTERNAL) -- {1} Catastro_COL_ES_V2_1_6.Catastro_Registro.UnidadConstruccion;
     END AvaluoUnidadConstruccion;
 
     CLASS PredioMatrizPH =
-      Num_Etapas : Catastro_COL_ES_V2_1_5.Integer;
-      Num_Interiores : Catastro_COL_ES_V2_1_5.Integer;
-      Num_Torres : Catastro_COL_ES_V2_1_5.Integer;
-      Num_Pisos_por_Torre : Catastro_COL_ES_V2_1_5.Integer;
-      Num_Unidades_Privadas : Catastro_COL_ES_V2_1_5.Integer;
-      Area_Terreno_Total : Catastro_COL_ES_V2_1_5.COL_AreaValor;
-      Area_Terreno_Comun : Catastro_COL_ES_V2_1_5.COL_AreaValor;
-      Area_Terreno_Privada : Catastro_COL_ES_V2_1_5.COL_AreaValor;
-      Area_Construida_Total : Catastro_COL_ES_V2_1_5.COL_AreaValor;
-      Area_Construida_Privada : Catastro_COL_ES_V2_1_5.COL_AreaValor;
-      Area_Construida_Comun : Catastro_COL_ES_V2_1_5.COL_AreaValor;
+      Num_Etapas : Catastro_COL_ES_V2_1_6.Integer;
+      Num_Interiores : Catastro_COL_ES_V2_1_6.Integer;
+      Num_Torres : Catastro_COL_ES_V2_1_6.Integer;
+      Num_Pisos_por_Torre : Catastro_COL_ES_V2_1_6.Integer;
+      Num_Unidades_Privadas : Catastro_COL_ES_V2_1_6.Integer;
+      Area_Terreno_Total : Catastro_COL_ES_V2_1_6.COL_AreaValor;
+      Area_Terreno_Comun : Catastro_COL_ES_V2_1_6.COL_AreaValor;
+      Area_Terreno_Privada : Catastro_COL_ES_V2_1_6.COL_AreaValor;
+      Area_Construida_Total : Catastro_COL_ES_V2_1_6.COL_AreaValor;
+      Area_Construida_Privada : Catastro_COL_ES_V2_1_6.COL_AreaValor;
+      Area_Construida_Comun : Catastro_COL_ES_V2_1_6.COL_AreaValor;
       Tipologia_Constructiva_Copropiedad : TEXT*20;
       Anio_Construccion_Etapa : INTERLIS.XMLDate;
       Estado_Conservacion_Copropiedad : Avaluos_COL_ES_V2_1.COL_EstadoConservacionTipo;
@@ -340,7 +340,7 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
 
     CLASS EquipamientoComunal =
       Tipo_Equipamiento_Comunal : Avaluos_COL_ES_V2_1.COL_EquipamientoComunalTipo;
-      Area : Catastro_COL_ES_V2_1_5.COL_AreaValor;
+      Area : Catastro_COL_ES_V2_1_6.COL_AreaValor;
       Categoria : TEXT*100;
     END EquipamientoComunal;
 
@@ -356,7 +356,7 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
 
     CLASS ZonaHomogeneaGeoeconomica =
       Identificador : MANDATORY TEXT*20;
-      Valor : MANDATORY Catastro_COL_ES_V2_1_5.Integer;
+      Valor : MANDATORY Catastro_COL_ES_V2_1_6.Integer;
       Geometria : MANDATORY ISO19107_V1_MAGNABOG.GM_Surface2D;
     END ZonaHomogeneaGeoeconomica;
 

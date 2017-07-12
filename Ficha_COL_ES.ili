@@ -3,7 +3,7 @@ INTERLIS 2.3;
 MODEL Ficha_COL_ES_V2_1 (es)
 AT "mailto:vmbp@localhost"
 VERSION "2017-06-02 V2.1.1"  =
-  IMPORTS Catastro_COL_ES_V2_1_5,Avaluos_COL_ES_V2_1;
+  IMPORTS Catastro_COL_ES_V2_1_6,Avaluos_COL_ES_V2_1;
 
   DOMAIN
 
@@ -169,7 +169,7 @@ VERSION "2017-06-02 V2.1.1"  =
     );
 
   TOPIC Ficha =
-    DEPENDS ON Avaluos_COL_ES_V2_1.Avaluos,Catastro_COL_ES_V2_1_5.Catastro_Registro;
+    DEPENDS ON Avaluos_COL_ES_V2_1.Avaluos,Catastro_COL_ES_V2_1_6.Catastro_Registro;
 
     CLASS Predio =
       Servicio_Acueducto : BOOLEAN;
@@ -198,20 +198,20 @@ VERSION "2017-06-02 V2.1.1"  =
       Nombre_Quien_Atendio : TEXT*40;
       Numero_Documento_Quien_Atendio : TEXT*10;
       Categoria_Quien_Atendio : Ficha_COL_ES_V2_1.COL_CategoriaQuienAtendioTipo;
-      Tipo_Documento_Quien_Atendio : Catastro_COL_ES_V2_1_5.COL_InteresadoDocumentoTipo;
+      Tipo_Documento_Quien_Atendio : Catastro_COL_ES_V2_1_6.COL_InteresadoDocumentoTipo;
       Nombre_Encuestador : TEXT*40;
       Numero_Documento_Encuestador : TEXT*10;
-      Tipo_Documento_Encuestador : Catastro_COL_ES_V2_1_5.COL_InteresadoDocumentoTipo;
+      Tipo_Documento_Encuestador : Catastro_COL_ES_V2_1_6.COL_InteresadoDocumentoTipo;
     END Predio;
 
     ASSOCIATION FichaPredioPredio =
       fichaPredio -- {1} Predio;
-      crPredio (EXTERNAL) -- {1} Catastro_COL_ES_V2_1_5.Catastro_Registro.Predio;
+      crPredio (EXTERNAL) -- {1} Catastro_COL_ES_V2_1_6.Catastro_Registro.Predio;
     END FichaPredioPredio;
 
     CLASS NucleoFamiliar =
       Documento_Identidad : TEXT*10;
-      Tipo_Documento : Catastro_COL_ES_V2_1_5.COL_InteresadoDocumentoTipo;
+      Tipo_Documento : Catastro_COL_ES_V2_1_6.COL_InteresadoDocumentoTipo;
       Organo_Emisor : TEXT*20;
       Fecha_Emision : INTERLIS.XMLDate;
       Primer_Nombre : TEXT*20;
@@ -222,7 +222,7 @@ VERSION "2017-06-02 V2.1.1"  =
       Lugar_Nacimiento : TEXT*100;
       Nacionalidad : TEXT*20;
       Discapacidad : BOOLEAN;
-      Genero : Catastro_COL_ES_V2_1_5.COL_Genero;
+      Genero : Catastro_COL_ES_V2_1_6.COL_Genero;
       Habita_Predio : BOOLEAN;
       Parentesco : TEXT*20;
       Etnia : TEXT*20;
@@ -238,7 +238,7 @@ VERSION "2017-06-02 V2.1.1"  =
     CLASS InvestigacionMercado =
       Disponible_Mercado : BOOLEAN;
       Tipo_Oferta : Ficha_COL_ES_V2_1.COL_TipoOfertaTipo;
-      Valor : Catastro_COL_ES_V2_1_5.Peso;
+      Valor : Catastro_COL_ES_V2_1_6.Peso;
       Nombre_Oferente : TEXT*40;
       Telefono_Contacto_Oferente : TEXT*10;
       Observaciones : TEXT*100;
@@ -259,7 +259,7 @@ VERSION "2017-06-02 V2.1.1"  =
       Puntos_Cubierta : 1 .. 100;
       Conservacion_Cubierta : Ficha_COL_ES_V2_1.COL_EstadoConservacionTipo;
       Puntos_Cubierta_Conservacion : 1 .. 100;
-      Sub_Total_Estructura : Catastro_COL_ES_V2_1_5.Integer;
+      Sub_Total_Estructura : Catastro_COL_ES_V2_1_6.Integer;
       Fachada : Ficha_COL_ES_V2_1.COL_FachadaTipo;
       Puntos_Fachada : 1 .. 100;
       Cubrimiento_Muros : Ficha_COL_ES_V2_1.COL_CubrimientoMurosTipo;
@@ -268,7 +268,7 @@ VERSION "2017-06-02 V2.1.1"  =
       Puntos_Piso : 1 .. 100;
       Conservacion_Acabados : Ficha_COL_ES_V2_1.COL_EstadoConservacionTipo;
       Puntos_Conservacion_Acabados : 1 .. 100;
-      Sub_Total_Acabados : Catastro_COL_ES_V2_1_5.Integer;
+      Sub_Total_Acabados : Catastro_COL_ES_V2_1_6.Integer;
       Tamanio_Banio : Ficha_COL_ES_V2_1.COL_TamanioBanioTipo;
       Puntos_Tamanio_Banio : 1 .. 100;
       Enchape_Banio : Ficha_COL_ES_V2_1.COL_CalidadEnchapeTipo;
@@ -277,7 +277,7 @@ VERSION "2017-06-02 V2.1.1"  =
       Puntos_Mobiliario_Banio : 1 .. 100;
       Conservacion_Banio : Ficha_COL_ES_V2_1.COL_EstadoConservacionTipo;
       Puntos_Conservacion_Banio : 1 .. 100;
-      Sub_Total_Banio : Catastro_COL_ES_V2_1_5.Integer;
+      Sub_Total_Banio : Catastro_COL_ES_V2_1_6.Integer;
       Tamanio_Cocina : Ficha_COL_ES_V2_1.COL_TamanioCocinaTipo;
       Puntos_Tamanio_Cocina : 1 .. 100;
       Enchape_Cocina : Ficha_COL_ES_V2_1.COL_CalidadEnchapeTipo;
@@ -286,11 +286,11 @@ VERSION "2017-06-02 V2.1.1"  =
       Puntos_Mobiliario_Cocina : 1 .. 100;
       Conservacion_Cocina : Ficha_COL_ES_V2_1.COL_EstadoConservacionTipo;
       Puntos_Conservacion_Cocina : 1 .. 100;
-      Sub_Total_Cocina : Catastro_COL_ES_V2_1_5.Integer;
-      Total_Residencial_Y_Comercial : Catastro_COL_ES_V2_1_5.Integer;
+      Sub_Total_Cocina : Catastro_COL_ES_V2_1_6.Integer;
+      Total_Residencial_Y_Comercial : Catastro_COL_ES_V2_1_6.Integer;
       Cerchas : Ficha_COL_ES_V2_1.COL_CerchasTipo;
       Puntos_Cerchas : 1 .. 100;
-      Total_Industrial : Catastro_COL_ES_V2_1_5.Integer;
+      Total_Industrial : Catastro_COL_ES_V2_1_6.Integer;
     END AvaluoUConstruccion;
 
     ASSOCIATION FichaAvaluoUconstruccion =
