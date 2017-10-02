@@ -1,0 +1,24 @@
+INTERLIS 2.3;
+
+MODEL Registro (es)
+AT "mailto:user@localhost"
+VERSION "2017-09-28 V0.1"  =
+  IMPORTS Catastro_COL_ES_V2_2_0;
+
+  TOPIC Registro =
+    DEPENDS ON Catastro_COL_ES_V2_2_0.Catastro_Registro;
+
+    CLASS Predio =
+      Estado_FMI : TEXT*20;
+      Folio_Matriz : TEXT*20;
+      Folios_Segregados : TEXT*20;
+    END Predio;
+
+    ASSOCIATION PredioRegistro_PredioCatastro =
+      predio_catastro (EXTERNAL) -- {1} Catastro_COL_ES_V2_2_0.Catastro_Registro.Predio;
+      predio_registro -- {0..1} Predio;
+    END PredioRegistro_PredioCatastro;
+
+  END Registro;
+
+END Registro.
