@@ -8,7 +8,7 @@ INTERLIS 2.3;
  * * !!-----------------------------------------------------------
  * * !! Revisiones historicas
  * * !! 2017.06.02 vbp: Extraido el modelo a parir del TOPIC del mismo nombre en el modelo de Catastro y Registro
- * * !! 2017.06.29 vbp: Añadidos dominios procedentes de Catastro-Registro
+ * * !! 2017.06.29 vbp: AÃ±adidos dominios procedentes de Catastro-Registro
  * * !! 2017.06.29 vbp: Extraidos dominios de valores de atributos de las clases --> integridad estructural, facilidad de lectura, unicidad de criterio en todos los modelos.
  * * !!-----------------------------------------------------------
  * * !!

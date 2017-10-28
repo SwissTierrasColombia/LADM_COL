@@ -16,12 +16,12 @@ INTERLIS 2.3;
  * !! 25.11.2016/aa: Ajustes FichaPredio
  * !! 02.12.2016/ss: Nuevas clases, atributos y tipos
  * !! 15.12.2016/lj: Ajuste tipos (IGAC/SNR), BAUnit GM_surface
- * !! 31.03.2017/fm: Simplificación de herencia
+ * !! 31.03.2017/fm: SimplificaciÃ³n de herencia
  * !! 25.05.2017/fm: Se elimina la relacion HipotecaDerecho, se elimina la clase InteresadoBAUnit, se elimina marca abstract en las clases derivadas de RRR
- * !! 26.05.2017/fm: Se cambian las clases terreno servidumbre de paso y construccion al paquete de unidades espaciales. Se acorta el nombre del Modelo. ajuste al diseño del diagrama de clases. Se elimina InteresadoNacion
- * !! 09.06.2017/vm: Referido al modelo LADM traducido al español
- * !! 09.06.2017/vm: cambio de version a 2.1.1, incluye cambios por LADM en español y de  nombres de atributo por no seguir las convenciones adoptadas.
- * !! 15.06.2017/fm: cambio de version a 2.1.2, se quita el atributo geometría de la clase predio. se reemplaza el atributo OID por los atributos atributos namespace y localId. Se añaden atributos folio matriz y segregados al predio. se elimina el dominio transaccion_registral_tipo
+ * !! 26.05.2017/fm: Se cambian las clases terreno servidumbre de paso y construccion al paquete de unidades espaciales. Se acorta el nombre del Modelo. ajuste al diseÃ±o del diagrama de clases. Se elimina InteresadoNacion
+ * !! 09.06.2017/vm: Referido al modelo LADM traducido al espaÃ±ol
+ * !! 09.06.2017/vm: cambio de version a 2.1.1, incluye cambios por LADM en espaÃ±ol y de  nombres de atributo por no seguir las convenciones adoptadas.
+ * !! 15.06.2017/fm: cambio de version a 2.1.2, se quita el atributo geometrÃ­a de la clase predio. se reemplaza el atributo OID por los atributos atributos namespace y localId. Se aÃ±aden atributos folio matriz y segregados al predio. se elimina el dominio transaccion_registral_tipo
  * !! 20.06.2017/fm: Ajuste a nombres de las clases y atributos LA_
  * !! 04.07.2017/sr: Ajuste de nombres de clases y atributos, creacion de relaciones, ajuste subdominios
  * !! 04.07.2017/fm: Se unifican los modelos LADM_ES y Catastro_COL, se eliminan las clases que extienden de responsabilidad, restriccion, derecho, hipoteca, fuente_administrativa y fuente espacial. eliminan atributos opcionales no usados de la clase hipoteca
@@ -69,13 +69,13 @@ VERSION "2017-07-12 V2.1.6"  =
     );
 
     COL_BosqueAreaSemi = (
-      /** Área Boscosa
+      /** Ãrea Boscosa
        */
-      !!@ ili2db.dispName = "Área Boscosa"
+      !!@ ili2db.dispName = "Ãrea Boscosa"
       AreaBoscosa,
-      /** Plantación Forestal
+      /** PlantaciÃ³n Forestal
        */
-      !!@ ili2db.dispName = "Plantación Forestal"
+      !!@ ili2db.dispName = "PlantaciÃ³n Forestal"
       PlantaForestal
     );
 
@@ -88,20 +88,20 @@ VERSION "2017-07-12 V2.1.6"  =
     );
 
     COL_EstadoNupreTipo = (
-      /** El código ha sido asignado por el gestor catastral y refiere a un único predio de acuerdo al proceso de conformación o mantenimiento catastral multipropósito.
+      /** El cÃ³digo ha sido asignado por el gestor catastral y refiere a un Ãºnico predio de acuerdo al proceso de conformaciÃ³n o mantenimiento catastral multipropÃ³sito.
        */
       G,
-      /** El código ha sido asignado por el gestor catastral y refiere a un único predio de acuerdo al proceso de conformación o mantenimiento catastral multipropósito.
+      /** El cÃ³digo ha sido asignado por el gestor catastral y refiere a un Ãºnico predio de acuerdo al proceso de conformaciÃ³n o mantenimiento catastral multipropÃ³sito.
        */
       C,
-      /** El código ha sido anotado o inscrito en el sistema de registro de instrumentos públicos, en este estado el ciudadano podrá solicitar el Certificado Predial Registral, que contiene la información jurídica del Registro de Instrumentos Públicos y la información física y económica del Sistema Único de Información Catastral Multipropósito esta información goza con pleno mérito probatorio, cuya expedición está a cargo de la Superintendencia de Notariado y Registro y cuya vigencia se limita a su fecha y hora de expedición. 
-       *  
-       * El NUPRE del certificado Predial Registral es obligatorio para las actuaciones o modificaciones que se realicen sobre el predio por vía de actuación privada o pública y para todas las transacciones inmobiliarias, y permite prescindir de la transcripción de linderos en todos los documentos públicos que contengan actos jurídicos.
+      /** El cÃ³digo ha sido anotado o inscrito en el sistema de registro de instrumentos pÃºblicos, en este estado el ciudadano podrÃ¡ solicitar el Certificado Predial Registral, que contiene la informaciÃ³n jurÃ­dica del Registro de Instrumentos PÃºblicos y la informaciÃ³n fÃ­sica y econÃ³mica del Sistema Ãšnico de InformaciÃ³n Catastral MultipropÃ³sito esta informaciÃ³n goza con pleno mÃ©rito probatorio, cuya expediciÃ³n estÃ¡ a cargo de la Superintendencia de Notariado y Registro y cuya vigencia se limita a su fecha y hora de expediciÃ³n.
+       *
+       * El NUPRE del certificado Predial Registral es obligatorio para las actuaciones o modificaciones que se realicen sobre el predio por vÃ­a de actuaciÃ³n privada o pÃºblica y para todas las transacciones inmobiliarias, y permite prescindir de la transcripciÃ³n de linderos en todos los documentos pÃºblicos que contengan actos jurÃ­dicos.
        */
       R,
-      /** El código ha sido anotado o inscrito en el sistema de registro de instrumentos públicos, en este estado el ciudadano podrá solicitar el Certificado Predial Registral, que contiene la información jurídica del Registro de Instrumentos Públicos y la información física y económica del Sistema Único de Información Catastral Multipropósito esta información goza con pleno mérito probatorio, cuya expedición está a cargo de la Superintendencia de Notariado y Registro y cuya vigencia se limita a su fecha y hora de expedición. 
-       *  
-       * El NUPRE del certificado Predial Registral es obligatorio para las actuaciones o modificaciones que se realicen sobre el predio por vía de actuación privada o pública y para todas las transacciones inmobiliarias, y permite prescindir de la transcripción de linderos en todos los documentos públicos que contengan actos jurídicos.
+      /** El cÃ³digo ha sido anotado o inscrito en el sistema de registro de instrumentos pÃºblicos, en este estado el ciudadano podrÃ¡ solicitar el Certificado Predial Registral, que contiene la informaciÃ³n jurÃ­dica del Registro de Instrumentos PÃºblicos y la informaciÃ³n fÃ­sica y econÃ³mica del Sistema Ãšnico de InformaciÃ³n Catastral MultipropÃ³sito esta informaciÃ³n goza con pleno mÃ©rito probatorio, cuya expediciÃ³n estÃ¡ a cargo de la Superintendencia de Notariado y Registro y cuya vigencia se limita a su fecha y hora de expediciÃ³n.
+       *
+       * El NUPRE del certificado Predial Registral es obligatorio para las actuaciones o modificaciones que se realicen sobre el predio por vÃ­a de actuaciÃ³n privada o pÃºblica y para todas las transacciones inmobiliarias, y permite prescindir de la transcripciÃ³n de linderos en todos los documentos pÃºblicos que contengan actos jurÃ­dicos.
        */
       E
     );
@@ -137,7 +137,7 @@ VERSION "2017-07-12 V2.1.6"  =
        */
       !!@ ili2db.dispName = "Tierra en preparacion o descanso"
       TierraPrepodesc,
-      !!@ ili2db.dispName = "Area agricola heterehogénea"
+      !!@ ili2db.dispName = "Area agricola heterehogÃ©nea"
       AreaAgriHetero,
       Pasto
     );
@@ -272,7 +272,7 @@ VERSION "2017-07-12 V2.1.6"  =
 
     Peso = 0 .. 999999999999 [COP];
 
-  STRUCTURE COL_AreaValor =
+    STRUCTURE COL_AreaValor =
     areaSize : MANDATORY 0.0 .. 99999999999999.9 [Catastro_COL_ES_V2_2_0.m2];
     type : MANDATORY COL_AreaTipo;
   END COL_AreaValor;
@@ -778,12 +778,12 @@ VERSION "2017-07-12 V2.1.6"  =
         Otro
       );
 
-    STRUCTURE Oid =
+        STRUCTURE Oid =
       localId : MANDATORY CharacterString;
       espacioDeNombres : MANDATORY CharacterString;
     END Oid;
 
-    STRUCTURE Fraccion =
+        STRUCTURE Fraccion =
       Denominador : MANDATORY Integer;
       Numerador : MANDATORY Integer;
       MANDATORY CONSTRAINT
@@ -794,11 +794,11 @@ VERSION "2017-07-12 V2.1.6"  =
         Denominador >= Numerador;
     END Fraccion;
 
-    STRUCTURE Imagen =
+        STRUCTURE Imagen =
       uri : CharacterString;
     END Imagen;
 
-    STRUCTURE DQ_Element =
+        STRUCTURE DQ_Element =
       Nombre_Medida : CharacterString;
       Identificacion_Medida : CharacterString;
       Descripcion_Medida : CharacterString;
@@ -809,21 +809,21 @@ VERSION "2017-07-12 V2.1.6"  =
       Resultado : CharacterString;
     END DQ_Element;
 
-    STRUCTURE DQ_PositionalAccuracy
+        STRUCTURE DQ_PositionalAccuracy
     EXTENDS DQ_Element =
       atributo21 : CharacterString;
     END DQ_PositionalAccuracy;
 
-    STRUCTURE DQ_AbsoluteExternalPositionalAccuracy
+        STRUCTURE DQ_AbsoluteExternalPositionalAccuracy
     EXTENDS DQ_PositionalAccuracy =
       atributo1 : CharacterString;
     END DQ_AbsoluteExternalPositionalAccuracy;
 
-    STRUCTURE LI_Lineaje =
+        STRUCTURE LI_Lineaje =
       Statement : CharacterString;
     END LI_Lineaje;
 
-    STRUCTURE CI_Contacto =
+        STRUCTURE CI_Contacto =
       Telefono : CharacterString;
       Direccion : CharacterString;
       Fuente_En_Linea : CharacterString;
@@ -831,7 +831,7 @@ VERSION "2017-07-12 V2.1.6"  =
       Instrucciones_Contacto : CharacterString;
     END CI_Contacto;
 
-    STRUCTURE CI_ParteResponsable =
+        STRUCTURE CI_ParteResponsable =
       Nombre_Individual : CharacterString;
       Nombre_Organizacion : CharacterString;
       Posicion : CharacterString;
@@ -839,20 +839,20 @@ VERSION "2017-07-12 V2.1.6"  =
       Funcion : CI_CodigoTarea;
     END CI_ParteResponsable;
 
-    STRUCTURE CC_MetodoOperacion =
+        STRUCTURE CC_MetodoOperacion =
       Formula : MANDATORY CharacterString;
       Dimensiones_Origen : Integer;
       Ddimensiones_Objetivo : Integer;
     END CC_MetodoOperacion;
 
-    STRUCTURE OM_Observacion =
+        STRUCTURE OM_Observacion =
       Resultado_Calidad : Catastro_COL_ES_V2_2_0.Catastro_Registro.DQ_Element;
     END OM_Observacion;
 
-    STRUCTURE OM_Proceso =
+        STRUCTURE OM_Proceso =
     END OM_Proceso;
 
-    STRUCTURE ExtDireccion =
+        STRUCTURE ExtDireccion =
       Nombre_Area_Direccion : CharacterString;
       Coordenada_Direccion : ISO19107_V1_MAGNABOG.GM_Point2D;
       Direccion_ID : MANDATORY Catastro_COL_ES_V2_2_0.Catastro_Registro.Oid;
@@ -866,11 +866,11 @@ VERSION "2017-07-12 V2.1.6"  =
       Nombre_Calle : CharacterString;
     END ExtDireccion;
 
-    STRUCTURE ExtUnidadEdificacionFisica =
+        STRUCTURE ExtUnidadEdificacionFisica =
       Ext_Direccion_ID : Catastro_COL_ES_V2_2_0.Catastro_Registro.ExtDireccion;
     END ExtUnidadEdificacionFisica;
 
-    STRUCTURE ExtInteresado =
+        STRUCTURE ExtInteresado =
       Ext_Direccion_ID : Catastro_COL_ES_V2_2_0.Catastro_Registro.ExtDireccion;
       Huella_Dactilar : Catastro_COL_ES_V2_2_0.Catastro_Registro.Imagen;
       Nombre : CharacterString;
@@ -879,12 +879,12 @@ VERSION "2017-07-12 V2.1.6"  =
       Firma : Catastro_COL_ES_V2_2_0.Catastro_Registro.Imagen;
     END ExtInteresado;
 
-    STRUCTURE ExtRedServiciosFisica =
+        STRUCTURE ExtRedServiciosFisica =
       Orientada : BOOLEAN;
       Ext_Interesado_Administrador_ID : Catastro_COL_ES_V2_2_0.Catastro_Registro.ExtInteresado;
     END ExtRedServiciosFisica;
 
-    STRUCTURE ExtArchivo =
+        STRUCTURE ExtArchivo =
       Fecha_Aceptacion : INTERLIS.XMLDate;
       Datos : CharacterString;
       Extraccion : INTERLIS.XMLDate;
@@ -894,22 +894,22 @@ VERSION "2017-07-12 V2.1.6"  =
       s_Local_Id : MANDATORY CharacterString;
     END ExtArchivo;
 
-    STRUCTURE LA_VolumenValor =
+        STRUCTURE LA_VolumenValor =
       Volumen_Medicion : MANDATORY 0.0 .. 99999999999999.9 [INTERLIS.m];
       Tipo : MANDATORY LA_VolumenTipo;
     END LA_VolumenValor;
 
-    STRUCTURE LA_AreaValor =
+        STRUCTURE LA_AreaValor =
       Area_Medicion : MANDATORY 0.0 .. 99999999999999.9 [INTERLIS.m];
       Tipo : MANDATORY LA_Area_Tipo;
     END LA_AreaValor;
 
-    STRUCTURE LA_Transformacion =
+        STRUCTURE LA_Transformacion =
       Transformacion : MANDATORY Catastro_COL_ES_V2_2_0.Catastro_Registro.CC_MetodoOperacion;
       Localizacion_Transformada : MANDATORY ISO19107_V1_MAGNABOG.GM_Point2D;
     END LA_Transformacion;
 
-    STRUCTURE LA_TareaInteresadoTipo =
+        STRUCTURE LA_TareaInteresadoTipo =
       Tipo : (
         topografo,
         notario,
@@ -1064,7 +1064,7 @@ VERSION "2017-07-12 V2.1.6"  =
       Numero_Predial : TEXT*30;
       Numero_Predial_Anterior : TEXT*20;
       Avaluo_Predio : Catastro_COL_ES_V2_2_0.Peso;
-      UNIQUE NUPRE; 
+      UNIQUE NUPRE;
     END Predio;
 
     ASSOCIATION PublicidadBAUnit =
@@ -1072,7 +1072,7 @@ VERSION "2017-07-12 V2.1.6"  =
       baunit -- {1} LA_BAUnit;
     END PublicidadBAUnit;
 
-    /** Generalización de la clase derecho de la norma ISO 19152:2012, en esta clase se caracterizan los codigos registrales de la SNR que generan algún derecho sobre los objetos territoriales
+    /** GeneralizaciÃ³n de la clase derecho de la norma ISO 19152:2012, en esta clase se caracterizan los codigos registrales de la SNR que generan algÃºn derecho sobre los objetos territoriales
      */
     CLASS COL_Derecho
     EXTENDS LA_RRR =
@@ -1161,7 +1161,7 @@ VERSION "2017-07-12 V2.1.6"  =
       Tipo : MANDATORY Catastro_COL_ES_V2_2_0.COL_FuenteEspacialTipo;
     END COL_FuenteEspacial;
 
-    /** Punto de la densificación de la red local, que se utiliza en la operación catastral para el levantamiento de información fisica de los objetos territoriales
+    /** Punto de la densificaciÃ³n de la red local, que se utiliza en la operaciÃ³n catastral para el levantamiento de informaciÃ³n fisica de los objetos territoriales
      */
     CLASS PuntoControl
     EXTENDS LA_Punto =
@@ -1197,7 +1197,7 @@ VERSION "2017-07-12 V2.1.6"  =
       ccl_Local_Id : MANDATORY CharacterString;
     END LA_CadenaCarasLindero;
 
-    /** Punto demarcado que representa la posición horizontal de un vértice de construcción o servidumbre o auxiliares.
+    /** Punto demarcado que representa la posiciÃ³n horizontal de un vÃ©rtice de construcciÃ³n o servidumbre o auxiliares.
      */
     CLASS PuntoLevantamiento
     EXTENDS LA_Punto =
@@ -1354,7 +1354,7 @@ VERSION "2017-07-12 V2.1.6"  =
       Avaluo_Terreno : MANDATORY Catastro_COL_ES_V2_2_0.Peso;
       Territorio_Agricola : BAG {0..*} OF Catastro_COL_ES_V2_2_0.COL_TerritorioAgricola_;
       Bosque_Area_Seminaturale : BAG {0..*} OF Catastro_COL_ES_V2_2_0.COL_BosqueAreaSemi_;
-      /** En esta clase se identifican los valores de la pregunta 5.5. Especifique si evidencia en el terreno del Anexo 5, Versión 2.1.1 de Catastro Multiproposito
+      /** En esta clase se identifican los valores de la pregunta 5.5. Especifique si evidencia en el terreno del Anexo 5, VersiÃ³n 2.1.1 de Catastro Multiproposito
        */
       Evidencia_Cuerpo_Agua : BAG {0..*} OF Catastro_COL_ES_V2_2_0.COL_CuerpoAgua_;
       Explotacion : BAG {0..*} OF COL_Explotacion_;
