@@ -32,6 +32,7 @@ INTERLIS 2.3;
  * !! 20.10.2017/ag : Ajustes a atributos de la clase terreno, cambio a dominio multivalorado, se crean dominios, col_servidumbre, col_afectacion, col_explotacion, col_territorioAgricula, col_cuerpoAgua, se elimina la obligatoriedad del rol responsable en las relaciones responsableFuente y topografoFuente
  * !! 28.10.2017/gc : Soporte de geometrías multi-parte para LA_UnidadEspacial (y las clases que la extienden) y Terreno.
  * !! 02.11.2017/ : Cambio del nombre del modelo de Catastro_COL_ES a Catastro_Registro_Nucleo
+ * !! 07.11.2017/fm: Cambio de nombre a la clase CadenaCarasLindero a CadenaCarasLimite 
  * !!
  * !!-----------------------------------------------------------
  * !!
@@ -1457,7 +1458,7 @@ VERSION "2017-07-12 V2.1.6"  =
 
     /** Traducción al español de la clase LA_BoundaryFaceString de LADM. Define los linderos y a su vez puede estar definida por una descrición textual o por dos o más puntos. Puede estar asociada a una fuente espacial o más.
      */
-    CLASS LA_CadenaCarasLindero
+    CLASS LA_CadenaCarasLimite
     EXTENDS ObjetoVersionado =
       /** Geometría lineal que define el lindero. Puede estar asociada a geometrías de tipo punto que definen sus vértices o ser una entidad lineal independiente.
        */
@@ -1471,7 +1472,7 @@ VERSION "2017-07-12 V2.1.6"  =
       /** Identificador local de la cadena de caras lindero.
        */
       ccl_Local_Id : MANDATORY CharacterString;
-    END LA_CadenaCarasLindero;
+    END LA_CadenaCarasLimite;
 
     /** Clase especializada de LA_Punto que representa puntos demarcados que representan la posición horizontal de un vértice de construcción, servidumbre o auxiliare.
      */
@@ -1580,23 +1581,23 @@ VERSION "2017-07-12 V2.1.6"  =
     END relacionFuenteUespacial;
 
     ASSOCIATION cclFuente =
-      ccl -- {0..*} LA_CadenaCarasLindero;
+      ccl -- {0..*} LA_CadenaCarasLimite;
       lfuente -- {0..*} COL_FuenteEspacial;
     END cclFuente;
 
     ASSOCIATION menos =
-      ccl -- {0..*} LA_CadenaCarasLindero;
+      ccl -- {0..*} LA_CadenaCarasLimite;
       eu (EXTERNAL) -- {0..*} LA_UnidadEspacial;
     END menos;
 
     ASSOCIATION masCcl =
-      cclP -- {0..*} LA_CadenaCarasLindero;
+      cclP -- {0..*} LA_CadenaCarasLimite;
       ueP (EXTERNAL) -- {0..*} LA_UnidadEspacial;
     END masCcl;
 
     ASSOCIATION puntoCcl =
       punto -- {2..*} LA_Punto;
-      ccl -- {0..*} LA_CadenaCarasLindero;
+      ccl -- {0..*} LA_CadenaCarasLimite;
     END puntoCcl;
 
     ASSOCIATION clFuente =
@@ -1708,7 +1709,7 @@ VERSION "2017-07-12 V2.1.6"  =
      * Dos linderos no pueden cruzarse ni superponerse.
      */
     CLASS Lindero
-    EXTENDS LA_CadenaCarasLindero =
+    EXTENDS LA_CadenaCarasLimite =
       /** Lóngitud en m del lindero.
        */
       Longitud : MANDATORY 0.0 .. 10000.0 [INTERLIS.m];

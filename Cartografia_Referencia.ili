@@ -185,7 +185,7 @@ VERSION "2017-06-02"  =
     /** Clase de tipo LA_CadenaCarasLindero del modelo de Catastro cuyo objetivo es almacenar el tipo de estructura lineal que genera un lindero.
      */
     CLASS EstructuraLineal
-    EXTENDS Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.LA_CadenaCarasLindero =
+    EXTENDS Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.LA_CadenaCarasLimite =
       /** Tipo de la estructura lineal que genera el lindero.
        */
       tipo : COL_EstructuraLinealTipo;
