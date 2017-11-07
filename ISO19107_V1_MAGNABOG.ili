@@ -26,14 +26,16 @@ VERSION "2016-03-07"  =
   END GM_Curve2DListValue;
 
     STRUCTURE GM_Surface2DListValue =
-    value : MANDATORY GM_Curve2D;
+    value : MANDATORY GM_Surface2D;
   END GM_Surface2DListValue;
 
-    STRUCTURE GM_MultiCurve2D =
+  !!@ ili2db.mapping = "MultiLine"
+  STRUCTURE GM_MultiCurve2D =
     geometry : LIST {1..*} OF ISO19107_V1_MAGNABOG.GM_Curve2DListValue;
   END GM_MultiCurve2D;
 
-    STRUCTURE GM_MultiSurface2D =
+  !!@ ili2db.mapping = "MultiSurface"
+  STRUCTURE GM_MultiSurface2D =
     geometry : LIST {1..*} OF ISO19107_V1_MAGNABOG.GM_Surface2DListValue;
   END GM_MultiSurface2D;
 
@@ -42,14 +44,16 @@ VERSION "2016-03-07"  =
   END GM_Curve3DListValue;
 
     STRUCTURE GM_Surface3DListValue =
-    value : MANDATORY GM_Curve3D;
+    value : MANDATORY GM_Surface3D;
   END GM_Surface3DListValue;
 
-    STRUCTURE GM_MultiCurve3D =
+  !!@ ili2db.mapping = "MultiLine"
+  STRUCTURE GM_MultiCurve3D =
     geometry : LIST {1..*} OF ISO19107_V1_MAGNABOG.GM_Curve3DListValue;
   END GM_MultiCurve3D;
 
-    STRUCTURE GM_MultiSurface3D =
+  !!@ ili2db.mapping = "MultiSurface"
+  STRUCTURE GM_MultiSurface3D =
     geometry : LIST {1..*} OF ISO19107_V1_MAGNABOG.GM_Surface3DListValue;
   END GM_MultiSurface3D;
 
