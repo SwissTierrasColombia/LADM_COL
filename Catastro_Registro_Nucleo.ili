@@ -423,6 +423,7 @@ VERSION "2017-07-12 V2.1.6"  =
       Decreto,
       Providencia,
       Acta_Colindancia,
+      Libros_Antiguo_Sistema_Registral,
       Informe_Colindancia
     );
 
