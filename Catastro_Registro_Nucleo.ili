@@ -33,6 +33,7 @@ INTERLIS 2.3;
  * !! 28.10.2017/gc : Soporte de geometrías multi-parte para LA_UnidadEspacial (y las clases que la extienden) y Terreno.
  * !! 02.11.2017/ : Cambio del nombre del modelo de Catastro_COL_ES a Catastro_Registro_Nucleo
  * !! 07.11.2017/fm: Cambio de nombre a la clase CadenaCarasLindero a CadenaCarasLimite 
+ * !! 14.11.2017/fm : taducción del dominio COL_BuildingUnitTipo
  * !!
  * !!-----------------------------------------------------------
  * !!
@@ -123,6 +124,12 @@ VERSION "2017-07-12 V2.1.6"  =
       Topologico
     );
 
+    COL_ExplotacionTipo = (
+      Minera,
+      Hidrocarburo,
+      Otra
+    );
+
     COL_FuenteEspacialTipo = (
       Croquis_Campo,
       Protocolo_Posicionamiento,
@@ -130,7 +137,24 @@ VERSION "2017-07-12 V2.1.6"  =
       Datos_Crudos
     );
 
-    COL_Servidumbre = (
+    COL_GeneroTipo = (
+      Femenino,
+      Masculino,
+      Otro
+    );
+
+    COL_LevelContentTipo = (
+      Construccion_Convencional,
+      Construccion_No_Convencional,
+      Consuetudinario,
+      Formal,
+      Informal,
+      Responsabilidad,
+      Restriccion_Derecho_Publico,
+      Restriction_Derecho_Privado
+    );
+
+    COL_ServidumbreTipo = (
       Vial,
       Petrolera,
       Electrica,
@@ -150,7 +174,8 @@ VERSION "2017-07-12 V2.1.6"  =
   STRUCTURE COL_Afectacion_ = value : MANDATORY COL_Afectacion; END COL_Afectacion_;
   STRUCTURE COL_BosqueAreaSemi_ = value : MANDATORY COL_BosqueAreaSemi; END COL_BosqueAreaSemi_;
   STRUCTURE COL_CuerpoAgua_ = value : MANDATORY COL_CuerpoAgua; END COL_CuerpoAgua_;
-  STRUCTURE COL_Servidumbre_ = value : MANDATORY COL_Servidumbre; END COL_Servidumbre_;
+  STRUCTURE COL_ExplotacionTipo_ = value : MANDATORY COL_ExplotacionTipo; END COL_ExplotacionTipo_;
+  STRUCTURE COL_ServidumbreTipo_ = value : MANDATORY COL_ServidumbreTipo; END COL_ServidumbreTipo_;
   STRUCTURE COL_TerritorioAgricola_ = value : MANDATORY COL_TerritorioAgricola; END COL_TerritorioAgricola_;
 
   UNIT
@@ -162,7 +187,11 @@ VERSION "2017-07-12 V2.1.6"  =
     /** !! ajustar en el Catalogo de Objetos
      */
     COL_AcuerdoTipo = (
+      /** Existe un acuerdo sobre la posición del punto
+       */
       Acuerdo,
+      /** Existe un desacuerdo sobre la posición del punto
+       */
       desacuerdo
     );
 
@@ -179,10 +208,15 @@ VERSION "2017-07-12 V2.1.6"  =
       Dominio
     );
 
-    COL_RegistroTipo = (
-      Forestal,
-      Mineria,
-      Restriccion_Publica
+    COL_InteresadoJuridicoTipo = (
+      Publico,
+      Privado,
+      Mixto
+    );
+
+    COL_UnidadEdificacionTipo = (
+      Compartido,
+      individual
     );
 
   UNIT
@@ -196,15 +230,19 @@ VERSION "2017-07-12 V2.1.6"  =
       No_Bien_Definido
     );
 
-    COL_LevelContentTipo = (
-      Construccion_Convencional,
-      Construccion_No_Convencional,
-      Consuetudinario,
-      Formal,
-      Informal,
-      Responsabilidad,
-      Restriccion_Derecho_Publico,
-      Restriction_Derecho_Privado
+    /** Punto de leventamiento planimetrico que se identifican en el marco de la identificación de las construcciones, los linderos o puntos auxiliares levantado para el apoyo en la mediciión
+     */
+    COL_PuntoLevTipo = (
+      Auxiliar,
+      Construccion,
+      Servidumbre
+    );
+
+    COL_RedServiciosTipo = (
+      Petroleo,
+      Quimicos,
+      Red_Termica,
+      Telecomunicacion
     );
 
     COL_ResponsabilidadTipo = (
@@ -221,11 +259,6 @@ VERSION "2017-07-12 V2.1.6"  =
     Centrimetro [cm] = 1 / 100 [INTERLIS.m];
 
   DOMAIN
-
-    COL_BuildingUnitTipo = (
-      Compartido,
-      individual
-    );
 
     COL_DescripcionPuntoTipo = (
       Esquina_Construccion,
@@ -249,46 +282,6 @@ VERSION "2017-07-12 V2.1.6"  =
       No_Registrada
     );
 
-    COL_HipotecaTipo = (
-      Abierta,
-      Cerrada
-    );
-
-    /** Si ha sido situado por interpolación, de qué manera se ha hecho.
-     */
-    COL_InterpolacionTipo = (
-      Aislado,
-      Intermedio_Arco,
-      Intermedio_Linea
-    );
-
-    COL_UtilityNetworkTipo = (
-      Petroleo,
-      Quimicos,
-      Red_Termica,
-      Telecomunicacion
-    );
-
-    Integer = 0 .. 999999999;
-
-    /** Dominio con la descripción de la tipologia de los codigos registrales que se inscriben y que publicitan alguna caracteristica especial del predio
-     */
-    COL_PublicidadTipo = (
-      Demanda,
-      Inicio_de_Proceso_Administrativo,
-      Cancelacion,
-      Desplazamiento_Forzado,
-      Victima_o_Restitucion,
-      Publicidad_de_Acto_Juridico
-    );
-
-    COL_TipoConstruccionTipo = (
-      Anexo,
-      No_PH,
-      Parque_Cementerio,
-      PH
-    );
-
     COL_ViaTipo = (
       Arteria,
       Autopista,
@@ -308,14 +301,57 @@ VERSION "2017-07-12 V2.1.6"  =
       Troncal
     );
 
-    Real = 0.000 .. 999999999.999;
-
-    COL_FormalidadTipo = (
-      Formal,
-      Informal
+    COL_ZonaTipo = (
+      Perimetro_Urbano,
+      Rural,
+      Corregimiento,
+      Caserios,
+      Inspecion_Policia
     );
 
-    COL_RolInteresadoTipo = (
+    COL_HipotecaTipo = (
+      Abierta,
+      Cerrada
+    );
+
+    /** Si ha sido situado por interpolación, de qué manera se ha hecho.
+     */
+    COL_InterpolacionTipo = (
+      Aislado,
+      Intermedio_Arco,
+      Intermedio_Linea
+    );
+
+    Integer = 0 .. 999999999;
+
+    STRUCTURE COL_AreaValor =
+    areaSize : MANDATORY 0.0 .. 99999999999999.9 [Catastro_Registro_Nucleo_V2_2_0.m2];
+    type : MANDATORY COL_AreaTipo;
+  END COL_AreaValor;
+
+  DOMAIN
+
+    /** Dominio con la descripción de la tipologia de los codigos registrales que se inscriben y que publicitan alguna caracteristica especial del predio
+     */
+    COL_PublicidadTipo = (
+      Demanda,
+      Inicio_de_Proceso_Administrativo,
+      Cancelacion,
+      Desplazamiento_Forzado,
+      Victima_o_Restitucion,
+      Publicidad_de_Acto_Juridico
+    );
+
+    COL_TipoConstruccionTipo = (
+      Anexo,
+      No_PH,
+      Parque_Cementerio,
+      PH
+    );
+
+    Real = 0.000 .. 999999999.999;
+
+    COL_FuncionInteresadoTipo = (
       Abogado_Demandas,
       Administrador_Estado,
       Banco,
@@ -326,19 +362,6 @@ VERSION "2017-07-12 V2.1.6"  =
     );
 
     Peso = 0 .. 999999999999 [COP];
-
-    STRUCTURE COL_AreaValor =
-    areaSize : MANDATORY 0.0 .. 99999999999999.9 [Catastro_Registro_Nucleo_V2_2_0.m2];
-    type : MANDATORY COL_AreaTipo;
-  END COL_AreaValor;
-
-  DOMAIN
-
-    COL_Genero = (
-      Femenino,
-      Masculino,
-      Otro
-    );
 
     COL_InteresadoDocumentoTipo = (
       Cedula_Ciudadania,
@@ -365,12 +388,8 @@ VERSION "2017-07-12 V2.1.6"  =
       ANT
     );
 
-    COL_InteresadoJuridicoTipo = (
-      Publico,
-      Privado,
-      Mixto
-    );
-
+    /** Conjunto de valores para indicar si se trata de un punto de control de referencia (un punto principal) o de apoyo (uso para levantamientos locales con estación total)
+     */
     COL_PuntoControlTipo = (
       Control,
       Apoyo
@@ -383,26 +402,10 @@ VERSION "2017-07-12 V2.1.6"  =
       Grupo_Etnico
     );
 
-    /** Punto de leventamiento planimetrico que se identifican en el marco de la identificación de las construcciones, los linderos o puntos auxiliares levantado para el apoyo en la mediciión
-     */
-    COL_PuntoLevTipo = (
-      Auxiliar,
-      Construccion,
-      Servidumbre
-    );
-
     COL_EstadoDisponibilidadTipo = (
       Convertido,
       Desconocido,
       Disponible
-    );
-
-    COL_TipoZona = (
-      Perimetro_Urbano,
-      Rural,
-      Corregimiento,
-      Caserios,
-      Inspecion_Policia
     );
 
     COL_FuenteAdministrativaTipo = (
@@ -431,14 +434,13 @@ VERSION "2017-07-12 V2.1.6"  =
 
     DOMAIN
 
-      COL_Explotacion = (
-        Minera,
-        Hidrocarburo,
-        Otra
-      );
-
       Integer = -2000000000 .. 2000000000;
-    STRUCTURE COL_Explotacion_ = value : MANDATORY COL_Explotacion; END COL_Explotacion_;
+
+      LA_VolumenTipo = (
+        Oficial,
+        Calculado,
+        Otro
+      );
 
     /** Forma de contactar con el interesado jurídico.
      */
@@ -468,78 +470,6 @@ VERSION "2017-07-12 V2.1.6"  =
 
     DOMAIN
 
-      Real = -2000000000.000 .. 2000000000.000;
-
-      CharacterString = TEXT*255;
-
-      Currency = -2000000000.00 .. 2000000000.00;
-
-      LA_EstadoDisponibilidadTipo = (
-        Original,
-        Destruido,
-        Incompleto,
-        Otro
-      );
-
-      LA_Agrupacion_Interesados_Tipo = (
-        Asociacion,
-        Familia,
-        Otro
-      );
-
-      LA_InteresadoTipo = (
-        Persona_Natural,
-        Persona_No_Natural,
-        Otro
-      );
-
-      LA_BAUnitTipo = (
-        Unidad_Propiedad_Basica,
-        Unidad_Derecho,
-        Otro
-      );
-
-      LA_DerechoTipo = (
-        Propiedad,
-        Consuetudinario,
-        Arrendamiento,
-        Otro
-      );
-
-      LA_RestriccionTipo = (
-        Servidumbres,
-        Otro
-      );
-
-      LA_ResponsabilidadTipo = (
-        Policia_Areas_Inundables,
-        Otro
-      );
-
-      LA_HipotecaTipo = (
-        Lineal,
-        Micro_Credito,
-        Otro
-      );
-
-      LA_FuenteAdministrativaTipo = (
-        Escritura,
-        Titulo,
-        Otro
-      );
-
-      LA_Area_Tipo = (
-        Oficial,
-        Calculada,
-        Otro
-      );
-
-      LA_VolumenTipo = (
-        Oficial,
-        Calculado,
-        Otro
-      );
-
       LA_FuenteEspacialTipo = (
         Topografia,
         Plano,
@@ -547,16 +477,29 @@ VERSION "2017-07-12 V2.1.6"  =
         Otro
       );
 
+      Real = -2000000000.000 .. 2000000000.000;
+
+      CharacterString = TEXT*255;
+
       LA_DimensionTipo = (
         Dim2D,
         Dim3D,
         otro
       );
 
+      Currency = -2000000000.00 .. 2000000000.00;
+
       LA_RelacionSuperficieTipo = (
         En_Rasante,
         En_Vuelo,
         En_Subsuelo,
+        Otro
+      );
+
+      LA_EstadoDisponibilidadTipo = (
+        Original,
+        Destruido,
+        Incompleto,
         Otro
       );
 
@@ -567,10 +510,22 @@ VERSION "2017-07-12 V2.1.6"  =
         Otro
       );
 
+      LA_Agrupacion_Interesados_Tipo = (
+        Asociacion,
+        Familia,
+        Otro
+      );
+
       LA_EstadoRedServiciosTipo = (
         Planeado,
         En_Uso,
         Fuera_De_Servicio,
+        Otro
+      );
+
+      LA_InteresadoTipo = (
+        Persona_Natural,
+        Persona_No_Natural,
         Otro
       );
 
@@ -582,9 +537,22 @@ VERSION "2017-07-12 V2.1.6"  =
         Otro
       );
 
+      LA_BAUnitTipo = (
+        Unidad_Propiedad_Basica,
+        Unidad_Derecho,
+        Otro
+      );
+
       LA_RegistroTipo = (
         Rural,
         Urbano,
+        Otro
+      );
+
+      LA_DerechoTipo = (
+        Propiedad,
+        Consuetudinario,
+        Arrendamiento,
         Otro
       );
 
@@ -601,6 +569,11 @@ VERSION "2017-07-12 V2.1.6"  =
         Otro
       );
 
+      LA_RestriccionTipo = (
+        Servidumbres,
+        Otro
+      );
+
       LA_InterpolacionTipo = (
         Inicio,
         Final,
@@ -608,9 +581,26 @@ VERSION "2017-07-12 V2.1.6"  =
         Otro
       );
 
+      LA_ResponsabilidadTipo = (
+        Policia_Areas_Inundables,
+        Otro
+      );
+
+      LA_HipotecaTipo = (
+        Lineal,
+        Micro_Credito,
+        Otro
+      );
+
       LA_MonumentacionTipo = (
         Baliza,
         Poste,
+        Otro
+      );
+
+      LA_FuenteAdministrativaTipo = (
+        Escritura,
+        Titulo,
         Otro
       );
 
@@ -654,7 +644,7 @@ VERSION "2017-07-12 V2.1.6"  =
       CI_Forma_Presentacion_Codigo = (
         /** Definición en la ISO 19115:2003.
          */
-        Imagenn,
+        Imagen,
         /** Definición en la ISO 19115:2003.
          */
         Mapa,
@@ -835,6 +825,17 @@ VERSION "2017-07-12 V2.1.6"  =
       Ddimensiones_Objetivo : Integer;
     END CC_MetodoOperacion;
 
+    /** Registro de la fórmula o procedimiento utilizado en la transformación y de su resultado.
+     */
+        STRUCTURE LA_Transformacion =
+      /** Fórmula o procedimiento utilizado en la transformación.
+       */
+      Transformacion : MANDATORY Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.CC_MetodoOperacion;
+      /** Geometría una vez realizado el proceso de transformación.
+       */
+      Localizacion_Transformada : MANDATORY ISO19107_V1_MAGNABOG.GM_Point2D;
+    END LA_Transformacion;
+
     /** Estructura que pone a disposición del modelo la clase OM_Observation de la ISO 19156 y de la que sólo implementa un atributo de los cinco que tiene la clase origina: resultQuality.
      */
         STRUCTURE OM_Observacion =
@@ -842,6 +843,16 @@ VERSION "2017-07-12 V2.1.6"  =
        */
       Resultado_Calidad : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.DQ_Element;
     END OM_Observacion;
+
+    /** Estructura que define los diferentes tipos de interesados que pueden darse.
+     */
+        STRUCTURE LA_TareaInteresadoTipo =
+      Tipo : (
+        topografo,
+        notario,
+        otro
+      );
+    END LA_TareaInteresadoTipo;
 
     /** Estructura que pone a disposición del modelo la clase OM_Process de la ISO 19156. No desarrollado, debe ser definido por los pilotos
      */
@@ -854,7 +865,7 @@ VERSION "2017-07-12 V2.1.6"  =
       /** Nombre del área en la que se encuentra la dirección.
        */
       Nombre_Area_Direccion : CharacterString;
-      /** par de valores georreferenciados (x,y) en la que se encuentra la dirección.
+      /** Par de valores georreferenciados (x,y) en la que se encuentra la dirección.
        */
       Coordenada_Direccion : ISO19107_V1_MAGNABOG.GM_Point2D;
       /** Identificador local de la dirección.
@@ -876,11 +887,42 @@ VERSION "2017-07-12 V2.1.6"  =
       Nombre_Calle : CharacterString;
     END ExtDireccion;
 
+    /** Clase abstracta que permite gestionar el histórico del conjunto de clases, las cuales heredan de esta, excepto las fuentes.
+     */
+    CLASS ObjetoVersionado (ABSTRACT) =
+      /** Comienzo de la validez actual de la instancia de un objeto.
+       */
+      Comienzo_Vida_Util_Version : MANDATORY INTERLIS.XMLDateTime;
+      /** Finnzo de la validez actual de la instancia de un objeto.
+       */
+      Fin_Vida_Util_Version : INTERLIS.XMLDateTime;
+      /** Metadatos relativos a la calidad de la instancia.
+       */
+      Calidad : LIST {0..*} OF Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.DQ_Element;
+      /** Metadatos corresondientes a la responsabilidad de la instancia.
+       */
+      Procedencia : LIST {0..*} OF Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.CI_ParteResponsable;
+      MANDATORY CONSTRAINT
+        Fin_Vida_Util_Version >= Comienzo_Vida_Util_Version;
+    END ObjetoVersionado;
+
     /** Control externo de la unidad de edificación física.
      */
         STRUCTURE ExtUnidadEdificacionFisica =
       Ext_Direccion_ID : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.ExtDireccion;
     END ExtUnidadEdificacionFisica;
+
+    /** Clase especial del perfil colombiano de la norma ISO 19152:2012. Pretenden generar publicidad sobre el predio a partir del almacenamiento de los codigos registrales que se inscriben el FMI. No se genera ningún tipo de derecho, ni limita la propiedad.
+     */
+    CLASS Publicidad
+    EXTENDS ObjetoVersionado =
+      /** Indica la característica por la que se hace público.
+       */
+      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_PublicidadTipo;
+      /** Código registral del FMI que se hace público.
+       */
+      Codigo_Registral_Publicidad : MANDATORY TEXT*3;
+    END Publicidad;
 
     /** Referencia a una clase externa para gestionar direcciones.
      */
@@ -934,68 +976,6 @@ VERSION "2017-07-12 V2.1.6"  =
       s_Local_Id : MANDATORY CharacterString;
     END ExtArchivo;
 
-    /** Estructura para la definición de un tipo de dato personalizado que permite indicar la medición de un volumen y la naturaleza de este.
-     */
-        STRUCTURE LA_VolumenValor =
-      /** Medición del volumen en m3.
-       */
-      Volumen_Medicion : MANDATORY 0.0 .. 99999999999999.9 [INTERLIS.m];
-      /** Indicación de si el volumen es calculado, si figura como oficial o si se da otra circunstancia.
-       */
-      Tipo : MANDATORY LA_VolumenTipo;
-    END LA_VolumenValor;
-
-    /** Estructura para la definición de un tipo de dato personalizado que permite indicar la medición de un área y la naturaleza de esta.
-     */
-        STRUCTURE LA_AreaValor =
-      /** Medición del área del objeto espacial, en m2.
-       */
-      Area_Medicion : MANDATORY 0.0 .. 99999999999999.9 [INTERLIS.m];
-      /** Indicación de si el área ha sido calculada, si es la oficial o si tiene otra naturaleza.
-       */
-      Tipo : MANDATORY LA_Area_Tipo;
-    END LA_AreaValor;
-
-    /** Registro de la fórmula o procedimiento utilizado en la transformación y de su resultado.
-     */
-        STRUCTURE LA_Transformacion =
-      /** Fórmula o procedimiento utilizado en la transformación.
-       */
-      Transformacion : MANDATORY Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.CC_MetodoOperacion;
-      /** Geometría una vez realizado el proceso de transformación.
-       */
-      Localizacion_Transformada : MANDATORY ISO19107_V1_MAGNABOG.GM_Point2D;
-    END LA_Transformacion;
-
-    /** Estructura que define los diferentes tipos de interesados que pueden darse.
-     */
-        STRUCTURE LA_TareaInteresadoTipo =
-      Tipo : (
-        topografo,
-        notario,
-        otro
-      );
-    END LA_TareaInteresadoTipo;
-
-    /** Clase abstracta que permite gestionar el histórico del conjunto de clases, las cuales heredan de esta, excepto las fuentes.
-     */
-    CLASS ObjetoVersionado (ABSTRACT) =
-      /** Comienzo de la validez actual de la instancia de un objeto.
-       */
-      Comienzo_Vida_Util_Version : MANDATORY INTERLIS.XMLDateTime;
-      /** Finnzo de la validez actual de la instancia de un objeto.
-       */
-      Fin_Vida_Util_Version : INTERLIS.XMLDateTime;
-      /** Metadatos relativos a la calidad de la instancia.
-       */
-      Calidad : LIST {0..*} OF Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.DQ_Element;
-      /** Metadatos corresondientes a la responsabilidad de la instancia.
-       */
-      Procedencia : LIST {0..*} OF Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.CI_ParteResponsable;
-      MANDATORY CONSTRAINT
-        Fin_Vida_Util_Version >= Comienzo_Vida_Util_Version;
-    END ObjetoVersionado;
-
     /** Clase abstracta. Esta clase es la personalización en el modelo del perfil colombiano de la clase de LADM LA_Source.
      */
     CLASS COL_Fuente (ABSTRACT) =
@@ -1035,23 +1015,22 @@ VERSION "2017-07-12 V2.1.6"  =
       Oficialidad : BOOLEAN;
     END COL_Fuente;
 
-    /** Clase especial del perfil colombiano de la norma ISO 19152:2012. Pretenden generar publicidad sobre el predio a partir del almacenamiento de los codigos registrales que se inscriben el FMI. No se genera ningún tipo de derecho, ni limita la propiedad.
+    /** Estructura para la definición de un tipo de dato personalizado que permite indicar la medición de un volumen y la naturaleza de este.
      */
-    CLASS Publicidad
-    EXTENDS ObjetoVersionado =
-      /** Indica la característica por la que se hace público.
+        STRUCTURE LA_VolumenValor =
+      /** Medición del volumen en m3.
        */
-      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_PublicidadTipo;
-      /** Código registral del FMI que se hace público.
+      Volumen_Medicion : MANDATORY 0.0 .. 99999999999999.9 [INTERLIS.m];
+      /** Indicación de si el volumen es calculado, si figura como oficial o si se da otra circunstancia.
        */
-      Codigo_Registral_Publicidad : MANDATORY TEXT*3;
-    END Publicidad;
+      Tipo : MANDATORY LA_VolumenTipo;
+    END LA_VolumenValor;
 
     /** Traducción al español de la clase LA_SpatialUnit de LADM.
      */
     CLASS LA_UnidadEspacial
     EXTENDS ObjetoVersionado =
-      Area : LIST {0..*} OF Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.LA_AreaValor;
+      Area : LIST {0..*} OF ANYSTRUCTURE;
       Dimension : LA_DimensionTipo;
       /** Corresponde al atributo extAddressID de la clase en LADM.
        */
@@ -1623,7 +1602,7 @@ VERSION "2017-07-12 V2.1.6"  =
 
     /** Traducción de la clase LA_Party de LADM. Representa a las personas que ejercen derechos y responsabilidades  o sufren restricciones respecto a una BAUnit.
      */
-    CLASS LA_Interesado
+    CLASS LA_Interesado (ABSTRACT)
     EXTENDS ObjetoVersionado =
       /** Identificador del interesado.
        */
@@ -1688,7 +1667,7 @@ VERSION "2017-07-12 V2.1.6"  =
       /** Segundo nombre de la persona física.
        */
       Segundo_Nombre : TEXT*50;
-      Genero : Catastro_Registro_Nucleo_V2_2_0.COL_Genero;
+      Genero : Catastro_Registro_Nucleo_V2_2_0.COL_GeneroTipo;
     END Interesado_Natural;
 
     /** Registra interesados que representan a grupos de personas. Se registra el grupo en si, independientemete de las personas por separado. Es lo que ocurreo, por ejemplo, con un grupo étnico.
@@ -1742,13 +1721,13 @@ VERSION "2017-07-12 V2.1.6"  =
       Evidencia_Cuerpo_Agua : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_CuerpoAgua_;
       /** Se caracteriza si en el predio existe algún tipo de explotación, corresponde a la pregunta 5.6 del anexo 5.1 de los estandares de catastro multiproposito versión 2.1.1
        */
-      Explotacion : BAG {0..*} OF COL_Explotacion_;
+      Explotacion : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_ExplotacionTipo_;
       /** Se describe si en el predio existe alguna afectación natural de tipo inundación o de remoción en masa, corresponde a la pregunta 5.7 del anexo 5.1 de los estandares de catastro multiproposito versión 2.1.1
        */
       Afectacion : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_Afectacion_;
       /** Tipo de derecho que limita el dominio de una porción del predio, corresponde a la pregunta 5.8 del anexo 5.1 de los estandares de catastro multiproposito versión 2.1.1
        */
-      Servidumbre : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_Servidumbre_;
+      Servidumbre : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_ServidumbreTipo_;
       /** Corresponde a la figura geometrica vectorial poligonal, generada a partir de los linderos del predio.
        */
       poligono_creado (EXTENDED) : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;

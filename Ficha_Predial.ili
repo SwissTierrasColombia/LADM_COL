@@ -254,7 +254,7 @@ VERSION "2017-06-02 V2.1.1"  =
       Estrato : Catastro_Registro_Nucleo_V2_2_0.COL_EstratoTipo;
       /** Describe si el predio es formal o informal
        */
-      Informalidad : Catastro_Registro_Nucleo_V2_2_0.COL_FormalidadTipo;
+      Formalidad : BOOLEAN;
       /** Indica el estado en el que se encuentra el NUPRE (Debe ser definido por la autoridad catastral)
        */
       Estado_NUPRE : Catastro_Registro_Nucleo_V2_2_0.COL_EstadoNupreTipo;
@@ -352,7 +352,7 @@ VERSION "2017-06-02 V2.1.1"  =
       Discapacidad : BOOLEAN;
       /** Género del titular del documento al que se refiere el atributo "Documento_Identidad".
        */
-      Genero : Catastro_Registro_Nucleo_V2_2_0.COL_Genero;
+      Genero : Catastro_Registro_Nucleo_V2_2_0.COL_GeneroTipo;
       /** Si el titular del documento al que se refiere el atributo "Documento_Identidad" habita o no el predio en estudio.
        */
       Habita_Predio : BOOLEAN;

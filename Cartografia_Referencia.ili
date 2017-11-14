@@ -62,7 +62,7 @@ VERSION "2017-06-02"  =
       nombre : MANDATORY TEXT*50;
       /** Tipo de zona delimitada por la instancia.
        */
-      tipo_Zona : Catastro_Registro_Nucleo_V2_2_0.COL_TipoZona;
+      tipo_Zona : Catastro_Registro_Nucleo_V2_2_0.COL_ZonaTipo;
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por la zona.
        */
       geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;

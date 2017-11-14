@@ -13,6 +13,7 @@ INTERLIS 2.3;
  * * !!-----------------------------------------------------------
  * * !!
  * * !! 02.06.2017/vb: Generacion del modelo extraido a partir de version anterior del modelo de Catastro, donde aparecia como TOPIC
+ * * !! 09.11.2017/ : cambio de nombre al dominio COL_DestinoEconomicoTipo
  * * !!
  * * !!-----------------------------------------------------------
  * * !!
@@ -46,29 +47,6 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       /** No existe ningún aprovechamiento.
        */
       Sin_Aprovechamiento
-    );
-
-    /** Conjunto de valores válidos para indicar el tipo de medición de la superficie de un elemento de la realidad. Es un valor con incidencia en diferentes áreas de la Administración de Tierras
-     */
-    COL_AreaTipo = (
-      /** El área ha sido calculada en función de condicionamientos geodésicos locales. REVISAR DOCUMENTACIÓN
-       */
-      Area_Calculada_Altura_Local,
-      /** El área ha sido calculada en función de condicionamientos geodésicos nacionales. REVISAR DOCUMENTACIÓN
-       */
-      Area_Calculada_Altura_Mar,
-      /** El valor del área es un valor que figura en documentación administrativa de Catastro. No tiene porqué tener ninguna medición real asociada.
-       */
-      Area_Catastral_Administrativa,
-      /** El valor del área representa el valor estimado de la construcción.
-       */
-      Area_Estimado_Construccion,
-      /** El valor no tiene caracter oficial.
-       */
-      Area_No_Oficial,
-      /** El valor representa el dato que obra en poder del Registro de la Propiedad Inmobiliaria.
-       */
-      Area_Registral
     );
 
     /** Tipo de material de construcción del armazón
@@ -356,7 +334,7 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
 
     /** Conjunto de valores válidos para indicar cual es el destino económico de la unidad de construcción, con incidencia en su avalúo. REVISAR DOCUMENTACIÓN --> OJO, EL NOMBRE DESTINACIÓN DEBERÍA SER DESTINO, ES DECIR COL_DestinoEconomicoTipo.
      */
-    COL_DestinacionEconomicaTipo = (
+    COL_DestinoEconomicoTipo = (
       /** Se debe definir por la metodología de los pilotos
        */
       Definir_Operador
@@ -614,15 +592,13 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       /** Almacena el tipo de acceso a la unidad de construcción.
        */
       Acceso : MANDATORY Avaluos_V2_1.COL_AccesoTipo;
-      /** NO DOCUMENTADO
-       */
       Nivel_de_Acceso : MANDATORY 1 .. 100;
-      /** Activiadad económica a la que está destinada la unidad de construcción.
+      /** Activiadad económica que se desarrolla en la unidad de construcción.
        */
       Actividad_Econo : MANDATORY Avaluos_V2_1.COL_ActividadEconoTipo;
-      /** ¿MEJOR USO?
+      /** Activiadad económica a la que está destinada la unidad de construcción.
        */
-      Destino_Econo : MANDATORY Avaluos_V2_1.COL_DestinacionEconomicaTipo;
+      Destino_Econo : MANDATORY Avaluos_V2_1.COL_DestinoEconomicoTipo;
       /** Estilo arquitectónico de la construcción.
        */
       Estilo : MANDATORY Avaluos_V2_1.COL_EstiloTipo;
