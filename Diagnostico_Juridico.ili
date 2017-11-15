@@ -6,7 +6,7 @@ INTERLIS 2.3;
 MODEL Diagnostico_Juridico_V1_0 (es)
 AT "mailto:user@localhost"
 VERSION "2017-09-28 V0.1"  =
-  IMPORTS Catastro_Registro_Nucleo_V2_2_0;
+  IMPORTS Catastro_Registro_Nucleo_V2_2_0,LADM_COL;
 
   TOPIC Diagnostico_Juridico =
     DEPENDS ON Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro;

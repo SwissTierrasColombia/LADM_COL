@@ -3,7 +3,7 @@ INTERLIS 2.3;
 MODEL Cartografia_Referencia_V2_1 (es)
 AT "mailto:vmbp@localhost"
 VERSION "2017-06-02"  =
-  IMPORTS ISO19107_V1_MAGNABOG,Catastro_Registro_Nucleo_V2_2_0;
+  IMPORTS ISO19107_V1_MAGNABOG,Catastro_Registro_Nucleo_V2_2_0,LADM_COL;
 
   /** Este tema almacena específicamente las clases que definen la división administrativa desde el punto de vista operativo de catastro.
    */
@@ -134,8 +134,8 @@ VERSION "2017-06-02"  =
     EXTENDS Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.LA_Punto =
       Acuerdo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_AcuerdoTipo;
       Def_Punto : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_DefPuntoTipo;
-      Exactitud_Vertical : 0 .. 1000 [Catastro_Registro_Nucleo_V2_2_0.cm];
-      Exactitud_Posicional : MANDATORY 0 .. 1000 [Catastro_Registro_Nucleo_V2_2_0.cm];
+      Exactitud_Vertical : 0 .. 1000 [LADM_COL.cm];
+      Exactitud_Posicional : MANDATORY 0 .. 1000 [LADM_COL.cm];
       Confiabilidad : BOOLEAN;
       Posicion_Interpolacion (EXTENDED) : Catastro_Registro_Nucleo_V2_2_0.COL_InterpolacionTipo;
       Monumentacion (EXTENDED) : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_MonumentacionTipo;

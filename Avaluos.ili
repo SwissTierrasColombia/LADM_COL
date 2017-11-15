@@ -25,7 +25,7 @@ INTERLIS 2.3;
 MODEL Avaluos_V2_1 (es)
 AT "mailto:vmbp@localhost"
 VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a partir del TOPIC "Avaluos" del modelo de Catastro-Registro V21 // =
-  IMPORTS ISO19107_V1_MAGNABOG,Catastro_Registro_Nucleo_V2_2_0;
+  IMPORTS ISO19107_V1_MAGNABOG,Catastro_Registro_Nucleo_V2_2_0,LADM_COL;
 
   DOMAIN
 
@@ -505,7 +505,7 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
     CLASS Predio =
       /** Almacena el área calculada sobre plano de la zona, en m2
        */
-      Area_Calculada_Plano_Local : MANDATORY 0.0 .. 99999999999999.9 [Catastro_Registro_Nucleo_V2_2_0.m2];
+      Area_Calculada_Plano_Local : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL.m2];
       /** Calidad del aprovechamiento obtenido en el predio
        */
       Aprovechamiento : MANDATORY Avaluos_V2_1.COL_AprovechamientoTipo;
