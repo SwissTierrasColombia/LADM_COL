@@ -466,7 +466,7 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Puntos_Cubierta : 1 .. 100;
       Conservacion_Cubierta : Avaluos_V2_1.COL_EstadoConservacionTipo;
       Puntos_Cubierta_Conservacion : 1 .. 100;
-      Sub_Total_Estructura : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Sub_Total_Estructura : LADM_COL.LADM_Nucleo.Integer;
       Fachada : Avaluos_V2_1.COL_FachadaTipo;
       Puntos_Fachada : 1 .. 100;
       Cubrimiento_Muros : Avaluos_V2_1.COL_CubrimientoMurosTipo;
@@ -475,7 +475,7 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Puntos_Piso : 1 .. 100;
       Conservacion_Acabados : Avaluos_V2_1.COL_EstadoConservacionTipo;
       Puntos_Conservacion_Acabados : 1 .. 100;
-      Sub_Total_Acabados : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Sub_Total_Acabados : LADM_COL.LADM_Nucleo.Integer;
       Tamanio_Banio : Avaluos_V2_1.COL_TamanioBanioTipo;
       Puntos_Tamanio_Banio : 1 .. 100;
       Enchape_Banio : Avaluos_V2_1.COL_CalidadEnchapeTipo;
@@ -484,7 +484,7 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Puntos_Mobiliario_Banio : 1 .. 100;
       Conservacion_Banio : Avaluos_V2_1.COL_EstadoConservacionTipo;
       Puntos_Conservacion_Banio : 1 .. 100;
-      Sub_Total_Banio : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Sub_Total_Banio : LADM_COL.LADM_Nucleo.Integer;
       Tamanio_Cocina : Avaluos_V2_1.COL_TamanioCocinaTipo;
       Puntos_Tamanio_Cocina : 1 .. 100;
       Enchape_Cocina : Avaluos_V2_1.COL_CalidadEnchapeTipo;
@@ -493,11 +493,11 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Puntos_Mobiliario_Cocina : 1 .. 100;
       Conservacion_Cocina : Avaluos_V2_1.COL_EstadoConservacionTipo;
       Puntos_Conservacion_Cocina : 1 .. 100;
-      Sub_Total_Cocina : Catastro_Registro_Nucleo_V2_2_0.Integer;
-      Total_Residencial_Y_Comercial : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Sub_Total_Cocina : LADM_COL.LADM_Nucleo.Integer;
+      Total_Residencial_Y_Comercial : LADM_COL.LADM_Nucleo.Integer;
       Cerchas : Avaluos_V2_1.COL_CerchasTipo;
       Puntos_Cerchas : 1 .. 100;
-      Total_Industrial : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Total_Industrial : LADM_COL.LADM_Nucleo.Integer;
     END Calificacion_Unidad_Construccion;
 
     /** La clase Predio es una agrupación de atributos específicos para el avalúo del mismo. Por tanto, representa lo mismo que en el caso de los modelos de Catastro y de Registro, pero sus atributos almacenan los datos relativos a aquellas características que es necesario conocer para realizar el avaluo masivo de los predios catastrales, de acuerdo con la metodología vigente.
@@ -514,7 +514,7 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Disponibilidad_Agua : MANDATORY Avaluos_V2_1.COL_DisponibilidadAguaTipo;
       /** Distancia a la fuente de agua más cercana.
        */
-      Distancia_Fuentes_Agua : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Distancia_Fuentes_Agua : LADM_COL.LADM_Nucleo.Integer;
       /** Obras existentes en el interior del predio, o la indicación de que no existe.
        */
       Obra_al_Interior : MANDATORY Avaluos_V2_1.COL_ObrasAlInteriorTipo;
@@ -532,13 +532,13 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Forma : Avaluos_V2_1.COL_FormaTipo;
       /** Cantidad de balcones que tiene el predio vivienda.
        */
-      Num_Balcones : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Num_Balcones : LADM_COL.LADM_Nucleo.Integer;
       /** Cantidad de terrazas que tiene el predio vivienda.
        */
-      Num_Terrazas : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Num_Terrazas : LADM_COL.LADM_Nucleo.Integer;
       /** Número de entrepisos del predio.
        */
-      Num_Mezanines : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Num_Mezanines : LADM_COL.LADM_Nucleo.Integer;
       /** Elemento situado en zona común que es de uso exclusivo.
        */
       Comun_Uso_Exclusivo : MANDATORY Avaluos_V2_1.COL_ComunExclusivoTipo;
@@ -550,10 +550,10 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Ubicacion_Manzana : TEXT*20;
       /** Longitud del frente del predio. El frente del predio se considera de acuerdo con el acceso al mismo.
        */
-      Frente : Catastro_Registro_Nucleo_V2_2_0.Real;
+      Frente : LADM_COL.LADM_Nucleo.Real;
       /** Longitud del fondo del predio. El fondo del predio se considera de acuerdo con su visión desde el acceso al mismo.
        */
-      Fondo : Catastro_Registro_Nucleo_V2_2_0.Real;
+      Fondo : LADM_COL.LADM_Nucleo.Real;
     END Predio;
 
     /** Relación entre las clases "Predio" de Catastro y de Avalúo. La cardinalidad es 1-1, lo que indica que son representaciones diferentes de un mismo elemento de la realidad.
@@ -620,37 +620,37 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       /** Material principal de la construcción.
        */
       Material : MANDATORY Avaluos_V2_1.COL_MaterialConstrTipo;
-      Puntuacion : MANDATORY Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Puntuacion : MANDATORY LADM_COL.LADM_Nucleo.Integer;
       /** Tipología de unidad de construcción.
        */
       Tipologia : MANDATORY Avaluos_V2_1.COL_TipologiaTipo;
       /** Cantidad de estancias habitables de la unidad de construcción.
        */
-      Num_Habitaciones : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Num_Habitaciones : LADM_COL.LADM_Nucleo.Integer;
       /** Cantidad de baños de la unidad de construcción.
        */
-      Num_Banios : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Num_Banios : LADM_COL.LADM_Nucleo.Integer;
       /** Cantidad de cocinas de la unidad de construcción.
        */
-      Num_Cocinas : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Num_Cocinas : LADM_COL.LADM_Nucleo.Integer;
       /** Cantidad de oficinas de la unidad de construcción.
        */
-      Num_Oficinas : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Num_Oficinas : LADM_COL.LADM_Nucleo.Integer;
       /** Cantidad de estudios de la unidad de construcción.
        */
-      Num_Estudios : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Num_Estudios : LADM_COL.LADM_Nucleo.Integer;
       /** Cantidad de bodegas de la unidad de construcción.
        */
-      Num_Bodegas : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Num_Bodegas : LADM_COL.LADM_Nucleo.Integer;
       /** Cantidad de locales de la unidad de construcción.
        */
-      Num_Locales : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Num_Locales : LADM_COL.LADM_Nucleo.Integer;
       /** Cantidad de salas de la unidad de construcción.
        */
-      Num_Salas : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Num_Salas : LADM_COL.LADM_Nucleo.Integer;
       /** Cantidad de comedores de la unidad de construcción.
        */
-      Num_Comedores : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Num_Comedores : LADM_COL.LADM_Nucleo.Integer;
     END Unidad_Construccion;
 
     /** Relación entre las clases "UnidadConstruccion" de Catastro y de Avalúo. La cardinalidad es 1-1, lo que indica que son representaciones diferentes de un mismo elemento de la realidad.
@@ -671,33 +671,33 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
     /** Clase para registrar la información relativa al predio, o unidad básica del terreno, que sirve de matriz a un elemento de propiedad horizontal. REVISAR DOCUMENTACIÓN
      */
     CLASS Predio_Matriz_PH =
-      Num_Etapas : Catastro_Registro_Nucleo_V2_2_0.Integer;
-      Num_Interiores : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Num_Etapas : LADM_COL.LADM_Nucleo.Integer;
+      Num_Interiores : LADM_COL.LADM_Nucleo.Integer;
       /** Número de torres o construcciones en vertical, como agrupaciones de propiedades horizontales, que hay sobre el predio matriz. REVISAR
        */
-      Num_Torres : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Num_Torres : LADM_COL.LADM_Nucleo.Integer;
       /** Número de plantas que hay por cada una de las torres.
        */
-      Num_Pisos_por_Torre : Catastro_Registro_Nucleo_V2_2_0.Integer;
-      Num_Unidades_Privadas : Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Num_Pisos_por_Torre : LADM_COL.LADM_Nucleo.Integer;
+      Num_Unidades_Privadas : LADM_COL.LADM_Nucleo.Integer;
       /** Área, en m2 y tipo de medición del terreno del predio matriz.
        */
-      Area_Terreno_Total : Catastro_Registro_Nucleo_V2_2_0.COL_AreaValor;
+      Area_Terreno_Total : LADM_COL.LADM_Nucleo.COL_AreaValor;
       /** Área, en m2 y tipo de medición del terreno común en el predio matriz.
        */
-      Area_Terreno_Comun : Catastro_Registro_Nucleo_V2_2_0.COL_AreaValor;
+      Area_Terreno_Comun : LADM_COL.LADM_Nucleo.COL_AreaValor;
       /** Área, en m2 y tipo de medición del terreno privado en el predio matriz.
        */
-      Area_Terreno_Privada : Catastro_Registro_Nucleo_V2_2_0.COL_AreaValor;
+      Area_Terreno_Privada : LADM_COL.LADM_Nucleo.COL_AreaValor;
       /** Área, en m2 y tipo de medición del terreno construido en el predio matriz.
        */
-      Area_Construida_Total : Catastro_Registro_Nucleo_V2_2_0.COL_AreaValor;
+      Area_Construida_Total : LADM_COL.LADM_Nucleo.COL_AreaValor;
       /** Área, en m2 y tipo de medición del terreno de naturaleza privada en el área construida del predio matriz.
        */
-      Area_Construida_Privada : Catastro_Registro_Nucleo_V2_2_0.COL_AreaValor;
+      Area_Construida_Privada : LADM_COL.LADM_Nucleo.COL_AreaValor;
       /** Área, en m2 y tipo de medición del terreno de naturaleza común en el área construida del predio matriz.
        */
-      Area_Construida_Comun : Catastro_Registro_Nucleo_V2_2_0.COL_AreaValor;
+      Area_Construida_Comun : LADM_COL.LADM_Nucleo.COL_AreaValor;
       Tipologia_Constructiva_Copropiedad : TEXT*20;
       /** Año en el que fue construida la etapa considerada.
        */
@@ -726,7 +726,7 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Tipo_Equipamiento_Comunal : Avaluos_V2_1.COL_EquipamientoComunalTipo;
       /** Medición del área y tipo de esa medición del equipamiento comunal considerado.
        */
-      Area : Catastro_Registro_Nucleo_V2_2_0.COL_AreaValor;
+      Area : LADM_COL.LADM_Nucleo.COL_AreaValor;
       /** Categoria del elemento.
        */
       Categoria : TEXT*100;
@@ -758,7 +758,7 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Identificador : MANDATORY TEXT*20;
       /** Valor económico de la zona homogénea que representa la instancia de la clase.
        */
-      Valor : MANDATORY Catastro_Registro_Nucleo_V2_2_0.Integer;
+      Valor : MANDATORY LADM_COL.LADM_Nucleo.Integer;
       /** Definición de la geometría espacial georreferenciada de la zona homogénea geoeconómica, delimitada mediante un polígono que contiene sus linderos y la superficie ocupada.
        */
       Geometria : MANDATORY ISO19107_V1_MAGNABOG.GM_Surface2D;
