@@ -131,7 +131,7 @@ VERSION "2017-06-02"  =
     END DivisionCentroPoblado;
 
     CLASS PuntoLimite
-    EXTENDS Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.LA_Punto =
+    EXTENDS LADM_COL.LADM_Nucleo.LA_Punto =
       Acuerdo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_AcuerdoTipo;
       Def_Punto : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_DefPuntoTipo;
       Exactitud_Vertical : 0 .. 1000 [LADM_COL.cm];
@@ -185,7 +185,7 @@ VERSION "2017-06-02"  =
     /** Clase de tipo LA_CadenaCarasLindero del modelo de Catastro cuyo objetivo es almacenar el tipo de estructura lineal que genera un lindero.
      */
     CLASS EstructuraLineal
-    EXTENDS Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.LA_CadenaCarasLimite =
+    EXTENDS LADM_COL.LADM_Nucleo.LA_CadenaCarasLimite =
       /** Tipo de la estructura lineal que genera el lindero.
        */
       tipo : COL_EstructuraLinealTipo;
@@ -194,7 +194,7 @@ VERSION "2017-06-02"  =
     /** Clase especializada a patir de LA_Punto del modelo de catastro cuya finalidad es indicar el tipo de punto que se utiliza como referencia.
      */
     CLASS EstructuraPuntual
-    EXTENDS Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.LA_Punto =
+    EXTENDS LADM_COL.LADM_Nucleo.LA_Punto =
       /** Descripción del tipo de punto que se indica.
        */
       tipo : COL_EstructuraPuntualTipo;
