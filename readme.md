@@ -16,39 +16,39 @@
 <p>Autores: Equipo de la implementación técnica lorenz.jenni@bsf-swissphoto.com</p>
 <p>Fecha: 10 de noviembre de 2017</p>
 <p>Índice de Contenido</p>
-<p><a href="#abreviaturas"><em>Abreviaturas</em> 4</a></p>
-<p><a href="#resumen-ejecutivo"><em>Resumen Ejecutivo</em> 5</a></p>
-<p><a href="#introducción"><em>1</em> <em>Introducción</em> 6</a></p>
-<p><a href="#antecedentes"><em>2</em> <em>Antecedentes</em> 7</a></p>
-<p><a href="#evolución-modelos-del-catastro-multipropósito"><em>2.1</em> <em>Evolución modelos del Catastro Multipropósito</em> 7</a></p>
-<p><a href="#bases-jurídicas-y-normativas-otras-referencias"><em>2.2</em> <em>Bases jurídicas y normativas, otras referencias</em> 7</a></p>
-<p><a href="#modularidad-del-ladm-col"><em>3</em> <em>Modularidad del LADM-COL</em> 8</a></p>
-<p><a href="#dependencias-módulo-catastro-multipropósito"><em>4</em> <em>Dependencias Módulo Catastro Multipropósito</em> 10</a></p>
-<p><a href="#_Toc498525021"><em>5</em> <em>Cambios en esta Versión</em> 12</a></p>
-<p><a href="#modelo-catastro-registro-núcleo"><em>5.1</em> <em>Modelo Catastro – Registro Núcleo</em> 12</a></p>
-<p><a href="#modelo-cartografía-de-referencia"><em>5.2</em> <em>Modelo Cartografía de Referencia</em> 12</a></p>
-<p><a href="#modelo-diagnóstico-jurídico"><em>5.3</em> <em>Modelo Diagnóstico Jurídico</em> 12</a></p>
-<p><a href="#modelo-avalúos"><em>5.4</em> <em>Modelo Avalúos</em> 12</a></p>
-<p><a href="#modelo-ficha-predial"><em>5.5</em> <em>Modelo Ficha Predial</em> 12</a></p>
-<p><a href="#_Toc498525027"><em>6</em> <em>Términos específicos y Semántica</em> 13</a></p>
-<p><a href="#modelo-catastro-registro-núcleo-1"><em>6.1</em> <em>Modelo Catastro – Registro Núcleo</em> 13</a></p>
-<p><a href="#modelo-cartografía-de-referencia-1"><em>6.2</em> <em>Modelo Cartografía de Referencia</em> 14</a></p>
-<p><a href="#modelo-diagnóstico-jurídico-1"><em>6.3</em> <em>Modelo Diagnóstico Jurídico</em> 14</a></p>
-<p><a href="#modelo-avalúos-1"><em>6.4</em> <em>Modelo Avalúos</em> 14</a></p>
-<p><a href="#modelo-ficha-predial-1"><em>6.5</em> <em>Modelo Ficha Predial</em> 14</a></p>
-<p><a href="#_Toc498525033"><em>7</em> <em>Catalogo de Objetos</em> 15</a></p>
-<p><a href="#modelo-catastro-registro-núcleo-2"><em>7.1</em> <em>Modelo Catastro – Registro Núcleo</em> 15</a></p>
-<p><a href="#módulo-cartografía-de-referencia"><em>7.2</em> <em>Módulo Cartografía de Referencia</em> 61</a></p>
-<p><a href="#módulo-diagnóstico-jurídico"><em>7.3</em> <em>Módulo Diagnóstico Jurídico</em> 67</a></p>
-<p><a href="#módulo-avalúos"><em>7.4</em> <em>Módulo Avalúos</em> 67</a></p>
-<p><a href="#módulo-ficha-predial"><em>7.5</em> <em>Módulo Ficha Predial</em> 87</a></p>
-<p><a href="#estudio-previo-de-conformidad-con-la-norma-iso19152"><em>8</em> <em>Estudio previo de Conformidad con la Norma ISO19152</em> 100</a></p>
-<p><a href="#referencias-bibliográficas"><em>9</em> <em>Referencias bibliográficas</em> 101</a></p>
-<p><a href="#anexos"><em>Anexos</em> 102</a></p>
-<p><a href="#descripción-modelos-en-uml"><em>A.</em> <em>Descripción Modelos en UML</em> 103</a></p>
-<p><a href="#descripción-del-modelo-en-umlinterlis-editor"><em>B.</em> <em>Descripción del modelo en UML/INTERLIS-Editor</em> 104</a></p>
-<p><a href="#descrición-modelos-en-interlis"><em>C.</em> <em>Descrición Modelos en INTERLIS</em> 105</a></p>
-<p><a href="#modelo-ladm-en-la-traducción-al-español"><em>E.</em> <em>Modelo LADM en la traducción al español</em> 107</a></p>
+<p><a href="#abreviaturas"><em>Abreviaturas</em></a></p>
+<p><a href="#resumen-ejecutivo"><em>Resumen Ejecutivo</em></a></p>
+<p><a href="#introducción"><em>1</em> <em>Introducción</em></a></p>
+<p><a href="#antecedentes"><em>2</em> <em>Antecedentes</em></a></p>
+<p><a href="#evolución-modelos-del-catastro-multipropósito"><em>2.1</em> <em>Evolución modelos del Catastro Multipropósito</em></a></p>
+<p><a href="#bases-jurídicas-y-normativas-otras-referencias"><em>2.2</em> <em>Bases jurídicas y normativas, otras referencias</em></a></p>
+<p><a href="#modularidad-del-ladm-col"><em>3</em> <em>Modularidad del LADM-COL</em></a></p>
+<p><a href="#dependencias-módulo-catastro-multipropósito"><em>4</em> <em>Dependencias Módulo Catastro Multipropósito</em></a></p>
+<p><a href="#_Toc498525021"><em>5</em> <em>Cambios en esta Versión</em></a></p>
+<p><a href="#modelo-catastro-registro-núcleo"><em>5.1</em> <em>Modelo Catastro – Registro Núcleo</em></a></p>
+<p><a href="#modelo-cartografía-de-referencia"><em>5.2</em> <em>Modelo Cartografía de Referencia</em></a></p>
+<p><a href="#modelo-diagnóstico-jurídico"><em>5.3</em> <em>Modelo Diagnóstico Jurídico</em></a></p>
+<p><a href="#modelo-avalúos"><em>5.4</em> <em>Modelo Avalúos</em></a></p>
+<p><a href="#modelo-ficha-predial"><em>5.5</em> <em>Modelo Ficha Predial</em></a></p>
+<p><a href="#_Toc498525027"><em>6</em> <em>Términos específicos y Semántica</em></a></p>
+<p><a href="#modelo-catastro-registro-núcleo-1"><em>6.1</em> <em>Modelo Catastro – Registro Núcleo</em></a></p>
+<p><a href="#modelo-cartografía-de-referencia-1"><em>6.2</em> <em>Modelo Cartografía de Referencia</em></a></p>
+<p><a href="#modelo-diagnóstico-jurídico-1"><em>6.3</em> <em>Modelo Diagnóstico Jurídico</em></a></p>
+<p><a href="#modelo-avalúos-1"><em>6.4</em> <em>Modelo Avalúos</em></a></p>
+<p><a href="#modelo-ficha-predial-1"><em>6.5</em> <em>Modelo Ficha Predial</em></a></p>
+<p><a href="#_Toc498525033"><em>7</em> <em>Catalogo de Objetos</em></a></p>
+<p><a href="#modelo-catastro-registro-núcleo-2"><em>7.1</em> <em>Modelo Catastro – Registro Núcleo</em></a></p>
+<p><a href="#módulo-cartografía-de-referencia"><em>7.2</em> <em>Módulo Cartografía de Referencia</em></a></p>
+<p><a href="#módulo-diagnóstico-jurídico"><em>7.3</em> <em>Módulo Diagnóstico Jurídico</em></a></p>
+<p><a href="#módulo-avalúos"><em>7.4</em> <em>Módulo Avalúos</em></a></p>
+<p><a href="#módulo-ficha-predial"><em>7.5</em> <em>Módulo Ficha Predial</em></a></p>
+<p><a href="#estudio-previo-de-conformidad-con-la-norma-iso19152"><em>8</em> <em>Estudio previo de Conformidad con la Norma ISO19152</em></a></p>
+<p><a href="#referencias-bibliográficas"><em>9</em> <em>Referencias bibliográficas</em></a></p>
+<p><a href="#anexos"><em>Anexos</em></a></p>
+<p><a href="#descripción-modelos-en-uml"><em>A.</em> <em>Descripción Modelos en UML</em></a></p>
+<p><a href="#descripción-del-modelo-en-umlinterlis-editor"><em>B.</em> <em>Descripción del modelo en UML/INTERLIS-Editor</em></a></p>
+<p><a href="#descrición-modelos-en-interlis"><em>C.</em> <em>Descrición Modelos en INTERLIS</em></a></p>
+<p><a href="#modelo-ladm-en-la-traducción-al-español"><em>E.</em> <em>Modelo LADM en la traducción al español</em></a></p>
 <p>Versiones y Revisión del Documento</p>
 <table>
 <thead>
