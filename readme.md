@@ -98,7 +98,7 @@
 </tr>
 <tr class="even">
 <td align="left">Lorenz Jenni</td>
-<td align="left"><p><img src="docs/media/image14.jpg" width="215" height="93" /></p>
+<td align="left">
 <p>Kapar Eggenberger</p></td>
 <td align="left">2.1</td>
 <td align="left">10.11.2017</td>
