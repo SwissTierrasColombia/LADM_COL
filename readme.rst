@@ -14,7 +14,9 @@ Modelos Catastro Multipropósito:
 
 -  *Cartografia de Referencia*
 
-|image0|\ Versión 2.1
+**Versión 2.1**
+
+|image0|\ 
 
 Para los socios principales del Proyecto:
 
