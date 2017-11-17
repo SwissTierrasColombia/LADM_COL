@@ -44,15 +44,22 @@ INTERLIS 2.3;
 CONTRACTED MODEL Catastro_Registro_Nucleo_V2_2_0 (es)
 AT "http://www.igac.gov.co/models"
 VERSION "2017-07-12 V2.1.6"  =
-  IMPORTS ISO19107_V1_MAGNABOG;
-
-  UNIT
-
-    PesoColombiano [COP] EXTENDS INTERLIS.MONEY;
+  IMPORTS ISO19107_V1_MAGNABOG,LADM_COL;
 
   FUNCTION no_overlaps(Objects: OBJECTS OF ANYCLASS; SurfaceAttr : ATTRIBUTE OF @ Objects RESTRICTION ( SURFACE )): BOOLEAN;
 
   DOMAIN
+
+    /** !! ajustar en el Catalogo de Objetos
+     */
+    COL_AcuerdoTipo = (
+      /** Existe un acuerdo sobre la posición del punto
+       */
+      Acuerdo,
+      /** Existe un desacuerdo sobre la posición del punto
+       */
+      desacuerdo
+    );
 
     COL_Afectacion = (
       Inundacion,
@@ -60,15 +67,6 @@ VERSION "2017-07-12 V2.1.6"  =
        */
       RemocionMasa,
       Otra
-    );
-
-    COL_AreaTipo = (
-      Area_Calculada_Altura_Local,
-      Area_Calculada_Altura_Mar,
-      Area_Catastral_Administrativa,
-      Area_Estimado_Construccion,
-      Area_No_Oficial,
-      Area_Registral
     );
 
     COL_BosqueAreaSemi = (
@@ -88,33 +86,17 @@ VERSION "2017-07-12 V2.1.6"  =
       ZonaPantanosa
     );
 
-    COL_EstadoNupreTipo = (
-      /** El código ha sido asignado por el gestor catastral y refiere a un único predio de acuerdo al proceso de conformación o mantenimiento catastral multipropósito.
+    COL_DerechoTipo = (
+      Derecho_Propiedad_Colectiva,
+      Mineria_Derecho,
+      Nuda_Propiedad,
+      Ocupacion,
+      Posesion,
+      Tenencia,
+      Usufructo,
+      /** Derecho de dominio o propiedad
        */
-      G,
-      /** El código ha sido asignado por el gestor catastral y refiere a un único predio de acuerdo al proceso de conformación o mantenimiento catastral multipropósito.
-       */
-      C,
-      /** El código ha sido anotado o inscrito en el sistema de registro de instrumentos públicos, en este estado el ciudadano podrá solicitar el Certificado Predial Registral, que contiene la información jurídica del Registro de Instrumentos Públicos y la información física y económica del Sistema Único de Información Catastral Multipropósito esta información goza con pleno mérito probatorio, cuya expedición está a cargo de la Superintendencia de Notariado y Registro y cuya vigencia se limita a su fecha y hora de expedición. 
-       *  
-       * El NUPRE del certificado Predial Registral es obligatorio para las actuaciones o modificaciones que se realicen sobre el predio por vía de actuación privada o pública y para todas las transacciones inmobiliarias, y permite prescindir de la transcripción de linderos en todos los documentos públicos que contengan actos jurídicos.
-       */
-      R,
-      /** El código ha sido anotado o inscrito en el sistema de registro de instrumentos públicos, en este estado el ciudadano podrá solicitar el Certificado Predial Registral, que contiene la información jurídica del Registro de Instrumentos Públicos y la información física y económica del Sistema Único de Información Catastral Multipropósito esta información goza con pleno mérito probatorio, cuya expedición está a cargo de la Superintendencia de Notariado y Registro y cuya vigencia se limita a su fecha y hora de expedición. 
-       *  
-       * El NUPRE del certificado Predial Registral es obligatorio para las actuaciones o modificaciones que se realicen sobre el predio por vía de actuación privada o pública y para todas las transacciones inmobiliarias, y permite prescindir de la transcripción de linderos en todos los documentos públicos que contengan actos jurídicos.
-       */
-      E
-    );
-
-    COL_EstratoTipo = (
-      Estrato_0,
-      Estrato_1,
-      Estrato_2,
-      Estrato_3,
-      Estrato_4,
-      Estrato_5,
-      Estrato_6
+      Dominio
     );
 
     COL_EstructuraTipo = (
@@ -130,28 +112,26 @@ VERSION "2017-07-12 V2.1.6"  =
       Otra
     );
 
-    COL_FuenteEspacialTipo = (
-      Croquis_Campo,
-      Protocolo_Posicionamiento,
-      Informe_Calculo,
-      Datos_Crudos
-    );
-
     COL_GeneroTipo = (
       Femenino,
       Masculino,
       Otro
     );
 
-    COL_LevelContentTipo = (
-      Construccion_Convencional,
-      Construccion_No_Convencional,
-      Consuetudinario,
-      Formal,
-      Informal,
-      Responsabilidad,
-      Restriccion_Derecho_Publico,
-      Restriction_Derecho_Privado
+    COL_InteresadoDocumentoTipo = (
+      Cedula_Ciudadania,
+      Cedula_Extranjeria,
+      NIT,
+      Pasaporte,
+      Tarjeta_Identidad
+    );
+
+    COL_MonumentacionTipo = (
+      Incrustacion,
+      Mojon,
+      No_Materializado,
+      Otros,
+      Pilastra
     );
 
     COL_ServidumbreTipo = (
@@ -171,41 +151,24 @@ VERSION "2017-07-12 V2.1.6"  =
       AreaAgriHetero,
       Pasto
     );
-  STRUCTURE COL_Afectacion_ = value : MANDATORY COL_Afectacion; END COL_Afectacion_;
-  STRUCTURE COL_BosqueAreaSemi_ = value : MANDATORY COL_BosqueAreaSemi; END COL_BosqueAreaSemi_;
-  STRUCTURE COL_CuerpoAgua_ = value : MANDATORY COL_CuerpoAgua; END COL_CuerpoAgua_;
-  STRUCTURE COL_ExplotacionTipo_ = value : MANDATORY COL_ExplotacionTipo; END COL_ExplotacionTipo_;
-  STRUCTURE COL_ServidumbreTipo_ = value : MANDATORY COL_ServidumbreTipo; END COL_ServidumbreTipo_;
-  STRUCTURE COL_TerritorioAgricola_ = value : MANDATORY COL_TerritorioAgricola; END COL_TerritorioAgricola_;
 
-  UNIT
-
-    Area (ABSTRACT) = (INTERLIS.LENGTH * INTERLIS.LENGTH);
-
-  DOMAIN
-
-    /** !! ajustar en el Catalogo de Objetos
-     */
-    COL_AcuerdoTipo = (
-      /** Existe un acuerdo sobre la posición del punto
-       */
-      Acuerdo,
-      /** Existe un desacuerdo sobre la posición del punto
-       */
-      desacuerdo
+    COL_UnidadEdificacionTipo = (
+      Compartido,
+      individual
     );
 
-    COL_DerechoTipo = (
-      Derecho_Propiedad_Colectiva,
-      Mineria_Derecho,
-      Nuda_Propiedad,
-      Ocupacion,
-      Posesion,
-      Tenencia,
-      Usufructo,
-      /** Derecho de dominio o propiedad
-       */
-      Dominio
+    COL_DefPuntoTipo = (
+      Bien_Definido,
+      No_Bien_Definido
+    );
+
+    COL_InstitucionTipo = (
+      Registraduria_Nacional,
+      Registro_Propiedad,
+      Catastro_IGAC,
+      Catastro_Descentralizado,
+      URT,
+      ANT
     );
 
     COL_InteresadoJuridicoTipo = (
@@ -214,28 +177,11 @@ VERSION "2017-07-12 V2.1.6"  =
       Mixto
     );
 
-    COL_UnidadEdificacionTipo = (
-      Compartido,
-      individual
-    );
-
-  UNIT
-
-    MetroCuadrado [m2] EXTENDS Area = (INTERLIS.m * INTERLIS.m);
-
-  DOMAIN
-
-    COL_DefPuntoTipo = (
-      Bien_Definido,
-      No_Bien_Definido
-    );
-
-    /** Punto de leventamiento planimetrico que se identifican en el marco de la identificación de las construcciones, los linderos o puntos auxiliares levantado para el apoyo en la mediciión
+    /** Conjunto de valores para indicar si se trata de un punto de control de referencia (un punto principal) o de apoyo (uso para levantamientos locales con estación total)
      */
-    COL_PuntoLevTipo = (
-      Auxiliar,
-      Construccion,
-      Servidumbre
+    COL_PuntoControlTipo = (
+      Control,
+      Apoyo
     );
 
     COL_RedServiciosTipo = (
@@ -254,12 +200,6 @@ VERSION "2017-07-12 V2.1.6"  =
       Otros
     );
 
-  UNIT
-
-    Centrimetro [cm] = 1 / 100 [INTERLIS.m];
-
-  DOMAIN
-
     COL_DescripcionPuntoTipo = (
       Esquina_Construccion,
       Interseccion_Cerca_De_Piedra,
@@ -268,6 +208,14 @@ VERSION "2017-07-12 V2.1.6"  =
       /** !! por definir durante pilotos
        */
       Otros
+    );
+
+    /** Punto de leventamiento planimetrico que se identifican en el marco de la identificación de las construcciones, los linderos o puntos auxiliares levantado para el apoyo en la mediciión
+     */
+    COL_PuntoLevTipo = (
+      Auxiliar,
+      Construccion,
+      Servidumbre
     );
 
     COL_RestriccionTipo = (
@@ -301,14 +249,6 @@ VERSION "2017-07-12 V2.1.6"  =
       Troncal
     );
 
-    COL_ZonaTipo = (
-      Perimetro_Urbano,
-      Rural,
-      Corregimiento,
-      Caserios,
-      Inspecion_Policia
-    );
-
     COL_HipotecaTipo = (
       Abierta,
       Cerrada
@@ -322,14 +262,13 @@ VERSION "2017-07-12 V2.1.6"  =
       Intermedio_Linea
     );
 
-    Integer = 0 .. 999999999;
-
-    STRUCTURE COL_AreaValor =
-    areaSize : MANDATORY 0.0 .. 99999999999999.9 [Catastro_Registro_Nucleo_V2_2_0.m2];
-    type : MANDATORY COL_AreaTipo;
-  END COL_AreaValor;
-
-  DOMAIN
+    COL_ZonaTipo = (
+      Perimetro_Urbano,
+      Rural,
+      Corregimiento,
+      Caserios,
+      Inspecion_Policia
+    );
 
     /** Dominio con la descripción de la tipologia de los codigos registrales que se inscriben y que publicitan alguna caracteristica especial del predio
      */
@@ -348,99 +287,51 @@ VERSION "2017-07-12 V2.1.6"  =
       Parque_Cementerio,
       PH
     );
-
-    Real = 0.000 .. 999999999.999;
-
-    COL_FuncionInteresadoTipo = (
-      Abogado_Demandas,
-      Administrador_Estado,
-      Banco,
-      Ciudadano,
-      Juez,
-      Notario,
-      Reconocedor_Agrimensor
-    );
-
-    Peso = 0 .. 999999999999 [COP];
-
-    COL_InteresadoDocumentoTipo = (
-      Cedula_Ciudadania,
-      Cedula_Extranjeria,
-      NIT,
-      Pasaporte,
-      Tarjeta_Identidad
-    );
-
-    COL_MonumentacionTipo = (
-      Incrustacion,
-      Mojon,
-      No_Materializado,
-      Otros,
-      Pilastra
-    );
-
-    COL_InstitucionTipo = (
-      Registraduria_Nacional,
-      Registro_Propiedad,
-      Catastro_IGAC,
-      Catastro_Descentralizado,
-      URT,
-      ANT
-    );
-
-    /** Conjunto de valores para indicar si se trata de un punto de control de referencia (un punto principal) o de apoyo (uso para levantamientos locales con estación total)
-     */
-    COL_PuntoControlTipo = (
-      Control,
-      Apoyo
-    );
-
-    COL_GrupoInteresadoTipo = (
-      Grupo_BAUnit,
-      Grupo_Civil,
-      Grupo_Empresarial,
-      Grupo_Etnico
-    );
-
-    COL_EstadoDisponibilidadTipo = (
-      Convertido,
-      Desconocido,
-      Disponible
-    );
-
-    COL_FuenteAdministrativaTipo = (
-      Certificado,
-      Contrato,
-      Documento_Identidad,
-      Informe,
-      Formulario_Predial,
-      Promesa_Compraventa,
-      Reglamento,
-      Resolucion,
-      Sentencia,
-      Solicitud,
-      Acta,
-      Acuerdo,
-      Auto,
-      Estatuto_Social,
-      Decreto,
-      Providencia,
-      Acta_Colindancia,
-      Libros_Antiguo_Sistema_Registral,
-      Informe_Colindancia
-    );
+  STRUCTURE COL_Afectacion_ = value : MANDATORY COL_Afectacion; END COL_Afectacion_;
+  STRUCTURE COL_BosqueAreaSemi_ = value : MANDATORY COL_BosqueAreaSemi; END COL_BosqueAreaSemi_;
+  STRUCTURE COL_CuerpoAgua_ = value : MANDATORY COL_CuerpoAgua; END COL_CuerpoAgua_;
+  STRUCTURE COL_ExplotacionTipo_ = value : MANDATORY COL_ExplotacionTipo; END COL_ExplotacionTipo_;
+  STRUCTURE COL_ServidumbreTipo_ = value : MANDATORY COL_ServidumbreTipo; END COL_ServidumbreTipo_;
+  STRUCTURE COL_TerritorioAgricola_ = value : MANDATORY COL_TerritorioAgricola; END COL_TerritorioAgricola_;
 
   TOPIC Catastro_Registro =
+    DEPENDS ON LADM_COL.LADM_Nucleo;
 
-    DOMAIN
+    /** Clase que registra las instancias de los derechos que un interesado ejerce sobre un predio. Es una especialización de la clase LA_RRR del propio modelo.
+     */
+    CLASS COL_Derecho
+    EXTENDS LADM_COL.LADM_Nucleo.LA_RRR =
+      /** Derecho que se ejerce.
+       */
+      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_DerechoTipo;
+      /** Código con el que el derecho se registra en el Registro de la Propiedad.
+       */
+      Codigo_Registral_Derecho : TEXT*3;
+    END COL_Derecho;
 
-      Integer = -2000000000 .. 2000000000;
+    /** Es un tipo de espacio jurídico de la unidad de edificación del modelo LADM que almacena datos específicos del avalúo resultante del mismo.
+     */
+    CLASS Construccion
+    EXTENDS LADM_COL.LADM_Nucleo.LA_EspacioJuridicoUnidadEdificacion =
+      /** Rsultado del cálculo de su avalúo mediante la metodología legalmente establecida.
+       */
+      Avaluo_Construccion : MANDATORY LADM_COL.LADM_Nucleo.Peso;
+    END Construccion;
 
-      LA_VolumenTipo = (
-        Oficial,
-        Calculado,
-        Otro
-      );
+    /** Persona jurídica que tiene derechos o sobre la que recaen restricciones o responsabilidades referidas a uno o más predios.
+     */
+    CLASS Interesado_Juridico
+    EXTENDS LADM_COL.LADM_Nucleo.LA_Interesado =
+      /** Número de identificación.
+       */
+      Numero_NIT : MANDATORY TEXT*20;
+      /** Nombrecon el que está inscrito.
+       */
+      Razon_Social : MANDATORY TEXT*100;
+      /** Caracter del tipo de derecho sobre el que está constituído.
+       */
+      Tipo (EXTENDED) : Catastro_Registro_Nucleo_V2_2_0.COL_InteresadoJuridicoTipo;
+    END Interesado_Juridico;
 
     /** Forma de contactar con el interesado jurídico.
      */
@@ -456,1193 +347,10 @@ VERSION "2017-07-12 V2.1.6"  =
       Origen_Datos : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_InstitucionTipo;
     END Interesado_Juridico_Contacto;
 
-    /** Datos de contacto de la persona física.
-     */
-    CLASS Interesado_Natural_Contacto =
-      Telefono1 : TEXT*20;
-      Telefono2 : TEXT*20;
-      Direccion : TEXT*100;
-      Correo_Electronico : TEXT*100;
-      /** Procedencia de los datos de la persona física.
-       */
-      Origen_Datos : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_InstitucionTipo;
-    END Interesado_Natural_Contacto;
-
-    DOMAIN
-
-      LA_FuenteEspacialTipo = (
-        Topografia,
-        Plano,
-        Fotografia_Aerea,
-        Otro
-      );
-
-      Real = -2000000000.000 .. 2000000000.000;
-
-      CharacterString = TEXT*255;
-
-      LA_DimensionTipo = (
-        Dim2D,
-        Dim3D,
-        otro
-      );
-
-      Currency = -2000000000.00 .. 2000000000.00;
-
-      LA_RelacionSuperficieTipo = (
-        En_Rasante,
-        En_Vuelo,
-        En_Subsuelo,
-        Otro
-      );
-
-      LA_EstadoDisponibilidadTipo = (
-        Original,
-        Destruido,
-        Incompleto,
-        Otro
-      );
-
-      LA_UnidadEdificacionTipo = (
-        Privado,
-        Comercial,
-        Estado,
-        Otro
-      );
-
-      LA_Agrupacion_Interesados_Tipo = (
-        Asociacion,
-        Familia,
-        Otro
-      );
-
-      LA_EstadoRedServiciosTipo = (
-        Planeado,
-        En_Uso,
-        Fuera_De_Servicio,
-        Otro
-      );
-
-      LA_InteresadoTipo = (
-        Persona_Natural,
-        Persona_No_Natural,
-        Otro
-      );
-
-      LA_RedServiciosTipo = (
-        Electricidad,
-        Gas,
-        Agua,
-        Alcantarillado,
-        Otro
-      );
-
-      LA_BAUnitTipo = (
-        Unidad_Propiedad_Basica,
-        Unidad_Derecho,
-        Otro
-      );
-
-      LA_RegistroTipo = (
-        Rural,
-        Urbano,
-        Otro
-      );
-
-      LA_DerechoTipo = (
-        Propiedad,
-        Consuetudinario,
-        Arrendamiento,
-        Otro
-      );
-
-      LA_EstructuraTipo = (
-        Punto,
-        Linea,
-        Poligono,
-        Otro
-      );
-
-      LA_ContenidoNivelTipo = (
-        Derecho_Primario,
-        Consuetudinario,
-        Otro
-      );
-
-      LA_RestriccionTipo = (
-        Servidumbres,
-        Otro
-      );
-
-      LA_InterpolacionTipo = (
-        Inicio,
-        Final,
-        Centro_Arco,
-        Otro
-      );
-
-      LA_ResponsabilidadTipo = (
-        Policia_Areas_Inundables,
-        Otro
-      );
-
-      LA_HipotecaTipo = (
-        Lineal,
-        Micro_Credito,
-        Otro
-      );
-
-      LA_MonumentacionTipo = (
-        Baliza,
-        Poste,
-        Otro
-      );
-
-      LA_FuenteAdministrativaTipo = (
-        Escritura,
-        Titulo,
-        Otro
-      );
-
-      LA_PuntoTipo = (
-        Control,
-        Catastro,
-        Otro
-      );
-
-      ISO19125_Type = (
-        Disjunto,
-        Toca,
-        Superpone,
-        Desconocido
-      );
-
-      DQ_Metodo_Evaluacion_Codigo_Tipo = (
-        Interno_Directo,
-        Externo_Directo,
-        Indirecto
-      );
-
-      /** Dominio que proviene de la traducción de CI_RoleCode de la norma ISO 19115:2003. Da los valores de dominio válidos para la función realizada por la parte responsable.
-       */
-      CI_CodigoTarea = (
-        Proveedor_De_Recursos,
-        Custodio,
-        Propietario,
-        Usuario,
-        Distribuidor,
-        Creador,
-        Punto_De_Contacto,
-        Investigador_Principal,
-        Procesador,
-        Editor,
-        Autor
-      );
-
-      /** Traducción del dominio CI_PresentationFormCode de la norma ISO 19115:2003. Indica el modo en el que se representan los datos.
-       */
-      CI_Forma_Presentacion_Codigo = (
-        /** Definición en la ISO 19115:2003.
-         */
-        Imagen,
-        /** Definición en la ISO 19115:2003.
-         */
-        Mapa,
-        /** Definición en la ISO 19115:2003.
-         */
-        Modelo,
-        /** Definición en la ISO 19115:2003.
-         */
-        Perfil,
-        /** Definición en la ISO 19115:2003.
-         */
-        Tabla,
-        /** Definición en la ISO 19115:2003.
-         */
-        Video,
-        /** Definición en la ISO 19115:2003.
-         */
-        Audio,
-        /** Definición en la ISO 19115:2003.
-         */
-        Diagrama,
-        /** Definición en la ISO 19115:2003.
-         */
-        Multimedia,
-        /** Definición en la ISO 19115:2003.
-         */
-        Muestra_Fisica,
-        /** Definición en la ISO 19115:2003.
-         */
-        Otro
-      );
-
-    /** Estructura que permite definir el Oid o identificadores de objeto. Viene marcado en la propia norma ISO 19152:2012, LADM.
-     */
-        STRUCTURE Oid =
-      /** Identificador local asignado por el proveedor de los datos.
-       */
-      localId : MANDATORY CharacterString;
-      /** Identificador de la fuente de datos del objeto.
-       */
-      espacioDeNombres : MANDATORY CharacterString;
-    END Oid;
-
-    /** Estructura para la definición de un tipo de dato personalizado que permite indicar una fracción o quebrado cona serie específica de condiciones.
-     */
-        STRUCTURE Fraccion =
-      /** Parte inferior de la fracción. Debe ser mayor que 0. Debe ser mayor que el numerador.
-       */
-      Denominador : MANDATORY Integer;
-      /** Parte superior de la fracción. Debe ser mayor que 0. Debe sder menor que el denominador.
-       */
-      Numerador : MANDATORY Integer;
-      MANDATORY CONSTRAINT
-        Denominador >= 0;
-      MANDATORY CONSTRAINT
-        Numerador >= 0;
-      MANDATORY CONSTRAINT
-        Denominador >= Numerador;
-    END Fraccion;
-
-    /** Referencia a una imagen mediante su url.
-     */
-        STRUCTURE Imagen =
-      /** url de la imagen.
-       */
-      uri : CharacterString;
-    END Imagen;
-
-    /** Clase traducida a partir de DQ_Element de la norma ISO 19157.
-     * Contiene los aspectos de la información de calidad cuantitativa. REVISAR MODELADO
-     */
-        STRUCTURE DQ_Element =
-      /** Nombre de la prueba aplicada a los datos. Proviene de la agregación de la clase DQ_MeasureReference a DQ_Element.
-       */
-      Nombre_Medida : CharacterString;
-      /** Identificador de la medida, valor que identifica de manera única la medida dentro de un espacio de nombres. Proviene de la agregación de la clase DQ_MeasureReference a DQ_Element.
-       */
-      Identificacion_Medida : CharacterString;
-      /** Descripción. Proviene de la agregación de la clase DQ_MeasureReference a DQ_Element.
-       */
-      Descripcion_Medida : CharacterString;
-      /** Método utilizado para evaluar la calidad de los datos. Proviene de la agregación de la clase DQ_EvaluationMethod a DQ_Element.
-       */
-      Metodo_Evaluacion : DQ_Metodo_Evaluacion_Codigo_Tipo;
-      /** Descripción del método de evaluación. Proviene de la agregación de la clase DQ_EvaluationMethod a DQ_Element.
-       */
-      Descripcion_Metodo_Evaluacion : CharacterString;
-      /** Referencia a la información del procedimiento. Proviene de la agregación de la clase DQ_MeasureReference a DQ_Element.
-       */
-      Procedimiento_Evaluacion : CharacterString;
-      /** Fecha y hora en la que se generan los resultados. Proviene de la agregación de la clase DQ_Result a DQ_Element.
-       */
-      Fecha_Hora : INTERLIS.XMLDateTime;
-      /** Alcance del resultado de la prueba de calidad. Proviene de la agregación de la clase DQ_Result a DQ_Element.
-       */
-      Resultado : CharacterString;
-    END DQ_Element;
-
-    /** estructura no utilizada, se materializa sobre los atributos Extactitud horizontal y vertical
-     */
-        STRUCTURE DQ_PositionalAccuracy
-    EXTENDS DQ_Element =
-      /** MODELAR.
-       */
-      atributo21 : CharacterString;
-    END DQ_PositionalAccuracy;
-
-    /** DEFINIR y DOCUMENTAR. Se hace necesaria para su uso por ObjetoVersionado.
-     */
-        STRUCTURE DQ_AbsoluteExternalPositionalAccuracy
-    EXTENDS DQ_PositionalAccuracy =
-      /** DEFINIR
-       */
-      atributo1 : CharacterString;
-    END DQ_AbsoluteExternalPositionalAccuracy;
-
-    /** Estructura que da soporte a los metadatos que documentan el linaje, información concerniente a las fuentes y a los procesos de producción, y procedente de la norma ISO 19115. Con respecto a la clase de dicha norma, presenta sólo el atributo statement.
-     */
-        STRUCTURE LI_Lineaje =
-      /** Explicación general del conocimiento del productor de datos sobre el linaje de un recurso.
-       */
-      Statement : CharacterString;
-    END LI_Lineaje;
-
-    /** Clase traducida CI_Contact de la ISO 19115.
-     * Almacena la información requerida para permitir el contacto con la persona responsable y la organización.
-     */
-        STRUCTURE CI_Contacto =
-      /** Números de teléfono en los que la organización o el individuo pueden ser contactados.
-       */
-      Telefono : CharacterString;
-      /** Dirección física y de correo electrónico en la que se puede contactar a la organización o al individuo.
-       */
-      Direccion : CharacterString;
-      /** Información en línea que se puede usar para contactar al individuo o a la organización.
-       */
-      Fuente_En_Linea : CharacterString;
-      /** Período de tiempo, incluida la zona horaria, en el que la organización o el individuo pueden ser contactados.
-       */
-      Horario_De_Atencion : CharacterString;
-      /** Instrucciones complementarias sobre cómo o cuándo contactar al individuo o a la organización.
-       */
-      Instrucciones_Contacto : CharacterString;
-    END CI_Contacto;
-
-    /** Clase traducida CI_ResponsibleParty de la ISO 19115:2003. Identificación de los responsables del recurso y el papel de la parte en el recurso.
-     */
-        STRUCTURE CI_ParteResponsable =
-      /** Nombre individual del responsable. Se proporciona si la organización o la posición no son proporcionados.
-       */
-      Nombre_Individual : CharacterString;
-      /** Nombre de la organización responsable. Se proporciona si el nombre individual o la posición no se provén.
-       */
-      Nombre_Organizacion : CharacterString;
-      /** Posición de la persona responsable. Se proporcionará si NombreIndividual o Organizacion no son
-       * proporcionados.
-       */
-      Posicion : CharacterString;
-      /** Ver clase CI_Contacto.
-       */
-      Informacion_Contacto : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.CI_Contacto;
-      /** Función realizada por la parte responsable.
-       */
-      Funcion : CI_CodigoTarea;
-    END CI_ParteResponsable;
-
-    /** Estructura que proviene de la traducción de la clase CC_OperationMethod de la ISO 19111. Indica el método utilizado, mediante un algoritmo o un procedimiento, para realizar operaciones con coordenadas.
-     */
-        STRUCTURE CC_MetodoOperacion =
-      /** Fórmulas o procedimientos utilizadoa por este método de operación de coordenadas. Esto puede ser una referencia a una publicación. Tenga en cuenta que el método de operación puede no ser analítico, en cuyo caso este atributo hace referencia o contiene el procedimiento, no una fórmula analítica.
-       */
-      Formula : MANDATORY CharacterString;
-      /** Número de dimensiones en la fuente CRS de este método de operación de coordenadas.
-       */
-      Dimensiones_Origen : Integer;
-      /** Número de dimensiones en el CRS de destino de este método de operación de coordenadas.
-       */
-      Ddimensiones_Objetivo : Integer;
-    END CC_MetodoOperacion;
-
-    /** Registro de la fórmula o procedimiento utilizado en la transformación y de su resultado.
-     */
-        STRUCTURE LA_Transformacion =
-      /** Fórmula o procedimiento utilizado en la transformación.
-       */
-      Transformacion : MANDATORY Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.CC_MetodoOperacion;
-      /** Geometría una vez realizado el proceso de transformación.
-       */
-      Localizacion_Transformada : MANDATORY ISO19107_V1_MAGNABOG.GM_Point2D;
-    END LA_Transformacion;
-
-    /** Estructura que pone a disposición del modelo la clase OM_Observation de la ISO 19156 y de la que sólo implementa un atributo de los cinco que tiene la clase origina: resultQuality.
-     */
-        STRUCTURE OM_Observacion =
-      /** Resultado del proceso de calidad, conforme a DQ_Element.
-       */
-      Resultado_Calidad : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.DQ_Element;
-    END OM_Observacion;
-
-    /** Estructura que define los diferentes tipos de interesados que pueden darse.
-     */
-        STRUCTURE LA_TareaInteresadoTipo =
-      Tipo : (
-        topografo,
-        notario,
-        otro
-      );
-    END LA_TareaInteresadoTipo;
-
-    /** Estructura que pone a disposición del modelo la clase OM_Process de la ISO 19156. No desarrollado, debe ser definido por los pilotos
-     */
-        STRUCTURE OM_Proceso =
-    END OM_Proceso;
-
-    /** Referencia a una clase externa para gestionar direcciones.
-     */
-        STRUCTURE ExtDireccion =
-      /** Nombre del área en la que se encuentra la dirección.
-       */
-      Nombre_Area_Direccion : CharacterString;
-      /** Par de valores georreferenciados (x,y) en la que se encuentra la dirección.
-       */
-      Coordenada_Direccion : ISO19107_V1_MAGNABOG.GM_Point2D;
-      /** Identificador local de la dirección.
-       */
-      Direccion_ID : MANDATORY Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.Oid;
-      /** Nombre del edificio.
-       */
-      Nombre_Edificio : CharacterString;
-      /** Número de edificio.
-       */
-      Numero_Edificio : CharacterString;
-      Ciudad : CharacterString;
-      Pais : CharacterString;
-      Codigo_Postal : CharacterString;
-      Apartado_Correo : CharacterString;
-      Departamento : CharacterString;
-      /** Nombre de la calle.
-       */
-      Nombre_Calle : CharacterString;
-    END ExtDireccion;
-
-    /** Clase abstracta que permite gestionar el histórico del conjunto de clases, las cuales heredan de esta, excepto las fuentes.
-     */
-    CLASS ObjetoVersionado (ABSTRACT) =
-      /** Comienzo de la validez actual de la instancia de un objeto.
-       */
-      Comienzo_Vida_Util_Version : MANDATORY INTERLIS.XMLDateTime;
-      /** Finnzo de la validez actual de la instancia de un objeto.
-       */
-      Fin_Vida_Util_Version : INTERLIS.XMLDateTime;
-      /** Metadatos relativos a la calidad de la instancia.
-       */
-      Calidad : LIST {0..*} OF Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.DQ_Element;
-      /** Metadatos corresondientes a la responsabilidad de la instancia.
-       */
-      Procedencia : LIST {0..*} OF Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.CI_ParteResponsable;
-      MANDATORY CONSTRAINT
-        Fin_Vida_Util_Version >= Comienzo_Vida_Util_Version;
-    END ObjetoVersionado;
-
-    /** Control externo de la unidad de edificación física.
-     */
-        STRUCTURE ExtUnidadEdificacionFisica =
-      Ext_Direccion_ID : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.ExtDireccion;
-    END ExtUnidadEdificacionFisica;
-
-    /** Clase especial del perfil colombiano de la norma ISO 19152:2012. Pretenden generar publicidad sobre el predio a partir del almacenamiento de los codigos registrales que se inscriben el FMI. No se genera ningún tipo de derecho, ni limita la propiedad.
-     */
-    CLASS Publicidad
-    EXTENDS ObjetoVersionado =
-      /** Indica la característica por la que se hace público.
-       */
-      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_PublicidadTipo;
-      /** Código registral del FMI que se hace público.
-       */
-      Codigo_Registral_Publicidad : MANDATORY TEXT*3;
-    END Publicidad;
-
-    /** Referencia a una clase externa para gestionar direcciones.
-     */
-        STRUCTURE ExtInteresado =
-      /** Identificador externo del interesado.
-       */
-      Ext_Direccion_ID : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.ExtDireccion;
-      Huella_Dactilar : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.Imagen;
-      Nombre : CharacterString;
-      /** Identificador local del interesado.
-       */
-      Interesado_ID : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.Oid;
-      Fotografia : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.Imagen;
-      Firma : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.Imagen;
-    END ExtInteresado;
-
-    /** Referencia a una clase externa para gestionar las redes físicas de servicios.
-     */
-        STRUCTURE ExtRedServiciosFisica =
-      /** Indica si la red de servicios tiene un gradiente o no.
-       */
-      Orientada : BOOLEAN;
-      /** Identificador de referencia a un interesado externo que es el administrador.
-       */
-      Ext_Interesado_Administrador_ID : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.ExtInteresado;
-    END ExtRedServiciosFisica;
-
-    /** Referencia a clase externa desde donde se gestiona el repositorio de archivos.
-     */
-        STRUCTURE ExtArchivo =
-      /** Fecha en la que ha sido aceptado el documento.
-       */
-      Fecha_Aceptacion : INTERLIS.XMLDate;
-      /** Datos que contiene el documento.
-       */
-      Datos : CharacterString;
-      /** Última fecha de extracción del documento.
-       */
-      Extraccion : INTERLIS.XMLDate;
-      /** Fecha en la que el documento es aceptado en el sistema.
-       */
-      Fecha_Grabacion : INTERLIS.XMLDate;
-      /** Fecha en la que fue entregado el documento.
-       */
-      Fecha_Entrega : INTERLIS.XMLDate;
-      /** Definición del identificador único global del documento.
-       */
-      s_Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador local del documento.
-       */
-      s_Local_Id : MANDATORY CharacterString;
-    END ExtArchivo;
-
-    /** Clase abstracta. Esta clase es la personalización en el modelo del perfil colombiano de la clase de LADM LA_Source.
-     */
-    CLASS COL_Fuente (ABSTRACT) =
-      Fecha_Aceptacion : INTERLIS.XMLDateTime;
-      /** Indica si la fuente está o no disponible y en qué condiciones. También puede indicar porqué ha dejado de estar disponible, si ha ocurrido.
-       */
-      Estado_Disponibilidad : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_EstadoDisponibilidadTipo;
-      /** Identificador del archivo fuente controlado por una clase externa.
-       */
-      Ext_Archivo_ID : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.ExtArchivo;
-      /** Fecha de inicio de validez de la fuente.
-       */
-      Sello_Inicio_Validez : INTERLIS.XMLDateTime;
-      /** Tipo de formato en el que es presentada la fuente, de acuerdo con el registro de metadatos.
-       */
-      Tipo_Principal : CI_Forma_Presentacion_Codigo;
-      /** Descripción de la calidad del documento de acuerdo a los metadatos del objeto DQ_Element, clase de la norma ISO 19157 que se refiere a aspectos de la información de calidad cuantitativa de la instancia referenciada.
-       */
-      Calidad : LIST {0..*} OF Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.DQ_Element;
-      /** Fecha en la que es almacenado el documento fuente.
-       */
-      Fecha_Grabacion : INTERLIS.XMLDateTime;
-      /** Parte responsable de la aceptación, con todos los metadatos gestionados por la clase CI_ParteResponsable, que hace referencia a la norma ISO 19115:2003.
-       */
-      Procedencia : LIST {0..*} OF Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.CI_ParteResponsable;
-      /** Fecha en la que se entrega la fuente.
-       */
-      Fecha_Entrega : INTERLIS.XMLDateTime;
-      /** Identificación inéquivoca de la fuente en el sistema.
-       */
-      s_Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador de la fuente en el sistema local.
-       */
-      s_Local_Id : MANDATORY CharacterString;
-      /** Indica si se trata de un documento oficial o no.
-       */
-      Oficialidad : BOOLEAN;
-    END COL_Fuente;
-
-    /** Estructura para la definición de un tipo de dato personalizado que permite indicar la medición de un volumen y la naturaleza de este.
-     */
-        STRUCTURE LA_VolumenValor =
-      /** Medición del volumen en m3.
-       */
-      Volumen_Medicion : MANDATORY 0.0 .. 99999999999999.9 [INTERLIS.m];
-      /** Indicación de si el volumen es calculado, si figura como oficial o si se da otra circunstancia.
-       */
-      Tipo : MANDATORY LA_VolumenTipo;
-    END LA_VolumenValor;
-
-    /** Traducción al español de la clase LA_SpatialUnit de LADM.
-     */
-    CLASS LA_UnidadEspacial
-    EXTENDS ObjetoVersionado =
-      Area : LIST {0..*} OF ANYSTRUCTURE;
-      Dimension : LA_DimensionTipo;
-      /** Corresponde al atributo extAddressID de la clase en LADM.
-       */
-      Ext_Direccion_ID : LIST {0..*} OF Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.Oid;
-      /** Corresponde al atributo label de la clase en LADM.
-       */
-      Etiqueta : CharacterString;
-      /** Corresponde al atributo referencePoint de la clase en LADM.
-       */
-      Punto_Referencia : ISO19107_V1_MAGNABOG.GM_Point2D;
-      /** Corresponde al atributo surfaceRelation de la clase en LADM.
-       */
-      Relacion_Superficie : LA_RelacionSuperficieTipo;
-      /** Corresponde al atributo volume de la clase en LADM.
-       */
-      Volumen : LIST {0..*} OF Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.LA_VolumenValor;
-      /** Identificador único global. Corresponde al atributo suID de la clase en LADM.
-       */
-      su_Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador único local.
-       */
-      su_Local_Id : MANDATORY CharacterString;
-      /** Materializacion del metodo createArea(). Almacena de forma permanente la geometría de tipo poligonal.
-       */
-      poligono_creado : ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
-    END LA_UnidadEspacial;
-
-    /** Agrupa unidades espaciales, es decir, representaciones geográficas de las unidades administrativas básicas (clase LA_BAUnit) para representar otras unidades espaciales que se forman en base a estas, como puede ser el caso de los polígonos catastrales.
-     */
-    CLASS LA_AgrupacionUnidadesEspaciales
-    EXTENDS ObjetoVersionado =
-      /** Nivel jerárquico de la agrupación, dentro del anidamiento de diferentes agrupaciones.
-       */
-      Nivel_Jerarquico : MANDATORY Integer;
-      /** Definición de la agrupación.
-       */
-      Etiqueta : CharacterString;
-      /** Nombre que recibe la agrupación.
-       */
-      Nombre : CharacterString;
-      /** Punto de referencia de toda la agrupación, a modo de centro de masas.
-       */
-      Punto_Referencia : ISO19107_V1_MAGNABOG.GM_Point2D;
-      /** Identificar único global de la agrupación.
-       */
-      sug_Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador único local de la agrupación.
-       */
-      sug_Local_Id : MANDATORY CharacterString;
-    END LA_AgrupacionUnidadesEspaciales;
-
-    /** Traducción al español de la clase LA_LegalSpaceBuildingUnit. Sus intancias son las unidades de edificación
-     */
-    CLASS LA_EspacioJuridicoUnidadEdificacion
-    EXTENDS LA_UnidadEspacial =
-      /** Identificador de la unidad de edificación.
-       */
-      Ext_Unidad_Edificacion_Fisica_ID : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.ExtUnidadEdificacionFisica;
-      /** Tipo de unidad de edificación de la que se trata.
-       */
-      Tipo : LA_UnidadEdificacionTipo;
-    END LA_EspacioJuridicoUnidadEdificacion;
-
-    /** Es un tipo de espacio jurídico de la unidad de edificación del modelo LADM que almacena datos específicos del avalúo resultante del mismo.
-     */
-    CLASS Construccion
-    EXTENDS LA_EspacioJuridicoUnidadEdificacion =
-      /** Rsultado del cálculo de su avalúo mediante la metodología legalmente establecida.
-       */
-      Avaluo_Construccion : MANDATORY Catastro_Registro_Nucleo_V2_2_0.Peso;
-    END Construccion;
-
-    /** Traducción al español de la clase LA_LegalSpaceUtilityNetwork. Representa un tipo de unidad espacial (LA_UNidadEspacial) cuyas instancias son las redes de servicios.
-     */
-    CLASS LA_EspacioJuridicoRedServicios
-    EXTENDS LA_UnidadEspacial =
-      /** Identificador de la red física hacia una referencia externa.
-       */
-      ext_ID_Red_Fisica : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.ExtRedServiciosFisica;
-      /** Estado de operatividad de la red.
-       */
-      Estado : LA_EstadoRedServiciosTipo;
-      /** Tipo de servicio que presta.
-       */
-      Tipo : LA_RedServiciosTipo;
-    END LA_EspacioJuridicoRedServicios;
-
-    /** Traducción de la calse LA_Level de LADM.
-     */
-    CLASS LA_Nivel
-    EXTENDS ObjetoVersionado =
-      n_ID : MANDATORY Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.Oid;
-      Nombre : CharacterString;
-      Registro_Tipo : LA_RegistroTipo;
-      Estructura : LA_EstructuraTipo;
-      Tipo : LA_ContenidoNivelTipo;
-    END LA_Nivel;
-
-    /** Traducción al español de la clase LA_RequiredRelationshipSpatialUnit de LADM.
-     */
-    CLASS LA_RelacionNecesariaUnidadesEspaciales
-    EXTENDS ObjetoVersionado =
-      Relacion : MANDATORY ISO19125_Type;
-    END LA_RelacionNecesariaUnidadesEspaciales;
-
-    ASSOCIATION relacionUe =
-      rue1 -- {0..*} LA_UnidadEspacial;
-      rue2 -- {0..*} LA_UnidadEspacial;
-    END relacionUe;
-
-    ASSOCIATION UeJerarquia =
-      uej1 -- {0..*} LA_UnidadEspacial;
-      uej2 -<> {0..1} LA_UnidadEspacial;
-    END UeJerarquia;
-
-    ASSOCIATION ueJerarquiaGrupo =
-      set -<> {0..1} LA_AgrupacionUnidadesEspaciales;
-      element -- {0..*} LA_AgrupacionUnidadesEspaciales;
-    END ueJerarquiaGrupo;
-
-    ASSOCIATION ueUeGrupo =
-      parte -- {0..*} LA_UnidadEspacial;
-      todo -- {0..*} LA_AgrupacionUnidadesEspaciales;
-    END ueUeGrupo;
-
-    ASSOCIATION ueNivel =
-      ue -- {0..*} LA_UnidadEspacial;
-      nivel -- {0..1} LA_Nivel;
-    END ueNivel;
-
-    /** Clase abstracta que agrupa los atributos comunes de las clases para los derechos (rights), las responsabilidades (responsabilities) y las restricciones (restrictions).
-     */
-    CLASS LA_RRR (ABSTRACT)
-    EXTENDS ObjetoVersionado =
-      /** Descripción relatical al derecho, la responsabilidad o la restricción.
-       */
-      Descripcion : CharacterString;
-      /** Participación, en modo de fracción, en la subclase LA_Derecho, LA_Responsabilidad o LA_Restriccion.
-       */
-      Compartido : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.Fraccion;
-      /** Indicación de si comparte o no.
-       */
-      Comprobacion_Comparte : BOOLEAN;
-      /** Descripción de cual es el uso efectivo.
-       */
-      Uso_Efectivo : CharacterString;
-      /** Identificador global único.
-       */
-      r_Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador único local.
-       */
-      r_Local_Id : MANDATORY CharacterString;
-    END LA_RRR;
-
-    /** De forma genérica, representa el objeto territorial legal (Catastro 2014) que se gestiona en el modelo, en este caso, la parcela catastral o predio. Es independiente del conocimiento de su realidad espacial y se centra en su existencia conocida y reconocida.
-     */
-    CLASS LA_BAUnit
-    EXTENDS ObjetoVersionado =
-      /** Nombre que recibe la unidad administrativa básica, en muchos casos toponímico, especialmente en terrenos rústicos.
-       */
-      Nombre : CharacterString;
-      /** Tipo de derecho que la reconoce.
-       */
-      Tipo : MANDATORY LA_BAUnitTipo;
-      /** Identificador único global.
-       */
-      u_Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador único local.
-       */
-      u_Local_Id : CharacterString;
-    END LA_BAUnit;
-
-    /** Traducción de la clase LA_RequiredRelationshipBAUnit de LADM.
-     */
-    CLASS LA_RelacionNecesariaBAUnits
-    EXTENDS ObjetoVersionado =
-      Relacion : MANDATORY CharacterString;
-    END LA_RelacionNecesariaBAUnits;
-
-    /** Clase especializada de BaUnit, que describe la unidad administrativa básica para el caso de Colombia.
-     * El predio es la unidad territorial legal propia de Catastro. Esta formada por el terreno y puede o no tener construcciones asociadas.
-     */
-    CLASS Predio
-    EXTENDS LA_BAUnit =
-      /** Corresponde al codigo del departamento al cual pertenece el predio. Es asignado por DIVIPOLA y tiene 2 dígitos.
-       */
-      Departamento : TEXT*2;
-      /** Corresponde al codigo del municipio al cual pertenece el predio. Es asignado por DIVIPOLA y tiene 3 dígitos.
-       */
-      Municipio : TEXT*3;
-      /** Corresponde a la zona castrastral, definida para optimizar las actividades catastrales. Es un codigo de 2 dígitos.
-       */
-      Zona : TEXT*2;
-      /** Numero Unico de identificación Predial. Es el codigo definido en el proyecto de ley que será el codigo de identificación del predio tanto para catastratro como para Registro.
-       */
-      NUPRE : MANDATORY TEXT*20;
-      /** Folio de Matricula Inmobilidaria. Codigo único de identificación asignado al documento registral en la oficina de registro de instrumentos públicos.
-       */
-      FMI : TEXT*20;
-      /** Nuevo código númerico de treinta (30) dígitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi.
-       */
-      Numero_Predial : TEXT*30;
-      /** Anterior código númerico de veinte (20) digitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi.
-       */
-      Numero_Predial_Anterior : TEXT*20;
-      /** Valor de cada predio, obtenido mediante investigación y análisis estadistico del mercado inmobiliario y la metodología de aplicación  correspondiente. El avalúo  catastral de cada predio se determina a partir de la adición de los avalúos parciales practicados independientemente para los terrenos y para las edificaciones en el comprendidos.
-       */
-      Avaluo_Predio : Catastro_Registro_Nucleo_V2_2_0.Peso;
-      UNIQUE NUPRE; 
-    END Predio;
-
-    ASSOCIATION PublicidadBAUnit =
-      pubicidad -- {0..*} Publicidad;
-      baunit -- {1} LA_BAUnit;
-    END PublicidadBAUnit;
-
-    /** Clase que registra las instancias de los derechos que un interesado ejerce sobre un predio. Es una especialización de la clase LA_RRR del propio modelo.
-     */
-    CLASS COL_Derecho
-    EXTENDS LA_RRR =
-      /** Derecho que se ejerce.
-       */
-      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_DerechoTipo;
-      /** Código con el que el derecho se registra en el Registro de la Propiedad.
-       */
-      Codigo_Registral_Derecho : TEXT*3;
-    END COL_Derecho;
-
-    /** Restricciones a las que está sometido un predio y que inciden sobre los derechos que pueden ejercerse sobre él.
-     */
-    CLASS COL_Restriccion
-    EXTENDS LA_RRR =
-      /** Indica si es preciso o no que un interesado esté asociado a la restricción.
-       */
-      Interesado_Requerido : BOOLEAN;
-      /** Define el tipo de restricción.
-       */
-      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_RestriccionTipo;
-      /** Código con el que la responsabilidad se registra en el Registro de la Propiedad.
-       */
-      Codigo_Registral_Restriccion : TEXT*3;
-    END COL_Restriccion;
-
-    /** Clase de tipo LA_RRR que registra las responsabilidades que las instancias de los interesados tienen sobre los predios.
-     */
-    CLASS COL_Responsabilidad
-    EXTENDS LA_RRR =
-      /** Definición del tipo de responsabilidad que se tiene.
-       */
-      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_ResponsabilidadTipo;
-      /** Código con el que la responsabilidad se registra en el Registro de la Propiedad.
-       */
-      Codigo_Registral_Responsabilidad : TEXT*3;
-    END COL_Responsabilidad;
-
-    /** Clase que representa un tipo de restricción heredando de COL_Restricción, asociada a un derecho y que permite gestionar las hipotecas constituídas sobre un bien inmueble, considerando las cuestiones legales nacionales.
-     */
-    CLASS COL_Hipoteca
-    EXTENDS COL_Restriccion =
-      /** Tipo de hipoteca constituida, conforme a la legislación colombiana.
-       */
-      h_Tipo : Catastro_Registro_Nucleo_V2_2_0.COL_HipotecaTipo;
-      /** Código con el que la hipoteca se registra en el Registro de la Propiedad Inmobiliaria en el momento de ser constituida.
-       */
-      Codigo_Registral_Hipoteca : TEXT*3;
-    END COL_Hipoteca;
-
-    /** Especialización de la clase COL_Fuente para almacenar aquellas fuentes constituidas por documentos (documento hipotecario, documentos notariales, documentos históricos, etc.) que documentan la relación entre instancias de interesados y de predios.
-     */
-    CLASS COL_FuenteAdministrativa
-    EXTENDS COL_Fuente =
-      /** Descripción del documento.
-       */
-      Texto : CharacterString;
-      /** Tipo de documento de fuente administrativa.
-       */
-      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_FuenteAdministrativaTipo;
-      /** Código registral de la transacción que se documenta.
-       */
-      Codigo_Registral_Transaccion : TEXT*3;
-    END COL_FuenteAdministrativa;
-
-    ASSOCIATION ueBaunit =
-      ue (EXTERNAL) -- {0..*} LA_UnidadEspacial;
-      baunit -- {0..*} LA_BAUnit;
-    END ueBaunit;
-
-    ASSOCIATION relacionBaunit =
-      unidad1 -- {0..*} LA_BAUnit;
-      unidad2 -- {0..*} LA_BAUnit;
-    END relacionBaunit;
-
-    ASSOCIATION baunitRrr =
-      unidad -- {1} LA_BAUnit;
-      rrr -- {1..*} LA_RRR;
-    END baunitRrr;
-
-    ASSOCIATION hipotecaDerecho =
-      hipoteca -- {0..*} COL_Hipoteca;
-      derecho -- {0..*} COL_Derecho;
-    END hipotecaDerecho;
-
-    ASSOCIATION rrrFuente =
-      rfuente -- {1..*} COL_FuenteAdministrativa;
-      rrr -- {0..*} LA_RRR;
-    END rrrFuente;
-
-    ASSOCIATION relacionFuente =
-      refuente -- {0..*} COL_FuenteAdministrativa;
-      relacionrequeridaBaunit -- {0..*} LA_RelacionNecesariaBAUnits;
-    END relacionFuente;
-
-    ASSOCIATION unidadFuente =
-      ufuente -- {0..*} COL_FuenteAdministrativa;
-      unidad -- {0..*} LA_BAUnit;
-    END unidadFuente;
-
-    /** Traducción al español de la clase LA_Point de LADM.
-     */
-    CLASS LA_Punto
-    EXTENDS ObjetoVersionado =
-      /** Atributo no usado, se materializa sobre los atributos Extactitud horizontal y vertical
-       */
-      Exactitud_Estimada : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.DQ_PositionalAccuracy;
-      Posicion_Interpolacion : LA_InterpolacionTipo;
-      Monumentacion : LA_MonumentacionTipo;
-      Localizacion_Original : MANDATORY ISO19107_V1_MAGNABOG.GM_Point2D;
-      PuntoTipo : MANDATORY LA_PuntoTipo;
-      MetodoProduccion : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.LI_Lineaje;
-      Transformacion_Y_Resultado : LIST {0..*} OF Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.LA_Transformacion;
-      p_Espacio_De_Nombres : MANDATORY CharacterString;
-      p_Local_Id : MANDATORY CharacterString;
-    END LA_Punto;
-
-    /** Especialización de la clase COL_Fuente para almacenar las fuentes constituidas por datos espaciales (entidades geográficas, imágenes de satélite, vuelos fotogramétricos, listados de coordenadas, mapas, planos antiguos o modernos, descripción de localizaciones, etc.) que documentan técnicamente la relación entre instancias de interesados y de predios
-     */
-    CLASS COL_FuenteEspacial
-    EXTENDS COL_Fuente =
-      Mediciones : LIST {0..*} OF Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.OM_Observacion;
-      /** No desarrollado, debe ser definido por los pilotos
-       */
-      Procedimiento : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.OM_Proceso;
-      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_FuenteEspacialTipo;
-    END COL_FuenteEspacial;
-
-    /** Clase especializada de LA_Punto que representa puntos de la densificación de la red local, que se utiliza en la operación catastral para el levantamiento de información fisica de los objetos territoriales, como puntos de control.
-     */
-    CLASS PuntoControl
-    EXTENDS LA_Punto =
-      /** Nombre que recibe el punto.
-       */
-      Nombre_Punto : MANDATORY TEXT*20;
-      /** Exactitud vertical de la medición del punto.
-       */
-      Exactitud_Vertical : MANDATORY 0 .. 1000 [Catastro_Registro_Nucleo_V2_2_0.cm];
-      /** Exactitud horizontal de la medición del punto.
-       */
-      Exactitud_Horizontal : MANDATORY 0 .. 1000 [Catastro_Registro_Nucleo_V2_2_0.cm];
-      /** Se describe la posición del punto con relación a su estructura, si es un punto aislado, o si hace parte de un Arco o de una linea.
-       */
-      Posicion_Interpolacion (EXTENDED) : Catastro_Registro_Nucleo_V2_2_0.COL_InterpolacionTipo;
-      Monumentacion (EXTENDED) : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_MonumentacionTipo;
-      /** Si se trata deun punto de control o de apoyo.
-       */
-      Tipo_Punto_Control : Catastro_Registro_Nucleo_V2_2_0.COL_PuntoControlTipo;
-      /** Si el punto es o no fiable.
-       */
-      Confiabilidad : BOOLEAN;
-    END PuntoControl;
-
-    /** Clase especializada de LA_Punto que almacena puntos que definen un lindero, instancia de la clase LA_CadenaCarasLindero y sus especializaciones.
-     */
-    CLASS PuntoLindero
-    EXTENDS LA_Punto =
-      /** Se Indica si existe acuerdo o no entre los colindantes en relación al punto lindero que se está midiendo.
-       */
-      Acuerdo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_AcuerdoTipo;
-      /** Se caracteriza si el punto de levantamiento corresponde a un punto bien definido o no bien definido
-       */
-      Definicion_Punto : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_DefPuntoTipo;
-      /** Es la descripción del tipo de punto lindero y las caracteristicas del vertice
-       */
-      Descripcion_Punto : Catastro_Registro_Nucleo_V2_2_0.COL_DescripcionPuntoTipo;
-      /** Corresponde a la exactitud vertical del punto lindero
-       */
-      Exactitud_Vertical : 0 .. 1000 [Catastro_Registro_Nucleo_V2_2_0.cm];
-      /** Corresponde a la exactitud horizontal del punto lindero
-       */
-      Exactitud_Horizontal : MANDATORY 0 .. 1000 [Catastro_Registro_Nucleo_V2_2_0.cm];
-      /** Indica si es o no fiable.
-       */
-      Confiabilidad : BOOLEAN;
-      /** Se describe la posición del punto con relación a su estructura, si es un punto aislado, o si hace parte de un Arco o de una linea.
-       */
-      Posicion_Interpolacion (EXTENDED) : Catastro_Registro_Nucleo_V2_2_0.COL_InterpolacionTipo;
-      /** Si se trata de un monumento geodésico, el tipo.
-       */
-      Monumentacion (EXTENDED) : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_MonumentacionTipo;
-      /** Nombre o codigo del punto lindero
-       */
-      Nombre_Punto : TEXT*10;
-      !!@name="no_overlaps"
-      SET CONSTRAINT no_overlaps(ALL,>> Localizacion_Original);
-    END PuntoLindero;
-
-    /** Traducción al español de la clase LA_BoundaryFaceString de LADM. Define los linderos y a su vez puede estar definida por una descrición textual o por dos o más puntos. Puede estar asociada a una fuente espacial o más.
-     */
-    CLASS LA_CadenaCarasLimite
-    EXTENDS ObjetoVersionado =
-      /** Geometría lineal que define el lindero. Puede estar asociada a geometrías de tipo punto que definen sus vértices o ser una entidad lineal independiente.
-       */
-      Geometria : ISO19107_V1_MAGNABOG.GM_Curve2D;
-      /** Descripción de la localización, cuando esta se basa en texto.
-       */
-      Localizacion_Textual : CharacterString;
-      /** Identificador único global de la cadena de caras lindero.
-       */
-      ccl_Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador local de la cadena de caras lindero.
-       */
-      ccl_Local_Id : MANDATORY CharacterString;
-    END LA_CadenaCarasLimite;
-
-    /** Clase especializada de LA_Punto que representa puntos demarcados que representan la posición horizontal de un vértice de construcción, servidumbre o auxiliare.
-     */
-    CLASS PuntoLevantamiento
-    EXTENDS LA_Punto =
-      /** Se caracterizan los diferentes tipos de punto levantamiento, estos son punto de construccción, punto de servidumbre o punto auxiliar
-       */
-      Tipo_Punto_Levantamiento : Catastro_Registro_Nucleo_V2_2_0.COL_PuntoLevTipo;
-      /** Se caracteriza si el punto de levantamiento corresponde a un punto bien definido o no bien definido
-       */
-      Definicion_Punto : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_DefPuntoTipo;
-      /** Corresponde a la exactitud vertical del punto levantamiento
-       */
-      Exactitud_Vertical : 0 .. 1000 [Catastro_Registro_Nucleo_V2_2_0.cm];
-      /** Corresponde a la exactitud horizontal del punto levantamiento
-       */
-      Exactitud_Horizontal : 0 .. 1000 [Catastro_Registro_Nucleo_V2_2_0.cm];
-      /** Se describe la posición del punto con relación a su estructura, si es un punto aislado, o si hace parte de un Arco o de una linea.
-       */
-      Posicion_Interpolacion (EXTENDED) : Catastro_Registro_Nucleo_V2_2_0.COL_InterpolacionTipo;
-      /** Definición sobre si el punto de levantamiento se encuentra monumentado o no y los tipos de monumentación especificos para el perfil nacional
-       */
-      Monumentacion (EXTENDED) : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_MonumentacionTipo;
-      /** Nombre que recibe el punto.
-       */
-      Nombre_Punto : TEXT*10;
-    END PuntoLevantamiento;
-
-    /** Traducción de la clase LA_BoundaryFace de LADM. De forma similar a LA_CadenaCarasLindero, representa los límites, pero en este caso permite representación 3D.
-     */
-    CLASS LA_CarasLindero
-    EXTENDS ObjetoVersionado =
-      /** Geometría en 3D del límite o lindero, asociada a putos o a descripciones textuales.
-       */
-      Geometria : ISO19107_V1_MAGNABOG.GM_MultiSurface3D;
-      /** Cuando la localización del límte está dada por una descripción textual, aquí se recoge esta.
-       */
-      Localizacion_Textual : CharacterString;
-      /** Identificador único global.
-       */
-      cl_Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador único local.
-       */
-      cl_Local_Id : MANDATORY CharacterString;
-    END LA_CarasLindero;
-
-    /** Tipo de unidad espacial que permite la representación de una servidumbre de paso asociada a una LA_BAUnit.
-     */
-    CLASS ServidumbrePaso
-    EXTENDS LA_UnidadEspacial =
-      Identificador : MANDATORY TEXT*20;
-      /** Fecha de inscripción de la servidumbre en el Catastro.
-       */
-      Fecha_Inscripcion_Catastral : INTERLIS.XMLDate;
-    END ServidumbrePaso;
-
-    /** Es cada conjunto de materiales consolidados dentro de un predio que tiene una caracteristicas especificas en cuanto a elementos constitutivos físicos y usos de los mismos.
-     */
-    CLASS UnidadConstruccion
-    EXTENDS LA_EspacioJuridicoUnidadEdificacion =
-      /** Corresponde al valor catastral determinado mediante el metodo economico definido, para cada unidad de contrucción del predio
-       */
-      Avaluo_Unidad_Construccion : Catastro_Registro_Nucleo_V2_2_0.Peso;
-      /** Número de pisos que constituyen la unidad de construcción.
-       */
-      Numero_Pisos : MANDATORY 1 .. 100;
-      /** Categoría constructiva ea la que pertenece la unidad de construcción, corresponde a la pregunta 7.6 del anexo 5.1 de los estandares de catastro multiproposito versión 2.1.1.
-       */
-      Tipo_Construccion : Catastro_Registro_Nucleo_V2_2_0.COL_TipoConstruccionTipo;
-      /** Area de la unidad de contrucción.
-       */
-      Area_Construida : 0.0 .. 99999999999999.9 [Catastro_Registro_Nucleo_V2_2_0.m2];
-      /** Área privada de la unidad de construcción para el caso en que las construcciones tienen regimen de propiedad horizontal.
-       */
-      Area_Privada_Construida : 0.0 .. 99999999999999.9 [Catastro_Registro_Nucleo_V2_2_0.m2];
-    END UnidadConstruccion;
-
-    ASSOCIATION puntoReferencia =
-      ue (EXTERNAL) -- {0..1} LA_UnidadEspacial;
-      punto -- {0..1} LA_Punto;
-    END puntoReferencia;
-
-    ASSOCIATION ConstruccionUnidadConstruccion =
-      unidadconstruccion -- {1..*} UnidadConstruccion;
-      construccion -<> {1} Construccion;
-    END ConstruccionUnidadConstruccion;
-
-    ASSOCIATION puntoFuente =
-      pfuente -- {0..*} COL_FuenteEspacial;
-      punto -- {1..*} LA_Punto;
-    END puntoFuente;
-
-    ASSOCIATION ueFuente =
-      ue (EXTERNAL) -- {0..*} LA_UnidadEspacial;
-      pfuente -- {0..*} COL_FuenteEspacial;
-    END ueFuente;
-
-    ASSOCIATION baunitFuente =
-      bfuente -- {0..*} COL_FuenteEspacial;
-      unidad (EXTERNAL) -- {0..*} LA_BAUnit;
-    END baunitFuente;
-
-    ASSOCIATION relacionFuenteUespacial =
-      rfuente -- {0..*} COL_FuenteEspacial;
-      relacionrequeridaUe (EXTERNAL) -- {0..*} LA_RelacionNecesariaUnidadesEspaciales;
-    END relacionFuenteUespacial;
-
-    ASSOCIATION cclFuente =
-      ccl -- {0..*} LA_CadenaCarasLimite;
-      lfuente -- {0..*} COL_FuenteEspacial;
-    END cclFuente;
-
-    ASSOCIATION menos =
-      ccl -- {0..*} LA_CadenaCarasLimite;
-      eu (EXTERNAL) -- {0..*} LA_UnidadEspacial;
-    END menos;
-
-    ASSOCIATION masCcl =
-      cclP -- {0..*} LA_CadenaCarasLimite;
-      ueP (EXTERNAL) -- {0..*} LA_UnidadEspacial;
-    END masCcl;
-
-    ASSOCIATION puntoCcl =
-      punto -- {2..*} LA_Punto;
-      ccl -- {0..*} LA_CadenaCarasLimite;
-    END puntoCcl;
-
-    ASSOCIATION clFuente =
-      cl -- {0..*} LA_CarasLindero;
-      cfuente -- {0..*} COL_FuenteEspacial;
-    END clFuente;
-
-    ASSOCIATION menosf =
-      cl -- {0..*} LA_CarasLindero;
-      ue (EXTERNAL) -- {0..*} LA_UnidadEspacial;
-    END menosf;
-
-    ASSOCIATION mas =
-      clP -- {0..*} LA_CarasLindero;
-      ueP (EXTERNAL) -- {0..*} LA_UnidadEspacial;
-    END mas;
-
-    ASSOCIATION puntoCl =
-      punto -- {3..*} LA_Punto;
-      cl -- {0..*} LA_CarasLindero;
-    END puntoCl;
-
-    /** Traducción de la clase LA_Party de LADM. Representa a las personas que ejercen derechos y responsabilidades  o sufren restricciones respecto a una BAUnit.
-     */
-    CLASS LA_Interesado (ABSTRACT)
-    EXTENDS ObjetoVersionado =
-      /** Identificador del interesado.
-       */
-      ext_PID : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.Oid;
-      /** Nombre del interesado.
-       */
-      Nombre : CharacterString;
-      /** Función o tarea que realiza el interesado dentro del marco de derechos, obligaciones y restricciones.
-       */
-      Tarea : LIST {0..*} OF Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.LA_TareaInteresadoTipo;
-      /** Tipo de persona del que se trata.
-       */
-      Tipo : MANDATORY LA_InteresadoTipo;
-      /** Identificador único global.
-       */
-      p_Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador único local.
-       */
-      p_Local_Id : MANDATORY CharacterString;
-    END LA_Interesado;
-
-    /** Persona jurídica que tiene derechos o sobre la que recaen restricciones o responsabilidades referidas a uno o más predios.
-     */
-    CLASS Interesado_Juridico
-    EXTENDS LA_Interesado =
-      /** Número de identificación.
-       */
-      Numero_NIT : MANDATORY TEXT*20;
-      /** Nombrecon el que está inscrito.
-       */
-      Razon_Social : MANDATORY TEXT*100;
-      /** Caracter del tipo de derecho sobre el que está constituído.
-       */
-      Tipo (EXTENDED) : Catastro_Registro_Nucleo_V2_2_0.COL_InteresadoJuridicoTipo;
-    END Interesado_Juridico;
-
     /** Persona natural que tiene derechos o sobre la que recaen restricciones o responsabilidades referidas a uno o más predios.
      */
     CLASS Interesado_Natural
-    EXTENDS LA_Interesado =
+    EXTENDS LADM_COL.LADM_Nucleo.LA_Interesado =
       /** Documento de identidad personal.
        */
       Documento_Identidad : MANDATORY TEXT*10;
@@ -1670,26 +378,142 @@ VERSION "2017-07-12 V2.1.6"  =
       Genero : Catastro_Registro_Nucleo_V2_2_0.COL_GeneroTipo;
     END Interesado_Natural;
 
-    /** Registra interesados que representan a grupos de personas. Se registra el grupo en si, independientemete de las personas por separado. Es lo que ocurreo, por ejemplo, con un grupo étnico.
+    /** Datos de contacto de la persona física.
      */
-    CLASS LA_Agrupacion_Interesados
-    EXTENDS LA_Interesado =
-      /** Indica el tipo de agrupación del que se trata.
+    CLASS Interesado_Natural_Contacto =
+      Telefono1 : TEXT*20;
+      Telefono2 : TEXT*20;
+      Direccion : TEXT*100;
+      Correo_Electronico : TEXT*100;
+      /** Procedencia de los datos de la persona física.
        */
-      ai_Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_GrupoInteresadoTipo;
-      /** Idenitficación global única de la instancia del grupo.
+      Origen_Datos : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_InstitucionTipo;
+    END Interesado_Natural_Contacto;
+
+    /** Clase especializada de BaUnit, que describe la unidad administrativa básica para el caso de Colombia.
+     * El predio es la unidad territorial legal propia de Catastro. Esta formada por el terreno y puede o no tener construcciones asociadas.
+     */
+    CLASS Predio
+    EXTENDS LADM_COL.LADM_Nucleo.LA_BAUnit =
+      /** Corresponde al codigo del departamento al cual pertenece el predio. Es asignado por DIVIPOLA y tiene 2 dígitos.
        */
-      ai_Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificar único local del grupo.
+      Departamento : TEXT*2;
+      /** Corresponde al codigo del municipio al cual pertenece el predio. Es asignado por DIVIPOLA y tiene 3 dígitos.
        */
-      ai_Local_Id : MANDATORY CharacterString;
-    END LA_Agrupacion_Interesados;
+      Municipio : TEXT*3;
+      /** Corresponde a la zona castrastral, definida para optimizar las actividades catastrales. Es un codigo de 2 dígitos.
+       */
+      Zona : TEXT*2;
+      /** Numero Unico de identificación Predial. Es el codigo definido en el proyecto de ley que será el codigo de identificación del predio tanto para catastratro como para Registro.
+       */
+      NUPRE : MANDATORY TEXT*20;
+      /** Folio de Matricula Inmobilidaria. Codigo único de identificación asignado al documento registral en la oficina de registro de instrumentos públicos.
+       */
+      FMI : TEXT*20;
+      /** Nuevo código númerico de treinta (30) dígitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi.
+       */
+      Numero_Predial : TEXT*30;
+      /** Anterior código númerico de veinte (20) digitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi.
+       */
+      Numero_Predial_Anterior : TEXT*20;
+      /** Valor de cada predio, obtenido mediante investigación y análisis estadistico del mercado inmobiliario y la metodología de aplicación  correspondiente. El avalúo  catastral de cada predio se determina a partir de la adición de los avalúos parciales practicados independientemente para los terrenos y para las edificaciones en el comprendidos.
+       */
+      Avaluo_Predio : LADM_COL.LADM_Nucleo.Peso;
+      UNIQUE NUPRE; 
+    END Predio;
+
+    /** Clase especial del perfil colombiano de la norma ISO 19152:2012. Pretenden generar publicidad sobre el predio a partir del almacenamiento de los codigos registrales que se inscriben el FMI. No se genera ningún tipo de derecho, ni limita la propiedad.
+     */
+    CLASS Publicidad
+    EXTENDS LADM_COL.LADM_Nucleo.ObjetoVersionado =
+      /** Indica la característica por la que se hace público.
+       */
+      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_PublicidadTipo;
+      /** Código registral del FMI que se hace público.
+       */
+      Codigo_Registral_Publicidad : MANDATORY TEXT*3;
+    END Publicidad;
+
+    /** Clase especializada de LA_Punto que representa puntos de la densificación de la red local, que se utiliza en la operación catastral para el levantamiento de información fisica de los objetos territoriales, como puntos de control.
+     */
+    CLASS PuntoControl
+    EXTENDS LADM_COL.LADM_Nucleo.LA_Punto =
+      /** Nombre que recibe el punto.
+       */
+      Nombre_Punto : MANDATORY TEXT*20;
+      /** Exactitud vertical de la medición del punto.
+       */
+      Exactitud_Vertical : MANDATORY 0 .. 1000 [LADM_COL.cm];
+      /** Exactitud horizontal de la medición del punto.
+       */
+      Exactitud_Horizontal : MANDATORY 0 .. 1000 [LADM_COL.cm];
+      /** Se describe la posición del punto con relación a su estructura, si es un punto aislado, o si hace parte de un Arco o de una linea.
+       */
+      Posicion_Interpolacion (EXTENDED) : Catastro_Registro_Nucleo_V2_2_0.COL_InterpolacionTipo;
+      Monumentacion (EXTENDED) : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_MonumentacionTipo;
+      /** Si se trata deun punto de control o de apoyo.
+       */
+      Tipo_Punto_Control : Catastro_Registro_Nucleo_V2_2_0.COL_PuntoControlTipo;
+      /** Si el punto es o no fiable.
+       */
+      Confiabilidad : BOOLEAN;
+    END PuntoControl;
+
+    /** Clase especializada de LA_Punto que almacena puntos que definen un lindero, instancia de la clase LA_CadenaCarasLindero y sus especializaciones.
+     */
+    CLASS PuntoLindero
+    EXTENDS LADM_COL.LADM_Nucleo.LA_Punto =
+      /** Se Indica si existe acuerdo o no entre los colindantes en relación al punto lindero que se está midiendo.
+       */
+      Acuerdo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_AcuerdoTipo;
+      /** Se caracteriza si el punto de levantamiento corresponde a un punto bien definido o no bien definido
+       */
+      Definicion_Punto : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_DefPuntoTipo;
+      /** Es la descripción del tipo de punto lindero y las caracteristicas del vertice
+       */
+      Descripcion_Punto : Catastro_Registro_Nucleo_V2_2_0.COL_DescripcionPuntoTipo;
+      /** Corresponde a la exactitud vertical del punto lindero
+       */
+      Exactitud_Vertical : 0 .. 1000 [LADM_COL.cm];
+      /** Corresponde a la exactitud horizontal del punto lindero
+       */
+      Exactitud_Horizontal : MANDATORY 0 .. 1000 [LADM_COL.cm];
+      /** Indica si es o no fiable.
+       */
+      Confiabilidad : BOOLEAN;
+      /** Se describe la posición del punto con relación a su estructura, si es un punto aislado, o si hace parte de un Arco o de una linea.
+       */
+      Posicion_Interpolacion (EXTENDED) : Catastro_Registro_Nucleo_V2_2_0.COL_InterpolacionTipo;
+      /** Si se trata de un monumento geodésico, el tipo.
+       */
+      Monumentacion (EXTENDED) : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_MonumentacionTipo;
+      /** Nombre o codigo del punto lindero
+       */
+      Nombre_Punto : TEXT*10;
+      !!@name="no_overlaps"
+      SET CONSTRAINT no_overlaps(ALL,>> Localizacion_Original);
+    END PuntoLindero;
+
+    /** Restricciones a las que está sometido un predio y que inciden sobre los derechos que pueden ejercerse sobre él.
+     */
+    CLASS COL_Restriccion
+    EXTENDS LADM_COL.LADM_Nucleo.LA_RRR =
+      /** Indica si es preciso o no que un interesado esté asociado a la restricción.
+       */
+      Interesado_Requerido : BOOLEAN;
+      /** Define el tipo de restricción.
+       */
+      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_RestriccionTipo;
+      /** Código con el que la responsabilidad se registra en el Registro de la Propiedad.
+       */
+      Codigo_Registral_Restriccion : TEXT*3;
+    END COL_Restriccion;
 
     /** Clase especializada de LA_CadenaCarasLindero que permite registrar los linderos.
      * Dos linderos no pueden cruzarse ni superponerse.
      */
     CLASS Lindero
-    EXTENDS LA_CadenaCarasLimite =
+    EXTENDS LADM_COL.LADM_Nucleo.LA_CadenaCarasLimite =
       /** Lóngitud en m del lindero.
        */
       Longitud : MANDATORY 0.0 .. 10000.0 [INTERLIS.m];
@@ -1697,19 +521,46 @@ VERSION "2017-07-12 V2.1.6"  =
       SET CONSTRAINT no_overlaps(ALL,>> Geometria);
     END Lindero;
 
+    /** Clase especializada de LA_Punto que representa puntos demarcados que representan la posición horizontal de un vértice de construcción, servidumbre o auxiliare.
+     */
+    CLASS PuntoLevantamiento
+    EXTENDS LADM_COL.LADM_Nucleo.LA_Punto =
+      /** Se caracterizan los diferentes tipos de punto levantamiento, estos son punto de construccción, punto de servidumbre o punto auxiliar
+       */
+      Tipo_Punto_Levantamiento : Catastro_Registro_Nucleo_V2_2_0.COL_PuntoLevTipo;
+      /** Se caracteriza si el punto de levantamiento corresponde a un punto bien definido o no bien definido
+       */
+      Definicion_Punto : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_DefPuntoTipo;
+      /** Corresponde a la exactitud vertical del punto levantamiento
+       */
+      Exactitud_Vertical : 0 .. 1000 [LADM_COL.cm];
+      /** Corresponde a la exactitud horizontal del punto levantamiento
+       */
+      Exactitud_Horizontal : 0 .. 1000 [LADM_COL.cm];
+      /** Se describe la posición del punto con relación a su estructura, si es un punto aislado, o si hace parte de un Arco o de una linea.
+       */
+      Posicion_Interpolacion (EXTENDED) : Catastro_Registro_Nucleo_V2_2_0.COL_InterpolacionTipo;
+      /** Definición sobre si el punto de levantamiento se encuentra monumentado o no y los tipos de monumentación especificos para el perfil nacional
+       */
+      Monumentacion (EXTENDED) : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_MonumentacionTipo;
+      /** Nombre que recibe el punto.
+       */
+      Nombre_Punto : TEXT*10;
+    END PuntoLevantamiento;
+
     /** Porción de tierra con una extensión geográfica definida.
      */
     CLASS Terreno
-    EXTENDS LA_UnidadEspacial =
+    EXTENDS LADM_COL.LADM_Nucleo.LA_UnidadEspacial =
       /** Área del predio que se encuentra inscrita en el Folio de Matricula Inmobiliaria
        */
-      Area_Registral : MANDATORY 0.0 .. 99999999999999.9 [Catastro_Registro_Nucleo_V2_2_0.m2];
+      Area_Registral : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL.m2];
       /** Área de predio resultado de los calculos realizados en el proceso de levantamiento planimetrico
        */
-      Area_Calculada : MANDATORY 0.0 .. 99999999999999.9 [Catastro_Registro_Nucleo_V2_2_0.m2];
+      Area_Calculada : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL.m2];
       /** Valor asignado en el proceso de valoración economica masiva al terreno del predio
        */
-      Avaluo_Terreno : MANDATORY Catastro_Registro_Nucleo_V2_2_0.Peso;
+      Avaluo_Terreno : MANDATORY LADM_COL.LADM_Nucleo.Peso;
       /** se caracterizan los diferentes tipos de cultivos o territorios agricolas que conforman el predio, corresponde a la pregunta 5.3 del anexo 5.1 de los estandares de catastro multiproposito versión 2.1.1
        */
       Territorio_Agricola : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_TerritorioAgricola_;
@@ -1738,11 +589,6 @@ VERSION "2017-07-12 V2.1.6"  =
       SET CONSTRAINT no_overlaps(ALL,>> poligono_creado);
     END Terreno;
 
-    ASSOCIATION baunitComoInteresado =
-      interesado -- {0..*} LA_Interesado;
-      unidad (EXTERNAL) -- {0..*} LA_BAUnit;
-    END baunitComoInteresado;
-
     ASSOCIATION ContactoInteresado =
       contacto -- {0..*} Interesado_Natural_Contacto;
       interesado -- {1} Interesado_Natural;
@@ -1753,36 +599,85 @@ VERSION "2017-07-12 V2.1.6"  =
       Interesado_Juridico -- {1} Interesado_Juridico;
     END ContactoInteresadoJuridico;
 
+    ASSOCIATION PublicidadBAUnit =
+      pubicidad -- {0..*} Publicidad;
+      baunit (EXTERNAL) -- {1} LADM_COL.LADM_Nucleo.LA_BAUnit;
+    END PublicidadBAUnit;
+
+    /** Clase de tipo LA_RRR que registra las responsabilidades que las instancias de los interesados tienen sobre los predios.
+     */
+    CLASS COL_Responsabilidad
+    EXTENDS LADM_COL.LADM_Nucleo.LA_RRR =
+      /** Definición del tipo de responsabilidad que se tiene.
+       */
+      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_ResponsabilidadTipo;
+      /** Código con el que la responsabilidad se registra en el Registro de la Propiedad.
+       */
+      Codigo_Registral_Responsabilidad : TEXT*3;
+    END COL_Responsabilidad;
+
+    /** Tipo de unidad espacial que permite la representación de una servidumbre de paso asociada a una LA_BAUnit.
+     */
+    CLASS ServidumbrePaso
+    EXTENDS LADM_COL.LADM_Nucleo.LA_UnidadEspacial =
+      Identificador : MANDATORY TEXT*20;
+      /** Fecha de inscripción de la servidumbre en el Catastro.
+       */
+      Fecha_Inscripcion_Catastral : INTERLIS.XMLDate;
+    END ServidumbrePaso;
+
     ASSOCIATION PublicidadFuente =
       publicidad -- {0..1} Publicidad;
-      fuente -- {1..*} COL_FuenteAdministrativa;
+      fuente (EXTERNAL) -- {1..*} LADM_COL.LADM_Nucleo.COL_FuenteAdministrativa;
     END PublicidadFuente;
 
     ASSOCIATION PublicidadInteresado =
       publicidad -- {0..*} Publicidad;
-      interesado (EXTERNAL) -- {0..1} LA_Interesado;
+      interesado (EXTERNAL) -- {0..1} LADM_COL.LADM_Nucleo.LA_Interesado;
     END PublicidadInteresado;
 
-    ASSOCIATION responsableFuente =
-      cfuente (EXTERNAL) -- {0..*} COL_FuenteAdministrativa;
-      notario -- {0..*} LA_Interesado;
-    END responsableFuente;
+    /** Clase que representa un tipo de restricción heredando de COL_Restricción, asociada a un derecho y que permite gestionar las hipotecas constituídas sobre un bien inmueble, considerando las cuestiones legales nacionales.
+     */
+    CLASS COL_Hipoteca
+    EXTENDS COL_Restriccion =
+      /** Tipo de hipoteca constituida, conforme a la legislación colombiana.
+       */
+      h_Tipo : Catastro_Registro_Nucleo_V2_2_0.COL_HipotecaTipo;
+      /** Código con el que la hipoteca se registra en el Registro de la Propiedad Inmobiliaria en el momento de ser constituida.
+       */
+      Codigo_Registral_Hipoteca : TEXT*3;
+    END COL_Hipoteca;
 
-    ASSOCIATION rrrInteresado =
-      rrr (EXTERNAL) -- {0..*} LA_RRR;
-      interesado -- {0..1} LA_Interesado;
-    END rrrInteresado;
+    /** Es cada conjunto de materiales consolidados dentro de un predio que tiene una caracteristicas especificas en cuanto a elementos constitutivos físicos y usos de los mismos.
+     */
+    CLASS UnidadConstruccion
+    EXTENDS LADM_COL.LADM_Nucleo.LA_EspacioJuridicoUnidadEdificacion =
+      /** Corresponde al valor catastral determinado mediante el metodo economico definido, para cada unidad de contrucción del predio
+       */
+      Avaluo_Unidad_Construccion : LADM_COL.LADM_Nucleo.Peso;
+      /** Número de pisos que constituyen la unidad de construcción.
+       */
+      Numero_Pisos : MANDATORY 1 .. 100;
+      /** Categoría constructiva ea la que pertenece la unidad de construcción, corresponde a la pregunta 7.6 del anexo 5.1 de los estandares de catastro multiproposito versión 2.1.1.
+       */
+      Tipo_Construccion : Catastro_Registro_Nucleo_V2_2_0.COL_TipoConstruccionTipo;
+      /** Area de la unidad de contrucción.
+       */
+      Area_Construida : 0.0 .. 99999999999999.9 [LADM_COL.m2];
+      /** Área privada de la unidad de construcción para el caso en que las construcciones tienen regimen de propiedad horizontal.
+       */
+      Area_Privada_Construida : 0.0 .. 99999999999999.9 [LADM_COL.m2];
+    END UnidadConstruccion;
 
-    ASSOCIATION topografoFuente =
-      sfuente (EXTERNAL) -- {0..*} COL_FuenteEspacial;
-      topografo -- {0..*} LA_Interesado;
-    END topografoFuente;
+    ASSOCIATION ConstruccionUnidadConstruccion =
+      unidadconstruccion -- {1..*} UnidadConstruccion;
+      construccion -<> {1} Construccion;
+    END ConstruccionUnidadConstruccion;
 
-    ASSOCIATION miembros =
-      interesados -- {2..*} LA_Interesado;
-      agrupacion -<> {0..1} LA_Agrupacion_Interesados;
-      participacion : Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.Fraccion;
-    END miembros;
+    ASSOCIATION hipotecaDerecho =
+      hipoteca -- {0..*} COL_Hipoteca;
+      derecho -- {0..*} COL_Derecho;
+    END hipotecaDerecho;
 
   END Catastro_Registro;
 
