@@ -38,6 +38,25 @@ VERSION "2017-06-02 V2.1.1"  =
       Falsa_Tradicion
     );
 
+    COL_EstadoNupreTipo = (
+      /** El código ha sido asignado por el gestor catastral y refiere a un único predio de acuerdo al proceso de conformación o mantenimiento catastral multipropósito.
+       */
+      G,
+      /** El código ha sido asignado por el gestor catastral y refiere a un único predio de acuerdo al proceso de conformación o mantenimiento catastral multipropósito.
+       */
+      C,
+      /** El código ha sido anotado o inscrito en el sistema de registro de instrumentos públicos, en este estado el ciudadano podrá solicitar el Certificado Predial Registral, que contiene la información jurídica del Registro de Instrumentos Públicos y la información física y económica del Sistema Único de Información Catastral Multipropósito esta información goza con pleno mérito probatorio, cuya expedición está a cargo de la Superintendencia de Notariado y Registro y cuya vigencia se limita a su fecha y hora de expedición. 
+       *  
+       * El NUPRE del certificado Predial Registral es obligatorio para las actuaciones o modificaciones que se realicen sobre el predio por vía de actuación privada o pública y para todas las transacciones inmobiliarias, y permite prescindir de la transcripción de linderos en todos los documentos públicos que contengan actos jurídicos.
+       */
+      R,
+      /** El código ha sido anotado o inscrito en el sistema de registro de instrumentos públicos, en este estado el ciudadano podrá solicitar el Certificado Predial Registral, que contiene la información jurídica del Registro de Instrumentos Públicos y la información física y económica del Sistema Único de Información Catastral Multipropósito esta información goza con pleno mérito probatorio, cuya expedición está a cargo de la Superintendencia de Notariado y Registro y cuya vigencia se limita a su fecha y hora de expedición. 
+       *  
+       * El NUPRE del certificado Predial Registral es obligatorio para las actuaciones o modificaciones que se realicen sobre el predio por vía de actuación privada o pública y para todas las transacciones inmobiliarias, y permite prescindir de la transcripción de linderos en todos los documentos públicos que contengan actos jurídicos.
+       */
+      E
+    );
+
     COL_PredioTipo = (
       Privado(
         Individual,
@@ -141,6 +160,16 @@ VERSION "2017-06-02 V2.1.1"  =
         Zona_Equipamiento_Comunal
       ),
       Otro
+    );
+
+    COL_EstratoTipo = (
+      Estrato_0,
+      Estrato_1,
+      Estrato_2,
+      Estrato_3,
+      Estrato_4,
+      Estrato_5,
+      Estrato_6
     );
   STRUCTURE COL_ServicioPublicoTipo_ = value : MANDATORY COL_ServicioPublicoTipo; END COL_ServicioPublicoTipo_;
 
@@ -251,13 +280,13 @@ VERSION "2017-06-02 V2.1.1"  =
       Tipo_Predio_Publico : Ficha_Predial_V2_2.COL_PredioTipoPublicoTipo;
       /** caracteriza el estrato socioeconómico del predio
        */
-      Estrato : Catastro_Registro_Nucleo_V2_2_0.COL_EstratoTipo;
+      Estrato : Ficha_Predial_V2_2.COL_EstratoTipo;
       /** Describe si el predio es formal o informal
        */
       Formalidad : BOOLEAN;
       /** Indica el estado en el que se encuentra el NUPRE (Debe ser definido por la autoridad catastral)
        */
-      Estado_NUPRE : Catastro_Registro_Nucleo_V2_2_0.COL_EstadoNupreTipo;
+      Estado_NUPRE : Ficha_Predial_V2_2.COL_EstadoNupreTipo;
       /** Último año del cual se hizo la actualización económica para entrar el avalúo en vigencia fiscal
        */
       Vigencia_Fiscal : INTERLIS.XMLDate;
