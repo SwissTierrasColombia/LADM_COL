@@ -57,7 +57,7 @@ VERSION "2017-09-28 V0.1"  =
         !!@ ili2db.dispName = "No Existe Físicamente"
         No_Existe_Fisicamente
       );
-    STRUCTURE COL_ErrorRegistralTipo_ = value : MANDATORY COL_ErrorRegistralTipo; END COL_ErrorRegistralTipo_;
+    STRUCTURE COL_ErrorRegistralTipo_Predio_Juridico_Error_Registral = value : MANDATORY COL_ErrorRegistralTipo; END COL_ErrorRegistralTipo_Predio_Juridico_Error_Registral;
 
     /** La clase Predio es una agrupación de atributos específicos de interés específico para el Registro de la Propiedad Inmobiliaria. Por tanto, representa lo mismo que en el caso de los modelos de Catastro y de Avalúos, pero sus atributos almacenan los datos relativos a aquella información de caracter legal que es necesario conocer con fines registrales.
      */
@@ -80,7 +80,7 @@ VERSION "2017-09-28 V0.1"  =
       /** Listado de FMI con los que hay duplicidad
        */
       FMI_Duplicados : TEXT*20;
-      Error_Registral : BAG {0..*} OF COL_ErrorRegistralTipo_;
+      Error_Registral : BAG {0..*} OF COL_ErrorRegistralTipo_Predio_Juridico_Error_Registral;
     END Predio_Juridico;
 
     /** Relación entre las clases "Predio" de Catastro y de Registro. La cardinalidad es 1-1, lo que indica que son representaciones diferentes de un mismo elemento de la realidad.

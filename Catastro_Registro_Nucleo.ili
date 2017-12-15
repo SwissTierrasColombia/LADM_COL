@@ -34,6 +34,7 @@ INTERLIS 2.3;
  * !! 02.11.2017/ : Cambio del nombre del modelo de Catastro_COL_ES a Catastro_Registro_Nucleo
  * !! 07.11.2017/fm: Cambio de nombre a la clase CadenaCarasLindero a CadenaCarasLimite 
  * !! 14.11.2017/fm : taducción del dominio COL_BuildingUnitTipo
+ * !! 14.12.2017/fm : definicion de extends entre topics catastro registro nucleo y Ladm_nucleo
  * !!
  * !!-----------------------------------------------------------
  * !!
@@ -287,14 +288,15 @@ VERSION "2017-07-12 V2.1.6"  =
       Parque_Cementerio,
       PH
     );
-  STRUCTURE COL_Afectacion_ = value : MANDATORY COL_Afectacion; END COL_Afectacion_;
-  STRUCTURE COL_BosqueAreaSemi_ = value : MANDATORY COL_BosqueAreaSemi; END COL_BosqueAreaSemi_;
-  STRUCTURE COL_CuerpoAgua_ = value : MANDATORY COL_CuerpoAgua; END COL_CuerpoAgua_;
-  STRUCTURE COL_ExplotacionTipo_ = value : MANDATORY COL_ExplotacionTipo; END COL_ExplotacionTipo_;
-  STRUCTURE COL_ServidumbreTipo_ = value : MANDATORY COL_ServidumbreTipo; END COL_ServidumbreTipo_;
-  STRUCTURE COL_TerritorioAgricola_ = value : MANDATORY COL_TerritorioAgricola; END COL_TerritorioAgricola_;
+  STRUCTURE COL_Afectacion_Terreno_Afectacion = value : MANDATORY COL_Afectacion; END COL_Afectacion_Terreno_Afectacion;
+  STRUCTURE COL_BosqueAreaSemi_Terreno_Bosque_Area_Seminaturale = value : MANDATORY COL_BosqueAreaSemi; END COL_BosqueAreaSemi_Terreno_Bosque_Area_Seminaturale;
+  STRUCTURE COL_CuerpoAgua_Terreno_Evidencia_Cuerpo_Agua = value : MANDATORY COL_CuerpoAgua; END COL_CuerpoAgua_Terreno_Evidencia_Cuerpo_Agua;
+  STRUCTURE COL_ExplotacionTipo_Terreno_Explotacion = value : MANDATORY COL_ExplotacionTipo; END COL_ExplotacionTipo_Terreno_Explotacion;
+  STRUCTURE COL_ServidumbreTipo_Terreno_Servidumbre = value : MANDATORY COL_ServidumbreTipo; END COL_ServidumbreTipo_Terreno_Servidumbre;
+  STRUCTURE COL_TerritorioAgricola_Terreno_Territorio_Agricola = value : MANDATORY COL_TerritorioAgricola; END COL_TerritorioAgricola_Terreno_Territorio_Agricola;
 
-  TOPIC Catastro_Registro =
+  TOPIC Catastro_Registro
+  EXTENDS LADM_COL.LADM_Nucleo =
     DEPENDS ON LADM_COL.LADM_Nucleo;
 
     /** Clase que registra las instancias de los derechos que un interesado ejerce sobre un predio. Es una especialización de la clase LA_RRR del propio modelo.
@@ -563,22 +565,22 @@ VERSION "2017-07-12 V2.1.6"  =
       Avaluo_Terreno : MANDATORY LADM_COL.LADM_Nucleo.Peso;
       /** se caracterizan los diferentes tipos de cultivos o territorios agricolas que conforman el predio, corresponde a la pregunta 5.3 del anexo 5.1 de los estandares de catastro multiproposito versión 2.1.1
        */
-      Territorio_Agricola : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_TerritorioAgricola_;
+      Territorio_Agricola : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_TerritorioAgricola_Terreno_Territorio_Agricola;
       /** Se describe si en el predio existe presencia de bosques o áreas seminaturales, corresponde a la pregunta 5.4 del anexo 5.1 de los estandares de catastro multiproposito versión 2.1.1
        */
-      Bosque_Area_Seminaturale : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_BosqueAreaSemi_;
+      Bosque_Area_Seminaturale : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_BosqueAreaSemi_Terreno_Bosque_Area_Seminaturale;
       /** En esta clase se identifican los valores de la pregunta 5.5. Especifique si evidencia en el terreno del Anexo 5, Versión 2.1.1 de Catastro Multiproposito
        */
-      Evidencia_Cuerpo_Agua : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_CuerpoAgua_;
+      Evidencia_Cuerpo_Agua : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_CuerpoAgua_Terreno_Evidencia_Cuerpo_Agua;
       /** Se caracteriza si en el predio existe algún tipo de explotación, corresponde a la pregunta 5.6 del anexo 5.1 de los estandares de catastro multiproposito versión 2.1.1
        */
-      Explotacion : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_ExplotacionTipo_;
+      Explotacion : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_ExplotacionTipo_Terreno_Explotacion;
       /** Se describe si en el predio existe alguna afectación natural de tipo inundación o de remoción en masa, corresponde a la pregunta 5.7 del anexo 5.1 de los estandares de catastro multiproposito versión 2.1.1
        */
-      Afectacion : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_Afectacion_;
+      Afectacion : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_Afectacion_Terreno_Afectacion;
       /** Tipo de derecho que limita el dominio de una porción del predio, corresponde a la pregunta 5.8 del anexo 5.1 de los estandares de catastro multiproposito versión 2.1.1
        */
-      Servidumbre : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_ServidumbreTipo_;
+      Servidumbre : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_ServidumbreTipo_Terreno_Servidumbre;
       /** Corresponde a la figura geometrica vectorial poligonal, generada a partir de los linderos del predio.
        */
       poligono_creado (EXTENDED) : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;

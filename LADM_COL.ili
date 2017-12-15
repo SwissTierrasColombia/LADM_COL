@@ -90,7 +90,7 @@ VERSION "2017-11-15"  =
 
       Real = 0.000 .. 999999999.999;
 
-        STRUCTURE COL_AreaValor =
+    STRUCTURE COL_AreaValor =
       areaSize : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL.m2];
       type : MANDATORY COL_AreaTipo;
     END COL_AreaValor;
@@ -317,7 +317,7 @@ VERSION "2017-11-15"  =
 
     /** Estructura que permite definir el Oid o identificadores de objeto. Viene marcado en la propia norma ISO 19152:2012, LADM.
      */
-        STRUCTURE Oid =
+    STRUCTURE Oid =
       /** Identificador local asignado por el proveedor de los datos.
        */
       localId : MANDATORY CharacterString;
@@ -328,7 +328,7 @@ VERSION "2017-11-15"  =
 
     /** Estructura para la definición de un tipo de dato personalizado que permite indicar una fracción o quebrado cona serie específica de condiciones.
      */
-        STRUCTURE Fraccion =
+    STRUCTURE Fraccion =
       /** Parte inferior de la fracción. Debe ser mayor que 0. Debe ser mayor que el numerador.
        */
       Denominador : MANDATORY Integer;
@@ -345,7 +345,7 @@ VERSION "2017-11-15"  =
 
     /** Referencia a una imagen mediante su url.
      */
-        STRUCTURE Imagen =
+    STRUCTURE Imagen =
       /** url de la imagen.
        */
       uri : CharacterString;
@@ -354,7 +354,7 @@ VERSION "2017-11-15"  =
     /** Clase traducida a partir de DQ_Element de la norma ISO 19157.
      * Contiene los aspectos de la información de calidad cuantitativa. REVISAR MODELADO
      */
-        STRUCTURE DQ_Element =
+    STRUCTURE DQ_Element =
       /** Nombre de la prueba aplicada a los datos. Proviene de la agregación de la clase DQ_MeasureReference a DQ_Element.
        */
       Nombre_Medida : CharacterString;
@@ -383,7 +383,7 @@ VERSION "2017-11-15"  =
 
     /** estructura no utilizada, se materializa sobre los atributos Extactitud horizontal y vertical
      */
-        STRUCTURE DQ_PositionalAccuracy
+    STRUCTURE DQ_PositionalAccuracy
     EXTENDS DQ_Element =
       /** MODELAR.
        */
@@ -392,7 +392,7 @@ VERSION "2017-11-15"  =
 
     /** DEFINIR y DOCUMENTAR. Se hace necesaria para su uso por ObjetoVersionado.
      */
-        STRUCTURE DQ_AbsoluteExternalPositionalAccuracy
+    STRUCTURE DQ_AbsoluteExternalPositionalAccuracy
     EXTENDS DQ_PositionalAccuracy =
       /** DEFINIR
        */
@@ -401,7 +401,7 @@ VERSION "2017-11-15"  =
 
     /** Estructura que da soporte a los metadatos que documentan el linaje, información concerniente a las fuentes y a los procesos de producción, y procedente de la norma ISO 19115. Con respecto a la clase de dicha norma, presenta sólo el atributo statement.
      */
-        STRUCTURE LI_Lineaje =
+    STRUCTURE LI_Lineaje =
       /** Explicación general del conocimiento del productor de datos sobre el linaje de un recurso.
        */
       Statement : CharacterString;
@@ -410,7 +410,7 @@ VERSION "2017-11-15"  =
     /** Clase traducida CI_Contact de la ISO 19115.
      * Almacena la información requerida para permitir el contacto con la persona responsable y la organización.
      */
-        STRUCTURE CI_Contacto =
+    STRUCTURE CI_Contacto =
       /** Números de teléfono en los que la organización o el individuo pueden ser contactados.
        */
       Telefono : CharacterString;
@@ -430,7 +430,7 @@ VERSION "2017-11-15"  =
 
     /** Clase traducida CI_ResponsibleParty de la ISO 19115:2003. Identificación de los responsables del recurso y el papel de la parte en el recurso.
      */
-        STRUCTURE CI_ParteResponsable =
+    STRUCTURE CI_ParteResponsable =
       /** Nombre individual del responsable. Se proporciona si la organización o la posición no son proporcionados.
        */
       Nombre_Individual : CharacterString;
@@ -451,7 +451,7 @@ VERSION "2017-11-15"  =
 
     /** Estructura que proviene de la traducción de la clase CC_OperationMethod de la ISO 19111. Indica el método utilizado, mediante un algoritmo o un procedimiento, para realizar operaciones con coordenadas.
      */
-        STRUCTURE CC_MetodoOperacion =
+    STRUCTURE CC_MetodoOperacion =
       /** Fórmulas o procedimientos utilizadoa por este método de operación de coordenadas. Esto puede ser una referencia a una publicación. Tenga en cuenta que el método de operación puede no ser analítico, en cuyo caso este atributo hace referencia o contiene el procedimiento, no una fórmula analítica.
        */
       Formula : MANDATORY CharacterString;
@@ -465,7 +465,7 @@ VERSION "2017-11-15"  =
 
     /** Registro de la fórmula o procedimiento utilizado en la transformación y de su resultado.
      */
-        STRUCTURE LA_Transformacion =
+    STRUCTURE LA_Transformacion =
       /** Fórmula o procedimiento utilizado en la transformación.
        */
       Transformacion : MANDATORY LADM_COL.LADM_Nucleo.CC_MetodoOperacion;
@@ -476,7 +476,7 @@ VERSION "2017-11-15"  =
 
     /** Estructura que pone a disposición del modelo la clase OM_Observation de la ISO 19156 y de la que sólo implementa un atributo de los cinco que tiene la clase origina: resultQuality.
      */
-        STRUCTURE OM_Observacion =
+    STRUCTURE OM_Observacion =
       /** Resultado del proceso de calidad, conforme a DQ_Element.
        */
       Resultado_Calidad : LADM_COL.LADM_Nucleo.DQ_Element;
@@ -484,7 +484,7 @@ VERSION "2017-11-15"  =
 
     /** Estructura que define los diferentes tipos de interesados que pueden darse.
      */
-        STRUCTURE LA_TareaInteresadoTipo =
+    STRUCTURE LA_TareaInteresadoTipo =
       Tipo : (
         topografo,
         notario,
@@ -494,12 +494,12 @@ VERSION "2017-11-15"  =
 
     /** Estructura que pone a disposición del modelo la clase OM_Process de la ISO 19156. No desarrollado, debe ser definido por los pilotos
      */
-        STRUCTURE OM_Proceso =
+    STRUCTURE OM_Proceso =
     END OM_Proceso;
 
     /** Referencia a una clase externa para gestionar direcciones.
      */
-        STRUCTURE ExtDireccion =
+    STRUCTURE ExtDireccion =
       /** Nombre del área en la que se encuentra la dirección.
        */
       Nombre_Area_Direccion : CharacterString;
@@ -546,13 +546,13 @@ VERSION "2017-11-15"  =
 
     /** Control externo de la unidad de edificación física.
      */
-        STRUCTURE ExtUnidadEdificacionFisica =
+    STRUCTURE ExtUnidadEdificacionFisica =
       Ext_Direccion_ID : LADM_COL.LADM_Nucleo.ExtDireccion;
     END ExtUnidadEdificacionFisica;
 
     /** Referencia a una clase externa para gestionar direcciones.
      */
-        STRUCTURE ExtInteresado =
+    STRUCTURE ExtInteresado =
       /** Identificador externo del interesado.
        */
       Ext_Direccion_ID : LADM_COL.LADM_Nucleo.ExtDireccion;
@@ -567,7 +567,7 @@ VERSION "2017-11-15"  =
 
     /** Referencia a una clase externa para gestionar las redes físicas de servicios.
      */
-        STRUCTURE ExtRedServiciosFisica =
+    STRUCTURE ExtRedServiciosFisica =
       /** Indica si la red de servicios tiene un gradiente o no.
        */
       Orientada : BOOLEAN;
@@ -578,7 +578,7 @@ VERSION "2017-11-15"  =
 
     /** Referencia a clase externa desde donde se gestiona el repositorio de archivos.
      */
-        STRUCTURE ExtArchivo =
+    STRUCTURE ExtArchivo =
       /** Fecha en la que ha sido aceptado el documento.
        */
       Fecha_Aceptacion : INTERLIS.XMLDate;
@@ -643,7 +643,7 @@ VERSION "2017-11-15"  =
 
     /** Estructura para la definición de un tipo de dato personalizado que permite indicar la medición de un volumen y la naturaleza de este.
      */
-        STRUCTURE LA_VolumenValor =
+    STRUCTURE LA_VolumenValor =
       /** Medición del volumen en m3.
        */
       Volumen_Medicion : MANDATORY 0.0 .. 99999999999999.9 [INTERLIS.m];
