@@ -16,14 +16,14 @@ VERSION "2017-06-02 V2.1.1"  =
       Otro
     );
 
-    /** Categoría de suelo de la clasificación del Plan de Ordenamiento Territorial.
+    /** CategorÃ­a de suelo de la clasificaciÃ³n del Plan de Ordenamiento Territorial.
      */
     COL_CategoriaSueloPOTTipo = (
       Suburbano,
       Proteccion
     );
 
-    /** Clase de suelo de la clasificación del Plan de Ordenamiento Territorial.
+    /** Clase de suelo de la clasificaciÃ³n del Plan de Ordenamiento Territorial.
      */
     COL_ClaseSueloPOTTipo = (
       Urbano,
@@ -31,7 +31,7 @@ VERSION "2017-06-02 V2.1.1"  =
       Expansion_Urbana
     );
 
-    /** Derecho asociado al Folio de Matrícula Inmobiliaria. REVISAR
+    /** Derecho asociado al Folio de MatrÃ­cula Inmobiliaria. REVISAR
      */
     COL_DerechoFMITipo = (
       Propiedad,
@@ -39,20 +39,20 @@ VERSION "2017-06-02 V2.1.1"  =
     );
 
     COL_EstadoNupreTipo = (
-      /** El código ha sido asignado por el gestor catastral y refiere a un único predio de acuerdo al proceso de conformación o mantenimiento catastral multipropósito.
+      /** El cÃ³digo ha sido asignado por el gestor catastral y refiere a un Ãºnico predio de acuerdo al proceso de conformaciÃ³n o mantenimiento catastral multipropÃ³sito.
        */
       G,
-      /** El código ha sido asignado por el gestor catastral y refiere a un único predio de acuerdo al proceso de conformación o mantenimiento catastral multipropósito.
+      /** El cÃ³digo ha sido asignado por el gestor catastral y refiere a un Ãºnico predio de acuerdo al proceso de conformaciÃ³n o mantenimiento catastral multipropÃ³sito.
        */
       C,
-      /** El código ha sido anotado o inscrito en el sistema de registro de instrumentos públicos, en este estado el ciudadano podrá solicitar el Certificado Predial Registral, que contiene la información jurídica del Registro de Instrumentos Públicos y la información física y económica del Sistema Único de Información Catastral Multipropósito esta información goza con pleno mérito probatorio, cuya expedición está a cargo de la Superintendencia de Notariado y Registro y cuya vigencia se limita a su fecha y hora de expedición. 
+      /** El cÃ³digo ha sido anotado o inscrito en el sistema de registro de instrumentos pÃºblicos, en este estado el ciudadano podrÃ¡ solicitar el Certificado Predial Registral, que contiene la informaciÃ³n jurÃ­dica del Registro de Instrumentos PÃºblicos y la informaciÃ³n fÃ­sica y econÃ³mica del Sistema Ãšnico de InformaciÃ³n Catastral MultipropÃ³sito esta informaciÃ³n goza con pleno mÃ©rito probatorio, cuya expediciÃ³n estÃ¡ a cargo de la Superintendencia de Notariado y Registro y cuya vigencia se limita a su fecha y hora de expediciÃ³n. 
        *  
-       * El NUPRE del certificado Predial Registral es obligatorio para las actuaciones o modificaciones que se realicen sobre el predio por vía de actuación privada o pública y para todas las transacciones inmobiliarias, y permite prescindir de la transcripción de linderos en todos los documentos públicos que contengan actos jurídicos.
+       * El NUPRE del certificado Predial Registral es obligatorio para las actuaciones o modificaciones que se realicen sobre el predio por vÃ­a de actuaciÃ³n privada o pÃºblica y para todas las transacciones inmobiliarias, y permite prescindir de la transcripciÃ³n de linderos en todos los documentos pÃºblicos que contengan actos jurÃ­dicos.
        */
       R,
-      /** El código ha sido anotado o inscrito en el sistema de registro de instrumentos públicos, en este estado el ciudadano podrá solicitar el Certificado Predial Registral, que contiene la información jurídica del Registro de Instrumentos Públicos y la información física y económica del Sistema Único de Información Catastral Multipropósito esta información goza con pleno mérito probatorio, cuya expedición está a cargo de la Superintendencia de Notariado y Registro y cuya vigencia se limita a su fecha y hora de expedición. 
+      /** El cÃ³digo ha sido anotado o inscrito en el sistema de registro de instrumentos pÃºblicos, en este estado el ciudadano podrÃ¡ solicitar el Certificado Predial Registral, que contiene la informaciÃ³n jurÃ­dica del Registro de Instrumentos PÃºblicos y la informaciÃ³n fÃ­sica y econÃ³mica del Sistema Ãšnico de InformaciÃ³n Catastral MultipropÃ³sito esta informaciÃ³n goza con pleno mÃ©rito probatorio, cuya expediciÃ³n estÃ¡ a cargo de la Superintendencia de Notariado y Registro y cuya vigencia se limita a su fecha y hora de expediciÃ³n. 
        *  
-       * El NUPRE del certificado Predial Registral es obligatorio para las actuaciones o modificaciones que se realicen sobre el predio por vía de actuación privada o pública y para todas las transacciones inmobiliarias, y permite prescindir de la transcripción de linderos en todos los documentos públicos que contengan actos jurídicos.
+       * El NUPRE del certificado Predial Registral es obligatorio para las actuaciones o modificaciones que se realicen sobre el predio por vÃ­a de actuaciÃ³n privada o pÃºblica y para todas las transacciones inmobiliarias, y permite prescindir de la transcripciÃ³n de linderos en todos los documentos pÃºblicos que contengan actos jurÃ­dicos.
        */
       E
     );
@@ -84,14 +84,14 @@ VERSION "2017-06-02 V2.1.1"  =
       Gas
     );
 
-    /** Tipo de transacción inmobiliaria que se estudia.
+    /** Tipo de transacciÃ³n inmobiliaria que se estudia.
      */
     COL_TipoOfertaTipo = (
       Venta,
       Alquiler
     );
 
-    /** Uso económico de la propiedad inmobiliaria.
+    /** Uso econÃ³mico de la propiedad inmobiliaria.
      */
     COL_UsoTipo = (
       Agricola,
@@ -176,7 +176,7 @@ VERSION "2017-06-02 V2.1.1"  =
   TOPIC Ficha =
     DEPENDS ON Avaluos_V2_1.Avaluos,Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro;
 
-    /** Persona jurídica que actúa como interesado. REVISAR DEFINICIÓN RESPECTO AL NÚCLEO
+    /** Persona jurÃ­dica que actÃºa como interesado. REVISAR DEFINICIÃ“N RESPECTO AL NÃšCLEO
      */
     CLASS Interesado_Juridico =
       Fecha_Constitucion : INTERLIS.XMLDate;
@@ -184,7 +184,7 @@ VERSION "2017-06-02 V2.1.1"  =
       Nacionalidad : TEXT*20;
     END Interesado_Juridico;
 
-    /** Persona físca que actúa como interesado. REVISAR DEFINICIÓN RESPECTO AL NÚCLEO
+    /** Persona fÃ­sca que actÃºa como interesado. REVISAR DEFINICIÃ“N RESPECTO AL NÃšCLEO
      */
     CLASS Interesado_Natural =
       Nacionalidad : TEXT*20;
@@ -195,82 +195,82 @@ VERSION "2017-06-02 V2.1.1"  =
       Etnia : TEXT*20;
     END Interesado_Natural;
 
-    /** Esta clase se crea específicamente para almacena la información recogida en la ficha predial sin fines claramente definidos. REVISAR DOCUMENTACION
+    /** Esta clase se crea especÃ­ficamente para almacena la informaciÃ³n recogida en la ficha predial sin fines claramente definidos. REVISAR DOCUMENTACION
      */
     CLASS Predio_Ficha =
-      /** Indica las redes de servicios públicos con los que el inmueble es abastecido.
+      /** Indica las redes de servicios pÃºblicos con los que el inmueble es abastecido.
        */
       Servicio_Publico : BAG {0..*} OF Ficha_Predial_V2_2.COL_ServicioPublicoTipo_Predio_Ficha_Servicio_Publico;
-      /** Clasificación del suelo según el Plan de Ordenamiento Territorial vigente.
+      /** ClasificaciÃ³n del suelo segÃºn el Plan de Ordenamiento Territorial vigente.
        */
       Clase_Suelo_POT : Ficha_Predial_V2_2.COL_ClaseSueloPOTTipo;
-      /** Categoría del suelo según el Plan de Ordenamiento Territorial vigente.
+      /** CategorÃ­a del suelo segÃºn el Plan de Ordenamiento Territorial vigente.
        */
       Categoria_Suelo_POT : Ficha_Predial_V2_2.COL_CategoriaSueloPOTTipo;
-      /** Uso económico que se hace del predio.
+      /** Uso econÃ³mico que se hace del predio.
        */
       Actividad_Economica : Ficha_Predial_V2_2.COL_UsoTipo;
-      /** Derecho asociado al FMI (Folio de Matrícula Inmobiliaria). REVISAR DOCUMENTACIÓN
+      /** Derecho asociado al FMI (Folio de MatrÃ­cula Inmobiliaria). REVISAR DOCUMENTACIÃ“N
        */
       Derecho_FMI : Ficha_Predial_V2_2.COL_DerechoFMITipo;
-      /** Indicación de si el predio está o no inscrito en el RUPTA (Registro Único de Predios y Territorios).
+      /** IndicaciÃ³n de si el predio estÃ¡ o no inscrito en el RUPTA (Registro Ãšnico de Predios y Territorios).
        */
       Inscrito_RUPTA : BOOLEAN;
-      /** Si el predio está inscrito en el RUPTA, fecha en la que se produjo la medida.
+      /** Si el predio estÃ¡ inscrito en el RUPTA, fecha en la que se produjo la medida.
        */
       Fecha_Medida_RUPTA : INTERLIS.XMLDate;
-      /** Si ha sido o no anotado en el folio de matrícula inmobiliaria
+      /** Si ha sido o no anotado en el folio de matrÃ­cula inmobiliaria
        */
       Anotacion_FMI_RUPTA : MANDATORY BOOLEAN;
-      /** Indicación de si ha sido o no inscrito como predio de protección colectiva.
+      /** IndicaciÃ³n de si ha sido o no inscrito como predio de protecciÃ³n colectiva.
        */
       Inscrito_Proteccion_Colectiva : BOOLEAN;
-      /** Fecha en la que ha sido inscrito en el registro de protección colectiva.
+      /** Fecha en la que ha sido inscrito en el registro de protecciÃ³n colectiva.
        */
       Fecha_Proteccion_Colectiva : INTERLIS.XMLDate;
-      /** Si ha sido o no maracado en el folio de matrícula inmobiliaria como que está dado de alta como de protección colectiva.
+      /** Si ha sido o no maracado en el folio de matrÃ­cula inmobiliaria como que estÃ¡ dado de alta como de protecciÃ³n colectiva.
        */
       Anotacion_FMI_Proteccion_Colectiva : MANDATORY BOOLEAN;
       /** Si ha sido o no inscrito como protegido por la Ley 1448.
        */
       Incrito_Proteccion_Ley1448 : BOOLEAN;
-      /** De haber sido inscrito como se indica arriba, fecha en la que se dio la inscripción.
+      /** De haber sido inscrito como se indica arriba, fecha en la que se dio la inscripciÃ³n.
        */
       Fecha_Proteccion_Ley1448 : INTERLIS.XMLDate;
-      /** Si ha sido o no anotado en el folio de matrícula inmobiliaria su condición de protegido por la Ley 1448.
+      /** Si ha sido o no anotado en el folio de matrÃ­cula inmobiliaria su condiciÃ³n de protegido por la Ley 1448.
        */
       Anotacion_FMI_Ley1448 : MANDATORY BOOLEAN;
-      /** Si está o no inscrito en la URT (Unidad de Restitución de Tierras).
+      /** Si estÃ¡ o no inscrito en la URT (Unidad de RestituciÃ³n de Tierras).
        */
       Inscripcion_URT : BOOLEAN;
-      /** Si ha sido inscrito en la URT, con qué fecha.
+      /** Si ha sido inscrito en la URT, con quÃ© fecha.
        */
       Fecha_Inscripcion_URT : INTERLIS.XMLDate;
-      /** Si ha sido anotado o no como que está registrado por la URT en el folio de matrícula inmobiliaria.
+      /** Si ha sido anotado o no como que estÃ¡ registrado por la URT en el folio de matrÃ­cula inmobiliaria.
        */
       Anotacion_FMI_URT : MANDATORY BOOLEAN;
       /** Observaciones que se considere oportuno aportar sobre la propiedad inmobiliaria.
        */
       Observaciones : TEXT*255;
-      /** Nombre de la persona que atendió a la recogida de datos en campo sobre el predio.
+      /** Nombre de la persona que atendiÃ³ a la recogida de datos en campo sobre el predio.
        */
       Nombre_Quien_Atendio : TEXT*40;
-      /** Número de documento de la persona que atendió a la recogida de datos en campo sobre el predio.
+      /** NÃºmero de documento de la persona que atendiÃ³ a la recogida de datos en campo sobre el predio.
        */
       Numero_Documento_Quien_Atendio : TEXT*10;
-      /** Relación de la persona que atendió a la recogida de datos de campo con el predio encuestado.
+      /** RelaciÃ³n de la persona que atendiÃ³ a la recogida de datos de campo con el predio encuestado.
        */
       Categoria_Quien_Atendio : Ficha_Predial_V2_2.COL_CategoriaQuienAtendioTipo;
-      /** tipo de documento aportado por la persona que atendió a la recogida de datos en campo sobre el predio. Su dominio de valores se encuentra en el modelo de catastro.
+      /** tipo de documento aportado por la persona que atendiÃ³ a la recogida de datos en campo sobre el predio. Su dominio de valores se encuentra en el modelo de catastro.
        */
       Tipo_Documento_Quien_Atendio : Catastro_Registro_Nucleo_V2_2_0.COL_InteresadoDocumentoTipo;
-      /** Nombre de la persona que levantó los datos en campo.
+      /** Nombre de la persona que levantÃ³ los datos en campo.
        */
       Nombre_Encuestador : TEXT*40;
-      /** Número de documento de la persona que levantó los datos en campo.
+      /** NÃºmero de documento de la persona que levantÃ³ los datos en campo.
        */
       Numero_Documento_Encuestador : TEXT*10;
-      /** Tipo de documento aportado por la persona que levantó los datos en campo. Su dominio de valores se encuentra en el modelo de catastro.
+      /** Tipo de documento aportado por la persona que levantÃ³ los datos en campo. Su dominio de valores se encuentra en el modelo de catastro.
        */
       Tipo_Documento_Encuestador : Catastro_Registro_Nucleo_V2_2_0.COL_InteresadoDocumentoTipo;
       Fecha_Visita_predial : INTERLIS.XMLDate;
@@ -278,7 +278,7 @@ VERSION "2017-06-02 V2.1.1"  =
        */
       Predio_Tipo : MANDATORY Ficha_Predial_V2_2.COL_PredioTipo;
       Tipo_Predio_Publico : Ficha_Predial_V2_2.COL_PredioTipoPublicoTipo;
-      /** caracteriza el estrato socioeconómico del predio
+      /** caracteriza el estrato socioeconÃ³mico del predio
        */
       Estrato : Ficha_Predial_V2_2.COL_EstratoTipo;
       /** Describe si el predio es formal o informal
@@ -287,7 +287,7 @@ VERSION "2017-06-02 V2.1.1"  =
       /** Indica el estado en el que se encuentra el NUPRE (Debe ser definido por la autoridad catastral)
        */
       Estado_NUPRE : Ficha_Predial_V2_2.COL_EstadoNupreTipo;
-      /** Último año del cual se hizo la actualización económica para entrar el avalúo en vigencia fiscal
+      /** Ãšltimo aÃ±o del cual se hizo la actualizaciÃ³n econÃ³mica para entrar el avalÃºo en vigencia fiscal
        */
       Vigencia_Fiscal : INTERLIS.XMLDate;
       /** corresponde a las posiciones 8 y 9 del codigo predial nacional
@@ -305,7 +305,7 @@ VERSION "2017-06-02 V2.1.1"  =
       /** corresponde a las posiciones 18 a 21 del codigo predial nacional
        */
       Terreno : TEXT*4;
-      /** corresponde a la posición 22 del codigo predial nacional
+      /** corresponde a la posiciÃ³n 22 del codigo predial nacional
        */
       Condicion_Propiedad : TEXT*1;
       /** corresponde a las posiciones 23 y 24 del codigo predial nacional
@@ -319,40 +319,40 @@ VERSION "2017-06-02 V2.1.1"  =
       Unidad : TEXT*4;
     END Predio_Ficha;
 
-    /** Relación entre las clases Interesado_Juridico de catastro y el Interesado_Juridico de la ficha.
+    /** RelaciÃ³n entre las clases Interesado_Juridico de catastro y el Interesado_Juridico de la ficha.
      */
     ASSOCIATION InteresadoJuridicoFichaInteresadoJuridicoCatastro =
       InteresadoJuridicoCatastro (EXTERNAL) -- {1} Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.Interesado_Juridico;
       InteresadoJuridicoFicha -- {0..1} Interesado_Juridico;
     END InteresadoJuridicoFichaInteresadoJuridicoCatastro;
 
-    /** Relación entre las clases Interesado_Natural de catastro y el Interesado_Natural de la ficha.
+    /** RelaciÃ³n entre las clases Interesado_Natural de catastro y el Interesado_Natural de la ficha.
      */
     ASSOCIATION InteresadoNaturalFichaInteresadoNaturalCatastro =
       InteresadoNaturalCatastro (EXTERNAL) -- {1} Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.Interesado_Natural;
       InteresadoNaturalFicha -- {0..1} Interesado_Natural;
     END InteresadoNaturalFichaInteresadoNaturalCatastro;
 
-    /** Relación entre el Predio catastral (módulo de catastro) y la clase Ficha_Predial, que permite determinar sobre qué predio se toman los datos específicos de la ficha predial.
+    /** RelaciÃ³n entre el Predio catastral (mÃ³dulo de catastro) y la clase Ficha_Predial, que permite determinar sobre quÃ© predio se toman los datos especÃ­ficos de la ficha predial.
      */
     ASSOCIATION PredioFicha_Predio =
       fichaPredio -- {1} Predio_Ficha;
       crPredio (EXTERNAL) -- {1} Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.Predio;
     END PredioFicha_Predio;
 
-    /** Esta clase permite registrar la información relativa a los núcleos familiares del levantamiento catastral de los pilotos del Catastro Multipropósito. OBSERVAR QUE LA INFORMACIÓN QUE SE PIDE ES INDIVIDUAL Y NO GRUPAL
+    /** Esta clase permite registrar la informaciÃ³n relativa a los nÃºcleos familiares del levantamiento catastral de los pilotos del Catastro MultipropÃ³sito. OBSERVAR QUE LA INFORMACIÃ“N QUE SE PIDE ES INDIVIDUAL Y NO GRUPAL
      */
     CLASS NucleoFamiliar =
-      /** Número de documento de identidad.
+      /** NÃºmero de documento de identidad.
        */
       Documento_Identidad : TEXT*10;
-      /** Tipo de documento al que se refiere el atributo "Documento_Identidad". El dominio de valores está definido en el modelo de catastro.
+      /** Tipo de documento al que se refiere el atributo "Documento_Identidad". El dominio de valores estÃ¡ definido en el modelo de catastro.
        */
       Tipo_Documento : Catastro_Registro_Nucleo_V2_2_0.COL_InteresadoDocumentoTipo;
-      /** Órgano emisor del documento al que se refiere el atributo "Documento_Identidad".
+      /** Ã“rgano emisor del documento al que se refiere el atributo "Documento_Identidad".
        */
       Organo_Emisor : TEXT*20;
-      /** Fecha de emisión del documento al que se refiere el atributo "Documento_Identidad".
+      /** Fecha de emisiÃ³n del documento al que se refiere el atributo "Documento_Identidad".
        */
       Fecha_Emision : INTERLIS.XMLDate;
       /** Primer nombre del titular del documento al que se refiere el atributo "Documento_Identidad".
@@ -379,57 +379,57 @@ VERSION "2017-06-02 V2.1.1"  =
       /** Si el titular del documento al que se refiere el atributo "Documento_Identidad" tiene o no una discapacidad.
        */
       Discapacidad : BOOLEAN;
-      /** Género del titular del documento al que se refiere el atributo "Documento_Identidad".
+      /** GÃ©nero del titular del documento al que se refiere el atributo "Documento_Identidad".
        */
       Genero : Catastro_Registro_Nucleo_V2_2_0.COL_GeneroTipo;
       /** Si el titular del documento al que se refiere el atributo "Documento_Identidad" habita o no el predio en estudio.
        */
       Habita_Predio : BOOLEAN;
-      /** Relación de dependencia que existe entre la persona y el Interesado Principal del predio
+      /** RelaciÃ³n de dependencia que existe entre la persona y el Interesado Principal del predio
        */
       Parentesco : TEXT*20;
-      /** Étnia del núcleo familiar.
+      /** Ã‰tnia del nÃºcleo familiar.
        */
       Etnia : TEXT*20;
-      /** Dirección del titular del documento al que se refiere el atributo "Documento_Identidad".
+      /** DirecciÃ³n del titular del documento al que se refiere el atributo "Documento_Identidad".
        */
       Direccion : TEXT*100;
-      /** Número de teléfono celular del titular del documento al que se refiere el atributo "Documento_Identidad".
+      /** NÃºmero de telÃ©fono celular del titular del documento al que se refiere el atributo "Documento_Identidad".
        */
       Celular : TEXT*10;
     END NucleoFamiliar;
 
-    /** Relación entre los datos de una instancia del núcleo familiar y la ficha predial en la que se recogen.
+    /** RelaciÃ³n entre los datos de una instancia del nÃºcleo familiar y la ficha predial en la que se recogen.
      */
     ASSOCIATION NucleoPredio =
       FichaPredio -- {1} Predio_Ficha;
       FichaNucleoFamiliar -- {1..*} NucleoFamiliar;
     END NucleoPredio;
 
-    /** Información recabada relativa a las investigaciones de mercado llevadas a cabo, con el objetivo de obtener los valores de mercado más probables, a partir de transacciones inmobiliarias reales llevadas a cabo. Se almacena información de la transacción y se relaciona (ver apartado de relaciones del modelo) con los predios registrados en la clase Predio del presente modelo.
+    /** InformaciÃ³n recabada relativa a las investigaciones de mercado llevadas a cabo, con el objetivo de obtener los valores de mercado mÃ¡s probables, a partir de transacciones inmobiliarias reales llevadas a cabo. Se almacena informaciÃ³n de la transacciÃ³n y se relaciona (ver apartado de relaciones del modelo) con los predios registrados en la clase Predio del presente modelo.
      */
     CLASS InvestigacionMercado =
       /** Indica si existe o no dato de mercado.
        */
       Disponible_Mercado : BOOLEAN;
-      /** Registra si la oferta es de venta o alquiler. Debería registrarse si la oferta se ha sustanciado, o si está vigente.
+      /** Registra si la oferta es de venta o alquiler. DeberÃ­a registrarse si la oferta se ha sustanciado, o si estÃ¡ vigente.
        */
       Tipo_Oferta : Ficha_Predial_V2_2.COL_TipoOfertaTipo;
       /** Valor declarado del predio en pesos colombianos (COP).
        */
       Valor : LADM_COL.LADM_Nucleo.Peso;
-      /** Nombre de la persona que realizó la oferta.
+      /** Nombre de la persona que realizÃ³ la oferta.
        */
       Nombre_Oferente : TEXT*40;
-      /** Número de teléfono de la persona que hizo la oferta.
+      /** NÃºmero de telÃ©fono de la persona que hizo la oferta.
        */
       Telefono_Contacto_Oferente : TEXT*10;
-      /** Cualquier observación que se considere oportuna.
+      /** Cualquier observaciÃ³n que se considere oportuna.
        */
       Observaciones : TEXT*100;
     END InvestigacionMercado;
 
-    /** Relación entre un predio del que se recogen los datos en una ficha predial determinada, que incluye una investigación de mercado, y los datos recogidos para esta investigación.
+    /** RelaciÃ³n entre un predio del que se recogen los datos en una ficha predial determinada, que incluye una investigaciÃ³n de mercado, y los datos recogidos para esta investigaciÃ³n.
      */
     ASSOCIATION InvestigacionMercadoPredio =
       FichaPredio -- {1} Predio_Ficha;
