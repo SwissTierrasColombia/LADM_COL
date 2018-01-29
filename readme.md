@@ -109,6 +109,13 @@
 <td align="left">2.1</td>
 <td align="left">10.11.2017</td>
 </tr>
+<tr class="odd">
+<td align="left">Lorenz Jenni</td>
+<td align="left">
+<p>Kapar Eggenberger</p></td>
+<td align="left">2.2</td>
+<td align="left">28.12.2017</td>
+</tr>
 </tbody>
 </table>
 <h1 id="abreviaturas" class="ListParagraph">Abreviaturas</h1>
