@@ -8,7 +8,7 @@
 <li><p><em>Avalúos</em></p></li>
 <li><p><em>Cartografia de Referencia</em></p></li>
 </ul>
-<p><img src="docs/media/image1.png" width="420" height="98" />Versión 2.1</p>
+<p><img src="docs/media/image1.png" width="420" height="98" />Versión 2.2</p>
 <p>Para los socios principales del Proyecto:</p>
 <p>Atención: Kaspar Eggenberger kaspar.eggenberger@bsf-swissphoto.com</p>
 <p>CC: Nicole von Reitzenstein: nicole.vonreitzenstein@seco.admin.ch</p>
@@ -77,6 +77,12 @@
 <td align="left">Aplicación de cambios en la documentación conformes a los cambios en el modelo</td>
 <td align="left">Víctor M. Bajo</td>
 <td align="left">10.11.2017</td>
+</tr>
+<tr class="even">
+<td align="left">2.2</td>
+<td align="left">Alineación entre versión del documento y versión del modelo (2.2.0)</td>
+<td align="left">Fabian mejia</td>
+<td align="left">28.12.2017</td>
 </tr>
 </tbody>
 </table>
