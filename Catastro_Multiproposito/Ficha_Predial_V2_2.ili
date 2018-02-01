@@ -171,7 +171,7 @@ VERSION "2017-06-02 V2.1.1"  =
       Estrato_5,
       Estrato_6
     );
-  STRUCTURE COL_ServicioPublicoTipo_Predio_Ficha_Servicio_Publico = value : MANDATORY COL_ServicioPublicoTipo; END COL_ServicioPublicoTipo_Predio_Ficha_Servicio_Publico;
+  STRUCTURE COL_ServicioPublicoTipo_ = value : MANDATORY COL_ServicioPublicoTipo; END COL_ServicioPublicoTipo_;
 
   TOPIC Ficha =
     DEPENDS ON Avaluos_V2_1.Avaluos,Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro;
@@ -200,7 +200,7 @@ VERSION "2017-06-02 V2.1.1"  =
     CLASS Predio_Ficha =
       /** Indica las redes de servicios públicos con los que el inmueble es abastecido.
        */
-      Servicio_Publico : BAG {0..*} OF Ficha_Predial_V2_2.COL_ServicioPublicoTipo_Predio_Ficha_Servicio_Publico;
+      Servicio_Publico : BAG {0..*} OF Ficha_Predial_V2_2.COL_ServicioPublicoTipo_;
       /** Clasificación del suelo según el Plan de Ordenamiento Territorial vigente.
        */
       Clase_Suelo_POT : Ficha_Predial_V2_2.COL_ClaseSueloPOTTipo;

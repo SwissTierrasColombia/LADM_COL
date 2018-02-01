@@ -3,7 +3,7 @@ INTERLIS 2.3;
 MODEL Cartografia_Referencia_V2_1 (es)
 AT "mailto:vmbp@localhost"
 VERSION "2017-06-02"  =
-  IMPORTS ISO19107_V1_MAGNABOG,Catastro_Registro_Nucleo_V2_2_0,LADM_COL;
+  IMPORTS ISO19107_V1_MAGNABOG,Catastro_Registro_Nucleo_V2_2_1,LADM_COL_V1_1;
 
   /** Este tema almacena específicamente las clases que definen la división administrativa desde el punto de vista operativo de catastro.
    */
@@ -62,7 +62,7 @@ VERSION "2017-06-02"  =
       nombre : MANDATORY TEXT*50;
       /** Tipo de zona delimitada por la instancia.
        */
-      tipo_Zona : Catastro_Registro_Nucleo_V2_2_0.COL_ZonaTipo;
+      tipo_Zona : Catastro_Registro_Nucleo_V2_2_1.COL_ZonaTipo;
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por la zona.
        */
       geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
@@ -131,14 +131,14 @@ VERSION "2017-06-02"  =
     END DivisionCentroPoblado;
 
     CLASS PuntoLimite
-    EXTENDS LADM_COL.LADM_Nucleo.LA_Punto =
-      Acuerdo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_AcuerdoTipo;
-      Def_Punto : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_DefPuntoTipo;
-      Exactitud_Vertical : 0 .. 1000 [LADM_COL.cm];
-      Exactitud_Posicional : MANDATORY 0 .. 1000 [LADM_COL.cm];
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Punto =
+      Acuerdo : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_AcuerdoTipo;
+      Def_Punto : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_DefPuntoTipo;
+      Exactitud_Vertical : 0 .. 1000 [LADM_COL_V1_1.cm];
+      Exactitud_Posicional : MANDATORY 0 .. 1000 [LADM_COL_V1_1.cm];
       Confiabilidad : BOOLEAN;
-      Posicion_Interpolacion (EXTENDED) : Catastro_Registro_Nucleo_V2_2_0.COL_InterpolacionTipo;
-      Monumentacion (EXTENDED) : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_MonumentacionTipo;
+      Posicion_Interpolacion (EXTENDED) : Catastro_Registro_Nucleo_V2_2_1.COL_InterpolacionTipo;
+      Monumentacion (EXTENDED) : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_MonumentacionTipo;
       Nombre_Punto : TEXT*10;
     END PuntoLimite;
 
@@ -147,7 +147,7 @@ VERSION "2017-06-02"  =
   /** Topic para separar las clases del paquete de Topografía y Representación que se usan de apoyo en el catastro.
    */
   TOPIC Auxiliares =
-    DEPENDS ON Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro;
+    DEPENDS ON Catastro_Registro_Nucleo_V2_2_1.Catastro_Registro;
 
     DOMAIN
 
@@ -185,7 +185,7 @@ VERSION "2017-06-02"  =
     /** Clase de tipo LA_CadenaCarasLindero del modelo de Catastro cuyo objetivo es almacenar el tipo de estructura lineal que genera un lindero.
      */
     CLASS EstructuraLineal
-    EXTENDS LADM_COL.LADM_Nucleo.LA_CadenaCarasLimite =
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_CadenaCarasLimite =
       /** Tipo de la estructura lineal que genera el lindero.
        */
       tipo : COL_EstructuraLinealTipo;
@@ -194,7 +194,7 @@ VERSION "2017-06-02"  =
     /** Clase especializada a patir de LA_Punto del modelo de catastro cuya finalidad es indicar el tipo de punto que se utiliza como referencia.
      */
     CLASS EstructuraPuntual
-    EXTENDS LADM_COL.LADM_Nucleo.LA_Punto =
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Punto =
       /** Descripción del tipo de punto que se indica.
        */
       tipo : COL_EstructuraPuntualTipo;

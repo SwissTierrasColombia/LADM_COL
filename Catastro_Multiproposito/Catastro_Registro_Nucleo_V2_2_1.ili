@@ -35,6 +35,7 @@ INTERLIS 2.3;
  * !! 07.11.2017/fm: Cambio de nombre a la clase CadenaCarasLindero a CadenaCarasLimite 
  * !! 14.11.2017/fm : taducción del dominio COL_BuildingUnitTipo
  * !! 14.12.2017/fm : definicion de extends entre topics catastro registro nucleo y Ladm_nucleo
+ * !! 30.01.2018/fm : Cambio del tipo de dato del atributo Ext_Direccion de la clase Unidad Espacial a ExtDireccion; atributo ext_PID de la calse LA_Interesado cambia de OID a ExtInteresado; Cambio de cardinalidad en relacion miembros entre LA_Interesado y LA_Agrupacion_Interesados de 0..1 a 0..*
  * !!
  * !!-----------------------------------------------------------
  * !!
@@ -42,10 +43,10 @@ INTERLIS 2.3;
  * !!
  * !!-----------------------------------------------------------
  */
-CONTRACTED MODEL Catastro_Registro_Nucleo_V2_2_0 (es)
+CONTRACTED MODEL Catastro_Registro_Nucleo_V2_2_1 (es)
 AT "http://www.igac.gov.co/models"
-VERSION "2017-07-12 V2.1.6"  =
-  IMPORTS ISO19107_V1_MAGNABOG,LADM_COL;
+VERSION "2018-01-30 V2.2.1"  =
+  IMPORTS ISO19107_V1_MAGNABOG,LADM_COL_V1_1;
 
   FUNCTION no_overlaps(Objects: OBJECTS OF ANYCLASS; SurfaceAttr : ATTRIBUTE OF @ Objects RESTRICTION ( SURFACE )): BOOLEAN;
 
@@ -296,16 +297,16 @@ VERSION "2017-07-12 V2.1.6"  =
   STRUCTURE COL_TerritorioAgricola_Terreno_Territorio_Agricola = value : MANDATORY COL_TerritorioAgricola; END COL_TerritorioAgricola_Terreno_Territorio_Agricola;
 
   TOPIC Catastro_Registro
-  EXTENDS LADM_COL.LADM_Nucleo =
-    DEPENDS ON LADM_COL.LADM_Nucleo;
+  EXTENDS LADM_COL_V1_1.LADM_Nucleo =
+    DEPENDS ON LADM_COL_V1_1.LADM_Nucleo;
 
     /** Clase que registra las instancias de los derechos que un interesado ejerce sobre un predio. Es una especialización de la clase LA_RRR del propio modelo.
      */
     CLASS COL_Derecho
-    EXTENDS LADM_COL.LADM_Nucleo.LA_RRR =
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
       /** Derecho que se ejerce.
        */
-      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_DerechoTipo;
+      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_DerechoTipo;
       /** Código con el que el derecho se registra en el Registro de la Propiedad.
        */
       Codigo_Registral_Derecho : TEXT*3;
@@ -314,16 +315,16 @@ VERSION "2017-07-12 V2.1.6"  =
     /** Es un tipo de espacio jurídico de la unidad de edificación del modelo LADM que almacena datos específicos del avalúo resultante del mismo.
      */
     CLASS Construccion
-    EXTENDS LADM_COL.LADM_Nucleo.LA_EspacioJuridicoUnidadEdificacion =
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_EspacioJuridicoUnidadEdificacion =
       /** Rsultado del cálculo de su avalúo mediante la metodología legalmente establecida.
        */
-      Avaluo_Construccion : MANDATORY LADM_COL.LADM_Nucleo.Peso;
+      Avaluo_Construccion : MANDATORY LADM_COL_V1_1.LADM_Nucleo.Peso;
     END Construccion;
 
     /** Persona jurídica que tiene derechos o sobre la que recaen restricciones o responsabilidades referidas a uno o más predios.
      */
     CLASS Interesado_Juridico
-    EXTENDS LADM_COL.LADM_Nucleo.LA_Interesado =
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Interesado =
       /** Número de identificación.
        */
       Numero_NIT : MANDATORY TEXT*20;
@@ -332,7 +333,7 @@ VERSION "2017-07-12 V2.1.6"  =
       Razon_Social : MANDATORY TEXT*100;
       /** Caracter del tipo de derecho sobre el que está constituído.
        */
-      Tipo (EXTENDED) : Catastro_Registro_Nucleo_V2_2_0.COL_InteresadoJuridicoTipo;
+      Tipo (EXTENDED) : Catastro_Registro_Nucleo_V2_2_1.COL_InteresadoJuridicoTipo;
     END Interesado_Juridico;
 
     /** Forma de contactar con el interesado jurídico.
@@ -346,19 +347,19 @@ VERSION "2017-07-12 V2.1.6"  =
       Correo_Electronico : TEXT*100;
       /** Origen desde el que se han conseguido los datos del interesado jurídico.
        */
-      Origen_Datos : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_InstitucionTipo;
+      Origen_Datos : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_InstitucionTipo;
     END Interesado_Juridico_Contacto;
 
     /** Persona natural que tiene derechos o sobre la que recaen restricciones o responsabilidades referidas a uno o más predios.
      */
     CLASS Interesado_Natural
-    EXTENDS LADM_COL.LADM_Nucleo.LA_Interesado =
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Interesado =
       /** Documento de identidad personal.
        */
       Documento_Identidad : MANDATORY TEXT*10;
       /** Tipo de documento del que se trata.
        */
-      Tipo_Documento : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_InteresadoDocumentoTipo;
+      Tipo_Documento : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_InteresadoDocumentoTipo;
       /** Quien ha emitido el documento de identidad.
        */
       Organo_Emisor : TEXT*20;
@@ -377,7 +378,7 @@ VERSION "2017-07-12 V2.1.6"  =
       /** Segundo nombre de la persona física.
        */
       Segundo_Nombre : TEXT*50;
-      Genero : Catastro_Registro_Nucleo_V2_2_0.COL_GeneroTipo;
+      Genero : Catastro_Registro_Nucleo_V2_2_1.COL_GeneroTipo;
     END Interesado_Natural;
 
     /** Datos de contacto de la persona física.
@@ -389,14 +390,14 @@ VERSION "2017-07-12 V2.1.6"  =
       Correo_Electronico : TEXT*100;
       /** Procedencia de los datos de la persona física.
        */
-      Origen_Datos : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_InstitucionTipo;
+      Origen_Datos : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_InstitucionTipo;
     END Interesado_Natural_Contacto;
 
     /** Clase especializada de BaUnit, que describe la unidad administrativa básica para el caso de Colombia.
      * El predio es la unidad territorial legal propia de Catastro. Esta formada por el terreno y puede o no tener construcciones asociadas.
      */
     CLASS Predio
-    EXTENDS LADM_COL.LADM_Nucleo.LA_BAUnit =
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_BAUnit =
       /** Corresponde al codigo del departamento al cual pertenece el predio. Es asignado por DIVIPOLA y tiene 2 dígitos.
        */
       Departamento : TEXT*2;
@@ -420,17 +421,17 @@ VERSION "2017-07-12 V2.1.6"  =
       Numero_Predial_Anterior : TEXT*20;
       /** Valor de cada predio, obtenido mediante investigación y análisis estadistico del mercado inmobiliario y la metodología de aplicación  correspondiente. El avalúo  catastral de cada predio se determina a partir de la adición de los avalúos parciales practicados independientemente para los terrenos y para las edificaciones en el comprendidos.
        */
-      Avaluo_Predio : LADM_COL.LADM_Nucleo.Peso;
+      Avaluo_Predio : LADM_COL_V1_1.LADM_Nucleo.Peso;
       UNIQUE NUPRE; 
     END Predio;
 
     /** Clase especial del perfil colombiano de la norma ISO 19152:2012. Pretenden generar publicidad sobre el predio a partir del almacenamiento de los codigos registrales que se inscriben el FMI. No se genera ningún tipo de derecho, ni limita la propiedad.
      */
     CLASS Publicidad
-    EXTENDS LADM_COL.LADM_Nucleo.ObjetoVersionado =
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.ObjetoVersionado =
       /** Indica la característica por la que se hace público.
        */
-      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_PublicidadTipo;
+      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_PublicidadTipo;
       /** Código registral del FMI que se hace público.
        */
       Codigo_Registral_Publicidad : MANDATORY TEXT*3;
@@ -439,23 +440,23 @@ VERSION "2017-07-12 V2.1.6"  =
     /** Clase especializada de LA_Punto que representa puntos de la densificación de la red local, que se utiliza en la operación catastral para el levantamiento de información fisica de los objetos territoriales, como puntos de control.
      */
     CLASS PuntoControl
-    EXTENDS LADM_COL.LADM_Nucleo.LA_Punto =
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Punto =
       /** Nombre que recibe el punto.
        */
       Nombre_Punto : MANDATORY TEXT*20;
       /** Exactitud vertical de la medición del punto.
        */
-      Exactitud_Vertical : MANDATORY 0 .. 1000 [LADM_COL.cm];
+      Exactitud_Vertical : MANDATORY 0 .. 1000 [LADM_COL_V1_1.cm];
       /** Exactitud horizontal de la medición del punto.
        */
-      Exactitud_Horizontal : MANDATORY 0 .. 1000 [LADM_COL.cm];
+      Exactitud_Horizontal : MANDATORY 0 .. 1000 [LADM_COL_V1_1.cm];
       /** Se describe la posición del punto con relación a su estructura, si es un punto aislado, o si hace parte de un Arco o de una linea.
        */
-      Posicion_Interpolacion (EXTENDED) : Catastro_Registro_Nucleo_V2_2_0.COL_InterpolacionTipo;
-      Monumentacion (EXTENDED) : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_MonumentacionTipo;
+      Posicion_Interpolacion (EXTENDED) : Catastro_Registro_Nucleo_V2_2_1.COL_InterpolacionTipo;
+      Monumentacion (EXTENDED) : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_MonumentacionTipo;
       /** Si se trata deun punto de control o de apoyo.
        */
-      Tipo_Punto_Control : Catastro_Registro_Nucleo_V2_2_0.COL_PuntoControlTipo;
+      Tipo_Punto_Control : Catastro_Registro_Nucleo_V2_2_1.COL_PuntoControlTipo;
       /** Si el punto es o no fiable.
        */
       Confiabilidad : BOOLEAN;
@@ -464,31 +465,31 @@ VERSION "2017-07-12 V2.1.6"  =
     /** Clase especializada de LA_Punto que almacena puntos que definen un lindero, instancia de la clase LA_CadenaCarasLindero y sus especializaciones.
      */
     CLASS PuntoLindero
-    EXTENDS LADM_COL.LADM_Nucleo.LA_Punto =
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Punto =
       /** Se Indica si existe acuerdo o no entre los colindantes en relación al punto lindero que se está midiendo.
        */
-      Acuerdo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_AcuerdoTipo;
+      Acuerdo : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_AcuerdoTipo;
       /** Se caracteriza si el punto de levantamiento corresponde a un punto bien definido o no bien definido
        */
-      Definicion_Punto : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_DefPuntoTipo;
+      Definicion_Punto : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_DefPuntoTipo;
       /** Es la descripción del tipo de punto lindero y las caracteristicas del vertice
        */
-      Descripcion_Punto : Catastro_Registro_Nucleo_V2_2_0.COL_DescripcionPuntoTipo;
+      Descripcion_Punto : Catastro_Registro_Nucleo_V2_2_1.COL_DescripcionPuntoTipo;
       /** Corresponde a la exactitud vertical del punto lindero
        */
-      Exactitud_Vertical : 0 .. 1000 [LADM_COL.cm];
+      Exactitud_Vertical : 0 .. 1000 [LADM_COL_V1_1.cm];
       /** Corresponde a la exactitud horizontal del punto lindero
        */
-      Exactitud_Horizontal : MANDATORY 0 .. 1000 [LADM_COL.cm];
+      Exactitud_Horizontal : MANDATORY 0 .. 1000 [LADM_COL_V1_1.cm];
       /** Indica si es o no fiable.
        */
       Confiabilidad : BOOLEAN;
       /** Se describe la posición del punto con relación a su estructura, si es un punto aislado, o si hace parte de un Arco o de una linea.
        */
-      Posicion_Interpolacion (EXTENDED) : Catastro_Registro_Nucleo_V2_2_0.COL_InterpolacionTipo;
+      Posicion_Interpolacion (EXTENDED) : Catastro_Registro_Nucleo_V2_2_1.COL_InterpolacionTipo;
       /** Si se trata de un monumento geodésico, el tipo.
        */
-      Monumentacion (EXTENDED) : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_MonumentacionTipo;
+      Monumentacion (EXTENDED) : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_MonumentacionTipo;
       /** Nombre o codigo del punto lindero
        */
       Nombre_Punto : TEXT*10;
@@ -499,13 +500,13 @@ VERSION "2017-07-12 V2.1.6"  =
     /** Restricciones a las que está sometido un predio y que inciden sobre los derechos que pueden ejercerse sobre él.
      */
     CLASS COL_Restriccion
-    EXTENDS LADM_COL.LADM_Nucleo.LA_RRR =
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
       /** Indica si es preciso o no que un interesado esté asociado a la restricción.
        */
       Interesado_Requerido : BOOLEAN;
       /** Define el tipo de restricción.
        */
-      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_RestriccionTipo;
+      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_RestriccionTipo;
       /** Código con el que la responsabilidad se registra en el Registro de la Propiedad.
        */
       Codigo_Registral_Restriccion : TEXT*3;
@@ -515,7 +516,7 @@ VERSION "2017-07-12 V2.1.6"  =
      * Dos linderos no pueden cruzarse ni superponerse.
      */
     CLASS Lindero
-    EXTENDS LADM_COL.LADM_Nucleo.LA_CadenaCarasLimite =
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_CadenaCarasLimite =
       /** Lóngitud en m del lindero.
        */
       Longitud : MANDATORY 0.0 .. 10000.0 [INTERLIS.m];
@@ -526,25 +527,25 @@ VERSION "2017-07-12 V2.1.6"  =
     /** Clase especializada de LA_Punto que representa puntos demarcados que representan la posición horizontal de un vértice de construcción, servidumbre o auxiliare.
      */
     CLASS PuntoLevantamiento
-    EXTENDS LADM_COL.LADM_Nucleo.LA_Punto =
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Punto =
       /** Se caracterizan los diferentes tipos de punto levantamiento, estos son punto de construccción, punto de servidumbre o punto auxiliar
        */
-      Tipo_Punto_Levantamiento : Catastro_Registro_Nucleo_V2_2_0.COL_PuntoLevTipo;
+      Tipo_Punto_Levantamiento : Catastro_Registro_Nucleo_V2_2_1.COL_PuntoLevTipo;
       /** Se caracteriza si el punto de levantamiento corresponde a un punto bien definido o no bien definido
        */
-      Definicion_Punto : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_DefPuntoTipo;
+      Definicion_Punto : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_DefPuntoTipo;
       /** Corresponde a la exactitud vertical del punto levantamiento
        */
-      Exactitud_Vertical : 0 .. 1000 [LADM_COL.cm];
+      Exactitud_Vertical : 0 .. 1000 [LADM_COL_V1_1.cm];
       /** Corresponde a la exactitud horizontal del punto levantamiento
        */
-      Exactitud_Horizontal : 0 .. 1000 [LADM_COL.cm];
+      Exactitud_Horizontal : 0 .. 1000 [LADM_COL_V1_1.cm];
       /** Se describe la posición del punto con relación a su estructura, si es un punto aislado, o si hace parte de un Arco o de una linea.
        */
-      Posicion_Interpolacion (EXTENDED) : Catastro_Registro_Nucleo_V2_2_0.COL_InterpolacionTipo;
+      Posicion_Interpolacion (EXTENDED) : Catastro_Registro_Nucleo_V2_2_1.COL_InterpolacionTipo;
       /** Definición sobre si el punto de levantamiento se encuentra monumentado o no y los tipos de monumentación especificos para el perfil nacional
        */
-      Monumentacion (EXTENDED) : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_MonumentacionTipo;
+      Monumentacion (EXTENDED) : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_MonumentacionTipo;
       /** Nombre que recibe el punto.
        */
       Nombre_Punto : TEXT*10;
@@ -553,34 +554,34 @@ VERSION "2017-07-12 V2.1.6"  =
     /** Porción de tierra con una extensión geográfica definida.
      */
     CLASS Terreno
-    EXTENDS LADM_COL.LADM_Nucleo.LA_UnidadEspacial =
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_UnidadEspacial =
       /** Área del predio que se encuentra inscrita en el Folio de Matricula Inmobiliaria
        */
-      Area_Registral : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL.m2];
+      Area_Registral : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_1.m2];
       /** Área de predio resultado de los calculos realizados en el proceso de levantamiento planimetrico
        */
-      Area_Calculada : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL.m2];
+      Area_Calculada : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_1.m2];
       /** Valor asignado en el proceso de valoración economica masiva al terreno del predio
        */
-      Avaluo_Terreno : MANDATORY LADM_COL.LADM_Nucleo.Peso;
+      Avaluo_Terreno : MANDATORY LADM_COL_V1_1.LADM_Nucleo.Peso;
       /** se caracterizan los diferentes tipos de cultivos o territorios agricolas que conforman el predio, corresponde a la pregunta 5.3 del anexo 5.1 de los estandares de catastro multiproposito versión 2.1.1
        */
-      Territorio_Agricola : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_TerritorioAgricola_Terreno_Territorio_Agricola;
+      Territorio_Agricola : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_1.COL_TerritorioAgricola_Terreno_Territorio_Agricola;
       /** Se describe si en el predio existe presencia de bosques o áreas seminaturales, corresponde a la pregunta 5.4 del anexo 5.1 de los estandares de catastro multiproposito versión 2.1.1
        */
-      Bosque_Area_Seminaturale : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_BosqueAreaSemi_Terreno_Bosque_Area_Seminaturale;
+      Bosque_Area_Seminaturale : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_1.COL_BosqueAreaSemi_Terreno_Bosque_Area_Seminaturale;
       /** En esta clase se identifican los valores de la pregunta 5.5. Especifique si evidencia en el terreno del Anexo 5, Versión 2.1.1 de Catastro Multiproposito
        */
-      Evidencia_Cuerpo_Agua : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_CuerpoAgua_Terreno_Evidencia_Cuerpo_Agua;
+      Evidencia_Cuerpo_Agua : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_1.COL_CuerpoAgua_Terreno_Evidencia_Cuerpo_Agua;
       /** Se caracteriza si en el predio existe algún tipo de explotación, corresponde a la pregunta 5.6 del anexo 5.1 de los estandares de catastro multiproposito versión 2.1.1
        */
-      Explotacion : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_ExplotacionTipo_Terreno_Explotacion;
+      Explotacion : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_1.COL_ExplotacionTipo_Terreno_Explotacion;
       /** Se describe si en el predio existe alguna afectación natural de tipo inundación o de remoción en masa, corresponde a la pregunta 5.7 del anexo 5.1 de los estandares de catastro multiproposito versión 2.1.1
        */
-      Afectacion : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_Afectacion_Terreno_Afectacion;
+      Afectacion : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_1.COL_Afectacion_Terreno_Afectacion;
       /** Tipo de derecho que limita el dominio de una porción del predio, corresponde a la pregunta 5.8 del anexo 5.1 de los estandares de catastro multiproposito versión 2.1.1
        */
-      Servidumbre : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_0.COL_ServidumbreTipo_Terreno_Servidumbre;
+      Servidumbre : BAG {0..*} OF Catastro_Registro_Nucleo_V2_2_1.COL_ServidumbreTipo_Terreno_Servidumbre;
       /** Corresponde a la figura geometrica vectorial poligonal, generada a partir de los linderos del predio.
        */
       poligono_creado (EXTENDED) : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
@@ -603,16 +604,16 @@ VERSION "2017-07-12 V2.1.6"  =
 
     ASSOCIATION PublicidadBAUnit =
       pubicidad -- {0..*} Publicidad;
-      baunit (EXTERNAL) -- {1} LADM_COL.LADM_Nucleo.LA_BAUnit;
+      baunit (EXTERNAL) -- {1} LADM_COL_V1_1.LADM_Nucleo.LA_BAUnit;
     END PublicidadBAUnit;
 
     /** Clase de tipo LA_RRR que registra las responsabilidades que las instancias de los interesados tienen sobre los predios.
      */
     CLASS COL_Responsabilidad
-    EXTENDS LADM_COL.LADM_Nucleo.LA_RRR =
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
       /** Definición del tipo de responsabilidad que se tiene.
        */
-      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_0.COL_ResponsabilidadTipo;
+      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_ResponsabilidadTipo;
       /** Código con el que la responsabilidad se registra en el Registro de la Propiedad.
        */
       Codigo_Registral_Responsabilidad : TEXT*3;
@@ -621,7 +622,7 @@ VERSION "2017-07-12 V2.1.6"  =
     /** Tipo de unidad espacial que permite la representación de una servidumbre de paso asociada a una LA_BAUnit.
      */
     CLASS ServidumbrePaso
-    EXTENDS LADM_COL.LADM_Nucleo.LA_UnidadEspacial =
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_UnidadEspacial =
       Identificador : MANDATORY TEXT*20;
       /** Fecha de inscripción de la servidumbre en el Catastro.
        */
@@ -630,12 +631,12 @@ VERSION "2017-07-12 V2.1.6"  =
 
     ASSOCIATION PublicidadFuente =
       publicidad -- {0..1} Publicidad;
-      fuente (EXTERNAL) -- {1..*} LADM_COL.LADM_Nucleo.COL_FuenteAdministrativa;
+      fuente (EXTERNAL) -- {1..*} LADM_COL_V1_1.LADM_Nucleo.COL_FuenteAdministrativa;
     END PublicidadFuente;
 
     ASSOCIATION PublicidadInteresado =
       publicidad -- {0..*} Publicidad;
-      interesado (EXTERNAL) -- {0..1} LADM_COL.LADM_Nucleo.LA_Interesado;
+      interesado (EXTERNAL) -- {0..1} LADM_COL_V1_1.LADM_Nucleo.LA_Interesado;
     END PublicidadInteresado;
 
     /** Clase que representa un tipo de restricción heredando de COL_Restricción, asociada a un derecho y que permite gestionar las hipotecas constituídas sobre un bien inmueble, considerando las cuestiones legales nacionales.
@@ -644,7 +645,7 @@ VERSION "2017-07-12 V2.1.6"  =
     EXTENDS COL_Restriccion =
       /** Tipo de hipoteca constituida, conforme a la legislación colombiana.
        */
-      h_Tipo : Catastro_Registro_Nucleo_V2_2_0.COL_HipotecaTipo;
+      h_Tipo : Catastro_Registro_Nucleo_V2_2_1.COL_HipotecaTipo;
       /** Código con el que la hipoteca se registra en el Registro de la Propiedad Inmobiliaria en el momento de ser constituida.
        */
       Codigo_Registral_Hipoteca : TEXT*3;
@@ -653,22 +654,22 @@ VERSION "2017-07-12 V2.1.6"  =
     /** Es cada conjunto de materiales consolidados dentro de un predio que tiene una caracteristicas especificas en cuanto a elementos constitutivos físicos y usos de los mismos.
      */
     CLASS UnidadConstruccion
-    EXTENDS LADM_COL.LADM_Nucleo.LA_EspacioJuridicoUnidadEdificacion =
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_EspacioJuridicoUnidadEdificacion =
       /** Corresponde al valor catastral determinado mediante el metodo economico definido, para cada unidad de contrucción del predio
        */
-      Avaluo_Unidad_Construccion : LADM_COL.LADM_Nucleo.Peso;
+      Avaluo_Unidad_Construccion : LADM_COL_V1_1.LADM_Nucleo.Peso;
       /** Número de pisos que constituyen la unidad de construcción.
        */
       Numero_Pisos : MANDATORY 1 .. 100;
       /** Categoría constructiva ea la que pertenece la unidad de construcción, corresponde a la pregunta 7.6 del anexo 5.1 de los estandares de catastro multiproposito versión 2.1.1.
        */
-      Tipo_Construccion : Catastro_Registro_Nucleo_V2_2_0.COL_TipoConstruccionTipo;
+      Tipo_Construccion : Catastro_Registro_Nucleo_V2_2_1.COL_TipoConstruccionTipo;
       /** Area de la unidad de contrucción.
        */
-      Area_Construida : 0.0 .. 99999999999999.9 [LADM_COL.m2];
+      Area_Construida : 0.0 .. 99999999999999.9 [LADM_COL_V1_1.m2];
       /** Área privada de la unidad de construcción para el caso en que las construcciones tienen regimen de propiedad horizontal.
        */
-      Area_Privada_Construida : 0.0 .. 99999999999999.9 [LADM_COL.m2];
+      Area_Privada_Construida : 0.0 .. 99999999999999.9 [LADM_COL_V1_1.m2];
     END UnidadConstruccion;
 
     ASSOCIATION ConstruccionUnidadConstruccion =
@@ -683,4 +684,4 @@ VERSION "2017-07-12 V2.1.6"  =
 
   END Catastro_Registro;
 
-END Catastro_Registro_Nucleo_V2_2_0.
+END Catastro_Registro_Nucleo_V2_2_1.

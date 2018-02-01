@@ -1,8 +1,24 @@
 INTERLIS 2.3;
 
-MODEL LADM_COL (es)
+/** !!-----------------------------------------------------------
+ * !!
+ * !! ISO 19152 LADM country profile COL modeled with INTERLIS 2
+ * !!
+ * !!-----------------------------------------------------------
+ * !! revision history
+ * !!-----------------------------------------------------------
+ * !!
+ * !! 30.01.2018/fm : Cambio del tipo de dato del atributo Ext_Direccion de la clase Unidad Espacial a ExtDireccion; atributo ext_PID de la calse LA_Interesado cambia de OID a ExtInteresado; Cambio de cardinalidad en relacion miembros entre LA_Interesado y LA_Agrupacion_Interesados de 0..1 a 0..*
+ * !!
+ * !!-----------------------------------------------------------
+ * !!
+ * !! (c) IGAC y SNR con apoyo de la Cooperacion Suiza
+ * !!
+ * !!-----------------------------------------------------------
+ */
+MODEL LADM_COL_V1_1 (es)
 AT "mailto:user@localhost"
-VERSION "2017-11-15"  =
+VERSION "2018-01-30 V1.1.0"  =
   IMPORTS ISO19107_V1_MAGNABOG;
 
   UNIT
@@ -91,7 +107,7 @@ VERSION "2017-11-15"  =
       Real = 0.000 .. 999999999.999;
 
     STRUCTURE COL_AreaValor =
-      areaSize : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL.m2];
+      areaSize : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_1.m2];
       type : MANDATORY COL_AreaTipo;
     END COL_AreaValor;
 
@@ -132,7 +148,7 @@ VERSION "2017-11-15"  =
         Otro
       );
 
-      Peso = 0 .. 999999999999 [LADM_COL.COP];
+      Peso = 0 .. 999999999999 [LADM_COL_V1_1.COP];
 
       LA_Agrupacion_Interesados_Tipo = (
         Asociacion,
@@ -443,7 +459,7 @@ VERSION "2017-11-15"  =
       Posicion : CharacterString;
       /** Ver clase CI_Contacto.
        */
-      Informacion_Contacto : LADM_COL.LADM_Nucleo.CI_Contacto;
+      Informacion_Contacto : LADM_COL_V1_1.LADM_Nucleo.CI_Contacto;
       /** Función realizada por la parte responsable.
        */
       Funcion : CI_CodigoTarea;
@@ -468,7 +484,7 @@ VERSION "2017-11-15"  =
     STRUCTURE LA_Transformacion =
       /** Fórmula o procedimiento utilizado en la transformación.
        */
-      Transformacion : MANDATORY LADM_COL.LADM_Nucleo.CC_MetodoOperacion;
+      Transformacion : MANDATORY LADM_COL_V1_1.LADM_Nucleo.CC_MetodoOperacion;
       /** Geometría una vez realizado el proceso de transformación.
        */
       Localizacion_Transformada : MANDATORY ISO19107_V1_MAGNABOG.GM_Point2D;
@@ -479,7 +495,7 @@ VERSION "2017-11-15"  =
     STRUCTURE OM_Observacion =
       /** Resultado del proceso de calidad, conforme a DQ_Element.
        */
-      Resultado_Calidad : LADM_COL.LADM_Nucleo.DQ_Element;
+      Resultado_Calidad : LADM_COL_V1_1.LADM_Nucleo.DQ_Element;
     END OM_Observacion;
 
     /** Estructura que define los diferentes tipos de interesados que pueden darse.
@@ -508,7 +524,7 @@ VERSION "2017-11-15"  =
       Coordenada_Direccion : ISO19107_V1_MAGNABOG.GM_Point2D;
       /** Identificador local de la dirección.
        */
-      Direccion_ID : MANDATORY LADM_COL.LADM_Nucleo.Oid;
+      Direccion_ID : MANDATORY LADM_COL_V1_1.LADM_Nucleo.Oid;
       /** Nombre del edificio.
        */
       Nombre_Edificio : CharacterString;
@@ -536,10 +552,10 @@ VERSION "2017-11-15"  =
       Fin_Vida_Util_Version : INTERLIS.XMLDateTime;
       /** Metadatos relativos a la calidad de la instancia.
        */
-      Calidad : LIST {0..*} OF LADM_COL.LADM_Nucleo.DQ_Element;
+      Calidad : LIST {0..*} OF LADM_COL_V1_1.LADM_Nucleo.DQ_Element;
       /** Metadatos corresondientes a la responsabilidad de la instancia.
        */
-      Procedencia : LIST {0..*} OF LADM_COL.LADM_Nucleo.CI_ParteResponsable;
+      Procedencia : LIST {0..*} OF LADM_COL_V1_1.LADM_Nucleo.CI_ParteResponsable;
       MANDATORY CONSTRAINT
         Fin_Vida_Util_Version >= Comienzo_Vida_Util_Version;
     END ObjetoVersionado;
@@ -547,7 +563,7 @@ VERSION "2017-11-15"  =
     /** Control externo de la unidad de edificación física.
      */
     STRUCTURE ExtUnidadEdificacionFisica =
-      Ext_Direccion_ID : LADM_COL.LADM_Nucleo.ExtDireccion;
+      Ext_Direccion_ID : LADM_COL_V1_1.LADM_Nucleo.ExtDireccion;
     END ExtUnidadEdificacionFisica;
 
     /** Referencia a una clase externa para gestionar direcciones.
@@ -555,14 +571,14 @@ VERSION "2017-11-15"  =
     STRUCTURE ExtInteresado =
       /** Identificador externo del interesado.
        */
-      Ext_Direccion_ID : LADM_COL.LADM_Nucleo.ExtDireccion;
-      Huella_Dactilar : LADM_COL.LADM_Nucleo.Imagen;
+      Ext_Direccion_ID : LADM_COL_V1_1.LADM_Nucleo.ExtDireccion;
+      Huella_Dactilar : LADM_COL_V1_1.LADM_Nucleo.Imagen;
       Nombre : CharacterString;
       /** Identificador local del interesado.
        */
-      Interesado_ID : LADM_COL.LADM_Nucleo.Oid;
-      Fotografia : LADM_COL.LADM_Nucleo.Imagen;
-      Firma : LADM_COL.LADM_Nucleo.Imagen;
+      Interesado_ID : LADM_COL_V1_1.LADM_Nucleo.Oid;
+      Fotografia : LADM_COL_V1_1.LADM_Nucleo.Imagen;
+      Firma : LADM_COL_V1_1.LADM_Nucleo.Imagen;
     END ExtInteresado;
 
     /** Referencia a una clase externa para gestionar las redes físicas de servicios.
@@ -573,7 +589,7 @@ VERSION "2017-11-15"  =
       Orientada : BOOLEAN;
       /** Identificador de referencia a un interesado externo que es el administrador.
        */
-      Ext_Interesado_Administrador_ID : LADM_COL.LADM_Nucleo.ExtInteresado;
+      Ext_Interesado_Administrador_ID : LADM_COL_V1_1.LADM_Nucleo.ExtInteresado;
     END ExtRedServiciosFisica;
 
     /** Referencia a clase externa desde donde se gestiona el repositorio de archivos.
@@ -611,7 +627,7 @@ VERSION "2017-11-15"  =
       Estado_Disponibilidad : MANDATORY COL_EstadoDisponibilidadTipo;
       /** Identificador del archivo fuente controlado por una clase externa.
        */
-      Ext_Archivo_ID : LADM_COL.LADM_Nucleo.ExtArchivo;
+      Ext_Archivo_ID : LADM_COL_V1_1.LADM_Nucleo.ExtArchivo;
       /** Fecha de inicio de validez de la fuente.
        */
       Sello_Inicio_Validez : INTERLIS.XMLDateTime;
@@ -620,13 +636,13 @@ VERSION "2017-11-15"  =
       Tipo_Principal : CI_Forma_Presentacion_Codigo;
       /** Descripción de la calidad del documento de acuerdo a los metadatos del objeto DQ_Element, clase de la norma ISO 19157 que se refiere a aspectos de la información de calidad cuantitativa de la instancia referenciada.
        */
-      Calidad : LIST {0..*} OF LADM_COL.LADM_Nucleo.DQ_Element;
+      Calidad : LIST {0..*} OF LADM_COL_V1_1.LADM_Nucleo.DQ_Element;
       /** Fecha en la que es almacenado el documento fuente.
        */
       Fecha_Grabacion : INTERLIS.XMLDateTime;
       /** Parte responsable de la aceptación, con todos los metadatos gestionados por la clase CI_ParteResponsable, que hace referencia a la norma ISO 19115:2003.
        */
-      Procedencia : LIST {0..*} OF LADM_COL.LADM_Nucleo.CI_ParteResponsable;
+      Procedencia : LIST {0..*} OF LADM_COL_V1_1.LADM_Nucleo.CI_ParteResponsable;
       /** Fecha en la que se entrega la fuente.
        */
       Fecha_Entrega : INTERLIS.XMLDateTime;
@@ -671,11 +687,11 @@ VERSION "2017-11-15"  =
      */
     CLASS LA_UnidadEspacial
     EXTENDS ObjetoVersionado =
-      Area : LIST {0..*} OF LADM_COL.LADM_Nucleo.COL_AreaValor;
+      Area : LIST {0..*} OF LADM_COL_V1_1.LADM_Nucleo.COL_AreaValor;
       Dimension : LA_DimensionTipo;
       /** Corresponde al atributo extAddressID de la clase en LADM.
        */
-      Ext_Direccion_ID : LIST {0..*} OF LADM_COL.LADM_Nucleo.Oid;
+      Ext_Direccion_ID : LIST {0..*} OF LADM_COL_V1_1.LADM_Nucleo.ExtDireccion;
       /** Corresponde al atributo label de la clase en LADM.
        */
       Etiqueta : CharacterString;
@@ -687,7 +703,7 @@ VERSION "2017-11-15"  =
       Relacion_Superficie : LA_RelacionSuperficieTipo;
       /** Corresponde al atributo volume de la clase en LADM.
        */
-      Volumen : LIST {0..*} OF LADM_COL.LADM_Nucleo.LA_VolumenValor;
+      Volumen : LIST {0..*} OF LADM_COL_V1_1.LADM_Nucleo.LA_VolumenValor;
       /** Identificador único global. Corresponde al atributo suID de la clase en LADM.
        */
       su_Espacio_De_Nombres : MANDATORY CharacterString;
@@ -729,7 +745,7 @@ VERSION "2017-11-15"  =
     EXTENDS LA_UnidadEspacial =
       /** Identificador de la unidad de edificación.
        */
-      Ext_Unidad_Edificacion_Fisica_ID : LADM_COL.LADM_Nucleo.ExtUnidadEdificacionFisica;
+      Ext_Unidad_Edificacion_Fisica_ID : LADM_COL_V1_1.LADM_Nucleo.ExtUnidadEdificacionFisica;
       /** Tipo de unidad de edificación de la que se trata.
        */
       Tipo : LA_UnidadEdificacionTipo;
@@ -741,7 +757,7 @@ VERSION "2017-11-15"  =
     EXTENDS LA_UnidadEspacial =
       /** Identificador de la red física hacia una referencia externa.
        */
-      ext_ID_Red_Fisica : LADM_COL.LADM_Nucleo.ExtRedServiciosFisica;
+      ext_ID_Red_Fisica : LADM_COL_V1_1.LADM_Nucleo.ExtRedServiciosFisica;
       /** Estado de operatividad de la red.
        */
       Estado : LA_EstadoRedServiciosTipo;
@@ -754,7 +770,7 @@ VERSION "2017-11-15"  =
      */
     CLASS LA_Nivel
     EXTENDS ObjetoVersionado =
-      n_ID : MANDATORY LADM_COL.LADM_Nucleo.Oid;
+      n_ID : MANDATORY LADM_COL_V1_1.LADM_Nucleo.Oid;
       Nombre : CharacterString;
       Registro_Tipo : LA_RegistroTipo;
       Estructura : LA_EstructuraTipo;
@@ -802,7 +818,7 @@ VERSION "2017-11-15"  =
       Descripcion : CharacterString;
       /** Participación, en modo de fracción, en la subclase LA_Derecho, LA_Responsabilidad o LA_Restriccion.
        */
-      Compartido : LADM_COL.LADM_Nucleo.Fraccion;
+      Compartido : LADM_COL_V1_1.LADM_Nucleo.Fraccion;
       /** Indicación de si comparte o no.
        */
       Comprobacion_Comparte : BOOLEAN;
@@ -878,13 +894,13 @@ VERSION "2017-11-15"  =
     EXTENDS ObjetoVersionado =
       /** Atributo no usado, se materializa sobre los atributos Extactitud horizontal y vertical
        */
-      Exactitud_Estimada : LADM_COL.LADM_Nucleo.DQ_PositionalAccuracy;
+      Exactitud_Estimada : LADM_COL_V1_1.LADM_Nucleo.DQ_PositionalAccuracy;
       Posicion_Interpolacion : LA_InterpolacionTipo;
       Monumentacion : LA_MonumentacionTipo;
       Localizacion_Original : MANDATORY ISO19107_V1_MAGNABOG.GM_Point2D;
       PuntoTipo : MANDATORY LA_PuntoTipo;
-      MetodoProduccion : LADM_COL.LADM_Nucleo.LI_Lineaje;
-      Transformacion_Y_Resultado : LIST {0..*} OF LADM_COL.LADM_Nucleo.LA_Transformacion;
+      MetodoProduccion : LADM_COL_V1_1.LADM_Nucleo.LI_Lineaje;
+      Transformacion_Y_Resultado : LIST {0..*} OF LADM_COL_V1_1.LADM_Nucleo.LA_Transformacion;
       p_Espacio_De_Nombres : MANDATORY CharacterString;
       p_Local_Id : MANDATORY CharacterString;
     END LA_Punto;
@@ -893,10 +909,10 @@ VERSION "2017-11-15"  =
      */
     CLASS COL_FuenteEspacial
     EXTENDS COL_Fuente =
-      Mediciones : LIST {0..*} OF LADM_COL.LADM_Nucleo.OM_Observacion;
+      Mediciones : LIST {0..*} OF LADM_COL_V1_1.LADM_Nucleo.OM_Observacion;
       /** No desarrollado, debe ser definido por los pilotos
        */
-      Procedimiento : LADM_COL.LADM_Nucleo.OM_Proceso;
+      Procedimiento : LADM_COL_V1_1.LADM_Nucleo.OM_Proceso;
       Tipo : MANDATORY COL_FuenteEspacialTipo;
     END COL_FuenteEspacial;
 
@@ -1007,13 +1023,13 @@ VERSION "2017-11-15"  =
     EXTENDS ObjetoVersionado =
       /** Identificador del interesado.
        */
-      ext_PID : LADM_COL.LADM_Nucleo.Oid;
+      ext_PID : LADM_COL_V1_1.LADM_Nucleo.ExtInteresado;
       /** Nombre del interesado.
        */
       Nombre : CharacterString;
       /** Función o tarea que realiza el interesado dentro del marco de derechos, obligaciones y restricciones.
        */
-      Tarea : LIST {0..*} OF LADM_COL.LADM_Nucleo.LA_TareaInteresadoTipo;
+      Tarea : LIST {0..*} OF LADM_COL_V1_1.LADM_Nucleo.LA_TareaInteresadoTipo;
       /** Tipo de persona del que se trata.
        */
       Tipo : MANDATORY LA_InteresadoTipo;
@@ -1062,10 +1078,10 @@ VERSION "2017-11-15"  =
 
     ASSOCIATION miembros =
       interesados -- {2..*} LA_Interesado;
-      agrupacion -<> {0..1} LA_Agrupacion_Interesados;
-      participacion : LADM_COL.LADM_Nucleo.Fraccion;
+      agrupacion -<> {0..*} LA_Agrupacion_Interesados;
+      participacion : LADM_COL_V1_1.LADM_Nucleo.Fraccion;
     END miembros;
 
   END LADM_Nucleo;
 
-END LADM_COL.
+END LADM_COL_V1_1.

@@ -1,8 +1,8 @@
 INTERLIS 2.3;
 
-MODEL Ordenamiento_Teritorial (es)
+MODEL Ordenamiento_Teritorial_V0_0_1 (es)
 AT "mailto:user@localhost"
-VERSION "2017-12-01"  =
+VERSION "2017-12-01 V0.0.1"  =
   IMPORTS LADM_COL;
 
   TOPIC Ordenamiento_Territorial =
