@@ -8,7 +8,7 @@ INTERLIS 2.3;
  * * !!-----------------------------------------------------------
  * * !! Revisiones historicas
  * * !! 2017.06.02 vbp: Extraido el modelo a parir del TOPIC del mismo nombre en el modelo de Catastro y Registro
- * * !! 2017.06.29 vbp: AÒadidos dominios procedentes de Catastro-Registro
+ * * !! 2017.06.29 vbp: A√±adidos dominios procedentes de Catastro-Registro
  * * !! 2017.06.29 vbp: Extraidos dominios de valores de atributos de las clases --> integridad estructural, facilidad de lectura, unicidad de criterio en todos los modelos.
  * * !!-----------------------------------------------------------
  * * !!
@@ -29,7 +29,7 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
 
   DOMAIN
 
-    /** Conjunto de valores v·lidos para indicar cual es la calidad del aprovechamiento obtenido en el predio, que incide sobre su aval˙o.
+    /** Conjunto de valores v√°lidos para indicar cual es la calidad del aprovechamiento obtenido en el predio, que incide sobre su aval√∫o.
      */
     COL_AprovechamientoTipo = (
       /** Aprovechamiento por debajo del que se pueda considerar adecuado.
@@ -44,12 +44,12 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       /** Aprovechamiento mejorable.
        */
       Aprov_Regular,
-      /** No existe ning˙n aprovechamiento.
+      /** No existe ning√∫n aprovechamiento.
        */
       Sin_Aprovechamiento
     );
 
-    /** Tipo de material de construcciÛn del armazÛn
+    /** Tipo de material de construcci√≥n del armaz√≥n
      */
     COL_ArmazonTipo = (
       Madera,
@@ -102,7 +102,7 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Marmol
     );
 
-    /** Conjunto de valores para indicar si tiene o no vistas al exterior, con incidencia en su aval˙o. DOCUMENTAR --> NO SERÕA MEJOR LLAMARLO VISTA EXTERIOR Y QUE SEA DE TIPO BULEANO???
+    /** Conjunto de valores para indicar si tiene o no vistas al exterior, con incidencia en su aval√∫o. DOCUMENTAR --> NO SER√çA MEJOR LLAMARLO VISTA EXTERIOR Y QUE SEA DE TIPO BULEANO???
      */
     COL_DisposicionTipo = (
       Vista_Interior,
@@ -137,20 +137,20 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Retal_Marmol
     );
 
-    /** TamaÒo de los baÒos.
+    /** Tama√±o de los ba√±os.
      */
     COL_TamanioBanioTipo = (
-      /** Sin baÒo
+      /** Sin ba√±o
        */
       Sin_Banio,
-      /** PequeÒo
+      /** Peque√±o
        */
       Pequenio,
       Mediano,
       Grande
     );
 
-    /** REVISAR --> SE REPITEN VALORES DEL DOMINIO DE TAMA—O DE BA—O. UNIFICAR EN EL ANTERIOR CAMBIANDOLO DE NOMBRE
+    /** REVISAR --> SE REPITEN VALORES DEL DOMINIO DE TAMA√ëO DE BA√ëO. UNIFICAR EN EL ANTERIOR CAMBIANDOLO DE NOMBRE
      */
     COL_TamanioCocinaTipo = (
       Sin_Cocina,
@@ -159,14 +159,14 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Grande
     );
 
-    /** CalificaciÛn del suelo.
+    /** Calificaci√≥n del suelo.
      */
     COL_TipoCalificarTipo = (
       Residencial,
       Industrial
     );
 
-    /** Conjunto de valores v·lidos para indicar si hay o no acceso al agua desde un predio y en caso de haberla, como se accede, con indicencia en su aval˙o.
+    /** Conjunto de valores v√°lidos para indicar si hay o no acceso al agua desde un predio y en caso de haberla, como se accede, con indicencia en su aval√∫o.
      */
     COL_DisponibilidadAguaTipo = (
       /** Acueducto municipal.
@@ -189,7 +189,7 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Sin_Acceso_a_Aguas
     );
 
-    /** Conjunto de valores v·lidos para indicar si hay o no y el tipo de las obras en el interior de un predio, con incidencia en su aval˙o.
+    /** Conjunto de valores v√°lidos para indicar si hay o no y el tipo de las obras en el interior de un predio, con incidencia en su aval√∫o.
      */
     COL_ObrasAlInteriorTipo = (
       No_Posee,
@@ -202,13 +202,13 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       /** Planta de tratamiento de residuos.
        */
       Planta_Trata_Residuo,
-      /** VÌa adoquinada.
+      /** V√≠a adoquinada.
        */
       Via_Adoquin,
-      /** VÌa asfaltada.
+      /** V√≠a asfaltada.
        */
       Via_Asfaltada,
-      /** VÌa que recibe rellenos para igualar el firme.
+      /** V√≠a que recibe rellenos para igualar el firme.
        */
       Via_en_Recebo,
       /** Zonas duras.
@@ -216,33 +216,33 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Zonas_Duras
     );
 
-    /** Conjunto de valores v·lidos para indicar la cobertura vegetal, que incide sobre su aval˙o.
+    /** Conjunto de valores v√°lidos para indicar la cobertura vegetal, que incide sobre su aval√∫o.
      */
     COL_CapaVegetalTipo = (
-      /** Formaciones arbÛreas, conforme a la legislaciÛn forestal nacional. REVISAR DOCUMENTACI”N
+      /** Formaciones arb√≥reas, conforme a la legislaci√≥n forestal nacional. REVISAR DOCUMENTACI√ìN
        */
       Bosque,
-      /** Terreno con pastos procedentes de plantaciÛn. REVISAR DOCUMENTACI”N
+      /** Terreno con pastos procedentes de plantaci√≥n. REVISAR DOCUMENTACI√ìN
        */
       Pastos_Artificiales,
-      /** Terreno de caracter forestal no arbolado, o arbolado con una baja o muy baja fracciÛn de cabida cubierta (FCC) con vegetaciÛn herb·cea de calidad diversa, apta para el consumo por el ganado. REVISAR DOCUMENTACI”N
+      /** Terreno de caracter forestal no arbolado, o arbolado con una baja o muy baja fracci√≥n de cabida cubierta (FCC) con vegetaci√≥n herb√°cea de calidad diversa, apta para el consumo por el ganado. REVISAR DOCUMENTACI√ìN
        */
       Pastos_Naturales,
-      /** ¡rea cubierta por restos de cultivos agrÌcolas.
+      /** √Årea cubierta por restos de cultivos agr√≠colas.
        */
       Rastrojos,
-      /** ¡rea cubierta por bosque tropical h˙medo.
+      /** √Årea cubierta por bosque tropical h√∫medo.
        */
       Selva,
-      /** ¡rea no cubierta de vegetaciÛn: desiertos, roquedos, cuerpos de agua...
+      /** √Årea no cubierta de vegetaci√≥n: desiertos, roquedos, cuerpos de agua...
        */
       Sin_Cobert_Vegetal,
-      /** ¡reas agrÌcolas.
+      /** √Åreas agr√≠colas.
        */
       Tierra_de_Labor
     );
 
-    /** Conjunto de valores v·lidos para indicar de forma descriptiva la pendiente de un predio, con incidencia en su aval˙o.
+    /** Conjunto de valores v√°lidos para indicar de forma descriptiva la pendiente de un predio, con incidencia en su aval√∫o.
      */
     COL_PendienteTipo = (
       Empinada,
@@ -257,21 +257,21 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Plano
     );
 
-    /** Conjunto de valores v·lidos para indicar la forma de desarrollo de un predio, respecto a su urbanizaciÛn, con incidencia en su aval˙o.
+    /** Conjunto de valores v√°lidos para indicar la forma de desarrollo de un predio, respecto a su urbanizaci√≥n, con incidencia en su aval√∫o.
      */
     COL_TipoDesarrolloTipo = (
       Auto_Construccion,
       Urbanizacion
     );
 
-    /** Conjunto de valores v·lidos para determinar la forma de un predio, con incidencia en su aval˙o.
+    /** Conjunto de valores v√°lidos para determinar la forma de un predio, con incidencia en su aval√∫o.
      */
     COL_FormaTipo = (
       Irregular,
       Regular
     );
 
-    /** Conjunto de valores v·lidos para indicar quÈ elemento situado en zona com˙n es de uso exclusivo de un predio, con incidencia en su aval˙o.
+    /** Conjunto de valores v√°lidos para indicar qu√© elemento situado en zona com√∫n es de uso exclusivo de un predio, con incidencia en su aval√∫o.
      */
     COL_ComunExclusivoTipo = (
       /** Saliente de la fachada, a la altura de un vano y protegida por una barandilla.
@@ -280,21 +280,21 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       /** Lugar para el almacenamiento.
        */
       Deposito,
-      /** Habit·culo destinado al guardado de vehÌculos automÛviles con capacidad para dos de ellos.
+      /** Habit√°culo destinado al guardado de veh√≠culos autom√≥viles con capacidad para dos de ellos.
        */
       Garaje_Doble,
-      /** Habit·culo destinado al guardado de vehÌculos automÛviles con capacidad para uno de ellos.
+      /** Habit√°culo destinado al guardado de veh√≠culos autom√≥viles con capacidad para uno de ellos.
        */
       Garaje_Sencillo,
-      /** Zona sin techar, en el interior de la edificaciÛn.
+      /** Zona sin techar, en el interior de la edificaci√≥n.
        */
       Patio,
-      /** Cubierta plana y practicable de un edificio, o balcÛn de grandes dimensiones, rodeado de barandillas o muros.
+      /** Cubierta plana y practicable de un edificio, o balc√≥n de grandes dimensiones, rodeado de barandillas o muros.
        */
       Terraza
     );
 
-    /** Conjunto de valores v·lidos para indicar la cercania a un hito sobre el terreno. Tiene incidencia sobre el aval˙o.
+    /** Conjunto de valores v√°lidos para indicar la cercania a un hito sobre el terreno. Tiene incidencia sobre el aval√∫o.
      */
     COL_CercaniaHitosTipo = (
       Alejado,
@@ -304,13 +304,13 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Medianamente_Cercano
     );
 
-    /** Conjunto de valores v·lidos para indicar cual es el tipo de acceso a una unidad de construcciÛn, que incide sobre su aval˙o.
+    /** Conjunto de valores v√°lidos para indicar cual es el tipo de acceso a una unidad de construcci√≥n, que incide sobre su aval√∫o.
      */
     COL_AccesoTipo = (
       /** Existe acceso mediante un ascensor que da acceso directo al piso.
        */
       Ascensor_a_Piso,
-      /** Existe acceso mediante un ascensor que da acceso al entrepiso. REVISAR DOCUMENTACI”N
+      /** Existe acceso mediante un ascensor que da acceso al entrepiso. REVISAR DOCUMENTACI√ìN
        */
       Ascensor_Entre_Pisos,
       /** Existe acceso mediante un ascensor que da acceso directo a un espacio privado.
@@ -319,12 +319,12 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       /** Existe acceso mediante escaleras.
        */
       Escaleras,
-      /** Existe acceso mediante escaleras elÈctricas.
+      /** Existe acceso mediante escaleras el√©ctricas.
        */
       Escaleras_Electricas
     );
 
-    /** Se debe definir por la metodologÌa de los pilotos
+    /** Se debe definir por la metodolog√≠a de los pilotos
      */
     COL_ActividadEconoTipo = (
       /** DOCUMENTAR
@@ -332,15 +332,15 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       definirPilotos
     );
 
-    /** Conjunto de valores v·lidos para indicar cual es el destino econÛmico de la unidad de construcciÛn, con incidencia en su aval˙o. REVISAR DOCUMENTACI”N --> OJO, EL NOMBRE DESTINACI”N DEBERÕA SER DESTINO, ES DECIR COL_DestinoEconomicoTipo.
+    /** Conjunto de valores v√°lidos para indicar cual es el destino econ√≥mico de la unidad de construcci√≥n, con incidencia en su aval√∫o. REVISAR DOCUMENTACI√ìN --> OJO, EL NOMBRE DESTINACI√ìN DEBER√çA SER DESTINO, ES DECIR COL_DestinoEconomicoTipo.
      */
     COL_DestinoEconomicoTipo = (
-      /** Se debe definir por la metodologÌa de los pilotos
+      /** Se debe definir por la metodolog√≠a de los pilotos
        */
       Definir_Operador
     );
 
-    /** Conjunto de valores v·lidos para determinar el estilo de la construcciÛn que se aprecia en una unidad de construcciÛn, con incidencia en su aval˙o.
+    /** Conjunto de valores v√°lidos para determinar el estilo de la construcci√≥n que se aprecia en una unidad de construcci√≥n, con incidencia en su aval√∫o.
      */
     COL_EstiloTipo = (
       Clasico,
@@ -353,18 +353,18 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Tradicional
     );
 
-    /** Valores v·lidos para indicar el tipo de construcciÛn empleada para levantar una unidad de construcciÛn, con incidencia en su aval˙o. REVISAR DOCUMENTACI”N
+    /** Valores v√°lidos para indicar el tipo de construcci√≥n empleada para levantar una unidad de construcci√≥n, con incidencia en su aval√∫o. REVISAR DOCUMENTACI√ìN
      */
     COL_ConstruccionTipo = (
-      /** El tipo de construcciÛn utiliza mÈtodos convencionales. REVISAR DOCUMENTACI”N
+      /** El tipo de construcci√≥n utiliza m√©todos convencionales. REVISAR DOCUMENTACI√ìN
        */
       Convencional,
-      /** El tipo de construcciÛn utiliza mÈtodos no convencionales. REVISAR DOCUMENTACI”N
+      /** El tipo de construcci√≥n utiliza m√©todos no convencionales. REVISAR DOCUMENTACI√ìN
        */
       noConvencional
     );
 
-    /** Conjunto de valores v·lidos para definir el estado de conservaciÛn de una unidad de construcciÛn o de un predio matriz de la propiedad horizontal, con incidencia en su aval˙o.
+    /** Conjunto de valores v√°lidos para definir el estado de conservaci√≥n de una unidad de construcci√≥n o de un predio matriz de la propiedad horizontal, con incidencia en su aval√∫o.
      */
     COL_EstadoConservacionTipo = (
       Bueno,
@@ -377,21 +377,21 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Regular_Deficiente
     );
 
-    /** Conjunto de valores v·lidos para determinar la capacidad de cumplir con su funciÛn por parte de una unidad de construcciÛn.
+    /** Conjunto de valores v√°lidos para determinar la capacidad de cumplir con su funci√≥n por parte de una unidad de construcci√≥n.
      */
     COL_FuncionalidadTipo = (
-      /** Cumple su funciÛn adecuadamente.
+      /** Cumple su funci√≥n adecuadamente.
        */
       Funcional,
-      /** Cumple su funciÛn de manera mejorable.
+      /** Cumple su funci√≥n de manera mejorable.
        */
       Medianamente_Funcional,
-      /** No cumple su funciÛn adecuadamente.
+      /** No cumple su funci√≥n adecuadamente.
        */
       Poco_Funcional
     );
 
-    /** Conjunto de valores v·lidos pra indicar donde se encuentra una unidad de construcciÛn en copropiedad.
+    /** Conjunto de valores v√°lidos pra indicar donde se encuentra una unidad de construcci√≥n en copropiedad.
      */
     COL_UbicacionEnCopropiedadTipo = (
       Otras_Ubicaciones,
@@ -400,15 +400,15 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Plazoleta_Comidas
     );
 
-    /** Conjunto de valores v·lidos para indicar cual es el material principal utilizado en la costrucciÛn de una unidad de construcciÛn, con incidencia en su aval˙o.
+    /** Conjunto de valores v√°lidos para indicar cual es el material principal utilizado en la costrucci√≥n de una unidad de construcci√≥n, con incidencia en su aval√∫o.
      */
     COL_MaterialConstrTipo = (
-      /** Se debe definir por la metodologÌa de los pilotos
+      /** Se debe definir por la metodolog√≠a de los pilotos
        */
       Definir_Pilotos
     );
 
-    /** Conjunto de valores v·lidos para indicar el tipo de la unidad de construcciÛn.
+    /** Conjunto de valores v√°lidos para indicar el tipo de la unidad de construcci√≥n.
      */
     COL_TipologiaTipo = (
       Almacenamiento,
@@ -423,21 +423,21 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Residencial
     );
 
-    /** Conjunto de valores v·lidos para indicar el tipo de equipamiento comunal de un predio matriz de la propiedad horizontal, con incidencia en su aval˙o.
+    /** Conjunto de valores v√°lidos para indicar el tipo de equipamiento comunal de un predio matriz de la propiedad horizontal, con incidencia en su aval√∫o.
      */
     COL_EquipamientoComunalTipo = (
       Salon_Comunal,
       Piscina,
-      /** Aparcamiento especÌfico para visitantes.
+      /** Aparcamiento espec√≠fico para visitantes.
        */
       Parqueadero_Visitante,
       Ascensor,
-      /** Zona para realizar barbacÛas.
+      /** Zona para realizar barbac√≥as.
        */
       Zona_BBQ,
       Canchas_Tenis_Squash,
       Cancha_Multifuncional,
-      /** Existe una recepciÛn comunal con empleado que filtra las visitas.
+      /** Existe una recepci√≥n comunal con empleado que filtra las visitas.
        */
       Porteria,
       Gimnasio,
@@ -449,12 +449,12 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Zonas_Cargue
     );
 
-  /** Este Topic agrupa a las clases especÌficas del aval˙o, asÌ como sus atributos.
+  /** Este Topic agrupa a las clases espec√≠ficas del aval√∫o, as√≠ como sus atributos.
    */
   TOPIC Avaluos =
     DEPENDS ON Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro;
 
-    /** Datos para el aval˙o de la unidad de construcciÛn.
+    /** Datos para el aval√∫o de la unidad de construcci√≥n.
      */
     CLASS Calificacion_Unidad_Construccion =
       Tipo_Calificar : Avaluos_V2_1.COL_TipoCalificarTipo;
@@ -500,31 +500,31 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Total_Industrial : LADM_COL.LADM_Nucleo.Integer;
     END Calificacion_Unidad_Construccion;
 
-    /** La clase Predio es una agrupaciÛn de atributos especÌficos para el aval˙o del mismo. Por tanto, representa lo mismo que en el caso de los modelos de Catastro y de Registro, pero sus atributos almacenan los datos relativos a aquellas caracterÌsticas que es necesario conocer para realizar el avaluo masivo de los predios catastrales, de acuerdo con la metodologÌa vigente.
+    /** La clase Predio es una agrupaci√≥n de atributos espec√≠ficos para el aval√∫o del mismo. Por tanto, representa lo mismo que en el caso de los modelos de Catastro y de Registro, pero sus atributos almacenan los datos relativos a aquellas caracter√≠sticas que es necesario conocer para realizar el avaluo masivo de los predios catastrales, de acuerdo con la metodolog√≠a vigente.
      */
     CLASS Predio =
-      /** Almacena el ·rea calculada sobre plano de la zona, en m2
+      /** Almacena el √°rea calculada sobre plano de la zona, en m2
        */
       Area_Calculada_Plano_Local : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL.m2];
       /** Calidad del aprovechamiento obtenido en el predio
        */
       Aprovechamiento : MANDATORY Avaluos_V2_1.COL_AprovechamientoTipo;
-      /** Forma en la que hay agua disponible en el predio, o la indicaciÛn de que no la hay.
+      /** Forma en la que hay agua disponible en el predio, o la indicaci√≥n de que no la hay.
        */
       Disponibilidad_Agua : MANDATORY Avaluos_V2_1.COL_DisponibilidadAguaTipo;
-      /** Distancia a la fuente de agua m·s cercana.
+      /** Distancia a la fuente de agua m√°s cercana.
        */
       Distancia_Fuentes_Agua : LADM_COL.LADM_Nucleo.Integer;
-      /** Obras existentes en el interior del predio, o la indicaciÛn de que no existe.
+      /** Obras existentes en el interior del predio, o la indicaci√≥n de que no existe.
        */
       Obra_al_Interior : MANDATORY Avaluos_V2_1.COL_ObrasAlInteriorTipo;
       /** Tipo de cobertura vegetal con la que cuenta el predio.
        */
       Capa_Vegetal : MANDATORY Avaluos_V2_1.COL_CapaVegetalTipo;
-      /** DescricpciÛn de la pendiente del terreno general del predio.
+      /** Descricpci√≥n de la pendiente del terreno general del predio.
        */
       Pendiente : MANDATORY Avaluos_V2_1.COL_PendienteTipo;
-      /** IndicaciÛn de la forma en la que se desarrolla el predio, esto es, la forma en la que se est· produciendo la urbanizaciÛn.
+      /** Indicaci√≥n de la forma en la que se desarrolla el predio, esto es, la forma en la que se est√° produciendo la urbanizaci√≥n.
        */
       Tipo_Desarrollo : Avaluos_V2_1.COL_TipoDesarrolloTipo;
       /** Regularidad o irregularidad del predio.
@@ -536,195 +536,195 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       /** Cantidad de terrazas que tiene el predio vivienda.
        */
       Num_Terrazas : LADM_COL.LADM_Nucleo.Integer;
-      /** N˙mero de entrepisos del predio.
+      /** N√∫mero de entrepisos del predio.
        */
       Num_Mezanines : LADM_COL.LADM_Nucleo.Integer;
-      /** Elemento situado en zona com˙n que es de uso exclusivo.
+      /** Elemento situado en zona com√∫n que es de uso exclusivo.
        */
       Comun_Uso_Exclusivo : MANDATORY Avaluos_V2_1.COL_ComunExclusivoTipo;
-      /** DescripciÛn de la distancia a los hitos.
+      /** Descripci√≥n de la distancia a los hitos.
        */
       Cercania_Hitos : MANDATORY Avaluos_V2_1.COL_CercaniaHitosTipo;
-      /** DescripciÛn de la ubicaciÛn dentro de la manzana.
+      /** Descripci√≥n de la ubicaci√≥n dentro de la manzana.
        */
       Ubicacion_Manzana : TEXT*20;
       /** Longitud del frente del predio. El frente del predio se considera de acuerdo con el acceso al mismo.
        */
       Frente : LADM_COL.LADM_Nucleo.Real;
-      /** Longitud del fondo del predio. El fondo del predio se considera de acuerdo con su visiÛn desde el acceso al mismo.
+      /** Longitud del fondo del predio. El fondo del predio se considera de acuerdo con su visi√≥n desde el acceso al mismo.
        */
       Fondo : LADM_COL.LADM_Nucleo.Real;
     END Predio;
 
-    /** RelaciÛn entre las clases "Predio" de Catastro y de Aval˙o. La cardinalidad es 1-1, lo que indica que son representaciones diferentes de un mismo elemento de la realidad.
-     * En efecto, una es la agrupaciÛn de atributos que caracterizan el predio desde el punto de vista de Catastro y la otra agrupa atributos de interÈs para el aval˙o del predio.
+    /** Relaci√≥n entre las clases "Predio" de Catastro y de Aval√∫o. La cardinalidad es 1-1, lo que indica que son representaciones diferentes de un mismo elemento de la realidad.
+     * En efecto, una es la agrupaci√≥n de atributos que caracterizan el predio desde el punto de vista de Catastro y la otra agrupa atributos de inter√©s para el aval√∫o del predio.
      */
     ASSOCIATION AvaluoPredio =
       APredio -- {1} Predio;
       Predio (EXTERNAL) -- {1} Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.Predio;
     END AvaluoPredio;
 
-    /** La clase Construccion es una agrupaciÛn de atributos especÌficos para el aval˙o de la misma. Por tanto, representa lo mismo que en el caso del modelo de Catastro, pero sus atributos almacenan los datos relativos a aquellas caracterÌsticas que es necesario conocer para realizar el aval˙o masivo de las construcciones, de acuerdo con la metodologÌa vigente
+    /** La clase Construccion es una agrupaci√≥n de atributos espec√≠ficos para el aval√∫o de la misma. Por tanto, representa lo mismo que en el caso del modelo de Catastro, pero sus atributos almacenan los datos relativos a aquellas caracter√≠sticas que es necesario conocer para realizar el aval√∫o masivo de las construcciones, de acuerdo con la metodolog√≠a vigente
      */
     CLASS Construccion =
-      /** Cantidad de plantas que tiene la construcciÛn.
+      /** Cantidad de plantas que tiene la construcci√≥n.
        */
       Numero_Pisos : MANDATORY 1 .. 100;
     END Construccion;
 
-    /** RelaciÛn entre las clases "Construccion" de Catastro y de Aval˙o. La cardinalidad es 1-1, lo que indica que son representaciones diferentes de un mismo elemento de la realidad.
-     * En efecto, una es la agrupaciÛn de atributos que caracterizan la construcciÛn desde el punto de vista de Catastro y la otra agrupa atributos de interÈs para el aval˙o de la construcciÛn.
+    /** Relaci√≥n entre las clases "Construccion" de Catastro y de Aval√∫o. La cardinalidad es 1-1, lo que indica que son representaciones diferentes de un mismo elemento de la realidad.
+     * En efecto, una es la agrupaci√≥n de atributos que caracterizan la construcci√≥n desde el punto de vista de Catastro y la otra agrupa atributos de inter√©s para el aval√∫o de la construcci√≥n.
      */
     ASSOCIATION AvaluoConstruccion =
       ACons -- {1} Construccion;
       Cons (EXTERNAL) -- {1} Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.Construccion;
     END AvaluoConstruccion;
 
-    /** La clase UnidadConstruccion es una agrupaciÛn de atributos especÌficos para el aval˙o de la misma. Por tanto, representa lo mismo que en el caso del modelo de Catatro, pero sus atributos almacenan los datos relativos a aquellas caracterÌsticas que es necesario conocer para realizar el avaluo masivo de las construcciones, de acuerdo a la metodologÌa vigente.
+    /** La clase UnidadConstruccion es una agrupaci√≥n de atributos espec√≠ficos para el aval√∫o de la misma. Por tanto, representa lo mismo que en el caso del modelo de Catatro, pero sus atributos almacenan los datos relativos a aquellas caracter√≠sticas que es necesario conocer para realizar el avaluo masivo de las construcciones, de acuerdo a la metodolog√≠a vigente.
      */
     CLASS Unidad_Construccion =
-      /** Cantidad de plantas de la unidad de construcciÛn.
+      /** Cantidad de plantas de la unidad de construcci√≥n.
        */
       Numero_Total_Pisos : MANDATORY 1 .. 100;
-      /** IndicaciÛn de si tiene o no vistas al exterior.
+      /** Indicaci√≥n de si tiene o no vistas al exterior.
        */
       Disposicion : Avaluos_V2_1.COL_DisposicionTipo;
-      /** Almacena el tipo de acceso a la unidad de construcciÛn.
+      /** Almacena el tipo de acceso a la unidad de construcci√≥n.
        */
       Acceso : MANDATORY Avaluos_V2_1.COL_AccesoTipo;
       Nivel_de_Acceso : MANDATORY 1 .. 100;
-      /** Activiadad econÛmica que se desarrolla en la unidad de construcciÛn.
+      /** Activiadad econ√≥mica que se desarrolla en la unidad de construcci√≥n.
        */
       Actividad_Econo : MANDATORY Avaluos_V2_1.COL_ActividadEconoTipo;
-      /** Activiadad econÛmica a la que est· destinada la unidad de construcciÛn.
+      /** Activiadad econ√≥mica a la que est√° destinada la unidad de construcci√≥n.
        */
       Destino_Econo : MANDATORY Avaluos_V2_1.COL_DestinoEconomicoTipo;
-      /** Estilo arquitectÛnico de la construcciÛn.
+      /** Estilo arquitect√≥nico de la construcci√≥n.
        */
       Estilo : MANDATORY Avaluos_V2_1.COL_EstiloTipo;
-      /** AÒo en el que fue construÌda la unidad de construcciÛn.
+      /** A√±o en el que fue constru√≠da la unidad de construcci√≥n.
        */
       Anio_Construction : MANDATORY INTERLIS.XMLDate;
-      /** ClasificaciÛn del tipo de construcciÛn empleada para levantar la unidad de construcciÛn.
+      /** Clasificaci√≥n del tipo de construcci√≥n empleada para levantar la unidad de construcci√≥n.
        */
       Construction_Tipo : MANDATORY Avaluos_V2_1.COL_ConstruccionTipo;
-      /** Estado de la construcciÛn, desde el punto de vista estructural.
+      /** Estado de la construcci√≥n, desde el punto de vista estructural.
        */
       Estado_Conservacion : MANDATORY Avaluos_V2_1.COL_EstadoConservacionTipo;
-      /** Almacena informaciÛn relativa a la capacidad de cumplir con la funciÛn que se espera de la unidad de construcciÛn.
+      /** Almacena informaci√≥n relativa a la capacidad de cumplir con la funci√≥n que se espera de la unidad de construcci√≥n.
        */
       Funcionalidad : MANDATORY Avaluos_V2_1.COL_FuncionalidadTipo;
-      /** En caso de tratarse de una unidad en copropiedad, indicaciÛn de dÛnde se encuentra. REVISAR
+      /** En caso de tratarse de una unidad en copropiedad, indicaci√≥n de d√≥nde se encuentra. REVISAR
        */
       Ubicacion_en_Copropiedad : Avaluos_V2_1.COL_UbicacionEnCopropiedadTipo;
-      /** Material principal de la construcciÛn.
+      /** Material principal de la construcci√≥n.
        */
       Material : MANDATORY Avaluos_V2_1.COL_MaterialConstrTipo;
       Puntuacion : MANDATORY LADM_COL.LADM_Nucleo.Integer;
-      /** TipologÌa de unidad de construcciÛn.
+      /** Tipolog√≠a de unidad de construcci√≥n.
        */
       Tipologia : MANDATORY Avaluos_V2_1.COL_TipologiaTipo;
-      /** Cantidad de estancias habitables de la unidad de construcciÛn.
+      /** Cantidad de estancias habitables de la unidad de construcci√≥n.
        */
       Num_Habitaciones : LADM_COL.LADM_Nucleo.Integer;
-      /** Cantidad de baÒos de la unidad de construcciÛn.
+      /** Cantidad de ba√±os de la unidad de construcci√≥n.
        */
       Num_Banios : LADM_COL.LADM_Nucleo.Integer;
-      /** Cantidad de cocinas de la unidad de construcciÛn.
+      /** Cantidad de cocinas de la unidad de construcci√≥n.
        */
       Num_Cocinas : LADM_COL.LADM_Nucleo.Integer;
-      /** Cantidad de oficinas de la unidad de construcciÛn.
+      /** Cantidad de oficinas de la unidad de construcci√≥n.
        */
       Num_Oficinas : LADM_COL.LADM_Nucleo.Integer;
-      /** Cantidad de estudios de la unidad de construcciÛn.
+      /** Cantidad de estudios de la unidad de construcci√≥n.
        */
       Num_Estudios : LADM_COL.LADM_Nucleo.Integer;
-      /** Cantidad de bodegas de la unidad de construcciÛn.
+      /** Cantidad de bodegas de la unidad de construcci√≥n.
        */
       Num_Bodegas : LADM_COL.LADM_Nucleo.Integer;
-      /** Cantidad de locales de la unidad de construcciÛn.
+      /** Cantidad de locales de la unidad de construcci√≥n.
        */
       Num_Locales : LADM_COL.LADM_Nucleo.Integer;
-      /** Cantidad de salas de la unidad de construcciÛn.
+      /** Cantidad de salas de la unidad de construcci√≥n.
        */
       Num_Salas : LADM_COL.LADM_Nucleo.Integer;
-      /** Cantidad de comedores de la unidad de construcciÛn.
+      /** Cantidad de comedores de la unidad de construcci√≥n.
        */
       Num_Comedores : LADM_COL.LADM_Nucleo.Integer;
     END Unidad_Construccion;
 
-    /** RelaciÛn entre las clases "UnidadConstruccion" de Catastro y de Aval˙o. La cardinalidad es 1-1, lo que indica que son representaciones diferentes de un mismo elemento de la realidad.
-     * En efecto, una es la agrupaciÛn de atributos que caracterizan la unidad de construcciÛn desde el punto de vista de Catastro y la otra agrupa atributos de interÈs para el aval˙o en el interior de la unidad de construcciÛn.
+    /** Relaci√≥n entre las clases "UnidadConstruccion" de Catastro y de Aval√∫o. La cardinalidad es 1-1, lo que indica que son representaciones diferentes de un mismo elemento de la realidad.
+     * En efecto, una es la agrupaci√≥n de atributos que caracterizan la unidad de construcci√≥n desde el punto de vista de Catastro y la otra agrupa atributos de inter√©s para el aval√∫o en el interior de la unidad de construcci√≥n.
      */
     ASSOCIATION AvaluoUnidadConstruccion =
       AUCons -- {1} Unidad_Construccion;
       UCons (EXTERNAL) -- {1} Catastro_Registro_Nucleo_V2_2_0.Catastro_Registro.UnidadConstruccion;
     END AvaluoUnidadConstruccion;
 
-    /** RelaciÛn entre la clase UnidadCOnstruccion del mÛdulo de Aval˙os y AvaluoUCOnstruccion de este modelo.
+    /** Relaci√≥n entre la clase UnidadCOnstruccion del m√≥dulo de Aval√∫os y AvaluoUCOnstruccion de este modelo.
      */
     ASSOCIATION FichaAvaluoUconstruccion =
       FichaPredio (EXTERNAL) -- {1} Unidad_Construccion;
       FichaAvUConstruccion -- {1..*} Calificacion_Unidad_Construccion;
     END FichaAvaluoUconstruccion;
 
-    /** Clase para registrar la informaciÛn relativa al predio, o unidad b·sica del terreno, que sirve de matriz a un elemento de propiedad horizontal. REVISAR DOCUMENTACI”N
+    /** Clase para registrar la informaci√≥n relativa al predio, o unidad b√°sica del terreno, que sirve de matriz a un elemento de propiedad horizontal. REVISAR DOCUMENTACI√ìN
      */
     CLASS Predio_Matriz_PH =
       Num_Etapas : LADM_COL.LADM_Nucleo.Integer;
       Num_Interiores : LADM_COL.LADM_Nucleo.Integer;
-      /** N˙mero de torres o construcciones en vertical, como agrupaciones de propiedades horizontales, que hay sobre el predio matriz. REVISAR
+      /** N√∫mero de torres o construcciones en vertical, como agrupaciones de propiedades horizontales, que hay sobre el predio matriz. REVISAR
        */
       Num_Torres : LADM_COL.LADM_Nucleo.Integer;
-      /** N˙mero de plantas que hay por cada una de las torres.
+      /** N√∫mero de plantas que hay por cada una de las torres.
        */
       Num_Pisos_por_Torre : LADM_COL.LADM_Nucleo.Integer;
       Num_Unidades_Privadas : LADM_COL.LADM_Nucleo.Integer;
-      /** ¡rea, en m2 y tipo de mediciÛn del terreno del predio matriz.
+      /** √Årea, en m2 y tipo de medici√≥n del terreno del predio matriz.
        */
       Area_Terreno_Total : LADM_COL.LADM_Nucleo.COL_AreaValor;
-      /** ¡rea, en m2 y tipo de mediciÛn del terreno com˙n en el predio matriz.
+      /** √Årea, en m2 y tipo de medici√≥n del terreno com√∫n en el predio matriz.
        */
       Area_Terreno_Comun : LADM_COL.LADM_Nucleo.COL_AreaValor;
-      /** ¡rea, en m2 y tipo de mediciÛn del terreno privado en el predio matriz.
+      /** √Årea, en m2 y tipo de medici√≥n del terreno privado en el predio matriz.
        */
       Area_Terreno_Privada : LADM_COL.LADM_Nucleo.COL_AreaValor;
-      /** ¡rea, en m2 y tipo de mediciÛn del terreno construido en el predio matriz.
+      /** √Årea, en m2 y tipo de medici√≥n del terreno construido en el predio matriz.
        */
       Area_Construida_Total : LADM_COL.LADM_Nucleo.COL_AreaValor;
-      /** ¡rea, en m2 y tipo de mediciÛn del terreno de naturaleza privada en el ·rea construida del predio matriz.
+      /** √Årea, en m2 y tipo de medici√≥n del terreno de naturaleza privada en el √°rea construida del predio matriz.
        */
       Area_Construida_Privada : LADM_COL.LADM_Nucleo.COL_AreaValor;
-      /** ¡rea, en m2 y tipo de mediciÛn del terreno de naturaleza com˙n en el ·rea construida del predio matriz.
+      /** √Årea, en m2 y tipo de medici√≥n del terreno de naturaleza com√∫n en el √°rea construida del predio matriz.
        */
       Area_Construida_Comun : LADM_COL.LADM_Nucleo.COL_AreaValor;
       Tipologia_Constructiva_Copropiedad : TEXT*20;
-      /** AÒo en el que fue construida la etapa considerada.
+      /** A√±o en el que fue construida la etapa considerada.
        */
       Anio_Construccion_Etapa : INTERLIS.XMLDate;
-      /** Estado en el que se encuentra la estructura de la construcciÛn, referida a la copropiedad.
+      /** Estado en el que se encuentra la estructura de la construcci√≥n, referida a la copropiedad.
        */
       Estado_Conservacion_Copropiedad : Avaluos_V2_1.COL_EstadoConservacionTipo;
-      /** Materiales principales presentes en la construcciÛn de las ·reas comunes.
+      /** Materiales principales presentes en la construcci√≥n de las √°reas comunes.
        */
       Materiales_Construccion_Areas_Comunes : TEXT*100;
       Disenio_Funcionalidad_Copropiedad : TEXT*100;
     END Predio_Matriz_PH;
 
-    /** RelaciÛn entre las clases Predio y PredioMatrizPH que permite descubrir los predios que hay en una matriz de propiedad horizontal.
+    /** Relaci√≥n entre las clases Predio y PredioMatrizPH que permite descubrir los predios que hay en una matriz de propiedad horizontal.
      */
     ASSOCIATION AvaluoPredioMatrizPH =
       AvPredMatrizPH -- {1} Predio_Matriz_PH;
       predio -- {0..*} Predio;
     END AvaluoPredioMatrizPH;
 
-    /** Clase para registrar la informaciÛn relativa al equipamiento comunal del predio matriz de la propiedad horizontal (ver la clase PredioMatrizPH).
+    /** Clase para registrar la informaci√≥n relativa al equipamiento comunal del predio matriz de la propiedad horizontal (ver la clase PredioMatrizPH).
      */
     CLASS Equipamiento_Comunal =
       /** Recoge el tipo de equipamiento comunal al que se refiere el registro.
        */
       Tipo_Equipamiento_Comunal : Avaluos_V2_1.COL_EquipamientoComunalTipo;
-      /** MediciÛn del ·rea y tipo de esa mediciÛn del equipamiento comunal considerado.
+      /** Medici√≥n del √°rea y tipo de esa medici√≥n del equipamiento comunal considerado.
        */
       Area : LADM_COL.LADM_Nucleo.COL_AreaValor;
       /** Categoria del elemento.
@@ -732,34 +732,34 @@ VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a 
       Categoria : TEXT*100;
     END Equipamiento_Comunal;
 
-    /** RelaciÛn entre las clases PredioMatrizPH y EquipamientoComunal, que permite descubrir los elementos del equipamiento comunal que son de un predio matriz de la propiedad horizontal determinado.
+    /** Relaci√≥n entre las clases PredioMatrizPH y EquipamientoComunal, que permite descubrir los elementos del equipamiento comunal que son de un predio matriz de la propiedad horizontal determinado.
      */
     ASSOCIATION AvaluoEquipamientoPredioMatrizPH =
       AvPredMatrizPH -- {1} Predio_Matriz_PH;
       AvEquipComunal -- {0..*} Equipamiento_Comunal;
     END AvaluoEquipamientoPredioMatrizPH;
 
-    /** Esta clase permite gestionar las zonas fÌsicamente homogÈneas definidas para el aval˙o y que delimitan las zonas que tienen caracterÌsticas fÌsicas similares. REVISAR DOCUMENTACI”N
+    /** Esta clase permite gestionar las zonas f√≠sicamente homog√©neas definidas para el aval√∫o y que delimitan las zonas que tienen caracter√≠sticas f√≠sicas similares. REVISAR DOCUMENTACI√ìN
      */
     CLASS Zona_Homogenea_Fisica =
-      /** CÛdigo ˙nico del registro de la instancia de ZonaHomegeneaFisca.
+      /** C√≥digo √∫nico del registro de la instancia de ZonaHomegeneaFisca.
        */
       Identificador : MANDATORY TEXT*20;
-      /** DefiniciÛn de la geometrÌa espacial georreferenciada de la zona homogÈnea fÌsica, delimitada mediante un polÌgono que contiene sus linderos y la superficie ocupada.
+      /** Definici√≥n de la geometr√≠a espacial georreferenciada de la zona homog√©nea f√≠sica, delimitada mediante un pol√≠gono que contiene sus linderos y la superficie ocupada.
        */
       Geometria : MANDATORY ISO19107_V1_MAGNABOG.GM_Surface2D;
     END Zona_Homogenea_Fisica;
 
-    /** Esta clase permite gestionar las zonas con caracterÌsticas econÛmicas y de localizaciÛn geogr·fica similares, definidas para caracterizar el aval˙o.
+    /** Esta clase permite gestionar las zonas con caracter√≠sticas econ√≥micas y de localizaci√≥n geogr√°fica similares, definidas para caracterizar el aval√∫o.
      */
     CLASS Zona_Homogenea_Geoeconomica =
-      /** CÛdigo ˙nico del registro de la instancia de la zona geoeconÛmica.
+      /** C√≥digo √∫nico del registro de la instancia de la zona geoecon√≥mica.
        */
       Identificador : MANDATORY TEXT*20;
-      /** Valor econÛmico de la zona homogÈnea que representa la instancia de la clase.
+      /** Valor econ√≥mico de la zona homog√©nea que representa la instancia de la clase.
        */
       Valor : MANDATORY LADM_COL.LADM_Nucleo.Integer;
-      /** DefiniciÛn de la geometrÌa espacial georreferenciada de la zona homogÈnea geoeconÛmica, delimitada mediante un polÌgono que contiene sus linderos y la superficie ocupada.
+      /** Definici√≥n de la geometr√≠a espacial georreferenciada de la zona homog√©nea geoecon√≥mica, delimitada mediante un pol√≠gono que contiene sus linderos y la superficie ocupada.
        */
       Geometria : MANDATORY ISO19107_V1_MAGNABOG.GM_Surface2D;
     END Zona_Homogenea_Geoeconomica;

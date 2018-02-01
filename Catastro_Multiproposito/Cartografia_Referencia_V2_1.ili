@@ -5,56 +5,56 @@ AT "mailto:vmbp@localhost"
 VERSION "2017-06-02"  =
   IMPORTS ISO19107_V1_MAGNABOG,Catastro_Registro_Nucleo_V2_2_1,LADM_COL_V1_1;
 
-  /** Este tema almacena espec韋icamente las clases que definen la divisi髇 administrativa desde el punto de vista operativo de catastro.
+  /** Este tema almacena espec铆ficamente las clases que definen la divisi贸n administrativa desde el punto de vista operativo de catastro.
    */
   TOPIC LimitesOperativosCatastro =
 
-    /** Zona ocupada por un sector catastral determinado y su determinaci髇 topon韒ica y catastral.
+    /** Zona ocupada por un sector catastral determinado y su determinaci贸n topon铆mica y catastral.
      */
     CLASS SectorCatastral =
-      /** C骴igo de identificaci髇 鷑ica del sector catastral.
+      /** C贸digo de identificaci贸n 煤nica del sector catastral.
        */
       codigo : MANDATORY TEXT*2;
       /** Nombre por el que es conocido el sector catastral.
        */
       nombre : MANDATORY TEXT*50;
-      /** Tipo de geometr韆 y su representaci髇 georrefenciada que definen los l韒ites y el 醨ea ocupada por el sector catastral.
+      /** Tipo de geometr铆a y su representaci贸n georrefenciada que definen los l铆mites y el 谩rea ocupada por el sector catastral.
        */
       geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
     END SectorCatastral;
 
-    /** Zona ocupada por una localidad o comuna dadas y su determinaci髇 topon韒ica y catastral.
+    /** Zona ocupada por una localidad o comuna dadas y su determinaci贸n topon铆mica y catastral.
      */
     CLASS LocalidadComuna =
-      /** Codigo de identificaci髇 鷑ica de la localidad o comuna.
+      /** Codigo de identificaci贸n 煤nica de la localidad o comuna.
        */
       codigo : MANDATORY TEXT*2;
       /** Nombre por el que es conocida la localidad o comuna.
        */
       nombre : MANDATORY TEXT*50;
-      /** Tipo de geometr韆 y su representaci髇 georrefenciada que definen los l韒ites y el 醨ea ocupada por la localidad o comuna.
+      /** Tipo de geometr铆a y su representaci贸n georrefenciada que definen los l铆mites y el 谩rea ocupada por la localidad o comuna.
        */
       geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
     END LocalidadComuna;
 
-    /** Zona ocupada por un barrio dado y su determinaci髇 topon韒ica y catastral.
+    /** Zona ocupada por un barrio dado y su determinaci贸n topon铆mica y catastral.
      */
     CLASS Barrio =
-      /** Codigo de identificaci髇 鷑ica del barrio.
+      /** Codigo de identificaci贸n 煤nica del barrio.
        */
       codigo : MANDATORY TEXT*2;
       /** Nombre por el que es conocido el barrio.
        */
       nombre : MANDATORY TEXT*50;
-      /** Tipo de geometr韆 y su representaci髇 georrefenciada que definen los l韒ites y el 醨ea ocupada por el barrio.
+      /** Tipo de geometr铆a y su representaci贸n georrefenciada que definen los l铆mites y el 谩rea ocupada por el barrio.
        */
       geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
     END Barrio;
 
-    /** 羠ea ocupada por una zona catastral determinada y su determinaci髇 topon韒ica y catastral.
+    /** 脕rea ocupada por una zona catastral determinada y su determinaci贸n topon铆mica y catastral.
      */
     CLASS Zona =
-      /** C骴igo de identificaci髇 鷑ica de la zona catastral.
+      /** C贸digo de identificaci贸n 煤nica de la zona catastral.
        */
       codigo : MANDATORY TEXT*2;
       /** Nombre por el que es conocida la zona.
@@ -62,33 +62,33 @@ VERSION "2017-06-02"  =
       nombre : MANDATORY TEXT*50;
       /** Tipo de zona delimitada por la instancia.
        */
-      tipo_Zona : Catastro_Registro_Nucleo_V2_2_1.COL_ZonaTipo;
-      /** Tipo de geometr韆 y su representaci髇 georrefenciada que definen los l韒ites y el 醨ea ocupada por la zona.
+      tipo_Zona : Catastro_Registro_Nucleo_V2_2_0.COL_ZonaTipo;
+      /** Tipo de geometr铆a y su representaci贸n georrefenciada que definen los l铆mites y el 谩rea ocupada por la zona.
        */
       geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
     END Zona;
 
-    /** Zona ocupada por una manzana o verdad dadas y su determinaci髇 topon韒ica y catastral.
+    /** Zona ocupada por una manzana o verdad dadas y su determinaci贸n topon铆mica y catastral.
      */
     CLASS ManzanaVereda =
-      /** C骴igo de identificaci髇 鷑ica de la manzana o vereda.
+      /** C贸digo de identificaci贸n 煤nica de la manzana o vereda.
        */
       codigo : MANDATORY TEXT*4;
       /** Nombre por el que es conocida la vereda.
        */
       nombre : MANDATORY TEXT*50;
-      /** Tipo de geometr韆 y su representaci髇 georrefenciada que definen los l韒ites y el 醨ea ocupada por la manzana o vereda.
+      /** Tipo de geometr铆a y su representaci贸n georrefenciada que definen los l铆mites y el 谩rea ocupada por la manzana o vereda.
        */
       geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
     END ManzanaVereda;
 
-    /** Zona homog閚ea desde el punto de vista del nivel de tolerancia aplicable en el levantamiento catastral.
+    /** Zona homog茅nea desde el punto de vista del nivel de tolerancia aplicable en el levantamiento catastral.
      */
     CLASS ZonaNivelTolerancia =
-      /** C骴igo de identificaci髇 鷑ica de la zona.
+      /** C贸digo de identificaci贸n 煤nica de la zona.
        */
       codigo : MANDATORY TEXT*1;
-      /** Tipo de geometr韆 y su representaci髇 georrefenciada que definen los l韒ites y el 醨ea ocupada por la zona.
+      /** Tipo de geometr铆a y su representaci贸n georrefenciada que definen los l铆mites y el 谩rea ocupada por la zona.
        */
       geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
     END ZonaNivelTolerancia;
@@ -144,7 +144,7 @@ VERSION "2017-06-02"  =
 
   END LimitesPoliticoAdministrativos;
 
-  /** Topic para separar las clases del paquete de Topograf韆 y Representaci髇 que se usan de apoyo en el catastro.
+  /** Topic para separar las clases del paquete de Topograf铆a y Representaci贸n que se usan de apoyo en el catastro.
    */
   TOPIC Auxiliares =
     DEPENDS ON Catastro_Registro_Nucleo_V2_2_1.Catastro_Registro;
@@ -194,8 +194,8 @@ VERSION "2017-06-02"  =
     /** Clase especializada a patir de LA_Punto del modelo de catastro cuya finalidad es indicar el tipo de punto que se utiliza como referencia.
      */
     CLASS EstructuraPuntual
-    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Punto =
-      /** Descripci髇 del tipo de punto que se indica.
+    EXTENDS LADM_COL.LADM_Nucleo.LA_Punto =
+      /** Descripci贸n del tipo de punto que se indica.
        */
       tipo : COL_EstructuraPuntualTipo;
     END EstructuraPuntual;
