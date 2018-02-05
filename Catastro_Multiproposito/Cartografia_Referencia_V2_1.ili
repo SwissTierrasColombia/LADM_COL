@@ -1,4 +1,4 @@
-INTERLIS 2.3;
+﻿INTERLIS 2.3;
 
 MODEL Cartografia_Referencia_V2_1 (es)
 AT "mailto:vmbp@localhost"
@@ -62,7 +62,7 @@ VERSION "2017-06-02"  =
       nombre : MANDATORY TEXT*50;
       /** Tipo de zona delimitada por la instancia.
        */
-      tipo_Zona : Catastro_Registro_Nucleo_V2_2_0.COL_ZonaTipo;
+      tipo_Zona : Catastro_Registro_Nucleo_V2_2_1.COL_ZonaTipo;
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por la zona.
        */
       geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
@@ -194,7 +194,7 @@ VERSION "2017-06-02"  =
     /** Clase especializada a patir de LA_Punto del modelo de catastro cuya finalidad es indicar el tipo de punto que se utiliza como referencia.
      */
     CLASS EstructuraPuntual
-    EXTENDS LADM_COL.LADM_Nucleo.LA_Punto =
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Punto =
       /** Descripción del tipo de punto que se indica.
        */
       tipo : COL_EstructuraPuntualTipo;
