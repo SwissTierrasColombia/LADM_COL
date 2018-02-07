@@ -9,6 +9,7 @@ INTERLIS 2.3;
  * !!-----------------------------------------------------------
  * !!
  * !! 30.01.2018/fm : Cambio del tipo de dato del atributo Ext_Direccion de la clase Unidad Espacial a ExtDireccion; atributo ext_PID de la calse LA_Interesado cambia de OID a ExtInteresado; Cambio de cardinalidad en relacion miembros entre LA_Interesado y LA_Agrupacion_Interesados de 0..1 a 0..*
+ * !! 07.02.2018/fm-gc: Ajuste al tipo de dato de la unidad Peso, pasa a tener precision 1 para evitar ser tratado cmo atributo entero y aumentar su tamaño
  * !!
  * !!-----------------------------------------------------------
  * !!
@@ -148,7 +149,7 @@ VERSION "2018-01-30 V1.1.0"  =
         Otro
       );
 
-      Peso = 0 .. 999999999999 [LADM_COL_V1_1.COP];
+      Peso = 0.0 .. 999999999999.0 [LADM_COL_V1_1.COP];
 
       LA_Agrupacion_Interesados_Tipo = (
         Asociacion,
