@@ -34,6 +34,7 @@ INTERLIS 2.3;
  * !! 02.11.2017/ : Cambio del nombre del modelo de Catastro_COL_ES a Catastro_Registro_Nucleo
  * !! 07.11.2017/fm: Cambio de nombre a la clase CadenaCarasLindero a CadenaCarasLimite 
  * !! 14.11.2017/fm : taducción del dominio COL_BuildingUnitTipo
+ * !! 14.12.2017/fm : definicion de extends entre topics catastro registro nucleo y Ladm_nucleo
  * !!
  * !!-----------------------------------------------------------
  * !!
@@ -294,7 +295,8 @@ VERSION "2017-07-12 V2.1.6"  =
   STRUCTURE COL_ServidumbreTipo_Terreno_Servidumbre = value : MANDATORY COL_ServidumbreTipo; END COL_ServidumbreTipo_Terreno_Servidumbre;
   STRUCTURE COL_TerritorioAgricola_Terreno_Territorio_Agricola = value : MANDATORY COL_TerritorioAgricola; END COL_TerritorioAgricola_Terreno_Territorio_Agricola;
 
-  TOPIC Catastro_Registro =
+  TOPIC Catastro_Registro
+  EXTENDS LADM_COL.LADM_Nucleo =
     DEPENDS ON LADM_COL.LADM_Nucleo;
 
     /** Clase que registra las instancias de los derechos que un interesado ejerce sobre un predio. Es una especialización de la clase LA_RRR del propio modelo.
