@@ -36,6 +36,7 @@ INTERLIS 2.3;
  * !! 14.11.2017/fm : taducción del dominio COL_BuildingUnitTipo
  * !! 14.12.2017/fm : definicion de extends entre topics catastro registro nucleo y Ladm_nucleo
  * !! 30.01.2018/fm : Cambio del tipo de dato del atributo Ext_Direccion de la clase Unidad Espacial a ExtDireccion; atributo ext_PID de la calse LA_Interesado cambia de OID a ExtInteresado; Cambio de cardinalidad en relacion miembros entre LA_Interesado y LA_Agrupacion_Interesados de 0..1 a 0..*
+ * !! 19.02.2018/fm : Cambio en longitud de atributo DocumentoIdentidad de 10 a 12 posiciones
  * !!
  * !!-----------------------------------------------------------
  * !!
@@ -356,7 +357,7 @@ VERSION "2018-01-30 V2.2.1"  =
     EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Interesado =
       /** Documento de identidad personal.
        */
-      Documento_Identidad : MANDATORY TEXT*10;
+      Documento_Identidad : MANDATORY TEXT*12;
       /** Tipo de documento del que se trata.
        */
       Tipo_Documento : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_InteresadoDocumentoTipo;
