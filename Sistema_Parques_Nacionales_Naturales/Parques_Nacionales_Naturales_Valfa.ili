@@ -1,0 +1,249 @@
+INTERLIS 2.3;
+
+MODEL Parques_Nacionales_Naturales_Valfa (es)
+AT "mailto:ASUS@localhost"
+VERSION "2018-01-18"  =
+  IMPORTS ISO19107_V1_MAGNABOG,LADM_COL_V1_1;
+
+  DOMAIN
+
+    PNN_AreaProtegidaCategoria = (
+      /** Área de extensión que permita su autorregulación ecológica y cuyos ecosistemas en general no han sido alterados substancialmente por la explotación u ocupación humana, y donde las especies vegetales de animales, complejos geomorfológicos y manifestaciones históricas o culturales tienen valor científico, educativo, estético y recreativo Nacional y para su perpetuación se somete a un régimen adecuado de manejo
+       */
+      !!@ ili2db.dispName = "Parque Nacional Natural"
+      PNN,
+      /** Área dedicada a preservar especies o comunidades vegetales/animales para conservar recursos genéticos de la flora/fauna nacional.
+       */
+      !!@ ili2db.dispName = "Santuario de Flora y/o Fauna"
+      SFF,
+      /** Área que, por poseer condiciones especiales de flora o gea es un escenario natural raro.
+       */
+      !!@ ili2db.dispName = "Área Natural Única"
+      ANU,
+      /** Área en la cual existen condiciones primitivas de flora, fauna y gea, y está destinada a la conservación, investigación y estudio de sus riquezas naturales
+       */
+      !!@ ili2db.dispName = "Reserva Nacional Natural"
+      RNN,
+      /** Faja de terreno con carretera, que posee bellezas panorámicas singulares o valores naturales o culturales, conservada para fines de educación y esparcimiento.
+       */
+      !!@ ili2db.dispName = "Vía Parque"
+      ViaParque
+    );
+
+    PNN_CategoriaDeManejoZona = (
+      /** Incluye los espacios para adelantar actividades productivas y extractivas compatibles con el objetivo de conservación del área protegida
+       */
+      UsoSostenible(
+        /** Son espacios definidos con el fin de aprovechar en forma sostenible la biodiversidad contribuyendo a su preservación o restauración
+         */
+        AprovechamientoSostenible,
+        /** Son espacios donde se permiten actividades controladas, agrícolas, ganaderas, mineras, forestales, industriales, habitacionales no nucleadas con restricciones en la densidad de ocupación y la construcción y ejecución de proyectos de desarrollo, bajo un esquema compatible con los objetivos de conservación del área protegida.
+         */
+        Desarrollo
+      ),
+      /** Es un espacio dirigido al restablecimiento parcial o total a un estado anterior, de la composición, estructura y función de la diversidad biológica. En las zonas de restauración se pueden llevar a cabo procesos inducidos por acciones humanas, encaminados al cumplimiento de los objetivos de conservación del área protegida. Un área protegida puede tener una o más zonas de restauración, las cuales son transitorias hasta que se alcance el estado de conservación deseado y conforme los objetivos de conservación del área, caso en el cual se denominará de acuerdo con la zona que corresponda a la nueva situación. Será el administrador del área protegida quien definirá y pondrá en marcha las acciones necesarias para el mantenimiento de la zona restaurada
+       */
+      Restauracion,
+      /** Es un espacio donde el manejo está dirigido ante todo a evitar su alteración, degradación o transformación por la actividad humana. Un área protegida puede contener una o varias zonas de preservación, las cuales se mantienen como intangibles para el logro de los objetivos de conservación. Cuando por cualquier motivo la intangibilidad no sea condición suficiente para el logro de los objetivos de conservación, esta zona debe catalogarse como de restauración.
+       */
+      Preservacion,
+      /** Son aquellos espacios definidos en el plan de manejo con el fin de alcanzar objetivos particulares de gestión a través de la educación, la recreación, el ecoturismo y el desarrollo de infraestructura de apoyo a la investigación
+       */
+      GeneralUsoPublico(
+        /** Es aquella porción, en la que se permite el acceso a los visitantes a través del desarrollo de una infraestructura mínima tal como senderos o miradores
+         */
+        Recreacion,
+        /** Es aquella porción, en la que se permite el desarrollo controlado de infraestructura mínima para el acojo de los visitantes y el desarrollo de facilidades de interpretación
+         */
+        AltaDensidadUso
+      )
+    );
+
+    PNN_Territorial = (
+      /** Comprende el área del Departamento del Chocó, los municipios El Tambo, Guapi, Lopez de Micay y Timbiqui en el Departamento del Cauca, los municipios de Barbacoas, Cumbitara, El Charco, Francisco Pizarro (Salahonda), La Tola, Maguí (Payán), Mosquera, Olaya Herrera (Bocas de Satinga), Policarpa, Roberto Payan (San Jose), Tumaco y Santa Barbara (Iscuandé) en el Departamento del Nariño, los municipios de Buenaventura, Cali, Dagua y Jamundí en el Departamento del Valle del Cauca y el municipio de Turbo en el Departamento de Antioquia
+       */
+      Pacifico,
+      /** Comprende el área de los Departamento del Archipiélago de San Andrés, Providencia y Santa Catalina, Sucre, Magdalena, Guajira, Córdoba, Cesar, Bolívar, Atlántico y los municipios de Arboletes, Necocli, San Juan de Urabá y San Pedro de Urabá en el Departamento de Antioquia
+       */
+      Caribe,
+      /** Comprende el área de los Departamentos de Arauca, Meta, Vichada y Casanare
+       */
+      Orinoquia,
+      /** Comprende el área de los Departamento de Guanía, Guaviare, Putumayo, Vaupés, los municipios de Acevedo y Palestina en el Departamento del Huila y el municipio de Piamonte en Departamento del Cauca
+       */
+      Amazonas,
+      /** Comprende el área de los Departamentos de Santander, Norte de Santander, Boyacá y Cundinamarca
+       */
+      AndesNororientales,
+      /** Comprende el área de los Departamentos de Antioquia, Caldas, Cauca, Huila, Nariño, Quindío, Risaralda, Tolima y Valle del Cauca
+       */
+      AndesOccidentales
+    );
+
+    PNN_TipoUsoDerecho = (
+      Recreacion(
+        /** Son las actividades de esparcimiento permitidas a los visitantes de áreas del Sistema de Parques Nacionales
+         */
+        Recreacion__BaTu,
+        /** Son las actividades de esparcimiento permitidas a los visitantes de áreas del Sistema de Parques Nacionales
+         */
+        Recreacion__Vatu,
+        /** Son las actividades de esparcimiento permitidas a los visitantes de áreas del Sistema de Parques Nacionales
+         */
+        Recreacion__PTu,
+        /** Son las actividades de esparcimiento permitidas a los visitantes de áreas del Sistema de Parques Nacionales
+         */
+        Recreacion__STu,
+        /** Son las actividades de esparcimiento permitidas a los visitantes de áreas del Sistema de Parques Nacionales
+         */
+        Recreacion__MPr,
+        /** Son las actividades de esparcimiento permitidas a los visitantes de áreas del Sistema de Parques Nacionales
+         */
+        Recreacion__CuTu,
+        /** Son las actividades de esparcimiento permitidas a los visitantes de áreas del Sistema de Parques Nacionales
+         */
+        Recreacion__VmPr,
+        /** Son las actividades de esparcimiento permitidas a los visitantes de áreas del Sistema de Parques Nacionales
+         */
+        Recreacion__MBu,
+        /** Son las actividades de esparcimiento permitidas a los visitantes de áreas del Sistema de Parques Nacionales
+         */
+        Recreacion_Cultura__PTu,
+        /** Son las actividades de esparcimiento permitidas a los visitantes de áreas del Sistema de Parques Nacionales
+         */
+        Recreacion_produccionAutosubsistencia__MTu,
+        /** Son las actividades de esparcimiento permitidas a los visitantes de áreas del Sistema de Parques Nacionales
+         */
+        Recreacion_produccionAutosubsistencia__VmPr
+      ),
+      PescaSubsistencia,
+      Habitacional,
+      Comercial,
+      Servicios,
+      Produccion(
+        ProduccionAutosubsistencia__BAPr,
+        ProduccionAutosubsistencia__MPrP,
+        ProduccionAutosubsistencia__MPr
+      )
+    );
+
+    PNN_TipoUsoResponsabilidad = (
+      Conservacion(
+        /** Son las actividades que contribuyen al mantenimiento en su estado propio los recursos naturales renovables y al de las bellezas panorámicas y fomentan el equilibrio biológico de los ecosistemas
+         */
+        Conservacion__PA,
+        /** Son las actividades que contribuyen al mantenimiento en su estado propio los recursos naturales renovables y al de las bellezas panorámicas y fomentan el equilibrio biológico de los ecosistemas
+         */
+        Conservacion__BAPr,
+        /** Son las actividades que contribuyen al mantenimiento en su estado propio los recursos naturales renovables y al de las bellezas panorámicas y fomentan el equilibrio biológico de los ecosistemas
+         */
+        Conservacion_ProduccionAutosubsistencia__MPrP,
+        /** Son las actividades que contribuyen al mantenimiento en su estado propio los recursos naturales renovables y al de las bellezas panorámicas y fomentan el equilibrio biológico de los ecosistemas
+         */
+        Conservacion_Investigacion__MPr,
+        /** Son las actividades que contribuyen al mantenimiento en su estado propio los recursos naturales renovables y al de las bellezas panorámicas y fomentan el equilibrio biológico de los ecosistemas
+         */
+        Conservacion_Cultura_ProduccionAutosubsistencia__SPr
+      ),
+      /** Son las actividades permitidas para enseñar lo relativo al manejo, utilización y conservación de valores existentes y las dirigidas a promover el conocimiento de las riquezas naturales e históricas del país y de la necesidad de conservarlas.
+       * Son las actividades tendientes a promover el conocimiento de valores propios de una región
+       */
+      Educacion_Cultura,
+      /** Son las actividades que tienden a mitigar, prevenir y minimizar o disminuir las presiones que ejercen sobre los objetivos de conservación del área y a su vez desarrollar diferentes gestiones de educación ambiental que se deben llevar con las comunidades y los monitoreos y seguimiento de los recursos naturales
+       */
+      Proteccion_Control
+    );
+
+    PNN_TipoUsoRestriccion = (
+      /** Son las actividades, estudios e investigaciones, para la restauración total o parcial de un ecosistema o para acumulación de elementos o materias que lo condicionan
+       */
+      Recuperacion
+    );
+
+    PNN_ZonaAreaProtegidaTipo = (
+      /** Zona que no ha sido alterada o que ha sufrido mínima intervención humana en sus estructuras naturales
+       */
+      Primitiva,
+      /** Zona en la cual el ambiente ha de mantenerse ajeno a la mínima alteración humana, a fin de que las condiciones naturales se conserven a perpetuidad
+       */
+      Intangible,
+      /** Zona que ha sufrido alteraciones en su ambiente natural y que está destinada al logro de la recuperación de la naturaleza que allí existió o a obtener mediante mecanismos de restauración un estado deseado del ciclo de evolución ecológica; lograda la recuperación o el estado deseado esta zona será denominada de acuerdo con la categoría que le corresponda
+       */
+      DeRecuperacionNatural,
+      /** Zona en la cual se encuentran vestigios arqueológicos, huellas o señales de culturas pasadas, supervivencia de culturas indígenas, rasgos históricos o escenarios en los cuales tuvieron ocurrencia hechos trascendentales de la vida nacional
+       */
+      HistoricoCultural,
+      /** Zona que por sus condiciones naturales ofrece la posibilidad de dar ciertas facilidades al visitante para su recreación al aire libre, sin que esta pueda ser causa de modificaciones significativas del ambiente
+       */
+      DeRecreacionGeneralExterior,
+      /** Zona en la cual por sus condiciones naturales, características y ubicación, pueden realizarse actividades recreativas y otorgar educación ambiental de tal manera que armonice con la naturaleza el lugar produciendo la menor alteración posible
+       */
+      AltaDensidadDeUso,
+      /** Zona en la cual se atenúan las perturbaciones causadas por la actividad humana en las zonas circunvecinas a las distintas áreas del Sistema de Parques Nacionales Naturales, con el fin de impedir que llegue a causar disturbios o alteraciones en la ecología o en la vida silvestre de estas áreas
+       */
+      Amortiguadora
+    );
+  STRUCTURE PNN_Territorial_AreaProtegidaPNN_Territorial = value : MANDATORY PNN_Territorial; END PNN_Territorial_AreaProtegidaPNN_Territorial;
+
+  TOPIC Parques_Nacionales_Naturales
+  EXTENDS LADM_COL_V1_1.LADM_Nucleo =
+    DEPENDS ON LADM_COL_V1_1.LADM_Nucleo;
+
+    CLASS AreaProtegidaPNN
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_BAUnit =
+      Nombre_Area_Protegida : MANDATORY TEXT*20;
+      id_PNN : MANDATORY 0 .. 999999999999;
+      Categoria : MANDATORY Parques_Nacionales_Naturales_Valfa.PNN_AreaProtegidaCategoria;
+      Territorial : BAG {1..*} OF Parques_Nacionales_Naturales_Valfa.PNN_Territorial_AreaProtegidaPNN_Territorial;
+      Descripcion : MTEXT*800;
+      Fecha_Acto_Administrativo : INTERLIS.XMLDate;
+      URL : TEXT*20;
+      Fecha_Registro_Runap : INTERLIS.XMLDate;
+      Geometria : ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
+    END AreaProtegidaPNN;
+
+    CLASS PlanDeManejo
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.COL_FuenteAdministrativa =
+      inicioPeriodo : MANDATORY INTERLIS.XMLDate;
+      finPeriodo : MANDATORY INTERLIS.XMLDate;
+      fechaAprobacion : MANDATORY INTERLIS.XMLDate;
+    END PlanDeManejo;
+
+    CLASS PNN_Derecho
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
+      Actividades : MANDATORY MTEXT*20;
+      Tipo_Uso_Derecho : MANDATORY Parques_Nacionales_Naturales_Valfa.PNN_TipoUsoDerecho;
+    END PNN_Derecho;
+
+    CLASS PNN_Responsabilidad
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
+      Actividades : MANDATORY MTEXT*20;
+      Tipo_Uso_Responsabilidad : MANDATORY Parques_Nacionales_Naturales_Valfa.PNN_TipoUsoResponsabilidad;
+    END PNN_Responsabilidad;
+
+    CLASS PNN_Restriccion
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
+      Actividades : MANDATORY MTEXT*20;
+      Tipo_Uso_Restriccion : MANDATORY Parques_Nacionales_Naturales_Valfa.PNN_TipoUsoRestriccion;
+    END PNN_Restriccion;
+
+    CLASS ZonaAreaProtegida
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_BAUnit =
+      Tipo_Zona : MANDATORY Parques_Nacionales_Naturales_Valfa.PNN_ZonaAreaProtegidaTipo;
+      Categoria_De_Manejo : MANDATORY Parques_Nacionales_Naturales_Valfa.PNN_CategoriaDeManejoZona;
+      Geometria : ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
+    END ZonaAreaProtegida;
+
+    ASSOCIATION resolucionCreacion =
+      areaProtegida -- {0..*} AreaProtegidaPNN;
+      resolucion -- {0..*} LADM_COL_V1_1.LADM_Nucleo.COL_FuenteAdministrativa;
+    END resolucionCreacion;
+
+    ASSOCIATION zonaarea =
+      zonaAreaProtegida -- {1..*} ZonaAreaProtegida;
+      AreaProtegidaPNN -<#> {1} AreaProtegidaPNN;
+    END zonaarea;
+
+  END Parques_Nacionales_Naturales;
+
+END Parques_Nacionales_Naturales_Valfa.
