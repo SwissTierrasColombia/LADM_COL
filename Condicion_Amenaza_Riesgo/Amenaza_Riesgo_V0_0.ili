@@ -1,0 +1,60 @@
+INTERLIS 2.3;
+
+MODEL Amenaza_Riesgo_V0_0 (es)
+AT "mailto:agenciadeimplementacion@incige.com"
+VERSION "2018-01-24"  =
+  IMPORTS ISO19107_V1_MAGNABOG,LADM_COL_V1_1;
+
+  DOMAIN
+
+    AR_RestriccionTipo = (
+      NoUrbanizar,
+      HabitatRestringido
+    );
+
+    AR_RiesgoCondicion = (
+      Mitigable,
+      NoMitigable
+    );
+
+    AR_RiesgoNivel = (
+      Alto,
+      Medio,
+      Bajo
+    );
+
+    AR_RiesgoTipo = (
+      AglomeracionesPublico,
+      Construcciones,
+      IncendioForestal,
+      MovimientoEnMasa,
+      Inundacion,
+      Sismico,
+      Tecnologico
+    );
+
+  TOPIC Amenaza_Riesgo
+  EXTENDS LADM_COL_V1_1.LADM_Nucleo =
+    DEPENDS ON LADM_COL_V1_1.LADM_Nucleo;
+
+    CLASS AR_Restriccion
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
+      Tipo : MANDATORY Amenaza_Riesgo_V0_0.AR_RestriccionTipo;
+    END AR_Restriccion;
+
+    CLASS PlanGestionRiesgo
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.COL_FuenteAdministrativa =
+      periodo : TEXT*20;
+    END PlanGestionRiesgo;
+
+    CLASS ZonaAmenaza_Riesgo
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_BAUnit =
+      Tipo_Riesgo : MANDATORY Amenaza_Riesgo_V0_0.AR_RiesgoTipo;
+      Nivel_Riesgo : MANDATORY Amenaza_Riesgo_V0_0.AR_RiesgoNivel;
+      Condicion : MANDATORY Amenaza_Riesgo_V0_0.AR_RiesgoCondicion;
+      Geometria : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
+    END ZonaAmenaza_Riesgo;
+
+  END Amenaza_Riesgo;
+
+END Amenaza_Riesgo_V0_0.
