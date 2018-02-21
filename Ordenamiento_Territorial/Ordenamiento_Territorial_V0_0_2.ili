@@ -1,7 +1,7 @@
 INTERLIS 2.3;
 
 MODEL Ordenamiento_Territorial_V0_0_2 (es)
-AT "mailto:ASUS@localhost"
+AT "mailto:agenciadeimplementacion@incige.com"
 VERSION "2018-01-24"  =
   IMPORTS ISO19107_V1_MAGNABOG,LADM_COL_V1_1;
 
