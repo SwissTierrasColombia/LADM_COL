@@ -16,6 +16,7 @@ INTERLIS 2.3;
  * * !! 09.11.2017/ : cambio de nombre al dominio COL_DestinoEconomicoTipo
  * * !! 01.02.2018/ : Cambio en cardinalidad en asociacion avaluoPredio de 1 a 0..1
  * * !! 05.02.2018/ : Cambio en cardinalidad en asociaciones avaluoConstruccion y AvaluoUnidadConstruccion de 1 a 0..1
+ * * !! 07.03.2018/fm-gc : Cambio en tipo de geometria de las clases Zona_Homogenea_Fisica y Zona_Homogenea_Geoeconomica de GM_Surface2D a GM_MultiSurface2D
  * * !!
  * * !!-----------------------------------------------------------
  * * !!
@@ -749,7 +750,7 @@ VERSION "2018-02-01 V2.2.1"  // Inicia como V21 por provenir de la extraccion a 
       Identificador : MANDATORY TEXT*20;
       /** Definición de la geometría espacial georreferenciada de la zona homogénea física, delimitada mediante un polígono que contiene sus linderos y la superficie ocupada.
        */
-      Geometria : MANDATORY ISO19107_V1_MAGNABOG.GM_Surface2D;
+      Geometria : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
     END Zona_Homogenea_Fisica;
 
     /** Esta clase permite gestionar las zonas con características económicas y de localización geográfica similares, definidas para caracterizar el avalúo.
@@ -763,7 +764,7 @@ VERSION "2018-02-01 V2.2.1"  // Inicia como V21 por provenir de la extraccion a 
       Valor : MANDATORY LADM_COL_V1_1.LADM_Nucleo.Integer;
       /** Definición de la geometría espacial georreferenciada de la zona homogénea geoeconómica, delimitada mediante un polígono que contiene sus linderos y la superficie ocupada.
        */
-      Geometria : MANDATORY ISO19107_V1_MAGNABOG.GM_Surface2D;
+      Geometria : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
     END Zona_Homogenea_Geoeconomica;
 
   END Avaluos;
