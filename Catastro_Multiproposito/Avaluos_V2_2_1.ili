@@ -17,6 +17,7 @@ INTERLIS 2.3;
  * * !! 01.02.2018/ : Cambio en cardinalidad en asociacion avaluoPredio de 1 a 0..1
  * * !! 05.02.2018/ : Cambio en cardinalidad en asociaciones avaluoConstruccion y AvaluoUnidadConstruccion de 1 a 0..1
  * * !! 07.03.2018/fm-gc : Cambio en tipo de geometria de las clases Zona_Homogenea_Fisica y Zona_Homogenea_Geoeconomica de GM_Surface2D a GM_MultiSurface2D
+ * * !! 08.03.2018/fm-gc: se ajusta la cardinalidad de atributo Comun_Uso_Exclusivo en la clase Predio
  * * !!
  * * !!-----------------------------------------------------------
  * * !!
@@ -544,7 +545,7 @@ VERSION "2018-02-01 V2.2.1"  // Inicia como V21 por provenir de la extraccion a 
       Num_Mezanines : LADM_COL_V1_1.LADM_Nucleo.Integer;
       /** Elemento situado en zona común que es de uso exclusivo.
        */
-      Comun_Uso_Exclusivo : MANDATORY Avaluos_V2_2_1.COL_ComunExclusivoTipo;
+      Comun_Uso_Exclusivo : Avaluos_V2_2_1.COL_ComunExclusivoTipo;
       /** Descripción de la distancia a los hitos.
        */
       Cercania_Hitos : MANDATORY Avaluos_V2_2_1.COL_CercaniaHitosTipo;

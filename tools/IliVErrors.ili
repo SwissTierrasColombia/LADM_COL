@@ -1,0 +1,37 @@
+INTERLIS 2.3;
+
+!! Un modelo "simple" (nivel de archivo SHAPE). 
+!! Para facilitar al usuario la revision de los errores 
+!! (carga como una capa).
+
+MODEL IliVErrors
+  AT "mailto:ceis@localhost"
+  VERSION "2016-06-10" =
+
+  TOPIC ErrorLog =
+
+    CLASS Error =
+    	 Message: MANDATORY TEXT*255; !! Mensajes de error especificos por idioma, inclusive valores atributos/alias resuelto pero sin Tid, TechId, UserId, etc.
+    	 Type: MANDATORY (
+    	 	Error, 
+    	 	Warning, !! Un "ERROR" que el usuario ha configurado como aceptable 
+    	 	Info, !! Informacion, por ejemplo de la versión de Software
+    	 	DetailInfo !! !! Igual que Info, pero más importante/relevante
+    	 	);
+         ObjTag: TEXT*255; !! Nombre de Topic o Class calificado sobre cual refiere el TID, p.e. "Catastro_V1_2_ES.LA_Point.PuntoControl"; En caso de errores de programa inexistente.
+         !!Tid: TEXT*40; !! En caso de validacion sobre la BD eventualmente no existente
+         !!TechtId: TEXT*40; !! La clave interna de software 
+         UserId: TEXT*255; !! Texto con la clave tematica (si conocida), ejemplo "NBIdent 255, Numero 30" 
+         IliQName: TEXT*255; !! Nombre cualificado de Topic-, Class-, Constraint-, Rol- o Atributo, ejemplo "Beispiel1.Bodenbedeckung.Gebaeude.Art" ; En caso de errores de programa inexistente.
+         DataSource: TEXT*255; !! ejemplo Nombre Archivo o Nombre DB
+         Line: 1 .. 1000000000; !! Numero de linea; En caso de validacion sobre la BD eventualmente aun no existente
+         Geometry : COORD -999999999.00 .. 999999999.00, -999999999.00 .. 999999999.00; !! La coordenada del error o coordenada en/cerca del objeto con error
+         !!TechDetails : MTEXT; !! eventualmente detalles tecnicos, ejemplo de un Stacktrace
+    END Error;
+
+    
+  END ErrorLog;
+
+END IliVErrors.
+
+
