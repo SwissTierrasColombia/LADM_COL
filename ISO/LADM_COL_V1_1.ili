@@ -12,6 +12,8 @@ INTERLIS 2.3;
  * !! 07.02.2018/fm-gc: Ajuste al tipo de dato de la unidad Peso, pasa a tener precision 1 para evitar ser tratado cmo atributo entero y aumentar su tamaño
  * !! 19.02.2018/fm-gc: ampliación del dominio al tipo de dato Peso
  * !! 26.02.2018/fm-lj: cambio del nombre del dominio ISO19125_Type a ISO19125_Tipo
+ * !! 19.04.2018/vb fm: Ajuste al constraint Fraccion, denominador mayor a 0
+ * !! 19.04.2018/vb fm: Cambio en la cardinalidad del atributyo u_Local_Id de la clase LA_BAUnit de 0..1 a 1
  * !!
  * !!-----------------------------------------------------------
  * !!
@@ -355,9 +357,9 @@ VERSION "2018-01-30 V1.1.0"  =
        */
       Numerador : MANDATORY Integer;
       MANDATORY CONSTRAINT
-        Denominador >= 0;
+        Denominador > 0;
       MANDATORY CONSTRAINT
-        Numerador >= 0;
+        Numerador > 0;
       MANDATORY CONSTRAINT
         Denominador >= Numerador;
     END Fraccion;
@@ -851,7 +853,7 @@ VERSION "2018-01-30 V1.1.0"  =
       u_Espacio_De_Nombres : MANDATORY CharacterString;
       /** Identificador único local.
        */
-      u_Local_Id : CharacterString;
+      u_Local_Id : MANDATORY CharacterString;
     END LA_BAUnit;
 
     ASSOCIATION rrrFuente =
