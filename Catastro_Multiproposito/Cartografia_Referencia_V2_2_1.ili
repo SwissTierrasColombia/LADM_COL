@@ -1,6 +1,7 @@
 INTERLIS 2.3;
 
 /** !! 02.08.2018: FM/ Actualizacion de dependencia a la version 2.2.1 del nucleo y LADM 1.1
+ * !! 19.04.2018: FM-GC/ Cambio de geometrias de GM_Surface2D a GM_MultiSurface2D
  */
 MODEL Cartografia_Referencia_V2_2_1 (es)
 AT "mailto:vmbp@localhost"
@@ -22,7 +23,7 @@ VERSION "2017-06-02"  =
       nombre : MANDATORY TEXT*50;
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por el sector catastral.
        */
-      geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
+      geometria : ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
     END SectorCatastral;
 
     /** Zona ocupada por una localidad o comuna dadas y su determinación toponímica y catastral.
@@ -36,7 +37,7 @@ VERSION "2017-06-02"  =
       nombre : MANDATORY TEXT*50;
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por la localidad o comuna.
        */
-      geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
+      geometria : ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
     END LocalidadComuna;
 
     /** Zona ocupada por un barrio dado y su determinación toponímica y catastral.
@@ -50,7 +51,7 @@ VERSION "2017-06-02"  =
       nombre : MANDATORY TEXT*50;
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por el barrio.
        */
-      geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
+      geometria : ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
     END Barrio;
 
     /** Área ocupada por una zona catastral determinada y su determinación toponímica y catastral.
@@ -67,7 +68,7 @@ VERSION "2017-06-02"  =
       tipo_Zona : Catastro_Registro_Nucleo_V2_2_1.COL_ZonaTipo;
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por la zona.
        */
-      geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
+      geometria : ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
     END Zona;
 
     /** Zona ocupada por una manzana o verdad dadas y su determinación toponímica y catastral.
@@ -81,7 +82,7 @@ VERSION "2017-06-02"  =
       nombre : MANDATORY TEXT*50;
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por la manzana o vereda.
        */
-      geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
+      geometria : ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
     END ManzanaVereda;
 
     /** Zona homogénea desde el punto de vista del nivel de tolerancia aplicable en el levantamiento catastral.
@@ -92,7 +93,7 @@ VERSION "2017-06-02"  =
       codigo : MANDATORY TEXT*1;
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por la zona.
        */
-      geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
+      geometria : ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
     END ZonaNivelTolerancia;
 
   END LimitesOperativosCatastro;
@@ -101,35 +102,35 @@ VERSION "2017-06-02"  =
 
     CLASS FronteraNacional =
       Nombre : MANDATORY TEXT*8;
-      geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
+      geometria : ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
     END FronteraNacional;
 
     CLASS DivisionDepartamento =
       Codigo : MANDATORY TEXT*2;
       Nombre : MANDATORY TEXT*40;
       Normatividad : INTERLIS.XMLDateTime;
-      geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
+      geometria : ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
     END DivisionDepartamento;
 
     CLASS DivisionDistrito =
       Codigo : MANDATORY TEXT*2;
       Nombre : MANDATORY TEXT*50;
       Normatividad : INTERLIS.XMLDateTime;
-      geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
+      geometria : ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
     END DivisionDistrito;
 
     CLASS DivisionMunicipio =
       Codigo : MANDATORY TEXT*5;
       Nombre : MANDATORY TEXT*50;
       Normatividad : INTERLIS.XMLDateTime;
-      geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
+      geometria : ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
     END DivisionMunicipio;
 
     CLASS DivisionCentroPoblado =
       Codigo : TEXT*8;
       Nombre : TEXT*50;
       Normatividad : INTERLIS.XMLDateTime;
-      geometria : ISO19107_V1_MAGNABOG.GM_Surface2D;
+      geometria : ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
     END DivisionCentroPoblado;
 
     CLASS PuntoLimite
