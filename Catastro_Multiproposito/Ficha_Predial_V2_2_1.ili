@@ -1,10 +1,12 @@
 INTERLIS 2.3;
 
-/** * !! 01.02.2018/ : Cambio en cardinalidad en asociacion predioFicha_predio de 1 a 0..1
+/** Ficha Predial.
+ * 
+ * 01.02.2018/ : Cambio en cardinalidad en asociacion predioFicha_predio de 1 a 0..1
  */
 MODEL Ficha_Predial_V2_2_1 (es)
-AT "mailto:vmbp@localhost"
-VERSION "2018-02-01 V2.2.1"  // Inicia como V21 por provenir de la extraccion a partir del TOPIC "Ficha" del modelo de Catastro-Registro V21 // =
+AT "http://www.proadmintierra.info/"
+VERSION "V2.2.1"  // 2018-02-01 // =
   IMPORTS Catastro_Registro_Nucleo_V2_2_1,Avaluos_V2_2_1,LADM_COL_V1_1;
 
   DOMAIN

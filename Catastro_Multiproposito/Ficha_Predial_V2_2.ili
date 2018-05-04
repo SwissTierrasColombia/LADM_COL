@@ -1,8 +1,8 @@
 INTERLIS 2.3;
 
 MODEL Ficha_Predial_V2_2 (es)
-AT "mailto:vmbp@localhost"
-VERSION "2017-06-02 V2.1.1"  =
+AT "http://www.proadmintierra.info/"
+VERSION "V2.1.1"  // 2017-06-02 // =
   IMPORTS Catastro_Registro_Nucleo_V2_2_0,Avaluos_V2_1,LADM_COL;
 
   DOMAIN

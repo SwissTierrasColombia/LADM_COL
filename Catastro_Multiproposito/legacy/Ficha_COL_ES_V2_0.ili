@@ -1,8 +1,17 @@
 INTERLIS 2.3;
 
+/** Perfil Nacional colombiano de la ISO 19152 LADM COL generado con INTERLIS 2 - Extension de Ficha predial.
+ * -----------------------------------------------------------
+ * 
+ * -----------------------------------------------------------
+ * 
+ * (c) IGAC y SNR con apoyo de la Cooperacion Suiza
+ * 
+ * -----------------------------------------------------------
+ */
 MODEL Ficha_COL_ES_V2_0 (es)
-AT "mailto:vmbp@localhost"
-VERSION "2017-06-02 V2.1.1"  =
+AT "http://www.proadmintierra.info/"
+VERSION "V2.1.1"  // 2017-06-02 // =
   IMPORTS Catastro_COL_ES_V2_1_6,Avaluos_COL_ES_V2_0;
 
   DOMAIN

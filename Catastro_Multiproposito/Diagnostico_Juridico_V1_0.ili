@@ -1,11 +1,13 @@
 INTERLIS 2.3;
 
-/** !! 07.11.2017/fm: Version inicial del modelo de Diagnóstico jurídico
+/** Diagnostico juridico.
+ * 
+ * !! 07.11.2017/fm: Version inicial del modelo de Diagnóstico jurídico
  * !! 08.11.2017: FM/ Ajuste de las variables del Predio_Juridico conforme al anexo 'Informe de la realidad física y jurídica del barrido predial'
  */
 MODEL Diagnostico_Juridico_V1_0 (es)
 AT "mailto:user@localhost"
-VERSION "2017-09-28 V0.1"  =
+VERSION "V1.0"  // 2017-11-08 // =
   IMPORTS Catastro_Registro_Nucleo_V2_2_0,LADM_COL;
 
   TOPIC Diagnostico_Juridico =

@@ -1,11 +1,13 @@
 INTERLIS 2.3;
 
-/** !! 02.08.2018: FM/ Actualizacion de dependencia a la version 2.2.1 del nucleo y LADM 1.1
- * !! 19.04.2018: FM-GC/ Cambio de geometrias de GM_Surface2D a GM_MultiSurface2D
+/** Cartografia de referencia.
+ * 
+ * 02.08.2018: FM/ Actualizacion de dependencia a la version 2.2.1 del nucleo y LADM 1.1
+ * 19.04.2018: FM-GC/ Cambio de geometrias de GM_Surface2D a GM_MultiSurface2D
  */
 MODEL Cartografia_Referencia_V2_2_1 (es)
-AT "mailto:vmbp@localhost"
-VERSION "2017-06-02"  =
+AT "http://www.proadmintierra.info/"
+VERSION "V2.2.1"  // 2018-04-19 // =
   IMPORTS ISO19107_V1_MAGNABOG,Catastro_Registro_Nucleo_V2_2_1,LADM_COL_V1_1;
 
   /** Este tema almacena específicamente las clases que definen la división administrativa desde el punto de vista operativo de catastro.

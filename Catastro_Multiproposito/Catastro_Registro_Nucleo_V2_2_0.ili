@@ -1,50 +1,48 @@
 INTERLIS 2.3;
 
-/** !!-----------------------------------------------------------
- * !!
- * !! ISO 19152 LADM country profile COL modeled with INTERLIS 2
- * !!
- * !!-----------------------------------------------------------
- * !! revision history
- * !!-----------------------------------------------------------
- * !!
- * !! 10.05.2016/mg: EJEMPLO INTERLIS POR OFERTAS
- * !! 16.06.2016/mg: Taller IGAC/SNR
- * !! 23.08.2016/mg: Relaciones
- * !! 15.09.2016/mg: Comentarios Modelo
- * !! 20.11.2016/aa: Topic Ficha
- * !! 25.11.2016/aa: Ajustes FichaPredio
- * !! 02.12.2016/ss: Nuevas clases, atributos y tipos
- * !! 15.12.2016/lj: Ajuste tipos (IGAC/SNR), BAUnit GM_surface
- * !! 31.03.2017/fm: Simplificación de herencia
- * !! 25.05.2017/fm: Se elimina la relacion HipotecaDerecho, se elimina la clase InteresadoBAUnit, se elimina marca abstract en las clases derivadas de RRR
- * !! 26.05.2017/fm: Se cambian las clases terreno servidumbre de paso y construccion al paquete de unidades espaciales. Se acorta el nombre del Modelo. ajuste al diseño del diagrama de clases. Se elimina InteresadoNacion
- * !! 09.06.2017/vm: Referido al modelo LADM traducido al español
- * !! 09.06.2017/vm: cambio de version a 2.1.1, incluye cambios por LADM en español y de  nombres de atributo por no seguir las convenciones adoptadas.
- * !! 15.06.2017/fm: cambio de version a 2.1.2, se quita el atributo geometría de la clase predio. se reemplaza el atributo OID por los atributos atributos namespace y localId. Se añaden atributos folio matriz y segregados al predio. se elimina el dominio transaccion_registral_tipo
- * !! 20.06.2017/fm: Ajuste a nombres de las clases y atributos LA_
- * !! 04.07.2017/sr: Ajuste de nombres de clases y atributos, creacion de relaciones, ajuste subdominios
- * !! 04.07.2017/fm: Se unifican los modelos LADM_ES y Catastro_COL, se eliminan las clases que extienden de responsabilidad, restriccion, derecho, hipoteca, fuente_administrativa y fuente espacial. eliminan atributos opcionales no usados de la clase hipoteca
- * !! 11.07.2017/fm: se adiciona el atributo poligono_creado
- * !! 12.07.2017/fm: se adiciona el atributo Estado_Nupre en la clase predio
- * !! 17.07.2017/fm: poligono creado debe ser obligatorio para la clase terreno.
- * !! 28.09.2017/fm : Cambio del nombre en la clase alerta por publicidad, Publicidad Extiende de objeto versionado, se elimita atributo fecha de vigencia. Ajuste al atributo plantacion comercial de la clase terreno. Se extraen los atributos de la clase predio e interesados a los modelos extendidos de ficha y registro. version 2.2.0
- * !! 20.10.2017/ag : Ajustes a atributos de la clase terreno, cambio a dominio multivalorado, se crean dominios, col_servidumbre, col_afectacion, col_explotacion, col_territorioAgricula, col_cuerpoAgua, se elimina la obligatoriedad del rol responsable en las relaciones responsableFuente y topografoFuente
- * !! 28.10.2017/gc : Soporte de geometrías multi-parte para LA_UnidadEspacial (y las clases que la extienden) y Terreno.
- * !! 02.11.2017/ : Cambio del nombre del modelo de Catastro_COL_ES a Catastro_Registro_Nucleo
- * !! 07.11.2017/fm: Cambio de nombre a la clase CadenaCarasLindero a CadenaCarasLimite 
- * !! 14.11.2017/fm : taducción del dominio COL_BuildingUnitTipo
- * !! 14.12.2017/fm : definicion de extends entre topics catastro registro nucleo y Ladm_nucleo
- * !!
- * !!-----------------------------------------------------------
- * !!
- * !! (c) IGAC y SNR con apoyo de la Cooperacion Suiza
- * !!
- * !!-----------------------------------------------------------
+/** ISO 19152 LADM country profile COL modeled with INTERLIS 2.
+ * 
+ * -----------------------------------------------------------
+ *  revision history
+ * -----------------------------------------------------------
+ * 
+ *  10.05.2016/mg: EJEMPLO INTERLIS POR OFERTAS
+ *  16.06.2016/mg: Taller IGAC/SNR
+ *  23.08.2016/mg: Relaciones
+ *  15.09.2016/mg: Comentarios Modelo
+ *  20.11.2016/aa: Topic Ficha
+ *  25.11.2016/aa: Ajustes FichaPredio
+ *  02.12.2016/ss: Nuevas clases, atributos y tipos
+ *  15.12.2016/lj: Ajuste tipos (IGAC/SNR), BAUnit GM_surface
+ *  31.03.2017/fm: Simplificación de herencia
+ *  25.05.2017/fm: Se elimina la relacion HipotecaDerecho, se elimina la clase InteresadoBAUnit, se elimina marca abstract en las clases derivadas de RRR
+ *  26.05.2017/fm: Se cambian las clases terreno servidumbre de paso y construccion al paquete de unidades espaciales. Se acorta el nombre del Modelo. ajuste al diseño del diagrama de clases. Se elimina InteresadoNacion
+ *  09.06.2017/vm: Referido al modelo LADM traducido al español
+ *  09.06.2017/vm: cambio de version a 2.1.1, incluye cambios por LADM en español y de  nombres de atributo por no seguir las convenciones adoptadas.
+ *  15.06.2017/fm: cambio de version a 2.1.2, se quita el atributo geometría de la clase predio. se reemplaza el atributo OID por los atributos atributos namespace y localId. Se añaden atributos folio matriz y segregados al predio. se elimina el dominio transaccion_registral_tipo
+ *  20.06.2017/fm: Ajuste a nombres de las clases y atributos LA_
+ *  04.07.2017/sr: Ajuste de nombres de clases y atributos, creacion de relaciones, ajuste subdominios
+ *  04.07.2017/fm: Se unifican los modelos LADM_ES y Catastro_COL, se eliminan las clases que extienden de responsabilidad, restriccion, derecho, hipoteca, fuente_administrativa y fuente espacial. eliminan atributos opcionales no usados de la clase hipoteca
+ *  11.07.2017/fm: se adiciona el atributo poligono_creado
+ *  12.07.2017/fm: se adiciona el atributo Estado_Nupre en la clase predio
+ *  17.07.2017/fm: poligono creado debe ser obligatorio para la clase terreno.
+ *  28.09.2017/fm : Cambio del nombre en la clase alerta por publicidad, Publicidad Extiende de objeto versionado, se elimita atributo fecha de vigencia. Ajuste al atributo plantacion comercial de la clase terreno. Se extraen los atributos de la clase predio e interesados a los modelos extendidos de ficha y registro. version 2.2.0
+ *  20.10.2017/ag : Ajustes a atributos de la clase terreno, cambio a dominio multivalorado, se crean dominios, col_servidumbre, col_afectacion, col_explotacion, col_territorioAgricula, col_cuerpoAgua, se elimina la obligatoriedad del rol responsable en las relaciones responsableFuente y topografoFuente
+ *  28.10.2017/gc : Soporte de geometrías multi-parte para LA_UnidadEspacial (y las clases que la extienden) y Terreno.
+ *  02.11.2017/ : Cambio del nombre del modelo de Catastro_COL_ES a Catastro_Registro_Nucleo
+ *  07.11.2017/fm: Cambio de nombre a la clase CadenaCarasLindero a CadenaCarasLimite 
+ *  14.11.2017/fm : taducción del dominio COL_BuildingUnitTipo
+ *  14.12.2017/fm : definicion de extends entre topics catastro registro nucleo y Ladm_nucleo
+ * 
+ * -----------------------------------------------------------
+ * 
+ *  (c) IGAC y SNR con apoyo de la Cooperacion Suiza
+ * 
+ * -----------------------------------------------------------
  */
 CONTRACTED MODEL Catastro_Registro_Nucleo_V2_2_0 (es)
-AT "http://www.igac.gov.co/models"
-VERSION "2017-07-12 V2.1.6"  =
+AT "http://www.proadmintierra.info/"
+VERSION "V2.2.0"  // 2017-14-14 // =
   IMPORTS ISO19107_V1_MAGNABOG,LADM_COL;
 
   FUNCTION no_overlaps(Objects: OBJECTS OF ANYCLASS; SurfaceAttr : ATTRIBUTE OF @ Objects RESTRICTION ( SURFACE )): BOOLEAN;

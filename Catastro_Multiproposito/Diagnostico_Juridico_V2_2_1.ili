@@ -1,12 +1,14 @@
 INTERLIS 2.3;
 
-/** !! 07.11.2017/fm: Version inicial del modelo de Diagnóstico jurídico
- * !! 08.11.2017: FM/ Ajuste de las variables del Predio_Juridico conforme al anexo 'Informe de la realidad física y jurídica del barrido predial'
- * !! 02.08.2018: FM/ Actualizacion de dependencia a la version 2.2.1 del nucleo y LADM 1.1
+/** Diagnostico Juridico.
+ * 
+ * 07.11.2017/fm: Version inicial del modelo de Diagnóstico jurídico
+ * 08.11.2017: FM/ Ajuste de las variables del Predio_Juridico conforme al anexo 'Informe de la realidad física y jurídica del barrido predial'
+ * 02.08.2018: FM/ Actualizacion de dependencia a la version 2.2.1 del nucleo y LADM 1.1
  */
 MODEL Diagnostico_Juridico_V2_2_1 (es)
-AT "mailto:user@localhost"
-VERSION "2017-09-28 V0.1"  =
+AT "http://www.proadmintierra.info/"
+VERSION "V2.2.1"  // 2018-02-08 // =
   IMPORTS Catastro_Registro_Nucleo_V2_2_1,LADM_COL_V1_1;
 
   TOPIC Diagnostico_Juridico =

@@ -1,42 +1,40 @@
 INTERLIS 2.3;
 
-/** !!-----------------------------------------------------------
- * !!
- * !! ISO 19152 LADM country profile COL modeled with INTERLIS 2
- * !!
- * !!-----------------------------------------------------------
- * !! revision history
- * !!-----------------------------------------------------------
- * !!
- * !! 10.05.2016/mg: EJEMPLO INTERLIS POR OFERTAS
- * !! 16.06.2016/mg: Taller IGAC/SNR
- * !! 23.08.2016/mg: Relaciones
- * !! 15.09.2016/mg: Comentarios Modelo
- * !! 20.11.2016/aa: Topic Ficha
- * !! 25.11.2016/aa: Ajustes FichaPredio
- * !! 02.12.2016/ss: Nuevas clases, atributos y tipos
- * !! 15.12.2016/lj: Ajuste tipos (IGAC/SNR), BAUnit GM_surface
- * !! 31.03.2017/fm: Simplificación de herencia
- * !! 25.05.2017/fm: Se elimina la relacion HipotecaDerecho, se elimina la clase InteresadoBAUnit, se elimina marca abstract en las clases derivadas de RRR
- * !! 26.05.2017/fm: Se cambian las clases terreno servidumbre de paso y construccion al paquete de unidades espaciales. Se acorta el nombre del Modelo. ajuste al diseño del diagrama de clases. Se elimina InteresadoNacion
- * !! 09.06.2017/vm: Referido al modelo LADM traducido al español
- * !! 09.06.2017/vm: cambio de version a 2.1.1, incluye cambios por LADM en español y de  nombres de atributo por no seguir las convenciones adoptadas.
- * !! 15.06.2017/fm: cambio de version a 2.1.2, se quita el atributo geometría de la clase predio. se reemplaza el atributo OID por los atributos atributos namespace y localId. Se añaden atributos folio matriz y segregados al predio. se elimina el dominio transaccion_registral_tipo
- * !! 20.06.2017/fm: Ajuste a nombres de las clases y atributos LA_
- * !! 04.07.2017/sr: Ajuste de nombres de clases y atributos, creacion de relaciones, ajuste subdominios
- * !! 04.07.2017/fm: Se unifican los modelos LADM_ES y Catastro_COL, se eliminan las clases que extienden de responsabilidad, restriccion, derecho, hipoteca, fuente_administrativa y fuente espacial. eliminan atributos opcionales no usados de la clase hipoteca
- * !! 11.07.2017/fm: se adiciona el atributo area_creada
- * !! 12.07.2017/fm: se adiciona el atributo Estado_Nupre en la clase predio
- * !!
- * !!-----------------------------------------------------------
- * !!
- * !! (c) IGAC y SNR con apoyo de la Cooperacion Suiza
- * !!
- * !!-----------------------------------------------------------
+/** ISO 19152 LADM country profile COL modeled with INTERLIS 2.
+ * 
+ * -----------------------------------------------------------
+ * revision history
+ * -----------------------------------------------------------
+ * 
+ * 10.05.2016/mg: EJEMPLO INTERLIS POR OFERTAS
+ * 16.06.2016/mg: Taller IGAC/SNR
+ * 23.08.2016/mg: Relaciones
+ * 15.09.2016/mg: Comentarios Modelo
+ * 20.11.2016/aa: Topic Ficha
+ * 25.11.2016/aa: Ajustes FichaPredio
+ * 02.12.2016/ss: Nuevas clases, atributos y tipos
+ * 15.12.2016/lj: Ajuste tipos (IGAC/SNR), BAUnit GM_surface
+ * 31.03.2017/fm: Simplificación de herencia
+ * 25.05.2017/fm: Se elimina la relacion HipotecaDerecho, se elimina la clase InteresadoBAUnit, se elimina marca abstract en las clases derivadas de RRR
+ * 26.05.2017/fm: Se cambian las clases terreno servidumbre de paso y construccion al paquete de unidades espaciales. Se acorta el nombre del Modelo. ajuste al diseño del diagrama de clases. Se elimina InteresadoNacion
+ * 09.06.2017/vm: Referido al modelo LADM traducido al español
+ * 09.06.2017/vm: cambio de version a 2.1.1, incluye cambios por LADM en español y de  nombres de atributo por no seguir las convenciones adoptadas.
+ * 15.06.2017/fm: cambio de version a 2.1.2, se quita el atributo geometría de la clase predio. se reemplaza el atributo OID por los atributos atributos namespace y localId. Se añaden atributos folio matriz y segregados al predio. se elimina el dominio transaccion_registral_tipo
+ * 20.06.2017/fm: Ajuste a nombres de las clases y atributos LA_
+ * 04.07.2017/sr: Ajuste de nombres de clases y atributos, creacion de relaciones, ajuste subdominios
+ * 04.07.2017/fm: Se unifican los modelos LADM_ES y Catastro_COL, se eliminan las clases que extienden de responsabilidad, restriccion, derecho, hipoteca, fuente_administrativa y fuente espacial. eliminan atributos opcionales no usados de la clase hipoteca
+ * 11.07.2017/fm: se adiciona el atributo area_creada
+ * 12.07.2017/fm: se adiciona el atributo Estado_Nupre en la clase predio
+ * 
+ * -----------------------------------------------------------
+ * 
+ * (c) IGAC y SNR con apoyo de la Cooperacion Suiza
+ * 
+ * -----------------------------------------------------------
  */
 MODEL Catastro_COL_ES_V2_1_6 (es)
-AT "http://www.igac.gov.co/models"
-VERSION "2017-07-12 V2.1.6"  =
+AT "http://www.proadmintierra.info/"
+VERSION "V2.1.6"  // 2017-07-12 // =
   IMPORTS ISO19107_V1_MAGNABOG;
 
   UNIT

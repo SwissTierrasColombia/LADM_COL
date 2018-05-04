@@ -1,34 +1,30 @@
 INTERLIS 2.3;
 
-/** !!-----------------------------------------------------------
- * * !!
- * * !! Perfil Nacional colombiano de la ISO 19152 LADM COL generado con INTERLIS 2
- * * !! Extension de Avaluos
- * * !!
- * * !!-----------------------------------------------------------
- * * !! Revisiones historicas
- * * !! 2017.06.02 vbp: Extraido el modelo a parir del TOPIC del mismo nombre en el modelo de Catastro y Registro
- * * !! 2017.06.29 vbp: Añadidos dominios procedentes de Catastro-Registro
- * * !! 2017.06.29 vbp: Extraidos dominios de valores de atributos de las clases --> integridad estructural, facilidad de lectura, unicidad de criterio en todos los modelos.
- * * !!-----------------------------------------------------------
- * * !!
- * * !! 02.06.2017/vb: Generacion del modelo extraido a partir de version anterior del modelo de Catastro, donde aparecia como TOPIC
- * * !! 09.11.2017/ : cambio de nombre al dominio COL_DestinoEconomicoTipo
- * * !! 01.02.2018/ : Cambio en cardinalidad en asociacion avaluoPredio de 1 a 0..1
- * * !! 05.02.2018/ : Cambio en cardinalidad en asociaciones avaluoConstruccion y AvaluoUnidadConstruccion de 1 a 0..1
- * * !! 07.03.2018/fm-gc : Cambio en tipo de geometria de las clases Zona_Homogenea_Fisica y Zona_Homogenea_Geoeconomica de GM_Surface2D a GM_MultiSurface2D
- * * !! 08.03.2018/fm-gc: se ajusta la cardinalidad de atributo Comun_Uso_Exclusivo en la clase Predio
- * * !!
- * * !!-----------------------------------------------------------
- * * !!
- * * !! (c) IGAC y SNR con apoyo de la Cooperacion Suiza
- * * !!
- * * !!-----------------------------------------------------------
- * *
+/** Perfil Nacional colombiano de la ISO 19152 LADM COL generado con INTERLIS 2 - Extension de Avaluos.
+ * 
+ * -----------------------------------------------------------
+ *  Revisiones historicas
+ *  2017.06.02 vbp: Extraido el modelo a parir del TOPIC del mismo nombre en el modelo de Catastro y Registro
+ *  2017.06.29 vbp: Añadidos dominios procedentes de Catastro-Registro
+ *  2017.06.29 vbp: Extraidos dominios de valores de atributos de las clases --> integridad estructural, facilidad de lectura, unicidad de criterio en todos los modelos.
+ * -----------------------------------------------------------
+ * 
+ *  02.06.2017/vb: Generacion del modelo extraido a partir de version anterior del modelo de Catastro, donde aparecia como TOPIC
+ *  09.11.2017/ : cambio de nombre al dominio COL_DestinoEconomicoTipo
+ *  01.02.2018/ : Cambio en cardinalidad en asociacion avaluoPredio de 1 a 0..1
+ *  05.02.2018/ : Cambio en cardinalidad en asociaciones avaluoConstruccion y AvaluoUnidadConstruccion de 1 a 0..1
+ *  07.03.2018/fm-gc : Cambio en tipo de geometria de las clases Zona_Homogenea_Fisica y Zona_Homogenea_Geoeconomica de GM_Surface2D a GM_MultiSurface2D
+ *  08.03.2018/fm-gc: se ajusta la cardinalidad de atributo Comun_Uso_Exclusivo en la clase Predio
+ * 
+ * -----------------------------------------------------------
+ * 
+ *  (c) IGAC y SNR con apoyo de la Cooperacion Suiza
+ * 
+ * -----------------------------------------------------------
  */
 MODEL Avaluos_V2_2_1 (es)
-AT "mailto:vmbp@localhost"
-VERSION "2018-02-01 V2.2.1"  // Inicia como V21 por provenir de la extraccion a partir del TOPIC "Avaluos" del modelo de Catastro-Registro V21 // =
+AT "http://www.proadmintierra.info/"
+VERSION "V2.2.1"  // 2018-02-01 // =
   IMPORTS ISO19107_V1_MAGNABOG,Catastro_Registro_Nucleo_V2_2_1,LADM_COL_V1_1;
 
   DOMAIN

@@ -1,29 +1,30 @@
 INTERLIS 2.3;
 
-/** !!-----------------------------------------------------------
- * * !!
- * * !! Perfil Nacional colombiano de la ISO 19152 LADM COL generado con INTERLIS 2
- * * !! Extension de Avaluos
- * * !!
- * * !!-----------------------------------------------------------
- * * !! Revisiones historicas
- * * !! 2017.06.02 vbp: Extraido el modelo a parir del TOPIC del mismo nombre en el modelo de Catastro y Registro
- * * !! 2017.06.29 vbp: Añadidos dominios procedentes de Catastro-Registro
- * * !! 2017.06.29 vbp: Extraidos dominios de valores de atributos de las clases --> integridad estructural, facilidad de lectura, unicidad de criterio en todos los modelos.
- * * !!-----------------------------------------------------------
- * * !!
- * * !! 02.06.2017/vb: Generacion del modelo extraido a partir de version anterior del modelo de Catastro, donde aparecia como TOPIC
- * * !!
- * * !!-----------------------------------------------------------
- * * !!
- * * !! (c) IGAC y SNR con apoyo de la Cooperacion Suiza
- * * !!
- * * !!-----------------------------------------------------------
- * *
+/** Perfil Nacional colombiano de la ISO 19152 LADM COL generado con INTERLIS 2 - Extension de Avaluos.
+ * -----------------------------------------------------------
+ * Inicia como V21 por provenir de la extraccion a partir del TOPIC "Avaluos" del modelo de Catastro-Registro V21
+ * -----------------------------------------------------------
+ * Perfil Nacional colombiano de la ISO 19152 LADM COL generado con INTERLIS 2
+ * Extension de Avaluos
+ * 
+ * -----------------------------------------------------------
+ * Revisiones historicas
+ * 2017.06.02 vbp: Extraido el modelo a parir del TOPIC del mismo nombre en el modelo de Catastro y Registro
+ * 2017.06.29 vbp: Añadidos dominios procedentes de Catastro-Registro
+ * 2017.06.29 vbp: Extraidos dominios de valores de atributos de las clases --> integridad estructural, facilidad de lectura, unicidad de criterio en todos los modelos.
+ * -----------------------------------------------------------
+ * 
+ * 02.06.2017/vb: Generacion del modelo extraido a partir de version anterior del modelo de Catastro, donde aparecia como TOPIC
+ * 
+ * -----------------------------------------------------------
+ * 
+ * (c) IGAC y SNR con apoyo de la Cooperacion Suiza
+ * 
+ * -----------------------------------------------------------
  */
 MODEL Avaluos_COL_ES_V2_0 (es)
-AT "mailto:vmbp@localhost"
-VERSION "2017-06-02 V2.1.1"  // Inicia como V21 por provenir de la extraccion a partir del TOPIC "Avaluos" del modelo de Catastro-Registro V21 // =
+AT "http://www.proadmintierra.info/"
+VERSION "V2.1.1"  // 2017-06-02 // =
   IMPORTS ISO19107_V1_MAGNABOG,Catastro_COL_ES_V2_1_6;
 
   DOMAIN
