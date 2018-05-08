@@ -1,5 +1,13 @@
 INTERLIS 2.3;
 
+/** ISO 19152 LADM country profile COL Core Model.
+ * 
+ * -----------------------------------------------------------
+ * 
+ * LADM es un modelo conceptual de la realidad que concreta una ontología y establece una semántica para la administración del territorio.
+ * 
+ * -----------------------------------------------------------
+ */
 MODEL LADM_COL (es)
 AT "mailto:user@localhost"
 VERSION "2017-11-15"  =
