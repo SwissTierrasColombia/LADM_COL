@@ -1,0 +1,25 @@
+INTERLIS 2.3;
+
+MODEL Topologia_CR_Nucleo_V2_2_1 (es)
+AT "mailto:user@localhost"
+VERSION "V2_2_1"  // 2018-05-15 // =
+  IMPORTS INTERLIS_TOPOLOGY,Catastro_Registro_Nucleo_V2_2_1;
+
+  VIEW TOPIC Catastro_Registro =
+    DEPENDS ON Catastro_Registro_Nucleo_V2_2_1.Catastro_Registro;
+
+    VIEW V_Terreno_Topologia PROJECTION OF Catastro_Registro_Nucleo_V2_2_1.Catastro_Registro.Terreno;
+        =
+          ALL OF Terreno;
+          !!@ name = Terreno_Area_Registral
+          !!@ ilivalid.msg = "Area {Area_Registral} Debe ser mayor a 10"
+          MANDATORY CONSTRAINT Area_Registral > 10;
+          !!@ name = Terreno_intersects
+          !!@ ilivalid.msg = "{su_Espacio_De_Nombres} {su_Local_Id} intersecta con otro Terreno"
+          SET CONSTRAINT 
+           NOT ( INTERLIS_TOPOLOGY.intersects(ALL, poligono_creado) );
+    END V_Terreno_Topologia;
+
+  END Catastro_Registro;
+
+END Topologia_CR_Nucleo_V2_2_1.

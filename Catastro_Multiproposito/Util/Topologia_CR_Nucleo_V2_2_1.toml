@@ -1,0 +1,10 @@
+["PARAMETER"]
+# Globale Validator Einstellungen
+#
+# Validierung generell ausschalten
+# on/off
+validation="on"
+
+# Modelle mit zusätzlichen Konsistenzbedingungen.
+# Falls mehrere Zusatzmodelle, die Modellnamen mit Strichpunkt abtrennen.
+additionalModels="Topologia_CR_Nucleo_V2_2_1"
