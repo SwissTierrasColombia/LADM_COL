@@ -15,6 +15,7 @@ INTERLIS 2.3;
  *  05.02.2018/ : Cambio en cardinalidad en asociaciones avaluoConstruccion y AvaluoUnidadConstruccion de 1 a 0..1
  *  07.03.2018/fm-gc : Cambio en tipo de geometria de las clases Zona_Homogenea_Fisica y Zona_Homogenea_Geoeconomica de GM_Surface2D a GM_MultiSurface2D
  *  08.03.2018/fm-gc: se ajusta la cardinalidad de atributo Comun_Uso_Exclusivo en la clase Predio
+ *  09.07.2018/ : Cambio en cardinalidad en asociaciones avaluoConstruccion y AvaluoUnidadConstruccion de 1 a 0..1
  * 
  * -----------------------------------------------------------
  * 
@@ -576,7 +577,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
      * En efecto, una es la agrupación de atributos que caracterizan la construcción desde el punto de vista de Catastro y la otra agrupa atributos de interés para el avalúo de la construcción.
      */
     ASSOCIATION AvaluoConstruccion =
-      ACons -- {0..*} Construccion;
+      ACons -- {0..1} Construccion;
       Cons (EXTERNAL) -- {1} Catastro_Registro_Nucleo_V2_2_1.Catastro_Registro.Construccion;
     END AvaluoConstruccion;
 
@@ -657,7 +658,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
      * En efecto, una es la agrupación de atributos que caracterizan la unidad de construcción desde el punto de vista de Catastro y la otra agrupa atributos de interés para el avalúo en el interior de la unidad de construcción.
      */
     ASSOCIATION AvaluoUnidadConstruccion =
-      AUCons -- {0..*} Unidad_Construccion;
+      AUCons -- {0..1} Unidad_Construccion;
       UCons (EXTERNAL) -- {1} Catastro_Registro_Nucleo_V2_2_1.Catastro_Registro.UnidadConstruccion;
     END AvaluoUnidadConstruccion;
 
