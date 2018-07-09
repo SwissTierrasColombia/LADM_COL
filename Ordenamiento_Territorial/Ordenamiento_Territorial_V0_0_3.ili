@@ -1,0 +1,228 @@
+INTERLIS 2.3;
+
+MODEL Ordenamiento_Territorial_V0_0_3 (es)
+AT "mailto:ASUS@localhost"
+VERSION "2018-01-24"  =
+  IMPORTS ISO19107_V1_MAGNABOG,LADM_COL_V1_1;
+
+  DOMAIN
+
+    OT_CalificacionTipo = (
+      /** Usado en la clasificacion de suelo rural
+       */
+      Rural(
+        Desarrollo_Restringido(
+          Centros_Poblados,
+          Suburbano(
+            Corredores_Viales_Suburbanos,
+            Zonas_Suburbanas
+          ),
+          Vivienda_Campestre,
+          Equipamientos
+        ),
+        Proteccion_Productivo(
+          Forestal,
+          Agricola,
+          Pecuario,
+          Mineria_Hidrocarburos,
+          Patrimonio_Historico_Cultural_Arquitectonico
+        ),
+        Proteccion_No_Productivo(
+          Amenaza_Riesgo_No_Mitigable,
+          Ambiental(
+            Forestal_Proteccion,
+            Manejo_Especial,
+            Importancia_Ecosistemica
+          ),
+          Servicios_Publicos_Infraestructura
+        )
+      ),
+      /** Usado en la clasificacion de suelo de expansión
+       */
+      Expansion(
+        Residencial,
+        Dotacional,
+        Comercio_Servicios,
+        Mixto,
+        Industrial
+      ),
+      /** Calificación usado en la clasificacion de suelo urbano
+       */
+      Urbano(
+        Mejoramiento_Integral_Desarrollo_Incompleto(
+          Residencial,
+          Dotacional,
+          Comercio_Servicios,
+          Mixto,
+          Industrial
+        ),
+        Renovacion_Redesarrollo(
+          Residencial,
+          Dotacional,
+          Comercio_Servicios,
+          Mixto,
+          Industrial
+        ),
+        Renovacion_Reactivacion(
+          Residencial,
+          Dotacional,
+          Comercio_Servicios,
+          Mixto,
+          Industrial
+        ),
+        Conservacion(
+          Residencial,
+          Dotacional,
+          Comercio_Servicios,
+          Mixto,
+          Industrial
+        ),
+        Desarrollo(
+          Residencial,
+          Dotacional,
+          Comercio_Servicios,
+          Mixto,
+          Industrial
+        ),
+        Consolidacion(
+          Residencial,
+          Dotacional,
+          Comercio_Servicios,
+          Mixto,
+          Industrial
+        ),
+        Proteccion
+      )
+    );
+
+    OT_InfraestructuraNivel = (
+      Nacional,
+      Regional,
+      Departamental,
+      Municipal
+    );
+
+    OT_InfraestructuraTipo = (
+      Movilidad,
+      Espacio_Publico,
+      Servicios_Publicos,
+      Equipamientos
+    );
+
+    OT_ClasificacionSuelo = (
+      Expansion,
+      Urbano,
+      Rural
+    );
+
+    OT_DerechoTipo = (
+      ModificacionEstructura,
+      Densificacion,
+      Aprovechamiento,
+      CambioEdificabilidad,
+      CambioUso,
+      Adecuacion,
+      Urbanizacion,
+      Construccion,
+      Incentivo,
+      Edificacion,
+      DotacionInfraestructuras,
+      AccesoProgramaMejoramiento,
+      PagoServiciosAmbientales,
+      Recreacion,
+      UsufructoTuristico,
+      Restauracion_Rehabilitacion_Ecosistema,
+      RecreacionPasiva,
+      AprovechamientoForestal,
+      AprovechamientoAgricola,
+      AprovechamientoPecuario,
+      AprovechamientoMinero,
+      ConstruccionInfraestructuraProductiva
+    );
+
+    OT_ResponsabilidadTipo = (
+      Conservacion,
+      Cesiones,
+      Proteccion,
+      Mantenimiento,
+      Cargas(
+        Cesiones,
+        ControlAmbiental,
+        InfraestructuraVial,
+        AcuerdosEntrePropietarios,
+        Equipamiento
+      )
+    );
+
+    OT_RestriccionTipo = (
+      Compatibilidad,
+      MantenimientoEstructura,
+      PlanParcial,
+      DesarrolloIndividual,
+      Edificabilidad,
+      Infraestructura,
+      Construir,
+      Urbanizar,
+      TamanoNoMenorUAF
+    );
+
+  TOPIC Ordenamiento_Territorial
+  EXTENDS LADM_COL_V1_1.LADM_Nucleo =
+    DEPENDS ON LADM_COL_V1_1.LADM_Nucleo;
+
+    CLASS Infraestructura
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_BAUnit =
+      Nivel : MANDATORY Ordenamiento_Territorial_V0_0_3.OT_InfraestructuraNivel;
+      Tipo (EXTENDED) : MANDATORY Ordenamiento_Territorial_V0_0_3.OT_InfraestructuraTipo;
+    END Infraestructura;
+
+    CLASS InfraestructuraPOT
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_UnidadEspacial =
+      poligono_creado (EXTENDED) : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
+    END InfraestructuraPOT;
+
+    CLASS Municipio
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Interesado =
+      Categoria : MANDATORY 1 .. 6;
+    END Municipio;
+
+    CLASS ZonaPOT
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_UnidadEspacial =
+      poligono_creado (EXTENDED) : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
+    END ZonaPOT;
+
+    CLASS OT_Derecho
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
+      Tipo : MANDATORY Ordenamiento_Territorial_V0_0_3.OT_DerechoTipo;
+    END OT_Derecho;
+
+    CLASS OT_Responsabilidad
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
+      Tipo : MANDATORY Ordenamiento_Territorial_V0_0_3.OT_ResponsabilidadTipo;
+    END OT_Responsabilidad;
+
+    CLASS OT_Restriccion
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
+      Tipo : MANDATORY Ordenamiento_Territorial_V0_0_3.OT_RestriccionTipo;
+      Coeficiente_Maximo_Edificabilidad : 1 .. 99;
+      SET CONSTRAINT WHERE Tipo == #Edificabilidad: 
+        Coeficiente_Maximo_Edificabilidad > 0;
+      SET CONSTRAINT WHERE Tipo <> #Edificabilidad: 
+        Coeficiente_Maximo_Edificabilidad == UNDEFINED;
+    END OT_Restriccion;
+
+    CLASS POT
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.COL_FuenteAdministrativa =
+      Municipio : TEXT*20;
+      Fecha : INTERLIS.XMLDate;
+    END POT;
+
+    CLASS Zona
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_BAUnit =
+      Clasificacion_Suelo : MANDATORY Ordenamiento_Territorial_V0_0_3.OT_ClasificacionSuelo;
+      Calificacion : MANDATORY Ordenamiento_Territorial_V0_0_3.OT_CalificacionTipo;
+    END Zona;
+
+  END Ordenamiento_Territorial;
+
+END Ordenamiento_Territorial_V0_0_3.

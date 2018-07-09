@@ -1,7 +1,7 @@
 INTERLIS 2.3;
 
-MODEL Parques_Nacionales_Naturales_Valfa (es)
-AT "mailto:agenciadeimplementacion@incige.com"
+MODEL Parques_Nacionales_Naturales_V0_0_1 (es)
+AT "mailto:ASUS@localhost"
 VERSION "2018-01-18"  =
   IMPORTS ISO19107_V1_MAGNABOG,LADM_COL_V1_1;
 
@@ -33,10 +33,10 @@ VERSION "2018-01-18"  =
     PNN_CategoriaDeManejoZona = (
       /** Incluye los espacios para adelantar actividades productivas y extractivas compatibles con el objetivo de conservación del área protegida
        */
-      UsoSostenible(
+      Uso_Sostenible(
         /** Son espacios definidos con el fin de aprovechar en forma sostenible la biodiversidad contribuyendo a su preservación o restauración
          */
-        AprovechamientoSostenible,
+        Aprovechamiento_Sostenible,
         /** Son espacios donde se permiten actividades controladas, agrícolas, ganaderas, mineras, forestales, industriales, habitacionales no nucleadas con restricciones en la densidad de ocupación y la construcción y ejecución de proyectos de desarrollo, bajo un esquema compatible con los objetivos de conservación del área protegida.
          */
         Desarrollo
@@ -49,14 +49,101 @@ VERSION "2018-01-18"  =
       Preservacion,
       /** Son aquellos espacios definidos en el plan de manejo con el fin de alcanzar objetivos particulares de gestión a través de la educación, la recreación, el ecoturismo y el desarrollo de infraestructura de apoyo a la investigación
        */
-      GeneralUsoPublico(
+      General_Uso_Publico(
         /** Es aquella porción, en la que se permite el acceso a los visitantes a través del desarrollo de una infraestructura mínima tal como senderos o miradores
          */
         Recreacion,
         /** Es aquella porción, en la que se permite el desarrollo controlado de infraestructura mínima para el acojo de los visitantes y el desarrollo de facilidades de interpretación
          */
-        AltaDensidadUso
+        Alta_Densidad_Uso
       )
+    );
+
+    PNN_InteresadoTipo = (
+      /** Ministerio de Ambiente, Vivienda y Desarrollo Territorial
+       */
+      !!@ ili2db.dispName = "Ministerio de Ambiente, Vivienda y Desarrollo Territorial"
+      MinAmbiente,
+      /** Procuraduría Ambiental Nacional
+       */
+      !!@ ili2db.dispName = "Procuraduría Ambiental Nacional"
+      Procuraduria_Ambiental_Nacional,
+      /** Ministerio de Comercio, Industria y Turismo
+       */
+      !!@ ili2db.dispName = "Ministerio de Comercio, Industria y Turismo"
+      MinComercio,
+      /** Policía Nacional Ambiental
+       */
+      !!@ ili2db.dispName = "Policía Nacional Ambiental"
+      Policia_Nacional_Ambiental,
+      /** Departamento Administrativo de Seguridad
+       */
+      !!@ ili2db.dispName = "DAS"
+      DAS,
+      /** INCODER
+       */
+      !!@ ili2db.dispName = "INCODER"
+      INCODER,
+      /** DIMAR Y Guardacostas
+       */
+      !!@ ili2db.dispName = "DIMAR y Guardacostas"
+      DIMAR_Guardacostas,
+      /** Gobernación
+       */
+      !!@ ili2db.dispName = "Gobernación"
+      Gobernacion,
+      /** Procuraduría Agraria
+       */
+      !!@ ili2db.dispName = "Procuraduría Agraria"
+      Procuraduria_Agraria,
+      /** Contraloría General de la Nación
+       */
+      !!@ ili2db.dispName = "Contraloría General de la Nación"
+      Contraloria_General,
+      /** Alcaldía Distrital
+       */
+      !!@ ili2db.dispName = "Alcaldía Distrital"
+      Alcaldia_Distrital,
+      /** Cámara de Comercio
+       */
+      !!@ ili2db.dispName = "Cámara de Comercio"
+      Camara_Comercio,
+      /** Cooperación Internacional
+       */
+      !!@ ili2db.dispName = "Cooperación Internacional"
+      Cooperacion_Internacional,
+      /** Organismos de Socorro
+       */
+      !!@ ili2db.dispName = "Organismos de Socorro"
+      Organismos_Socorro,
+      /** Instituciones académicas
+       */
+      !!@ ili2db.dispName = "Instituciones académicas"
+      Instituciones_Academicas,
+      /** Organizaciones indígenas
+       */
+      !!@ ili2db.dispName = "Organizaciones indígenas"
+      Organizaciones_Indigenas,
+      /** Organizaciones comunitarias
+       */
+      !!@ ili2db.dispName = "Organizaciones comunitarias"
+      Organizaciones_Comunitarias,
+      /** Visitantes
+       */
+      !!@ ili2db.dispName = "Visitantes"
+      Visitantes,
+      /** Medios de comunicación
+       */
+      !!@ ili2db.dispName = "Medios de comunicación"
+      Medios_Comunicacion,
+      /** Operadores turísticos
+       */
+      !!@ ili2db.dispName = "Operadores turísticos"
+      Operadores_Turisticos,
+      /** Actores al margen de la Ley
+       */
+      !!@ ili2db.dispName = "Actores al margen de la Ley"
+      Actores_Margen_Ley
     );
 
     PNN_Territorial = (
@@ -74,10 +161,10 @@ VERSION "2018-01-18"  =
       Amazonas,
       /** Comprende el área de los Departamentos de Santander, Norte de Santander, Boyacá y Cundinamarca
        */
-      AndesNororientales,
+      Andes_Nororientales,
       /** Comprende el área de los Departamentos de Antioquia, Caldas, Cauca, Huila, Nariño, Quindío, Risaralda, Tolima y Valle del Cauca
        */
-      AndesOccidentales
+      Andes_Occidentales
     );
 
     PNN_TipoUsoDerecho = (
@@ -116,14 +203,14 @@ VERSION "2018-01-18"  =
          */
         Recreacion_produccionAutosubsistencia__VmPr
       ),
-      PescaSubsistencia,
+      Pesca_Subsistencia,
       Habitacional,
       Comercial,
       Servicios,
       Produccion(
-        ProduccionAutosubsistencia__BAPr,
-        ProduccionAutosubsistencia__MPrP,
-        ProduccionAutosubsistencia__MPr
+        Produccion_Autosubsistencia__BAPr,
+        Produccion_Autosubsistencia__MPrP,
+        Produccion_Autosubsistencia__MPr
       )
     );
 
@@ -169,81 +256,94 @@ VERSION "2018-01-18"  =
       Intangible,
       /** Zona que ha sufrido alteraciones en su ambiente natural y que está destinada al logro de la recuperación de la naturaleza que allí existió o a obtener mediante mecanismos de restauración un estado deseado del ciclo de evolución ecológica; lograda la recuperación o el estado deseado esta zona será denominada de acuerdo con la categoría que le corresponda
        */
-      DeRecuperacionNatural,
+      De_Recuperacion_Natural,
       /** Zona en la cual se encuentran vestigios arqueológicos, huellas o señales de culturas pasadas, supervivencia de culturas indígenas, rasgos históricos o escenarios en los cuales tuvieron ocurrencia hechos trascendentales de la vida nacional
        */
-      HistoricoCultural,
+      Historico_Cultural,
       /** Zona que por sus condiciones naturales ofrece la posibilidad de dar ciertas facilidades al visitante para su recreación al aire libre, sin que esta pueda ser causa de modificaciones significativas del ambiente
        */
-      DeRecreacionGeneralExterior,
+      De_Recreacion_General_Exterior,
       /** Zona en la cual por sus condiciones naturales, características y ubicación, pueden realizarse actividades recreativas y otorgar educación ambiental de tal manera que armonice con la naturaleza el lugar produciendo la menor alteración posible
        */
-      AltaDensidadDeUso,
+      Alta_Densidad_Uso,
       /** Zona en la cual se atenúan las perturbaciones causadas por la actividad humana en las zonas circunvecinas a las distintas áreas del Sistema de Parques Nacionales Naturales, con el fin de impedir que llegue a causar disturbios o alteraciones en la ecología o en la vida silvestre de estas áreas
        */
       Amortiguadora
     );
-  STRUCTURE PNN_Territorial_AreaProtegidaPNN_Territorial = value : MANDATORY PNN_Territorial; END PNN_Territorial_AreaProtegidaPNN_Territorial;
+  STRUCTURE PNN_Territorial_Area_Protegida_PNN_Territorial = value : MANDATORY PNN_Territorial; END PNN_Territorial_Area_Protegida_PNN_Territorial;
 
   TOPIC Parques_Nacionales_Naturales
   EXTENDS LADM_COL_V1_1.LADM_Nucleo =
     DEPENDS ON LADM_COL_V1_1.LADM_Nucleo;
 
-    CLASS AreaProtegidaPNN
+    CLASS Area_Protegida_PNN
     EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_BAUnit =
       Nombre_Area_Protegida : MANDATORY TEXT*20;
       id_PNN : MANDATORY 0 .. 999999999999;
-      Categoria : MANDATORY Parques_Nacionales_Naturales_Valfa.PNN_AreaProtegidaCategoria;
-      Territorial : BAG {1..*} OF Parques_Nacionales_Naturales_Valfa.PNN_Territorial_AreaProtegidaPNN_Territorial;
+      Categoria : MANDATORY Parques_Nacionales_Naturales_V0_0_1.PNN_AreaProtegidaCategoria;
+      Territorial : BAG {1..*} OF Parques_Nacionales_Naturales_V0_0_1.PNN_Territorial_Area_Protegida_PNN_Territorial;
       Descripcion : MTEXT*800;
       Fecha_Acto_Administrativo : INTERLIS.XMLDate;
       URL : TEXT*20;
       Fecha_Registro_Runap : INTERLIS.XMLDate;
-      Geometria : ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
-    END AreaProtegidaPNN;
+    END Area_Protegida_PNN;
 
-    CLASS PlanDeManejo
+    CLASS Perimetro_Zona
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_UnidadEspacial =
+      poligono_creado (EXTENDED) : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
+    END Perimetro_Zona;
+
+    CLASS InteresadoParques
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Interesado =
+      Tipo (EXTENDED) : MANDATORY Parques_Nacionales_Naturales_V0_0_1.PNN_InteresadoTipo;
+    END InteresadoParques;
+
+    CLASS Perimetro
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_UnidadEspacial =
+      poligono_creado (EXTENDED) : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
+    END Perimetro;
+
+    CLASS Plan_De_Manejo
     EXTENDS LADM_COL_V1_1.LADM_Nucleo.COL_FuenteAdministrativa =
-      inicioPeriodo : MANDATORY INTERLIS.XMLDate;
-      finPeriodo : MANDATORY INTERLIS.XMLDate;
-      fechaAprobacion : MANDATORY INTERLIS.XMLDate;
-    END PlanDeManejo;
+      Inicio_Periodo : MANDATORY INTERLIS.XMLDate;
+      Fin_Periodo : MANDATORY INTERLIS.XMLDate;
+      Fecha_Aprobacion : MANDATORY INTERLIS.XMLDate;
+    END Plan_De_Manejo;
 
     CLASS PNN_Derecho
     EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
       Actividades : MANDATORY MTEXT*20;
-      Tipo_Uso_Derecho : MANDATORY Parques_Nacionales_Naturales_Valfa.PNN_TipoUsoDerecho;
+      Tipo_Uso_Derecho : MANDATORY Parques_Nacionales_Naturales_V0_0_1.PNN_TipoUsoDerecho;
     END PNN_Derecho;
 
     CLASS PNN_Responsabilidad
     EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
       Actividades : MANDATORY MTEXT*20;
-      Tipo_Uso_Responsabilidad : MANDATORY Parques_Nacionales_Naturales_Valfa.PNN_TipoUsoResponsabilidad;
+      Tipo_Uso_Responsabilidad : MANDATORY Parques_Nacionales_Naturales_V0_0_1.PNN_TipoUsoResponsabilidad;
     END PNN_Responsabilidad;
 
     CLASS PNN_Restriccion
     EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
       Actividades : MANDATORY MTEXT*20;
-      Tipo_Uso_Restriccion : MANDATORY Parques_Nacionales_Naturales_Valfa.PNN_TipoUsoRestriccion;
+      Tipo_Uso_Restriccion : MANDATORY Parques_Nacionales_Naturales_V0_0_1.PNN_TipoUsoRestriccion;
     END PNN_Restriccion;
 
-    CLASS ZonaAreaProtegida
+    CLASS Zona_Area_Protegida
     EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_BAUnit =
-      Tipo_Zona : MANDATORY Parques_Nacionales_Naturales_Valfa.PNN_ZonaAreaProtegidaTipo;
-      Categoria_De_Manejo : MANDATORY Parques_Nacionales_Naturales_Valfa.PNN_CategoriaDeManejoZona;
-      Geometria : ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
-    END ZonaAreaProtegida;
+      Tipo_Zona : MANDATORY Parques_Nacionales_Naturales_V0_0_1.PNN_ZonaAreaProtegidaTipo;
+      Categoria_De_Manejo : MANDATORY Parques_Nacionales_Naturales_V0_0_1.PNN_CategoriaDeManejoZona;
+    END Zona_Area_Protegida;
 
     ASSOCIATION resolucionCreacion =
-      areaProtegida -- {0..*} AreaProtegidaPNN;
+      areaProtegida -- {0..*} Area_Protegida_PNN;
       resolucion -- {0..*} LADM_COL_V1_1.LADM_Nucleo.COL_FuenteAdministrativa;
     END resolucionCreacion;
 
     ASSOCIATION zonaarea =
-      zonaAreaProtegida -- {1..*} ZonaAreaProtegida;
-      AreaProtegidaPNN -<#> {1} AreaProtegidaPNN;
+      zonaAreaProtegida -- {1..*} Zona_Area_Protegida;
+      AreaProtegidaPNN -<#> {1} Area_Protegida_PNN;
     END zonaarea;
 
   END Parques_Nacionales_Naturales;
 
-END Parques_Nacionales_Naturales_Valfa.
+END Parques_Nacionales_Naturales_V0_0_1.
