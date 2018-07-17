@@ -1,0 +1,178 @@
+INTERLIS 2.3;
+
+MODEL LADM_COL_RESERVAS_LEY2DA (es)
+AT "mailto:ASUS@localhost"
+VERSION "2018-01-18"  =
+  IMPORTS ISO19107_V1_MAGNABOG,LADM_COL_V1_1;
+
+  DOMAIN
+
+    Reserva_Ley2da_DerechoTipo = (
+      /** Aprovechamiento productivo frutos secundarios bosque
+       */
+      Aprovechamiento_Productivo_Frutos,
+      /** Obras de captación, tratamiento y almacenamiento
+       */
+      Obras_Captacion_Tratamiento_Almacenamiento
+    );
+
+    Reserva_Ley2da_TipoInteresado = (
+      /** Corporación Autónoma Regional
+       */
+      CAR,
+      /** Ministerio de Ambiente y Desarrollo Sostenible
+       */
+      MADS
+    );
+
+    Reserva_Ley2da_ResponsabilidadTipo = (
+      Adquisicion_Tierras_Reforestacion,
+      Desarrollo_Economia_Forestal,
+      Exploracion_Geotecnica,
+      Formular_Ajustar_POMCA,
+      Identificacion_Zona_Alta_Erosion,
+      Infraestructura_Investigacion,
+      Infraestructura_Publica(
+        /** Infraestructura pública - educación y salud (no mayor a 1 Ha)
+         */
+        Educacion_Salud_No_Mayor_1_Ha,
+        /** Infraestructura pública - acueducto (no mayor a 1 Ha y no más de 2 metros de ancho)
+         */
+        Acueducto_No_Mayor_1_Ha,
+        /** Infraestructura pública - recreación pasiva senderismo
+         */
+        Recreacion_Pasiva_Senderismo,
+        /** Infraestructura pública - mantenimiento de vías
+         */
+        Mantenimiento_Vias,
+        /** Infraestructura pública - instalación antenas telecomunicaciones
+         */
+        Instalacion_Antenas_Telecomunicaciones,
+        /** Infraestructura pública - Construir las zapatas para estribos y anclajes de puentes peatonales para caminos veredales
+         */
+        Zapatas_Anclajes,
+        /** Infraestructura pública - estación hidrometeorológica
+         */
+        Estacion_Hidrometeorologica,
+        Telefonia_Redes_Electricas,
+        Obras_Captacion_Tratamiento_Almacenamiento,
+        Acueductos
+      ),
+      Investigacion(
+        Arqueologica,
+        Subsuelo
+      ),
+      Reglamentacion_Uso_Propiedad_Privada,
+      Restauracion_Rehabilitacion_Recuperacion,
+      Reubicacion_Moradores,
+      Proteccion_Suelo_Agua_VidaSilvestre,
+      Sustraccion,
+      /** Zonificación
+       */
+      Zonificacion
+    );
+
+    Reserva_Ley2da_RestriccionTipo = (
+      /** Manejo sostenible de recurso forestal
+       */
+      Manejo_Sostenible_Recurso_Forestal,
+      /** Mantenimiento de procesos ecológicos
+       */
+      Mantenimiento_Procesos_Ecologicos,
+      Uso_Restringido(
+        /** Uso restringido actividades productivas forestales
+         */
+        Actividades_Productivas_Forestales,
+        /** Uso restringido actividades silvopastoriles
+         */
+        Actividades_Silvopastoriles,
+        /** Uso restringido actividades agroforestales
+         */
+        Actividades_Agroforestales
+      )
+    );
+
+    AreaReservaRegion = (
+      Amazonia,
+      Cocuy,
+      Serrania_Motilones,
+      Sierra_Nevada_SantaMarta,
+      Rio_Magdalena,
+      Central,
+      Pacifico
+    );
+
+    AreaReservaTipo = (
+      !!@ ili2db.dispName = "Parque Nacional Natural"
+      Publico,
+      !!@ ili2db.dispName = "Santuario de Flora y/o Fauna"
+      Privado
+    );
+
+    AreaReservaCategoria = (
+      A,
+      B,
+      C
+    );
+
+    Reserva_Ley2da_FuenteAdministrativaTipo = (
+      Ley,
+      Decreto,
+      Resolucion,
+      /** Plan Ordenación Forestal
+       */
+      POF,
+      Guia_Tecnica
+    );
+
+  TOPIC LADM_COL_RESERVAS_LEY2DA
+  EXTENDS LADM_COL_V1_1.LADM_Nucleo =
+    DEPENDS ON LADM_COL_V1_1.LADM_Nucleo;
+
+    CLASS Reserva_Ley2da_Derecho
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
+      Tipo_Derecho : MANDATORY LADM_COL_RESERVAS_LEY2DA.Reserva_Ley2da_DerechoTipo;
+    END Reserva_Ley2da_Derecho;
+
+    /** Representación espacial de la unidad administrativa Area Reserva Forestal Ley 2da
+     */
+    CLASS Zona_Reserva_Forestal_Ley_2da
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_UnidadEspacial =
+      poligono_creado (EXTENDED) : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
+    END Zona_Reserva_Forestal_Ley_2da;
+
+    CLASS Reserva_Ley2da_FuenteAdministrativa
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.COL_FuenteAdministrativa =
+      Inicio_Periodo : MANDATORY INTERLIS.XMLDate;
+      Fin_Periodo : MANDATORY INTERLIS.XMLDate;
+      Fecha_Aprobacion : MANDATORY INTERLIS.XMLDate;
+      Tipo_Fuente_Bosques : MANDATORY LADM_COL_RESERVAS_LEY2DA.Reserva_Ley2da_FuenteAdministrativaTipo;
+    END Reserva_Ley2da_FuenteAdministrativa;
+
+    CLASS Reserva_Ley2da_Interesado
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Interesado =
+      Tipo_Interesado_Bosques : MANDATORY LADM_COL_RESERVAS_LEY2DA.Reserva_Ley2da_TipoInteresado;
+    END Reserva_Ley2da_Interesado;
+
+    CLASS Reserva_Ley2da_Responsabilidad
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
+      Tipo_Responsabilidad : MANDATORY LADM_COL_RESERVAS_LEY2DA.Reserva_Ley2da_ResponsabilidadTipo;
+    END Reserva_Ley2da_Responsabilidad;
+
+    CLASS Reserva_Ley2da_Restriccion
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
+      Tipo_Restriccion : MANDATORY LADM_COL_RESERVAS_LEY2DA.Reserva_Ley2da_RestriccionTipo;
+    END Reserva_Ley2da_Restriccion;
+
+    /** Clase especializada de BaUnit, que describe la unidad administrativa básica para las áreas de reserva forestal de ley segunda en Colombia.
+     */
+    CLASS Areas_Reserva_Forestal_Ley_2da
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_BAUnit =
+      Categoria : MANDATORY LADM_COL_RESERVAS_LEY2DA.AreaReservaCategoria;
+      Tipo_Reserva : MANDATORY LADM_COL_RESERVAS_LEY2DA.AreaReservaTipo;
+      Region_Zona_Reserva_Forestal : MANDATORY LADM_COL_RESERVAS_LEY2DA.AreaReservaRegion;
+    END Areas_Reserva_Forestal_Ley_2da;
+
+  END LADM_COL_RESERVAS_LEY2DA;
+
+END LADM_COL_RESERVAS_LEY2DA.
