@@ -35,6 +35,7 @@ INTERLIS 2.3;
  * 14.12.2017/fm : definicion de extends entre topics catastro registro nucleo y Ladm_nucleo
  * 30.01.2018/fm : Cambio del tipo de dato del atributo Ext_Direccion de la clase Unidad Espacial a ExtDireccion; atributo ext_PID de la calse LA_Interesado cambia de OID a ExtInteresado; Cambio de cardinalidad en relacion miembros entre LA_Interesado y LA_Agrupacion_Interesados de 0..1 a 0..*
  * 19.02.2018/fm : Cambio en longitud de atributo DocumentoIdentidad de 10 a 12 posiciones
+ * 17.07.2018/fm : cambio en cardinalidad asociación ConstruccionUnidadConstruccion de 1..* a 0..*; ampliación del tamaño para campo de nombre en Interesado Natural; se incluyen los valores nuip, cedula militar, registro civil, cedula militar, secuencial SRN y secuencial IGAC al dominio COL_InteresadoDocumentoTipo
  * 
  * -----------------------------------------------------------
  * 
@@ -124,7 +125,13 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Cedula_Extranjeria,
       NIT,
       Pasaporte,
-      Tarjeta_Identidad
+      Tarjeta_Identidad,
+      Libreta_Militar,
+      Registro_Civil,
+      Cedula_Militar,
+      NUIP,
+      Secuencial_SNR,
+      Secuencial_IGAC
     );
 
     COL_MonumentacionTipo = (
@@ -329,7 +336,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Numero_NIT : MANDATORY TEXT*20;
       /** Nombrecon el que está inscrito.
        */
-      Razon_Social : MANDATORY TEXT*100;
+      Razon_Social : MANDATORY TEXT*250;
       /** Caracter del tipo de derecho sobre el que está constituído.
        */
       Tipo (EXTENDED) : Catastro_Registro_Nucleo_V2_2_1.COL_InteresadoJuridicoTipo;
@@ -367,16 +374,16 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Fecha_Emision : INTERLIS.XMLDate;
       /** Primer apellido de la persona física.
        */
-      Primer_Apellido : MANDATORY TEXT*50;
+      Primer_Apellido : MANDATORY TEXT*100;
       /** Primer nombre de la persona física.
        */
-      Primer_Nombre : MANDATORY TEXT*50;
+      Primer_Nombre : MANDATORY TEXT*100;
       /** Segundo apellido de la persona física.
        */
-      Segundo_Apellido : TEXT*50;
+      Segundo_Apellido : TEXT*100;
       /** Segundo nombre de la persona física.
        */
-      Segundo_Nombre : TEXT*50;
+      Segundo_Nombre : TEXT*100;
       Genero : Catastro_Registro_Nucleo_V2_2_1.COL_GeneroTipo;
     END Interesado_Natural;
 
@@ -672,7 +679,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     END UnidadConstruccion;
 
     ASSOCIATION ConstruccionUnidadConstruccion =
-      unidadconstruccion -- {1..*} UnidadConstruccion;
+      unidadconstruccion -- {0..*} UnidadConstruccion;
       construccion -<> {1} Construccion;
     END ConstruccionUnidadConstruccion;
 

@@ -15,7 +15,8 @@ INTERLIS 2.3;
  *  19.02.2018/fm-gc: ampliación del dominio al tipo de dato Peso
  *  26.02.2018/fm-lj: cambio del nombre del dominio ISO19125_Type a ISO19125_Tipo
  *  19.04.2018/vb fm: Ajuste al constraint Fraccion, denominador mayor a 0
- *  19.04.2018/vb fm: Cambio en la cardinalidad del atributyo u_Local_Id de la clase LA_BAUnit de 0..1 a 1
+ *  19.04.2018/vb fm: Cambio en la cardinalidad del atributo u_Local_Id de la clase LA_BAUnit de 0..1 a 1
+ * 17.07.2018/fm : se incluye escritura en dominio COL_FuenteAdministrativaTipo
  * 
  * -----------------------------------------------------------
  * 
@@ -121,6 +122,7 @@ VERSION "V1.1.0"  // 2018-04-19 // =
     DOMAIN
 
       COL_FuenteAdministrativaTipo = (
+        Escritura,
         Certificado,
         Contrato,
         Documento_Identidad,
