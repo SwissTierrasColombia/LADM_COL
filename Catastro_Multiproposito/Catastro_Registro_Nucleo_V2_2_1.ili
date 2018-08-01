@@ -36,6 +36,8 @@ INTERLIS 2.3;
  * 30.01.2018/fm : Cambio del tipo de dato del atributo Ext_Direccion de la clase Unidad Espacial a ExtDireccion; atributo ext_PID de la calse LA_Interesado cambia de OID a ExtInteresado; Cambio de cardinalidad en relacion miembros entre LA_Interesado y LA_Agrupacion_Interesados de 0..1 a 0..*
  * 19.02.2018/fm : Cambio en longitud de atributo DocumentoIdentidad de 10 a 12 posiciones
  * 17.07.2018/fm : cambio en cardinalidad asociación ConstruccionUnidadConstruccion de 1..* a 0..*; ampliación del tamaño para campo de nombre en Interesado Natural; se incluyen los valores nuip, cedula militar, registro civil, cedula militar, secuencial SRN y secuencial IGAC al dominio COL_InteresadoDocumentoTipo
+ * 30.07.2018/fm : Cambio obligatoriedad atributo area_registral de clase terreno de 1 a 0..1
+ * 31.07.2018/fm: Creación de la clase COL_Interesado integrando los atributos de interesado natural e interesado jurídico; se agrega area en la clase construcción; se adiciona valor Carta_Venta al dominio COL_FuenteAdministrativaTipo; inclusion de atributo nombre en la clase COL_FuenteAdministrativa
  * 
  * -----------------------------------------------------------
  * 
@@ -318,6 +320,39 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Codigo_Registral_Derecho : TEXT*3;
     END COL_Derecho;
 
+    CLASS COL_Interesado
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Interesado =
+      /** Documento de identidad del interesado.
+       */
+      Documento_Identidad : MANDATORY TEXT*12;
+      /** Tipo de documento del que se trata.
+       */
+      Tipo_Documento : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_InteresadoDocumentoTipo;
+      /** Quien ha emitido el documento de identidad.
+       */
+      Organo_Emisor : TEXT*20;
+      /** Fecha de emisión del documento de identidad.
+       */
+      Fecha_Emision : INTERLIS.XMLDate;
+      /** Primer apellido de la persona física.
+       */
+      Primer_Apellido : TEXT*100;
+      /** Primer nombre de la persona física.
+       */
+      Primer_Nombre : TEXT*100;
+      /** Segundo apellido de la persona física.
+       */
+      Segundo_Apellido : TEXT*100;
+      /** Segundo nombre de la persona física.
+       */
+      Segundo_Nombre : TEXT*100;
+      /** Nombre con el que está inscrito.
+       */
+      Razon_Social : TEXT*250;
+      Genero : Catastro_Registro_Nucleo_V2_2_1.COL_GeneroTipo;
+      Tipo_Interesado_Juridico : Catastro_Registro_Nucleo_V2_2_1.COL_InteresadoJuridicoTipo;
+    END COL_Interesado;
+
     /** Es un tipo de espacio jurídico de la unidad de edificación del modelo LADM que almacena datos específicos del avalúo resultante del mismo.
      */
     CLASS Construccion
@@ -325,6 +360,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Rsultado del cálculo de su avalúo mediante la metodología legalmente establecida.
        */
       Avaluo_Construccion : MANDATORY LADM_COL_V1_1.LADM_Nucleo.Peso;
+      Area_Construccion : 0.0 .. 99999999999999.9;
     END Construccion;
 
     /** Persona jurídica que tiene derechos o sobre la que recaen restricciones o responsabilidades referidas a uno o más predios.
@@ -563,7 +599,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_UnidadEspacial =
       /** Área del predio que se encuentra inscrita en el Folio de Matricula Inmobiliaria
        */
-      Area_Registral : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_1.m2];
+      Area_Registral : 0.0 .. 99999999999999.9 [LADM_COL_V1_1.m2];
       /** Área de predio resultado de los calculos realizados en el proceso de levantamiento planimetrico
        */
       Area_Calculada : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_1.m2];
@@ -607,6 +643,12 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       contacto -- {0..*} Interesado_Juridico_Contacto;
       Interesado_Juridico -- {1} Interesado_Juridico;
     END ContactoInteresadoJuridico;
+
+    ASSOCIATION predio_copropiedad =
+      predio -- {2..*} Predio;
+      copropiedad -<> {0..1} Predio;
+      coeficiente : LADM_COL_V1_1.LADM_Nucleo.Fraccion;
+    END predio_copropiedad;
 
     ASSOCIATION PublicidadBAUnit =
       pubicidad -- {0..*} Publicidad;
