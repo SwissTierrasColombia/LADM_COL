@@ -3,6 +3,7 @@ INTERLIS 2.3;
 /** Ficha Predial.
  * 
  * 01.02.2018/ : Cambio en cardinalidad en asociacion predioFicha_predio de 1 a 0..1
+ * 08.08.2018/ : (AT) Cambio en el nombre del atributo Actividad_Economica por Destinacion_Economica; Cambio en el nombre del dominio COL_UsoTipo por COL_DestinacionEconomicaTipo; Cambio en cardinalidad de atributos en clase Predio_Ficha
  */
 MODEL Ficha_Predial_V2_2_1 (es)
 AT "http://www.proadmintierra.info/"
@@ -40,6 +41,38 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     COL_DerechoFMITipo = (
       Propiedad,
       Falsa_Tradicion
+    );
+
+    /** Uso económico de la propiedad inmobiliaria.
+     */
+    COL_DestinacionEconomicaTipo = (
+      Agricola,
+      Agroindustrial,
+      Agropecuario,
+      Comercial,
+      Cultural,
+      Educativo,
+      Forestal,
+      Habitacional,
+      Industrial,
+      Institucional,
+      Minero,
+      Pecuario,
+      Recreacional,
+      Religioso,
+      Salubridad,
+      Servicios_Especiales,
+      Uso_Publico,
+      Lote_Urbanizable_No_Urbanizado,
+      Lote_Urbanizable_No_Construido,
+      Lote_No_Urbanizable,
+      Tierras_Aparentemente_Inexplotadas,
+      Acuicola,
+      Infrestructura_Transporte,
+      Infrestructura_Hidraulica,
+      Infraestructura_Saneamiento,
+      Infraestructura_Seguridad,
+      Infraestructura_Asociada_Explotacion
     );
 
     COL_EstadoNupreTipo = (
@@ -93,38 +126,6 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     COL_TipoOfertaTipo = (
       Venta,
       Alquiler
-    );
-
-    /** Uso económico de la propiedad inmobiliaria.
-     */
-    COL_UsoTipo = (
-      Agricola,
-      Agroindustrial,
-      Agropecuario,
-      Comercial,
-      Cultural,
-      Educativo,
-      Forestal,
-      Habitacional,
-      Industrial,
-      Institucional,
-      Minero,
-      Pecuario,
-      Recreacional,
-      Religioso,
-      Salubridad,
-      Servicios_Especiales,
-      Uso_Publico,
-      Lote_Urbanizable_No_Urbanizado,
-      Lote_Urbanizable_No_Construido,
-      Lote_No_Urbanizable,
-      Tierras_Aparentemente_Inexplotadas,
-      Acuicola,
-      Infrestructura_Transporte,
-      Infrestructura_Hidraulica,
-      Infraestructura_Saneamiento,
-      Infraestructura_Seguridad,
-      Infraestructura_Asociada_Explotacion
     );
 
     COL_PredioTipoPublicoTipo = (
@@ -202,98 +203,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     /** Esta clase se crea específicamente para almacena la información recogida en la ficha predial sin fines claramente definidos. REVISAR DOCUMENTACION
      */
     CLASS Predio_Ficha =
-      /** Indica las redes de servicios públicos con los que el inmueble es abastecido.
-       */
-      Servicio_Publico : BAG {0..*} OF Ficha_Predial_V2_2_1.COL_ServicioPublicoTipo_Predio_Ficha_Servicio_Publico;
-      /** Clasificación del suelo según el Plan de Ordenamiento Territorial vigente.
-       */
-      Clase_Suelo_POT : Ficha_Predial_V2_2_1.COL_ClaseSueloPOTTipo;
-      /** Categoría del suelo según el Plan de Ordenamiento Territorial vigente.
-       */
-      Categoria_Suelo_POT : Ficha_Predial_V2_2_1.COL_CategoriaSueloPOTTipo;
-      /** Uso económico que se hace del predio.
-       */
-      Actividad_Economica : Ficha_Predial_V2_2_1.COL_UsoTipo;
-      /** Derecho asociado al FMI (Folio de Matrícula Inmobiliaria). REVISAR DOCUMENTACIÓN
-       */
-      Derecho_FMI : Ficha_Predial_V2_2_1.COL_DerechoFMITipo;
-      /** Indicación de si el predio está o no inscrito en el RUPTA (Registro Único de Predios y Territorios).
-       */
-      Inscrito_RUPTA : BOOLEAN;
-      /** Si el predio está inscrito en el RUPTA, fecha en la que se produjo la medida.
-       */
-      Fecha_Medida_RUPTA : INTERLIS.XMLDate;
-      /** Si ha sido o no anotado en el folio de matrícula inmobiliaria
-       */
-      Anotacion_FMI_RUPTA : MANDATORY BOOLEAN;
-      /** Indicación de si ha sido o no inscrito como predio de protección colectiva.
-       */
-      Inscrito_Proteccion_Colectiva : BOOLEAN;
-      /** Fecha en la que ha sido inscrito en el registro de protección colectiva.
-       */
-      Fecha_Proteccion_Colectiva : INTERLIS.XMLDate;
-      /** Si ha sido o no maracado en el folio de matrícula inmobiliaria como que está dado de alta como de protección colectiva.
-       */
-      Anotacion_FMI_Proteccion_Colectiva : MANDATORY BOOLEAN;
-      /** Si ha sido o no inscrito como protegido por la Ley 1448.
-       */
-      Incrito_Proteccion_Ley1448 : BOOLEAN;
-      /** De haber sido inscrito como se indica arriba, fecha en la que se dio la inscripción.
-       */
-      Fecha_Proteccion_Ley1448 : INTERLIS.XMLDate;
-      /** Si ha sido o no anotado en el folio de matrícula inmobiliaria su condición de protegido por la Ley 1448.
-       */
-      Anotacion_FMI_Ley1448 : MANDATORY BOOLEAN;
-      /** Si está o no inscrito en la URT (Unidad de Restitución de Tierras).
-       */
-      Inscripcion_URT : BOOLEAN;
-      /** Si ha sido inscrito en la URT, con qué fecha.
-       */
-      Fecha_Inscripcion_URT : INTERLIS.XMLDate;
-      /** Si ha sido anotado o no como que está registrado por la URT en el folio de matrícula inmobiliaria.
-       */
-      Anotacion_FMI_URT : MANDATORY BOOLEAN;
-      /** Observaciones que se considere oportuno aportar sobre la propiedad inmobiliaria.
-       */
-      Observaciones : TEXT*255;
-      /** Nombre de la persona que atendió a la recogida de datos en campo sobre el predio.
-       */
-      Nombre_Quien_Atendio : TEXT*40;
-      /** Número de documento de la persona que atendió a la recogida de datos en campo sobre el predio.
-       */
-      Numero_Documento_Quien_Atendio : TEXT*10;
-      /** Relación de la persona que atendió a la recogida de datos de campo con el predio encuestado.
-       */
-      Categoria_Quien_Atendio : Ficha_Predial_V2_2_1.COL_CategoriaQuienAtendioTipo;
-      /** tipo de documento aportado por la persona que atendió a la recogida de datos en campo sobre el predio. Su dominio de valores se encuentra en el modelo de catastro.
-       */
-      Tipo_Documento_Quien_Atendio : Catastro_Registro_Nucleo_V2_2_1.COL_InteresadoDocumentoTipo;
-      /** Nombre de la persona que levantó los datos en campo.
-       */
-      Nombre_Encuestador : TEXT*40;
-      /** Número de documento de la persona que levantó los datos en campo.
-       */
-      Numero_Documento_Encuestador : TEXT*10;
-      /** Tipo de documento aportado por la persona que levantó los datos en campo. Su dominio de valores se encuentra en el modelo de catastro.
-       */
-      Tipo_Documento_Encuestador : Catastro_Registro_Nucleo_V2_2_1.COL_InteresadoDocumentoTipo;
       Fecha_Visita_predial : INTERLIS.XMLDate;
-      /** Indica si el predio es publico o privado
-       */
-      Predio_Tipo : MANDATORY Ficha_Predial_V2_2_1.COL_PredioTipo;
-      Tipo_Predio_Publico : Ficha_Predial_V2_2_1.COL_PredioTipoPublicoTipo;
-      /** caracteriza el estrato socioeconómico del predio
-       */
-      Estrato : Ficha_Predial_V2_2_1.COL_EstratoTipo;
-      /** Describe si el predio es formal o informal
-       */
-      Formalidad : BOOLEAN;
-      /** Indica el estado en el que se encuentra el NUPRE (Debe ser definido por la autoridad catastral)
-       */
-      Estado_NUPRE : Ficha_Predial_V2_2_1.COL_EstadoNupreTipo;
-      /** Último año del cual se hizo la actualización económica para entrar el avalúo en vigencia fiscal
-       */
-      Vigencia_Fiscal : INTERLIS.XMLDate;
       /** corresponde a las posiciones 8 y 9 del codigo predial nacional
        */
       Sector : TEXT*2;
@@ -321,6 +231,97 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       /** corresponde a las posiciones 27 a 30 del codigo predial nacional
        */
       Unidad : TEXT*4;
+      /** Indica el estado en el que se encuentra el NUPRE (Debe ser definido por la autoridad catastral)
+       */
+      Estado_NUPRE : Ficha_Predial_V2_2_1.COL_EstadoNupreTipo;
+      /** Uso económico que se hace del predio.
+       */
+      Destinacion_Economica : Ficha_Predial_V2_2_1.COL_DestinacionEconomicaTipo;
+      /** Indica si el predio es publico o privado
+       */
+      Predio_Tipo : Ficha_Predial_V2_2_1.COL_PredioTipo;
+      Tipo_Predio_Publico : Ficha_Predial_V2_2_1.COL_PredioTipoPublicoTipo;
+      /** Describe si el predio es formal o informal
+       */
+      Formalidad : BOOLEAN;
+      /** Indica las redes de servicios públicos con los que el inmueble es abastecido.
+       */
+      Servicio_Publico : BAG {0..*} OF Ficha_Predial_V2_2_1.COL_ServicioPublicoTipo_Predio_Ficha_Servicio_Publico;
+      /** caracteriza el estrato socioeconómico del predio
+       */
+      Estrato : Ficha_Predial_V2_2_1.COL_EstratoTipo;
+      /** Clasificación del suelo según el Plan de Ordenamiento Territorial vigente.
+       */
+      Clase_Suelo_POT : Ficha_Predial_V2_2_1.COL_ClaseSueloPOTTipo;
+      /** Categoría del suelo según el Plan de Ordenamiento Territorial vigente.
+       */
+      Categoria_Suelo_POT : Ficha_Predial_V2_2_1.COL_CategoriaSueloPOTTipo;
+      /** Derecho asociado al FMI (Folio de Matrícula Inmobiliaria). REVISAR DOCUMENTACIÓN
+       */
+      Derecho_FMI : Ficha_Predial_V2_2_1.COL_DerechoFMITipo;
+      /** Indicación de si el predio está o no inscrito en el RUPTA (Registro Único de Predios y Territorios).
+       */
+      Inscrito_RUPTA : BOOLEAN;
+      /** Si el predio está inscrito en el RUPTA, fecha en la que se produjo la medida.
+       */
+      Fecha_Medida_RUPTA : INTERLIS.XMLDate;
+      /** Si ha sido o no anotado en el folio de matrícula inmobiliaria
+       */
+      Anotacion_FMI_RUPTA : BOOLEAN;
+      /** Indicación de si ha sido o no inscrito como predio de protección colectiva.
+       */
+      Inscrito_Proteccion_Colectiva : BOOLEAN;
+      /** Fecha en la que ha sido inscrito en el registro de protección colectiva.
+       */
+      Fecha_Proteccion_Colectiva : INTERLIS.XMLDate;
+      /** Si ha sido o no maracado en el folio de matrícula inmobiliaria como que está dado de alta como de protección colectiva.
+       */
+      Anotacion_FMI_Proteccion_Colectiva : BOOLEAN;
+      /** Si ha sido o no inscrito como protegido por la Ley 1448.
+       */
+      Incrito_Proteccion_Ley1448 : BOOLEAN;
+      /** De haber sido inscrito como se indica arriba, fecha en la que se dio la inscripción.
+       */
+      Fecha_Proteccion_Ley1448 : INTERLIS.XMLDate;
+      /** Si ha sido o no anotado en el folio de matrícula inmobiliaria su condición de protegido por la Ley 1448.
+       */
+      Anotacion_FMI_Ley1448 : BOOLEAN;
+      /** Si está o no inscrito en la URT (Unidad de Restitución de Tierras).
+       */
+      Inscripcion_URT : BOOLEAN;
+      /** Si ha sido inscrito en la URT, con qué fecha.
+       */
+      Fecha_Inscripcion_URT : INTERLIS.XMLDate;
+      /** Si ha sido anotado o no como que está registrado por la URT en el folio de matrícula inmobiliaria.
+       */
+      Anotacion_FMI_URT : BOOLEAN;
+      /** Último año del cual se hizo la actualización económica para entrar el avalúo en vigencia fiscal
+       */
+      Vigencia_Fiscal : INTERLIS.XMLDate;
+      /** Observaciones que se considere oportuno aportar sobre la propiedad inmobiliaria.
+       */
+      Observaciones : TEXT*255;
+      /** Nombre de la persona que atendió a la recogida de datos en campo sobre el predio.
+       */
+      Nombre_Quien_Atendio : TEXT*40;
+      /** Número de documento de la persona que atendió a la recogida de datos en campo sobre el predio.
+       */
+      Numero_Documento_Quien_Atendio : TEXT*10;
+      /** Relación de la persona que atendió a la recogida de datos de campo con el predio encuestado.
+       */
+      Categoria_Quien_Atendio : Ficha_Predial_V2_2_1.COL_CategoriaQuienAtendioTipo;
+      /** tipo de documento aportado por la persona que atendió a la recogida de datos en campo sobre el predio. Su dominio de valores se encuentra en el modelo de catastro.
+       */
+      Tipo_Documento_Quien_Atendio : Catastro_Registro_Nucleo_V2_2_1.COL_InteresadoDocumentoTipo;
+      /** Nombre de la persona que levantó los datos en campo.
+       */
+      Nombre_Encuestador : TEXT*40;
+      /** Número de documento de la persona que levantó los datos en campo.
+       */
+      Numero_Documento_Encuestador : TEXT*10;
+      /** Tipo de documento aportado por la persona que levantó los datos en campo. Su dominio de valores se encuentra en el modelo de catastro.
+       */
+      Tipo_Documento_Encuestador : Catastro_Registro_Nucleo_V2_2_1.COL_InteresadoDocumentoTipo;
     END Predio_Ficha;
 
     /** Relación entre las clases Interesado_Juridico de catastro y el Interesado_Juridico de la ficha.
