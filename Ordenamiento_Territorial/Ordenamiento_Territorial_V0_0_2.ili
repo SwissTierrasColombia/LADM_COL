@@ -1,0 +1,281 @@
+INTERLIS 2.3;
+
+MODEL Ordenamiento_Territorial_V0_0_2 (es)
+AT "mailto:agenciadeimplementacion@incige.com"
+VERSION "2018-01-24"  =
+  IMPORTS ISO19107_V1_MAGNABOG,LADM_COL_V1_1;
+
+  DOMAIN
+
+    OT_CalificacionTipo = (
+      /** Usado en la clasificacion de suelo rural
+       */
+      DesarrolloRestringido(
+        Suburbano,
+        CentrosPoblados,
+        ViviendaCampestre,
+        Equipamientos,
+        SinDesarrollo
+      ),
+      /** Usado en la clasificacion de suelo rural
+       */
+      Rural(
+        ProduccionForestal,
+        Agropecuario,
+        Mineria_Hidrocarburos
+      ),
+      /** Usado en la clasificacion de suelo de expansión
+       */
+      Expansion(
+        Residencial,
+        Dotacional,
+        Comercio_Servicios,
+        Mixto,
+        Industrial
+      ),
+      /** Usado en la clasificacion de suelo urbano
+       */
+      MejoramientoIntegral_DesarrolloIncompleto(
+        Residencial,
+        Dotacional,
+        Comercio_Servicios,
+        Mixto,
+        Industrial
+      ),
+      /** Usado en la clasificacion de suelo urbano
+       */
+      Renovacion_Redesarrollo(
+        Residencial,
+        Dotacional,
+        Comercio_Servicios,
+        Mixto,
+        Industrial
+      ),
+      /** Usado en la clasificacion de suelo urbano
+       */
+      Renovacion_Reactivacion(
+        Residencial,
+        Dotacional,
+        Comercio_Servicios,
+        Mixto,
+        Industrial
+      ),
+      /** Usado en la clasificacion de suelo urbano
+       */
+      Conservacion(
+        Residencial,
+        Dotacional,
+        Comercio_Servicios,
+        Mixto,
+        Industrial
+      ),
+      /** Usado en la clasificacion de suelo urbano
+       */
+      Desarrollo(
+        Residencial,
+        Dotacional,
+        Comercio_Servicios,
+        Mixto,
+        Industrial
+      ),
+      /** Usado en la clasificacion de suelo urbano
+       */
+      Consolidacion(
+        Residencial,
+        Dotacional,
+        Comercio_Servicios,
+        Mixto,
+        Industrial
+      )
+    );
+
+    OT_ClasificacionSuelo = (
+      Expansion,
+      Urbano,
+      Rural
+    );
+
+    OT_DerechoTipo = (
+      ModificacionEstructura,
+      Densificacion,
+      Aprovechamiento,
+      CambioEdificabilidad,
+      CambioUso,
+      Adecuacion,
+      Urbanizacion,
+      Construccion,
+      Incentivo,
+      Edificacion,
+      DotacionInfraestructuras,
+      AccesoProgramaMejoramiento
+    );
+
+    OT_ProteccionTipo = (
+      ServiciosPublicos_Infraestructura,
+      ZonaAmenaza_Riesgo,
+      Ambiental
+    );
+
+    OT_ResponsabilidadTipo = (
+      Conservacion,
+      Cesiones,
+      Proteccion,
+      Mantenimiento,
+      Cargas(
+        Cesiones,
+        ControlAmbiental,
+        InfraestructuraVial,
+        AcuerdosEntrePropietarios,
+        Equipamiento
+      )
+    );
+
+    OT_RestriccionTipo = (
+      Compatibilidad,
+      MantenimientoEstructura,
+      PlanParcial,
+      DesarrolloIndividual,
+      Edificabilidad
+    );
+
+    OT_SistemaEspacioPublicoTipo = (
+      /** Elementos complementarios - amoblamiento Urbano
+       */
+      Senializacion(
+        !!@ ili2db.dispName = "Elementos nomenclatura"
+        ElementosNomenclatura,
+        !!@ ili2db.dispName = "Señalizacion vial, fluvial, ferrea, aerea"
+        Senializacion
+      ),
+      /** Elementos complementarios - amoblamiento Urbano
+       */
+      Mobiliario(
+        !!@ ili2db.dispName = "Comunicación: Mapas y planos de localización"
+        Comunicacion,
+        !!@ ili2db.dispName = "Organización: Bolardos, paraderos, semaforos"
+        Organizacion,
+        !!@ ili2db.dispName = "Ambientación: Luminarias, bancas, murales"
+        Ambientacion,
+        !!@ ili2db.dispName = "Recreación: Juegos adultos infantiles"
+        Recreacion,
+        !!@ ili2db.dispName = "Servicio: Parquimetros, bicicleteros"
+        Servicio,
+        !!@ ili2db.dispName = "Salud e higiene: Baños públicos, canecas"
+        Salud_Higiene,
+        !!@ ili2db.dispName = "Seguridad: Barandas, pasamanos, camaras de seguridad"
+        Seguridad
+      ),
+      /** Elementos complementarios - amoblamiento Urbano
+       */
+      ElementosJardines_ProteccionPaisaje(
+        !!@ ili2db.dispName = "Vegetación herbácea, cesped, jardines, arbustos, bosques"
+        Vegetacion
+      ),
+      /** Elementos constitutivos - elementos artificiales o construidos
+       */
+      AreasPropiedadPrivada(
+        !!@ ili2db.dispName = "Antejardines"
+        Antejardines,
+        !!@ ili2db.dispName = "Fachadas, cubiertas, pórticos"
+        Fachadas_Cubiertas_Porticos
+      ),
+      /** Elementos constitutivos - elementos artificiales o construidos
+       */
+      AreasConservacionObrasInteresPublico(
+        !!@ ili2db.dispName = "Sectores de ciudad"
+        SectoresCiudad,
+        !!@ ili2db.dispName = "Zonas arqueológico"
+        ZonaArqueologica,
+        !!@ ili2db.dispName = "Manzanas"
+        Manzanas,
+        !!@ ili2db.dispName = "Inmuebles individuales (Nacional o Mpal)"
+        InmueblesIndividuales,
+        !!@ ili2db.dispName = "Murales, esculturas, fuentes, etc"
+        Murales_Esculturas_Fuentes
+      ),
+      /** Elementos constitutivos - elementos artificiales o construidos
+       */
+      AreasArticuladoraEspacioPublico(
+        !!@ ili2db.dispName = "Parques"
+        Parques,
+        !!@ ili2db.dispName = "Zonas de cesión para zonas verdes"
+        ZonasCesionZonasVerdes,
+        !!@ ili2db.dispName = "Plazas, plazoletas"
+        Plazas_Plazoletas,
+        !!@ ili2db.dispName = "Escenarios deportivos, culturales y de espectaculos al aire libre"
+        EscenariosAireLibre
+      ),
+      /** Elementos constitutivos - elementos artificiales o construidos
+       */
+      !!@ ili2db.dispName = "Área integrante de los sistemas de circulación peatonal y vehicular"
+      AreasIntegrantes(
+        !!@ ili2db.dispName = "Tipos de perfil vial vehicular"
+        TipoPerfilVialVehicular,
+        !!@ ili2db.dispName = "Tipos de perfil vial exclusivamente peatonal"
+        TipoPerfilVialPeatonal
+      ),
+      /** Elementos constitutivos - elementos naturales
+       */
+      !!@ ili2db.dispName = "Áreas delimitadas de conservación y preservación"
+      AreasConservacionPreservacion(
+        !!@ ili2db.dispName = "Sistema Orográfico"
+        SistemasOrograficos,
+        !!@ ili2db.dispName = "Sistemas Hídricos"
+        SistemasHidricos
+      )
+    );
+
+  TOPIC Ordenamiento_Territorial
+  EXTENDS LADM_COL_V1_1.LADM_Nucleo =
+    DEPENDS ON LADM_COL_V1_1.LADM_Nucleo;
+
+    CLASS Actividad =
+    END Actividad;
+
+    CLASS Municipio
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Interesado =
+      Categoria : MANDATORY 1 .. 6;
+    END Municipio;
+
+    CLASS OT_Derecho
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
+      Tipo : MANDATORY Ordenamiento_Territorial_V0_0_2.OT_DerechoTipo;
+    END OT_Derecho;
+
+    CLASS OT_Responsabilidad
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
+      Tipo : MANDATORY Ordenamiento_Territorial_V0_0_2.OT_ResponsabilidadTipo;
+    END OT_Responsabilidad;
+
+    CLASS OT_Restriccion
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
+      Tipo : MANDATORY Ordenamiento_Territorial_V0_0_2.OT_RestriccionTipo;
+      Coeficiente_Maximo_Edificabilidad : 1 .. 99;
+      SET CONSTRAINT WHERE Tipo == #Edificabilidad : Coeficiente_Maximo_Edificabilidad > 0;
+      SET CONSTRAINT WHERE Tipo != #Edificabilidad : Coeficiente_Maximo_Edificabilidad == UNDEFINED;
+    END OT_Restriccion;
+
+    CLASS POT
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.COL_FuenteAdministrativa =
+      municipio : TEXT*20;
+      periodo : TEXT*20;
+    END POT;
+
+    CLASS ZonaPOT
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_BAUnit =
+      Clasificacion_Suelo : MANDATORY Ordenamiento_Territorial_V0_0_2.OT_ClasificacionSuelo;
+      Geometria : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
+      Calificacion : MANDATORY Ordenamiento_Territorial_V0_0_2.OT_CalificacionTipo;
+      SET CONSTRAINT WHERE Clasificacion_Suelo == #Rural : Calificacion == #DesarrolloRestringido.Suburbano OR Calificacion == #DesarrolloRestringido.CentrosPoblados OR Calificacion == #DesarrolloRestringido.ViviendaCampestre OR Calificacion == #DesarrolloRestringido.Equipamientos OR Calificacion == #DesarrolloRestringido.SinDesarrollo OR Calificacion == #Rural.ProduccionForestal OR Calificacion == #Rural.Agropecuario OR Calificacion == #Rural.Mineria_Hidrocarburos;
+      SET CONSTRAINT WHERE Clasificacion_Suelo == #Expansion : Calificacion == #Expansion.Residencial OR Calificacion == #Expansion.Dotacional OR Calificacion == #Expansion.Comercio_Servicios OR Calificacion == #Expansion.Mixto;
+      SET CONSTRAINT WHERE Clasificacion_Suelo == #Urbano : Calificacion == #MejoramientoIntegral_DesarrolloIncompleto.Residencial OR Calificacion == #MejoramientoIntegral_DesarrolloIncompleto.Dotacional OR Calificacion == #MejoramientoIntegral_DesarrolloIncompleto.Comercio_Servicios OR Calificacion == #MejoramientoIntegral_DesarrolloIncompleto.Mixto OR Calificacion == #MejoramientoIntegral_DesarrolloIncompleto.Industrial OR Calificacion == #Renovacion_Redesarrollo.Residencial OR Calificacion == #Renovacion_Redesarrollo.Dotacional OR Calificacion == #Renovacion_Redesarrollo.Comercio_Servicios OR Calificacion == #Renovacion_Redesarrollo.Mixto OR Calificacion == #Renovacion_Redesarrollo.Industrial OR Calificacion == #Renovacion_Reactivacion.Residencial OR Calificacion == #Renovacion_Reactivacion.Dotacional OR Calificacion == #Renovacion_Reactivacion.Comercio_Servicios OR Calificacion == #Renovacion_Reactivacion.Mixto OR Calificacion == #Renovacion_Reactivacion.Industrial OR Calificacion == #Conservacion.Residencial OR Calificacion == #Conservacion.Dotacional OR Calificacion == #Conservacion.Comercio_Servicios OR Calificacion == #Conservacion.Mixto OR Calificacion == #Conservacion.Industrial OR Calificacion == #Desarrollo.Residencial OR Calificacion == #Desarrollo.Dotacional OR Calificacion == #Desarrollo.Comercio_Servicios OR Calificacion == #Desarrollo.Mixto OR Calificacion == #Desarrollo.Industrial OR Calificacion == #Consolidacion.Residencial OR Calificacion == #Consolidacion.Dotacional OR Calificacion == #Consolidacion.Comercio_Servicios OR Calificacion == #Consolidacion.Mixto OR Calificacion == #Consolidacion.Industrial;
+    END ZonaPOT;
+
+    CLASS ZonaProteccion
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_UnidadEspacial =
+      tipoProteccion : MANDATORY Ordenamiento_Territorial_V0_0_2.OT_ProteccionTipo;
+    END ZonaProteccion;
+
+  END Ordenamiento_Territorial;
+
+END Ordenamiento_Territorial_V0_0_2.
