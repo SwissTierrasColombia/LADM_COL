@@ -38,6 +38,7 @@ INTERLIS 2.3;
  * 17.07.2018/fm : cambio en cardinalidad asociación ConstruccionUnidadConstruccion de 1..* a 0..*; ampliación del tamaño para campo de nombre en Interesado Natural; se incluyen los valores nuip, cedula militar, registro civil, cedula militar, secuencial SRN y secuencial IGAC al dominio COL_InteresadoDocumentoTipo
  * 30.07.2018/fm : Cambio obligatoriedad atributo area_registral de clase terreno de 1 a 0..1
  * 31.07.2018/fm: Creación de la clase COL_Interesado integrando los atributos de interesado natural e interesado jurídico; se agrega area en la clase construcción; se adiciona valor Carta_Venta al dominio COL_FuenteAdministrativaTipo; inclusion de atributo nombre en la clase COL_FuenteAdministrativa
+ * 10.08.2018/fm: Eliminado clase Interesado Natural e Interesado Juridico
  * 
  * -----------------------------------------------------------
  * 
@@ -363,77 +364,25 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Area_Construccion : 0.0 .. 99999999999999.9;
     END Construccion;
 
-    /** Persona jurídica que tiene derechos o sobre la que recaen restricciones o responsabilidades referidas a uno o más predios.
-     */
-    CLASS Interesado_Juridico
-    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Interesado =
-      /** Número de identificación.
-       */
-      Numero_NIT : MANDATORY TEXT*20;
-      /** Nombrecon el que está inscrito.
-       */
-      Razon_Social : MANDATORY TEXT*250;
-      /** Caracter del tipo de derecho sobre el que está constituído.
-       */
-      Tipo (EXTENDED) : Catastro_Registro_Nucleo_V2_2_1.COL_InteresadoJuridicoTipo;
-    END Interesado_Juridico;
-
-    /** Forma de contactar con el interesado jurídico.
-     */
-    CLASS Interesado_Juridico_Contacto =
+    CLASS Interesado_Contacto =
       Telefono1 : TEXT*20;
       Telefono2 : TEXT*20;
-      /** Domicilio en el que recibir ntitficaciones.
-       */
       Domicilio_Notificacion : TEXT*500;
       Correo_Electronico : TEXT*100;
-      /** Origen desde el que se han conseguido los datos del interesado jurídico.
-       */
-      Origen_Datos : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_InstitucionTipo;
-    END Interesado_Juridico_Contacto;
+      Origen_Datos : Catastro_Registro_Nucleo_V2_2_1.COL_InstitucionTipo;
+    END Interesado_Contacto;
 
-    /** Persona natural que tiene derechos o sobre la que recaen restricciones o responsabilidades referidas a uno o más predios.
+    /** Clase especializada de LA_CadenaCarasLindero que permite registrar los linderos.
+     * Dos linderos no pueden cruzarse ni superponerse.
      */
-    CLASS Interesado_Natural
-    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Interesado =
-      /** Documento de identidad personal.
+    CLASS Lindero
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_CadenaCarasLimite =
+      /** Lóngitud en m del lindero.
        */
-      Documento_Identidad : MANDATORY TEXT*12;
-      /** Tipo de documento del que se trata.
-       */
-      Tipo_Documento : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_InteresadoDocumentoTipo;
-      /** Quien ha emitido el documento de identidad.
-       */
-      Organo_Emisor : TEXT*20;
-      /** Fecha de emisión del documento de identidad.
-       */
-      Fecha_Emision : INTERLIS.XMLDate;
-      /** Primer apellido de la persona física.
-       */
-      Primer_Apellido : MANDATORY TEXT*100;
-      /** Primer nombre de la persona física.
-       */
-      Primer_Nombre : MANDATORY TEXT*100;
-      /** Segundo apellido de la persona física.
-       */
-      Segundo_Apellido : TEXT*100;
-      /** Segundo nombre de la persona física.
-       */
-      Segundo_Nombre : TEXT*100;
-      Genero : Catastro_Registro_Nucleo_V2_2_1.COL_GeneroTipo;
-    END Interesado_Natural;
-
-    /** Datos de contacto de la persona física.
-     */
-    CLASS Interesado_Natural_Contacto =
-      Telefono1 : TEXT*20;
-      Telefono2 : TEXT*20;
-      Direccion : TEXT*100;
-      Correo_Electronico : TEXT*100;
-      /** Procedencia de los datos de la persona física.
-       */
-      Origen_Datos : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_InstitucionTipo;
-    END Interesado_Natural_Contacto;
+      Longitud : MANDATORY 0.0 .. 10000.0 [INTERLIS.m];
+      !!@name="no_overlaps"
+      SET CONSTRAINT no_overlaps(ALL,>> Geometria);
+    END Lindero;
 
     /** Clase especializada de BaUnit, que describe la unidad administrativa básica para el caso de Colombia.
      * El predio es la unidad territorial legal propia de Catastro. Esta formada por el terreno y puede o no tener construcciones asociadas.
@@ -539,60 +488,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       SET CONSTRAINT no_overlaps(ALL,>> Localizacion_Original);
     END PuntoLindero;
 
-    /** Restricciones a las que está sometido un predio y que inciden sobre los derechos que pueden ejercerse sobre él.
-     */
-    CLASS COL_Restriccion
-    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
-      /** Indica si es preciso o no que un interesado esté asociado a la restricción.
-       */
-      Interesado_Requerido : BOOLEAN;
-      /** Define el tipo de restricción.
-       */
-      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_RestriccionTipo;
-      /** Código con el que la responsabilidad se registra en el Registro de la Propiedad.
-       */
-      Codigo_Registral_Restriccion : TEXT*3;
-    END COL_Restriccion;
-
-    /** Clase especializada de LA_CadenaCarasLindero que permite registrar los linderos.
-     * Dos linderos no pueden cruzarse ni superponerse.
-     */
-    CLASS Lindero
-    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_CadenaCarasLimite =
-      /** Lóngitud en m del lindero.
-       */
-      Longitud : MANDATORY 0.0 .. 10000.0 [INTERLIS.m];
-      !!@name="no_overlaps"
-      SET CONSTRAINT no_overlaps(ALL,>> Geometria);
-    END Lindero;
-
-    /** Clase especializada de LA_Punto que representa puntos demarcados que representan la posición horizontal de un vértice de construcción, servidumbre o auxiliare.
-     */
-    CLASS PuntoLevantamiento
-    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Punto =
-      /** Se caracterizan los diferentes tipos de punto levantamiento, estos son punto de construccción, punto de servidumbre o punto auxiliar
-       */
-      Tipo_Punto_Levantamiento : Catastro_Registro_Nucleo_V2_2_1.COL_PuntoLevTipo;
-      /** Se caracteriza si el punto de levantamiento corresponde a un punto bien definido o no bien definido
-       */
-      Definicion_Punto : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_DefPuntoTipo;
-      /** Corresponde a la exactitud vertical del punto levantamiento
-       */
-      Exactitud_Vertical : 0 .. 1000 [LADM_COL_V1_1.cm];
-      /** Corresponde a la exactitud horizontal del punto levantamiento
-       */
-      Exactitud_Horizontal : 0 .. 1000 [LADM_COL_V1_1.cm];
-      /** Se describe la posición del punto con relación a su estructura, si es un punto aislado, o si hace parte de un Arco o de una linea.
-       */
-      Posicion_Interpolacion (EXTENDED) : Catastro_Registro_Nucleo_V2_2_1.COL_InterpolacionTipo;
-      /** Definición sobre si el punto de levantamiento se encuentra monumentado o no y los tipos de monumentación especificos para el perfil nacional
-       */
-      Monumentacion (EXTENDED) : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_MonumentacionTipo;
-      /** Nombre que recibe el punto.
-       */
-      Nombre_Punto : TEXT*10;
-    END PuntoLevantamiento;
-
     /** Porción de tierra con una extensión geográfica definida.
      */
     CLASS Terreno
@@ -634,15 +529,52 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       SET CONSTRAINT no_overlaps(ALL,>> poligono_creado);
     END Terreno;
 
-    ASSOCIATION ContactoInteresado =
-      contacto -- {0..*} Interesado_Natural_Contacto;
-      interesado -- {1} Interesado_Natural;
-    END ContactoInteresado;
+    /** Restricciones a las que está sometido un predio y que inciden sobre los derechos que pueden ejercerse sobre él.
+     */
+    CLASS COL_Restriccion
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
+      /** Indica si es preciso o no que un interesado esté asociado a la restricción.
+       */
+      Interesado_Requerido : BOOLEAN;
+      /** Define el tipo de restricción.
+       */
+      Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_RestriccionTipo;
+      /** Código con el que la responsabilidad se registra en el Registro de la Propiedad.
+       */
+      Codigo_Registral_Restriccion : TEXT*3;
+    END COL_Restriccion;
 
-    ASSOCIATION ContactoInteresadoJuridico =
-      contacto -- {0..*} Interesado_Juridico_Contacto;
-      Interesado_Juridico -- {1} Interesado_Juridico;
-    END ContactoInteresadoJuridico;
+    /** Clase especializada de LA_Punto que representa puntos demarcados que representan la posición horizontal de un vértice de construcción, servidumbre o auxiliare.
+     */
+    CLASS PuntoLevantamiento
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Punto =
+      /** Se caracterizan los diferentes tipos de punto levantamiento, estos son punto de construccción, punto de servidumbre o punto auxiliar
+       */
+      Tipo_Punto_Levantamiento : Catastro_Registro_Nucleo_V2_2_1.COL_PuntoLevTipo;
+      /** Se caracteriza si el punto de levantamiento corresponde a un punto bien definido o no bien definido
+       */
+      Definicion_Punto : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_DefPuntoTipo;
+      /** Corresponde a la exactitud vertical del punto levantamiento
+       */
+      Exactitud_Vertical : 0 .. 1000 [LADM_COL_V1_1.cm];
+      /** Corresponde a la exactitud horizontal del punto levantamiento
+       */
+      Exactitud_Horizontal : 0 .. 1000 [LADM_COL_V1_1.cm];
+      /** Se describe la posición del punto con relación a su estructura, si es un punto aislado, o si hace parte de un Arco o de una linea.
+       */
+      Posicion_Interpolacion (EXTENDED) : Catastro_Registro_Nucleo_V2_2_1.COL_InterpolacionTipo;
+      /** Definición sobre si el punto de levantamiento se encuentra monumentado o no y los tipos de monumentación especificos para el perfil nacional
+       */
+      Monumentacion (EXTENDED) : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_MonumentacionTipo;
+      /** Nombre que recibe el punto.
+       */
+      Nombre_Punto : TEXT*10;
+    END PuntoLevantamiento;
+
+    ASSOCIATION InteresadoContacto =
+      contacto -- {0..*} Interesado_Contacto;
+      interesado -- {1} COL_Interesado;
+    END InteresadoContacto;
 
     ASSOCIATION predio_copropiedad =
       predio -- {2..*} Predio;
@@ -654,6 +586,16 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       pubicidad -- {0..*} Publicidad;
       baunit (EXTERNAL) -- {1} LADM_COL_V1_1.LADM_Nucleo.LA_BAUnit;
     END PublicidadBAUnit;
+
+    ASSOCIATION PublicidadFuente =
+      publicidad -- {0..1} Publicidad;
+      fuente (EXTERNAL) -- {1..*} LADM_COL_V1_1.LADM_Nucleo.COL_FuenteAdministrativa;
+    END PublicidadFuente;
+
+    ASSOCIATION PublicidadInteresado =
+      publicidad -- {0..*} Publicidad;
+      interesado (EXTERNAL) -- {0..1} LADM_COL_V1_1.LADM_Nucleo.LA_Interesado;
+    END PublicidadInteresado;
 
     /** Clase de tipo LA_RRR que registra las responsabilidades que las instancias de los interesados tienen sobre los predios.
      */
@@ -676,16 +618,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       Fecha_Inscripcion_Catastral : INTERLIS.XMLDate;
     END ServidumbrePaso;
-
-    ASSOCIATION PublicidadFuente =
-      publicidad -- {0..1} Publicidad;
-      fuente (EXTERNAL) -- {1..*} LADM_COL_V1_1.LADM_Nucleo.COL_FuenteAdministrativa;
-    END PublicidadFuente;
-
-    ASSOCIATION PublicidadInteresado =
-      publicidad -- {0..*} Publicidad;
-      interesado (EXTERNAL) -- {0..1} LADM_COL_V1_1.LADM_Nucleo.LA_Interesado;
-    END PublicidadInteresado;
 
     /** Clase que representa un tipo de restricción heredando de COL_Restricción, asociada a un derecho y que permite gestionar las hipotecas constituídas sobre un bien inmueble, considerando las cuestiones legales nacionales.
      */

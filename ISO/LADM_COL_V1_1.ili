@@ -17,6 +17,7 @@ INTERLIS 2.3;
  *  19.04.2018/vb fm: Ajuste al constraint Fraccion, denominador mayor a 0
  *  19.04.2018/vb fm: Cambio en la cardinalidad del atributo u_Local_Id de la clase LA_BAUnit de 0..1 a 1
  * 17.07.2018/fm : se incluye escritura en dominio COL_FuenteAdministrativaTipo
+ * 10.08.2018/fm : Se eliminan los atributos ai_local_id y ai_espacio_de_nombres de la clase LA_Agrupacion_Interesados
  * 
  * -----------------------------------------------------------
  * 
@@ -141,7 +142,8 @@ VERSION "V1.1.0"  // 2018-04-19 // =
         Providencia,
         Acta_Colindancia,
         Libros_Antiguo_Sistema_Registral,
-        Informe_Colindancia
+        Informe_Colindancia,
+        Carta_Venta
       );
 
       LA_DimensionTipo = (
@@ -690,6 +692,9 @@ VERSION "V1.1.0"  // 2018-04-19 // =
       /** Código registral de la transacción que se documenta.
        */
       Codigo_Registral_Transaccion : TEXT*3;
+      /** Identificador del documento, ejemplo: numero de la resolución
+       */
+      Nombre : TEXT*50;
     END COL_FuenteAdministrativa;
 
     /** Traducción al español de la clase LA_SpatialUnit de LADM.
@@ -1057,12 +1062,6 @@ VERSION "V1.1.0"  // 2018-04-19 // =
       /** Indica el tipo de agrupación del que se trata.
        */
       ai_Tipo : MANDATORY COL_GrupoInteresadoTipo;
-      /** Idenitficación global única de la instancia del grupo.
-       */
-      ai_Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificar único local del grupo.
-       */
-      ai_Local_Id : MANDATORY CharacterString;
     END LA_Agrupacion_Interesados;
 
     ASSOCIATION baunitComoInteresado =

@@ -4,6 +4,7 @@ INTERLIS 2.3;
  * 
  * 01.02.2018/ : Cambio en cardinalidad en asociacion predioFicha_predio de 1 a 0..1
  * 08.08.2018/ : (AT) Cambio en el nombre del atributo Actividad_Economica por Destinacion_Economica; Cambio en el nombre del dominio COL_UsoTipo por COL_DestinacionEconomicaTipo; Cambio en cardinalidad de atributos en clase Predio_Ficha
+ * 10.08.2018/ fm : cambio en el rol de interesado natural y jurídico ahora se asocia a Col_Interesado
  */
 MODEL Ficha_Predial_V2_2_1 (es)
 AT "http://www.proadmintierra.info/"
@@ -327,14 +328,14 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     /** Relación entre las clases Interesado_Juridico de catastro y el Interesado_Juridico de la ficha.
      */
     ASSOCIATION InteresadoJuridicoFichaInteresadoJuridicoCatastro =
-      InteresadoJuridicoCatastro (EXTERNAL) -- {1} Catastro_Registro_Nucleo_V2_2_1.Catastro_Registro.Interesado_Juridico;
+      InteresadoJuridicoCatastro (EXTERNAL) -- {1} Catastro_Registro_Nucleo_V2_2_1.Catastro_Registro.COL_Interesado;
       InteresadoJuridicoFicha -- {0..1} Interesado_Juridico;
     END InteresadoJuridicoFichaInteresadoJuridicoCatastro;
 
     /** Relación entre las clases Interesado_Natural de catastro y el Interesado_Natural de la ficha.
      */
     ASSOCIATION InteresadoNaturalFichaInteresadoNaturalCatastro =
-      InteresadoNaturalCatastro (EXTERNAL) -- {1} Catastro_Registro_Nucleo_V2_2_1.Catastro_Registro.Interesado_Natural;
+      InteresadoNaturalCatastro (EXTERNAL) -- {1} Catastro_Registro_Nucleo_V2_2_1.Catastro_Registro.COL_Interesado;
       InteresadoNaturalFicha -- {0..1} Interesado_Natural;
     END InteresadoNaturalFichaInteresadoNaturalCatastro;
 
