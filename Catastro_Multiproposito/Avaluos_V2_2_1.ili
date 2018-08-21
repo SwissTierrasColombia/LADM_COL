@@ -17,6 +17,7 @@ INTERLIS 2.3;
  *  08.03.2018/fm-gc: se ajusta la cardinalidad de atributo Comun_Uso_Exclusivo en la clase Predio
  *  09.07.2018/ : Cambio en cardinalidad en asociaciones avaluoConstruccion y AvaluoUnidadConstruccion de 1 a 0..1
  * 08.08.2018/ : (AT) Se agrega la clase abstracta Calificacion_Unidad_Construccion con clases especializadas Calificacion_No_Convencional y Calificacion_Convencional; Cambio en la cardinalidad de relación entre Unidad_Construccion y Calificacion_Unidad_Construccion pasa de 1 - 1..* a 1 - 1; Cambio en los valores del dominio COL_AccesoTipo; Se agrega el atributo numérico Nivel_de_Acceso en clase Unidad_Construccion; Cambio en el nombre del atributo Actividad_Econo por Uso; Se agrega el dominio COL_UsoConstruccionTipo para que tengan correspondencia con dominios SNC; Cambio en tipo de dato Material de manera que se quita el dominio y se deja abierto para el operador; Cambio en los valores del dominio COL_DestinoEconomicoTipo; Se elimina el atributo numero_total_pisos de clase Unidad_Construccion; Se cambia la cardinalidad de los atributos de Unidad_Construccion y Predio; Cambio de nombre en los atributos Conservacion_Cubierta y Puntos_Cubierta_Conservacion de la clase Calificacion_Convencional por Conservacion_Estructura y Puntos_Estructura_Conservacion; Ajuste de valores de los dominio COL_TipoCalificarTipo, COL_ArmazonTipo, COL_MurosTipo, COL_CubiertaTipo, COL_CubrimientoMurosTipo, COL_CalidadEnchapeTipo; Se agregan los dominios COL_ConservacionCalificacion y COL_AnexoTipo; Se adiciona el atributo Num_Sotanos en la clase Predio_Matriz_PH
+ * 21.08.2018/ : (AT) Se modifica el atributo Cercania_Hitos de la clase Predio dejandolo de tipo String
  * 
  * -----------------------------------------------------------
  * 
@@ -30,6 +31,16 @@ VERSION "V2.2.1"  // 2018-02-01 // =
   IMPORTS ISO19107_V1_MAGNABOG,Catastro_Registro_Nucleo_V2_2_1,LADM_COL_V1_1;
 
   DOMAIN
+
+    /** Conjunto de valores válidos para indicar cual es el tipo de acceso a una unidad de construcción, que incide sobre su avalúo.
+     */
+    COL_AccesoTipo = (
+      Piso,
+      Mezanine,
+      Semisotano,
+      Sotano,
+      Subterraneo
+    );
 
     COL_AnexoTipo = (
       Enramadas_Cobertizos_Caneyes,
@@ -262,131 +273,6 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Zonas_Cargue
     );
 
-    /** Conjunto de valores válidos para indicar si hay o no y el tipo de las obras en el interior de un predio, con incidencia en su avalúo.
-     */
-    COL_ObrasAlInteriorTipo = (
-      No_Posee,
-      /** Infraestructuras interiores del predio.
-       */
-      Obra_Infraestructura,
-      /** Planta de tratamiento de agua.
-       */
-      Planta_Trata_Agua,
-      /** Planta de tratamiento de residuos.
-       */
-      Planta_Trata_Residuo,
-      /** Vía adoquinada.
-       */
-      Via_Adoquin,
-      /** Vía asfaltada.
-       */
-      Via_Asfaltada,
-      /** Vía que recibe rellenos para igualar el firme.
-       */
-      Via_en_Recebo,
-      /** Zonas duras.
-       */
-      Zonas_Duras
-    );
-
-    /** Conjunto de valores válidos para indicar la cobertura vegetal, que incide sobre su avalúo.
-     */
-    COL_CapaVegetalTipo = (
-      /** Formaciones arbóreas, conforme a la legislación forestal nacional. REVISAR DOCUMENTACIÓN
-       */
-      Bosque,
-      /** Terreno con pastos procedentes de plantación. REVISAR DOCUMENTACIÓN
-       */
-      Pastos_Artificiales,
-      /** Terreno de caracter forestal no arbolado, o arbolado con una baja o muy baja fracción de cabida cubierta (FCC) con vegetación herbácea de calidad diversa, apta para el consumo por el ganado. REVISAR DOCUMENTACIÓN
-       */
-      Pastos_Naturales,
-      /** Área cubierta por restos de cultivos agrícolas.
-       */
-      Rastrojos,
-      /** Área cubierta por bosque tropical húmedo.
-       */
-      Selva,
-      /** Área no cubierta de vegetación: desiertos, roquedos, cuerpos de agua...
-       */
-      Sin_Cobert_Vegetal,
-      /** Áreas agrícolas.
-       */
-      Tierra_de_Labor
-    );
-
-    /** Conjunto de valores válidos para indicar de forma descriptiva la pendiente de un predio, con incidencia en su avalúo.
-     */
-    COL_PendienteTipo = (
-      Empinada,
-      Escarpada,
-      Fuertemente_Inclinada,
-      Inclinada,
-      Ligeramente_Escarpada,
-      Ligeramente_Inclinada,
-      Moderadamente_Inclinada,
-      Muy_Escarpada,
-      PlanaU,
-      Plano
-    );
-
-    /** Conjunto de valores válidos para indicar la forma de desarrollo de un predio, respecto a su urbanización, con incidencia en su avalúo.
-     */
-    COL_TipoDesarrolloTipo = (
-      Auto_Construccion,
-      Urbanizacion
-    );
-
-    /** Conjunto de valores válidos para determinar la forma de un predio, con incidencia en su avalúo.
-     */
-    COL_FormaTipo = (
-      Irregular,
-      Regular
-    );
-
-    /** Conjunto de valores válidos para indicar qué elemento situado en zona común es de uso exclusivo de un predio, con incidencia en su avalúo.
-     */
-    COL_ComunExclusivoTipo = (
-      /** Saliente de la fachada, a la altura de un vano y protegida por una barandilla.
-       */
-      Balcon,
-      /** Lugar para el almacenamiento.
-       */
-      Deposito,
-      /** Habitáculo destinado al guardado de vehículos automóviles con capacidad para dos de ellos.
-       */
-      Garaje_Doble,
-      /** Habitáculo destinado al guardado de vehículos automóviles con capacidad para uno de ellos.
-       */
-      Garaje_Sencillo,
-      /** Zona sin techar, en el interior de la edificación.
-       */
-      Patio,
-      /** Cubierta plana y practicable de un edificio, o balcón de grandes dimensiones, rodeado de barandillas o muros.
-       */
-      Terraza
-    );
-
-    /** Conjunto de valores válidos para indicar la cercania a un hito sobre el terreno. Tiene incidencia sobre el avalúo.
-     */
-    COL_CercaniaHitosTipo = (
-      Alejado,
-      Cercano,
-      Frente_Directo,
-      Medianamente_Alejado,
-      Medianamente_Cercano
-    );
-
-    /** Conjunto de valores válidos para indicar cual es el tipo de acceso a una unidad de construcción, que incide sobre su avalúo.
-     */
-    COL_AccesoTipo = (
-      Piso,
-      Mezanine,
-      Semisotano,
-      Sotano,
-      Subterraneo
-    );
-
     /** Se debe definir por la metodología de los pilotos
      */
     COL_UsoConstruccionTipo = (
@@ -481,6 +367,59 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Comercial
     );
 
+    /** Conjunto de valores válidos para indicar si hay o no y el tipo de las obras en el interior de un predio, con incidencia en su avalúo.
+     */
+    COL_ObrasAlInteriorTipo = (
+      No_Posee,
+      /** Infraestructuras interiores del predio.
+       */
+      Obra_Infraestructura,
+      /** Planta de tratamiento de agua.
+       */
+      Planta_Trata_Agua,
+      /** Planta de tratamiento de residuos.
+       */
+      Planta_Trata_Residuo,
+      /** Vía adoquinada.
+       */
+      Via_Adoquin,
+      /** Vía asfaltada.
+       */
+      Via_Asfaltada,
+      /** Vía que recibe rellenos para igualar el firme.
+       */
+      Via_en_Recebo,
+      /** Zonas duras.
+       */
+      Zonas_Duras
+    );
+
+    /** Conjunto de valores válidos para indicar la cobertura vegetal, que incide sobre su avalúo.
+     */
+    COL_CapaVegetalTipo = (
+      /** Formaciones arbóreas, conforme a la legislación forestal nacional. REVISAR DOCUMENTACIÓN
+       */
+      Bosque,
+      /** Terreno con pastos procedentes de plantación. REVISAR DOCUMENTACIÓN
+       */
+      Pastos_Artificiales,
+      /** Terreno de caracter forestal no arbolado, o arbolado con una baja o muy baja fracción de cabida cubierta (FCC) con vegetación herbácea de calidad diversa, apta para el consumo por el ganado. REVISAR DOCUMENTACIÓN
+       */
+      Pastos_Naturales,
+      /** Área cubierta por restos de cultivos agrícolas.
+       */
+      Rastrojos,
+      /** Área cubierta por bosque tropical húmedo.
+       */
+      Selva,
+      /** Área no cubierta de vegetación: desiertos, roquedos, cuerpos de agua...
+       */
+      Sin_Cobert_Vegetal,
+      /** Áreas agrícolas.
+       */
+      Tierra_de_Labor
+    );
+
     /** Conjunto de valores válidos para determinar el estilo de la construcción que se aprecia en una unidad de construcción, con incidencia en su avalúo.
      */
     COL_EstiloTipo = (
@@ -505,6 +444,21 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       noConvencional
     );
 
+    /** Conjunto de valores válidos para indicar de forma descriptiva la pendiente de un predio, con incidencia en su avalúo.
+     */
+    COL_PendienteTipo = (
+      Empinada,
+      Escarpada,
+      Fuertemente_Inclinada,
+      Inclinada,
+      Ligeramente_Escarpada,
+      Ligeramente_Inclinada,
+      Moderadamente_Inclinada,
+      Muy_Escarpada,
+      PlanaU,
+      Plano
+    );
+
     /** Conjunto de valores válidos para definir el estado de conservación de una unidad de construcción o de un predio matriz de la propiedad horizontal, con incidencia en su avalúo.
      */
     COL_EstadoConservacionTipo = (
@@ -516,6 +470,20 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Muy_Malo,
       Optimo,
       Regular_Deficiente
+    );
+
+    /** Conjunto de valores válidos para indicar la forma de desarrollo de un predio, respecto a su urbanización, con incidencia en su avalúo.
+     */
+    COL_TipoDesarrolloTipo = (
+      Auto_Construccion,
+      Urbanizacion
+    );
+
+    /** Conjunto de valores válidos para determinar la forma de un predio, con incidencia en su avalúo.
+     */
+    COL_FormaTipo = (
+      Irregular,
+      Regular
     );
 
     /** Conjunto de valores válidos para determinar la capacidad de cumplir con su función por parte de una unidad de construcción.
@@ -530,6 +498,29 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       /** No cumple su función adecuadamente.
        */
       Poco_Funcional
+    );
+
+    /** Conjunto de valores válidos para indicar qué elemento situado en zona común es de uso exclusivo de un predio, con incidencia en su avalúo.
+     */
+    COL_ComunExclusivoTipo = (
+      /** Saliente de la fachada, a la altura de un vano y protegida por una barandilla.
+       */
+      Balcon,
+      /** Lugar para el almacenamiento.
+       */
+      Deposito,
+      /** Habitáculo destinado al guardado de vehículos automóviles con capacidad para dos de ellos.
+       */
+      Garaje_Doble,
+      /** Habitáculo destinado al guardado de vehículos automóviles con capacidad para uno de ellos.
+       */
+      Garaje_Sencillo,
+      /** Zona sin techar, en el interior de la edificación.
+       */
+      Patio,
+      /** Cubierta plana y practicable de un edificio, o balcón de grandes dimensiones, rodeado de barandillas o muros.
+       */
+      Terraza
     );
 
     /** Conjunto de valores válidos pra indicar donde se encuentra una unidad de construcción en copropiedad.
@@ -593,7 +584,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Comun_Uso_Exclusivo : Avaluos_V2_2_1.COL_ComunExclusivoTipo;
       /** Descripción de la distancia a los hitos.
        */
-      Cercania_Hitos : Avaluos_V2_2_1.COL_CercaniaHitosTipo;
+      Cercania_Hitos : TEXT*50;
       /** Descripción de la ubicación dentro de la manzana.
        */
       Ubicacion_Manzana : TEXT*20;
@@ -781,6 +772,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
        */
       Num_Pisos_por_Torre : LADM_COL_V1_1.LADM_Nucleo.Integer;
       Num_Unidades_Privadas : LADM_COL_V1_1.LADM_Nucleo.Integer;
+      Num_Sotanos : LADM_COL_V1_1.LADM_Nucleo.Integer;
       /** Área, en m2 y tipo de medición del terreno del predio matriz.
        */
       Area_Terreno_Total : LADM_COL_V1_1.LADM_Nucleo.COL_AreaValor;
@@ -810,7 +802,6 @@ VERSION "V2.2.1"  // 2018-02-01 // =
        */
       Materiales_Construccion_Areas_Comunes : TEXT*100;
       Disenio_Funcionalidad_Copropiedad : TEXT*100;
-      Num_Sotanos : LADM_COL_V1_1.LADM_Nucleo.Integer;
     END Predio_Matriz_PH;
 
     /** Relación entre las clases Predio y PredioMatrizPH que permite descubrir los predios que hay en una matriz de propiedad horizontal.

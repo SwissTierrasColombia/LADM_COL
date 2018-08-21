@@ -5,6 +5,7 @@ INTERLIS 2.3;
  * 01.02.2018/ : Cambio en cardinalidad en asociacion predioFicha_predio de 1 a 0..1
  * 08.08.2018/ : (AT) Cambio en el nombre del atributo Actividad_Economica por Destinacion_Economica; Cambio en el nombre del dominio COL_UsoTipo por COL_DestinacionEconomicaTipo; Cambio en cardinalidad de atributos en clase Predio_Ficha
  * 10.08.2018/ fm : cambio en el rol de interesado natural y jurídico ahora se asocia a Col_Interesado
+ * 21.08.2018/ : (AT) Se agrega el dominio COL_FormalidadTipo para los valores del atributo Formalidad en clase Predio_Ficha
  */
 MODEL Ficha_Predial_V2_2_1 (es)
 AT "http://www.proadmintierra.info/"
@@ -93,6 +94,11 @@ VERSION "V2.2.1"  // 2018-02-01 // =
        * El NUPRE del certificado Predial Registral es obligatorio para las actuaciones o modificaciones que se realicen sobre el predio por vía de actuación privada o pública y para todas las transacciones inmobiliarias, y permite prescindir de la transcripción de linderos en todos los documentos públicos que contengan actos jurídicos.
        */
       E
+    );
+
+    COL_FormalidadTipo = (
+      Formal,
+      Informal
     );
 
     COL_PredioTipo = (
@@ -204,7 +210,6 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     /** Esta clase se crea específicamente para almacena la información recogida en la ficha predial sin fines claramente definidos. REVISAR DOCUMENTACION
      */
     CLASS Predio_Ficha =
-      Fecha_Visita_predial : INTERLIS.XMLDate;
       /** corresponde a las posiciones 8 y 9 del codigo predial nacional
        */
       Sector : TEXT*2;
@@ -244,7 +249,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Tipo_Predio_Publico : Ficha_Predial_V2_2_1.COL_PredioTipoPublicoTipo;
       /** Describe si el predio es formal o informal
        */
-      Formalidad : BOOLEAN;
+      Formalidad : Ficha_Predial_V2_2_1.COL_FormalidadTipo;
       /** Indica las redes de servicios públicos con los que el inmueble es abastecido.
        */
       Servicio_Publico : BAG {0..*} OF Ficha_Predial_V2_2_1.COL_ServicioPublicoTipo_Predio_Ficha_Servicio_Publico;
@@ -302,6 +307,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       /** Observaciones que se considere oportuno aportar sobre la propiedad inmobiliaria.
        */
       Observaciones : TEXT*255;
+      Fecha_Visita_predial : INTERLIS.XMLDate;
       /** Nombre de la persona que atendió a la recogida de datos en campo sobre el predio.
        */
       Nombre_Quien_Atendio : TEXT*40;
