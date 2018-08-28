@@ -39,7 +39,7 @@ INTERLIS 2.3;
  * 30.07.2018/fm : Cambio obligatoriedad atributo area_registral de clase terreno de 1 a 0..1
  * 31.07.2018/fm: Creación de la clase COL_Interesado integrando los atributos de interesado natural e interesado jurídico; se agrega area en la clase construcción; se adiciona valor Carta_Venta al dominio COL_FuenteAdministrativaTipo; inclusion de atributo nombre en la clase COL_FuenteAdministrativa
  * 10.08.2018/fm: Eliminado clase Interesado Natural e Interesado Juridico
- * 
+ * 28.08.2018/fm: Ajuste a cardinalidad en la composición predio_copropiedad, se elimina el requerido.
  * -----------------------------------------------------------
  * 
  * (c) IGAC y SNR con apoyo de la Cooperacion Suiza
@@ -577,7 +577,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     END InteresadoContacto;
 
     ASSOCIATION predio_copropiedad =
-      predio -- {2..*} Predio;
+      predio -- {0..*} Predio;
       copropiedad -<> {0..1} Predio;
       coeficiente : LADM_COL_V1_1.LADM_Nucleo.Fraccion;
     END predio_copropiedad;
