@@ -40,6 +40,7 @@ INTERLIS 2.3;
  * 31.07.2018/fm: Creación de la clase COL_Interesado integrando los atributos de interesado natural e interesado jurídico; se agrega area en la clase construcción; se adiciona valor Carta_Venta al dominio COL_FuenteAdministrativaTipo; inclusion de atributo nombre en la clase COL_FuenteAdministrativa
  * 10.08.2018/fm: Eliminado clase Interesado Natural e Interesado Juridico
  * 28.08.2018/fm: Ajuste a cardinalidad en la composición predio_copropiedad, se elimina el requerido.
+ * 28.08.2018/fm-at: Se incluye el tipo de predio conforme a la resolucion 070 de 2011; Se elimina el atributo tipo_construccion de la clase Unidad_Construcción ya que el dominio hace referencia a tipos de predios y no a tipos de construcciones
  * -----------------------------------------------------------
  * 
  * (c) IGAC y SNR con apoyo de la Cooperacion Suiza
@@ -63,7 +64,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Acuerdo,
       /** Existe un desacuerdo sobre la posición del punto
        */
-      desacuerdo
+      Desacuerdo
     );
 
     COL_Afectacion = (
@@ -143,6 +144,19 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       No_Materializado,
       Otros,
       Pilastra
+    );
+
+    /** Tipos de predios de acuerdo a la resolucion 070 de 2011
+     */
+    COL_PredioTipo = (
+      NPH,
+      PropiedadHorizontal,
+      Condominio,
+      Mejora,
+      ParqueCementerio,
+      Via,
+      BienUsoPublico,
+      NoLey14
     );
 
     COL_ServidumbreTipo = (
@@ -413,6 +427,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Valor de cada predio, obtenido mediante investigación y análisis estadistico del mercado inmobiliario y la metodología de aplicación  correspondiente. El avalúo  catastral de cada predio se determina a partir de la adición de los avalúos parciales practicados independientemente para los terrenos y para las edificaciones en el comprendidos.
        */
       Avaluo_Predio : LADM_COL_V1_1.LADM_Nucleo.Peso;
+      Tipo (EXTENDED) : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_PredioTipo;
       UNIQUE NUPRE; 
     END Predio;
 
@@ -641,9 +656,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Número de pisos que constituyen la unidad de construcción.
        */
       Numero_Pisos : MANDATORY 1 .. 100;
-      /** Categoría constructiva ea la que pertenece la unidad de construcción, corresponde a la pregunta 7.6 del anexo 5.1 de los estandares de catastro multiproposito versión 2.1.1.
-       */
-      Tipo_Construccion : Catastro_Registro_Nucleo_V2_2_1.COL_TipoConstruccionTipo;
       /** Area de la unidad de contrucción.
        */
       Area_Construida : 0.0 .. 99999999999999.9 [LADM_COL_V1_1.m2];
