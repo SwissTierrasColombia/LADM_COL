@@ -41,6 +41,7 @@ INTERLIS 2.3;
  * 10.08.2018/fm: Eliminado clase Interesado Natural e Interesado Juridico
  * 28.08.2018/fm: Ajuste a cardinalidad en la composición predio_copropiedad, se elimina el requerido.
  * 28.08.2018/fm-at: Se incluye el tipo de predio conforme a la resolucion 070 de 2011; Se elimina el atributo tipo_construccion de la clase Unidad_Construcción ya que el dominio hace referencia a tipos de predios y no a tipos de construcciones
+ * 10.09.2018/fm-at: Ajuste a los tipos de Predio conforme a la resolucion 070
  * -----------------------------------------------------------
  * 
  * (c) IGAC y SNR con apoyo de la Cooperacion Suiza
@@ -150,13 +151,24 @@ VERSION "V2.2.1"  // 2018-02-19 // =
      */
     COL_PredioTipo = (
       NPH,
-      PropiedadHorizontal,
-      Condominio,
+      PropiedadHorizontal(
+        Matriz,
+        UnidadPredial
+      ),
+      Condominio(
+        Matriz,
+        UnidadPredial
+      ),
       Mejora,
-      ParqueCementerio,
+      ParqueCementerio(
+        Matriz,
+        UnidadPrivada
+      ),
       Via,
       BienUsoPublico,
-      NoLey14
+      Deposito,
+      Parqueadero,
+      Bodega
     );
 
     COL_ServidumbreTipo = (
