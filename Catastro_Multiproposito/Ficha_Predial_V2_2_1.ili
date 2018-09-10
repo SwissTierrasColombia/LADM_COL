@@ -285,7 +285,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Anotacion_FMI_Proteccion_Colectiva : BOOLEAN;
       /** Si ha sido o no inscrito como protegido por la Ley 1448.
        */
-      Incrito_Proteccion_Ley1448 : BOOLEAN;
+      Inscrito_Proteccion_Ley1448 : BOOLEAN;
       /** De haber sido inscrito como se indica arriba, fecha en la que se dio la inscripción.
        */
       Fecha_Proteccion_Ley1448 : INTERLIS.XMLDate;
