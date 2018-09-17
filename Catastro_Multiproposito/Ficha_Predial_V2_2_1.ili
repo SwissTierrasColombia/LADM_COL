@@ -6,6 +6,7 @@ INTERLIS 2.3;
  * 08.08.2018/ : (AT) Cambio en el nombre del atributo Actividad_Economica por Destinacion_Economica; Cambio en el nombre del dominio COL_UsoTipo por COL_DestinacionEconomicaTipo; Cambio en cardinalidad de atributos en clase Predio_Ficha
  * 10.08.2018/ fm : cambio en el rol de interesado natural y jurídico ahora se asocia a Col_Interesado
  * 21.08.2018/ : (AT) Se agrega el dominio COL_FormalidadTipo para los valores del atributo Formalidad en clase Predio_Ficha
+ * 17.09.2018/ fm: cambio en el orden de los roles de la asociación PredioFicha_Predio para evitar la creación de la tabla de paso en el modelo físico cuando hay dependencia de topics
  */
 MODEL Ficha_Predial_V2_2_1 (es)
 AT "http://www.proadmintierra.info/"
@@ -348,8 +349,8 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     /** Relación entre el Predio catastral (módulo de catastro) y la clase Ficha_Predial, que permite determinar sobre qué predio se toman los datos específicos de la ficha predial.
      */
     ASSOCIATION PredioFicha_Predio =
-      fichaPredio -- {0..1} Predio_Ficha;
       crPredio (EXTERNAL) -- {1} Catastro_Registro_Nucleo_V2_2_1.Catastro_Registro.Predio;
+      fichaPredio -- {0..1} Predio_Ficha;
     END PredioFicha_Predio;
 
     /** Esta clase permite registrar la información relativa a los núcleos familiares del levantamiento catastral de los pilotos del Catastro Multipropósito. OBSERVAR QUE LA INFORMACIÓN QUE SE PIDE ES INDIVIDUAL Y NO GRUPAL
