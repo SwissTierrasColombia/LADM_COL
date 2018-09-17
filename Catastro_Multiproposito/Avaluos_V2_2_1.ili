@@ -680,7 +680,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     CLASS Unidad_Construccion =
       /** Clasificación del tipo de construcción empleada para levantar la unidad de construcción.
        */
-      Construction_Tipo : MANDATORY Avaluos_V2_2_1.COL_ConstruccionTipo;
+      Construccion_Tipo : MANDATORY Avaluos_V2_2_1.COL_ConstruccionTipo;
       /** Activiadad económica que se desarrolla en la unidad de construcción.
        */
       Uso : MANDATORY Avaluos_V2_2_1.COL_UsoConstruccionTipo;

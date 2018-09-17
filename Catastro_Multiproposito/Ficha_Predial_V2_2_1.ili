@@ -7,6 +7,7 @@ INTERLIS 2.3;
  * 10.08.2018/ fm : cambio en el rol de interesado natural y jurídico ahora se asocia a Col_Interesado
  * 21.08.2018/ : (AT) Se agrega el dominio COL_FormalidadTipo para los valores del atributo Formalidad en clase Predio_Ficha
  * 17.09.2018/ fm: cambio en el orden de los roles de la asociación PredioFicha_Predio para evitar la creación de la tabla de paso en el modelo físico cuando hay dependencia de topics
+ * 17.09.2018/ (AT): Cambio en el nombre del dominio COL_PredioTipoPublicoTipo por COL_PredioPublicoTipo
  */
 MODEL Ficha_Predial_V2_2_1 (es)
 AT "http://www.proadmintierra.info/"
@@ -136,7 +137,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Alquiler
     );
 
-    COL_PredioTipoPublicoTipo = (
+    COL_PredioPublicoTipo = (
       Parque_Nacional,
       Reserva_Natural,
       Ejido,
@@ -247,7 +248,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       /** Indica si el predio es publico o privado
        */
       Predio_Tipo : Ficha_Predial_V2_2_1.COL_PredioTipo;
-      Tipo_Predio_Publico : Ficha_Predial_V2_2_1.COL_PredioTipoPublicoTipo;
+      Tipo_Predio_Publico : Ficha_Predial_V2_2_1.COL_PredioPublicoTipo;
       /** Describe si el predio es formal o informal
        */
       Formalidad : Ficha_Predial_V2_2_1.COL_FormalidadTipo;
