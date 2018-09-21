@@ -42,6 +42,7 @@ INTERLIS 2.3;
  * 28.08.2018/fm: Ajuste a cardinalidad en la composición predio_copropiedad, se elimina el requerido.
  * 28.08.2018/fm-at: Se incluye el tipo de predio conforme a la resolucion 070 de 2011; Se elimina el atributo tipo_construccion de la clase Unidad_Construcción ya que el dominio hace referencia a tipos de predios y no a tipos de construcciones
  * 10.09.2018/fm-at: Ajuste a los tipos de Predio conforme a la resolucion 070
+ * 21.09.2018/at: Se agrega el valor "Hipoteca" al dominio COL_RestriccionTipo, se ajusta la longitud del valor Codigo_Registral en las RRR y FuenteAdministrativa de 3 a 4 carácteres
  * -----------------------------------------------------------
  * 
  * (c) IGAC y SNR con apoyo de la Cooperacion Suiza
@@ -151,21 +152,21 @@ VERSION "V2.2.1"  // 2018-02-19 // =
      */
     COL_PredioTipo = (
       NPH,
-      PropiedadHorizontal(
+      Propiedad_Horizontal(
         Matriz,
-        UnidadPredial
+        Unidad_Predial
       ),
       Condominio(
         Matriz,
-        UnidadPredial
+        Unidad_Predial
       ),
       Mejora,
-      ParqueCementerio(
+      Parque_Cementerio(
         Matriz,
-        UnidadPrivada
+        Unidad_Privada
       ),
       Via,
-      BienUsoPublico,
+      Predio_Publico,
       Deposito,
       Parqueadero,
       Bodega
@@ -260,6 +261,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Ambientales,
       Desplazamiento_Forzado_Restitucion,
       Embargo,
+      Hipoteca,
       Propiedad_Horizontal_y_Urbanismo,
       Prohibiciones_Expresas,
       Proteccion_Familia,
@@ -344,7 +346,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_DerechoTipo;
       /** Código con el que el derecho se registra en el Registro de la Propiedad.
        */
-      Codigo_Registral_Derecho : TEXT*3;
+      Codigo_Registral_Derecho : TEXT*4;
     END COL_Derecho;
 
     CLASS COL_Interesado
@@ -452,7 +454,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_PublicidadTipo;
       /** Código registral del FMI que se hace público.
        */
-      Codigo_Registral_Publicidad : MANDATORY TEXT*3;
+      Codigo_Registral_Publicidad : MANDATORY TEXT*4;
     END Publicidad;
 
     /** Clase especializada de LA_Punto que representa puntos de la densificación de la red local, que se utiliza en la operación catastral para el levantamiento de información fisica de los objetos territoriales, como puntos de control.
@@ -568,7 +570,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_RestriccionTipo;
       /** Código con el que la responsabilidad se registra en el Registro de la Propiedad.
        */
-      Codigo_Registral_Restriccion : TEXT*3;
+      Codigo_Registral_Restriccion : TEXT*4;
     END COL_Restriccion;
 
     /** Clase especializada de LA_Punto que representa puntos demarcados que representan la posición horizontal de un vértice de construcción, servidumbre o auxiliare.
@@ -633,7 +635,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Tipo : MANDATORY Catastro_Registro_Nucleo_V2_2_1.COL_ResponsabilidadTipo;
       /** Código con el que la responsabilidad se registra en el Registro de la Propiedad.
        */
-      Codigo_Registral_Responsabilidad : TEXT*3;
+      Codigo_Registral_Responsabilidad : TEXT*4;
     END COL_Responsabilidad;
 
     /** Tipo de unidad espacial que permite la representación de una servidumbre de paso asociada a una LA_BAUnit.
@@ -655,7 +657,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       h_Tipo : Catastro_Registro_Nucleo_V2_2_1.COL_HipotecaTipo;
       /** Código con el que la hipoteca se registra en el Registro de la Propiedad Inmobiliaria en el momento de ser constituida.
        */
-      Codigo_Registral_Hipoteca : TEXT*3;
+      Codigo_Registral_Hipoteca : TEXT*4;
     END COL_Hipoteca;
 
     /** Es cada conjunto de materiales consolidados dentro de un predio que tiene una caracteristicas especificas en cuanto a elementos constitutivos físicos y usos de los mismos.

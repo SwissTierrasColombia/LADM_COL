@@ -691,7 +691,7 @@ VERSION "V1.1.0"  // 2018-04-19 // =
       Tipo : MANDATORY COL_FuenteAdministrativaTipo;
       /** Código registral de la transacción que se documenta.
        */
-      Codigo_Registral_Transaccion : TEXT*3;
+      Codigo_Registral_Transaccion : TEXT*4;
       /** Identificador del documento, ejemplo: numero de la resolución
        */
       Nombre : TEXT*50;
