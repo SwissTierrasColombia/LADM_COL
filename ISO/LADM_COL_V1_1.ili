@@ -19,6 +19,7 @@ INTERLIS 2.3;
  * 17.07.2018/fm : se incluye escritura en dominio COL_FuenteAdministrativaTipo
  * 10.08.2018/fm : Se eliminan los atributos ai_local_id y ai_espacio_de_nombres de la clase LA_Agrupacion_Interesados
  * 27.08.2018/fm : Ajuste a la cardinalidad de asociacion puntoFuente de 1..* a 0..*
+ * 25.09.2018/at: Se ajusta la longitud del atributo Codigo_Registral_Transaccion en la clase COL_FuenteAdministrativa a 5 caracteres de acuerdo a la Resolución 3973 de 2018
  * -----------------------------------------------------------
  * 
  *  (c) IGAC y SNR con apoyo de la Cooperacion Suiza
@@ -691,7 +692,7 @@ VERSION "V1.1.0"  // 2018-04-19 // =
       Tipo : MANDATORY COL_FuenteAdministrativaTipo;
       /** Código registral de la transacción que se documenta.
        */
-      Codigo_Registral_Transaccion : TEXT*4;
+      Codigo_Registral_Transaccion : TEXT*5;
       /** Identificador del documento, ejemplo: numero de la resolución
        */
       Nombre : TEXT*50;
