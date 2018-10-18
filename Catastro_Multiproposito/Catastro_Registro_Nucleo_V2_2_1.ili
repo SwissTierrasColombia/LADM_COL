@@ -44,6 +44,7 @@ INTERLIS 2.3;
  * 10.09.2018/fm-at: Ajuste a los tipos de Predio conforme a la resolucion 070
  * 21.09.2018/at: Se agrega el valor "Hipoteca" al dominio COL_RestriccionTipo, se ajusta la longitud del atributo Codigo_Registral en las clases especializadas de LA_RRR de 3 a 4 caracteres
  * 25.09.2018/at: Se ajusta la longitud del atributo Codigo_Registral en las clases especializadas de LA_RRR a 5 caracteres de acuerdo a la Resolución 3973 de 2018
+ * 18.10.2018/at: Se agregan los atributos p_Espacio_De_Nombres y p_Local_Id a la clase Publicidad
  * -----------------------------------------------------------
  * 
  * (c) IGAC y SNR con apoyo de la Cooperacion Suiza
@@ -456,6 +457,12 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Código registral del FMI que se hace público.
        */
       Codigo_Registral_Publicidad : MANDATORY TEXT*5;
+      /** Identificador global único.
+       */
+      p_Espacio_De_Nombres : MANDATORY LADM_COL_V1_1.LADM_Nucleo.CharacterString;
+      /** Identificador único local.
+       */
+      p_Local_Id : MANDATORY LADM_COL_V1_1.LADM_Nucleo.CharacterString;
     END Publicidad;
 
     /** Clase especializada de LA_Punto que representa puntos de la densificación de la red local, que se utiliza en la operación catastral para el levantamiento de información fisica de los objetos territoriales, como puntos de control.
