@@ -45,6 +45,7 @@ INTERLIS 2.3;
  * 21.09.2018/at: Se agrega el valor "Hipoteca" al dominio COL_RestriccionTipo, se ajusta la longitud del atributo Codigo_Registral en las clases especializadas de LA_RRR de 3 a 4 caracteres
  * 25.09.2018/at: Se ajusta la longitud del atributo Codigo_Registral en las clases especializadas de LA_RRR a 5 caracteres de acuerdo a la Resolución 3973 de 2018
  * 18.10.2018/at: Se agregan los atributos p_Espacio_De_Nombres y p_Local_Id a la clase Publicidad
+ * 29.10.2018/fm: se amplia el tamaño de campo FMI en la clase predio para almacenar cadenas como 'LIBRO 2 TOMO 1/961 FOLIO 37/46 PARTIDA N 58'
  * -----------------------------------------------------------
  * 
  * (c) IGAC y SNR con apoyo de la Cooperacion Suiza
@@ -433,7 +434,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       NUPRE : MANDATORY TEXT*20;
       /** Folio de Matricula Inmobilidaria. Codigo único de identificación asignado al documento registral en la oficina de registro de instrumentos públicos.
        */
-      FMI : TEXT*20;
+      FMI : TEXT*80;
       /** Nuevo código númerico de treinta (30) dígitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi.
        */
       Numero_Predial : TEXT*30;
