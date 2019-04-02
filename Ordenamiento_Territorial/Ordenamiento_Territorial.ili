@@ -1,0 +1,261 @@
+INTERLIS 2.3;
+
+MODEL Ordenamiento_Territorial_V0_0_7 (es)
+AT "mailto:ASUS@localhost"
+VERSION "2018-01-24"  =
+  IMPORTS ISO19107_V1_MAGNABOG,LADM_COL_V1_1;
+
+  DOMAIN
+
+    POT_BAUnitTipo
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_BAUnitTipo = (
+      Tratamiento_Urbanistico,
+      Uso_del_Suelo,
+      Proteccion,
+      Desarrollo_Restringido,
+      Infraestructura
+    );
+
+    POT_ClasificacionSuelo = (
+      Expansion,
+      Urbano,
+      Rural
+    );
+
+    POT_DesarrolloRestringidoTipo = (
+      Suburbano(
+        Zona_Suburbano,
+        Corredor_Vial_Suburbano
+      ),
+      Centro_Poblado,
+      Vivienda_Campestre,
+      Equipamientos
+    );
+
+    POT_FuenteAdministrativaTipo = (
+      Documento_POT,
+      Validacion_CAR,
+      Validacion_Concejo
+    );
+
+    POT_InfraestructuraNivel = (
+      Nacional,
+      Regional,
+      Departamental,
+      Municipal
+    );
+
+    POT_InfraestructuraTipo = (
+      Movilidad,
+      Espacio_Publico,
+      Servicios_Publicos,
+      Equipamientos
+    );
+
+    POT_PlusvaliaCausalTipo = (
+      Cambio_Uso_Suelo,
+      Cambio_Norma_Edificabilidad,
+      Cambio_Clasificacion_Suelo
+    );
+
+    POT_ProteccionTipo = (
+      Riesgo_No_Mitigable,
+      Areas_Especial_Interes_Ambiental,
+      Servicios_Publicos_Domiciliarios,
+      Patrimonio_Historico_Cultural_Arquitectonico
+    );
+
+    POT_TratamientoUrbanisticoTipo = (
+      /** Es aquel que rige las actuaciones de planeamiento para la regularización de los asentamientos humanos de origen informal, para su conveniente integración a la estructura de la ciudad
+       */
+      Mejoramiento_Integral,
+      /** Es aquel que busca la transformación de zonas desarrolladas de la ciudad que tienen condiciones de subutilización de las estructuras físicas existentes, para aprovechar al máximo su potencial de desarrollo.
+       */
+      Renovacion(
+        Reactivacion,
+        Redesarrollo
+      ),
+      /** El tratamiento de conservación tiene por objetivo proteger el patrimonio construido de la ciudad
+       */
+      Conservacion(
+        BIC_Nacional_Departamental,
+        BIC_Municipal,
+        Patrimonio_Cultural_Municipal
+      ),
+      /** El tratamiento de desarrollo es aquel que orienta y regula la urbanización de los terrenos o conjunto de terrenos urbanizables no urbanizados
+       */
+      Desarrollo,
+      /** El tratamiento de consolidación regula la transformación de las estructuras urbanas de la ciudad desarrollada.
+       */
+      Consolidacion
+    );
+
+    POT_Uso_SueloRestringido = (
+      Residencial,
+      Comercio_Servicios,
+      Industrial,
+      Mixto
+    );
+
+    POT_UsoSueloComplementario = (
+      Residencial,
+      Comercio_Servicios,
+      Industrial,
+      Mixto
+    );
+
+    POT_UsoSueloTipo = (
+      Residencial,
+      Comercio_Servicios,
+      Industrial,
+      Mixto
+    );
+
+    POT_DerechoTipo = (
+      Modificacion_Estructura,
+      Densificacion,
+      Aprovechamiento,
+      Cambio_Edificabilidad,
+      Adecuacion,
+      Urbanizacion,
+      Construccion,
+      Incentivo,
+      Edificacion,
+      Acceso_Programa_Mejoramiento,
+      Pago_Servicios_Ambientales,
+      Recreacion,
+      Usufructo_Turistico,
+      Restauracion_Rehabilitacion_Ecosistema,
+      Recreacion_Pasiva,
+      Aprovechamiento_Forestal,
+      Aprovechamiento_Agricola,
+      Aprovechamiento_Pecuario,
+      Aprovechamiento_Minero,
+      Construccion_Infraestructura_Productiva
+    );
+
+    POT_ResponsabilidadTipo = (
+      Conservacion,
+      Cesiones,
+      Proteccion,
+      Mantenimiento,
+      Cargas(
+        Cesiones,
+        Control_Ambiental,
+        Infraestructura_Vial,
+        Acuerdos_Entre_Propietarios,
+        Equipamientos
+      ),
+      Mantenimiento_Estructura
+    );
+
+    POT_RestriccionTipo = (
+      Edificabilidad,
+      Infraestructura,
+      Construir,
+      Urbanizar,
+      Tamano_No_Menor_UAF
+    );
+  STRUCTURE POT_UsoSueloTipo_ = value : MANDATORY POT_UsoSueloTipo; END POT_UsoSueloTipo_;
+
+  TOPIC Ordenamiento_Territorial
+  EXTENDS LADM_COL_V1_1.LADM_Nucleo =
+    DEPENDS ON LADM_COL_V1_1.LADM_Nucleo;
+
+    /** Clase especializada de BaUnit, que describe la unidad administrativa básica para el caso de Planes de Ordenamiento Territorial a nivel municipal en Colombia.
+     */
+    CLASS POT_BA_Unit
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_BAUnit =
+      Tipo (EXTENDED) : MANDATORY Ordenamiento_Territorial_V0_0_7.POT_BAUnitTipo;
+    END POT_BA_Unit;
+
+    CLASS POT_Clasificacion_Suelo
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_UnidadEspacial =
+      Tipo_Suelo : MANDATORY Ordenamiento_Territorial_V0_0_7.POT_ClasificacionSuelo;
+      poligono_creado (EXTENDED) : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
+    END POT_Clasificacion_Suelo;
+
+    CLASS POT_Desarrollo_Restringido
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_UnidadEspacial =
+      Tipo : MANDATORY Ordenamiento_Territorial_V0_0_7.POT_DesarrolloRestringidoTipo;
+      poligono_creado (EXTENDED) : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
+    END POT_Desarrollo_Restringido;
+
+    CLASS POT_FuenteAdministrativa
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.COL_FuenteAdministrativa =
+      Tipo (EXTENDED) : MANDATORY Ordenamiento_Territorial_V0_0_7.POT_FuenteAdministrativaTipo;
+      Fecha : INTERLIS.XMLDate;
+    END POT_FuenteAdministrativa;
+
+    CLASS POT_Infraestructura
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_UnidadEspacial =
+      Tipo_Infraestructura : MANDATORY Ordenamiento_Territorial_V0_0_7.POT_InfraestructuraTipo;
+      Nivel : MANDATORY Ordenamiento_Territorial_V0_0_7.POT_InfraestructuraNivel;
+      Nombre : TEXT*255;
+      Descripcion : MTEXT*255;
+      poligono_creado (EXTENDED) : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
+    END POT_Infraestructura;
+
+    CLASS POT_Municipio
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_Interesado =
+      Nombre (EXTENDED) : TEXT*255;
+      Categoria : MANDATORY 1 .. 6;
+      Codigo : TEXT*3;
+    END POT_Municipio;
+
+    /** Los Tratamientos Urbanísticos orientan las intervenciones que se pueden realizar en el territorio, el espacio público y las edificaciones, mediante respuestas diferenciadas para cada condición existente, como resultado de la valoración de las características físicas de cada zona y su función en el modelo territorial
+     */
+    CLASS POT_Tratamiento_Urbanistico
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_UnidadEspacial =
+      Tipo : MANDATORY Ordenamiento_Territorial_V0_0_7.POT_TratamientoUrbanisticoTipo;
+      poligono_creado (EXTENDED) : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
+    END POT_Tratamiento_Urbanistico;
+
+    /** Es la destinación asignada al suelo, de conformidad con las actividades que se puedan desarrollar.
+     */
+    CLASS POT_Uso_del_Suelo
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_UnidadEspacial =
+      Uso_Principal : MANDATORY Ordenamiento_Territorial_V0_0_7.POT_UsoSueloTipo;
+      poligono_creado (EXTENDED) : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
+      Usos_Complementarios : BAG {0..*} OF Ordenamiento_Territorial_V0_0_7.POT_UsoSueloTipo_;
+      Usos_Restringidos : BAG {0..*} OF Ordenamiento_Territorial_V0_0_7.POT_UsoSueloTipo_;
+    END POT_Uso_del_Suelo;
+
+    CLASS POT_Zona_Proteccion
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_UnidadEspacial =
+      Tipo : MANDATORY Ordenamiento_Territorial_V0_0_7.POT_ProteccionTipo;
+      poligono_creado (EXTENDED) : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
+    END POT_Zona_Proteccion;
+
+    CLASS POT_Zona_Susceptible_Plusvalia
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_UnidadEspacial =
+      poligono_creado (EXTENDED) : MANDATORY ISO19107_V1_MAGNABOG.GM_MultiSurface2D;
+      Causal_Posible_Plusvalia : Ordenamiento_Territorial_V0_0_7.POT_PlusvaliaCausalTipo;
+    END POT_Zona_Susceptible_Plusvalia;
+
+    CLASS OT_Derecho
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
+      Tipo : MANDATORY Ordenamiento_Territorial_V0_0_7.POT_DerechoTipo;
+      Clasificacion_BA_Unit : Ordenamiento_Territorial_V0_0_7.POT_BAUnitTipo;
+    END OT_Derecho;
+
+    CLASS OT_Responsabilidad
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
+      Tipo : MANDATORY Ordenamiento_Territorial_V0_0_7.POT_ResponsabilidadTipo;
+      Clasificacion_BA_Unit : Ordenamiento_Territorial_V0_0_7.POT_BAUnitTipo;
+    END OT_Responsabilidad;
+
+    CLASS OT_Restriccion
+    EXTENDS LADM_COL_V1_1.LADM_Nucleo.LA_RRR =
+      Tipo : MANDATORY Ordenamiento_Territorial_V0_0_7.POT_RestriccionTipo;
+      Coeficiente_Maximo_Edificabilidad : 1 .. 99;
+      Clasificacion_BA_Unit : Ordenamiento_Territorial_V0_0_7.POT_BAUnitTipo;
+      SET CONSTRAINT WHERE Tipo == #Edificabilidad: 
+        Coeficiente_Maximo_Edificabilidad > 0;
+      SET CONSTRAINT WHERE Tipo <> #Edificabilidad: 
+        Coeficiente_Maximo_Edificabilidad == UNDEFINED;
+    END OT_Restriccion;
+
+  END Ordenamiento_Territorial;
+
+END Ordenamiento_Territorial_V0_0_7.
