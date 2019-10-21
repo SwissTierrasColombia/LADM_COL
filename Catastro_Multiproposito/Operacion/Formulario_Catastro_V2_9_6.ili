@@ -1,0 +1,142 @@
+INTERLIS 2.3;
+
+/** Ficha Predial.
+ * 
+ * 01.02.2018/ : Cambio en cardinalidad en asociacion predioFicha_predio de 1 a 0..1
+ * 08.08.2018/ : (AT) Cambio en el nombre del atributo Actividad_Economica por Destinacion_Economica; Cambio en el nombre del dominio COL_UsoTipo por COL_DestinacionEconomicaTipo; Cambio en cardinalidad de atributos en clase Predio_Ficha
+ * 10.08.2018/ fm : cambio en el rol de interesado natural y jurídico ahora se asocia a Col_Interesado
+ * 21.08.2018/ : (AT) Se agrega el dominio COL_FormalidadTipo para los valores del atributo Formalidad en clase Predio_Ficha
+ * 17.09.2018/ fm: cambio en el orden de los roles de la asociación PredioFicha_Predio para evitar la creación de la tabla de paso en el modelo físico cuando hay dependencia de topics
+ * 17.09.2018/ (AT): Cambio en los nombres de los dominios COL_PredioTipoPublicoTipo y COL_PredioTipo para evitar redundancias
+ */
+MODEL Formulario_Catastro_V2_9_6 (es)
+AT "http://www.proadmintierra.info/"
+VERSION "V2.2.1"  // 2018-02-01 // =
+  IMPORTS Operacion_V2_9_6,Avaluos_V2_9_6,LADM_COL_V1_2;
+
+  DOMAIN
+
+    /** Categoría de suelo de la clasificación del Plan de Ordenamiento Territorial.
+     */
+    FCM_CategoriaSueloTipo = (
+      Suburbano,
+      Proteccion
+    );
+
+    /** Clase de suelo de la clasificación del Plan de Ordenamiento Territorial.
+     */
+    FCM_ClaseSueloTipo = (
+      Urbano,
+      Rural,
+      Expansion_Urbana
+    );
+
+    /** Uso económico de la propiedad inmobiliaria.
+     */
+    FCM_DestinacionEconomicaTipo = (
+      Acuicola,
+      Agricola,
+      Agroindustrial,
+      Agroforestal,
+      Comercial,
+      Cultural,
+      Educativo,
+      Forestal,
+      Habitacional,
+      Industrial,
+      Infraestructura_Asociada_Produccion_Agropecuaria,
+      Infraestructura_Hidraulica,
+      Infraestructura_Saneamiento_Basico,
+      Infraestructura_Seguridad,
+      Infraestructura_Transporte,
+      Institucional,
+      Mineria_Hidrocarburos,
+      Lote_Urbanizable_No_Urbanizado,
+      Lote_Urbanizado_No_Construido,
+      Lote_No_Urbanizable,
+      Pecuario,
+      Recreacional,
+      Religioso,
+      Salubridad,
+      Uso_Publico
+    );
+
+    FCM_FormalidadTipo = (
+      Formal,
+      Informal
+    );
+
+    FCM_PredioPublicoTipo = (
+      Nacional,
+      Departamental,
+      Municipal,
+      Baldio,
+      Ejido,
+      Resguardo_Indigena,
+      Tierra_Comunidades_Negras,
+      Reservas_Naturales
+    );
+
+  TOPIC Formulario_Catastro =
+    OID AS INTERLIS.UUIDOID;
+    DEPENDS ON Avaluos_V2_9_6.Avaluos,Operacion_V2_9_6.Operacion;
+
+    CLASS FCM_Contacto_Visita =
+      Nombre_Quien_Atendio : MANDATORY TEXT*255;
+      Relacion_Con_Predio : MANDATORY TEXT*100;
+      Domicilio_Notificaciones : TEXT*255;
+      Celular : TEXT*20;
+      Correo_Electronico : TEXT*100;
+      Autoriza_Notificaciones : BOOLEAN;
+    END FCM_Contacto_Visita;
+
+    STRUCTURE FCM_Predio_Englobe =
+      Numero_Predial : MANDATORY TEXT*30;
+    END FCM_Predio_Englobe;
+
+    /** Datos de formulario único de catastro multipropósito
+     */
+    CLASS FCM_Formulario_Unico_CM =
+      Corregimiento : TEXT*100;
+      Localidad_Comuna : TEXT*100;
+      Barrio_Vereda : MANDATORY TEXT*100;
+      /** Describe si el predio es formal o informal
+       */
+      Formalidad : MANDATORY Formulario_Catastro_V2_9_6.FCM_FormalidadTipo;
+      /** Uso económico que se hace del predio.
+       */
+      Destinacion_Economica : MANDATORY Formulario_Catastro_V2_9_6.FCM_DestinacionEconomicaTipo;
+      /** Clasificación del suelo según el Plan de Ordenamiento Territorial vigente.
+       */
+      Clase_Suelo : MANDATORY Formulario_Catastro_V2_9_6.FCM_ClaseSueloTipo;
+      /** Categoría del suelo según el Plan de Ordenamiento Territorial vigente.
+       */
+      Categoria_Suelo : Formulario_Catastro_V2_9_6.FCM_CategoriaSueloTipo;
+      Tiene_FMI : MANDATORY BOOLEAN;
+      Fecha_Inicio_Tenencia : INTERLIS.XMLDate;
+      !!@ ili2db.dispName = "Predio matriz del que nace"
+      Numero_Predial_Predio_Matriz : TEXT*30;
+      /** Predios catastrales que se engloban
+       */
+      !!@ ili2db.dispName = "Predios catastrales que se engloban"
+      Numeros_Prediales_Englobe : BAG {0..*} OF Formulario_Catastro_V2_9_6.Formulario_Catastro.FCM_Predio_Englobe;
+      Observaciones : MTEXT*500;
+      Fecha_Visita_predial : MANDATORY INTERLIS.XMLDate;
+      Nombre_Reconocedor : MANDATORY TEXT*255;
+    END FCM_Formulario_Unico_CM;
+
+    ASSOCIATION fcm_formulario_contacto =
+      fcm_contacto_visita -- {0..*} FCM_Contacto_Visita;
+      fcm_formulario -- {1} FCM_Formulario_Unico_CM;
+    END fcm_formulario_contacto;
+
+    /** Relación entre el Predio catastral (módulo de catastro) y la clase Formulario_Unico_CM, que permite determinar sobre qué predio se toman los datos específicos del formulario único de catastro multipropósito
+     */
+    ASSOCIATION fcm_formulario_predio =
+      op_predio (EXTERNAL) -- {1} Operacion_V2_9_6.Operacion.OP_Predio;
+      fcm_formulario_unico -- {0..1} FCM_Formulario_Unico_CM;
+    END fcm_formulario_predio;
+
+  END Formulario_Catastro;
+
+END Formulario_Catastro_V2_9_6.

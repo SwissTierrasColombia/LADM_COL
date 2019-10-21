@@ -1,0 +1,373 @@
+INTERLIS 2.3;
+
+/** Perfil Nacional colombiano de la ISO 19152 LADM COL generado con INTERLIS 2 - Extension de ANT
+ * 
+ * -----------------------------------------------------------
+ * 
+ * 04.07.2019/at: Creación de la primera versión del modelo 
+ * -----------------------------------------------------------
+ * 
+ *  (c) IGAC y SNR con apoyo de la Cooperacion Suiza
+ * 
+ * -----------------------------------------------------------
+ */
+MODEL ANT_V2_9_6 (es)
+AT "mailto:PC4@localhost"
+VERSION "2019-07-04"  =
+  IMPORTS Operacion_V2_9_6,LADM_COL_V1_2;
+
+  DOMAIN
+
+    ANT_AfirmacionTipo = (
+      !!@ ili2db.dispName = "Sí"
+      Si,
+      !!@ ili2db.dispName = "No"
+      No,
+      !!@ ili2db.dispName = "No sabe"
+      No_Sabe
+    );
+
+    ANT_ConflictoTipo = (
+      !!@ ili2db.dispName = "Sucesión"
+      Sucesion,
+      !!@ ili2db.dispName = "Linderos"
+      Linderos,
+      !!@ ili2db.dispName = "Afectación ambiental"
+      Afectacion_Ambiental,
+      !!@ ili2db.dispName = "Seguridad"
+      Seguridad,
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+    ANT_DocumentoNombreTipo = (
+      /** promesa de compra venta, carta-venta, o similar
+       */
+      !!@ ili2db.dispName = "Documento privado"
+      Documento_Privado,
+      !!@ ili2db.dispName = "Sentencia judicial"
+      Sentencia_Judicial,
+      !!@ ili2db.dispName = "Resolución de adjudicación"
+      Resolucion_Adjudicacion,
+      !!@ ili2db.dispName = "Contrato de usufructo"
+      Contrato_Usufructo,
+      !!@ ili2db.dispName = "Escritura pública"
+      Escritura_Publica,
+      !!@ ili2db.dispName = "Ninguno"
+      Ninguno,
+      !!@ ili2db.dispName = "No sabe / no responde"
+      No_Sabe_No_Responde
+    );
+
+    ANT_DocumentoRespaldoDonacionTipo = (
+      !!@ ili2db.dispName = "Escritura pública registrada"
+      Escritura_Publica_Registrada,
+      !!@ ili2db.dispName = "Escritura pública sin registrar"
+      Escritura_Publica_Sin_Registrar,
+      !!@ ili2db.dispName = "Documento privado"
+      Documento_Privado,
+      !!@ ili2db.dispName = "No tiene documento"
+      No_Tiene_Documento,
+      !!@ ili2db.dispName = "La donación está por hacerse"
+      Donacion_Esta_Por_Hacerse
+    );
+
+    ANT_DocumentoRespaldoTipo = (
+      !!@ ili2db.dispName = "Escritura pública"
+      Escritura_Publica,
+      !!@ ili2db.dispName = "Documento privado"
+      Documento_Privado,
+      !!@ ili2db.dispName = "Promesa de compraventa"
+      Promesa_Compraventa,
+      !!@ ili2db.dispName = "Carta venta"
+      Carta_Venta,
+      !!@ ili2db.dispName = "Documento a nombre de tercero"
+      Documento_a_Nombre_Tercero,
+      !!@ ili2db.dispName = "Sin documento, de manera verbal"
+      Sin_Documento,
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+    ANT_EstadoCivilTipo = (
+      !!@ ili2db.dispName = "No está casado(a) y vive en pareja hace menos de dos años"
+      No_Casado_En_Pareja_Menos_2_Anios,
+      !!@ ili2db.dispName = "No está casado(a) y vive en pareja hace dos años o más"
+      No_Casado_En_Pareja_Mas_2_Anios,
+      !!@ ili2db.dispName = "Está separado(a) o divorciado(a)"
+      Separado_o_Divorciado,
+      !!@ ili2db.dispName = "Está viudo(a)"
+      Viudo,
+      !!@ ili2db.dispName = "Está soltero(a)"
+      Soltero,
+      !!@ ili2db.dispName = "Está casado(a)"
+      Casado
+    );
+
+    ANT_ModuloIngresarTipo = (
+      !!@ ili2db.dispName = "Acceso a tierras"
+      Acceso_Tierras,
+      !!@ ili2db.dispName = "Formalización de la propiedad"
+      Formalizacion_Propiedad,
+      !!@ ili2db.dispName = "Proceso o pretenciones agrarias"
+      Proceso_o_Pretenciones_Agrarias,
+      !!@ ili2db.dispName = "Administración"
+      Administracion,
+      !!@ ili2db.dispName = "Otros"
+      Otros
+    );
+
+    ANT_MotivoConsideracionDerechoTipo = (
+      !!@ ili2db.dispName = "Porque lo compró"
+      Compra,
+      !!@ ili2db.dispName = "Porque tiene una sentencia judicial"
+      Sentencia_Judicial,
+      !!@ ili2db.dispName = "Porque es una herencia"
+      Herencia,
+      !!@ ili2db.dispName = "Porque es una donación"
+      Donacion,
+      !!@ ili2db.dispName = "Porque lo trabaja"
+      Lo_Trabaja,
+      !!@ ili2db.dispName = "Porque vive en él"
+      Vive_En_Predio,
+      !!@ ili2db.dispName = "Porque lo ha dado en arriendo"
+      Ha_Arrendado,
+      !!@ ili2db.dispName = "Porque lo tiene cedido en préstamo a alguien"
+      Esta_Cedido_En_Prestamo,
+      !!@ ili2db.dispName = "Porque actualmente paga por el uso del predio"
+      Paga_Por_Uso,
+      !!@ ili2db.dispName = "Porque se lo adjudicó el INCORA o el INCODER"
+      Adjudicacion_INCORA_INCODER
+    );
+
+    ANT_MotivoNoEscrituracionTipo = (
+      !!@ ili2db.dispName = "Porque quien vendió no era el real dueño"
+      Vendedor_No_Era_Duenio,
+      !!@ ili2db.dispName = "Porque la compra fue a crédito y no ha acabado de pagar"
+      Credito_No_Pagado,
+      !!@ ili2db.dispName = "Porque falleció el vendedor (verdadero dueño)"
+      Fallecimiento_Vendedor,
+      !!@ ili2db.dispName = "Porque sobre el predio hay un embargo o existe alguna circunstancia que impida su venta"
+      Embargo_o_Impedimento,
+      !!@ ili2db.dispName = "Porque el predio se encuentra en régimen parcelario"
+      Regimen_Parcelario
+    );
+
+    ANT_ParentescoTipo = (
+      !!@ ili2db.dispName = "Hijo(a)"
+      Hijo_a,
+      !!@ ili2db.dispName = "Padre"
+      Padre,
+      !!@ ili2db.dispName = "Madre"
+      Madre,
+      !!@ ili2db.dispName = "Hermano(a)"
+      Hermano_a,
+      !!@ ili2db.dispName = "Sobrino(a)"
+      Sobrino_a,
+      !!@ ili2db.dispName = "Cónyuge"
+      Conyuge,
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+    ANT_RegimenEscogenciaTipo = (
+      Regimen_160,
+      Regimen_902
+    );
+
+    ANT_TituloExplotacionTipo = (
+      Propietario,
+      Ocupante,
+      Poseedor,
+      Tenedor,
+      Trabajador
+    );
+
+    ANT_TituloTipo = (
+      !!@ ili2db.dispName = "Individual"
+      Individual,
+      !!@ ili2db.dispName = "Cónyuges o compañeros permanentes"
+      Conyuges_o_Companieros_Permanentes
+    );
+
+    ANT_UbicacionPredioTipo = (
+      !!@ ili2db.dispName = "Rural disperso"
+      Rural_Disperso,
+      !!@ ili2db.dispName = "Centro poblado"
+      Centro_Poblado
+    );
+
+  TOPIC Fiso =
+    OID AS INTERLIS.UUIDOID;
+    DEPENDS ON Operacion_V2_9_6.Operacion;
+
+    CLASS ANT_Conflictos =
+      Conflicto : MANDATORY ANT_V2_9_6.ANT_ConflictoTipo;
+      Descripcion : MTEXT*4096;
+    END ANT_Conflictos;
+
+    CLASS ANT_Interesado_Caracterizacion =
+      Cabeza_hogar : MANDATORY BOOLEAN;
+      Datos_Alternos_Contacto : MANDATORY BOOLEAN;
+      Direccion_Residencia : MANDATORY TEXT*500;
+      Departamento : MANDATORY TEXT*100;
+      Municipio : MANDATORY TEXT*100;
+      Vereda : TEXT*100;
+      Corregimiento : TEXT*100;
+      Correo_Electronico : TEXT*200;
+      Genero : MANDATORY TEXT*100;
+      Estado_Civil_Actual : MANDATORY ANT_V2_9_6.ANT_EstadoCivilTipo;
+      Alguna_Vez_Casado : MANDATORY BOOLEAN;
+      Fecha_Constitucion_Marital : INTERLIS.XMLDate;
+      Esta_Viva_Persona_Caso : BOOLEAN;
+      Se_Separo_Legalmente : BOOLEAN;
+      Cuenta_Con_Sociedad_Patrimonial_Anterior_Sin_Liquidar : BOOLEAN;
+      Vive_Actualmente_Persona_Con_Que_Caso : BOOLEAN;
+      Autoriza_Ant : MANDATORY BOOLEAN;
+      Mensaje_Correo_Electronico : MANDATORY BOOLEAN;
+      Mensaje_Voz_Telefono_Movil : MANDATORY BOOLEAN;
+      Mensaje_Texto_Telefono_Movil : MANDATORY BOOLEAN;
+      Beneficiario_Incora_Incoder_ANT_URT : MANDATORY BOOLEAN;
+      Tipo_Beneficio : TEXT*500;
+      Numero_Resolucion : TEXT*100;
+      Fecha_Resolucion : INTERLIS.XMLDate;
+      Registro_SNR : BOOLEAN;
+      Conserva_Registro : BOOLEAN;
+      Ubicacion_Predio : ANT_V2_9_6.ANT_UbicacionPredioTipo;
+      Cuenta_Con_Predio_Rural : MANDATORY BOOLEAN;
+      Habita_Predio : BOOLEAN;
+      Fecha_Habita_Predio : INTERLIS.XMLDate;
+      Considera_Propietario : BOOLEAN;
+      Fecha_Ejerce_Relacion_Tenencia : INTERLIS.XMLDate;
+      Porque_Considera_Derecho_Predio : ANT_V2_9_6.ANT_MotivoConsideracionDerechoTipo;
+      Explota_Predio : BOOLEAN;
+      Explotan_Otros_Predios_Rurales : BOOLEAN;
+      A_Que_Titulo : ANT_V2_9_6.ANT_TituloExplotacionTipo;
+      Tiene_Conflicto_Linderos_Servidumbre_Area : BOOLEAN;
+      Conflicto_Vigente_Descripcion : MTEXT*4096;
+      Patrimonio_Neto_SMMLV : 0.00 .. 45000000.99;
+      Declara_Renta : BOOLEAN;
+      Propietario_Predio_Rural_Urbano_Vivienda : MANDATORY BOOLEAN;
+      Hace_Parte_Asociacion_Economia_Campesina : MANDATORY BOOLEAN;
+      Reside_Residio_Municipio_Ubicacion_Predio_Solicitud : MANDATORY BOOLEAN;
+    END ANT_Interesado_Caracterizacion;
+
+    CLASS ANT_Interesado_Contacto_Datos_Alterno =
+      Primer_Nombre : MANDATORY TEXT*100;
+      Segundo_Nombre : TEXT*100;
+      Primer_Apellido : MANDATORY TEXT*100;
+      Segundo_Apellido : TEXT*100;
+      Relacion_Aspirante : TEXT*100;
+      Telefono_fijo : TEXT*50;
+      Telefono_Movil : MANDATORY TEXT*50;
+      Direccion_Residencia_Correspondencia : TEXT*500;
+      Departamento : MANDATORY TEXT*100;
+      Municipio : MANDATORY TEXT*100;
+      Vereda : TEXT*100;
+      Corregimiento : TEXT*100;
+    END ANT_Interesado_Contacto_Datos_Alterno;
+
+    CLASS ANT_Interesado_Nucleo_Familiar =
+      Primer_Nombre : MANDATORY TEXT*100;
+      Segundo_Nombre : TEXT*100;
+      Primer_Apellido : MANDATORY TEXT*100;
+      Segundo_Apellido : TEXT*100;
+      Tipo_Documento : MANDATORY Operacion_V2_9_6.OP_InteresadoDocumentoTipo;
+      Documento_Identidad : MANDATORY TEXT*50;
+      Fecha_Nacimiento : MANDATORY INTERLIS.XMLDate;
+      Edad : 0 .. 200;
+      Parentesco : MANDATORY TEXT*50;
+      Genero : MANDATORY TEXT*100;
+      Orientacion_Sexual : MANDATORY TEXT*100;
+      Otro_Cual : TEXT*100;
+      Se_Reconoce_Como : MANDATORY TEXT*100;
+      Etnia : TEXT*100;
+      Resguardo_Indigena_Pertenece : TEXT*100;
+      Beneficiario_Atencion_Foma_Acceso_Tierra : BOOLEAN;
+      Cual_Es_La_Ocupacion_Actual : MANDATORY TEXT*500;
+    END ANT_Interesado_Nucleo_Familiar;
+
+    CLASS ANT_Solicitud =
+      Fecha_Solicitud : MANDATORY INTERLIS.XMLDate;
+      Interesado_Programas_Formalizacion_Acceso_Tierras_ANT : MANDATORY BOOLEAN;
+      Especifique_Titulo : MANDATORY ANT_V2_9_6.ANT_TituloTipo;
+      Acepta_Notificacion_Correo_Electronico : MANDATORY BOOLEAN;
+      Correo_Electronico : TEXT*200;
+      Regimen_Escogencia : ANT_V2_9_6.ANT_RegimenEscogenciaTipo;
+      Modulo_Debe_Ingresar : ANT_V2_9_6.ANT_ModuloIngresarTipo;
+      Numero_Formulario : TEXT*50;
+      Vereda : TEXT*100;
+      Corregimiento : TEXT*100;
+      Centro_Poblado : TEXT*100;
+      Nombre_Predio : MANDATORY TEXT*500;
+      Direccion_Predio : MANDATORY TEXT*200;
+      Area_Aprox_Predio_Solicitud : 0.0 .. 99999999999999.9 [LADM_COL_V1_2.m2];
+      Predio_Parte_Predio_Mayor : BOOLEAN;
+      Nombre_Predio_Mayor_Extension : TEXT*500;
+      Ocupante_Inicio_Adjudicacion_Predio : BOOLEAN;
+      Entidad_Adjudicacion_Ocupante : TEXT*50;
+      Fecha_Solicitud_Tramite_Ocupante : INTERLIS.XMLDate;
+      Estado_Tramite_Ocupante : TEXT*50;
+      Poseedor_Inicio_Adjudicacion_Predio : BOOLEAN;
+      Entidad_Adjudicacion_Poseedor : TEXT*50;
+      Fecha_Solicitud_Tramite_Poseedor : INTERLIS.XMLDate;
+      Estado_Tramite_Poseedor : TEXT*50;
+      Quien_Vendio_Predio : TEXT*500;
+      Persona_Vendio_Vive : ANT_V2_9_6.ANT_AfirmacionTipo;
+      Tiene_Como_Contactar_Vendedor : BOOLEAN;
+      Documento_Respaldo_Negocio : ANT_V2_9_6.ANT_DocumentoRespaldoTipo;
+      Registro_Titulo_Predio_SNR : ANT_V2_9_6.ANT_AfirmacionTipo;
+      Porque_No_Realizo_Escritura : ANT_V2_9_6.ANT_MotivoNoEscrituracionTipo;
+      Vendedor_Dispuesto_Firmar_Escritura : ANT_V2_9_6.ANT_AfirmacionTipo;
+      Documento_Tiene_Nombre_Tercero : ANT_V2_9_6.ANT_DocumentoNombreTipo;
+      Anio_Fallecimiento_Persona_Herencia : 1500 .. 2500;
+      Deja_herencia_Verdadero_Duenio : ANT_V2_9_6.ANT_AfirmacionTipo;
+      Documento_Tiene_Nombre_Dejo_Herencia : ANT_V2_9_6.ANT_DocumentoNombreTipo;
+      Parentesco_Persona_Herencia : ANT_V2_9_6.ANT_ParentescoTipo;
+      Existe_Herederos : ANT_V2_9_6.ANT_AfirmacionTipo;
+      Lista_Otros_Herederos : TEXT*4096;
+      Herederos_Acuerdo_Adelantar_sucesion : ANT_V2_9_6.ANT_AfirmacionTipo;
+      Nombre_Duenio_predio : TEXT*500;
+      Parentesco_Persona_Donante : ANT_V2_9_6.ANT_ParentescoTipo;
+      Cantidad_Presonas_Recibieron_Predio : 0 .. 20000;
+      Documentos_Respaldo_Donacion : ANT_V2_9_6.ANT_DocumentoRespaldoDonacionTipo;
+      Clase_Explotacion : TEXT*100;
+      Otro : TEXT*500;
+      Area_Explotacion_Aprox : 0.0 .. 9999999999999.9 [LADM_COL_V1_2.m2];
+      Fecha_Explota_Predio : INTERLIS.XMLDate;
+      Quienes_Habitan_Predio : TEXT*4096;
+    END ANT_Solicitud;
+
+    ASSOCIATION ant_conflictos_predio =
+      op_predio (EXTERNAL) -- {1} Operacion_V2_9_6.Operacion.OP_Predio;
+      ant_conflictos -- {0..*} ANT_Conflictos;
+    END ant_conflictos_predio;
+
+    ASSOCIATION ant_interesado_caracterizacion =
+      op_interesado (EXTERNAL) -- {1} Operacion_V2_9_6.Operacion.OP_Interesado;
+      ant_interesado_caracterizacion -- {0..1} ANT_Interesado_Caracterizacion;
+    END ant_interesado_caracterizacion;
+
+    ASSOCIATION ant_interesado_nucleofamiliar =
+      ant_interesado_caracterizacion -- {1} ANT_Interesado_Caracterizacion;
+      ant_interesado_nucleo_familiar -- {0..*} ANT_Interesado_Nucleo_Familiar;
+    END ant_interesado_nucleofamiliar;
+
+    ASSOCIATION ant_interesado_solicitud =
+      op_interesado (EXTERNAL) -- {1} Operacion_V2_9_6.Operacion.OP_Interesado;
+      ant_solicitud -- {0..*} ANT_Solicitud;
+    END ant_interesado_solicitud;
+
+    ASSOCIATION ant_interesadocontacto_datosalterno =
+      op_interesado_contacto (EXTERNAL) -- {0..1} Operacion_V2_9_6.Operacion.OP_Interesado_Contacto;
+      ant_interesado_contacto_datos_alterno -- {0..*} ANT_Interesado_Contacto_Datos_Alterno;
+    END ant_interesadocontacto_datosalterno;
+
+    ASSOCIATION ant_predio_solicitud =
+      op_predio (EXTERNAL) -- {0..1} Operacion_V2_9_6.Operacion.OP_Predio;
+      ant_solicitud -- {0..*} ANT_Solicitud;
+    END ant_predio_solicitud;
+
+  END Fiso;
+
+END ANT_V2_9_6.
