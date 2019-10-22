@@ -127,16 +127,25 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     CLASS AV_Calificacion_Unidad_Construccion (ABSTRACT) =
     END AV_Calificacion_Unidad_Construccion;
 
+    !!@ ili2db.dispName = "(Avalúos) Componente Construcción"
     CLASS AV_Componente_Construccion =
       Tipo_Componente : MANDATORY Avaluos_V2_9_6.AV_ComponenteConstruccionTipo;
       Cantidad : MANDATORY 0 .. 9999;
     END AV_Componente_Construccion;
 
+    !!@ ili2db.dispName = "(Avalúos) Grupo Calificación"
     CLASS AV_Grupo_Calificacion =
       Clase_Calificacion : MANDATORY Avaluos_V2_9_6.AV_ClaseCalificacionTipo;
       Conservacion : Avaluos_V2_9_6.AV_EstadoConservacionTipo;
       Subtotal : 0 .. 9999999;
     END AV_Grupo_Calificacion;
+
+    !!@ ili2db.dispName = "(Avalúos) Tabla Calificación de la Construcción"
+    CLASS AV_Tabla_Calificación_Construccion =
+      Valor_M2_Construccion : TEXT*20;
+      Uso : TEXT*20;
+      Puntuacion : TEXT*20;
+    END AV_Tabla_Calificación_Construccion;
 
     STRUCTURE AV_Tipo_Objeto_Construccion =
       Clase_Calificacion : MANDATORY Avaluos_V2_9_6.AV_ClaseCalificacionTipo;
@@ -146,6 +155,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
 
     /** La clase UnidadConstruccion es una agrupación de atributos específicos para el avalúo de la misma. Por tanto, representa lo mismo que en el caso del modelo de Catatro, pero sus atributos almacenan los datos relativos a aquellas características que es necesario conocer para realizar el avaluo masivo de las construcciones, de acuerdo a la metodología vigente.
      */
+    !!@ ili2db.dispName = "(Avalúos) Unidad de Construcción"
     CLASS AV_Unidad_Construccion =
       /** Clasificación del tipo de construcción empleada para levantar la unidad de construcción.
        */
@@ -159,6 +169,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
 
     /** Esta clase permite gestionar las zonas físicamente homogéneas definidas para el avalúo y que delimitan las zonas que tienen características físicas similares. REVISAR DOCUMENTACIÓN
      */
+    !!@ ili2db.dispName = "(Avalúos) Zona Homogénea Física"
     CLASS AV_Zona_Homogenea_Fisica =
       /** Código único del registro de la instancia de ZonaHomegeneaFisca.
        */
@@ -170,12 +181,14 @@ VERSION "V2.2.1"  // 2018-02-01 // =
 
     /** Datos para el avalúo de la unidad de construcción.
      */
+    !!@ ili2db.dispName = "(Avalúos) Calificación Convencional"
     CLASS AV_Calificacion_Convencional
     EXTENDS AV_Calificacion_Unidad_Construccion =
       Tipo_Calificar : Avaluos_V2_9_6.AV_CalificarTipo;
       Total_Calificacion : LADM_COL_V1_2.LADM_Nucleo.Integer;
     END AV_Calificacion_Convencional;
 
+    !!@ ili2db.dispName = "(Avalúos) Calificación No Convencional"
     CLASS AV_Calificacion_No_Convencional
     EXTENDS AV_Calificacion_Unidad_Construccion =
       Tipo_Anexo : Avaluos_V2_9_6.AV_AnexoTipo;
@@ -183,6 +196,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Puntaje_Anexo : TEXT*2;
     END AV_Calificacion_No_Convencional;
 
+    !!@ ili2db.dispName = "(Avalúos) Objeto Construcción"
     CLASS AV_Objeto_Construccion =
       Tipo_Objeto_Construccion : MANDATORY Avaluos_V2_9_6.Avaluos.AV_Tipo_Objeto_Construccion;
       Puntos : MANDATORY 0 .. 16;
@@ -191,6 +205,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
 
     /** Esta clase permite gestionar las zonas con características económicas y de localización geográfica similares, definidas para caracterizar el avalúo.
      */
+    !!@ ili2db.dispName = "(Avalúos) Zona Homogénea Geoeconómica"
     CLASS AV_Zona_Homogenea_Geoeconomica =
       /** Código único del registro de la instancia de la zona geoeconómica.
        */

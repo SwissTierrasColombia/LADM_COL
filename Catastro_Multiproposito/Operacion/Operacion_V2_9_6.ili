@@ -313,12 +313,14 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     OID AS INTERLIS.UUIDOID;
     DEPENDS ON LADM_COL_V1_2.LADM_Nucleo,Datos_Integracion_Insumos_V2_9_6.Datos_Integracion_Insumos;
 
+    !!@ ili2db.dispName = "Agrupación de Interesados"
     CLASS OP_Agrupacion_Interesados
     EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_Agrupacion_Interesados =
     END OP_Agrupacion_Interesados;
 
     /** Es un tipo de espacio jurídico de la unidad de edificación del modelo LADM que almacena datos específicos del avalúo resultante del mismo.
      */
+    !!@ ili2db.dispName = "Construcción"
     CLASS OP_Construccion
     EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_UnidadEspacial =
       Area_Construccion : MANDATORY 0.0 .. 99999999999999.9;
@@ -332,6 +334,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     /** Clase que registra las instancias de los derechos que un interesado ejerce sobre un predio. Es una especialización de la clase LA_RRR del propio modelo.
      */
+    !!@ ili2db.dispName = "Derecho"
     CLASS OP_Derecho
     EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_RRR =
       /** Derecho que se ejerce.
@@ -339,16 +342,19 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Tipo : MANDATORY Operacion_V2_9_6.OP_DerechoTipo;
     END OP_Derecho;
 
+    !!@ ili2db.dispName = "Fuente Administrativa"
     CLASS OP_FuenteAdministrativa
     EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_FuenteAdministrativa =
       Tipo (EXTENDED) : MANDATORY Operacion_V2_9_6.OP_FuenteAdministrativaTipo;
       Ente_Emisor : TEXT*255;
     END OP_FuenteAdministrativa;
 
+    !!@ ili2db.dispName = "Fuente Espacial"
     CLASS OP_FuenteEspacial
     EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_FuenteEspacial =
     END OP_FuenteEspacial;
 
+    !!@ ili2db.dispName = "Interesado"
     CLASS OP_Interesado
     EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_Interesado =
       /** Tipo de persona del que se trata
@@ -379,6 +385,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Razon_Social : TEXT*255;
     END OP_Interesado;
 
+    !!@ ili2db.dispName = "Interesado Contacto"
     CLASS OP_Interesado_Contacto =
       Telefono1 : TEXT*20;
       Telefono2 : TEXT*20;
@@ -404,6 +411,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     /** Clase especializada de BaUnit, que describe la unidad administrativa básica para el caso de Colombia.
      * El predio es la unidad territorial legal propia de Catastro. Esta formada por el terreno y puede o no tener construcciones asociadas.
      */
+    !!@ ili2db.dispName = "Predio"
     CLASS OP_Predio
     EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_BAUnit =
       /** Corresponde al codigo del departamento al cual pertenece el predio. Es asignado por DIVIPOLA y tiene 2 dígitos.
@@ -439,6 +447,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     /** Clase especializada de LA_Punto que representa puntos de la densificación de la red local, que se utiliza en la operación catastral para el levantamiento de información fisica de los objetos territoriales, como puntos de control.
      */
+    !!@ ili2db.dispName = "Punto Control"
     CLASS OP_PuntoControl
     EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_Punto =
       /** Nombre que recibe el punto.
@@ -458,6 +467,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     /** Clase especializada de LA_Punto que almacena puntos que definen un lindero, instancia de la clase LA_CadenaCarasLindero y sus especializaciones.
      */
+    !!@ ili2db.dispName = "Punto Lindero"
     CLASS OP_PuntoLindero
     EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_Punto =
       /** Nombre o codigo del punto lindero
@@ -479,6 +489,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     /** Porción de tierra con una extensión geográfica definida.
      */
+    !!@ ili2db.dispName = "Terreno"
     CLASS OP_Terreno
     EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_UnidadEspacial =
       /** Área de predio resultado de los calculos realizados en el proceso de levantamiento planimetrico
@@ -494,6 +505,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     /** Clase especializada de LA_Punto que representa puntos demarcados que representan la posición horizontal de un vértice de construcción, servidumbre o auxiliare.
      */
+    !!@ ili2db.dispName = "Punto Levantamiento"
     CLASS OP_PuntoLevantamiento
     EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_Punto =
       /** Se caracterizan los diferentes tipos de punto levantamiento, estos son punto de construccción, punto de servidumbre o punto auxiliar
@@ -512,6 +524,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     /** Restricciones a las que está sometido un predio y que inciden sobre los derechos que pueden ejercerse sobre él.
      */
+    !!@ ili2db.dispName = "Restricción"
     CLASS OP_Restriccion
     EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_RRR =
       /** Define el tipo de restricción.
@@ -537,6 +550,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     /** Tipo de unidad espacial que permite la representación de una servidumbre de paso asociada a una LA_BAUnit.
      */
+    !!@ ili2db.dispName = "Servidumbre de Paso"
     CLASS OP_ServidumbrePaso
     EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_UnidadEspacial =
       /** Fecha de inscripción de la servidumbre en el Catastro.
@@ -546,6 +560,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     /** Es cada conjunto de materiales consolidados dentro de un predio que tiene una caracteristicas especificas en cuanto a elementos constitutivos físicos y usos de los mismos.
      */
+    !!@ ili2db.dispName = "Unidad de Construcción"
     CLASS OP_UnidadConstruccion
     EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_UnidadEspacial =
       Identificador : TEXT*3;

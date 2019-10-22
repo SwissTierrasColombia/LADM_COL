@@ -201,11 +201,13 @@ VERSION "2019-07-04"  =
     OID AS INTERLIS.UUIDOID;
     DEPENDS ON Operacion_V2_9_6.Operacion;
 
+    !!@ ili2db.dispName = "(ANT) Conflictos"
     CLASS ANT_Conflictos =
       Conflicto : MANDATORY ANT_V2_9_6.ANT_ConflictoTipo;
       Descripcion : MTEXT*4096;
     END ANT_Conflictos;
 
+    !!@ ili2db.dispName = "(ANT) Interesado Caracterización"
     CLASS ANT_Interesado_Caracterizacion =
       Cabeza_hogar : MANDATORY BOOLEAN;
       Datos_Alternos_Contacto : MANDATORY BOOLEAN;
@@ -252,6 +254,7 @@ VERSION "2019-07-04"  =
       Reside_Residio_Municipio_Ubicacion_Predio_Solicitud : MANDATORY BOOLEAN;
     END ANT_Interesado_Caracterizacion;
 
+    !!@ ili2db.dispName = "(ANT) Interesado Contacto Datos Alterno"
     CLASS ANT_Interesado_Contacto_Datos_Alterno =
       Primer_Nombre : MANDATORY TEXT*100;
       Segundo_Nombre : TEXT*100;
@@ -267,6 +270,7 @@ VERSION "2019-07-04"  =
       Corregimiento : TEXT*100;
     END ANT_Interesado_Contacto_Datos_Alterno;
 
+    !!@ ili2db.dispName = "(ANT) Interesado - Nucleo Familiar"
     CLASS ANT_Interesado_Nucleo_Familiar =
       Primer_Nombre : MANDATORY TEXT*100;
       Segundo_Nombre : TEXT*100;
@@ -287,6 +291,7 @@ VERSION "2019-07-04"  =
       Cual_Es_La_Ocupacion_Actual : MANDATORY TEXT*500;
     END ANT_Interesado_Nucleo_Familiar;
 
+    !!@ ili2db.dispName = "(ANT) Solicitud"
     CLASS ANT_Solicitud =
       Fecha_Solicitud : MANDATORY INTERLIS.XMLDate;
       Interesado_Programas_Formalizacion_Acceso_Tierras_ANT : MANDATORY BOOLEAN;

@@ -81,6 +81,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     OID AS INTERLIS.UUIDOID;
     DEPENDS ON Avaluos_V2_9_6.Avaluos,Operacion_V2_9_6.Operacion;
 
+    !!@ ili2db.dispName = "(FCM) Contacto Visita"
     CLASS FCM_Contacto_Visita =
       Nombre_Quien_Atendio : MANDATORY TEXT*255;
       Relacion_Con_Predio : MANDATORY TEXT*100;
@@ -96,6 +97,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
 
     /** Datos de formulario único de catastro multipropósito
      */
+    !!@ ili2db.dispName = "(FCM) Formulario Único Catastro Multipropósito"
     CLASS FCM_Formulario_Unico_CM =
       Corregimiento : TEXT*100;
       Localidad_Comuna : TEXT*100;
