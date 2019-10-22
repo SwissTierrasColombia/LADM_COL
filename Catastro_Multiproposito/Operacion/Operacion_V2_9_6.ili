@@ -200,9 +200,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     OP_UsoUConsTipo = (
       Vivienda_Hasta_3_Pisos,
-      Caneyes_Cobertizos_Ramadas,
+      Ramadas_Cobertizos_Caneyes,
       Galpones_Gallineros,
-      Establos_Pesebreras,
+      Establos_Pesebreras_Caballerizas,
       Cocheras_Banieras_Porquerizas,
       Bodega_Casa_Bomba,
       Industrias,
@@ -210,12 +210,12 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Piscinas,
       Tanques,
       Beneficiaderos,
-      Colegios,
+      Colegios_Y_Universidades,
       Bibliotecas,
       Garajes_Cubiertos,
-      Bodegas_Comerciales,
+      Bodegas_Comerciales_Grandes_Almacenes,
       Secaderos,
-      Hospitales_Clinicas,
+      Clinicas_Hospitales_Centros_Medicos,
       Pozos,
       Kioskos,
       Albercas_Baniaderas,
@@ -227,13 +227,13 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Hoteles,
       Clubes_Casinos,
       Oficinas_Consultorios,
-      Apartamentos_Mas_3_Pisos,
+      Apartamentos_Mas_De_4_Pisos,
       Restaurante,
       Pensiones_Residencias,
       Puesto_De_Salud,
       Parqueaderos,
       Barracas,
-      Teatros,
+      Teatro_Cinemas,
       Aulas_De_Clase,
       Coliseos,
       Casas_De_Culto,
@@ -241,7 +241,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Jardin_Infantil_En_Casa,
       Torres_De_Enfriamiento,
       Muelles,
-      Estaciones_De_Bombeo,
+      Estacion_De_Bombeo,
       Estadio_Plaza_De_Toros,
       Carceles,
       Parque_Cementerio,
@@ -276,7 +276,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Restaurante_En_PH,
       Hotel_Colonial,
       Restaurante_Colonial,
-      Entidad_Educativa_Colonial
+      Entidad_Educativa_Colonial_Colegio_Colonial,
+      Cimientos_Estructura_Muros_Y_Placa_Base
     );
 
     OP_ViaTipo = (
