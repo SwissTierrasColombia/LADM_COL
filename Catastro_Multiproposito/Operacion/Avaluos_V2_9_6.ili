@@ -115,7 +115,6 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Residencial,
       Comercial,
       Industrial,
-      Institucional,
       Anexo
     );
 
@@ -152,7 +151,6 @@ VERSION "V2.2.1"  // 2018-02-01 // =
        */
       Tipo_Unidad_Construccion : MANDATORY Avaluos_V2_9_6.AV_UnidadConstruccionTipo;
       Puntuacion : LADM_COL_V1_2.LADM_Nucleo.Integer;
-      Valor_M2_Construccion : LADM_COL_V1_2.LADM_Nucleo.Peso;
       /** Año en el que fue construída la unidad de construcción.
        */
       Anio_Construccion : 1492 .. 3000;
