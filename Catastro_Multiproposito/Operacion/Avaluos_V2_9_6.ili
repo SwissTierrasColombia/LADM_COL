@@ -129,27 +129,38 @@ VERSION "V2.2.1"  // 2018-02-01 // =
 
     !!@ ili2db.dispName = "(Avalúos) Componente Construcción"
     CLASS AV_Componente_Construccion =
+      !!@ ili2db.dispName = "Tipo de componente"
       Tipo_Componente : MANDATORY Avaluos_V2_9_6.AV_ComponenteConstruccionTipo;
+      !!@ ili2db.dispName = "Cantidad"
       Cantidad : MANDATORY 0 .. 9999;
     END AV_Componente_Construccion;
 
     !!@ ili2db.dispName = "(Avalúos) Grupo Calificación"
     CLASS AV_Grupo_Calificacion =
+      !!@ ili2db.dispName = "Clase de calificación"
       Clase_Calificacion : MANDATORY Avaluos_V2_9_6.AV_ClaseCalificacionTipo;
+      !!@ ili2db.dispName = "Conservación"
       Conservacion : Avaluos_V2_9_6.AV_EstadoConservacionTipo;
+      !!@ ili2db.dispName = "Subtotal"
       Subtotal : 0 .. 9999999;
     END AV_Grupo_Calificacion;
 
     !!@ ili2db.dispName = "(Avalúos) Tabla Calificación de la Construcción"
     CLASS AV_Tabla_Calificación_Construccion =
+      !!@ ili2db.dispName = "Valor M2 de construcción"
       Valor_M2_Construccion : TEXT*20;
+      !!@ ili2db.dispName = "Uso"
       Uso : TEXT*20;
+      !!@ ili2db.dispName = "Puntuación"
       Puntuacion : TEXT*20;
     END AV_Tabla_Calificación_Construccion;
 
     STRUCTURE AV_Tipo_Objeto_Construccion =
+      !!@ ili2db.dispName = "Clase de calificación"
       Clase_Calificacion : MANDATORY Avaluos_V2_9_6.AV_ClaseCalificacionTipo;
+      !!@ ili2db.dispName = "Tipo de objeto de construcción"
       Tipo_Objeto_Construccion : MANDATORY Avaluos_V2_9_6.AV_ObjetoConstruccionTipo;
+      !!@ ili2db.dispName = "Nombre"
       Nombre : MANDATORY TEXT*255;
     END AV_Tipo_Objeto_Construccion;
 
@@ -159,11 +170,15 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     CLASS AV_Unidad_Construccion =
       /** Clasificación del tipo de construcción empleada para levantar la unidad de construcción.
        */
+      !!@ ili2db.dispName = "Tipo de unidad de construcción"
       Tipo_Unidad_Construccion : MANDATORY Avaluos_V2_9_6.AV_UnidadConstruccionTipo;
+      !!@ ili2db.dispName = "Puntuación"
       Puntuacion : LADM_COL_V1_2.LADM_Nucleo.Integer;
       /** Año en el que fue construída la unidad de construcción.
        */
+      !!@ ili2db.dispName = "Año de construcción"
       Anio_Construccion : 1492 .. 3000;
+      !!@ ili2db.dispName = "Observaciones"
       Observaciones : TEXT*255;
     END AV_Unidad_Construccion;
 
@@ -173,9 +188,11 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     CLASS AV_Zona_Homogenea_Fisica =
       /** Código único del registro de la instancia de ZonaHomegeneaFisca.
        */
+      !!@ ili2db.dispName = "Identificador"
       Identificador : MANDATORY TEXT*20;
       /** Definición de la geometría espacial georreferenciada de la zona homogénea física, delimitada mediante un polígono que contiene sus linderos y la superficie ocupada.
        */
+      !!@ ili2db.dispName = "Geometría"
       Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END AV_Zona_Homogenea_Fisica;
 
@@ -184,22 +201,30 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     !!@ ili2db.dispName = "(Avalúos) Calificación Convencional"
     CLASS AV_Calificacion_Convencional
     EXTENDS AV_Calificacion_Unidad_Construccion =
+      !!@ ili2db.dispName = "Tipo a calificar"
       Tipo_Calificar : Avaluos_V2_9_6.AV_CalificarTipo;
+      !!@ ili2db.dispName = "Total calificación"
       Total_Calificacion : LADM_COL_V1_2.LADM_Nucleo.Integer;
     END AV_Calificacion_Convencional;
 
     !!@ ili2db.dispName = "(Avalúos) Calificación No Convencional"
     CLASS AV_Calificacion_No_Convencional
     EXTENDS AV_Calificacion_Unidad_Construccion =
+      !!@ ili2db.dispName = "Tipo de anexo"
       Tipo_Anexo : Avaluos_V2_9_6.AV_AnexoTipo;
+      !!@ ili2db.dispName = "Descripción de anexo"
       Descripcion_Anexo : TEXT*256;
+      !!@ ili2db.dispName = "Puntaje anexo"
       Puntaje_Anexo : TEXT*2;
     END AV_Calificacion_No_Convencional;
 
     !!@ ili2db.dispName = "(Avalúos) Objeto Construcción"
     CLASS AV_Objeto_Construccion =
+      !!@ ili2db.dispName = "Tipo de objeto de construcción"
       Tipo_Objeto_Construccion : MANDATORY Avaluos_V2_9_6.Avaluos.AV_Tipo_Objeto_Construccion;
+      !!@ ili2db.dispName = "Puntos"
       Puntos : MANDATORY 0 .. 16;
+      !!@ ili2db.dispName = "Característica"
       Caracteristica : TEXT*255;
     END AV_Objeto_Construccion;
 
@@ -209,12 +234,15 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     CLASS AV_Zona_Homogenea_Geoeconomica =
       /** Código único del registro de la instancia de la zona geoeconómica.
        */
+      !!@ ili2db.dispName = "Identificador"
       Identificador : MANDATORY TEXT*20;
       /** Valor económico de la zona homogénea que representa la instancia de la clase.
        */
+      !!@ ili2db.dispName = "Valor"
       Valor : MANDATORY LADM_COL_V1_2.LADM_Nucleo.Integer;
       /** Definición de la geometría espacial georreferenciada de la zona homogénea geoeconómica, delimitada mediante un polígono que contiene sus linderos y la superficie ocupada.
        */
+      !!@ ili2db.dispName = "Geometría"
       Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END AV_Zona_Homogenea_Geoeconomica;
 

@@ -42,8 +42,11 @@ VERSION "2019-08-01"  =
     );
 
   STRUCTURE GC_Direccion =
+    !!@ ili2db.dispName = "Valor"
     Valor : TEXT*255;
+    !!@ ili2db.dispName = "Principal"
     Principal : BOOLEAN;
+    !!@ ili2db.dispName = "Geometría de referencia"
     Geometria_Referencia : ISO19107_PLANAS_V1.GM_Curve3D;
   END GC_Direccion;
 
@@ -53,83 +56,141 @@ VERSION "2019-08-01"  =
     CLASS GC_Barrio =
       !!@ ili2db.dispName = "Código"
       Codigo : TEXT*13;
+      !!@ ili2db.dispName = "Nombre"
       Nombre : TEXT*100;
+      !!@ ili2db.dispName = "Sector código"
       Sector_Codigo : TEXT*9;
+      !!@ ili2db.dispName = "Geometría"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
     END GC_Barrio;
 
     !!@ ili2db.dispName = "(GC) Comisiones Construcción"
     CLASS GC_Comisiones_Construccion =
+      !!@ ili2db.dispName = "Identificador"
       Identificador : TEXT*30;
+      !!@ ili2db.dispName = "Etiqueta"
       Etiqueta : TEXT*50;
+      !!@ ili2db.dispName = "Tipo de construcción"
       Tipo_Construccion : Datos_Gestor_Catastral_V2_9_6.GC_UnidadConstruccionTipo;
+      !!@ ili2db.dispName = "Tipo de dominio"
       Tipo_Dominio : TEXT*20;
+      !!@ ili2db.dispName = "Número de pisos"
       Numero_Pisos : 0 .. 200;
+      !!@ ili2db.dispName = "Número de mezanines"
       Numero_Mezanines : 0 .. 99;
+      !!@ ili2db.dispName = "Número de semisótanos"
       Numero_Semisotanos : 0 .. 99;
+      !!@ ili2db.dispName = "Código de edificación"
       Codigo_Edificacion : 0 .. 10000000000000000000;
+      !!@ ili2db.dispName = "Código de terreno"
       Codigo_Terreno : TEXT*30;
+      !!@ ili2db.dispName = "Área construida"
       Area_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
+      !!@ ili2db.dispName = "Geometría"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END GC_Comisiones_Construccion;
 
     !!@ ili2db.dispName = "(GC) Comisiones Terreno"
     CLASS GC_Comisiones_Terreno =
+      !!@ ili2db.dispName = "Área de terreno alfanumérica"
       Area_Terreno_Alfanumerica : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
+      !!@ ili2db.dispName = "Área de terreno digital"
       Area_Terreno_Digital : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
+      !!@ ili2db.dispName = "Manzana vereda código"
       Manzana_Vereda_Codigo : TEXT*30;
+      !!@ ili2db.dispName = "Número de subterráneos"
       Numero_Subterraneos : 0 .. 999999999999999;
+      !!@ ili2db.dispName = "Geometría"
       Geometria : ISO19107_PLANAS_V1.GM_MultiCurve2D;
     END GC_Comisiones_Terreno;
 
     !!@ ili2db.dispName = "(GC) Comisiones Unidad Construcción"
     CLASS GC_Comisiones_Unidad_Construccion =
+      !!@ ili2db.dispName = "Identificador"
       Identificador : TEXT*2;
+      !!@ ili2db.dispName = "Etiqueta"
       Etiqueta : TEXT*50;
+      !!@ ili2db.dispName = "Tipo de Dominio"
       Tipo_Dominio : TEXT*20;
+      !!@ ili2db.dispName = "Tipo de construcción"
       Tipo_Construccion : Datos_Gestor_Catastral_V2_9_6.GC_UnidadConstruccionTipo;
+      !!@ ili2db.dispName = "Planta"
       Planta : TEXT*10;
+      !!@ ili2db.dispName = "Total de habitaciones"
       Total_Habitaciones : 0 .. 999999;
+      !!@ ili2db.dispName = "Total de baños"
       Total_Banios : 0 .. 999999;
+      !!@ ili2db.dispName = "Total de locales"
       Total_Locales : 0 .. 999999;
+      !!@ ili2db.dispName = "Total de pisos"
       Total_Pisos : 0 .. 150;
+      !!@ ili2db.dispName = "Uso"
       Uso : TEXT*255;
+      !!@ ili2db.dispName = "Año"
       Anio : 1512 .. 2500;
+      !!@ ili2db.dispName = "Puntaje"
       Puntaje : 0 .. 200;
+      !!@ ili2db.dispName = "Área construida"
       Area_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
+      !!@ ili2db.dispName = "Área privada"
       Area_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
+      !!@ ili2db.dispName = "Código terreno"
       Codigo_Terreno : TEXT*30;
+      !!@ ili2db.dispName = "Geometría"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END GC_Comisiones_Unidad_Construccion;
 
     !!@ ili2db.dispName = "(GC) Construcción"
     CLASS GC_Construccion =
+      !!@ ili2db.dispName = "Identificador"
       Identificador : TEXT*30;
+      !!@ ili2db.dispName = "Etiqueta"
       Etiqueta : TEXT*50;
+      !!@ ili2db.dispName = "Tipo de construcción"
       Tipo_Construccion : Datos_Gestor_Catastral_V2_9_6.GC_UnidadConstruccionTipo;
+      !!@ ili2db.dispName = "Tipo de dominio"
       Tipo_Dominio : TEXT*20;
+      !!@ ili2db.dispName = "Número de pisos"
       Numero_Pisos : 0 .. 200;
+      !!@ ili2db.dispName = "Número de sótanos"
       Numero_Sotanos : 0 .. 99;
+      !!@ ili2db.dispName = "Número de mezanines"
       Numero_Mezanines : 0 .. 99;
+      !!@ ili2db.dispName = "Número de semisótanos"
       Numero_Semisotanos : 0 .. 99;
+      !!@ ili2db.dispName = "Código de edificación"
       Codigo_Edificacion : 0 .. 10000000000000000000;
+      !!@ ili2db.dispName = "Código de terreno"
       Codigo_Terreno : TEXT*30;
+      !!@ ili2db.dispName = "Área construida"
       Area_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
+      !!@ ili2db.dispName = "Geometría"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END GC_Construccion;
 
     !!@ ili2db.dispName = "(GC) Datos Propiedad Horizontal Condominio"
     CLASS GC_Datos_PH_Condiminio =
+      !!@ ili2db.dispName = "Área total de terreno"
       Area_Total_Terreno : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
+      !!@ ili2db.dispName = "Área total de terreno privada"
       Area_Total_Terreno_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
+      !!@ ili2db.dispName = "Área total de terreno común"
       Area_Total_Terreno_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
+      !!@ ili2db.dispName = "Área total construida"
       Area_Total_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
+      !!@ ili2db.dispName = "Área total construida privada"
       Area_Total_Construida_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
+      !!@ ili2db.dispName = "Área total construida común"
       Area_Total_Construida_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
+      !!@ ili2db.dispName = "Torre número"
       Torre_No : TEXT*10;
+      !!@ ili2db.dispName = "Total pisos de torre"
       Total_Pisos_Torre : 0 .. 200;
+      !!@ ili2db.dispName = "Total de unidades privadas"
       Total_Unidades_Privadas : 0 .. 99999999;
+      !!@ ili2db.dispName = "Total de sótanos"
       Total_Sotanos : 0 .. 30;
+      !!@ ili2db.dispName = "Total de unidades de sótano"
       Total_Unidades_Sotano : 0 .. 99999999;
     END GC_Datos_PH_Condiminio;
 
@@ -137,18 +198,27 @@ VERSION "2019-08-01"  =
     CLASS GC_Manzana =
       !!@ ili2db.dispName = "Código"
       Codigo : TEXT*17;
+      !!@ ili2db.dispName = "Código anterior"
       Codigo_Anterior : TEXT*255;
+      !!@ ili2db.dispName = "Código de barrio"
       Barrio_Codigo : TEXT*13;
+      !!@ ili2db.dispName = "Geometría"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
     END GC_Manzana;
 
     !!@ ili2db.dispName = "(GC) Perímetro"
     CLASS GC_Perimetro =
+      !!@ ili2db.dispName = "Código del departamento"
       Departamento_Codigo : TEXT*2;
+      !!@ ili2db.dispName = "Código del municipio"
       Municipio_Codigo : TEXT*5;
+      !!@ ili2db.dispName = "Tipo de avalúo"
       Tipo_Avaluo : TEXT*30;
+      !!@ ili2db.dispName = "Nombre geográfico"
       Nombre_Geografico : TEXT*50;
+      !!@ ili2db.dispName = "Código nombre"
       Codigo_Nombre : TEXT*255;
+      !!@ ili2db.dispName = "Geometría"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
     END GC_Perimetro;
 
@@ -156,16 +226,27 @@ VERSION "2019-08-01"  =
      */
     !!@ ili2db.dispName = "(GC) Predio Catastro"
     CLASS GC_Predio_Catastro =
+      !!@ ili2db.dispName = "Tipo de catastro"
       Tipo_Catastro : TEXT*255;
+      !!@ ili2db.dispName = "Número predial"
       Numero_Predial : TEXT*30;
+      !!@ ili2db.dispName = "Número predial anterior"
       Numero_Predial_Anterior : TEXT*20;
+      !!@ ili2db.dispName = "Círculo registral"
       Circulo_Registral : TEXT*4;
+      !!@ ili2db.dispName = "Matrícula inmobiliaria catastro"
       Matricula_Inmobiliaria_Catastro : TEXT*80;
+      !!@ ili2db.dispName = "Direcciones"
       Direcciones : BAG {0..*} OF Datos_Gestor_Catastral_V2_9_6.GC_Direccion;
+      !!@ ili2db.dispName = "Tipo de predio"
       Tipo_Predio : TEXT*100;
+      !!@ ili2db.dispName = "Condición del predio"
       Condicion_Predio : Datos_Gestor_Catastral_V2_9_6.GC_CondicionPredioTipo;
+      !!@ ili2db.dispName = "Destinación económica"
       Destinacion_Economica : TEXT*150;
+      !!@ ili2db.dispName = "Sistema procedencia de los datos"
       Sistema_Procedencia_Datos : Datos_Gestor_Catastral_V2_9_6.GC_SistemaProcedenciaDatosTipo;
+      !!@ ili2db.dispName = "Fecha de los datos"
       Fecha_Datos : MANDATORY INTERLIS.XMLDate;
     END GC_Predio_Catastro;
 
@@ -173,25 +254,37 @@ VERSION "2019-08-01"  =
      */
     !!@ ili2db.dispName = "(GC) Propietario"
     CLASS GC_Propietario =
+      !!@ ili2db.dispName = "Tipo de documento"
       Tipo_Documento : TEXT*100;
+      !!@ ili2db.dispName = "Número de documento"
       Numero_Documento : TEXT*50;
+      !!@ ili2db.dispName = "Dígito de verificación"
       Digito_Verificacion : TEXT*1;
+      !!@ ili2db.dispName = "Primer nombre"
       Primer_Nombre : TEXT*255;
+      !!@ ili2db.dispName = "Segundo nombre"
       Segundo_Nombre : TEXT*255;
+      !!@ ili2db.dispName = "Primer apellido"
       Primer_Apellido : TEXT*255;
+      !!@ ili2db.dispName = "Segundo apellido"
       Segundo_Apellido : TEXT*255;
+      !!@ ili2db.dispName = "Razón social"
       Razon_Social : TEXT*255;
     END GC_Propietario;
 
     !!@ ili2db.dispName = "(GC) Sector Rural"
     CLASS GC_Sector_Rural =
+      !!@ ili2db.dispName = "Código"
       Codigo : TEXT*9;
+      !!@ ili2db.dispName = "Geometría"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
     END GC_Sector_Rural;
 
     !!@ ili2db.dispName = "(GC) Sector Urbano"
     CLASS GC_Sector_Urbano =
+      !!@ ili2db.dispName = "Código"
       Codigo : TEXT*9;
+      !!@ ili2db.dispName = "Geometría"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
     END GC_Sector_Urbano;
 
@@ -199,30 +292,51 @@ VERSION "2019-08-01"  =
      */
     !!@ ili2db.dispName = "(GC) Terreno"
     CLASS GC_Terreno =
+      !!@ ili2db.dispName = "Área terreno alfanumérica"
       Area_Terreno_Alfanumerica : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
+      !!@ ili2db.dispName = "Área terreno digital"
       Area_Terreno_Digital : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
+      !!@ ili2db.dispName = "Código de manzana vereda"
       Manzana_Vereda_Codigo : TEXT*30;
+      !!@ ili2db.dispName = "Número de subterráneos"
       Numero_Subterraneos : 0 .. 999999999999999;
+      !!@ ili2db.dispName = "Geometría"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
     END GC_Terreno;
 
     !!@ ili2db.dispName = "(GC) Unidad Construcción"
     CLASS GC_Unidad_Construccion =
+      !!@ ili2db.dispName = "Identificador"
       Identificador : TEXT*2;
+      !!@ ili2db.dispName = "Etiqueta"
       Etiqueta : TEXT*50;
+      !!@ ili2db.dispName = "Tipo de dominio"
       Tipo_Dominio : TEXT*20;
+      !!@ ili2db.dispName = "Tipo de construcción"
       Tipo_Construccion : Datos_Gestor_Catastral_V2_9_6.GC_UnidadConstruccionTipo;
+      !!@ ili2db.dispName = "Planta"
       Planta : TEXT*10;
+      !!@ ili2db.dispName = "Total de habitaciones"
       Total_Habitaciones : 0 .. 999999;
+      !!@ ili2db.dispName = "Total de baños"
       Total_Banios : 0 .. 999999;
+      !!@ ili2db.dispName = "Total de locales"
       Total_Locales : 0 .. 999999;
+      !!@ ili2db.dispName = "Total de pisos"
       Total_Pisos : 0 .. 150;
+      !!@ ili2db.dispName = "Uso"
       Uso : TEXT*255;
+      !!@ ili2db.dispName = "Año"
       Anio : 1512 .. 2500;
+      !!@ ili2db.dispName = "Puntaje"
       Puntaje : 0 .. 200;
+      !!@ ili2db.dispName = "Área construida"
       Area_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
+      !!@ ili2db.dispName = "Área privada"
       Area_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
+      !!@ ili2db.dispName = "Código terreno"
       Codigo_Terreno : TEXT*30;
+      !!@ ili2db.dispName = "Geometría"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END GC_Unidad_Construccion;
 
@@ -230,9 +344,13 @@ VERSION "2019-08-01"  =
     CLASS GC_Vereda =
       !!@ ili2db.dispName = "Código"
       Codigo : TEXT*17;
+      !!@ ili2db.dispName = "Código anterior"
       Codigo_Anterior : TEXT*13;
+      !!@ ili2db.dispName = "Nombre"
       Nombre : TEXT*100;
+      !!@ ili2db.dispName = "Código del sector"
       Sector_Codigo : TEXT*9;
+      !!@ ili2db.dispName = "Geometría"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
     END GC_Vereda;
 
@@ -336,17 +454,25 @@ VERSION "V2.3"  // 2019-07-31 // =
     CLASS SNR_Derecho =
       /** Calidad de derecho en registro
        */
+      !!@ ili2db.dispName = "Calidad derecho registro"
       Calidad_Derecho_Registro : MANDATORY Datos_SNR_V2_9_6.SNR_CalidadDerechoTipo;
+      !!@ ili2db.dispName = "Código naturaleza jurídica"
       Codigo_Naturaleza_Juridica : TEXT*5;
     END SNR_Derecho;
 
     !!@ ili2db.dispName = "(SNR) Fuente Cabida Linderos"
     CLASS SNR_Fuente_CabidaLinderos =
+      !!@ ili2db.dispName = "Tipo de documento"
       Tipo_Documento : Datos_SNR_V2_9_6.SNR_FuenteTipo;
+      !!@ ili2db.dispName = "Número de documento"
       Numero_Documento : TEXT*255;
+      !!@ ili2db.dispName = "Fecha de documento"
       Fecha_Documento : INTERLIS.XMLDate;
+      !!@ ili2db.dispName = "Ente emisor"
       Ente_Emisor : TEXT*255;
+      !!@ ili2db.dispName = "Ciudad emisora"
       Ciudad_Emisora : TEXT*255;
+      !!@ ili2db.dispName = "Archivo"
       Archivo : LADM_COL_V1_2.LADM_Nucleo.ExtArchivo;
     END SNR_Fuente_CabidaLinderos;
 
@@ -354,6 +480,7 @@ VERSION "V2.3"  // 2019-07-31 // =
      */
     !!@ ili2db.dispName = "(SNR) Fuente Derecho"
     CLASS SNR_Fuente_Derecho =
+      !!@ ili2db.dispName = "Tipo de documento"
       Tipo_Documento : Datos_SNR_V2_9_6.SNR_FuenteTipo;
       !!@ ili2db.dispName = "Número de documento"
       Numero_Documento : TEXT*255;
@@ -361,6 +488,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       Fecha_Documento : INTERLIS.XMLDate;
       !!@ ili2db.dispName = "Ente emisor"
       Ente_Emisor : MTEXT*255;
+      !!@ ili2db.dispName = "Ciudad emisora"
       Ciudad_Emisora : TEXT*255;
     END SNR_Fuente_Derecho;
 
@@ -370,14 +498,21 @@ VERSION "V2.3"  // 2019-07-31 // =
     CLASS SNR_Predio_Registro =
       !!@ ili2db.dispName = "Código ORIP"
       Codigo_ORIP : TEXT*3;
+      !!@ ili2db.dispName = "Matrícula inmobiliaria"
       Matricula_Inmobiliaria : TEXT*80;
+      !!@ ili2db.dispName = "Número predial nuevo en FMI"
       Numero_Predial_Nuevo_en_FMI : TEXT*30;
+      !!@ ili2db.dispName = "Número predial anterior en FMI"
       Numero_Predial_Anterior_en_FMI : TEXT*30;
+      !!@ ili2db.dispName = "NUPRE en FMI"
       NUPRE_en_FMI : TEXT*11;
+      !!@ ili2db.dispName = "Cabida y linderos"
       Cabida_Linderos : MTEXT;
       /** Matricula inmobiliaria matriz, cuando aplique
        */
+      !!@ ili2db.dispName = "Matrícula inmobiliaria matriz"
       Matricula_Inmobiliaria_Matriz : TEXT*80;
+      !!@ ili2db.dispName = "Fecha de datos"
       Fecha_Datos : MANDATORY INTERLIS.XMLDate;
     END SNR_Predio_Registro;
 
@@ -387,11 +522,17 @@ VERSION "V2.3"  // 2019-07-31 // =
     CLASS SNR_Titular =
       /** Tipo de persona
        */
+      !!@ ili2db.dispName = "Tipo de persona"
       Tipo_Persona : Datos_SNR_V2_9_6.SNR_PersonaTitularTipo;
+      !!@ ili2db.dispName = "Tipo de documento"
       Tipo_Documento : Datos_SNR_V2_9_6.SNR_DocumentoTitularTipo;
+      !!@ ili2db.dispName = "Número de documento"
       Numero_Documento : MANDATORY TEXT*50;
+      !!@ ili2db.dispName = "Nombres"
       Nombres : TEXT*500;
+      !!@ ili2db.dispName = "Primer apellido"
       Primer_Apellido : TEXT*255;
+      !!@ ili2db.dispName = "Segundo apellido"
       Segundo_Apellido : TEXT*255;
       !!@ ili2db.dispName = "Razón social"
       Razon_Social : MTEXT*255;

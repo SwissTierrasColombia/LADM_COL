@@ -83,15 +83,22 @@ VERSION "V2.2.1"  // 2018-02-01 // =
 
     !!@ ili2db.dispName = "(FCM) Contacto Visita"
     CLASS FCM_Contacto_Visita =
+      !!@ ili2db.dispName = "Nombre de quien atendió"
       Nombre_Quien_Atendio : MANDATORY TEXT*255;
+      !!@ ili2db.dispName = "Relación con el predio"
       Relacion_Con_Predio : MANDATORY TEXT*100;
+      !!@ ili2db.dispName = "Domicilio notificaciones"
       Domicilio_Notificaciones : TEXT*255;
+      !!@ ili2db.dispName = "Celular"
       Celular : TEXT*20;
+      !!@ ili2db.dispName = "Correo electrónico"
       Correo_Electronico : TEXT*100;
+      !!@ ili2db.dispName = "Autoriza notificaciones"
       Autoriza_Notificaciones : BOOLEAN;
     END FCM_Contacto_Visita;
 
     STRUCTURE FCM_Predio_Englobe =
+      !!@ ili2db.dispName = "Número predial"
       Numero_Predial : MANDATORY TEXT*30;
     END FCM_Predio_Englobe;
 
@@ -99,22 +106,31 @@ VERSION "V2.2.1"  // 2018-02-01 // =
      */
     !!@ ili2db.dispName = "(FCM) Formulario Único Catastro Multipropósito"
     CLASS FCM_Formulario_Unico_CM =
+      !!@ ili2db.dispName = "Corregimiento"
       Corregimiento : TEXT*100;
+      !!@ ili2db.dispName = "Localidad comuna"
       Localidad_Comuna : TEXT*100;
+      !!@ ili2db.dispName = "Barrio vereda"
       Barrio_Vereda : MANDATORY TEXT*100;
       /** Describe si el predio es formal o informal
        */
+      !!@ ili2db.dispName = "Formalidad"
       Formalidad : MANDATORY Formulario_Catastro_V2_9_6.FCM_FormalidadTipo;
       /** Uso económico que se hace del predio.
        */
+      !!@ ili2db.dispName = "Destinación económica"
       Destinacion_Economica : MANDATORY Formulario_Catastro_V2_9_6.FCM_DestinacionEconomicaTipo;
       /** Clasificación del suelo según el Plan de Ordenamiento Territorial vigente.
        */
+      !!@ ili2db.dispName = "Clase de suelo"
       Clase_Suelo : MANDATORY Formulario_Catastro_V2_9_6.FCM_ClaseSueloTipo;
       /** Categoría del suelo según el Plan de Ordenamiento Territorial vigente.
        */
+      !!@ ili2db.dispName = "Categoría de suelo"
       Categoria_Suelo : Formulario_Catastro_V2_9_6.FCM_CategoriaSueloTipo;
+      !!@ ili2db.dispName = "Tiene FMI"
       Tiene_FMI : MANDATORY BOOLEAN;
+      !!@ ili2db.dispName = "Fecha de inicio de tenencia"
       Fecha_Inicio_Tenencia : INTERLIS.XMLDate;
       !!@ ili2db.dispName = "Predio matriz del que nace"
       Numero_Predial_Predio_Matriz : TEXT*30;
@@ -122,8 +138,11 @@ VERSION "V2.2.1"  // 2018-02-01 // =
        */
       !!@ ili2db.dispName = "Predios catastrales que se engloban"
       Numeros_Prediales_Englobe : BAG {0..*} OF Formulario_Catastro_V2_9_6.Formulario_Catastro.FCM_Predio_Englobe;
+      !!@ ili2db.dispName = "Observaciones"
       Observaciones : MTEXT*500;
+      !!@ ili2db.dispName = "Fecha de visita predial"
       Fecha_Visita_predial : MANDATORY INTERLIS.XMLDate;
+      !!@ ili2db.dispName = "Nombre del reconocedor"
       Nombre_Reconocedor : MANDATORY TEXT*255;
     END FCM_Formulario_Unico_CM;
 
