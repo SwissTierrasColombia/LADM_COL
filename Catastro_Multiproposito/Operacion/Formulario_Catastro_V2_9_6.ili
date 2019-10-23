@@ -19,61 +19,101 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     /** Categoría de suelo de la clasificación del Plan de Ordenamiento Territorial.
      */
     FCM_CategoriaSueloTipo = (
+      !!@ ili2db.dispName = "Suburbano"
       Suburbano,
+      !!@ ili2db.dispName = "Protección"
       Proteccion
     );
 
     /** Clase de suelo de la clasificación del Plan de Ordenamiento Territorial.
      */
     FCM_ClaseSueloTipo = (
+      !!@ ili2db.dispName = "Urbano"
       Urbano,
+      !!@ ili2db.dispName = "Rural"
       Rural,
+      !!@ ili2db.dispName = "Expansión urbana"
       Expansion_Urbana
     );
 
     /** Uso económico de la propiedad inmobiliaria.
      */
     FCM_DestinacionEconomicaTipo = (
+      !!@ ili2db.dispName = "Acuicola"
       Acuicola,
+      !!@ ili2db.dispName = "Agrícola"
       Agricola,
+      !!@ ili2db.dispName = "Agroindustrial"
       Agroindustrial,
+      !!@ ili2db.dispName = "Agroforestal"
       Agroforestal,
+      !!@ ili2db.dispName = "Comercial"
       Comercial,
+      !!@ ili2db.dispName = "Cultural"
       Cultural,
+      !!@ ili2db.dispName = "Educativo"
       Educativo,
+      !!@ ili2db.dispName = "Forestal"
       Forestal,
+      !!@ ili2db.dispName = "Habitacional"
       Habitacional,
+      !!@ ili2db.dispName = "Institucional"
       Industrial,
+      !!@ ili2db.dispName = "Infraestructura asociada a producción agropecuaria"
       Infraestructura_Asociada_Produccion_Agropecuaria,
+      !!@ ili2db.dispName = "Infraestructura hidráulica"
       Infraestructura_Hidraulica,
+      !!@ ili2db.dispName = "Infraestructura saneamiento"
       Infraestructura_Saneamiento_Basico,
+      !!@ ili2db.dispName = "Infraestructura seguridad"
       Infraestructura_Seguridad,
+      !!@ ili2db.dispName = "Infraestructura transporte"
       Infraestructura_Transporte,
+      !!@ ili2db.dispName = "Institucional"
       Institucional,
+      !!@ ili2db.dispName = "Minería hidrocarburos"
       Mineria_Hidrocarburos,
+      !!@ ili2db.dispName = "Lote urbanizable no urbanizado"
       Lote_Urbanizable_No_Urbanizado,
+      !!@ ili2db.dispName = "Lote urbanizado no construido"
       Lote_Urbanizado_No_Construido,
+      !!@ ili2db.dispName = "Lote no urbanizable"
       Lote_No_Urbanizable,
+      !!@ ili2db.dispName = "Pecuario"
       Pecuario,
+      !!@ ili2db.dispName = "Recreacional"
       Recreacional,
+      !!@ ili2db.dispName = "Religioso"
       Religioso,
+      !!@ ili2db.dispName = "Salubridad"
       Salubridad,
+      !!@ ili2db.dispName = "Uso público"
       Uso_Publico
     );
 
     FCM_FormalidadTipo = (
+      !!@ ili2db.dispName = "Formal"
       Formal,
+      !!@ ili2db.dispName = "Informal"
       Informal
     );
 
     FCM_PredioPublicoTipo = (
+      !!@ ili2db.dispName = "Nacional"
       Nacional,
+      !!@ ili2db.dispName = "Departamental"
       Departamental,
+      !!@ ili2db.dispName = "Municipal"
       Municipal,
+      !!@ ili2db.dispName = "Baldío"
       Baldio,
+      !!@ ili2db.dispName = "Ejido"
       Ejido,
+      !!@ ili2db.dispName = "Resguardo indígena"
       Resguardo_Indigena,
+      !!@ ili2db.dispName = "Tierra comunidades negras"
       Tierra_Comunidades_Negras,
+      !!@ ili2db.dispName = "Reservas naturales"
       Reservas_Naturales
     );
 

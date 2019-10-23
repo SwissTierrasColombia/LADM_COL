@@ -34,31 +34,52 @@ VERSION "V2.2.1"  // 2018-02-01 // =
   DOMAIN
 
     AV_AnexoTipo = (
+      !!@ ili2db.dispName = "Enramadas o cobertizos o caneyes"
       Enramadas_Cobertizos_Caneyes,
+      !!@ ili2db.dispName = "Galpones o gallineros"
       Galpones_Gallineros,
+      !!@ ili2db.dispName = "Establos o pesebreras"
       Establos_Pesebreras,
+      !!@ ili2db.dispName = "Cocheras o marraneras o porquerizas"
       Cocheras_Marraneras_Porquerizas,
+      !!@ ili2db.dispName = "Silos"
       Silos,
+      !!@ ili2db.dispName = "Piscina"
       Piscinas,
+      !!@ ili2db.dispName = "Tanques"
       Tanques,
+      !!@ ili2db.dispName = "Beneficiaderos"
       Beneficiaderos,
+      !!@ ili2db.dispName = "Secaderos"
       Secaderos,
+      !!@ ili2db.dispName = "Kioskos"
       Kioscos,
+      !!@ ili2db.dispName = "Albercas o bañaderas"
       Albercas_Baniaderas,
+      !!@ ili2db.dispName = "Corrales"
       Corrales,
+      !!@ ili2db.dispName = "Pozos"
       Pozos,
+      !!@ ili2db.dispName = "Torres de enfriamiento"
       TorresEnfriamiento,
+      !!@ ili2db.dispName = "Muelles"
       Muelles,
+      !!@ ili2db.dispName = "Canchas de tenis"
       CanchasTenis,
+      !!@ ili2db.dispName = "Toboganes"
       Toboganes,
+      !!@ ili2db.dispName = "Marquesinas"
       Marquesinas
     );
 
     /** Calificación del suelo.
      */
     AV_CalificarTipo = (
+      !!@ ili2db.dispName = "Residencial"
       Residencial,
+      !!@ ili2db.dispName = "Industrial"
       Industrial,
+      !!@ ili2db.dispName = "Comercial"
       Comercial
     );
 
@@ -83,38 +104,63 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     );
 
     AV_EstadoConservacionTipo = (
+      !!@ ili2db.dispName = "Malo"
       Malo,
+      !!@ ili2db.dispName = "Regular"
       Regular,
+      !!@ ili2db.dispName = "Bueno"
       Bueno,
+      !!@ ili2db.dispName = "Excelente"
       Excelente
     );
 
     AV_ObjetoConstruccionTipo = (
+      !!@ ili2db.dispName = "Armazón"
       Armazon,
+      !!@ ili2db.dispName = "Muros"
       Muros,
+      !!@ ili2db.dispName = "Cubierta"
       Cubierta,
+      !!@ ili2db.dispName = "Conservación estructura"
       Conservacion_Estructura,
+      !!@ ili2db.dispName = "Fachada"
       Fachada,
+      !!@ ili2db.dispName = "Cubrimiento de muros"
       Cubrimiento_Muros,
+      !!@ ili2db.dispName = "Piso"
       Piso,
+      !!@ ili2db.dispName = "Conservación de acabados"
       Conservacion_Acabados,
+      !!@ ili2db.dispName = "Tamaño de baño"
       Tamanio_Banio,
+      !!@ ili2db.dispName = "Enchape de baño"
       Enchape_Banio,
+      !!@ ili2db.dispName = "Mobiliario de baño"
       Mobiliario_Banio,
+      !!@ ili2db.dispName = "Conservación de baño"
       Conservacion_Banio,
+      !!@ ili2db.dispName = "Tamaño de cocina"
       Tamanio_Cocina,
+      !!@ ili2db.dispName = "Enchape de cocina"
       Enchape_Cocina,
+      !!@ ili2db.dispName = "Mobiliario de cocina"
       Mobiliario_Cocina,
+      !!@ ili2db.dispName = "Conservación de cocina"
       Conservacion_Cocina,
+      !!@ ili2db.dispName = "Cerchas"
       Cerchas
     );
 
     /** Valores válidos para indicar el tipo de construcción empleada para levantar una unidad de construcción, con incidencia en su avalúo. REVISAR DOCUMENTACIÓN
      */
     AV_UnidadConstruccionTipo = (
+      !!@ ili2db.dispName = "Residencial"
       Residencial,
+      !!@ ili2db.dispName = "Comercial"
       Comercial,
+      !!@ ili2db.dispName = "Industrial"
       Industrial,
+      !!@ ili2db.dispName = "Anexo"
       Anexo
     );
 

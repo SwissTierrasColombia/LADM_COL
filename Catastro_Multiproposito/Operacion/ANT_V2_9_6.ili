@@ -171,15 +171,22 @@ VERSION "2019-07-04"  =
     );
 
     ANT_RegimenEscogenciaTipo = (
+      !!@ ili2db.dispName = "Régimen 160"
       Regimen_160,
+      !!@ ili2db.dispName = "Régimen 160"
       Regimen_902
     );
 
     ANT_TituloExplotacionTipo = (
+      !!@ ili2db.dispName = "Propietario"
       Propietario,
+      !!@ ili2db.dispName = "Ocupante"
       Ocupante,
+      !!@ ili2db.dispName = "Poseedor"
       Poseedor,
+      !!@ ili2db.dispName = "Tenedor"
       Tenedor,
+      !!@ ili2db.dispName = "Trabajador"
       Trabajador
     );
 

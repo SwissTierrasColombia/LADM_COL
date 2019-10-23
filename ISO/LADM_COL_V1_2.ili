@@ -48,131 +48,201 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       CharacterString = TEXT*255;
 
       COL_AreaTipo = (
+        !!@ ili2db.dispName = "Área calculada artura local"
         Area_Calculada_Altura_Local,
+        !!@ ili2db.dispName = "Área calculada altura mar"
         Area_Calculada_Altura_Mar,
+        !!@ ili2db.dispName = "Área catastral administrativa"
         Area_Catastral_Administrativa,
+        !!@ ili2db.dispName = "Área estimado construcción"
         Area_Estimado_Construccion,
+        !!@ ili2db.dispName = "Área no oficial"
         Area_No_Oficial,
+        !!@ ili2db.dispName = "Área registral"
         Area_Registral
       );
 
       COL_BAUnitTipo = (
+        !!@ ili2db.dispName = "Unidad propiedad básica"
         Unidad_Propiedad_Basica,
+        !!@ ili2db.dispName = "Unidad derecho"
         Unidad_Derecho,
+        !!@ ili2db.dispName = "Otro"
         Otro
       );
 
       COL_ContenidoNivelTipo = (
+        !!@ ili2db.dispName = "Construcción convencional"
         Construccion_Convencional,
+        !!@ ili2db.dispName = "Construcción no convencional"
         Construccion_No_Convencional,
+        !!@ ili2db.dispName = "Consuetudinario"
         Consuetudinario,
+        !!@ ili2db.dispName = "Formal"
         Formal,
+        !!@ ili2db.dispName = "Informal"
         Informal,
+        !!@ ili2db.dispName = "Responsabilidad"
         Responsabilidad,
+        !!@ ili2db.dispName = "Restricción derecho público"
         Restriccion_Derecho_Publico,
-        Restriction_Derecho_Privado
+        !!@ ili2db.dispName = "Restricción derecho privado"
+        Restriccion_Derecho_Privado
       );
 
       COL_DimensionTipo = (
+        !!@ ili2db.dispName = "Dimensión 2D"
         Dim2D,
+        !!@ ili2db.dispName = "Dimensión 3D"
         Dim3D,
+        !!@ ili2db.dispName = "Otro"
         Otro
       );
 
       COL_EstadoRedServiciosTipo = (
+        !!@ ili2db.dispName = "Planeado"
         Planeado,
+        !!@ ili2db.dispName = "En uso"
         En_Uso,
+        !!@ ili2db.dispName = "Fuera de servicio"
         Fuera_De_Servicio,
+        !!@ ili2db.dispName = "Otro"
         Otro
       );
 
       COL_EstructuraTipo = (
+        !!@ ili2db.dispName = "Croquis"
         Croquis,
+        !!@ ili2db.dispName = "Línea no estructurada"
         Linea_no_Estructurada,
+        !!@ ili2db.dispName = "Texto"
         Texto,
+        !!@ ili2db.dispName = "Topológico"
         Topologico
       );
 
       COL_FuenteEspacialTipo = (
+        !!@ ili2db.dispName = "Croquis de campo"
         Croquis_Campo,
+        !!@ ili2db.dispName = "Protócolo de posicionamiento"
         Protocolo_Posicionamiento,
+        !!@ ili2db.dispName = "Informe de cálculo"
         Informe_Calculo,
+        !!@ ili2db.dispName = "Datos crudos"
         Datos_Crudos
       );
 
       COL_FuncionInteresadoTipo = (
+        !!@ ili2db.dispName = "Abogado demandas"
         Abogado_Demandas,
+        !!@ ili2db.dispName = "Administrador del estado"
         Administrador_Estado,
+        !!@ ili2db.dispName = "Banco"
         Banco,
+        !!@ ili2db.dispName = "Ciudadano"
         Ciudadano,
+        !!@ ili2db.dispName = "Juez"
         Juez,
+        !!@ ili2db.dispName = "Notario"
         Notario,
+        !!@ ili2db.dispName = "Reconocedor o agrimensor"
         Reconocedor_Agrimensor
       );
 
       COL_GrupoInteresadoTipo = (
+        !!@ ili2db.dispName = "Grupo civil"
         Grupo_Civil,
+        !!@ ili2db.dispName = "Grupo empresarial"
         Grupo_Empresarial,
+        !!@ ili2db.dispName = "Grupo étnico"
         Grupo_Etnico,
+        !!@ ili2db.dispName = "Grupo étnico"
         Grupo_Mixto
       );
 
       /** Si ha sido situado por interpolación, de qué manera se ha hecho.
        */
       COL_InterpolacionTipo = (
+        !!@ ili2db.dispName = "Aislado"
         Aislado,
+        !!@ ili2db.dispName = "Intermedio arco"
         Intermedio_Arco,
+        !!@ ili2db.dispName = "Intermedio línea"
         Intermedio_Linea
       );
 
       COL_MetodoProduccionTipo = (
+        !!@ ili2db.dispName = "Método directo"
         Metodo_Directo,
+        !!@ ili2db.dispName = "Método indirecto"
         Metodo_Indirecto
       );
 
       COL_PuntoTipo = (
+        !!@ ili2db.dispName = "Control"
         Control,
+        !!@ ili2db.dispName = "Catastro"
         Catastro,
+        !!@ ili2db.dispName = "Otro"
         Otro
       );
 
       COL_RegistroTipo = (
+        !!@ ili2db.dispName = "Rural"
         Rural,
+        !!@ ili2db.dispName = "Urbano"
         Urbano,
+        !!@ ili2db.dispName = "Otro"
         Otro
       );
 
       COL_VolumenTipo = (
+        !!@ ili2db.dispName = "Oficial"
         Oficial,
+        !!@ ili2db.dispName = "Calculado"
         Calculado,
+        !!@ ili2db.dispName = "Otro"
         Otro
       );
 
       Integer = 0 .. 999999999;
 
       COL_EstadoDisponibilidadTipo = (
+        !!@ ili2db.dispName = "Convertido"
         Convertido,
+        !!@ ili2db.dispName = "Desconocido"
         Desconocido,
+        !!@ ili2db.dispName = "Disponible"
         Disponible
       );
 
       COL_ISO19125_Tipo = (
+        !!@ ili2db.dispName = "Disjunto"
         Disjunto,
+        !!@ ili2db.dispName = "Toca"
         Toca,
+        !!@ ili2db.dispName = "Superpone"
         Superpone,
+        !!@ ili2db.dispName = "Desconocido"
         Desconocido
       );
 
       COL_RelacionSuperficieTipo = (
+        !!@ ili2db.dispName = "En rasante"
         En_Rasante,
+        !!@ ili2db.dispName = "En vuelo"
         En_Vuelo,
+        !!@ ili2db.dispName = "En subsuelo"
         En_Subsuelo,
+        !!@ ili2db.dispName = "Otro"
         Otro
       );
 
       COL_UnidadEdificacionTipo = (
+        !!@ ili2db.dispName = "Compartido"
         Compartido,
-        individual
+        !!@ ili2db.dispName = "Individual"
+        Individual
       );
 
       Currency = -2000000000.00 .. 2000000000.00;
@@ -292,40 +362,69 @@ VERSION "V1.2.0"  // 2019-08-13 // =
     DOMAIN
 
       COL_FuenteAdministrativaTipo = (
+        !!@ ili2db.dispName = "Escritura"
         Escritura,
+        !!@ ili2db.dispName = "Certificado"
         Certificado,
+        !!@ ili2db.dispName = "Contrato"
         Contrato,
+        !!@ ili2db.dispName = "Documento de identidad"
         Documento_Identidad,
+        !!@ ili2db.dispName = "Informe"
         Informe,
+        !!@ ili2db.dispName = "Formulario predial"
         Formulario_Predial,
+        !!@ ili2db.dispName = "Promesa de compraventa"
         Promesa_Compraventa,
+        !!@ ili2db.dispName = "Reglamento"
         Reglamento,
+        !!@ ili2db.dispName = "Resolución"
         Resolucion,
+        !!@ ili2db.dispName = "Sentencia"
         Sentencia,
+        !!@ ili2db.dispName = "Solicitud"
         Solicitud,
+        !!@ ili2db.dispName = "Acta"
         Acta,
+        !!@ ili2db.dispName = "Acuerdo"
         Acuerdo,
+        !!@ ili2db.dispName = "Auto"
         Auto,
+        !!@ ili2db.dispName = "Estatuto social"
         Estatuto_Social,
+        !!@ ili2db.dispName = "Decreto"
         Decreto,
+        !!@ ili2db.dispName = "Providencia"
         Providencia,
+        !!@ ili2db.dispName = "Acta de colindancia"
         Acta_Colindancia,
+        !!@ ili2db.dispName = "Libros antiguo sistema"
         Libros_Antiguo_Sistema_Registral,
+        !!@ ili2db.dispName = "Informe de colindancia"
         Informe_Colindancia,
+        !!@ ili2db.dispName = "Carta vental"
         Carta_Venta,
+        !!@ ili2db.dispName = "Otro"
         Otro
       );
 
       COL_RedServiciosTipo = (
+        !!@ ili2db.dispName = "Petróleo"
         Petroleo,
+        !!@ ili2db.dispName = "Químicos"
         Quimicos,
+        !!@ ili2db.dispName = "Red térmica"
         Red_Termica,
+        !!@ ili2db.dispName = "Telecomunicación"
         Telecomunicacion
       );
 
       DQ_Metodo_Evaluacion_Codigo_Tipo = (
+        !!@ ili2db.dispName = "Interno directo"
         Interno_Directo,
+        !!@ ili2db.dispName = "Externo directo"
         Externo_Directo,
+        !!@ ili2db.dispName = "Indirecto"
         Indirecto
       );
 
@@ -352,24 +451,40 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Dominio que proviene de la traducción de CI_RoleCode de la norma ISO 19115:2003. Da los valores de dominio válidos para la función realizada por la parte responsable.
        */
       CI_CodigoTarea = (
+        !!@ ili2db.dispName = "Proveedor de recursos"
         Proveedor_De_Recursos,
+        !!@ ili2db.dispName = "Custodio"
         Custodio,
+        !!@ ili2db.dispName = "Propietario"
         Propietario,
+        !!@ ili2db.dispName = "Usuario"
         Usuario,
+        !!@ ili2db.dispName = "Distribuidor"
         Distribuidor,
+        !!@ ili2db.dispName = "Creador"
         Creador,
+        !!@ ili2db.dispName = "Punto de contacto"
         Punto_De_Contacto,
+        !!@ ili2db.dispName = "Investigador principal"
         Investigador_Principal,
+        !!@ ili2db.dispName = "Procesador"
         Procesador,
+        !!@ ili2db.dispName = "Editor"
         Editor,
+        !!@ ili2db.dispName = "Autor"
         Autor
       );
 
       COL_MonumentacionTipo = (
+        !!@ ili2db.dispName = "Incrustación"
         Incrustacion,
+        !!@ ili2db.dispName = "Mojón"
         Mojon,
+        !!@ ili2db.dispName = "No materializado"
         No_Materializado,
+        !!@ ili2db.dispName = "Otros"
         Otros,
+        !!@ ili2db.dispName = "Pilastra"
         Pilastra
       );
 
@@ -435,36 +550,47 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       CI_Forma_Presentacion_Codigo = (
         /** Definición en la ISO 19115:2003.
          */
+        !!@ ili2db.dispName = "Imagen"
         Imagen,
         /** Definición en la ISO 19115:2003.
          */
+        !!@ ili2db.dispName = "Mapa"
         Mapa,
         /** Definición en la ISO 19115:2003.
          */
+        !!@ ili2db.dispName = "Modelo"
         Modelo,
         /** Definición en la ISO 19115:2003.
          */
+        !!@ ili2db.dispName = "Perfil"
         Perfil,
         /** Definición en la ISO 19115:2003.
          */
+        !!@ ili2db.dispName = "Tabla"
         Tabla,
         /** Definición en la ISO 19115:2003.
          */
+        !!@ ili2db.dispName = "Video"
         Video,
         /** Definición en la ISO 19115:2003.
          */
+        !!@ ili2db.dispName = "Audio"
         Audio,
         /** Definición en la ISO 19115:2003.
          */
+        !!@ ili2db.dispName = "Diagrama"
         Diagrama,
         /** Definición en la ISO 19115:2003.
          */
+        !!@ ili2db.dispName = "Multimedia"
         Multimedia,
         /** Definición en la ISO 19115:2003.
          */
+        !!@ ili2db.dispName = "Muestra física"
         Muestra_Fisica,
         /** Definición en la ISO 19115:2003.
          */
+        !!@ ili2db.dispName = "Otro"
         Otro
       );
 

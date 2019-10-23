@@ -17,15 +17,22 @@ VERSION "V2.2.1"  // 2018-04-19 // =
     DOMAIN
 
       CRF_SectorTipo = (
+        !!@ ili2db.dispName = "Urbano"
         Urbano,
+        !!@ ili2db.dispName = "Rural"
         Rural
       );
 
       CRF_ZonaTipo = (
+        !!@ ili2db.dispName = "Perímetro urbano"
         Perimetro_Urbano,
+        !!@ ili2db.dispName = "Rural"
         Rural,
+        !!@ ili2db.dispName = "Corregimiento"
         Corregimiento,
+        !!@ ili2db.dispName = "Caseríos"
         Caserios,
+        !!@ ili2db.dispName = "Inspección de policía"
         Inspecion_Policia
       );
 
@@ -226,33 +233,58 @@ VERSION "V2.2.1"  // 2018-04-19 // =
     DOMAIN
 
       CRF_EstructuraLinealTipo = (
+        !!@ ili2db.dispName = "Vía, metro o metrovía"
         Via_Metro_o_Metrovia,
+        !!@ ili2db.dispName = "Vía troncal"
         Via_Troncal,
+        !!@ ili2db.dispName = "Vía Férrea"
         Via_Ferrea,
+        !!@ ili2db.dispName = "Autopista"
         Autopista,
+        !!@ ili2db.dispName = "Arteria"
         Arteria,
+        !!@ ili2db.dispName = "Vía principal"
         Via_Principal,
+        !!@ ili2db.dispName = "Vía secundaria"
         Via_Secundaria,
+        !!@ ili2db.dispName = "Vía colectora"
         Via_Colectora,
+        !!@ ili2db.dispName = "Vía ordinaria"
         Via_Ordinaria,
+        !!@ ili2db.dispName = "Vía local"
         Via_Local,
+        !!@ ili2db.dispName = "Vía privada"
         Via_Privada,
+        !!@ ili2db.dispName = "Ciclorruta"
         Ciclorruta,
+        !!@ ili2db.dispName = "Vía peatonal"
         Via_Peatonal,
+        !!@ ili2db.dispName = "Vía carreteable"
         Via_Carreteable,
+        !!@ ili2db.dispName = "Tunel"
         Tunel,
+        !!@ ili2db.dispName = "Pista de aterrizaje"
         Pista_Aterrizaje,
+        !!@ ili2db.dispName = "Puente"
         Puente,
+        !!@ ili2db.dispName = "Carretera elevada o viaducto"
         Carretera_Elevada_Viaducto
       );
 
       CRF_EstructuraPuntualTipo = (
+        !!@ ili2db.dispName = "Carretera elevada o viaducto"
         Carretera_Elevada_Viaducto,
+        !!@ ili2db.dispName = "Pista de aterrizaje"
         Pista_Aterrizaje,
+        !!@ ili2db.dispName = "Puente"
         Puente,
+        !!@ ili2db.dispName = "Puerto de vía navegable"
         Puerto_Via_Navegable,
+        !!@ ili2db.dispName = "Represa"
         Represa,
+        !!@ ili2db.dispName = "Sistema de riego"
         Sistema_de_Riego,
+        !!@ ili2db.dispName = "Tunel"
         Tunel
       );
 

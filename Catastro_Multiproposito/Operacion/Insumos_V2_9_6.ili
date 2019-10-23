@@ -8,29 +8,38 @@ VERSION "2019-08-01"  =
   DOMAIN
 
     GC_CondicionPredioTipo = (
+      !!@ ili2db.dispName = "No propiedad horizontal"
       NPH,
+      !!@ ili2db.dispName = "Propiedad horizontal"
       PH(
         Matriz,
         Unidad_Predial
       ),
+      !!@ ili2db.dispName = "Condiminio"
       Condominio(
         Matriz,
         Unidad_Predial
       ),
+      !!@ ili2db.dispName = "Mejora"
       Mejora(
         PH,
         NPH
       ),
+      !!@ ili2db.dispName = "Parque cementerio"
       Parque_Cementerio(
         Matriz,
         Unidad_Predial
       ),
+      !!@ ili2db.dispName = "Vía"
       Via,
+      !!@ ili2db.dispName = "Bien de uso público"
       Bien_Uso_Publico
     );
 
     GC_SistemaProcedenciaDatosTipo = (
+      !!@ ili2db.dispName = "Sistema Nacional Catastral"
       SNC,
+      !!@ ili2db.dispName = "Cobol"
       Cobol
     );
 
