@@ -192,14 +192,14 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     END AV_Grupo_Calificacion;
 
     !!@ ili2db.dispName = "(Avalúos) Tabla Calificación de la Construcción"
-    CLASS AV_Tabla_Calificación_Construccion =
+    CLASS AV_Tabla_Calificacion_Construccion =
       !!@ ili2db.dispName = "Valor M2 de construcción"
       Valor_M2_Construccion : TEXT*20;
       !!@ ili2db.dispName = "Uso"
       Uso : TEXT*20;
       !!@ ili2db.dispName = "Puntuación"
       Puntuacion : TEXT*20;
-    END AV_Tabla_Calificación_Construccion;
+    END AV_Tabla_Calificacion_Construccion;
 
     STRUCTURE AV_Tipo_Objeto_Construccion =
       !!@ ili2db.dispName = "Clase de calificación"
