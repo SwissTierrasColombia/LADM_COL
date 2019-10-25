@@ -79,22 +79,30 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       NPH,
       !!@ ili2db.dispName = "Propiedad horizontal"
       PH(
+        !!@ ili2db.dispName = "(Propiedad horizontal) Matriz"
         Matriz,
+        !!@ ili2db.dispName = "(Propiedad horizontal) Unidad Predial"
         Unidad_Predial
       ),
       !!@ ili2db.dispName = "Condominio"
       Condominio(
+        !!@ ili2db.dispName = "(Condominio) Matriz"
         Matriz,
+        !!@ ili2db.dispName = "(Condominio) Unidad predial"
         Unidad_Predial
       ),
       !!@ ili2db.dispName = "Mejora"
       Mejora(
+        !!@ ili2db.dispName = "(Mejora) Propiedad horizontal"
         PH,
+        !!@ ili2db.dispName = "(Mejora) No propiedad horizontal"
         NPH
       ),
       !!@ ili2db.dispName = "Parque cementerio"
       Parque_Cementerio(
+        !!@ ili2db.dispName = "(Parque cementerio) Matriz"
         Matriz,
+        !!@ ili2db.dispName = "(Parque Cementerio) Unidad predial"
         Unidad_Predial
       ),
       !!@ ili2db.dispName = "Vía"
