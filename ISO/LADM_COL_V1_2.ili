@@ -156,7 +156,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
         Grupo_Empresarial,
         !!@ ili2db.dispName = "Grupo étnico"
         Grupo_Etnico,
-        !!@ ili2db.dispName = "Grupo étnico"
+        !!@ ili2db.dispName = "Grupo mixto"
         Grupo_Mixto
       );
 
