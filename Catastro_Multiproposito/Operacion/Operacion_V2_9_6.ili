@@ -111,6 +111,26 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Bien_Uso_Publico
     );
 
+    OP_ConstruccionPlantaTipo = (
+      !!@ ili2db.dispName = "Piso"
+      Piso,
+      !!@ ili2db.dispName = "Mezanine"
+      Mezanine,
+      !!@ ili2db.dispName = "Sótano"
+      Sotano,
+      !!@ ili2db.dispName = "Semisótano"
+      Semisotano,
+      !!@ ili2db.dispName = "Subterráneo"
+      Subterraneo
+    );
+
+    OP_ConstruccionTipo = (
+      !!@ ili2db.dispName = "Convencional"
+      Convencional,
+      !!@ ili2db.dispName = "No convencional"
+      No_Convencional
+    );
+
     OP_DerechoTipo = (
       !!@ ili2db.dispName = "Derecho de propiedad colectiva"
       Derecho_Propiedad_Colectiva,
@@ -124,6 +144,13 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Dominio"
       Dominio
+    );
+
+    OP_DominioConstruccionTipo = (
+      !!@ ili2db.dispName = "Común"
+      Comun,
+      !!@ ili2db.dispName = "Privado"
+      Privado
     );
 
     OP_FotoidentificacionTipo = (
@@ -490,16 +517,30 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "Construcción"
     CLASS OP_Construccion
     EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_UnidadEspacial =
-      !!@ ili2db.dispName = "Área de construcción"
-      Area_Construccion : MANDATORY 0.0 .. 99999999999999.9;
+      !!@ ili2db.dispName = "Identificador"
+      Identificador : TEXT*2;
       /** Cantidad de plantas que tiene la construcción
        */
       !!@ ili2db.dispName = "Número de pisos"
       Numero_Pisos : MANDATORY 1 .. 100;
+      !!@ ili2db.dispName = "Tipo de construcción"
+      Tipo_Construccion : Operacion_V2_9_6.OP_ConstruccionTipo;
+      !!@ ili2db.dispName = "Tipo de dominio"
+      Tipo_Dominio : Operacion_V2_9_6.OP_DominioConstruccionTipo;
+      !!@ ili2db.dispName = "Número de mezanines"
+      Numero_Mezanines : 0 .. 99;
+      !!@ ili2db.dispName = "Número de sótanos"
+      Numero_Sotanos : 0 .. 99;
+      !!@ ili2db.dispName = "Número de semisótanos"
+      Numero_Semisotanos : 0 .. 99;
+      !!@ ili2db.dispName = "Código de edificación"
+      Codigo_Edificacion : 0 .. 10000000000000000000;
       /** Rsultado del cálculo de su avalúo mediante la metodología legalmente establecida.
        */
       !!@ ili2db.dispName = "Ávaluo de construcción"
       Avaluo_Construccion : LADM_COL_V1_2.LADM_Nucleo.Peso;
+      !!@ ili2db.dispName = "Área de construcción"
+      Area_Construccion : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_2.m2];
     END OP_Construccion;
 
     /** Clase que registra las instancias de los derechos que un interesado ejerce sobre un predio. Es una especialización de la clase LA_RRR del propio modelo.
@@ -712,6 +753,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Avalúo de terreno"
       Avaluo_Terreno : LADM_COL_V1_2.LADM_Nucleo.Peso;
+      !!@ ili2db.dispName = "Código de manzana vereda"
+      Manzana_Vereda_Codigo : TEXT*17;
+      !!@ ili2db.dispName = "Número de subterráneos"
+      Numero_Subterraneos : 0 .. 999;
       /** Corresponde a la figura geometrica vectorial poligonal, generada a partir de los linderos del predio.
        */
       !!@ ili2db.dispName = "Geometría"
@@ -788,6 +833,28 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_UnidadEspacial =
       !!@ ili2db.dispName = "Identificador"
       Identificador : TEXT*3;
+      !!@ ili2db.dispName = "Tipo de dominio"
+      Tipo_Dominio : Operacion_V2_9_6.OP_DominioConstruccionTipo;
+      !!@ ili2db.dispName = "Tipo de construcción"
+      Tipo_Construccion : Operacion_V2_9_6.OP_ConstruccionTipo;
+      !!@ ili2db.dispName = "Tipo de planta"
+      Tipo_Planta : Operacion_V2_9_6.OP_ConstruccionPlantaTipo;
+      !!@ ili2db.dispName = "Planta ubicación"
+      Planta_Ubicacion : 0 .. 500;
+      !!@ ili2db.dispName = "Total de habitaciones"
+      Total_Habitaciones : 0 .. 999999;
+      !!@ ili2db.dispName = "Total de baños"
+      Total_Banios : 0 .. 999999;
+      !!@ ili2db.dispName = "Total de locales"
+      Total_Locales : 0 .. 999999;
+      !!@ ili2db.dispName = "Total de pisos"
+      Total_Pisos : 0 .. 150;
+      !!@ ili2db.dispName = "Uso"
+      Uso : MANDATORY Operacion_V2_9_6.OP_UsoUConsTipo;
+      !!@ ili2db.dispName = "Año de construcción"
+      Anio_Construccion : 1512 .. 2500;
+      !!@ ili2db.dispName = "Avalúo de la construcción"
+      Avaluo_Construccion : LADM_COL_V1_2.LADM_Nucleo.Peso;
       /** Area de la unidad de contrucción.
        */
       !!@ ili2db.dispName = "Área construida"
@@ -796,18 +863,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Área privada construida"
       Area_Privada_Construida : 0.0 .. 99999999999999.9 [LADM_COL_V1_2.m2];
-      !!@ ili2db.dispName = "Uso"
-      Uso : MANDATORY Operacion_V2_9_6.OP_UsoUConsTipo;
-      /** Número de pisos que constituyen la unidad de construcción.
-       */
-      !!@ ili2db.dispName = "Número de pisos"
-      Numero_Pisos : MANDATORY 1 .. 100;
-      /** Corresponde al valor catastral determinado mediante el metodo economico definido, para cada unidad de contrucción del predio
-       */
-      !!@ ili2db.dispName = "Avalúo de la unidad de construcción"
-      Avaluo_Unidad_Construccion : LADM_COL_V1_2.LADM_Nucleo.Peso;
-      !!@ ili2db.dispName = "Piso ubicación"
-      Piso_Ubicacion : -50 .. 500;
+      !!@ ili2db.dispName = "Observaciones"
+      Observaciones : TEXT;
     END OP_UnidadConstruccion;
 
     ASSOCIATION op_construccion_unidadconstruccion =
