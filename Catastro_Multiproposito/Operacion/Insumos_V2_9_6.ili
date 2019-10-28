@@ -195,6 +195,12 @@ VERSION "2019-08-01"  =
       Condicion_Predio : Datos_Gestor_Catastral_V2_9_6.GC_CondicionPredioTipo;
       !!@ ili2db.dispName = "Destinación económica"
       Destinacion_Economica : TEXT*150;
+      !!@ ili2db.dispName = "Estado alerta"
+      Estado_Alerta : TEXT*30;
+      !!@ ili2db.dispName = "Entidad emisora de la alerta"
+      Entidad_Emisora_Alerta : TEXT*255;
+      !!@ ili2db.dispName = "Fecha de alerta"
+      Fecha_Alerta : INTERLIS.XMLDate;
       !!@ ili2db.dispName = "Sistema procedencia de los datos"
       Sistema_Procedencia_Datos : Datos_Gestor_Catastral_V2_9_6.GC_SistemaProcedenciaDatosTipo;
       !!@ ili2db.dispName = "Fecha de los datos"
