@@ -30,9 +30,9 @@ VERSION "2019-08-01"  =
         Matriz,
         Unidad_Predial
       ),
-      !!@ ili2db.dispName = "V韆"
+      !!@ ili2db.dispName = "V铆a"
       Via,
-      !!@ ili2db.dispName = "Bien de uso p鷅lico"
+      !!@ ili2db.dispName = "Bien de uso p煤blico"
       Bien_Uso_Publico
     );
 
@@ -55,7 +55,7 @@ VERSION "2019-08-01"  =
     Valor : TEXT*255;
     !!@ ili2db.dispName = "Principal"
     Principal : BOOLEAN;
-    !!@ ili2db.dispName = "Geometr韆 de referencia"
+    !!@ ili2db.dispName = "Geometr铆a de referencia"
     Geometria_Referencia : ISO19107_PLANAS_V1.GM_Curve3D;
   END GC_Direccion;
 
@@ -63,171 +63,113 @@ VERSION "2019-08-01"  =
 
     !!@ ili2db.dispName = "(GC) Barrio"
     CLASS GC_Barrio =
-      !!@ ili2db.dispName = "C骴igo"
+      !!@ ili2db.dispName = "C贸digo"
       Codigo : TEXT*13;
       !!@ ili2db.dispName = "Nombre"
       Nombre : TEXT*100;
-      !!@ ili2db.dispName = "Sector c骴igo"
+      !!@ ili2db.dispName = "Sector c贸digo"
       Sector_Codigo : TEXT*9;
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
     END GC_Barrio;
 
-    !!@ ili2db.dispName = "(GC) Comisiones Construcci髇"
+    !!@ ili2db.dispName = "(GC) Comisiones Construcci贸n"
     CLASS GC_Comisiones_Construccion =
-      !!@ ili2db.dispName = "Identificador"
-      Identificador : TEXT*30;
-      !!@ ili2db.dispName = "Etiqueta"
-      Etiqueta : TEXT*50;
-      !!@ ili2db.dispName = "Tipo de construcci髇"
-      Tipo_Construccion : Datos_Gestor_Catastral_V2_9_6.GC_UnidadConstruccionTipo;
-      !!@ ili2db.dispName = "Tipo de dominio"
-      Tipo_Dominio : TEXT*20;
-      !!@ ili2db.dispName = "N鷐ero de pisos"
-      Numero_Pisos : 0 .. 200;
-      !!@ ili2db.dispName = "N鷐ero de mezanines"
-      Numero_Mezanines : 0 .. 99;
-      !!@ ili2db.dispName = "N鷐ero de semis髏anos"
-      Numero_Semisotanos : 0 .. 99;
-      !!@ ili2db.dispName = "C骴igo de edificaci髇"
-      Codigo_Edificacion : 0 .. 10000000000000000000;
-      !!@ ili2db.dispName = "C骴igo de terreno"
-      Codigo_Terreno : TEXT*30;
-      !!@ ili2db.dispName = "羠ea construida"
-      Area_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END GC_Comisiones_Construccion;
 
     !!@ ili2db.dispName = "(GC) Comisiones Terreno"
     CLASS GC_Comisiones_Terreno =
-      !!@ ili2db.dispName = "羠ea de terreno alfanum閞ica"
-      Area_Terreno_Alfanumerica : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
-      !!@ ili2db.dispName = "羠ea de terreno digital"
-      Area_Terreno_Digital : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
-      !!@ ili2db.dispName = "Manzana vereda c骴igo"
-      Manzana_Vereda_Codigo : TEXT*30;
-      !!@ ili2db.dispName = "N鷐ero de subterr醤eos"
-      Numero_Subterraneos : 0 .. 999999999999999;
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiCurve2D;
     END GC_Comisiones_Terreno;
 
-    !!@ ili2db.dispName = "(GC) Comisiones Unidad Construcci髇"
+    !!@ ili2db.dispName = "(GC) Comisiones Unidad Construcci贸n"
     CLASS GC_Comisiones_Unidad_Construccion =
-      !!@ ili2db.dispName = "Identificador"
-      Identificador : TEXT*2;
-      !!@ ili2db.dispName = "Etiqueta"
-      Etiqueta : TEXT*50;
-      !!@ ili2db.dispName = "Tipo de Dominio"
-      Tipo_Dominio : TEXT*20;
-      !!@ ili2db.dispName = "Tipo de construcci髇"
-      Tipo_Construccion : Datos_Gestor_Catastral_V2_9_6.GC_UnidadConstruccionTipo;
-      !!@ ili2db.dispName = "Planta"
-      Planta : TEXT*10;
-      !!@ ili2db.dispName = "Total de habitaciones"
-      Total_Habitaciones : 0 .. 999999;
-      !!@ ili2db.dispName = "Total de ba駉s"
-      Total_Banios : 0 .. 999999;
-      !!@ ili2db.dispName = "Total de locales"
-      Total_Locales : 0 .. 999999;
-      !!@ ili2db.dispName = "Total de pisos"
-      Total_Pisos : 0 .. 150;
-      !!@ ili2db.dispName = "Uso"
-      Uso : TEXT*255;
-      !!@ ili2db.dispName = "A駉"
-      Anio : 1512 .. 2500;
-      !!@ ili2db.dispName = "Puntaje"
-      Puntaje : 0 .. 200;
-      !!@ ili2db.dispName = "羠ea construida"
-      Area_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
-      !!@ ili2db.dispName = "羠ea privada"
-      Area_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
-      !!@ ili2db.dispName = "C骴igo terreno"
-      Codigo_Terreno : TEXT*30;
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END GC_Comisiones_Unidad_Construccion;
 
-    !!@ ili2db.dispName = "(GC) Construcci髇"
+    !!@ ili2db.dispName = "(GC) Construcci贸n"
     CLASS GC_Construccion =
       !!@ ili2db.dispName = "Identificador"
       Identificador : TEXT*30;
       !!@ ili2db.dispName = "Etiqueta"
       Etiqueta : TEXT*50;
-      !!@ ili2db.dispName = "Tipo de construcci髇"
+      !!@ ili2db.dispName = "Tipo de construcci贸n"
       Tipo_Construccion : Datos_Gestor_Catastral_V2_9_6.GC_UnidadConstruccionTipo;
       !!@ ili2db.dispName = "Tipo de dominio"
       Tipo_Dominio : TEXT*20;
-      !!@ ili2db.dispName = "N鷐ero de pisos"
+      !!@ ili2db.dispName = "N煤mero de pisos"
       Numero_Pisos : 0 .. 200;
-      !!@ ili2db.dispName = "N鷐ero de s髏anos"
+      !!@ ili2db.dispName = "N煤mero de s贸tanos"
       Numero_Sotanos : 0 .. 99;
-      !!@ ili2db.dispName = "N鷐ero de mezanines"
+      !!@ ili2db.dispName = "N煤mero de mezanines"
       Numero_Mezanines : 0 .. 99;
-      !!@ ili2db.dispName = "N鷐ero de semis髏anos"
+      !!@ ili2db.dispName = "N煤mero de semis贸tanos"
       Numero_Semisotanos : 0 .. 99;
-      !!@ ili2db.dispName = "C骴igo de edificaci髇"
+      !!@ ili2db.dispName = "C贸digo de edificaci贸n"
       Codigo_Edificacion : 0 .. 10000000000000000000;
-      !!@ ili2db.dispName = "C骴igo de terreno"
+      !!@ ili2db.dispName = "C贸digo de terreno"
       Codigo_Terreno : TEXT*30;
-      !!@ ili2db.dispName = "羠ea construida"
+      !!@ ili2db.dispName = "脕rea construida"
       Area_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END GC_Construccion;
 
     !!@ ili2db.dispName = "(GC) Datos Propiedad Horizontal Condominio"
     CLASS GC_Datos_PH_Condiminio =
-      !!@ ili2db.dispName = "羠ea total de terreno"
+      !!@ ili2db.dispName = "脕rea total de terreno"
       Area_Total_Terreno : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
-      !!@ ili2db.dispName = "羠ea total de terreno privada"
+      !!@ ili2db.dispName = "脕rea total de terreno privada"
       Area_Total_Terreno_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
-      !!@ ili2db.dispName = "羠ea total de terreno com鷑"
+      !!@ ili2db.dispName = "脕rea total de terreno com煤n"
       Area_Total_Terreno_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
-      !!@ ili2db.dispName = "羠ea total construida"
+      !!@ ili2db.dispName = "脕rea total construida"
       Area_Total_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
-      !!@ ili2db.dispName = "羠ea total construida privada"
+      !!@ ili2db.dispName = "脕rea total construida privada"
       Area_Total_Construida_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
-      !!@ ili2db.dispName = "羠ea total construida com鷑"
+      !!@ ili2db.dispName = "脕rea total construida com煤n"
       Area_Total_Construida_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
-      !!@ ili2db.dispName = "Torre n鷐ero"
+      !!@ ili2db.dispName = "Torre n煤mero"
       Torre_No : TEXT*10;
       !!@ ili2db.dispName = "Total pisos de torre"
       Total_Pisos_Torre : 0 .. 200;
       !!@ ili2db.dispName = "Total de unidades privadas"
       Total_Unidades_Privadas : 0 .. 99999999;
-      !!@ ili2db.dispName = "Total de s髏anos"
+      !!@ ili2db.dispName = "Total de s贸tanos"
       Total_Sotanos : 0 .. 30;
-      !!@ ili2db.dispName = "Total de unidades de s髏ano"
+      !!@ ili2db.dispName = "Total de unidades de s贸tano"
       Total_Unidades_Sotano : 0 .. 99999999;
     END GC_Datos_PH_Condiminio;
 
     !!@ ili2db.dispName = "(GC) Manzana"
     CLASS GC_Manzana =
-      !!@ ili2db.dispName = "C骴igo"
+      !!@ ili2db.dispName = "C贸digo"
       Codigo : TEXT*17;
-      !!@ ili2db.dispName = "C骴igo anterior"
+      !!@ ili2db.dispName = "C贸digo anterior"
       Codigo_Anterior : TEXT*255;
-      !!@ ili2db.dispName = "C骴igo de barrio"
+      !!@ ili2db.dispName = "C贸digo de barrio"
       Barrio_Codigo : TEXT*13;
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
     END GC_Manzana;
 
-    !!@ ili2db.dispName = "(GC) Per韒etro"
+    !!@ ili2db.dispName = "(GC) Per铆metro"
     CLASS GC_Perimetro =
-      !!@ ili2db.dispName = "C骴igo del departamento"
+      !!@ ili2db.dispName = "C贸digo del departamento"
       Departamento_Codigo : TEXT*2;
-      !!@ ili2db.dispName = "C骴igo del municipio"
+      !!@ ili2db.dispName = "C贸digo del municipio"
       Municipio_Codigo : TEXT*5;
-      !!@ ili2db.dispName = "Tipo de aval鷒"
+      !!@ ili2db.dispName = "Tipo de aval煤o"
       Tipo_Avaluo : TEXT*30;
-      !!@ ili2db.dispName = "Nombre geogr醘ico"
+      !!@ ili2db.dispName = "Nombre geogr谩fico"
       Nombre_Geografico : TEXT*50;
-      !!@ ili2db.dispName = "C骴igo nombre"
+      !!@ ili2db.dispName = "C贸digo nombre"
       Codigo_Nombre : TEXT*255;
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
     END GC_Perimetro;
 
@@ -237,21 +179,21 @@ VERSION "2019-08-01"  =
     CLASS GC_Predio_Catastro =
       !!@ ili2db.dispName = "Tipo de catastro"
       Tipo_Catastro : TEXT*255;
-      !!@ ili2db.dispName = "N鷐ero predial"
+      !!@ ili2db.dispName = "N煤mero predial"
       Numero_Predial : TEXT*30;
-      !!@ ili2db.dispName = "N鷐ero predial anterior"
+      !!@ ili2db.dispName = "N煤mero predial anterior"
       Numero_Predial_Anterior : TEXT*20;
-      !!@ ili2db.dispName = "C韗culo registral"
+      !!@ ili2db.dispName = "C铆rculo registral"
       Circulo_Registral : TEXT*4;
-      !!@ ili2db.dispName = "Matr韈ula inmobiliaria catastro"
+      !!@ ili2db.dispName = "Matr铆cula inmobiliaria catastro"
       Matricula_Inmobiliaria_Catastro : TEXT*80;
       !!@ ili2db.dispName = "Direcciones"
       Direcciones : BAG {0..*} OF Datos_Gestor_Catastral_V2_9_6.GC_Direccion;
       !!@ ili2db.dispName = "Tipo de predio"
       Tipo_Predio : TEXT*100;
-      !!@ ili2db.dispName = "Condici髇 del predio"
+      !!@ ili2db.dispName = "Condici贸n del predio"
       Condicion_Predio : Datos_Gestor_Catastral_V2_9_6.GC_CondicionPredioTipo;
-      !!@ ili2db.dispName = "Destinaci髇 econ髆ica"
+      !!@ ili2db.dispName = "Destinaci贸n econ贸mica"
       Destinacion_Economica : TEXT*150;
       !!@ ili2db.dispName = "Sistema procedencia de los datos"
       Sistema_Procedencia_Datos : Datos_Gestor_Catastral_V2_9_6.GC_SistemaProcedenciaDatosTipo;
@@ -265,9 +207,9 @@ VERSION "2019-08-01"  =
     CLASS GC_Propietario =
       !!@ ili2db.dispName = "Tipo de documento"
       Tipo_Documento : TEXT*100;
-      !!@ ili2db.dispName = "N鷐ero de documento"
+      !!@ ili2db.dispName = "N煤mero de documento"
       Numero_Documento : TEXT*50;
-      !!@ ili2db.dispName = "D韌ito de verificaci髇"
+      !!@ ili2db.dispName = "D铆gito de verificaci贸n"
       Digito_Verificacion : TEXT*1;
       !!@ ili2db.dispName = "Primer nombre"
       Primer_Nombre : TEXT*255;
@@ -277,23 +219,23 @@ VERSION "2019-08-01"  =
       Primer_Apellido : TEXT*255;
       !!@ ili2db.dispName = "Segundo apellido"
       Segundo_Apellido : TEXT*255;
-      !!@ ili2db.dispName = "Raz髇 social"
+      !!@ ili2db.dispName = "Raz贸n social"
       Razon_Social : TEXT*255;
     END GC_Propietario;
 
     !!@ ili2db.dispName = "(GC) Sector Rural"
     CLASS GC_Sector_Rural =
-      !!@ ili2db.dispName = "C骴igo"
+      !!@ ili2db.dispName = "C贸digo"
       Codigo : TEXT*9;
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
     END GC_Sector_Rural;
 
     !!@ ili2db.dispName = "(GC) Sector Urbano"
     CLASS GC_Sector_Urbano =
-      !!@ ili2db.dispName = "C骴igo"
+      !!@ ili2db.dispName = "C贸digo"
       Codigo : TEXT*9;
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
     END GC_Sector_Urbano;
 
@@ -301,19 +243,19 @@ VERSION "2019-08-01"  =
      */
     !!@ ili2db.dispName = "(GC) Terreno"
     CLASS GC_Terreno =
-      !!@ ili2db.dispName = "羠ea terreno alfanum閞ica"
+      !!@ ili2db.dispName = "脕rea terreno alfanum茅rica"
       Area_Terreno_Alfanumerica : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
-      !!@ ili2db.dispName = "羠ea terreno digital"
+      !!@ ili2db.dispName = "脕rea terreno digital"
       Area_Terreno_Digital : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
-      !!@ ili2db.dispName = "C骴igo de manzana vereda"
+      !!@ ili2db.dispName = "C贸digo de manzana vereda"
       Manzana_Vereda_Codigo : TEXT*30;
-      !!@ ili2db.dispName = "N鷐ero de subterr醤eos"
+      !!@ ili2db.dispName = "N煤mero de subterr谩neos"
       Numero_Subterraneos : 0 .. 999999999999999;
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
     END GC_Terreno;
 
-    !!@ ili2db.dispName = "(GC) Unidad Construcci髇"
+    !!@ ili2db.dispName = "(GC) Unidad Construcci贸n"
     CLASS GC_Unidad_Construccion =
       !!@ ili2db.dispName = "Identificador"
       Identificador : TEXT*2;
@@ -321,13 +263,13 @@ VERSION "2019-08-01"  =
       Etiqueta : TEXT*50;
       !!@ ili2db.dispName = "Tipo de dominio"
       Tipo_Dominio : TEXT*20;
-      !!@ ili2db.dispName = "Tipo de construcci髇"
+      !!@ ili2db.dispName = "Tipo de construcci贸n"
       Tipo_Construccion : Datos_Gestor_Catastral_V2_9_6.GC_UnidadConstruccionTipo;
       !!@ ili2db.dispName = "Planta"
       Planta : TEXT*10;
       !!@ ili2db.dispName = "Total de habitaciones"
       Total_Habitaciones : 0 .. 999999;
-      !!@ ili2db.dispName = "Total de ba駉s"
+      !!@ ili2db.dispName = "Total de ba帽os"
       Total_Banios : 0 .. 999999;
       !!@ ili2db.dispName = "Total de locales"
       Total_Locales : 0 .. 999999;
@@ -335,31 +277,31 @@ VERSION "2019-08-01"  =
       Total_Pisos : 0 .. 150;
       !!@ ili2db.dispName = "Uso"
       Uso : TEXT*255;
-      !!@ ili2db.dispName = "A駉"
+      !!@ ili2db.dispName = "A帽o"
       Anio : 1512 .. 2500;
       !!@ ili2db.dispName = "Puntaje"
       Puntaje : 0 .. 200;
-      !!@ ili2db.dispName = "羠ea construida"
+      !!@ ili2db.dispName = "脕rea construida"
       Area_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
-      !!@ ili2db.dispName = "羠ea privada"
+      !!@ ili2db.dispName = "脕rea privada"
       Area_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_2.m2];
-      !!@ ili2db.dispName = "C骴igo terreno"
+      !!@ ili2db.dispName = "C贸digo terreno"
       Codigo_Terreno : TEXT*30;
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END GC_Unidad_Construccion;
 
     !!@ ili2db.dispName = "(GC) Vereda"
     CLASS GC_Vereda =
-      !!@ ili2db.dispName = "C骴igo"
+      !!@ ili2db.dispName = "C贸digo"
       Codigo : TEXT*17;
-      !!@ ili2db.dispName = "C骴igo anterior"
+      !!@ ili2db.dispName = "C贸digo anterior"
       Codigo_Anterior : TEXT*13;
       !!@ ili2db.dispName = "Nombre"
       Nombre : TEXT*100;
-      !!@ ili2db.dispName = "C骴igo del sector"
+      !!@ ili2db.dispName = "C贸digo del sector"
       Sector_Codigo : TEXT*9;
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
     END GC_Vereda;
 
@@ -408,7 +350,7 @@ VERSION "V2.3"  // 2019-07-31 // =
     SNR_CalidadDerechoTipo = (
       !!@ ili2db.dispName = "Dominio"
       Dominio,
-      !!@ ili2db.dispName = "Falsa tradici髇"
+      !!@ ili2db.dispName = "Falsa tradici贸n"
       Falsa_Tradicion,
       !!@ ili2db.dispName = "Nuda propiedad"
       Nuda_Propiedad,
@@ -419,9 +361,9 @@ VERSION "V2.3"  // 2019-07-31 // =
     );
 
     SNR_DocumentoTitularTipo = (
-      !!@ ili2db.dispName = "C閐ula de ciudadan韆"
+      !!@ ili2db.dispName = "C茅dula de ciudadan铆a"
       Cedula_Ciudadania,
-      !!@ ili2db.dispName = "C閐ula de extranjer韆"
+      !!@ ili2db.dispName = "C茅dula de extranjer铆a"
       Cedula_Extranjeria,
       !!@ ili2db.dispName = "NIT"
       NIT,
@@ -433,7 +375,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       Libreta_Militar,
       !!@ ili2db.dispName = "Registro civil"
       Registro_Civil,
-      !!@ ili2db.dispName = "C閐ula militar"
+      !!@ ili2db.dispName = "C茅dula militar"
       Cedula_Militar,
       !!@ ili2db.dispName = "NUIP"
       NUIP,
@@ -444,7 +386,7 @@ VERSION "V2.3"  // 2019-07-31 // =
     SNR_FuenteTipo = (
       !!@ ili2db.dispName = "Acto administrativo"
       Acto_Administrativo,
-      !!@ ili2db.dispName = "Escritura p鷅lica"
+      !!@ ili2db.dispName = "Escritura p煤blica"
       Escritura_Publica,
       !!@ ili2db.dispName = "Sentencia judicial"
       Sentencia_Judicial
@@ -453,7 +395,7 @@ VERSION "V2.3"  // 2019-07-31 // =
     SNR_PersonaTitularTipo = (
       !!@ ili2db.dispName = "Persona natural"
       Persona_Natural,
-      !!@ ili2db.dispName = "Persona jur韉ica"
+      !!@ ili2db.dispName = "Persona jur铆dica"
       Persona_Juridica
     );
 
@@ -465,7 +407,7 @@ VERSION "V2.3"  // 2019-07-31 // =
        */
       !!@ ili2db.dispName = "Calidad derecho registro"
       Calidad_Derecho_Registro : MANDATORY Datos_SNR_V2_9_6.SNR_CalidadDerechoTipo;
-      !!@ ili2db.dispName = "C骴igo naturaleza jur韉ica"
+      !!@ ili2db.dispName = "C贸digo naturaleza jur铆dica"
       Codigo_Naturaleza_Juridica : TEXT*5;
     END SNR_Derecho;
 
@@ -473,7 +415,7 @@ VERSION "V2.3"  // 2019-07-31 // =
     CLASS SNR_Fuente_CabidaLinderos =
       !!@ ili2db.dispName = "Tipo de documento"
       Tipo_Documento : Datos_SNR_V2_9_6.SNR_FuenteTipo;
-      !!@ ili2db.dispName = "N鷐ero de documento"
+      !!@ ili2db.dispName = "N煤mero de documento"
       Numero_Documento : TEXT*255;
       !!@ ili2db.dispName = "Fecha de documento"
       Fecha_Documento : INTERLIS.XMLDate;
@@ -491,7 +433,7 @@ VERSION "V2.3"  // 2019-07-31 // =
     CLASS SNR_Fuente_Derecho =
       !!@ ili2db.dispName = "Tipo de documento"
       Tipo_Documento : Datos_SNR_V2_9_6.SNR_FuenteTipo;
-      !!@ ili2db.dispName = "N鷐ero de documento"
+      !!@ ili2db.dispName = "N煤mero de documento"
       Numero_Documento : TEXT*255;
       !!@ ili2db.dispName = "Fecha del documento"
       Fecha_Documento : INTERLIS.XMLDate;
@@ -505,13 +447,13 @@ VERSION "V2.3"  // 2019-07-31 // =
      */
     !!@ ili2db.dispName = "(SNR) Predio Registro"
     CLASS SNR_Predio_Registro =
-      !!@ ili2db.dispName = "C骴igo ORIP"
+      !!@ ili2db.dispName = "C贸digo ORIP"
       Codigo_ORIP : TEXT*3;
-      !!@ ili2db.dispName = "Matr韈ula inmobiliaria"
+      !!@ ili2db.dispName = "Matr铆cula inmobiliaria"
       Matricula_Inmobiliaria : TEXT*80;
-      !!@ ili2db.dispName = "N鷐ero predial nuevo en FMI"
+      !!@ ili2db.dispName = "N煤mero predial nuevo en FMI"
       Numero_Predial_Nuevo_en_FMI : TEXT*30;
-      !!@ ili2db.dispName = "N鷐ero predial anterior en FMI"
+      !!@ ili2db.dispName = "N煤mero predial anterior en FMI"
       Numero_Predial_Anterior_en_FMI : TEXT*30;
       !!@ ili2db.dispName = "NUPRE en FMI"
       NUPRE_en_FMI : TEXT*11;
@@ -519,7 +461,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       Cabida_Linderos : MTEXT;
       /** Matricula inmobiliaria matriz, cuando aplique
        */
-      !!@ ili2db.dispName = "Matr韈ula inmobiliaria matriz"
+      !!@ ili2db.dispName = "Matr铆cula inmobiliaria matriz"
       Matricula_Inmobiliaria_Matriz : TEXT*80;
       !!@ ili2db.dispName = "Fecha de datos"
       Fecha_Datos : MANDATORY INTERLIS.XMLDate;
@@ -535,7 +477,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       Tipo_Persona : Datos_SNR_V2_9_6.SNR_PersonaTitularTipo;
       !!@ ili2db.dispName = "Tipo de documento"
       Tipo_Documento : Datos_SNR_V2_9_6.SNR_DocumentoTitularTipo;
-      !!@ ili2db.dispName = "N鷐ero de documento"
+      !!@ ili2db.dispName = "N煤mero de documento"
       Numero_Documento : MANDATORY TEXT*50;
       !!@ ili2db.dispName = "Nombres"
       Nombres : TEXT*500;
@@ -543,7 +485,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       Primer_Apellido : TEXT*255;
       !!@ ili2db.dispName = "Segundo apellido"
       Segundo_Apellido : TEXT*255;
-      !!@ ili2db.dispName = "Raz髇 social"
+      !!@ ili2db.dispName = "Raz贸n social"
       Razon_Social : MTEXT*255;
     END SNR_Titular;
 
@@ -580,7 +522,7 @@ VERSION "2019-09-06"  =
   TOPIC Datos_Integracion_Insumos =
     DEPENDS ON Datos_SNR_V2_9_6.Datos_SNR,Datos_Gestor_Catastral_V2_9_6.Datos_Gestor_Catastral;
 
-    !!@ ili2db.dispName = "(Integraci髇 Insumos) Predio Insumos"
+    !!@ ili2db.dispName = "(Integraci贸n Insumos) Predio Insumos"
     CLASS INI_Predio_Insumos =
     END INI_Predio_Insumos;
 

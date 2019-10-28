@@ -5,7 +5,7 @@ INTERLIS 2.3;
  * -----------------------------------------------------------
  *  Revisiones historicas
  *  2017.06.02 vbp: Extraido el modelo a parir del TOPIC del mismo nombre en el modelo de Catastro y Registro
- *  2017.06.29 vbp: Añadidos dominios procedentes de Catastro-Registro
+ *  2017.06.29 vbp: AÃ±adidos dominios procedentes de Catastro-Registro
  *  2017.06.29 vbp: Extraidos dominios de valores de atributos de las clases --> integridad estructural, facilidad de lectura, unicidad de criterio en todos los modelos.
  * -----------------------------------------------------------
  * 
@@ -16,9 +16,9 @@ INTERLIS 2.3;
  *  07.03.2018/fm-gc : Cambio en tipo de geometria de las clases Zona_Homogenea_Fisica y Zona_Homogenea_Geoeconomica de GM_Surface2D a GM_MultiSurface2D
  *  08.03.2018/fm-gc: se ajusta la cardinalidad de atributo Comun_Uso_Exclusivo en la clase Predio
  *  09.07.2018/ : Cambio en cardinalidad en asociaciones avaluoConstruccion y AvaluoUnidadConstruccion de 1 a 0..1
- * 08.08.2018/ : (AT) Se agrega la clase abstracta Calificacion_Unidad_Construccion con clases especializadas Calificacion_No_Convencional y Calificacion_Convencional; Cambio en la cardinalidad de relación entre Unidad_Construccion y Calificacion_Unidad_Construccion pasa de 1 - 1..* a 1 - 1; Cambio en los valores del dominio COL_AccesoTipo; Se agrega el atributo numérico Nivel_de_Acceso en clase Unidad_Construccion; Cambio en el nombre del atributo Actividad_Econo por Uso; Se agrega el dominio COL_UsoConstruccionTipo para que tengan correspondencia con dominios SNC; Cambio en tipo de dato Material de manera que se quita el dominio y se deja abierto para el operador; Cambio en los valores del dominio COL_DestinoEconomicoTipo; Se elimina el atributo numero_total_pisos de clase Unidad_Construccion; Se cambia la cardinalidad de los atributos de Unidad_Construccion y Predio; Cambio de nombre en los atributos Conservacion_Cubierta y Puntos_Cubierta_Conservacion de la clase Calificacion_Convencional por Conservacion_Estructura y Puntos_Estructura_Conservacion; Ajuste de valores de los dominio COL_TipoCalificarTipo, COL_ArmazonTipo, COL_MurosTipo, COL_CubiertaTipo, COL_CubrimientoMurosTipo, COL_CalidadEnchapeTipo; Se agregan los dominios COL_ConservacionCalificacion y COL_AnexoTipo; Se adiciona el atributo Num_Sotanos en la clase Predio_Matriz_PH
+ * 08.08.2018/ : (AT) Se agrega la clase abstracta Calificacion_Unidad_Construccion con clases especializadas Calificacion_No_Convencional y Calificacion_Convencional; Cambio en la cardinalidad de relaciÃ³n entre Unidad_Construccion y Calificacion_Unidad_Construccion pasa de 1 - 1..* a 1 - 1; Cambio en los valores del dominio COL_AccesoTipo; Se agrega el atributo numÃ©rico Nivel_de_Acceso en clase Unidad_Construccion; Cambio en el nombre del atributo Actividad_Econo por Uso; Se agrega el dominio COL_UsoConstruccionTipo para que tengan correspondencia con dominios SNC; Cambio en tipo de dato Material de manera que se quita el dominio y se deja abierto para el operador; Cambio en los valores del dominio COL_DestinoEconomicoTipo; Se elimina el atributo numero_total_pisos de clase Unidad_Construccion; Se cambia la cardinalidad de los atributos de Unidad_Construccion y Predio; Cambio de nombre en los atributos Conservacion_Cubierta y Puntos_Cubierta_Conservacion de la clase Calificacion_Convencional por Conservacion_Estructura y Puntos_Estructura_Conservacion; Ajuste de valores de los dominio COL_TipoCalificarTipo, COL_ArmazonTipo, COL_MurosTipo, COL_CubiertaTipo, COL_CubrimientoMurosTipo, COL_CalidadEnchapeTipo; Se agregan los dominios COL_ConservacionCalificacion y COL_AnexoTipo; Se adiciona el atributo Num_Sotanos en la clase Predio_Matriz_PH
  * 21.08.2018/ : (AT) Se modifica el atributo Cercania_Hitos de la clase Predio dejandolo de tipo String
- * 23.08.2018/ : (AT) Se cambia el nombre de la relación y de los roles entre unidad_construccion y calificacion_unidad_construccion
+ * 23.08.2018/ : (AT) Se cambia el nombre de la relaciÃ³n y de los roles entre unidad_construccion y calificacion_unidad_construccion
  * 
  * -----------------------------------------------------------
  * 
@@ -54,7 +54,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Secaderos,
       !!@ ili2db.dispName = "Kioskos"
       Kioscos,
-      !!@ ili2db.dispName = "Albercas o bañaderas"
+      !!@ ili2db.dispName = "Albercas o baÃ±aderas"
       Albercas_Baniaderas,
       !!@ ili2db.dispName = "Corrales"
       Corrales,
@@ -72,7 +72,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Marquesinas
     );
 
-    /** Calificación del suelo.
+    /** CalificaciÃ³n del suelo.
      */
     AV_CalificarTipo = (
       !!@ ili2db.dispName = "Residencial"
@@ -88,16 +88,16 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Estructura,
       !!@ ili2db.dispName = "Acabados"
       Acabados,
-      !!@ ili2db.dispName = "Baño"
+      !!@ ili2db.dispName = "BaÃ±o"
       Banio,
       !!@ ili2db.dispName = "Cocina"
       Cocina
     );
 
     AV_ComponenteConstruccionTipo = (
-      !!@ ili2db.dispName = "Habitación"
+      !!@ ili2db.dispName = "HabitaciÃ³n"
       Habitacion,
-      !!@ ili2db.dispName = "Baño"
+      !!@ ili2db.dispName = "BaÃ±o"
       Banio,
       !!@ ili2db.dispName = "Local"
       Local
@@ -115,13 +115,13 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     );
 
     AV_ObjetoConstruccionTipo = (
-      !!@ ili2db.dispName = "Armazón"
+      !!@ ili2db.dispName = "ArmazÃ³n"
       Armazon,
       !!@ ili2db.dispName = "Muros"
       Muros,
       !!@ ili2db.dispName = "Cubierta"
       Cubierta,
-      !!@ ili2db.dispName = "Conservación estructura"
+      !!@ ili2db.dispName = "ConservaciÃ³n estructura"
       Conservacion_Estructura,
       !!@ ili2db.dispName = "Fachada"
       Fachada,
@@ -129,29 +129,29 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Cubrimiento_Muros,
       !!@ ili2db.dispName = "Piso"
       Piso,
-      !!@ ili2db.dispName = "Conservación de acabados"
+      !!@ ili2db.dispName = "ConservaciÃ³n de acabados"
       Conservacion_Acabados,
-      !!@ ili2db.dispName = "Tamaño de baño"
+      !!@ ili2db.dispName = "TamaÃ±o de baÃ±o"
       Tamanio_Banio,
-      !!@ ili2db.dispName = "Enchape de baño"
+      !!@ ili2db.dispName = "Enchape de baÃ±o"
       Enchape_Banio,
-      !!@ ili2db.dispName = "Mobiliario de baño"
+      !!@ ili2db.dispName = "Mobiliario de baÃ±o"
       Mobiliario_Banio,
-      !!@ ili2db.dispName = "Conservación de baño"
+      !!@ ili2db.dispName = "ConservaciÃ³n de baÃ±o"
       Conservacion_Banio,
-      !!@ ili2db.dispName = "Tamaño de cocina"
+      !!@ ili2db.dispName = "TamaÃ±o de cocina"
       Tamanio_Cocina,
       !!@ ili2db.dispName = "Enchape de cocina"
       Enchape_Cocina,
       !!@ ili2db.dispName = "Mobiliario de cocina"
       Mobiliario_Cocina,
-      !!@ ili2db.dispName = "Conservación de cocina"
+      !!@ ili2db.dispName = "ConservaciÃ³n de cocina"
       Conservacion_Cocina,
       !!@ ili2db.dispName = "Cerchas"
       Cerchas
     );
 
-    /** Valores válidos para indicar el tipo de construcción empleada para levantar una unidad de construcción, con incidencia en su avalúo. REVISAR DOCUMENTACIÓN
+    /** Valores vÃ¡lidos para indicar el tipo de construcciÃ³n empleada para levantar una unidad de construcciÃ³n, con incidencia en su avalÃºo. REVISAR DOCUMENTACIÃ“N
      */
     AV_UnidadConstruccionTipo = (
       !!@ ili2db.dispName = "Residencial"
@@ -164,7 +164,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Anexo
     );
 
-  /** Este Topic agrupa a las clases específicas del avalúo, así como sus atributos.
+  /** Este Topic agrupa a las clases especÃ­ficas del avalÃºo, asÃ­ como sus atributos.
    */
   TOPIC Avaluos =
     OID AS INTERLIS.UUIDOID;
@@ -173,7 +173,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     CLASS AV_Calificacion_Unidad_Construccion (ABSTRACT) =
     END AV_Calificacion_Unidad_Construccion;
 
-    !!@ ili2db.dispName = "(Avalúos) Componente Construcción"
+    !!@ ili2db.dispName = "(AvalÃºos) Componente ConstrucciÃ³n"
     CLASS AV_Componente_Construccion =
       !!@ ili2db.dispName = "Tipo de componente"
       Tipo_Componente : MANDATORY Avaluos_V2_9_6.AV_ComponenteConstruccionTipo;
@@ -181,114 +181,114 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Cantidad : MANDATORY 0 .. 9999;
     END AV_Componente_Construccion;
 
-    !!@ ili2db.dispName = "(Avalúos) Grupo Calificación"
+    !!@ ili2db.dispName = "(AvalÃºos) Grupo CalificaciÃ³n"
     CLASS AV_Grupo_Calificacion =
-      !!@ ili2db.dispName = "Clase de calificación"
+      !!@ ili2db.dispName = "Clase de calificaciÃ³n"
       Clase_Calificacion : MANDATORY Avaluos_V2_9_6.AV_ClaseCalificacionTipo;
-      !!@ ili2db.dispName = "Conservación"
+      !!@ ili2db.dispName = "ConservaciÃ³n"
       Conservacion : Avaluos_V2_9_6.AV_EstadoConservacionTipo;
       !!@ ili2db.dispName = "Subtotal"
       Subtotal : 0 .. 9999999;
     END AV_Grupo_Calificacion;
 
-    !!@ ili2db.dispName = "(Avalúos) Tabla Calificación de la Construcción"
+    !!@ ili2db.dispName = "(AvalÃºos) Tabla CalificaciÃ³n de la ConstrucciÃ³n"
     CLASS AV_Tabla_Calificacion_Construccion =
-      !!@ ili2db.dispName = "Valor M2 de construcción"
+      !!@ ili2db.dispName = "Valor M2 de construcciÃ³n"
       Valor_M2_Construccion : TEXT*20;
       !!@ ili2db.dispName = "Uso"
       Uso : TEXT*20;
-      !!@ ili2db.dispName = "Puntuación"
+      !!@ ili2db.dispName = "PuntuaciÃ³n"
       Puntuacion : TEXT*20;
     END AV_Tabla_Calificacion_Construccion;
 
     STRUCTURE AV_Tipo_Objeto_Construccion =
-      !!@ ili2db.dispName = "Clase de calificación"
+      !!@ ili2db.dispName = "Clase de calificaciÃ³n"
       Clase_Calificacion : MANDATORY Avaluos_V2_9_6.AV_ClaseCalificacionTipo;
-      !!@ ili2db.dispName = "Tipo de objeto de construcción"
+      !!@ ili2db.dispName = "Tipo de objeto de construcciÃ³n"
       Tipo_Objeto_Construccion : MANDATORY Avaluos_V2_9_6.AV_ObjetoConstruccionTipo;
       !!@ ili2db.dispName = "Nombre"
       Nombre : MANDATORY TEXT*255;
     END AV_Tipo_Objeto_Construccion;
 
-    /** La clase UnidadConstruccion es una agrupación de atributos específicos para el avalúo de la misma. Por tanto, representa lo mismo que en el caso del modelo de Catatro, pero sus atributos almacenan los datos relativos a aquellas características que es necesario conocer para realizar el avaluo masivo de las construcciones, de acuerdo a la metodología vigente.
+    /** La clase UnidadConstruccion es una agrupaciÃ³n de atributos especÃ­ficos para el avalÃºo de la misma. Por tanto, representa lo mismo que en el caso del modelo de Catatro, pero sus atributos almacenan los datos relativos a aquellas caracterÃ­sticas que es necesario conocer para realizar el avaluo masivo de las construcciones, de acuerdo a la metodologÃ­a vigente.
      */
-    !!@ ili2db.dispName = "(Avalúos) Unidad de Construcción"
+    !!@ ili2db.dispName = "(AvalÃºos) Unidad de ConstrucciÃ³n"
     CLASS AV_Unidad_Construccion =
-      /** Clasificación del tipo de construcción empleada para levantar la unidad de construcción.
+      /** ClasificaciÃ³n del tipo de construcciÃ³n empleada para levantar la unidad de construcciÃ³n.
        */
-      !!@ ili2db.dispName = "Tipo de unidad de construcción"
+      !!@ ili2db.dispName = "Tipo de unidad de construcciÃ³n"
       Tipo_Unidad_Construccion : MANDATORY Avaluos_V2_9_6.AV_UnidadConstruccionTipo;
-      !!@ ili2db.dispName = "Puntuación"
+      !!@ ili2db.dispName = "PuntuaciÃ³n"
       Puntuacion : LADM_COL_V1_2.LADM_Nucleo.Integer;
-      /** Año en el que fue construída la unidad de construcción.
+      /** AÃ±o en el que fue construÃ­da la unidad de construcciÃ³n.
        */
-      !!@ ili2db.dispName = "Año de construcción"
+      !!@ ili2db.dispName = "AÃ±o de construcciÃ³n"
       Anio_Construccion : 1492 .. 3000;
       !!@ ili2db.dispName = "Observaciones"
       Observaciones : TEXT*255;
     END AV_Unidad_Construccion;
 
-    /** Esta clase permite gestionar las zonas físicamente homogéneas definidas para el avalúo y que delimitan las zonas que tienen características físicas similares. REVISAR DOCUMENTACIÓN
+    /** Esta clase permite gestionar las zonas fÃ­sicamente homogÃ©neas definidas para el avalÃºo y que delimitan las zonas que tienen caracterÃ­sticas fÃ­sicas similares. REVISAR DOCUMENTACIÃ“N
      */
-    !!@ ili2db.dispName = "(Avalúos) Zona Homogénea Física"
+    !!@ ili2db.dispName = "(AvalÃºos) Zona HomogÃ©nea FÃ­sica"
     CLASS AV_Zona_Homogenea_Fisica =
-      /** Código único del registro de la instancia de ZonaHomegeneaFisca.
+      /** CÃ³digo Ãºnico del registro de la instancia de ZonaHomegeneaFisca.
        */
       !!@ ili2db.dispName = "Identificador"
       Identificador : MANDATORY TEXT*20;
-      /** Definición de la geometría espacial georreferenciada de la zona homogénea física, delimitada mediante un polígono que contiene sus linderos y la superficie ocupada.
+      /** DefiniciÃ³n de la geometrÃ­a espacial georreferenciada de la zona homogÃ©nea fÃ­sica, delimitada mediante un polÃ­gono que contiene sus linderos y la superficie ocupada.
        */
-      !!@ ili2db.dispName = "Geometría"
+      !!@ ili2db.dispName = "GeometrÃ­a"
       Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END AV_Zona_Homogenea_Fisica;
 
-    /** Datos para el avalúo de la unidad de construcción.
+    /** Datos para el avalÃºo de la unidad de construcciÃ³n.
      */
-    !!@ ili2db.dispName = "(Avalúos) Calificación Convencional"
+    !!@ ili2db.dispName = "(AvalÃºos) CalificaciÃ³n Convencional"
     CLASS AV_Calificacion_Convencional
     EXTENDS AV_Calificacion_Unidad_Construccion =
       !!@ ili2db.dispName = "Tipo a calificar"
       Tipo_Calificar : Avaluos_V2_9_6.AV_CalificarTipo;
-      !!@ ili2db.dispName = "Total calificación"
+      !!@ ili2db.dispName = "Total calificaciÃ³n"
       Total_Calificacion : LADM_COL_V1_2.LADM_Nucleo.Integer;
     END AV_Calificacion_Convencional;
 
-    !!@ ili2db.dispName = "(Avalúos) Calificación No Convencional"
+    !!@ ili2db.dispName = "(AvalÃºos) CalificaciÃ³n No Convencional"
     CLASS AV_Calificacion_No_Convencional
     EXTENDS AV_Calificacion_Unidad_Construccion =
       !!@ ili2db.dispName = "Tipo de anexo"
       Tipo_Anexo : Avaluos_V2_9_6.AV_AnexoTipo;
-      !!@ ili2db.dispName = "Descripción de anexo"
+      !!@ ili2db.dispName = "DescripciÃ³n de anexo"
       Descripcion_Anexo : TEXT*256;
       !!@ ili2db.dispName = "Puntaje anexo"
       Puntaje_Anexo : TEXT*2;
     END AV_Calificacion_No_Convencional;
 
-    !!@ ili2db.dispName = "(Avalúos) Objeto Construcción"
+    !!@ ili2db.dispName = "(AvalÃºos) Objeto ConstrucciÃ³n"
     CLASS AV_Objeto_Construccion =
-      !!@ ili2db.dispName = "Tipo de objeto de construcción"
+      !!@ ili2db.dispName = "Tipo de objeto de construcciÃ³n"
       Tipo_Objeto_Construccion : MANDATORY Avaluos_V2_9_6.Avaluos.AV_Tipo_Objeto_Construccion;
       !!@ ili2db.dispName = "Puntos"
       Puntos : MANDATORY 0 .. 16;
-      !!@ ili2db.dispName = "Característica"
+      !!@ ili2db.dispName = "CaracterÃ­stica"
       Caracteristica : TEXT*255;
     END AV_Objeto_Construccion;
 
-    /** Esta clase permite gestionar las zonas con características económicas y de localización geográfica similares, definidas para caracterizar el avalúo.
+    /** Esta clase permite gestionar las zonas con caracterÃ­sticas econÃ³micas y de localizaciÃ³n geogrÃ¡fica similares, definidas para caracterizar el avalÃºo.
      */
-    !!@ ili2db.dispName = "(Avalúos) Zona Homogénea Geoeconómica"
+    !!@ ili2db.dispName = "(AvalÃºos) Zona HomogÃ©nea GeoeconÃ³mica"
     CLASS AV_Zona_Homogenea_Geoeconomica =
-      /** Código único del registro de la instancia de la zona geoeconómica.
+      /** CÃ³digo Ãºnico del registro de la instancia de la zona geoeconÃ³mica.
        */
       !!@ ili2db.dispName = "Identificador"
       Identificador : MANDATORY TEXT*20;
-      /** Valor económico de la zona homogénea que representa la instancia de la clase.
+      /** Valor econÃ³mico de la zona homogÃ©nea que representa la instancia de la clase.
        */
       !!@ ili2db.dispName = "Valor"
       Valor : MANDATORY LADM_COL_V1_2.LADM_Nucleo.Integer;
-      /** Definición de la geometría espacial georreferenciada de la zona homogénea geoeconómica, delimitada mediante un polígono que contiene sus linderos y la superficie ocupada.
+      /** DefiniciÃ³n de la geometrÃ­a espacial georreferenciada de la zona homogÃ©nea geoeconÃ³mica, delimitada mediante un polÃ­gono que contiene sus linderos y la superficie ocupada.
        */
-      !!@ ili2db.dispName = "Geometría"
+      !!@ ili2db.dispName = "GeometrÃ­a"
       Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END AV_Zona_Homogenea_Geoeconomica;
 
@@ -297,15 +297,15 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       av_componente -- {0..*} AV_Componente_Construccion;
     END av_componente_unidadconstruccion;
 
-    /** Relación entre las clases "UnidadConstruccion" de Catastro y de Avalúo. La cardinalidad es 1-1, lo que indica que son representaciones diferentes de un mismo elemento de la realidad.
-     * En efecto, una es la agrupación de atributos que caracterizan la unidad de construcción desde el punto de vista de Catastro y la otra agrupa atributos de interés para el avalúo en el interior de la unidad de construcción.
+    /** RelaciÃ³n entre las clases "UnidadConstruccion" de Catastro y de AvalÃºo. La cardinalidad es 1-1, lo que indica que son representaciones diferentes de un mismo elemento de la realidad.
+     * En efecto, una es la agrupaciÃ³n de atributos que caracterizan la unidad de construcciÃ³n desde el punto de vista de Catastro y la otra agrupa atributos de interÃ©s para el avalÃºo en el interior de la unidad de construcciÃ³n.
      */
     ASSOCIATION av_op_unidadconstruccion =
       op_unidad_construccion (EXTERNAL) -- {1} Operacion_V2_9_6.Operacion.OP_UnidadConstruccion;
       av_unidad_construccion -- {0..1} AV_Unidad_Construccion;
     END av_op_unidadconstruccion;
 
-    /** Relación entre la clase Unidad_Construccion del modelo de Avalúos y Calificacion_Unidad_Construccion de modelo de Avalúos
+    /** RelaciÃ³n entre la clase Unidad_Construccion del modelo de AvalÃºos y Calificacion_Unidad_Construccion de modelo de AvalÃºos
      */
     ASSOCIATION av_calificacion_unidadconstruccion =
       av_unidad_construccion (EXTERNAL) -- {1} AV_Unidad_Construccion;

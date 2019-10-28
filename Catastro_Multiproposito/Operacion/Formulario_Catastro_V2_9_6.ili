@@ -4,9 +4,9 @@ INTERLIS 2.3;
  * 
  * 01.02.2018/ : Cambio en cardinalidad en asociacion predioFicha_predio de 1 a 0..1
  * 08.08.2018/ : (AT) Cambio en el nombre del atributo Actividad_Economica por Destinacion_Economica; Cambio en el nombre del dominio COL_UsoTipo por COL_DestinacionEconomicaTipo; Cambio en cardinalidad de atributos en clase Predio_Ficha
- * 10.08.2018/ fm : cambio en el rol de interesado natural y jurídico ahora se asocia a Col_Interesado
+ * 10.08.2018/ fm : cambio en el rol de interesado natural y jurÃ­dico ahora se asocia a Col_Interesado
  * 21.08.2018/ : (AT) Se agrega el dominio COL_FormalidadTipo para los valores del atributo Formalidad en clase Predio_Ficha
- * 17.09.2018/ fm: cambio en el orden de los roles de la asociación PredioFicha_Predio para evitar la creación de la tabla de paso en el modelo físico cuando hay dependencia de topics
+ * 17.09.2018/ fm: cambio en el orden de los roles de la asociaciÃ³n PredioFicha_Predio para evitar la creaciÃ³n de la tabla de paso en el modelo fÃ­sico cuando hay dependencia de topics
  * 17.09.2018/ (AT): Cambio en los nombres de los dominios COL_PredioTipoPublicoTipo y COL_PredioTipo para evitar redundancias
  */
 MODEL Formulario_Catastro_V2_9_6 (es)
@@ -16,32 +16,32 @@ VERSION "V2.2.1"  // 2018-02-01 // =
 
   DOMAIN
 
-    /** Categoría de suelo de la clasificación del Plan de Ordenamiento Territorial.
+    /** CategorÃ­a de suelo de la clasificaciÃ³n del Plan de Ordenamiento Territorial.
      */
     FCM_CategoriaSueloTipo = (
       !!@ ili2db.dispName = "Suburbano"
       Suburbano,
-      !!@ ili2db.dispName = "Protección"
+      !!@ ili2db.dispName = "ProtecciÃ³n"
       Proteccion
     );
 
-    /** Clase de suelo de la clasificación del Plan de Ordenamiento Territorial.
+    /** Clase de suelo de la clasificaciÃ³n del Plan de Ordenamiento Territorial.
      */
     FCM_ClaseSueloTipo = (
       !!@ ili2db.dispName = "Urbano"
       Urbano,
       !!@ ili2db.dispName = "Rural"
       Rural,
-      !!@ ili2db.dispName = "Expansión urbana"
+      !!@ ili2db.dispName = "ExpansiÃ³n urbana"
       Expansion_Urbana
     );
 
-    /** Uso económico de la propiedad inmobiliaria.
+    /** Uso econÃ³mico de la propiedad inmobiliaria.
      */
     FCM_DestinacionEconomicaTipo = (
       !!@ ili2db.dispName = "Acuicola"
       Acuicola,
-      !!@ ili2db.dispName = "Agrícola"
+      !!@ ili2db.dispName = "AgrÃ­cola"
       Agricola,
       !!@ ili2db.dispName = "Agroindustrial"
       Agroindustrial,
@@ -59,9 +59,9 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Habitacional,
       !!@ ili2db.dispName = "Institucional"
       Industrial,
-      !!@ ili2db.dispName = "Infraestructura asociada a producción agropecuaria"
+      !!@ ili2db.dispName = "Infraestructura asociada a producciÃ³n agropecuaria"
       Infraestructura_Asociada_Produccion_Agropecuaria,
-      !!@ ili2db.dispName = "Infraestructura hidráulica"
+      !!@ ili2db.dispName = "Infraestructura hidrÃ¡ulica"
       Infraestructura_Hidraulica,
       !!@ ili2db.dispName = "Infraestructura saneamiento"
       Infraestructura_Saneamiento_Basico,
@@ -71,7 +71,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Infraestructura_Transporte,
       !!@ ili2db.dispName = "Institucional"
       Institucional,
-      !!@ ili2db.dispName = "Minería hidrocarburos"
+      !!@ ili2db.dispName = "MinerÃ­a hidrocarburos"
       Mineria_Hidrocarburos,
       !!@ ili2db.dispName = "Lote urbanizable no urbanizado"
       Lote_Urbanizable_No_Urbanizado,
@@ -87,7 +87,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Religioso,
       !!@ ili2db.dispName = "Salubridad"
       Salubridad,
-      !!@ ili2db.dispName = "Uso público"
+      !!@ ili2db.dispName = "Uso pÃºblico"
       Uso_Publico
     );
 
@@ -105,11 +105,11 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Departamental,
       !!@ ili2db.dispName = "Municipal"
       Municipal,
-      !!@ ili2db.dispName = "Baldío"
+      !!@ ili2db.dispName = "BaldÃ­o"
       Baldio,
       !!@ ili2db.dispName = "Ejido"
       Ejido,
-      !!@ ili2db.dispName = "Resguardo indígena"
+      !!@ ili2db.dispName = "Resguardo indÃ­gena"
       Resguardo_Indigena,
       !!@ ili2db.dispName = "Tierra comunidades negras"
       Tierra_Comunidades_Negras,
@@ -123,28 +123,28 @@ VERSION "V2.2.1"  // 2018-02-01 // =
 
     !!@ ili2db.dispName = "(FCM) Contacto Visita"
     CLASS FCM_Contacto_Visita =
-      !!@ ili2db.dispName = "Nombre de quien atendió"
+      !!@ ili2db.dispName = "Nombre de quien atendiÃ³"
       Nombre_Quien_Atendio : MANDATORY TEXT*255;
-      !!@ ili2db.dispName = "Relación con el predio"
+      !!@ ili2db.dispName = "RelaciÃ³n con el predio"
       Relacion_Con_Predio : MANDATORY TEXT*100;
       !!@ ili2db.dispName = "Domicilio notificaciones"
       Domicilio_Notificaciones : TEXT*255;
       !!@ ili2db.dispName = "Celular"
       Celular : TEXT*20;
-      !!@ ili2db.dispName = "Correo electrónico"
+      !!@ ili2db.dispName = "Correo electrÃ³nico"
       Correo_Electronico : TEXT*100;
       !!@ ili2db.dispName = "Autoriza notificaciones"
       Autoriza_Notificaciones : BOOLEAN;
     END FCM_Contacto_Visita;
 
     STRUCTURE FCM_Predio_Englobe =
-      !!@ ili2db.dispName = "Número predial"
+      !!@ ili2db.dispName = "NÃºmero predial"
       Numero_Predial : MANDATORY TEXT*30;
     END FCM_Predio_Englobe;
 
-    /** Datos de formulario único de catastro multipropósito
+    /** Datos de formulario Ãºnico de catastro multipropÃ³sito
      */
-    !!@ ili2db.dispName = "(FCM) Formulario Único Catastro Multipropósito"
+    !!@ ili2db.dispName = "(FCM) Formulario Ãšnico Catastro MultipropÃ³sito"
     CLASS FCM_Formulario_Unico_CM =
       !!@ ili2db.dispName = "Corregimiento"
       Corregimiento : TEXT*100;
@@ -156,17 +156,17 @@ VERSION "V2.2.1"  // 2018-02-01 // =
        */
       !!@ ili2db.dispName = "Formalidad"
       Formalidad : MANDATORY Formulario_Catastro_V2_9_6.FCM_FormalidadTipo;
-      /** Uso económico que se hace del predio.
+      /** Uso econÃ³mico que se hace del predio.
        */
-      !!@ ili2db.dispName = "Destinación económica"
+      !!@ ili2db.dispName = "DestinaciÃ³n econÃ³mica"
       Destinacion_Economica : MANDATORY Formulario_Catastro_V2_9_6.FCM_DestinacionEconomicaTipo;
-      /** Clasificación del suelo según el Plan de Ordenamiento Territorial vigente.
+      /** ClasificaciÃ³n del suelo segÃºn el Plan de Ordenamiento Territorial vigente.
        */
       !!@ ili2db.dispName = "Clase de suelo"
       Clase_Suelo : MANDATORY Formulario_Catastro_V2_9_6.FCM_ClaseSueloTipo;
-      /** Categoría del suelo según el Plan de Ordenamiento Territorial vigente.
+      /** CategorÃ­a del suelo segÃºn el Plan de Ordenamiento Territorial vigente.
        */
-      !!@ ili2db.dispName = "Categoría de suelo"
+      !!@ ili2db.dispName = "CategorÃ­a de suelo"
       Categoria_Suelo : Formulario_Catastro_V2_9_6.FCM_CategoriaSueloTipo;
       !!@ ili2db.dispName = "Tiene FMI"
       Tiene_FMI : MANDATORY BOOLEAN;
@@ -191,7 +191,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       fcm_formulario -- {1} FCM_Formulario_Unico_CM;
     END fcm_formulario_contacto;
 
-    /** Relación entre el Predio catastral (módulo de catastro) y la clase Formulario_Unico_CM, que permite determinar sobre qué predio se toman los datos específicos del formulario único de catastro multipropósito
+    /** RelaciÃ³n entre el Predio catastral (mÃ³dulo de catastro) y la clase Formulario_Unico_CM, que permite determinar sobre quÃ© predio se toman los datos especÃ­ficos del formulario Ãºnico de catastro multipropÃ³sito
      */
     ASSOCIATION fcm_formulario_predio =
       op_predio (EXTERNAL) -- {1} Operacion_V2_9_6.Operacion.OP_Predio;
