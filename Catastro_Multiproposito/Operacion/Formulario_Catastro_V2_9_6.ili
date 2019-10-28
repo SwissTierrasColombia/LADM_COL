@@ -16,6 +16,125 @@ VERSION "V2.2.1"  // 2018-02-01 // =
 
   DOMAIN
 
+    AV_AnexoTipo = (
+      !!@ ili2db.dispName = "Enramadas o cobertizos o caneyes"
+      Enramadas_Cobertizos_Caneyes,
+      !!@ ili2db.dispName = "Galpones o gallineros"
+      Galpones_Gallineros,
+      !!@ ili2db.dispName = "Establos o pesebreras"
+      Establos_Pesebreras,
+      !!@ ili2db.dispName = "Cocheras o marraneras o porquerizas"
+      Cocheras_Marraneras_Porquerizas,
+      !!@ ili2db.dispName = "Silos"
+      Silos,
+      !!@ ili2db.dispName = "Piscina"
+      Piscinas,
+      !!@ ili2db.dispName = "Tanques"
+      Tanques,
+      !!@ ili2db.dispName = "Beneficiaderos"
+      Beneficiaderos,
+      !!@ ili2db.dispName = "Secaderos"
+      Secaderos,
+      !!@ ili2db.dispName = "Kioskos"
+      Kioscos,
+      !!@ ili2db.dispName = "Albercas o bañaderas"
+      Albercas_Baniaderas,
+      !!@ ili2db.dispName = "Corrales"
+      Corrales,
+      !!@ ili2db.dispName = "Pozos"
+      Pozos,
+      !!@ ili2db.dispName = "Torres de enfriamiento"
+      TorresEnfriamiento,
+      !!@ ili2db.dispName = "Muelles"
+      Muelles,
+      !!@ ili2db.dispName = "Canchas de tenis"
+      CanchasTenis,
+      !!@ ili2db.dispName = "Toboganes"
+      Toboganes,
+      !!@ ili2db.dispName = "Marquesinas"
+      Marquesinas
+    );
+
+    /** Calificación del suelo.
+     */
+    AV_CalificarTipo = (
+      !!@ ili2db.dispName = "Residencial"
+      Residencial,
+      !!@ ili2db.dispName = "Industrial"
+      Industrial,
+      !!@ ili2db.dispName = "Comercial"
+      Comercial
+    );
+
+    AV_ClaseCalificacionTipo = (
+      !!@ ili2db.dispName = "Estructura"
+      Estructura,
+      !!@ ili2db.dispName = "Acabados"
+      Acabados,
+      !!@ ili2db.dispName = "Baño"
+      Banio,
+      !!@ ili2db.dispName = "Cocina"
+      Cocina
+    );
+
+    AV_EstadoConservacionTipo = (
+      !!@ ili2db.dispName = "Malo"
+      Malo,
+      !!@ ili2db.dispName = "Regular"
+      Regular,
+      !!@ ili2db.dispName = "Bueno"
+      Bueno,
+      !!@ ili2db.dispName = "Excelente"
+      Excelente
+    );
+
+    AV_ObjetoConstruccionTipo = (
+      !!@ ili2db.dispName = "Armazón"
+      Armazon(
+        !!@ ili2db.dispName = "(Armazón) Madera"
+        Madera,
+        Prefabricado,
+        Ladrillo_Bloque,
+        Concreto_Hasta_Tres_Pisos,
+        Concreto_Cuatro_O_Mas_Pisos
+      ),
+      !!@ ili2db.dispName = "Muros"
+      Muros(
+        Materiales_Desecho_Esterilla,
+        Bahareque_Adobe_Tapia
+      ),
+      !!@ ili2db.dispName = "Cubierta"
+      Cubierta,
+      !!@ ili2db.dispName = "Conservación estructura"
+      Conservacion_Estructura,
+      !!@ ili2db.dispName = "Fachada"
+      Fachada,
+      !!@ ili2db.dispName = "Cubrimiento de muros"
+      Cubrimiento_Muros,
+      !!@ ili2db.dispName = "Piso"
+      Piso,
+      !!@ ili2db.dispName = "Conservación de acabados"
+      Conservacion_Acabados,
+      !!@ ili2db.dispName = "Tamaño de baño"
+      Tamanio_Banio,
+      !!@ ili2db.dispName = "Enchape de baño"
+      Enchape_Banio,
+      !!@ ili2db.dispName = "Mobiliario de baño"
+      Mobiliario_Banio,
+      !!@ ili2db.dispName = "Conservación de baño"
+      Conservacion_Banio,
+      !!@ ili2db.dispName = "Tamaño de cocina"
+      Tamanio_Cocina,
+      !!@ ili2db.dispName = "Enchape de cocina"
+      Enchape_Cocina,
+      !!@ ili2db.dispName = "Mobiliario de cocina"
+      Mobiliario_Cocina,
+      !!@ ili2db.dispName = "Conservación de cocina"
+      Conservacion_Cocina,
+      !!@ ili2db.dispName = "Cerchas"
+      Cerchas
+    );
+
     /** Categoría de suelo de la clasificación del Plan de Ordenamiento Territorial.
      */
     FCM_CategoriaSueloTipo = (
@@ -121,6 +240,28 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     OID AS INTERLIS.UUIDOID;
     DEPENDS ON Avaluos_V2_9_6.Avaluos,Operacion_V2_9_6.Operacion;
 
+    CLASS AV_Calificacion_Unidad_Construccion (ABSTRACT) =
+    END AV_Calificacion_Unidad_Construccion;
+
+    STRUCTURE AV_Estructura_Objeto_Construccion =
+      !!@ ili2db.dispName = "Clase de calificación"
+      Clase_Calificacion : MANDATORY Formulario_Catastro_V2_9_6.AV_ClaseCalificacionTipo;
+      !!@ ili2db.dispName = "Tipo de objeto de construcción"
+      Tipo_Objeto_Construccion : MANDATORY Formulario_Catastro_V2_9_6.AV_ObjetoConstruccionTipo;
+      !!@ ili2db.dispName = "Nombre"
+      Nombre : MANDATORY TEXT*255;
+    END AV_Estructura_Objeto_Construccion;
+
+    !!@ ili2db.dispName = "(Avalúos) Grupo Calificación"
+    CLASS AV_Grupo_Calificacion =
+      !!@ ili2db.dispName = "Clase de calificación"
+      Clase_Calificacion : MANDATORY Formulario_Catastro_V2_9_6.AV_ClaseCalificacionTipo;
+      !!@ ili2db.dispName = "Conservación"
+      Conservacion : Formulario_Catastro_V2_9_6.AV_EstadoConservacionTipo;
+      !!@ ili2db.dispName = "Subtotal"
+      Subtotal : 0 .. 9999999;
+    END AV_Grupo_Calificacion;
+
     !!@ ili2db.dispName = "(FCM) Contacto Visita"
     CLASS FCM_Contacto_Visita =
       !!@ ili2db.dispName = "Nombre de quien atendió"
@@ -141,6 +282,38 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       !!@ ili2db.dispName = "Número predial"
       Numero_Predial : MANDATORY TEXT*30;
     END FCM_Predio_Englobe;
+
+    /** Datos para el avalúo de la unidad de construcción.
+     */
+    !!@ ili2db.dispName = "(Avalúos) Calificación Convencional"
+    CLASS AV_Calificacion_Convencional
+    EXTENDS AV_Calificacion_Unidad_Construccion =
+      !!@ ili2db.dispName = "Tipo a calificar"
+      Tipo_Calificar : Formulario_Catastro_V2_9_6.AV_CalificarTipo;
+      !!@ ili2db.dispName = "Total calificación"
+      Total_Calificacion : LADM_COL_V1_2.LADM_Nucleo.Integer;
+    END AV_Calificacion_Convencional;
+
+    !!@ ili2db.dispName = "(Avalúos) Calificación No Convencional"
+    CLASS AV_Calificacion_No_Convencional
+    EXTENDS AV_Calificacion_Unidad_Construccion =
+      !!@ ili2db.dispName = "Tipo de anexo"
+      Tipo_Anexo : Formulario_Catastro_V2_9_6.AV_AnexoTipo;
+      !!@ ili2db.dispName = "Descripción de anexo"
+      Descripcion_Anexo : TEXT*256;
+      !!@ ili2db.dispName = "Puntaje anexo"
+      Puntaje_Anexo : TEXT*2;
+    END AV_Calificacion_No_Convencional;
+
+    !!@ ili2db.dispName = "(Avalúos) Objeto Construcción"
+    CLASS AV_Objeto_Construccion =
+      !!@ ili2db.dispName = "Tipo de objeto de construcción"
+      Tipo_Objeto_Construccion : MANDATORY Formulario_Catastro_V2_9_6.Formulario_Catastro.AV_Estructura_Objeto_Construccion;
+      !!@ ili2db.dispName = "Puntos"
+      Puntos : MANDATORY 0 .. 16;
+      !!@ ili2db.dispName = "Característica"
+      Caracteristica : TEXT*255;
+    END AV_Objeto_Construccion;
 
     /** Datos de formulario único de catastro multipropósito
      */
@@ -185,6 +358,23 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       !!@ ili2db.dispName = "Nombre del reconocedor"
       Nombre_Reconocedor : MANDATORY TEXT*255;
     END FCM_Formulario_Unico_CM;
+
+    /** Relación entre la clase Unidad_Construccion del modelo de Avalúos y Calificacion_Unidad_Construccion de modelo de Avalúos
+     */
+    ASSOCIATION av_calificacion_unidadconstruccion =
+      op_av_unidad_construccion (EXTERNAL) -- {1} Operacion_V2_9_6.Operacion.OP_UnidadConstruccion;
+      av_calificacion_unidad_construccion -- {0..1} AV_Calificacion_Unidad_Construccion;
+    END av_calificacion_unidadconstruccion;
+
+    ASSOCIATION av_grupo_calificacionconvencional =
+      av_calificacion_convencional -- {1} AV_Calificacion_Convencional;
+      av_grupo_calificacion -- {0..*} AV_Grupo_Calificacion;
+    END av_grupo_calificacionconvencional;
+
+    ASSOCIATION av_objetoconstruccion_grupocalificacion =
+      av_grupo_calificacion -- {1} AV_Grupo_Calificacion;
+      av_objeto_construccion -- {0..*} AV_Objeto_Construccion;
+    END av_objetoconstruccion_grupocalificacion;
 
     ASSOCIATION fcm_formulario_contacto =
       fcm_contacto_visita -- {0..*} FCM_Contacto_Visita;

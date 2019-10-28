@@ -291,6 +291,19 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Medianero
     );
 
+    /** Valores válidos para indicar el tipo de construcción empleada para levantar una unidad de construcción, con incidencia en su avalúo. REVISAR DOCUMENTACIÓN
+     */
+    OP_UnidadConstruccionTipo = (
+      !!@ ili2db.dispName = "Residencial"
+      Residencial,
+      !!@ ili2db.dispName = "Comercial"
+      Comercial,
+      !!@ ili2db.dispName = "Industrial"
+      Industrial,
+      !!@ ili2db.dispName = "Anexo"
+      Anexo
+    );
+
     OP_UsoUConsTipo = (
       !!@ ili2db.dispName = "Vivienda de hasta 3 pisos"
       Vivienda_Hasta_3_Pisos,
@@ -833,6 +846,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_UnidadEspacial =
       !!@ ili2db.dispName = "Identificador"
       Identificador : TEXT*3;
+      !!@ ili2db.dispName = "Tipo de unidad de construcción"
+      Tipo_Unidad_Construccion : Operacion_V2_9_6.OP_UnidadConstruccionTipo;
       !!@ ili2db.dispName = "Tipo de dominio"
       Tipo_Dominio : Operacion_V2_9_6.OP_DominioConstruccionTipo;
       !!@ ili2db.dispName = "Tipo de construcción"

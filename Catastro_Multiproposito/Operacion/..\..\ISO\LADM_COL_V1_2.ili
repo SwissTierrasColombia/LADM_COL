@@ -288,7 +288,9 @@ VERSION "V1.2.0"  // 2019-08-13 // =
     STRUCTURE ExtDireccion =
       !!@ ili2db.dispName = "Tipo de dirección"
       Tipo_Direccion : MANDATORY (
+        !!@ ili2db.dispName = "Estructurada"
         Estructurada,
+        !!@ ili2db.dispName = "No estructurada"
         No_Estructurada
       );
       !!@ ili2db.dispName = "Es dirección principal"
@@ -301,11 +303,17 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Codigo_Postal : CharacterString;
       !!@ ili2db.dispName = "Clase de vía principal"
       Clase_Via_Principal : (
+        !!@ ili2db.dispName = "Avenida calle"
         Avenida_Calle,
+        !!@ ili2db.dispName = "Avenida carrera"
         Avenida_Carrera,
+        !!@ ili2db.dispName = "Calle"
         Calle,
+        !!@ ili2db.dispName = "Carrera"
         Carrera,
+        !!@ ili2db.dispName = "Diagonal"
         Diagonal,
+        !!@ ili2db.dispName = "Transversal"
         Transversal
       );
       !!@ ili2db.dispName = "Valor vía principal"
