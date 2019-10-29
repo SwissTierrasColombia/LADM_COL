@@ -16,7 +16,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
 
   DOMAIN
 
-    AV_AnexoTipo = (
+    FCM_AnexoTipo = (
       !!@ ili2db.dispName = "Enramadas o cobertizos o caneyes"
       Enramadas_Cobertizos_Caneyes,
       !!@ ili2db.dispName = "Galpones o gallineros"
@@ -57,82 +57,13 @@ VERSION "V2.2.1"  // 2018-02-01 // =
 
     /** Calificación del suelo.
      */
-    AV_CalificarTipo = (
+    FCM_CalificarTipo = (
       !!@ ili2db.dispName = "Residencial"
       Residencial,
       !!@ ili2db.dispName = "Industrial"
       Industrial,
       !!@ ili2db.dispName = "Comercial"
       Comercial
-    );
-
-    AV_ClaseCalificacionTipo = (
-      !!@ ili2db.dispName = "Estructura"
-      Estructura,
-      !!@ ili2db.dispName = "Acabados"
-      Acabados,
-      !!@ ili2db.dispName = "Baño"
-      Banio,
-      !!@ ili2db.dispName = "Cocina"
-      Cocina
-    );
-
-    AV_EstadoConservacionTipo = (
-      !!@ ili2db.dispName = "Malo"
-      Malo,
-      !!@ ili2db.dispName = "Regular"
-      Regular,
-      !!@ ili2db.dispName = "Bueno"
-      Bueno,
-      !!@ ili2db.dispName = "Excelente"
-      Excelente
-    );
-
-    AV_ObjetoConstruccionTipo = (
-      !!@ ili2db.dispName = "Armazón"
-      Armazon(
-        !!@ ili2db.dispName = "(Armazón) Madera"
-        Madera,
-        Prefabricado,
-        Ladrillo_Bloque,
-        Concreto_Hasta_Tres_Pisos,
-        Concreto_Cuatro_O_Mas_Pisos
-      ),
-      !!@ ili2db.dispName = "Muros"
-      Muros(
-        Materiales_Desecho_Esterilla,
-        Bahareque_Adobe_Tapia
-      ),
-      !!@ ili2db.dispName = "Cubierta"
-      Cubierta,
-      !!@ ili2db.dispName = "Conservación estructura"
-      Conservacion_Estructura,
-      !!@ ili2db.dispName = "Fachada"
-      Fachada,
-      !!@ ili2db.dispName = "Cubrimiento de muros"
-      Cubrimiento_Muros,
-      !!@ ili2db.dispName = "Piso"
-      Piso,
-      !!@ ili2db.dispName = "Conservación de acabados"
-      Conservacion_Acabados,
-      !!@ ili2db.dispName = "Tamaño de baño"
-      Tamanio_Banio,
-      !!@ ili2db.dispName = "Enchape de baño"
-      Enchape_Banio,
-      !!@ ili2db.dispName = "Mobiliario de baño"
-      Mobiliario_Banio,
-      !!@ ili2db.dispName = "Conservación de baño"
-      Conservacion_Banio,
-      !!@ ili2db.dispName = "Tamaño de cocina"
-      Tamanio_Cocina,
-      !!@ ili2db.dispName = "Enchape de cocina"
-      Enchape_Cocina,
-      !!@ ili2db.dispName = "Mobiliario de cocina"
-      Mobiliario_Cocina,
-      !!@ ili2db.dispName = "Conservación de cocina"
-      Conservacion_Cocina,
-      !!@ ili2db.dispName = "Cerchas"
-      Cerchas
     );
 
     /** Categoría de suelo de la clasificación del Plan de Ordenamiento Territorial.
@@ -142,6 +73,17 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Suburbano,
       !!@ ili2db.dispName = "Protección"
       Proteccion
+    );
+
+    FCM_ClaseCalificacionTipo = (
+      !!@ ili2db.dispName = "Estructura"
+      Estructura,
+      !!@ ili2db.dispName = "Acabados"
+      Acabados,
+      !!@ ili2db.dispName = "Baño"
+      Banio,
+      !!@ ili2db.dispName = "Cocina"
+      Cocina
     );
 
     /** Clase de suelo de la clasificación del Plan de Ordenamiento Territorial.
@@ -210,11 +152,244 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Uso_Publico
     );
 
+    FCM_EstadoConservacionTipo = (
+      !!@ ili2db.dispName = "Malo"
+      Malo,
+      !!@ ili2db.dispName = "Regular"
+      Regular,
+      !!@ ili2db.dispName = "Bueno"
+      Bueno,
+      !!@ ili2db.dispName = "Excelente"
+      Excelente
+    );
+
     FCM_FormalidadTipo = (
       !!@ ili2db.dispName = "Formal"
       Formal,
       !!@ ili2db.dispName = "Informal"
       Informal
+    );
+
+    FCM_ObjetoConstruccionTipo = (
+      !!@ ili2db.dispName = "Armazón"
+      Armazon(
+        !!@ ili2db.dispName = "(Armazón) Madera"
+        Madera,
+        !!@ ili2db.dispName = "(Armazón) Prefabricado"
+        Prefabricado,
+        !!@ ili2db.dispName = "(Armazón) Ladrillo, bloque"
+        Ladrillo_Bloque,
+        !!@ ili2db.dispName = "(Armazón) Concreto hasta tres pisos"
+        Concreto_Hasta_Tres_Pisos,
+        !!@ ili2db.dispName = "(Armazón) Concreto cuatro o más pisos"
+        Concreto_Cuatro_O_Mas_Pisos
+      ),
+      !!@ ili2db.dispName = "Muros"
+      Muros(
+        !!@ ili2db.dispName = "(Muros) Materiales de desecho, esterilla"
+        Materiales_Desecho_Esterilla,
+        !!@ ili2db.dispName = "(Muros) Bahareque, adobe, tapia"
+        Bahareque_Adobe_Tapia,
+        !!@ ili2db.dispName = "(Muros) Madera"
+        Madera,
+        !!@ ili2db.dispName = "(Muros) Concreto prefabricado"
+        Concreto_Prefabricado,
+        !!@ ili2db.dispName = "(Muros) Bloque, ladrillo"
+        Bloque_Ladrillo
+      ),
+      !!@ ili2db.dispName = "Cubierta"
+      Cubierta(
+        !!@ ili2db.dispName = "(Cubierta) Materiales de desecho, telas asfalticas"
+        Materiales_Desecho_Telas_Asfalticas,
+        !!@ ili2db.dispName = "(Cubierta) Zinc, teja de barro, eternit rústico"
+        Zinc_Teja_De_Barro_Eternit_Rustico,
+        !!@ ili2db.dispName = "(Cubierta) Entrepiso (cubierta provisional) prefabricado"
+        Entrepiso_Cubierta_Provisional_Prefabricado,
+        !!@ ili2db.dispName = "(Cubierta) Eternit o teja de barro (cubierta sencilla)"
+        Eternit_O_Teja_De_Barro_Cubierta_Sencilla,
+        !!@ ili2db.dispName = "(Cubierta) Azotea, aluminio, placa sencilla con eternit o teja de barro"
+        Azotea_Aluminio_Placa_Sencilla_Con_Eternit,
+        !!@ ili2db.dispName = "(Cubierta) Placa imperbeabilizada cubierta lujosa u ornamental"
+        Placa_Impermeabilizada_Cubierta_Lujosa_U_Ornamental
+      ),
+      !!@ ili2db.dispName = "Conservación estructura"
+      Conservacion_Estructura(
+        !!@ ili2db.dispName = "(Conservación estructura) Malo"
+        Malo,
+        !!@ ili2db.dispName = "(Conservación estructura) Regular"
+        Regular,
+        !!@ ili2db.dispName = "(Conservación estructura) Bueno"
+        Bueno,
+        !!@ ili2db.dispName = "(Conservación estructura) Excelente"
+        Excelente
+      ),
+      !!@ ili2db.dispName = "Fachada"
+      Fachada(
+        !!@ ili2db.dispName = "(Fachada) Pobre"
+        Pobre,
+        !!@ ili2db.dispName = "(Fachada) Sencilla"
+        Sencilla,
+        !!@ ili2db.dispName = "(Fachada) Regular"
+        Regular,
+        !!@ ili2db.dispName = "(Fachada) Buena"
+        Buena,
+        !!@ ili2db.dispName = "(Fachada) Lujosa"
+        Lujosa
+      ),
+      !!@ ili2db.dispName = "Cubrimiento de muros"
+      Cubrimiento_Muros(
+        !!@ ili2db.dispName = "(Cubrimiento de muros) Sin cubrimiento"
+        Sin_Cubrimiento,
+        !!@ ili2db.dispName = "(Cubrimiento de muros) Pañete, papel común, ladrillo prensado"
+        Paniete_Papel_Comun_Ladrillo_Prensado,
+        !!@ ili2db.dispName = "(Cubrimiento de muros) Estuco, cerámica, papel fino"
+        Estuco_Ceramica_Papel_Fino,
+        !!@ ili2db.dispName = "(Cubrimiento de muros) Madera, piedra ornamental"
+        Madera_Piedra_Ornamental,
+        !!@ ili2db.dispName = "(Cubrimiento de muros) Mármol, lujosos otros"
+        Marmol_Lujosos_Otros
+      ),
+      !!@ ili2db.dispName = "Piso"
+      Piso(
+        !!@ ili2db.dispName = "(Piso) Tierra pisada"
+        Tierra_Pisada,
+        !!@ ili2db.dispName = "(Piso) Cemento, madera burda"
+        Cemento_Madera_Burda,
+        !!@ ili2db.dispName = "(Piso) Baldosa común de cemento, tablón de ladrillo"
+        Baldosa_Comun_De_Cemento_Tablon_Ladrillo,
+        !!@ ili2db.dispName = "(Piso) Listón machihembrado"
+        Liston_Machihembrado,
+        !!@ ili2db.dispName = "(Piso) Tableta, caucho, acrílico, granito, baldosa fina"
+        Tableta_Caucho_Acrilico_Granito_Baldosa_Fina,
+        !!@ ili2db.dispName = "(Piso) Parquet, alfombra, retal de marmol (grano pequeño)"
+        Parquet_Alfombra_Retal_De_Marmol,
+        !!@ ili2db.dispName = "(Piso) Retal de mármol, mármol, otros lujosos"
+        Retal_De_Marmol_Marmol_Otros_Lujosos
+      ),
+      !!@ ili2db.dispName = "Conservación de acabados"
+      Conservacion_Acabados(
+        !!@ ili2db.dispName = "(Conservación de acabados) Malo"
+        Malo,
+        !!@ ili2db.dispName = "(Conservación de acabados) Regular"
+        Regular,
+        !!@ ili2db.dispName = "(Conservación de acabados) Bueno"
+        Bueno,
+        !!@ ili2db.dispName = "(Conservación de acabados) Excelente"
+        Excelente
+      ),
+      !!@ ili2db.dispName = "Tamaño de baño"
+      Tamanio_Banio(
+        !!@ ili2db.dispName = "(Tamaño de baño) Sin baño"
+        Sin_Banio,
+        !!@ ili2db.dispName = "(Tamaño de baño) Pequeño"
+        Pequenio,
+        !!@ ili2db.dispName = "(Tamaño de baño) Mediano"
+        Mediano,
+        !!@ ili2db.dispName = "(Tamaño de baño) Grande"
+        Grande
+      ),
+      !!@ ili2db.dispName = "Enchape de baño"
+      Enchape_Banio(
+        !!@ ili2db.dispName = "(Enchape de baño) Sin cubrimiento"
+        Sin_Cubrimiento,
+        !!@ ili2db.dispName = "(Enchape de baño) Pañete, baldosa común de cemento"
+        Paniete_Baldosa_Comun_De_Cemento,
+        !!@ ili2db.dispName = "(Enchape de baño) Baldosín unicolor, papel común"
+        Baldosin_Unicolor_Papel_Comun,
+        !!@ ili2db.dispName = "(Enchape de baño) Baldosín decorado, papel fino"
+        Baldosin_Decorado_Papel_Fino,
+        !!@ ili2db.dispName = "(Enchape de baño) Cerámica cristanac, granito"
+        Ceramica_Cristanac_Granito,
+        !!@ ili2db.dispName = "(Enchape de baño) Mármol, enchape lujoso"
+        Marmol_Enchape_Lujoso
+      ),
+      !!@ ili2db.dispName = "Mobiliario de baño"
+      Mobiliario_Banio(
+        !!@ ili2db.dispName = "(Mobiliario de baño) Pobre"
+        Pobre,
+        !!@ ili2db.dispName = "(Mobiliario de baño) Sencillo"
+        Sencillo,
+        !!@ ili2db.dispName = "(Mobiliario de baño) Regular"
+        Regular,
+        !!@ ili2db.dispName = "(Mobiliario de baño) Bueno"
+        Bueno,
+        !!@ ili2db.dispName = "(Mobiliario de baño) Lujoso"
+        Lujoso
+      ),
+      !!@ ili2db.dispName = "Conservación de baño"
+      Conservacion_Banio(
+        !!@ ili2db.dispName = "(Conservación de baño) Malo"
+        Malo,
+        !!@ ili2db.dispName = "(Conservación de baño) Regular"
+        Regular,
+        !!@ ili2db.dispName = "(Conservación de baño) Bueno"
+        Bueno,
+        !!@ ili2db.dispName = "(Conservación de baño) Excelente"
+        Excelente
+      ),
+      !!@ ili2db.dispName = "Tamaño de cocina"
+      Tamanio_Cocina(
+        !!@ ili2db.dispName = "(Tamaño de cocina) Sin cocina"
+        Sin_Cocina,
+        !!@ ili2db.dispName = "(Tamaño de cocina) Pequeña"
+        Pequenia,
+        !!@ ili2db.dispName = "(Tamaño de cocina) Mediana"
+        Mediana,
+        !!@ ili2db.dispName = "(Tamaño de cocina) Grande"
+        Grande
+      ),
+      !!@ ili2db.dispName = "Enchape de cocina"
+      Enchape_Cocina(
+        !!@ ili2db.dispName = "(Enchape de cocina) Sin cubrimiento"
+        Sin_Cubrimiento,
+        !!@ ili2db.dispName = "(Enchape de cocina) Pañete, baldosa de cemento"
+        Paniete_Baldosa_De_Cemento,
+        !!@ ili2db.dispName = "(Enchape de cocina) Baldosín unicolor, papel común"
+        Baldosin_Unicolor_Papel_Comun,
+        !!@ ili2db.dispName = "(Enchape de cocina) Baldosín decorado, papel fino"
+        Baldosin_Decorado_Papel_Fino,
+        !!@ ili2db.dispName = "(Enchape de cocina) Cerámica cristanac, granito"
+        Ceramica_Cristanac_Granito,
+        !!@ ili2db.dispName = "(Enchape de cocina) Mármol, enchape lujoso"
+        Marmol_Enchape_Lujoso
+      ),
+      !!@ ili2db.dispName = "Mobiliario de cocina"
+      Mobiliario_Cocina(
+        !!@ ili2db.dispName = "(Mobiliario de cocina) Pobre"
+        Pobre,
+        !!@ ili2db.dispName = "(Mobiliario de cocina) Sencillo"
+        Sencillo,
+        !!@ ili2db.dispName = "(Mobiliario de cocina) Regular"
+        Regular,
+        !!@ ili2db.dispName = "(Mobiliario de cocina) Bueno"
+        Bueno,
+        !!@ ili2db.dispName = "(Mobiliario de cocina) Lujoso"
+        Lujoso
+      ),
+      !!@ ili2db.dispName = "Conservación de cocina"
+      Conservacion_Cocina(
+        !!@ ili2db.dispName = "(Conservación de cocina) Malo"
+        Malo,
+        !!@ ili2db.dispName = "(Conservación de cocina) Regular"
+        Regular,
+        !!@ ili2db.dispName = "(Conservación de cocina) Bueno"
+        Bueno,
+        !!@ ili2db.dispName = "(Conservación de cocina) Excelente"
+        Excelente
+      ),
+      !!@ ili2db.dispName = "Cerchas complemento industria"
+      Cerchas_Complemento_Industria(
+        !!@ ili2db.dispName = "(Cerchas complemento industria) Madera"
+        Madera,
+        !!@ ili2db.dispName = "(Cerchas complemento industria) Metálica liviana"
+        Metalica_Liviana,
+        !!@ ili2db.dispName = "(Cerchas complemento industria) Metálica mediana"
+        Metalica_Mediana,
+        !!@ ili2db.dispName = "(Cerchas complemento industria) Metálica pesada"
+        Metalica_Pesada,
+        !!@ ili2db.dispName = "(Cerchas complemento industria) Altura"
+        Altura
+      )
     );
 
     FCM_PredioPublicoTipo = (
@@ -240,27 +415,8 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     OID AS INTERLIS.UUIDOID;
     DEPENDS ON Avaluos_V2_9_6.Avaluos,Operacion_V2_9_6.Operacion;
 
-    CLASS AV_Calificacion_Unidad_Construccion (ABSTRACT) =
-    END AV_Calificacion_Unidad_Construccion;
-
-    STRUCTURE AV_Estructura_Objeto_Construccion =
-      !!@ ili2db.dispName = "Clase de calificación"
-      Clase_Calificacion : MANDATORY Formulario_Catastro_V2_9_6.AV_ClaseCalificacionTipo;
-      !!@ ili2db.dispName = "Tipo de objeto de construcción"
-      Tipo_Objeto_Construccion : MANDATORY Formulario_Catastro_V2_9_6.AV_ObjetoConstruccionTipo;
-      !!@ ili2db.dispName = "Nombre"
-      Nombre : MANDATORY TEXT*255;
-    END AV_Estructura_Objeto_Construccion;
-
-    !!@ ili2db.dispName = "(Avalúos) Grupo Calificación"
-    CLASS AV_Grupo_Calificacion =
-      !!@ ili2db.dispName = "Clase de calificación"
-      Clase_Calificacion : MANDATORY Formulario_Catastro_V2_9_6.AV_ClaseCalificacionTipo;
-      !!@ ili2db.dispName = "Conservación"
-      Conservacion : Formulario_Catastro_V2_9_6.AV_EstadoConservacionTipo;
-      !!@ ili2db.dispName = "Subtotal"
-      Subtotal : 0 .. 9999999;
-    END AV_Grupo_Calificacion;
+    CLASS FCM_Calificacion_Unidad_Construccion (ABSTRACT) =
+    END FCM_Calificacion_Unidad_Construccion;
 
     !!@ ili2db.dispName = "(FCM) Contacto Visita"
     CLASS FCM_Contacto_Visita =
@@ -278,6 +434,25 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Autoriza_Notificaciones : BOOLEAN;
     END FCM_Contacto_Visita;
 
+    STRUCTURE FCM_Estructura_Objeto_Construccion =
+      !!@ ili2db.dispName = "Clase de calificación"
+      Clase_Calificacion : MANDATORY Formulario_Catastro_V2_9_6.FCM_ClaseCalificacionTipo;
+      !!@ ili2db.dispName = "Tipo de objeto de construcción"
+      Tipo_Objeto_Construccion : MANDATORY Formulario_Catastro_V2_9_6.FCM_ObjetoConstruccionTipo;
+      !!@ ili2db.dispName = "Nombre"
+      Nombre : MANDATORY TEXT*255;
+    END FCM_Estructura_Objeto_Construccion;
+
+    !!@ ili2db.dispName = "(Avalúos) Grupo Calificación"
+    CLASS FCM_Grupo_Calificacion =
+      !!@ ili2db.dispName = "Clase de calificación"
+      Clase_Calificacion : MANDATORY Formulario_Catastro_V2_9_6.FCM_ClaseCalificacionTipo;
+      !!@ ili2db.dispName = "Conservación"
+      Conservacion : Formulario_Catastro_V2_9_6.FCM_EstadoConservacionTipo;
+      !!@ ili2db.dispName = "Subtotal"
+      Subtotal : 0 .. 9999999;
+    END FCM_Grupo_Calificacion;
+
     STRUCTURE FCM_Predio_Englobe =
       !!@ ili2db.dispName = "Número predial"
       Numero_Predial : MANDATORY TEXT*30;
@@ -286,34 +461,24 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     /** Datos para el avalúo de la unidad de construcción.
      */
     !!@ ili2db.dispName = "(Avalúos) Calificación Convencional"
-    CLASS AV_Calificacion_Convencional
-    EXTENDS AV_Calificacion_Unidad_Construccion =
+    CLASS FCM_Calificacion_Convencional
+    EXTENDS FCM_Calificacion_Unidad_Construccion =
       !!@ ili2db.dispName = "Tipo a calificar"
-      Tipo_Calificar : Formulario_Catastro_V2_9_6.AV_CalificarTipo;
+      Tipo_Calificar : Formulario_Catastro_V2_9_6.FCM_CalificarTipo;
       !!@ ili2db.dispName = "Total calificación"
       Total_Calificacion : LADM_COL_V1_2.LADM_Nucleo.Integer;
-    END AV_Calificacion_Convencional;
+    END FCM_Calificacion_Convencional;
 
     !!@ ili2db.dispName = "(Avalúos) Calificación No Convencional"
-    CLASS AV_Calificacion_No_Convencional
-    EXTENDS AV_Calificacion_Unidad_Construccion =
+    CLASS FCM_Calificacion_No_Convencional
+    EXTENDS FCM_Calificacion_Unidad_Construccion =
       !!@ ili2db.dispName = "Tipo de anexo"
-      Tipo_Anexo : Formulario_Catastro_V2_9_6.AV_AnexoTipo;
+      Tipo_Anexo : Formulario_Catastro_V2_9_6.FCM_AnexoTipo;
       !!@ ili2db.dispName = "Descripción de anexo"
       Descripcion_Anexo : TEXT*256;
       !!@ ili2db.dispName = "Puntaje anexo"
       Puntaje_Anexo : TEXT*2;
-    END AV_Calificacion_No_Convencional;
-
-    !!@ ili2db.dispName = "(Avalúos) Objeto Construcción"
-    CLASS AV_Objeto_Construccion =
-      !!@ ili2db.dispName = "Tipo de objeto de construcción"
-      Tipo_Objeto_Construccion : MANDATORY Formulario_Catastro_V2_9_6.Formulario_Catastro.AV_Estructura_Objeto_Construccion;
-      !!@ ili2db.dispName = "Puntos"
-      Puntos : MANDATORY 0 .. 16;
-      !!@ ili2db.dispName = "Característica"
-      Caracteristica : TEXT*255;
-    END AV_Objeto_Construccion;
+    END FCM_Calificacion_No_Convencional;
 
     /** Datos de formulario único de catastro multipropósito
      */
@@ -359,22 +524,22 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Nombre_Reconocedor : MANDATORY TEXT*255;
     END FCM_Formulario_Unico_CM;
 
+    !!@ ili2db.dispName = "(Avalúos) Objeto Construcción"
+    CLASS FCM_Objeto_Construccion =
+      !!@ ili2db.dispName = "Tipo de objeto de construcción"
+      Tipo_Objeto_Construccion : MANDATORY Formulario_Catastro_V2_9_6.Formulario_Catastro.FCM_Estructura_Objeto_Construccion;
+      !!@ ili2db.dispName = "Puntos"
+      Puntos : MANDATORY 0 .. 16;
+      !!@ ili2db.dispName = "Característica"
+      Caracteristica : TEXT*255;
+    END FCM_Objeto_Construccion;
+
     /** Relación entre la clase Unidad_Construccion del modelo de Avalúos y Calificacion_Unidad_Construccion de modelo de Avalúos
      */
-    ASSOCIATION av_calificacion_unidadconstruccion =
+    ASSOCIATION fcm_calificacion_unidadconstruccion =
       op_av_unidad_construccion (EXTERNAL) -- {1} Operacion_V2_9_6.Operacion.OP_UnidadConstruccion;
-      av_calificacion_unidad_construccion -- {0..1} AV_Calificacion_Unidad_Construccion;
-    END av_calificacion_unidadconstruccion;
-
-    ASSOCIATION av_grupo_calificacionconvencional =
-      av_calificacion_convencional -- {1} AV_Calificacion_Convencional;
-      av_grupo_calificacion -- {0..*} AV_Grupo_Calificacion;
-    END av_grupo_calificacionconvencional;
-
-    ASSOCIATION av_objetoconstruccion_grupocalificacion =
-      av_grupo_calificacion -- {1} AV_Grupo_Calificacion;
-      av_objeto_construccion -- {0..*} AV_Objeto_Construccion;
-    END av_objetoconstruccion_grupocalificacion;
+      av_calificacion_unidad_construccion -- {0..1} FCM_Calificacion_Unidad_Construccion;
+    END fcm_calificacion_unidadconstruccion;
 
     ASSOCIATION fcm_formulario_contacto =
       fcm_contacto_visita -- {0..*} FCM_Contacto_Visita;
@@ -387,6 +552,16 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       op_predio (EXTERNAL) -- {1} Operacion_V2_9_6.Operacion.OP_Predio;
       fcm_formulario_unico -- {0..1} FCM_Formulario_Unico_CM;
     END fcm_formulario_predio;
+
+    ASSOCIATION fcm_grupo_calificacionconvencional =
+      av_calificacion_convencional -- {1} FCM_Calificacion_Convencional;
+      av_grupo_calificacion -- {0..*} FCM_Grupo_Calificacion;
+    END fcm_grupo_calificacionconvencional;
+
+    ASSOCIATION fcm_objetoconstruccion_grupocalificacion =
+      av_grupo_calificacion -- {1} FCM_Grupo_Calificacion;
+      av_objeto_construccion -- {0..*} FCM_Objeto_Construccion;
+    END fcm_objetoconstruccion_grupocalificacion;
 
   END Formulario_Catastro;
 
