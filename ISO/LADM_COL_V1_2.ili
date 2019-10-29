@@ -4,22 +4,22 @@ INTERLIS 2.3;
  * 
  * -----------------------------------------------------------
  * 
- * LADM es un modelo conceptual de la realidad que concreta una ontologÌa y establece una sem·ntica para la administraciÛn del territorio.
+ * LADM es un modelo conceptual de la realidad que concreta una ontolog√≠a y establece una sem√°ntica para la administraci√≥n del territorio.
  * 
  * -----------------------------------------------------------
  *  revision history
  * -----------------------------------------------------------
  * 
  *  30.01.2018/fm : Cambio del tipo de dato del atributo Ext_Direccion de la clase Unidad Espacial a ExtDireccion; atributo ext_PID de la calse LA_Interesado cambia de OID a ExtInteresado; Cambio de cardinalidad en relacion miembros entre LA_Interesado y LA_Agrupacion_Interesados de 0..1 a 0..*
- *  07.02.2018/fm-gc: Ajuste al tipo de dato de la unidad Peso, pasa a tener precision 1 para evitar ser tratado cmo atributo entero y aumentar su tamaÒo
- *  19.02.2018/fm-gc: ampliaciÛn del dominio al tipo de dato Peso
+ *  07.02.2018/fm-gc: Ajuste al tipo de dato de la unidad Peso, pasa a tener precision 1 para evitar ser tratado cmo atributo entero y aumentar su tama√±o
+ *  19.02.2018/fm-gc: ampliaci√≥n del dominio al tipo de dato Peso
  *  26.02.2018/fm-lj: cambio del nombre del dominio ISO19125_Type a ISO19125_Tipo
  *  19.04.2018/vb fm: Ajuste al constraint Fraccion, denominador mayor a 0
  *  19.04.2018/vb fm: Cambio en la cardinalidad del atributo u_Local_Id de la clase LA_BAUnit de 0..1 a 1
  * 17.07.2018/fm : se incluye escritura en dominio COL_FuenteAdministrativaTipo
  * 10.08.2018/fm : Se eliminan los atributos ai_local_id y ai_espacio_de_nombres de la clase LA_Agrupacion_Interesados
  * 27.08.2018/fm : Ajuste a la cardinalidad de asociacion puntoFuente de 1..* a 0..*
- * 25.09.2018/at: Se ajusta la longitud del atributo Codigo_Registral_Transaccion en la clase COL_FuenteAdministrativa a 5 caracteres de acuerdo a la ResoluciÛn 3973 de 2018
+ * 25.09.2018/at: Se ajusta la longitud del atributo Codigo_Registral_Transaccion en la clase COL_FuenteAdministrativa a 5 caracteres de acuerdo a la Resoluci√≥n 3973 de 2018
  * -----------------------------------------------------------
  * 
  *  (c) IGAC y SNR con apoyo de la Cooperacion Suiza
@@ -48,22 +48,22 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       CharacterString = TEXT*255;
 
       COL_AreaTipo = (
-        !!@ ili2db.dispName = "¡rea calculada artura local"
+        !!@ ili2db.dispName = "√Årea calculada artura local"
         Area_Calculada_Altura_Local,
-        !!@ ili2db.dispName = "¡rea calculada altura mar"
+        !!@ ili2db.dispName = "√Årea calculada altura mar"
         Area_Calculada_Altura_Mar,
-        !!@ ili2db.dispName = "¡rea catastral administrativa"
+        !!@ ili2db.dispName = "√Årea catastral administrativa"
         Area_Catastral_Administrativa,
-        !!@ ili2db.dispName = "¡rea estimado construcciÛn"
+        !!@ ili2db.dispName = "√Årea estimado construcci√≥n"
         Area_Estimado_Construccion,
-        !!@ ili2db.dispName = "¡rea no oficial"
+        !!@ ili2db.dispName = "√Årea no oficial"
         Area_No_Oficial,
-        !!@ ili2db.dispName = "¡rea registral"
+        !!@ ili2db.dispName = "√Årea registral"
         Area_Registral
       );
 
       COL_BAUnitTipo = (
-        !!@ ili2db.dispName = "Unidad propiedad b·sica"
+        !!@ ili2db.dispName = "Unidad propiedad b√°sica"
         Unidad_Propiedad_Basica,
         !!@ ili2db.dispName = "Unidad derecho"
         Unidad_Derecho,
@@ -72,9 +72,9 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       );
 
       COL_ContenidoNivelTipo = (
-        !!@ ili2db.dispName = "ConstrucciÛn convencional"
+        !!@ ili2db.dispName = "Construcci√≥n convencional"
         Construccion_Convencional,
-        !!@ ili2db.dispName = "ConstrucciÛn no convencional"
+        !!@ ili2db.dispName = "Construcci√≥n no convencional"
         Construccion_No_Convencional,
         !!@ ili2db.dispName = "Consuetudinario"
         Consuetudinario,
@@ -84,16 +84,16 @@ VERSION "V1.2.0"  // 2019-08-13 // =
         Informal,
         !!@ ili2db.dispName = "Responsabilidad"
         Responsabilidad,
-        !!@ ili2db.dispName = "RestricciÛn derecho p˙blico"
+        !!@ ili2db.dispName = "Restricci√≥n derecho p√∫blico"
         Restriccion_Derecho_Publico,
-        !!@ ili2db.dispName = "RestricciÛn derecho privado"
+        !!@ ili2db.dispName = "Restricci√≥n derecho privado"
         Restriccion_Derecho_Privado
       );
 
       COL_DimensionTipo = (
-        !!@ ili2db.dispName = "DimensiÛn 2D"
+        !!@ ili2db.dispName = "Dimensi√≥n 2D"
         Dim2D,
-        !!@ ili2db.dispName = "DimensiÛn 3D"
+        !!@ ili2db.dispName = "Dimensi√≥n 3D"
         Dim3D,
         !!@ ili2db.dispName = "Otro"
         Otro
@@ -113,20 +113,20 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       COL_EstructuraTipo = (
         !!@ ili2db.dispName = "Croquis"
         Croquis,
-        !!@ ili2db.dispName = "LÌnea no estructurada"
+        !!@ ili2db.dispName = "L√≠nea no estructurada"
         Linea_no_Estructurada,
         !!@ ili2db.dispName = "Texto"
         Texto,
-        !!@ ili2db.dispName = "TopolÛgico"
+        !!@ ili2db.dispName = "Topol√≥gico"
         Topologico
       );
 
       COL_FuenteEspacialTipo = (
         !!@ ili2db.dispName = "Croquis de campo"
         Croquis_Campo,
-        !!@ ili2db.dispName = "ProtÛcolo de posicionamiento"
+        !!@ ili2db.dispName = "Prot√≥colo de posicionamiento"
         Protocolo_Posicionamiento,
-        !!@ ili2db.dispName = "Informe de c·lculo"
+        !!@ ili2db.dispName = "Informe de c√°lculo"
         Informe_Calculo,
         !!@ ili2db.dispName = "Datos crudos"
         Datos_Crudos
@@ -154,27 +154,27 @@ VERSION "V1.2.0"  // 2019-08-13 // =
         Grupo_Civil,
         !!@ ili2db.dispName = "Grupo empresarial"
         Grupo_Empresarial,
-        !!@ ili2db.dispName = "Grupo Ètnico"
+        !!@ ili2db.dispName = "Grupo √©tnico"
         Grupo_Etnico,
         !!@ ili2db.dispName = "Grupo mixto"
         Grupo_Mixto
       );
 
-      /** Si ha sido situado por interpolaciÛn, de quÈ manera se ha hecho.
+      /** Si ha sido situado por interpolaci√≥n, de qu√© manera se ha hecho.
        */
       COL_InterpolacionTipo = (
         !!@ ili2db.dispName = "Aislado"
         Aislado,
         !!@ ili2db.dispName = "Intermedio arco"
         Intermedio_Arco,
-        !!@ ili2db.dispName = "Intermedio lÌnea"
+        !!@ ili2db.dispName = "Intermedio l√≠nea"
         Intermedio_Linea
       );
 
       COL_MetodoProduccionTipo = (
-        !!@ ili2db.dispName = "MÈtodo directo"
+        !!@ ili2db.dispName = "M√©todo directo"
         Metodo_Directo,
-        !!@ ili2db.dispName = "MÈtodo indirecto"
+        !!@ ili2db.dispName = "M√©todo indirecto"
         Metodo_Indirecto
       );
 
@@ -248,36 +248,36 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Currency = -2000000000.00 .. 2000000000.00;
 
       Real = 0.000 .. 999999999.999;
-    STRUCTURE COL_FuncionInteresadoTipo_COL_Interesado_Tarea = value : MANDATORY COL_FuncionInteresadoTipo; END COL_FuncionInteresadoTipo_COL_Interesado_Tarea;
+    STRUCTURE COL_FuncionInteresadoTipo_ = value : MANDATORY COL_FuncionInteresadoTipo; END COL_FuncionInteresadoTipo_;
 
     /** Clase traducida CI_Contact de la ISO 19115.
-     * Almacena la informaciÛn requerida para permitir el contacto con la persona responsable y la organizaciÛn.
+     * Almacena la informaci√≥n requerida para permitir el contacto con la persona responsable y la organizaci√≥n.
      */
     STRUCTURE CI_Contacto =
-      /** N˙meros de telÈfono en los que la organizaciÛn o el individuo pueden ser contactados.
+      /** N√∫meros de tel√©fono en los que la organizaci√≥n o el individuo pueden ser contactados.
        */
-      !!@ ili2db.dispName = "TelÈfono"
+      !!@ ili2db.dispName = "Tel√©fono"
       Telefono : CharacterString;
-      /** DirecciÛn fÌsica y de correo electrÛnico en la que se puede contactar a la organizaciÛn o al individuo.
+      /** Direcci√≥n f√≠sica y de correo electr√≥nico en la que se puede contactar a la organizaci√≥n o al individuo.
        */
-      !!@ ili2db.dispName = "DirecciÛn"
+      !!@ ili2db.dispName = "Direcci√≥n"
       Direccion : CharacterString;
-      /** InformaciÛn en lÌnea que se puede usar para contactar al individuo o a la organizaciÛn.
+      /** Informaci√≥n en l√≠nea que se puede usar para contactar al individuo o a la organizaci√≥n.
        */
-      !!@ ili2db.dispName = "Fuente en lÌnea"
+      !!@ ili2db.dispName = "Fuente en l√≠nea"
       Fuente_En_Linea : CharacterString;
-      /** PerÌodo de tiempo, incluida la zona horaria, en el que la organizaciÛn o el individuo pueden ser contactados.
+      /** Per√≠odo de tiempo, incluida la zona horaria, en el que la organizaci√≥n o el individuo pueden ser contactados.
        */
-      !!@ ili2db.dispName = "Horario de atenciÛn"
+      !!@ ili2db.dispName = "Horario de atenci√≥n"
       Horario_De_Atencion : CharacterString;
-      /** Instrucciones complementarias sobre cÛmo o cu·ndo contactar al individuo o a la organizaciÛn.
+      /** Instrucciones complementarias sobre c√≥mo o cu√°ndo contactar al individuo o a la organizaci√≥n.
        */
       !!@ ili2db.dispName = "Instrucciones de contacto"
       Instrucciones_Contacto : CharacterString;
     END CI_Contacto;
 
     STRUCTURE COL_AreaValor =
-      !!@ ili2db.dispName = "¡rea"
+      !!@ ili2db.dispName = "√Årea"
       areaSize : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_2.m2];
       !!@ ili2db.dispName = "Tipo"
       type : MANDATORY COL_AreaTipo;
@@ -286,31 +286,39 @@ VERSION "V1.2.0"  // 2019-08-13 // =
     /** Referencia a una clase externa para gestionar direcciones.
      */
     STRUCTURE ExtDireccion =
-      !!@ ili2db.dispName = "Tipo de direcciÛn"
+      !!@ ili2db.dispName = "Tipo de direcci√≥n"
       Tipo_Direccion : MANDATORY (
+        !!@ ili2db.dispName = "Estructurada"
         Estructurada,
+        !!@ ili2db.dispName = "No estructurada"
         No_Estructurada
       );
-      !!@ ili2db.dispName = "Es direcciÛn principal"
+      !!@ ili2db.dispName = "Es direcci√≥n principal"
       Es_Direccion_Principal : BOOLEAN;
-      /** Par de valores georreferenciados (x,y) en la que se encuentra la direcciÛn.
+      /** Par de valores georreferenciados (x,y) en la que se encuentra la direcci√≥n.
        */
-      !!@ ili2db.dispName = "LocalizaciÛn"
+      !!@ ili2db.dispName = "Localizaci√≥n"
       Localizacion : ISO19107_PLANAS_V1.GM_Point3D;
-      !!@ ili2db.dispName = "CÛdigo postal"
+      !!@ ili2db.dispName = "C√≥digo postal"
       Codigo_Postal : CharacterString;
-      !!@ ili2db.dispName = "Clase de vÌa principal"
+      !!@ ili2db.dispName = "Clase de v√≠a principal"
       Clase_Via_Principal : (
+        !!@ ili2db.dispName = "Avenida calle"
         Avenida_Calle,
+        !!@ ili2db.dispName = "Avenida carrera"
         Avenida_Carrera,
+        !!@ ili2db.dispName = "Calle"
         Calle,
+        !!@ ili2db.dispName = "Carrera"
         Carrera,
+        !!@ ili2db.dispName = "Diagonal"
         Diagonal,
+        !!@ ili2db.dispName = "Transversal"
         Transversal
       );
-      !!@ ili2db.dispName = "Valor vÌa principal"
+      !!@ ili2db.dispName = "Valor v√≠a principal"
       Valor_Via_Principal : TEXT*100;
-      !!@ ili2db.dispName = "Letra vÌa principal"
+      !!@ ili2db.dispName = "Letra v√≠a principal"
       Letra_Via_Principal : TEXT*20;
       !!@ ili2db.dispName = "Sector de la ciudad"
       Sector_Ciudad : (
@@ -319,11 +327,11 @@ VERSION "V1.2.0"  // 2019-08-13 // =
         Este,
         Oeste
       );
-      !!@ ili2db.dispName = "Valor de vÌa generadora"
+      !!@ ili2db.dispName = "Valor de v√≠a generadora"
       Valor_Via_Generadora : TEXT*100;
-      !!@ ili2db.dispName = "Letra de vÌa generadora"
+      !!@ ili2db.dispName = "Letra de v√≠a generadora"
       Letra_Via_Generadora : TEXT*20;
-      !!@ ili2db.dispName = "N˙mero del predio"
+      !!@ ili2db.dispName = "N√∫mero del predio"
       Numero_Predio : TEXT*20;
       !!@ ili2db.dispName = "Sector del predio"
       Sector_Predio : (
@@ -340,14 +348,14 @@ VERSION "V1.2.0"  // 2019-08-13 // =
         Nombre_Predio <> UNDEFINED;
     END ExtDireccion;
 
-    /** Estructura para la definiciÛn de un tipo de dato personalizado que permite indicar una fracciÛn o quebrado cona serie especÌfica de condiciones.
+    /** Estructura para la definici√≥n de un tipo de dato personalizado que permite indicar una fracci√≥n o quebrado cona serie espec√≠fica de condiciones.
      */
     STRUCTURE Fraccion =
-      /** Parte inferior de la fracciÛn. Debe ser mayor que 0. Debe ser mayor que el numerador.
+      /** Parte inferior de la fracci√≥n. Debe ser mayor que 0. Debe ser mayor que el numerador.
        */
       !!@ ili2db.dispName = "Denominador"
       Denominador : MANDATORY Integer;
-      /** Parte superior de la fracciÛn. Debe ser mayor que 0. Debe sder menor que el denominador.
+      /** Parte superior de la fracci√≥n. Debe ser mayor que 0. Debe sder menor que el denominador.
        */
       !!@ ili2db.dispName = "Numerador"
       Numerador : MANDATORY Integer;
@@ -378,7 +386,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
         Promesa_Compraventa,
         !!@ ili2db.dispName = "Reglamento"
         Reglamento,
-        !!@ ili2db.dispName = "ResoluciÛn"
+        !!@ ili2db.dispName = "Resoluci√≥n"
         Resolucion,
         !!@ ili2db.dispName = "Sentencia"
         Sentencia,
@@ -409,13 +417,13 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       );
 
       COL_RedServiciosTipo = (
-        !!@ ili2db.dispName = "PetrÛleo"
+        !!@ ili2db.dispName = "Petr√≥leo"
         Petroleo,
-        !!@ ili2db.dispName = "QuÌmicos"
+        !!@ ili2db.dispName = "Qu√≠micos"
         Quimicos,
-        !!@ ili2db.dispName = "Red tÈrmica"
+        !!@ ili2db.dispName = "Red t√©rmica"
         Red_Termica,
-        !!@ ili2db.dispName = "TelecomunicaciÛn"
+        !!@ ili2db.dispName = "Telecomunicaci√≥n"
         Telecomunicacion
       );
 
@@ -430,10 +438,10 @@ VERSION "V1.2.0"  // 2019-08-13 // =
 
       Peso = 0.0 .. 999999999999999.0 [LADM_COL_V1_2.COP];
 
-    /** Control externo de la unidad de edificaciÛn fÌsica.
+    /** Control externo de la unidad de edificaci√≥n f√≠sica.
      */
     STRUCTURE ExtUnidadEdificacionFisica =
-      !!@ ili2db.dispName = "Ext direcciÛn id"
+      !!@ ili2db.dispName = "Ext direcci√≥n id"
       Ext_Direccion_ID : LADM_COL_V1_2.LADM_Nucleo.ExtDireccion;
     END ExtUnidadEdificacionFisica;
 
@@ -448,7 +456,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
 
     DOMAIN
 
-      /** Dominio que proviene de la traducciÛn de CI_RoleCode de la norma ISO 19115:2003. Da los valores de dominio v·lidos para la funciÛn realizada por la parte responsable.
+      /** Dominio que proviene de la traducci√≥n de CI_RoleCode de la norma ISO 19115:2003. Da los valores de dominio v√°lidos para la funci√≥n realizada por la parte responsable.
        */
       CI_CodigoTarea = (
         !!@ ili2db.dispName = "Proveedor de recursos"
@@ -476,9 +484,9 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       );
 
       COL_MonumentacionTipo = (
-        !!@ ili2db.dispName = "IncrustaciÛn"
+        !!@ ili2db.dispName = "Incrustaci√≥n"
         Incrustacion,
-        !!@ ili2db.dispName = "MojÛn"
+        !!@ ili2db.dispName = "Moj√≥n"
         Mojon,
         !!@ ili2db.dispName = "No materializado"
         No_Materializado,
@@ -489,38 +497,38 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       );
 
     /** Clase traducida a partir de DQ_Element de la norma ISO 19157.
-     * Contiene los aspectos de la informaciÛn de calidad cuantitativa. REVISAR MODELADO
+     * Contiene los aspectos de la informaci√≥n de calidad cuantitativa. REVISAR MODELADO
      */
     STRUCTURE DQ_Element =
-      /** Nombre de la prueba aplicada a los datos. Proviene de la agregaciÛn de la clase DQ_MeasureReference a DQ_Element.
+      /** Nombre de la prueba aplicada a los datos. Proviene de la agregaci√≥n de la clase DQ_MeasureReference a DQ_Element.
        */
       !!@ ili2db.dispName = "Nombre de la medida"
       Nombre_Medida : CharacterString;
-      /** Identificador de la medida, valor que identifica de manera ˙nica la medida dentro de un espacio de nombres. Proviene de la agregaciÛn de la clase DQ_MeasureReference a DQ_Element.
+      /** Identificador de la medida, valor que identifica de manera √∫nica la medida dentro de un espacio de nombres. Proviene de la agregaci√≥n de la clase DQ_MeasureReference a DQ_Element.
        */
-      !!@ ili2db.dispName = "IdentificaciÛn de la medida"
+      !!@ ili2db.dispName = "Identificaci√≥n de la medida"
       Identificacion_Medida : CharacterString;
-      /** DescripciÛn. Proviene de la agregaciÛn de la clase DQ_MeasureReference a DQ_Element.
+      /** Descripci√≥n. Proviene de la agregaci√≥n de la clase DQ_MeasureReference a DQ_Element.
        */
-      !!@ ili2db.dispName = "DescripciÛn de la medida"
+      !!@ ili2db.dispName = "Descripci√≥n de la medida"
       Descripcion_Medida : CharacterString;
-      /** MÈtodo utilizado para evaluar la calidad de los datos. Proviene de la agregaciÛn de la clase DQ_EvaluationMethod a DQ_Element.
+      /** M√©todo utilizado para evaluar la calidad de los datos. Proviene de la agregaci√≥n de la clase DQ_EvaluationMethod a DQ_Element.
        */
-      !!@ ili2db.dispName = "MÈtodo de evaluaciÛn"
+      !!@ ili2db.dispName = "M√©todo de evaluaci√≥n"
       Metodo_Evaluacion : DQ_Metodo_Evaluacion_Codigo_Tipo;
-      /** DescripciÛn del mÈtodo de evaluaciÛn. Proviene de la agregaciÛn de la clase DQ_EvaluationMethod a DQ_Element.
+      /** Descripci√≥n del m√©todo de evaluaci√≥n. Proviene de la agregaci√≥n de la clase DQ_EvaluationMethod a DQ_Element.
        */
-      !!@ ili2db.dispName = "DescripciÛn mÈtodod de evaluaciÛn"
+      !!@ ili2db.dispName = "Descripci√≥n m√©todod de evaluaci√≥n"
       Descripcion_Metodo_Evaluacion : CharacterString;
-      /** Referencia a la informaciÛn del procedimiento. Proviene de la agregaciÛn de la clase DQ_MeasureReference a DQ_Element.
+      /** Referencia a la informaci√≥n del procedimiento. Proviene de la agregaci√≥n de la clase DQ_MeasureReference a DQ_Element.
        */
-      !!@ ili2db.dispName = "Procedimiento de evaluaciÛn"
+      !!@ ili2db.dispName = "Procedimiento de evaluaci√≥n"
       Procedimiento_Evaluacion : CharacterString;
-      /** Fecha y hora en la que se generan los resultados. Proviene de la agregaciÛn de la clase DQ_Result a DQ_Element.
+      /** Fecha y hora en la que se generan los resultados. Proviene de la agregaci√≥n de la clase DQ_Result a DQ_Element.
        */
       !!@ ili2db.dispName = "Fecha hora"
       Fecha_Hora : INTERLIS.XMLDateTime;
-      /** Alcance del resultado de la prueba de calidad. Proviene de la agregaciÛn de la clase DQ_Result a DQ_Element.
+      /** Alcance del resultado de la prueba de calidad. Proviene de la agregaci√≥n de la clase DQ_Result a DQ_Element.
        */
       !!@ ili2db.dispName = "Resultado"
       Resultado : CharacterString;
@@ -531,13 +539,13 @@ VERSION "V1.2.0"  // 2019-08-13 // =
     STRUCTURE ExtInteresado =
       /** Identificador externo del interesado.
        */
-      !!@ ili2db.dispName = "Ext direcciÛn id"
+      !!@ ili2db.dispName = "Ext direcci√≥n id"
       Ext_Direccion_ID : LADM_COL_V1_2.LADM_Nucleo.ExtDireccion;
       !!@ ili2db.dispName = "Huella dactilar"
       Huella_Dactilar : LADM_COL_V1_2.LADM_Nucleo.Imagen;
       !!@ ili2db.dispName = "Nombre"
       Nombre : CharacterString;
-      !!@ ili2db.dispName = "FotografÌa"
+      !!@ ili2db.dispName = "Fotograf√≠a"
       Fotografia : LADM_COL_V1_2.LADM_Nucleo.Imagen;
       !!@ ili2db.dispName = "Firma"
       Firma : LADM_COL_V1_2.LADM_Nucleo.Imagen;
@@ -545,82 +553,82 @@ VERSION "V1.2.0"  // 2019-08-13 // =
 
     DOMAIN
 
-      /** TraducciÛn del dominio CI_PresentationFormCode de la norma ISO 19115:2003. Indica el modo en el que se representan los datos.
+      /** Traducci√≥n del dominio CI_PresentationFormCode de la norma ISO 19115:2003. Indica el modo en el que se representan los datos.
        */
       CI_Forma_Presentacion_Codigo = (
-        /** DefiniciÛn en la ISO 19115:2003.
+        /** Definici√≥n en la ISO 19115:2003.
          */
         !!@ ili2db.dispName = "Imagen"
         Imagen,
-        /** DefiniciÛn en la ISO 19115:2003.
+        /** Definici√≥n en la ISO 19115:2003.
          */
         !!@ ili2db.dispName = "Mapa"
         Mapa,
-        /** DefiniciÛn en la ISO 19115:2003.
+        /** Definici√≥n en la ISO 19115:2003.
          */
         !!@ ili2db.dispName = "Modelo"
         Modelo,
-        /** DefiniciÛn en la ISO 19115:2003.
+        /** Definici√≥n en la ISO 19115:2003.
          */
         !!@ ili2db.dispName = "Perfil"
         Perfil,
-        /** DefiniciÛn en la ISO 19115:2003.
+        /** Definici√≥n en la ISO 19115:2003.
          */
         !!@ ili2db.dispName = "Tabla"
         Tabla,
-        /** DefiniciÛn en la ISO 19115:2003.
+        /** Definici√≥n en la ISO 19115:2003.
          */
         !!@ ili2db.dispName = "Video"
         Video,
-        /** DefiniciÛn en la ISO 19115:2003.
+        /** Definici√≥n en la ISO 19115:2003.
          */
         !!@ ili2db.dispName = "Audio"
         Audio,
-        /** DefiniciÛn en la ISO 19115:2003.
+        /** Definici√≥n en la ISO 19115:2003.
          */
         !!@ ili2db.dispName = "Diagrama"
         Diagrama,
-        /** DefiniciÛn en la ISO 19115:2003.
+        /** Definici√≥n en la ISO 19115:2003.
          */
         !!@ ili2db.dispName = "Multimedia"
         Multimedia,
-        /** DefiniciÛn en la ISO 19115:2003.
+        /** Definici√≥n en la ISO 19115:2003.
          */
-        !!@ ili2db.dispName = "Muestra fÌsica"
+        !!@ ili2db.dispName = "Muestra f√≠sica"
         Muestra_Fisica,
-        /** DefiniciÛn en la ISO 19115:2003.
+        /** Definici√≥n en la ISO 19115:2003.
          */
         !!@ ili2db.dispName = "Otro"
         Otro
       );
 
-    /** Clase traducida CI_ResponsibleParty de la ISO 19115:2003. IdentificaciÛn de los responsables del recurso y el papel de la parte en el recurso.
+    /** Clase traducida CI_ResponsibleParty de la ISO 19115:2003. Identificaci√≥n de los responsables del recurso y el papel de la parte en el recurso.
      */
     STRUCTURE CI_ParteResponsable =
-      /** Nombre individual del responsable. Se proporciona si la organizaciÛn o la posiciÛn no son proporcionados.
+      /** Nombre individual del responsable. Se proporciona si la organizaci√≥n o la posici√≥n no son proporcionados.
        */
       !!@ ili2db.dispName = "Nombre individual"
       Nombre_Individual : CharacterString;
-      /** Nombre de la organizaciÛn responsable. Se proporciona si el nombre individual o la posiciÛn no se provÈn.
+      /** Nombre de la organizaci√≥n responsable. Se proporciona si el nombre individual o la posici√≥n no se prov√©n.
        */
-      !!@ ili2db.dispName = "Nombre de la organizaciÛn"
+      !!@ ili2db.dispName = "Nombre de la organizaci√≥n"
       Nombre_Organizacion : CharacterString;
-      /** PosiciÛn de la persona responsable. Se proporcionar· si NombreIndividual o Organizacion no son
+      /** Posici√≥n de la persona responsable. Se proporcionar√° si NombreIndividual o Organizacion no son
        * proporcionados.
        */
-      !!@ ili2db.dispName = "PosiciÛn"
+      !!@ ili2db.dispName = "Posici√≥n"
       Posicion : CharacterString;
       /** Ver clase CI_Contacto.
        */
-      !!@ ili2db.dispName = "InformaciÛn de contacto"
+      !!@ ili2db.dispName = "Informaci√≥n de contacto"
       Informacion_Contacto : LADM_COL_V1_2.LADM_Nucleo.CI_Contacto;
-      /** FunciÛn realizada por la parte responsable.
+      /** Funci√≥n realizada por la parte responsable.
        */
-      !!@ ili2db.dispName = "FunciÛn"
+      !!@ ili2db.dispName = "Funci√≥n"
       Funcion : CI_CodigoTarea;
     END CI_ParteResponsable;
 
-    /** Referencia a una clase externa para gestionar las redes fÌsicas de servicios.
+    /** Referencia a una clase externa para gestionar las redes f√≠sicas de servicios.
      */
     STRUCTURE ExtRedServiciosFisica =
       /** Indica si la red de servicios tiene un gradiente o no.
@@ -633,18 +641,18 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Ext_Interesado_Administrador_ID : LADM_COL_V1_2.LADM_Nucleo.ExtInteresado;
     END ExtRedServiciosFisica;
 
-    /** Estructura que proviene de la traducciÛn de la clase CC_OperationMethod de la ISO 19111. Indica el mÈtodo utilizado, mediante un algoritmo o un procedimiento, para realizar operaciones con coordenadas.
+    /** Estructura que proviene de la traducci√≥n de la clase CC_OperationMethod de la ISO 19111. Indica el m√©todo utilizado, mediante un algoritmo o un procedimiento, para realizar operaciones con coordenadas.
      */
     STRUCTURE CC_MetodoOperacion =
-      /** FÛrmulas o procedimientos utilizadoa por este mÈtodo de operaciÛn de coordenadas. Esto puede ser una referencia a una publicaciÛn. Tenga en cuenta que el mÈtodo de operaciÛn puede no ser analÌtico, en cuyo caso este atributo hace referencia o contiene el procedimiento, no una fÛrmula analÌtica.
+      /** F√≥rmulas o procedimientos utilizadoa por este m√©todo de operaci√≥n de coordenadas. Esto puede ser una referencia a una publicaci√≥n. Tenga en cuenta que el m√©todo de operaci√≥n puede no ser anal√≠tico, en cuyo caso este atributo hace referencia o contiene el procedimiento, no una f√≥rmula anal√≠tica.
        */
-      !!@ ili2db.dispName = "FÛrmula"
+      !!@ ili2db.dispName = "F√≥rmula"
       Formula : MANDATORY CharacterString;
-      /** N˙mero de dimensiones en la fuente CRS de este mÈtodo de operaciÛn de coordenadas.
+      /** N√∫mero de dimensiones en la fuente CRS de este m√©todo de operaci√≥n de coordenadas.
        */
       !!@ ili2db.dispName = "Dimensiones origen"
       Dimensiones_Origen : Integer;
-      /** N˙mero de dimensiones en el CRS de destino de este mÈtodo de operaciÛn de coordenadas.
+      /** N√∫mero de dimensiones en el CRS de destino de este m√©todo de operaci√≥n de coordenadas.
        */
       !!@ ili2db.dispName = "Ddimensiones objetivo"
       Ddimensiones_Objetivo : Integer;
@@ -655,25 +663,25 @@ VERSION "V1.2.0"  // 2019-08-13 // =
     STRUCTURE ExtArchivo =
       /** Fecha en la que ha sido aceptado el documento.
        */
-      !!@ ili2db.dispName = "Fecha de aceptaciÛn"
+      !!@ ili2db.dispName = "Fecha de aceptaci√≥n"
       Fecha_Aceptacion : INTERLIS.XMLDate;
       /** Datos que contiene el documento.
        */
       !!@ ili2db.dispName = "Datos"
       Datos : CharacterString;
-      /** ⁄ltima fecha de extracciÛn del documento.
+      /** √öltima fecha de extracci√≥n del documento.
        */
-      !!@ ili2db.dispName = "ExtracciÛn"
+      !!@ ili2db.dispName = "Extracci√≥n"
       Extraccion : INTERLIS.XMLDate;
       /** Fecha en la que el documento es aceptado en el sistema.
        */
-      !!@ ili2db.dispName = "Fecha de grabaciÛn"
+      !!@ ili2db.dispName = "Fecha de grabaci√≥n"
       Fecha_Grabacion : INTERLIS.XMLDate;
       /** Fecha en la que fue entregado el documento.
        */
       !!@ ili2db.dispName = "Fecha de entrega"
       Fecha_Entrega : INTERLIS.XMLDate;
-      /** DefiniciÛn del identificador ˙nico global del documento.
+      /** Definici√≥n del identificador √∫nico global del documento.
        */
       !!@ ili2db.dispName = "Espacio de nombres"
       Espacio_De_Nombres : MANDATORY CharacterString;
@@ -683,16 +691,16 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Local_Id : MANDATORY CharacterString;
     END ExtArchivo;
 
-    /** Clase abstracta que permite gestionar el histÛrico del conjunto de clases, las cuales heredan de esta, excepto las fuentes.
+    /** Clase abstracta que permite gestionar el hist√≥rico del conjunto de clases, las cuales heredan de esta, excepto las fuentes.
      */
     CLASS ObjetoVersionado (ABSTRACT) =
       /** Comienzo de la validez actual de la instancia de un objeto.
        */
-      !!@ ili2db.dispName = "VersiÛn de comienzo de vida ˙til"
+      !!@ ili2db.dispName = "Versi√≥n de comienzo de vida √∫til"
       Comienzo_Vida_Util_Version : MANDATORY INTERLIS.XMLDateTime;
       /** Finnzo de la validez actual de la instancia de un objeto.
        */
-      !!@ ili2db.dispName = "VersiÛn de fin de vida ˙til"
+      !!@ ili2db.dispName = "Versi√≥n de fin de vida √∫til"
       Fin_Vida_Util_Version : INTERLIS.XMLDateTime;
       /** Metadatos relativos a la calidad de la instancia.
        */
@@ -706,10 +714,10 @@ VERSION "V1.2.0"  // 2019-08-13 // =
         Fin_Vida_Util_Version >= Comienzo_Vida_Util_Version;
     END ObjetoVersionado;
 
-    /** Clase abstracta. Esta clase es la personalizaciÛn en el modelo del perfil colombiano de la clase de LADM LA_Source.
+    /** Clase abstracta. Esta clase es la personalizaci√≥n en el modelo del perfil colombiano de la clase de LADM LA_Source.
      */
     CLASS COL_Fuente (ABSTRACT) =
-      /** Indica si la fuente est· o no disponible y en quÈ condiciones. TambiÈn puede indicar porquÈ ha dejado de estar disponible, si ha ocurrido.
+      /** Indica si la fuente est√° o no disponible y en qu√© condiciones. Tambi√©n puede indicar porqu√© ha dejado de estar disponible, si ha ocurrido.
        */
       !!@ ili2db.dispName = "Estado de disponibilidad"
       Estado_Disponibilidad : MANDATORY COL_EstadoDisponibilidadTipo;
@@ -721,15 +729,15 @@ VERSION "V1.2.0"  // 2019-08-13 // =
        */
       !!@ ili2db.dispName = "Tipo principal"
       Tipo_Principal : CI_Forma_Presentacion_Codigo;
-      /** DescripciÛn de la calidad del documento de acuerdo a los metadatos del objeto DQ_Element, clase de la norma ISO 19157 que se refiere a aspectos de la informaciÛn de calidad cuantitativa de la instancia referenciada.
+      /** Descripci√≥n de la calidad del documento de acuerdo a los metadatos del objeto DQ_Element, clase de la norma ISO 19157 que se refiere a aspectos de la informaci√≥n de calidad cuantitativa de la instancia referenciada.
        */
       !!@ ili2db.dispName = "Calidad"
       Calidad : LIST {0..*} OF LADM_COL_V1_2.LADM_Nucleo.DQ_Element;
-      /** Parte responsable de la aceptaciÛn, con todos los metadatos gestionados por la clase CI_ParteResponsable, que hace referencia a la norma ISO 19115:2003.
+      /** Parte responsable de la aceptaci√≥n, con todos los metadatos gestionados por la clase CI_ParteResponsable, que hace referencia a la norma ISO 19115:2003.
        */
       !!@ ili2db.dispName = "Procedencia"
       Procedencia : LIST {0..*} OF LADM_COL_V1_2.LADM_Nucleo.CI_ParteResponsable;
-      /** IdentificaciÛn inÈquivoca de la fuente en el sistema.
+      /** Identificaci√≥n in√©quivoca de la fuente en el sistema.
        */
       !!@ ili2db.dispName = "Espacio de nombres"
       Espacio_De_Nombres : MANDATORY CharacterString;
@@ -745,33 +753,33 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Fecha_Documento_Fuente : INTERLIS.XMLDate;
     END COL_Fuente;
 
-    /** Registro de la fÛrmula o procedimiento utilizado en la transformaciÛn y de su resultado.
+    /** Registro de la f√≥rmula o procedimiento utilizado en la transformaci√≥n y de su resultado.
      */
     STRUCTURE COL_Transformacion =
-      /** FÛrmula o procedimiento utilizado en la transformaciÛn.
+      /** F√≥rmula o procedimiento utilizado en la transformaci√≥n.
        */
-      !!@ ili2db.dispName = "TransformaciÛn"
+      !!@ ili2db.dispName = "Transformaci√≥n"
       Transformacion : MANDATORY LADM_COL_V1_2.LADM_Nucleo.CC_MetodoOperacion;
-      /** GeometrÌa una vez realizado el proceso de transformaciÛn.
+      /** Geometr√≠a una vez realizado el proceso de transformaci√≥n.
        */
-      !!@ ili2db.dispName = "LocalizaciÛn transformada"
+      !!@ ili2db.dispName = "Localizaci√≥n transformada"
       Localizacion_Transformada : MANDATORY ISO19107_PLANAS_V1.GM_Point3D;
     END COL_Transformacion;
 
-    /** Estructura para la definiciÛn de un tipo de dato personalizado que permite indicar la mediciÛn de un volumen y la naturaleza de este.
+    /** Estructura para la definici√≥n de un tipo de dato personalizado que permite indicar la medici√≥n de un volumen y la naturaleza de este.
      */
     STRUCTURE COL_VolumenValor =
-      /** MediciÛn del volumen en m3.
+      /** Medici√≥n del volumen en m3.
        */
-      !!@ ili2db.dispName = "Volumen mediciÛn"
+      !!@ ili2db.dispName = "Volumen medici√≥n"
       Volumen_Medicion : MANDATORY 0.0 .. 99999999999999.9 [INTERLIS.m];
-      /** IndicaciÛn de si el volumen es calculado, si figura como oficial o si se da otra circunstancia.
+      /** Indicaci√≥n de si el volumen es calculado, si figura como oficial o si se da otra circunstancia.
        */
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY COL_VolumenTipo;
     END COL_VolumenValor;
 
-    /** Estructura que pone a disposiciÛn del modelo la clase OM_Observation de la ISO 19156 y de la que sÛlo implementa un atributo de los cinco que tiene la clase origina: resultQuality.
+    /** Estructura que pone a disposici√≥n del modelo la clase OM_Observation de la ISO 19156 y de la que s√≥lo implementa un atributo de los cinco que tiene la clase origina: resultQuality.
      */
     STRUCTURE OM_Observacion =
       /** Resultado del proceso de calidad, conforme a DQ_Element.
@@ -780,35 +788,35 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Resultado_Calidad : LADM_COL_V1_2.LADM_Nucleo.DQ_Element;
     END OM_Observacion;
 
-    /** EspecializaciÛn de la clase COL_Fuente para almacenar aquellas fuentes constituidas por documentos (documento hipotecario, documentos notariales, documentos histÛricos, etc.) que documentan la relaciÛn entre instancias de interesados y de predios.
+    /** Especializaci√≥n de la clase COL_Fuente para almacenar aquellas fuentes constituidas por documentos (documento hipotecario, documentos notariales, documentos hist√≥ricos, etc.) que documentan la relaci√≥n entre instancias de interesados y de predios.
      */
     CLASS COL_FuenteAdministrativa (ABSTRACT)
     EXTENDS COL_Fuente =
-      /** DescripciÛn del documento.
+      /** Descripci√≥n del documento.
        */
-      !!@ ili2db.dispName = "ObservaciÛn"
+      !!@ ili2db.dispName = "Observaci√≥n"
       Observacion : CharacterString;
       /** Tipo de documento de fuente administrativa.
        */
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY COL_FuenteAdministrativaTipo;
-      /** Identificador del documento, ejemplo: numero de la resoluciÛn
+      /** Identificador del documento, ejemplo: numero de la resoluci√≥n
        */
-      !!@ ili2db.dispName = "N˙mero de fuente"
+      !!@ ili2db.dispName = "N√∫mero de fuente"
       Numero_Fuente : TEXT*150;
     END COL_FuenteAdministrativa;
 
-    /** TraducciÛn al espaÒol de la clase LA_SpatialUnit de LADM.
+    /** Traducci√≥n al espa√±ol de la clase LA_SpatialUnit de LADM.
      */
     CLASS COL_UnidadEspacial (ABSTRACT)
     EXTENDS ObjetoVersionado =
-      !!@ ili2db.dispName = "¡rea"
+      !!@ ili2db.dispName = "√Årea"
       Area : LIST {0..*} OF LADM_COL_V1_2.LADM_Nucleo.COL_AreaValor;
-      !!@ ili2db.dispName = "DimensiÛn"
+      !!@ ili2db.dispName = "Dimensi√≥n"
       Dimension : COL_DimensionTipo;
       /** Corresponde al atributo extAddressID de la clase en LADM.
        */
-      !!@ ili2db.dispName = "Ext direcciÛn id"
+      !!@ ili2db.dispName = "Ext direcci√≥n id"
       Ext_Direccion_ID : LIST {0..*} OF LADM_COL_V1_2.LADM_Nucleo.ExtDireccion;
       /** Corresponde al atributo label de la clase en LADM.
        */
@@ -816,65 +824,65 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Etiqueta : CharacterString;
       /** Corresponde al atributo surfaceRelation de la clase en LADM.
        */
-      !!@ ili2db.dispName = "RelaciÛn superficie"
+      !!@ ili2db.dispName = "Relaci√≥n superficie"
       Relacion_Superficie : COL_RelacionSuperficieTipo;
       /** Corresponde al atributo volume de la clase en LADM.
        */
       !!@ ili2db.dispName = "Volumen"
       Volumen : LIST {0..*} OF LADM_COL_V1_2.LADM_Nucleo.COL_VolumenValor;
-      /** Identificador ˙nico global. Corresponde al atributo suID de la clase en LADM.
+      /** Identificador √∫nico global. Corresponde al atributo suID de la clase en LADM.
        */
       !!@ ili2db.dispName = "Espacio de nombres"
       Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador ˙nico local.
+      /** Identificador √∫nico local.
        */
       !!@ ili2db.dispName = "Local id"
       Local_Id : MANDATORY CharacterString;
-      /** Materializacion del metodo createArea(). Almacena de forma permanente la geometrÌa de tipo poligonal.
+      /** Materializacion del metodo createArea(). Almacena de forma permanente la geometr√≠a de tipo poligonal.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END COL_UnidadEspacial;
 
-    /** Agrupa unidades espaciales, es decir, representaciones geogr·ficas de las unidades administrativas b·sicas (clase LA_BAUnit) para representar otras unidades espaciales que se forman en base a estas, como puede ser el caso de los polÌgonos catastrales.
+    /** Agrupa unidades espaciales, es decir, representaciones geogr√°ficas de las unidades administrativas b√°sicas (clase LA_BAUnit) para representar otras unidades espaciales que se forman en base a estas, como puede ser el caso de los pol√≠gonos catastrales.
      */
     CLASS COL_AgrupacionUnidadesEspaciales (ABSTRACT)
     EXTENDS ObjetoVersionado =
-      /** Nivel jer·rquico de la agrupaciÛn, dentro del anidamiento de diferentes agrupaciones.
+      /** Nivel jer√°rquico de la agrupaci√≥n, dentro del anidamiento de diferentes agrupaciones.
        */
-      !!@ ili2db.dispName = "Nivel jer·rquico"
+      !!@ ili2db.dispName = "Nivel jer√°rquico"
       Nivel_Jerarquico : MANDATORY Integer;
-      /** DefiniciÛn de la agrupaciÛn.
+      /** Definici√≥n de la agrupaci√≥n.
        */
       !!@ ili2db.dispName = "Etiqueta"
       Etiqueta : CharacterString;
-      /** Nombre que recibe la agrupaciÛn.
+      /** Nombre que recibe la agrupaci√≥n.
        */
       !!@ ili2db.dispName = "Nombre"
       Nombre : CharacterString;
-      /** Punto de referencia de toda la agrupaciÛn, a modo de centro de masas.
+      /** Punto de referencia de toda la agrupaci√≥n, a modo de centro de masas.
        */
       !!@ ili2db.dispName = "Punto de referencia"
       Punto_Referencia : ISO19107_PLANAS_V1.GM_Point3D;
-      /** Identificar ˙nico global de la agrupaciÛn.
+      /** Identificar √∫nico global de la agrupaci√≥n.
        */
       !!@ ili2db.dispName = "Espacio de nombres"
       Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador ˙nico local de la agrupaciÛn.
+      /** Identificador √∫nico local de la agrupaci√≥n.
        */
       !!@ ili2db.dispName = "Local id"
       Local_Id : MANDATORY CharacterString;
     END COL_AgrupacionUnidadesEspaciales;
 
-    /** TraducciÛn al espaÒol de la clase LA_LegalSpaceBuildingUnit. Sus intancias son las unidades de edificaciÛn
+    /** Traducci√≥n al espa√±ol de la clase LA_LegalSpaceBuildingUnit. Sus intancias son las unidades de edificaci√≥n
      */
     CLASS COL_EspacioJuridicoUnidadEdificacion (ABSTRACT)
     EXTENDS COL_UnidadEspacial =
-      /** Identificador de la unidad de edificaciÛn.
+      /** Identificador de la unidad de edificaci√≥n.
        */
-      !!@ ili2db.dispName = "Ext unidad edificaciÛn fÌsica id"
+      !!@ ili2db.dispName = "Ext unidad edificaci√≥n f√≠sica id"
       Ext_Unidad_Edificacion_Fisica_ID : LADM_COL_V1_2.LADM_Nucleo.ExtUnidadEdificacionFisica;
-      /** Tipo de unidad de edificaciÛn de la que se trata.
+      /** Tipo de unidad de edificaci√≥n de la que se trata.
        */
       !!@ ili2db.dispName = "Tipo"
       Tipo : COL_UnidadEdificacionTipo;
@@ -885,13 +893,13 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       elemento -- {0..*} COL_AgrupacionUnidadesEspaciales;
     END col_ueJerarquiaGrupo;
 
-    /** TraducciÛn al espaÒol de la clase LA_LegalSpaceUtilityNetwork. Representa un tipo de unidad espacial (LA_UNidadEspacial) cuyas instancias son las redes de servicios.
+    /** Traducci√≥n al espa√±ol de la clase LA_LegalSpaceUtilityNetwork. Representa un tipo de unidad espacial (LA_UNidadEspacial) cuyas instancias son las redes de servicios.
      */
     CLASS COL_EspacioJuridicoRedServicios (ABSTRACT)
     EXTENDS COL_UnidadEspacial =
-      /** Identificador de la red fÌsica hacia una referencia externa.
+      /** Identificador de la red f√≠sica hacia una referencia externa.
        */
-      !!@ ili2db.dispName = "Ext id red fÌsica"
+      !!@ ili2db.dispName = "Ext id red f√≠sica"
       ext_ID_Red_Fisica : LADM_COL_V1_2.LADM_Nucleo.ExtRedServiciosFisica;
       /** Estado de operatividad de la red.
        */
@@ -908,7 +916,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       todo -- {0..*} COL_AgrupacionUnidadesEspaciales;
     END col_ueUeGrupo;
 
-    /** TraducciÛn de la clase LA_Level de LADM.
+    /** Traducci√≥n de la clase LA_Level de LADM.
      */
     CLASS COL_Nivel (ABSTRACT)
     EXTENDS ObjetoVersionado =
@@ -922,11 +930,11 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Tipo : COL_ContenidoNivelTipo;
     END COL_Nivel;
 
-    /** TraducciÛn al espaÒol de la clase LA_RequiredRelationshipSpatialUnit de LADM.
+    /** Traducci√≥n al espa√±ol de la clase LA_RequiredRelationshipSpatialUnit de LADM.
      */
     CLASS COL_RelacionNecesariaUnidadesEspaciales (ABSTRACT)
     EXTENDS ObjetoVersionado =
-      !!@ ili2db.dispName = "RelaciÛn"
+      !!@ ili2db.dispName = "Relaci√≥n"
       Relacion : MANDATORY COL_ISO19125_Tipo;
     END COL_RelacionNecesariaUnidadesEspaciales;
 
@@ -939,37 +947,37 @@ VERSION "V1.2.0"  // 2019-08-13 // =
      */
     CLASS COL_RRR (ABSTRACT)
     EXTENDS ObjetoVersionado =
-      /** DescripciÛn relatical al derecho, la responsabilidad o la restricciÛn.
+      /** Descripci√≥n relatical al derecho, la responsabilidad o la restricci√≥n.
        */
-      !!@ ili2db.dispName = "DescripciÛn"
+      !!@ ili2db.dispName = "Descripci√≥n"
       Descripcion : CharacterString;
-      /** ParticipaciÛn, en modo de fracciÛn, en la subclase LA_Derecho, LA_Responsabilidad o LA_Restriccion.
+      /** Participaci√≥n, en modo de fracci√≥n, en la subclase LA_Derecho, LA_Responsabilidad o LA_Restriccion.
        */
       !!@ ili2db.dispName = "Compartido"
       Compartido : LADM_COL_V1_2.LADM_Nucleo.Fraccion;
-      /** IndicaciÛn de si se activa el constraint (a+b+...+n=100%) de la fracciÛn Compartido.
+      /** Indicaci√≥n de si se activa el constraint (a+b+...+n=100%) de la fracci√≥n Compartido.
        */
-      !!@ ili2db.dispName = "ComprobaciÛn si comparte"
+      !!@ ili2db.dispName = "Comprobaci√≥n si comparte"
       Comprobacion_Comparte : BOOLEAN;
-      /** DescripciÛn de cual es el uso efectivo.
+      /** Descripci√≥n de cual es el uso efectivo.
        */
       !!@ ili2db.dispName = "Uso efectivo"
       Uso_Efectivo : CharacterString;
-      /** Identificador global ˙nico.
+      /** Identificador global √∫nico.
        */
       !!@ ili2db.dispName = "Espacio de nombres"
       Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador ˙nico local.
+      /** Identificador √∫nico local.
        */
       !!@ ili2db.dispName = "Local id"
       Local_Id : MANDATORY CharacterString;
     END COL_RRR;
 
-    /** De forma genÈrica, representa el objeto territorial legal (Catastro 2014) que se gestiona en el modelo, en este caso, la parcela catastral o predio. Es independiente del conocimiento de su realidad espacial y se centra en su existencia conocida y reconocida.
+    /** De forma gen√©rica, representa el objeto territorial legal (Catastro 2014) que se gestiona en el modelo, en este caso, la parcela catastral o predio. Es independiente del conocimiento de su realidad espacial y se centra en su existencia conocida y reconocida.
      */
     CLASS COL_BAUnit (ABSTRACT)
     EXTENDS ObjetoVersionado =
-      /** Nombre que recibe la unidad administrativa b·sica, en muchos casos toponÌmico, especialmente en terrenos r˙sticos.
+      /** Nombre que recibe la unidad administrativa b√°sica, en muchos casos topon√≠mico, especialmente en terrenos r√∫sticos.
        */
       !!@ ili2db.dispName = "Nombre"
       Nombre : CharacterString;
@@ -977,11 +985,11 @@ VERSION "V1.2.0"  // 2019-08-13 // =
        */
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY COL_BAUnitTipo;
-      /** Identificador ˙nico global.
+      /** Identificador √∫nico global.
        */
       !!@ ili2db.dispName = "Espacio de nombres"
       Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador ˙nico local.
+      /** Identificador √∫nico local.
        */
       !!@ ili2db.dispName = "Local id"
       Local_Id : MANDATORY CharacterString;
@@ -992,11 +1000,11 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       rrr -- {0..*} COL_RRR;
     END col_rrrFuente;
 
-    /** TraducciÛn de la clase LA_RequiredRelationshipBAUnit de LADM.
+    /** Traducci√≥n de la clase LA_RequiredRelationshipBAUnit de LADM.
      */
     CLASS COL_RelacionNecesariaBAUnits (ABSTRACT)
     EXTENDS ObjetoVersionado =
-      !!@ ili2db.dispName = "RelaciÛn"
+      !!@ ili2db.dispName = "Relaci√≥n"
       Relacion : MANDATORY CharacterString;
     END COL_RelacionNecesariaBAUnits;
 
@@ -1020,21 +1028,21 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       unidad -- {0..*} COL_BAUnit;
     END col_unidadFuente;
 
-    /** TraducciÛn al espaÒol de la clase LA_Point de LADM.
+    /** Traducci√≥n al espa√±ol de la clase LA_Point de LADM.
      */
     CLASS COL_Punto (ABSTRACT)
     EXTENDS ObjetoVersionado =
-      !!@ ili2db.dispName = "PosiciÛn interpolaciÛn"
+      !!@ ili2db.dispName = "Posici√≥n interpolaci√≥n"
       Posicion_Interpolacion : COL_InterpolacionTipo;
-      !!@ ili2db.dispName = "MonumentaciÛn"
+      !!@ ili2db.dispName = "Monumentaci√≥n"
       Monumentacion : COL_MonumentacionTipo;
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : MANDATORY ISO19107_PLANAS_V1.GM_Point3D;
       !!@ ili2db.dispName = "Tipo de punto"
       PuntoTipo : MANDATORY COL_PuntoTipo;
-      !!@ ili2db.dispName = "MÈtodo de producciÛn"
+      !!@ ili2db.dispName = "M√©todo de producci√≥n"
       MetodoProduccion : COL_MetodoProduccionTipo;
-      !!@ ili2db.dispName = "TransformaciÛn y resultado"
+      !!@ ili2db.dispName = "Transformaci√≥n y resultado"
       Transformacion_Y_Resultado : LIST {0..*} OF LADM_COL_V1_2.LADM_Nucleo.COL_Transformacion;
       !!@ ili2db.dispName = "Espacio de nombres"
       Espacio_De_Nombres : MANDATORY CharacterString;
@@ -1042,7 +1050,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Local_Id : MANDATORY CharacterString;
     END COL_Punto;
 
-    /** EspecializaciÛn de la clase COL_Fuente para almacenar las fuentes constituidas por datos espaciales (entidades geogr·ficas, im·genes de satÈlite, vuelos fotogramÈtricos, listados de coordenadas, mapas, planos antiguos o modernos, descripciÛn de localizaciones, etc.) que documentan tÈcnicamente la relaciÛn entre instancias de interesados y de predios
+    /** Especializaci√≥n de la clase COL_Fuente para almacenar las fuentes constituidas por datos espaciales (entidades geogr√°ficas, im√°genes de sat√©lite, vuelos fotogram√©tricos, listados de coordenadas, mapas, planos antiguos o modernos, descripci√≥n de localizaciones, etc.) que documentan t√©cnicamente la relaci√≥n entre instancias de interesados y de predios
      */
     CLASS COL_FuenteEspacial (ABSTRACT)
     EXTENDS COL_Fuente =
@@ -1052,19 +1060,19 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Tipo : MANDATORY COL_FuenteEspacialTipo;
     END COL_FuenteEspacial;
 
-    /** TraducciÛn al espaÒol de la clase LA_BoundaryFaceString de LADM. Define los linderos y a su vez puede estar definida por una descriciÛn textual o por dos o m·s puntos. Puede estar asociada a una fuente espacial o m·s.
+    /** Traducci√≥n al espa√±ol de la clase LA_BoundaryFaceString de LADM. Define los linderos y a su vez puede estar definida por una descrici√≥n textual o por dos o m√°s puntos. Puede estar asociada a una fuente espacial o m√°s.
      */
     CLASS COL_CadenaCarasLimite (ABSTRACT)
     EXTENDS ObjetoVersionado =
-      /** GeometrÌa lineal que define el lindero. Puede estar asociada a geometrÌas de tipo punto que definen sus vÈrtices o ser una entidad lineal independiente.
+      /** Geometr√≠a lineal que define el lindero. Puede estar asociada a geometr√≠as de tipo punto que definen sus v√©rtices o ser una entidad lineal independiente.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : ISO19107_PLANAS_V1.GM_Curve3D;
-      /** DescripciÛn de la localizaciÛn, cuando esta se basa en texto.
+      /** Descripci√≥n de la localizaci√≥n, cuando esta se basa en texto.
        */
-      !!@ ili2db.dispName = "LocalizaciÛn textual"
+      !!@ ili2db.dispName = "Localizaci√≥n textual"
       Localizacion_Textual : CharacterString;
-      /** Identificador ˙nico global de la cadena de caras lindero.
+      /** Identificador √∫nico global de la cadena de caras lindero.
        */
       !!@ ili2db.dispName = "Espacio de nombres"
       Espacio_De_Nombres : MANDATORY CharacterString;
@@ -1074,23 +1082,23 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Local_Id : MANDATORY CharacterString;
     END COL_CadenaCarasLimite;
 
-    /** TraducciÛn de la clase LA_BoundaryFace de LADM. De forma similar a LA_CadenaCarasLindero, representa los lÌmites, pero en este caso permite representaciÛn 3D.
+    /** Traducci√≥n de la clase LA_BoundaryFace de LADM. De forma similar a LA_CadenaCarasLindero, representa los l√≠mites, pero en este caso permite representaci√≥n 3D.
      */
     CLASS COL_CarasLindero (ABSTRACT)
     EXTENDS ObjetoVersionado =
-      /** GeometrÌa en 3D del lÌmite o lindero, asociada a putos o a descripciones textuales.
+      /** Geometr√≠a en 3D del l√≠mite o lindero, asociada a putos o a descripciones textuales.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
-      /** Cuando la localizaciÛn del lÌmte est· dada por una descripciÛn textual, aquÌ se recoge esta.
+      /** Cuando la localizaci√≥n del l√≠mte est√° dada por una descripci√≥n textual, aqu√≠ se recoge esta.
        */
-      !!@ ili2db.dispName = "LocalizaciÛn textual"
+      !!@ ili2db.dispName = "Localizaci√≥n textual"
       Localizacion_Textual : CharacterString;
-      /** Identificador ˙nico global.
+      /** Identificador √∫nico global.
        */
       !!@ ili2db.dispName = "Espacio de nombres"
       Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador ˙nico local.
+      /** Identificador √∫nico local.
        */
       !!@ ili2db.dispName = "Local id"
       Local_Id : MANDATORY CharacterString;
@@ -1161,7 +1169,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       cl -- {0..*} COL_CarasLindero;
     END col_puntoCl;
 
-    /** TraducciÛn de la clase LA_Party de LADM. Representa a las personas que ejercen derechos y responsabilidades  o sufren restricciones respecto a una BAUnit.
+    /** Traducci√≥n de la clase LA_Party de LADM. Representa a las personas que ejercen derechos y responsabilidades  o sufren restricciones respecto a una BAUnit.
      */
     CLASS COL_Interesado (ABSTRACT)
     EXTENDS ObjetoVersionado =
@@ -1173,25 +1181,25 @@ VERSION "V1.2.0"  // 2019-08-13 // =
        */
       !!@ ili2db.dispName = "Nombre"
       Nombre : CharacterString;
-      /** FunciÛn o tarea que realiza el interesado dentro del marco de derechos, obligaciones y restricciones.
+      /** Funci√≥n o tarea que realiza el interesado dentro del marco de derechos, obligaciones y restricciones.
        */
       !!@ ili2db.dispName = "Tarea"
-      Tarea : LIST {0..*} OF COL_FuncionInteresadoTipo_COL_Interesado_Tarea;
-      /** Identificador ˙nico global.
+      Tarea : LIST {0..*} OF COL_FuncionInteresadoTipo_;
+      /** Identificador √∫nico global.
        */
       !!@ ili2db.dispName = "Espacio de nombres"
       Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador ˙nico local.
+      /** Identificador √∫nico local.
        */
       !!@ ili2db.dispName = "Local id"
       Local_Id : MANDATORY CharacterString;
     END COL_Interesado;
 
-    /** Registra interesados que representan a grupos de personas. Se registra el grupo en si, independientemete de las personas por separado. Es lo que ocurreo, por ejemplo, con un grupo Ètnico.
+    /** Registra interesados que representan a grupos de personas. Se registra el grupo en si, independientemete de las personas por separado. Es lo que ocurreo, por ejemplo, con un grupo √©tnico.
      */
     CLASS COL_Agrupacion_Interesados (ABSTRACT)
     EXTENDS COL_Interesado =
-      /** Indica el tipo de agrupaciÛn del que se trata.
+      /** Indica el tipo de agrupaci√≥n del que se trata.
        */
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY COL_GrupoInteresadoTipo;
