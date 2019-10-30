@@ -1,4 +1,4 @@
-INTERLIS 2.3;
+﻿INTERLIS 2.3;
 
 MODEL Datos_Gestor_Catastral_V2_9_6 (es)
 AT "mailto:PC4@localhost"
@@ -50,6 +50,7 @@ VERSION "2019-08-01"  =
       No_Convencional
     );
 
+  !!@ ili2db.dispName = "(GC) Dirección"
   STRUCTURE GC_Direccion =
     !!@ ili2db.dispName = "Valor"
     Valor : TEXT*255;
@@ -82,7 +83,7 @@ VERSION "2019-08-01"  =
     !!@ ili2db.dispName = "(GC) Comisiones Terreno"
     CLASS GC_Comisiones_Terreno =
       !!@ ili2db.dispName = "Geometría"
-      Geometria : ISO19107_PLANAS_V1.GM_MultiCurve2D;
+      Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
     END GC_Comisiones_Terreno;
 
     !!@ ili2db.dispName = "(GC) Comisiones Unidad Construcción"
