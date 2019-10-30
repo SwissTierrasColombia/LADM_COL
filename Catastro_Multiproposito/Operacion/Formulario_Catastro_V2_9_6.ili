@@ -1,4 +1,4 @@
-INTERLIS 2.3;
+﻿INTERLIS 2.3;
 
 /** Ficha Predial.
  * 
@@ -78,12 +78,14 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     FCM_ClaseCalificacionTipo = (
       !!@ ili2db.dispName = "Estructura"
       Estructura,
-      !!@ ili2db.dispName = "Acabados"
-      Acabados,
+      !!@ ili2db.dispName = "Acabados principales"
+      Acabados_Principales,
       !!@ ili2db.dispName = "Baño"
       Banio,
       !!@ ili2db.dispName = "Cocina"
-      Cocina
+      Cocina,
+      !!@ ili2db.dispName = "Complemento industria"
+      Complemento_Industria
     );
 
     /** Clase de suelo de la clasificación del Plan de Ordenamiento Territorial.
@@ -458,6 +460,14 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Numero_Predial : MANDATORY TEXT*30;
     END FCM_Predio_Englobe;
 
+    !!@ ili2db.dispName = "(FCM) Tipología de la construcción"
+    CLASS FCM_Tipologia_Construccion =
+      !!@ ili2db.dispName = "Identificador de la tipología"
+      Id_Tipologia : TEXT*20;
+      !!@ ili2db.dispName = "Descripción de la tipología"
+      Descripcion_Tipologia : TEXT;
+    END FCM_Tipologia_Construccion;
+
     /** Datos para el avalúo de la unidad de construcción.
      */
     !!@ ili2db.dispName = "(Avalúos) Calificación Convencional"
@@ -530,9 +540,12 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Tipo_Objeto_Construccion : MANDATORY Formulario_Catastro_V2_9_6.Formulario_Catastro.FCM_Estructura_Objeto_Construccion;
       !!@ ili2db.dispName = "Puntos"
       Puntos : MANDATORY 0 .. 16;
-      !!@ ili2db.dispName = "Característica"
-      Caracteristica : TEXT*255;
     END FCM_Objeto_Construccion;
+
+    ASSOCIATION fcm_opunidadconstruccion_tipologiaconstruccion =
+      op_unidadconstruccion (EXTERNAL) -- {1} Operacion_V2_9_6.Operacion.OP_UnidadConstruccion;
+      fcm_tipologia_construccion -- {0..1} FCM_Tipologia_Construccion;
+    END fcm_opunidadconstruccion_tipologiaconstruccion;
 
     /** Relación entre la clase Unidad_Construccion del modelo de Avalúos y Calificacion_Unidad_Construccion de modelo de Avalúos
      */
@@ -555,7 +568,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
 
     ASSOCIATION fcm_grupo_calificacionconvencional =
       av_calificacion_convencional -- {1} FCM_Calificacion_Convencional;
-      av_grupo_calificacion -- {0..*} FCM_Grupo_Calificacion;
+      av_grupo_calificacion -- {1..*} FCM_Grupo_Calificacion;
     END fcm_grupo_calificacionconvencional;
 
     ASSOCIATION fcm_objetoconstruccion_grupocalificacion =

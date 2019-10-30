@@ -95,7 +95,7 @@ VERSION "2019-08-01"  =
     !!@ ili2db.dispName = "(GC) Construcción"
     CLASS GC_Construccion =
       !!@ ili2db.dispName = "Identificador"
-      Identificador : TEXT*2;
+      Identificador : TEXT*30;
       !!@ ili2db.dispName = "Etiqueta"
       Etiqueta : TEXT*50;
       !!@ ili2db.dispName = "Tipo de construcción"
