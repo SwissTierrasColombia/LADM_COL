@@ -1,4 +1,4 @@
-INTERLIS 2.3;
+﻿INTERLIS 2.3;
 
 /** Ficha Predial.
  * 
@@ -12,7 +12,7 @@ INTERLIS 2.3;
 MODEL Formulario_Catastro_V2_9_6 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-02-01 // =
-  IMPORTS Operacion_V2_9_6,Avaluos_V2_9_6,LADM_COL_V1_2;
+  IMPORTS Operacion_V2_9_6,Avaluos_V2_9_6,LADM_COL_V1_3;
 
   DOMAIN
 
@@ -476,7 +476,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       !!@ ili2db.dispName = "Tipo a calificar"
       Tipo_Calificar : Formulario_Catastro_V2_9_6.FCM_CalificarTipo;
       !!@ ili2db.dispName = "Total calificación"
-      Total_Calificacion : LADM_COL_V1_2.LADM_Nucleo.Integer;
+      Total_Calificacion : LADM_COL_V1_3.LADM_Nucleo.Integer;
     END FCM_Calificacion_Convencional;
 
     !!@ ili2db.dispName = "(Avalúos) Calificación No Convencional"
