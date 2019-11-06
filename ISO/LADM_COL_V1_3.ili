@@ -1,4 +1,4 @@
-﻿INTERLIS 2.3;
+INTERLIS 2.3;
 
 /** ISO 19152 LADM country profile COL Core Model.
  * 
@@ -367,11 +367,12 @@ VERSION "V1.2.0"  // 2019-08-13 // =
         Denominador >= Numerador;
     END Fraccion;
 
-    !!@ ili2db.dispName = "Object ID"
-    CLASS OID (ABSTRACT) =
+    CLASS Oid (ABSTRACT) =
+      !!@ ili2db.dispName = "Espacio de nombres"
       Espacio_De_Nombres : MANDATORY CharacterString;
+      !!@ ili2db.dispName = "Local ID"
       Local_Id : MANDATORY CharacterString;
-    END OID;
+    END Oid;
 
     DOMAIN
 
@@ -666,8 +667,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
 
     /** Referencia a clase externa desde donde se gestiona el repositorio de archivos.
      */
-    STRUCTURE ExtArchivo
-    EXTENDS OID =
+    STRUCTURE ExtArchivo =
       /** Fecha en la que ha sido aceptado el documento.
        */
       !!@ ili2db.dispName = "Fecha de aceptación"
@@ -688,12 +688,16 @@ VERSION "V1.2.0"  // 2019-08-13 // =
        */
       !!@ ili2db.dispName = "Fecha de entrega"
       Fecha_Entrega : INTERLIS.XMLDate;
+      !!@ ili2db.dispName = "Espacio de nombres"
+      Espacio_De_Nombres : MANDATORY CharacterString;
+      !!@ ili2db.dispName = "Local ID"
+      Local_Id : MANDATORY CharacterString;
     END ExtArchivo;
 
     /** Clase abstracta que permite gestionar el histórico del conjunto de clases, las cuales heredan de esta, excepto las fuentes.
      */
     CLASS ObjetoVersionado (ABSTRACT)
-    EXTENDS OID =
+    EXTENDS Oid =
       /** Comienzo de la validez actual de la instancia de un objeto.
        */
       !!@ ili2db.dispName = "Versión de comienzo de vida útil"
@@ -717,7 +721,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
     /** Clase abstracta. Esta clase es la personalización en el modelo del perfil colombiano de la clase de LADM LA_Source.
      */
     CLASS COL_Fuente (ABSTRACT)
-    EXTENDS OID =
+    EXTENDS Oid =
       /** Indica si la fuente está o no disponible y en qué condiciones. También puede indicar porqué ha dejado de estar disponible, si ha ocurrido.
        */
       !!@ ili2db.dispName = "Estado de disponibilidad"
