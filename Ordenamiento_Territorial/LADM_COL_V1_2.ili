@@ -4,22 +4,22 @@ INTERLIS 2.3;
  * 
  * -----------------------------------------------------------
  * 
- * LADM es un modelo conceptual de la realidad que concreta una ontología y establece una semántica para la administración del territorio.
+ * LADM es un modelo conceptual de la realidad que concreta una ontologÃ­a y establece una semÃ¡ntica para la administraciÃ³n del territorio.
  * 
  * -----------------------------------------------------------
  * revision history
  * -----------------------------------------------------------
  * 
  * 30.01.2018/fm : Cambio del tipo de dato del atributo Ext_Direccion de la clase Unidad Espacial a ExtDireccion; atributo ext_PID de la calse LA_Interesado cambia de OID a ExtInteresado; Cambio de cardinalidad en relacion miembros entre LA_Interesado y LA_Agrupacion_Interesados de 0..1 a 0..*
- * 07.02.2018/fm-gc: Ajuste al tipo de dato de la unidad Peso, pasa a tener precision 1 para evitar ser tratado cmo atributo entero y aumentar su tamaño
- * 19.02.2018/fm-gc: ampliación del dominio al tipo de dato Peso
+ * 07.02.2018/fm-gc: Ajuste al tipo de dato de la unidad Peso, pasa a tener precision 1 para evitar ser tratado cmo atributo entero y aumentar su tamaÃ±o
+ * 19.02.2018/fm-gc: ampliaciÃ³n del dominio al tipo de dato Peso
  * 26.02.2018/fm-lj: cambio del nombre del dominio ISO19125_Type a ISO19125_Tipo
  * 19.04.2018/vb fm: Ajuste al constraint Fraccion, denominador mayor a 0
  * 19.04.2018/vb fm: Cambio en la cardinalidad del atributo u_Local_Id de la clase LA_BAUnit de 0..1 a 1
  * 17.07.2018/fm : se incluye escritura en dominio COL_FuenteAdministrativaTipo
  * 10.08.2018/fm : Se eliminan los atributos ai_local_id y ai_espacio_de_nombres de la clase LA_Agrupacion_Interesados
  * 27.08.2018/fm : Ajuste a la cardinalidad de asociacion puntoFuente de 1..* a 0..*
- * 25.09.2018/at: Se ajusta la longitud del atributo Codigo_Registral_Transaccion en la clase COL_FuenteAdministrativa a 5 caracteres de acuerdo a la Resolución 3973 de 2018
+ * 25.09.2018/at: Se ajusta la longitud del atributo Codigo_Registral_Transaccion en la clase COL_FuenteAdministrativa a 5 caracteres de acuerdo a la ResoluciÃ³n 3973 de 2018
  * -----------------------------------------------------------
  * 
  * (c) IGAC y SNR con apoyo de la Cooperacion Suiza
@@ -56,11 +56,41 @@ VERSION "V1.2.0"  // 2019-08-13 // =
         Area_Registral
       );
 
+    /** Clase traducida CI_Contact de la ISO 19115.
+     * Almacena la informaciÃ³n requerida para permitir el contacto con la persona responsable y la organizaciÃ³n.
+     */
+    STRUCTURE CI_Contacto =
+      /** NÃºmeros de telÃ©fono en los que la organizaciÃ³n o el individuo pueden ser contactados.
+       */
+      Telefono : CharacterString;
+      /** DirecciÃ³n fÃ­sica y de correo electrÃ³nico en la que se puede contactar a la organizaciÃ³n o al individuo.
+       */
+      Direccion : CharacterString;
+      /** InformaciÃ³n en lÃ­nea que se puede usar para contactar al individuo o a la organizaciÃ³n.
+       */
+      Fuente_En_Linea : CharacterString;
+      /** PerÃ­odo de tiempo, incluida la zona horaria, en el que la organizaciÃ³n o el individuo pueden ser contactados.
+       */
+      Horario_De_Atencion : CharacterString;
+      /** Instrucciones complementarias sobre cÃ³mo o cuÃ¡ndo contactar al individuo o a la organizaciÃ³n.
+       */
+      Instrucciones_Contacto : CharacterString;
+    END CI_Contacto;
+
+    DOMAIN
+
       COL_BAUnitTipo = (
         Unidad_Propiedad_Basica,
         Unidad_Derecho,
         Otro
       );
+
+    STRUCTURE COL_AreaValor =
+      areaSize : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_2.m2];
+      type : MANDATORY COL_AreaTipo;
+    END COL_AreaValor;
+
+    DOMAIN
 
       COL_ContenidoNivelTipo = (
         Construccion_Convencional,
@@ -72,6 +102,53 @@ VERSION "V1.2.0"  // 2019-08-13 // =
         Restriccion_Derecho_Publico,
         Restriction_Derecho_Privado
       );
+
+    /** Referencia a una clase externa para gestionar direcciones.
+     */
+    STRUCTURE ExtDireccion =
+      Tipo_Direccion : MANDATORY (
+        Estructurada,
+        No_Estructurada
+      );
+      Es_Direccion_Principal : BOOLEAN;
+      /** Par de valores georreferenciados (x,y) en la que se encuentra la direcciÃ³n.
+       */
+      !!@ ili2db.dispName = "LocalizaciÃ³n"
+      !!@ ili2db.dispName="LocalizaciÃ³n"
+      Localizacion : ISO19107_PLANAS_V1.GM_Point3D;
+      Codigo_Postal : CharacterString;
+      Clase_Via_Principal : (
+        Avenida_Calle,
+        Avenida_Carrera,
+        Calle,
+        Carrera,
+        Diagonal,
+        Transversal
+      );
+      Valor_Via_Principal : TEXT*100;
+      Letra_Via_Principal : TEXT*20;
+      Sector_Ciudad : (
+        Norte,
+        Sur,
+        Este,
+        Oeste
+      );
+      Valor_Via_Generadora : TEXT*100;
+      Letra_Via_Generadora : TEXT*20;
+      Numero_Predio : TEXT*20;
+      Sector_Predio : (
+        Norte,
+        Sur,
+        Este,
+        Oeste
+      );
+      Complemento : TEXT*255;
+      Nombre_Predio : TEXT*255;
+      SET CONSTRAINT WHERE Tipo_Direccion == #No_Estructurada: 
+        Nombre_Predio <> UNDEFINED;
+    END ExtDireccion;
+
+    DOMAIN
 
       COL_DimensionTipo = (
         Dim2D,
@@ -117,7 +194,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
         Grupo_Mixto
       );
 
-      /** Si ha sido situado por interpolación, de qué manera se ha hecho.
+      /** Si ha sido situado por interpolaciÃ³n, de quÃ© manera se ha hecho.
        */
       COL_InterpolacionTipo = (
         Aislado,
@@ -155,113 +232,15 @@ VERSION "V1.2.0"  // 2019-08-13 // =
         Desconocido,
         Disponible
       );
-
-      COL_ISO19125_Tipo = (
-        Disjunto,
-        Toca,
-        Superpone,
-        Desconocido
-      );
-
-      COL_RelacionSuperficieTipo = (
-        En_Rasante,
-        En_Vuelo,
-        En_Subsuelo,
-        Otro
-      );
-
-      COL_UnidadEdificacionTipo = (
-        Compartido,
-        individual
-      );
-
-      Currency = -2000000000.00 .. 2000000000.00;
-
-      Real = 0.000 .. 999999999.999;
     STRUCTURE COL_FuncionInteresadoTipo_ = value : MANDATORY COL_FuncionInteresadoTipo; END COL_FuncionInteresadoTipo_;
 
-    STRUCTURE COL_FuncionInteresadoTipo_ =
-      value : MANDATORY COL_FuncionInteresadoTipo;
-    END COL_FuncionInteresadoTipo_;
-
-    /** Clase traducida CI_Contact de la ISO 19115.
-     * Almacena la información requerida para permitir el contacto con la persona responsable y la organización.
-     */
-    STRUCTURE CI_Contacto =
-      /** Números de teléfono en los que la organización o el individuo pueden ser contactados.
-       */
-      Telefono : CharacterString;
-      /** Dirección física y de correo electrónico en la que se puede contactar a la organización o al individuo.
-       */
-      Direccion : CharacterString;
-      /** Información en línea que se puede usar para contactar al individuo o a la organización.
-       */
-      Fuente_En_Linea : CharacterString;
-      /** Período de tiempo, incluida la zona horaria, en el que la organización o el individuo pueden ser contactados.
-       */
-      Horario_De_Atencion : CharacterString;
-      /** Instrucciones complementarias sobre cómo o cuándo contactar al individuo o a la organización.
-       */
-      Instrucciones_Contacto : CharacterString;
-    END CI_Contacto;
-
-    STRUCTURE COL_AreaValor =
-      areaSize : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_2.m2];
-      type : MANDATORY COL_AreaTipo;
-    END COL_AreaValor;
-
-    /** Referencia a una clase externa para gestionar direcciones.
-     */
-    STRUCTURE ExtDireccion =
-      Tipo_Direccion : MANDATORY (
-        Estructurada,
-        No_Estructurada
-      );
-      Es_Direccion_Principal : BOOLEAN;
-      /** Par de valores georreferenciados (x,y) en la que se encuentra la dirección.
-       */
-      !!@ ili2db.dispName = "Localización"
-      !!@ ili2db.dispName="Localización"
-      Localizacion : ISO19107_PLANAS_V1.GM_Point3D;
-      Codigo_Postal : CharacterString;
-      Clase_Via_Principal : (
-        Avenida_Calle,
-        Avenida_Carrera,
-        Calle,
-        Carrera,
-        Diagonal,
-        Transversal
-      );
-      Valor_Via_Principal : TEXT*100;
-      Letra_Via_Principal : TEXT*20;
-      Sector_Ciudad : (
-        Norte,
-        Sur,
-        Este,
-        Oeste
-      );
-      Valor_Via_Generadora : TEXT*100;
-      Letra_Via_Generadora : TEXT*20;
-      Numero_Predio : TEXT*20;
-      Sector_Predio : (
-        Norte,
-        Sur,
-        Este,
-        Oeste
-      );
-      Complemento : TEXT*255;
-      Nombre_Predio : TEXT*255;
-      SET CONSTRAINT WHERE Tipo_Direccion == #No_Estructurada: 
-        Nombre_Predio <> UNDEFINED;
-    END ExtDireccion;
-
-    /** Estructura para la definición de un tipo de dato personalizado que permite indicar una fracción o quebrado cona serie específica de condiciones.
+    /** Estructura para la definiciÃ³n de un tipo de dato personalizado que permite indicar una fracciÃ³n o quebrado cona serie especÃ­fica de condiciones.
      */
     STRUCTURE Fraccion =
-      /** Parte inferior de la fracción. Debe ser mayor que 0. Debe ser mayor que el numerador.
+      /** Parte inferior de la fracciÃ³n. Debe ser mayor que 0. Debe ser mayor que el numerador.
        */
       Denominador : MANDATORY Integer;
-      /** Parte superior de la fracción. Debe ser mayor que 0. Debe sder menor que el denominador.
+      /** Parte superior de la fracciÃ³n. Debe ser mayor que 0. Debe sder menor que el denominador.
        */
       Numerador : MANDATORY Integer;
       MANDATORY CONSTRAINT
@@ -299,11 +278,30 @@ VERSION "V1.2.0"  // 2019-08-13 // =
         Otro
       );
 
+      COL_ISO19125_Tipo = (
+        Disjunto,
+        Toca,
+        Superpone,
+        Desconocido
+      );
+
       COL_RedServiciosTipo = (
         Petroleo,
         Quimicos,
         Red_Termica,
         Telecomunicacion
+      );
+
+      COL_RelacionSuperficieTipo = (
+        En_Rasante,
+        En_Vuelo,
+        En_Subsuelo,
+        Otro
+      );
+
+      COL_UnidadEdificacionTipo = (
+        Compartido,
+        individual
       );
 
       DQ_Metodo_Evaluacion_Codigo_Tipo = (
@@ -312,9 +310,13 @@ VERSION "V1.2.0"  // 2019-08-13 // =
         Indirecto
       );
 
+      Currency = -2000000000.00 .. 2000000000.00;
+
       Peso = 0.0 .. 999999999999999.0 [LADM_COL_V1_2.COP];
 
-    /** Control externo de la unidad de edificación física.
+      Real = 0.000 .. 999999999.999;
+
+    /** Control externo de la unidad de edificaciÃ³n fÃ­sica.
      */
     STRUCTURE ExtUnidadEdificacionFisica =
       Ext_Direccion_ID : LADM_COL_V1_2.LADM_Nucleo.ExtDireccion;
@@ -330,7 +332,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
 
     DOMAIN
 
-      /** Dominio que proviene de la traducción de CI_RoleCode de la norma ISO 19115:2003. Da los valores de dominio válidos para la función realizada por la parte responsable.
+      /** Dominio que proviene de la traducciÃ³n de CI_RoleCode de la norma ISO 19115:2003. Da los valores de dominio vÃ¡lidos para la funciÃ³n realizada por la parte responsable.
        */
       CI_CodigoTarea = (
         Proveedor_De_Recursos,
@@ -355,31 +357,31 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       );
 
     /** Clase traducida a partir de DQ_Element de la norma ISO 19157.
-     * Contiene los aspectos de la información de calidad cuantitativa. REVISAR MODELADO
+     * Contiene los aspectos de la informaciÃ³n de calidad cuantitativa. REVISAR MODELADO
      */
     STRUCTURE DQ_Element =
-      /** Nombre de la prueba aplicada a los datos. Proviene de la agregación de la clase DQ_MeasureReference a DQ_Element.
+      /** Nombre de la prueba aplicada a los datos. Proviene de la agregaciÃ³n de la clase DQ_MeasureReference a DQ_Element.
        */
       Nombre_Medida : CharacterString;
-      /** Identificador de la medida, valor que identifica de manera única la medida dentro de un espacio de nombres. Proviene de la agregación de la clase DQ_MeasureReference a DQ_Element.
+      /** Identificador de la medida, valor que identifica de manera Ãºnica la medida dentro de un espacio de nombres. Proviene de la agregaciÃ³n de la clase DQ_MeasureReference a DQ_Element.
        */
       Identificacion_Medida : CharacterString;
-      /** Descripción. Proviene de la agregación de la clase DQ_MeasureReference a DQ_Element.
+      /** DescripciÃ³n. Proviene de la agregaciÃ³n de la clase DQ_MeasureReference a DQ_Element.
        */
       Descripcion_Medida : CharacterString;
-      /** Método utilizado para evaluar la calidad de los datos. Proviene de la agregación de la clase DQ_EvaluationMethod a DQ_Element.
+      /** MÃ©todo utilizado para evaluar la calidad de los datos. Proviene de la agregaciÃ³n de la clase DQ_EvaluationMethod a DQ_Element.
        */
       Metodo_Evaluacion : DQ_Metodo_Evaluacion_Codigo_Tipo;
-      /** Descripción del método de evaluación. Proviene de la agregación de la clase DQ_EvaluationMethod a DQ_Element.
+      /** DescripciÃ³n del mÃ©todo de evaluaciÃ³n. Proviene de la agregaciÃ³n de la clase DQ_EvaluationMethod a DQ_Element.
        */
       Descripcion_Metodo_Evaluacion : CharacterString;
-      /** Referencia a la información del procedimiento. Proviene de la agregación de la clase DQ_MeasureReference a DQ_Element.
+      /** Referencia a la informaciÃ³n del procedimiento. Proviene de la agregaciÃ³n de la clase DQ_MeasureReference a DQ_Element.
        */
       Procedimiento_Evaluacion : CharacterString;
-      /** Fecha y hora en la que se generan los resultados. Proviene de la agregación de la clase DQ_Result a DQ_Element.
+      /** Fecha y hora en la que se generan los resultados. Proviene de la agregaciÃ³n de la clase DQ_Result a DQ_Element.
        */
-      Fecha_Hora : ;
-      /** Alcance del resultado de la prueba de calidad. Proviene de la agregación de la clase DQ_Result a DQ_Element.
+      Fecha_Hora : INTERLIS.XMLDateTime;
+      /** Alcance del resultado de la prueba de calidad. Proviene de la agregaciÃ³n de la clase DQ_Result a DQ_Element.
        */
       Resultado : CharacterString;
     END DQ_Element;
@@ -398,66 +400,66 @@ VERSION "V1.2.0"  // 2019-08-13 // =
 
     DOMAIN
 
-      /** Traducción del dominio CI_PresentationFormCode de la norma ISO 19115:2003. Indica el modo en el que se representan los datos.
+      /** TraducciÃ³n del dominio CI_PresentationFormCode de la norma ISO 19115:2003. Indica el modo en el que se representan los datos.
        */
       CI_Forma_Presentacion_Codigo = (
-        /** Definición en la ISO 19115:2003.
+        /** DefiniciÃ³n en la ISO 19115:2003.
          */
         Imagen,
-        /** Definición en la ISO 19115:2003.
+        /** DefiniciÃ³n en la ISO 19115:2003.
          */
         Mapa,
-        /** Definición en la ISO 19115:2003.
+        /** DefiniciÃ³n en la ISO 19115:2003.
          */
         Modelo,
-        /** Definición en la ISO 19115:2003.
+        /** DefiniciÃ³n en la ISO 19115:2003.
          */
         Perfil,
-        /** Definición en la ISO 19115:2003.
+        /** DefiniciÃ³n en la ISO 19115:2003.
          */
         Tabla,
-        /** Definición en la ISO 19115:2003.
+        /** DefiniciÃ³n en la ISO 19115:2003.
          */
         Video,
-        /** Definición en la ISO 19115:2003.
+        /** DefiniciÃ³n en la ISO 19115:2003.
          */
         Audio,
-        /** Definición en la ISO 19115:2003.
+        /** DefiniciÃ³n en la ISO 19115:2003.
          */
         Diagrama,
-        /** Definición en la ISO 19115:2003.
+        /** DefiniciÃ³n en la ISO 19115:2003.
          */
         Multimedia,
-        /** Definición en la ISO 19115:2003.
+        /** DefiniciÃ³n en la ISO 19115:2003.
          */
         Muestra_Fisica,
-        /** Definición en la ISO 19115:2003.
+        /** DefiniciÃ³n en la ISO 19115:2003.
          */
         Otro
       );
 
-    /** Clase traducida CI_ResponsibleParty de la ISO 19115:2003. Identificación de los responsables del recurso y el papel de la parte en el recurso.
+    /** Clase traducida CI_ResponsibleParty de la ISO 19115:2003. IdentificaciÃ³n de los responsables del recurso y el papel de la parte en el recurso.
      */
     STRUCTURE CI_ParteResponsable =
-      /** Nombre individual del responsable. Se proporciona si la organización o la posición no son proporcionados.
+      /** Nombre individual del responsable. Se proporciona si la organizaciÃ³n o la posiciÃ³n no son proporcionados.
        */
       Nombre_Individual : CharacterString;
-      /** Nombre de la organización responsable. Se proporciona si el nombre individual o la posición no se provén.
+      /** Nombre de la organizaciÃ³n responsable. Se proporciona si el nombre individual o la posiciÃ³n no se provÃ©n.
        */
       Nombre_Organizacion : CharacterString;
-      /** Posición de la persona responsable. Se proporcionará si NombreIndividual o Organizacion no son
+      /** PosiciÃ³n de la persona responsable. Se proporcionarÃ¡ si NombreIndividual o Organizacion no son
        * proporcionados.
        */
       Posicion : CharacterString;
       /** Ver clase CI_Contacto.
        */
       Informacion_Contacto : LADM_COL_V1_2.LADM_Nucleo.CI_Contacto;
-      /** Función realizada por la parte responsable.
+      /** FunciÃ³n realizada por la parte responsable.
        */
       Funcion : CI_CodigoTarea;
     END CI_ParteResponsable;
 
-    /** Referencia a una clase externa para gestionar las redes físicas de servicios.
+    /** Referencia a una clase externa para gestionar las redes fÃ­sicas de servicios.
      */
     STRUCTURE ExtRedServiciosFisica =
       /** Indica si la red de servicios tiene un gradiente o no.
@@ -468,16 +470,16 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Ext_Interesado_Administrador_ID : LADM_COL_V1_2.LADM_Nucleo.ExtInteresado;
     END ExtRedServiciosFisica;
 
-    /** Estructura que proviene de la traducción de la clase CC_OperationMethod de la ISO 19111. Indica el método utilizado, mediante un algoritmo o un procedimiento, para realizar operaciones con coordenadas.
+    /** Estructura que proviene de la traducciÃ³n de la clase CC_OperationMethod de la ISO 19111. Indica el mÃ©todo utilizado, mediante un algoritmo o un procedimiento, para realizar operaciones con coordenadas.
      */
     STRUCTURE CC_MetodoOperacion =
-      /** Fórmulas o procedimientos utilizadoa por este método de operación de coordenadas. Esto puede ser una referencia a una publicación. Tenga en cuenta que el método de operación puede no ser analítico, en cuyo caso este atributo hace referencia o contiene el procedimiento, no una fórmula analítica.
+      /** FÃ³rmulas o procedimientos utilizadoa por este mÃ©todo de operaciÃ³n de coordenadas. Esto puede ser una referencia a una publicaciÃ³n. Tenga en cuenta que el mÃ©todo de operaciÃ³n puede no ser analÃ­tico, en cuyo caso este atributo hace referencia o contiene el procedimiento, no una fÃ³rmula analÃ­tica.
        */
       Formula : MANDATORY CharacterString;
-      /** Número de dimensiones en la fuente CRS de este método de operación de coordenadas.
+      /** NÃºmero de dimensiones en la fuente CRS de este mÃ©todo de operaciÃ³n de coordenadas.
        */
       Dimensiones_Origen : Integer;
-      /** Número de dimensiones en el CRS de destino de este método de operación de coordenadas.
+      /** NÃºmero de dimensiones en el CRS de destino de este mÃ©todo de operaciÃ³n de coordenadas.
        */
       Ddimensiones_Objetivo : Integer;
     END CC_MetodoOperacion;
@@ -487,20 +489,20 @@ VERSION "V1.2.0"  // 2019-08-13 // =
     STRUCTURE ExtArchivo =
       /** Fecha en la que ha sido aceptado el documento.
        */
-      Fecha_Aceptacion : ;
+      Fecha_Aceptacion : INTERLIS.XMLDate;
       /** Datos que contiene el documento.
        */
       Datos : CharacterString;
-      /** Última fecha de extracción del documento.
+      /** Ãšltima fecha de extracciÃ³n del documento.
        */
-      Extraccion : ;
+      Extraccion : INTERLIS.XMLDate;
       /** Fecha en la que el documento es aceptado en el sistema.
        */
-      Fecha_Grabacion : ;
+      Fecha_Grabacion : INTERLIS.XMLDate;
       /** Fecha en la que fue entregado el documento.
        */
-      Fecha_Entrega : ;
-      /** Definición del identificador único global del documento.
+      Fecha_Entrega : INTERLIS.XMLDate;
+      /** DefiniciÃ³n del identificador Ãºnico global del documento.
        */
       Espacio_De_Nombres : MANDATORY CharacterString;
       /** Identificador local del documento.
@@ -508,15 +510,15 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Local_Id : MANDATORY CharacterString;
     END ExtArchivo;
 
-    /** Clase abstracta que permite gestionar el histórico del conjunto de clases, las cuales heredan de esta, excepto las fuentes.
+    /** Clase abstracta que permite gestionar el histÃ³rico del conjunto de clases, las cuales heredan de esta, excepto las fuentes.
      */
     CLASS ObjetoVersionado (ABSTRACT) =
       /** Comienzo de la validez actual de la instancia de un objeto.
        */
-      Comienzo_Vida_Util_Version : ;
+      Comienzo_Vida_Util_Version : MANDATORY INTERLIS.XMLDateTime;
       /** Finnzo de la validez actual de la instancia de un objeto.
        */
-      Fin_Vida_Util_Version : ;
+      Fin_Vida_Util_Version : INTERLIS.XMLDateTime;
       /** Metadatos relativos a la calidad de la instancia.
        */
       Calidad : LIST {0..*} OF LADM_COL_V1_2.LADM_Nucleo.DQ_Element;
@@ -527,10 +529,10 @@ VERSION "V1.2.0"  // 2019-08-13 // =
         Fin_Vida_Util_Version >= Comienzo_Vida_Util_Version;
     END ObjetoVersionado;
 
-    /** Clase abstracta. Esta clase es la personalización en el modelo del perfil colombiano de la clase de LADM LA_Source.
+    /** Clase abstracta. Esta clase es la personalizaciÃ³n en el modelo del perfil colombiano de la clase de LADM LA_Source.
      */
     CLASS COL_Fuente (ABSTRACT) =
-      /** Indica si la fuente está o no disponible y en qué condiciones. También puede indicar porqué ha dejado de estar disponible, si ha ocurrido.
+      /** Indica si la fuente estÃ¡ o no disponible y en quÃ© condiciones. TambiÃ©n puede indicar porquÃ© ha dejado de estar disponible, si ha ocurrido.
        */
       Estado_Disponibilidad : MANDATORY COL_EstadoDisponibilidadTipo;
       /** Identificador del archivo fuente controlado por una clase externa.
@@ -539,13 +541,13 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Tipo de formato en el que es presentada la fuente, de acuerdo con el registro de metadatos.
        */
       Tipo_Principal : CI_Forma_Presentacion_Codigo;
-      /** Descripción de la calidad del documento de acuerdo a los metadatos del objeto DQ_Element, clase de la norma ISO 19157 que se refiere a aspectos de la información de calidad cuantitativa de la instancia referenciada.
+      /** DescripciÃ³n de la calidad del documento de acuerdo a los metadatos del objeto DQ_Element, clase de la norma ISO 19157 que se refiere a aspectos de la informaciÃ³n de calidad cuantitativa de la instancia referenciada.
        */
       Calidad : LIST {0..*} OF LADM_COL_V1_2.LADM_Nucleo.DQ_Element;
-      /** Parte responsable de la aceptación, con todos los metadatos gestionados por la clase CI_ParteResponsable, que hace referencia a la norma ISO 19115:2003.
+      /** Parte responsable de la aceptaciÃ³n, con todos los metadatos gestionados por la clase CI_ParteResponsable, que hace referencia a la norma ISO 19115:2003.
        */
       Procedencia : LIST {0..*} OF LADM_COL_V1_2.LADM_Nucleo.CI_ParteResponsable;
-      /** Identificación inéquivoca de la fuente en el sistema.
+      /** IdentificaciÃ³n inÃ©quivoca de la fuente en el sistema.
        */
       Espacio_De_Nombres : MANDATORY CharacterString;
       /** Identificador de la fuente en el sistema local.
@@ -554,32 +556,32 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Indica si se trata de un documento oficial o no.
        */
       Oficialidad : BOOLEAN;
-      Fecha_Documento_Fuente : ;
+      Fecha_Documento_Fuente : INTERLIS.XMLDate;
     END COL_Fuente;
 
-    /** Registro de la fórmula o procedimiento utilizado en la transformación y de su resultado.
+    /** Registro de la fÃ³rmula o procedimiento utilizado en la transformaciÃ³n y de su resultado.
      */
     STRUCTURE COL_Transformacion =
-      /** Fórmula o procedimiento utilizado en la transformación.
+      /** FÃ³rmula o procedimiento utilizado en la transformaciÃ³n.
        */
       Transformacion : MANDATORY LADM_COL_V1_2.LADM_Nucleo.CC_MetodoOperacion;
-      /** Geometría una vez realizado el proceso de transformación.
+      /** GeometrÃ­a una vez realizado el proceso de transformaciÃ³n.
        */
       Localizacion_Transformada : MANDATORY ISO19107_PLANAS_V1.GM_Point3D;
     END COL_Transformacion;
 
-    /** Estructura para la definición de un tipo de dato personalizado que permite indicar la medición de un volumen y la naturaleza de este.
+    /** Estructura para la definiciÃ³n de un tipo de dato personalizado que permite indicar la mediciÃ³n de un volumen y la naturaleza de este.
      */
     STRUCTURE COL_VolumenValor =
-      /** Medición del volumen en m3.
+      /** MediciÃ³n del volumen en m3.
        */
       Volumen_Medicion : MANDATORY 0.0 .. 99999999999999.9;
-      /** Indicación de si el volumen es calculado, si figura como oficial o si se da otra circunstancia.
+      /** IndicaciÃ³n de si el volumen es calculado, si figura como oficial o si se da otra circunstancia.
        */
       Tipo : MANDATORY COL_VolumenTipo;
     END COL_VolumenValor;
 
-    /** Estructura que pone a disposición del modelo la clase OM_Observation de la ISO 19156 y de la que sólo implementa un atributo de los cinco que tiene la clase origina: resultQuality.
+    /** Estructura que pone a disposiciÃ³n del modelo la clase OM_Observation de la ISO 19156 y de la que sÃ³lo implementa un atributo de los cinco que tiene la clase origina: resultQuality.
      */
     STRUCTURE OM_Observacion =
       /** Resultado del proceso de calidad, conforme a DQ_Element.
@@ -587,22 +589,22 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Resultado_Calidad : LADM_COL_V1_2.LADM_Nucleo.DQ_Element;
     END OM_Observacion;
 
-    /** Especialización de la clase COL_Fuente para almacenar aquellas fuentes constituidas por documentos (documento hipotecario, documentos notariales, documentos históricos, etc.) que documentan la relación entre instancias de interesados y de predios.
+    /** EspecializaciÃ³n de la clase COL_Fuente para almacenar aquellas fuentes constituidas por documentos (documento hipotecario, documentos notariales, documentos histÃ³ricos, etc.) que documentan la relaciÃ³n entre instancias de interesados y de predios.
      */
     CLASS COL_FuenteAdministrativa (ABSTRACT)
     EXTENDS COL_Fuente =
-      /** Descripción del documento.
+      /** DescripciÃ³n del documento.
        */
       Observacion : CharacterString;
       /** Tipo de documento de fuente administrativa.
        */
       Tipo : MANDATORY COL_FuenteAdministrativaTipo;
-      /** Identificador del documento, ejemplo: numero de la resolución
+      /** Identificador del documento, ejemplo: numero de la resoluciÃ³n
        */
       Numero_Fuente : TEXT*150;
     END COL_FuenteAdministrativa;
 
-    /** Traducción al español de la clase LA_SpatialUnit de LADM.
+    /** TraducciÃ³n al espaÃ±ol de la clase LA_SpatialUnit de LADM.
      */
     CLASS COL_UnidadEspacial (ABSTRACT)
     EXTENDS ObjetoVersionado =
@@ -620,49 +622,49 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Corresponde al atributo volume de la clase en LADM.
        */
       Volumen : LIST {0..*} OF LADM_COL_V1_2.LADM_Nucleo.COL_VolumenValor;
-      /** Identificador único global. Corresponde al atributo suID de la clase en LADM.
+      /** Identificador Ãºnico global. Corresponde al atributo suID de la clase en LADM.
        */
       Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador único local.
+      /** Identificador Ãºnico local.
        */
       Local_Id : MANDATORY CharacterString;
-      /** Materializacion del metodo createArea(). Almacena de forma permanente la geometría de tipo poligonal.
+      /** Materializacion del metodo createArea(). Almacena de forma permanente la geometrÃ­a de tipo poligonal.
        */
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END COL_UnidadEspacial;
 
-    /** Agrupa unidades espaciales, es decir, representaciones geográficas de las unidades administrativas básicas (clase LA_BAUnit) para representar otras unidades espaciales que se forman en base a estas, como puede ser el caso de los polígonos catastrales.
+    /** Agrupa unidades espaciales, es decir, representaciones geogrÃ¡ficas de las unidades administrativas bÃ¡sicas (clase LA_BAUnit) para representar otras unidades espaciales que se forman en base a estas, como puede ser el caso de los polÃ­gonos catastrales.
      */
     CLASS COL_AgrupacionUnidadesEspaciales (ABSTRACT)
     EXTENDS ObjetoVersionado =
-      /** Nivel jerárquico de la agrupación, dentro del anidamiento de diferentes agrupaciones.
+      /** Nivel jerÃ¡rquico de la agrupaciÃ³n, dentro del anidamiento de diferentes agrupaciones.
        */
       Nivel_Jerarquico : MANDATORY Integer;
-      /** Definición de la agrupación.
+      /** DefiniciÃ³n de la agrupaciÃ³n.
        */
       Etiqueta : CharacterString;
-      /** Nombre que recibe la agrupación.
+      /** Nombre que recibe la agrupaciÃ³n.
        */
       Nombre : CharacterString;
-      /** Punto de referencia de toda la agrupación, a modo de centro de masas.
+      /** Punto de referencia de toda la agrupaciÃ³n, a modo de centro de masas.
        */
       Punto_Referencia : ISO19107_PLANAS_V1.GM_Point3D;
-      /** Identificar único global de la agrupación.
+      /** Identificar Ãºnico global de la agrupaciÃ³n.
        */
       Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador único local de la agrupación.
+      /** Identificador Ãºnico local de la agrupaciÃ³n.
        */
       Local_Id : MANDATORY CharacterString;
     END COL_AgrupacionUnidadesEspaciales;
 
-    /** Traducción al español de la clase LA_LegalSpaceBuildingUnit. Sus intancias son las unidades de edificación
+    /** TraducciÃ³n al espaÃ±ol de la clase LA_LegalSpaceBuildingUnit. Sus intancias son las unidades de edificaciÃ³n
      */
     CLASS COL_EspacioJuridicoUnidadEdificacion (ABSTRACT)
     EXTENDS COL_UnidadEspacial =
-      /** Identificador de la unidad de edificación.
+      /** Identificador de la unidad de edificaciÃ³n.
        */
       Ext_Unidad_Edificacion_Fisica_ID : LADM_COL_V1_2.LADM_Nucleo.ExtUnidadEdificacionFisica;
-      /** Tipo de unidad de edificación de la que se trata.
+      /** Tipo de unidad de edificaciÃ³n de la que se trata.
        */
       Tipo : COL_UnidadEdificacionTipo;
     END COL_EspacioJuridicoUnidadEdificacion;
@@ -672,11 +674,11 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       elemento -- {0..*} COL_AgrupacionUnidadesEspaciales;
     END col_ueJerarquiaGrupo;
 
-    /** Traducción al español de la clase LA_LegalSpaceUtilityNetwork. Representa un tipo de unidad espacial (LA_UNidadEspacial) cuyas instancias son las redes de servicios.
+    /** TraducciÃ³n al espaÃ±ol de la clase LA_LegalSpaceUtilityNetwork. Representa un tipo de unidad espacial (LA_UNidadEspacial) cuyas instancias son las redes de servicios.
      */
     CLASS COL_EspacioJuridicoRedServicios (ABSTRACT)
     EXTENDS COL_UnidadEspacial =
-      /** Identificador de la red física hacia una referencia externa.
+      /** Identificador de la red fÃ­sica hacia una referencia externa.
        */
       ext_ID_Red_Fisica : LADM_COL_V1_2.LADM_Nucleo.ExtRedServiciosFisica;
       /** Estado de operatividad de la red.
@@ -692,7 +694,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       todo -- {0..*} COL_AgrupacionUnidadesEspaciales;
     END col_ueUeGrupo;
 
-    /** Traducción de la clase LA_Level de LADM.
+    /** TraducciÃ³n de la clase LA_Level de LADM.
      */
     CLASS COL_Nivel (ABSTRACT)
     EXTENDS ObjetoVersionado =
@@ -702,7 +704,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Tipo : COL_ContenidoNivelTipo;
     END COL_Nivel;
 
-    /** Traducción al español de la clase LA_RequiredRelationshipSpatialUnit de LADM.
+    /** TraducciÃ³n al espaÃ±ol de la clase LA_RequiredRelationshipSpatialUnit de LADM.
      */
     CLASS COL_RelacionNecesariaUnidadesEspaciales (ABSTRACT)
     EXTENDS ObjetoVersionado =
@@ -718,40 +720,40 @@ VERSION "V1.2.0"  // 2019-08-13 // =
      */
     CLASS COL_RRR (ABSTRACT)
     EXTENDS ObjetoVersionado =
-      /** Descripción relatical al derecho, la responsabilidad o la restricción.
+      /** DescripciÃ³n relatical al derecho, la responsabilidad o la restricciÃ³n.
        */
       Descripcion : CharacterString;
-      /** Participación, en modo de fracción, en la subclase LA_Derecho, LA_Responsabilidad o LA_Restriccion.
+      /** ParticipaciÃ³n, en modo de fracciÃ³n, en la subclase LA_Derecho, LA_Responsabilidad o LA_Restriccion.
        */
       Compartido : LADM_COL_V1_2.LADM_Nucleo.Fraccion;
-      /** Indicación de si comparte o no.
+      /** IndicaciÃ³n de si comparte o no.
        */
       Comprobacion_Comparte : BOOLEAN;
-      /** Descripción de cual es el uso efectivo.
+      /** DescripciÃ³n de cual es el uso efectivo.
        */
       Uso_Efectivo : CharacterString;
-      /** Identificador global único.
+      /** Identificador global Ãºnico.
        */
       Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador único local.
+      /** Identificador Ãºnico local.
        */
       Local_Id : MANDATORY CharacterString;
     END COL_RRR;
 
-    /** De forma genérica, representa el objeto territorial legal (Catastro 2014) que se gestiona en el modelo, en este caso, la parcela catastral o predio. Es independiente del conocimiento de su realidad espacial y se centra en su existencia conocida y reconocida.
+    /** De forma genÃ©rica, representa el objeto territorial legal (Catastro 2014) que se gestiona en el modelo, en este caso, la parcela catastral o predio. Es independiente del conocimiento de su realidad espacial y se centra en su existencia conocida y reconocida.
      */
     CLASS COL_BAUnit (ABSTRACT)
     EXTENDS ObjetoVersionado =
-      /** Nombre que recibe la unidad administrativa básica, en muchos casos toponímico, especialmente en terrenos rústicos.
+      /** Nombre que recibe la unidad administrativa bÃ¡sica, en muchos casos toponÃ­mico, especialmente en terrenos rÃºsticos.
        */
       Nombre : CharacterString;
       /** Tipo de derecho que la reconoce.
        */
       Tipo : MANDATORY COL_BAUnitTipo;
-      /** Identificador único global.
+      /** Identificador Ãºnico global.
        */
       Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador único local.
+      /** Identificador Ãºnico local.
        */
       Local_Id : MANDATORY CharacterString;
     END COL_BAUnit;
@@ -761,7 +763,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       rrr -- {0..*} COL_RRR;
     END col_rrrFuente;
 
-    /** Traducción de la clase LA_RequiredRelationshipBAUnit de LADM.
+    /** TraducciÃ³n de la clase LA_RequiredRelationshipBAUnit de LADM.
      */
     CLASS COL_RelacionNecesariaBAUnits (ABSTRACT)
     EXTENDS ObjetoVersionado =
@@ -788,7 +790,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       unidad -- {0..*} COL_BAUnit;
     END col_unidadFuente;
 
-    /** Traducción al español de la clase LA_Point de LADM.
+    /** TraducciÃ³n al espaÃ±ol de la clase LA_Point de LADM.
      */
     CLASS COL_Punto (ABSTRACT)
     EXTENDS ObjetoVersionado =
@@ -802,7 +804,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Local_Id : MANDATORY CharacterString;
     END COL_Punto;
 
-    /** Especialización de la clase COL_Fuente para almacenar las fuentes constituidas por datos espaciales (entidades geográficas, imágenes de satélite, vuelos fotogramétricos, listados de coordenadas, mapas, planos antiguos o modernos, descripción de localizaciones, etc.) que documentan técnicamente la relación entre instancias de interesados y de predios
+    /** EspecializaciÃ³n de la clase COL_Fuente para almacenar las fuentes constituidas por datos espaciales (entidades geogrÃ¡ficas, imÃ¡genes de satÃ©lite, vuelos fotogramÃ©tricos, listados de coordenadas, mapas, planos antiguos o modernos, descripciÃ³n de localizaciones, etc.) que documentan tÃ©cnicamente la relaciÃ³n entre instancias de interesados y de predios
      */
     CLASS COL_FuenteEspacial (ABSTRACT)
     EXTENDS COL_Fuente =
@@ -810,17 +812,17 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Tipo : MANDATORY COL_FuenteEspacialTipo;
     END COL_FuenteEspacial;
 
-    /** Traducción al español de la clase LA_BoundaryFaceString de LADM. Define los linderos y a su vez puede estar definida por una descrición textual o por dos o más puntos. Puede estar asociada a una fuente espacial o más.
+    /** TraducciÃ³n al espaÃ±ol de la clase LA_BoundaryFaceString de LADM. Define los linderos y a su vez puede estar definida por una descriciÃ³n textual o por dos o mÃ¡s puntos. Puede estar asociada a una fuente espacial o mÃ¡s.
      */
     CLASS COL_CadenaCarasLimite (ABSTRACT)
     EXTENDS ObjetoVersionado =
-      /** Geometría lineal que define el lindero. Puede estar asociada a geometrías de tipo punto que definen sus vértices o ser una entidad lineal independiente.
+      /** GeometrÃ­a lineal que define el lindero. Puede estar asociada a geometrÃ­as de tipo punto que definen sus vÃ©rtices o ser una entidad lineal independiente.
        */
       Geometria : ISO19107_PLANAS_V1.GM_Curve3D;
-      /** Descripción de la localización, cuando esta se basa en texto.
+      /** DescripciÃ³n de la localizaciÃ³n, cuando esta se basa en texto.
        */
       Localizacion_Textual : CharacterString;
-      /** Identificador único global de la cadena de caras lindero.
+      /** Identificador Ãºnico global de la cadena de caras lindero.
        */
       Espacio_De_Nombres : MANDATORY CharacterString;
       /** Identificador local de la cadena de caras lindero.
@@ -828,20 +830,20 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Local_Id : MANDATORY CharacterString;
     END COL_CadenaCarasLimite;
 
-    /** Traducción de la clase LA_BoundaryFace de LADM. De forma similar a LA_CadenaCarasLindero, representa los límites, pero en este caso permite representación 3D.
+    /** TraducciÃ³n de la clase LA_BoundaryFace de LADM. De forma similar a LA_CadenaCarasLindero, representa los lÃ­mites, pero en este caso permite representaciÃ³n 3D.
      */
     CLASS COL_CarasLindero (ABSTRACT)
     EXTENDS ObjetoVersionado =
-      /** Geometría en 3D del límite o lindero, asociada a putos o a descripciones textuales.
+      /** GeometrÃ­a en 3D del lÃ­mite o lindero, asociada a putos o a descripciones textuales.
        */
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
-      /** Cuando la localización del límte está dada por una descripción textual, aquí se recoge esta.
+      /** Cuando la localizaciÃ³n del lÃ­mte estÃ¡ dada por una descripciÃ³n textual, aquÃ­ se recoge esta.
        */
       Localizacion_Textual : CharacterString;
-      /** Identificador único global.
+      /** Identificador Ãºnico global.
        */
       Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador único local.
+      /** Identificador Ãºnico local.
        */
       Local_Id : MANDATORY CharacterString;
     END COL_CarasLindero;
@@ -911,7 +913,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       cl -- {0..*} COL_CarasLindero;
     END col_puntoCl;
 
-    /** Traducción de la clase LA_Party de LADM. Representa a las personas que ejercen derechos y responsabilidades  o sufren restricciones respecto a una BAUnit.
+    /** TraducciÃ³n de la clase LA_Party de LADM. Representa a las personas que ejercen derechos y responsabilidades  o sufren restricciones respecto a una BAUnit.
      */
     CLASS COL_Interesado (ABSTRACT)
     EXTENDS ObjetoVersionado =
@@ -921,22 +923,22 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Nombre del interesado.
        */
       Nombre : CharacterString;
-      /** Función o tarea que realiza el interesado dentro del marco de derechos, obligaciones y restricciones.
+      /** FunciÃ³n o tarea que realiza el interesado dentro del marco de derechos, obligaciones y restricciones.
        */
       Tarea : LIST {0..*} OF COL_FuncionInteresadoTipo_;
-      /** Identificador único global.
+      /** Identificador Ãºnico global.
        */
       Espacio_De_Nombres : MANDATORY CharacterString;
-      /** Identificador único local.
+      /** Identificador Ãºnico local.
        */
       Local_Id : MANDATORY CharacterString;
     END COL_Interesado;
 
-    /** Registra interesados que representan a grupos de personas. Se registra el grupo en si, independientemete de las personas por separado. Es lo que ocurreo, por ejemplo, con un grupo étnico.
+    /** Registra interesados que representan a grupos de personas. Se registra el grupo en si, independientemete de las personas por separado. Es lo que ocurreo, por ejemplo, con un grupo Ã©tnico.
      */
     CLASS COL_Agrupacion_Interesados (ABSTRACT)
     EXTENDS COL_Interesado =
-      /** Indica el tipo de agrupación del que se trata.
+      /** Indica el tipo de agrupaciÃ³n del que se trata.
        */
       Tipo : MANDATORY COL_GrupoInteresadoTipo;
     END COL_Agrupacion_Interesados;
