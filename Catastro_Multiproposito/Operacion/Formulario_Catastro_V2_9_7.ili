@@ -9,10 +9,10 @@ INTERLIS 2.3;
  * 17.09.2018/ fm: cambio en el orden de los roles de la asociación PredioFicha_Predio para evitar la creación de la tabla de paso en el modelo físico cuando hay dependencia de topics
  * 17.09.2018/ (AT): Cambio en los nombres de los dominios COL_PredioTipoPublicoTipo y COL_PredioTipo para evitar redundancias
  */
-MODEL Formulario_Catastro_V2_9_6 (es)
+MODEL Formulario_Catastro_V2_9_7 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-02-01 // =
-  IMPORTS Operacion_V2_9_6,Avaluos_V2_9_6,LADM_COL_V1_3;
+  IMPORTS Operacion_V2_9_7,Avaluos_V2_9_7,LADM_COL_V1_5;
 
   DOMAIN
 
@@ -415,7 +415,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
 
   TOPIC Formulario_Catastro =
     OID AS INTERLIS.UUIDOID;
-    DEPENDS ON Avaluos_V2_9_6.Avaluos,Operacion_V2_9_6.Operacion;
+    DEPENDS ON Avaluos_V2_9_7.Avaluos,Operacion_V2_9_7.Operacion;
 
     CLASS FCM_Calificacion_Unidad_Construccion (ABSTRACT) =
     END FCM_Calificacion_Unidad_Construccion;
@@ -438,9 +438,9 @@ VERSION "V2.2.1"  // 2018-02-01 // =
 
     STRUCTURE FCM_Estructura_Objeto_Construccion =
       !!@ ili2db.dispName = "Clase de calificación"
-      Clase_Calificacion : MANDATORY Formulario_Catastro_V2_9_6.FCM_ClaseCalificacionTipo;
+      Clase_Calificacion : MANDATORY Formulario_Catastro_V2_9_7.FCM_ClaseCalificacionTipo;
       !!@ ili2db.dispName = "Tipo de objeto de construcción"
-      Tipo_Objeto_Construccion : MANDATORY Formulario_Catastro_V2_9_6.FCM_ObjetoConstruccionTipo;
+      Tipo_Objeto_Construccion : MANDATORY Formulario_Catastro_V2_9_7.FCM_ObjetoConstruccionTipo;
       !!@ ili2db.dispName = "Nombre"
       Nombre : MANDATORY TEXT*255;
     END FCM_Estructura_Objeto_Construccion;
@@ -448,9 +448,9 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     !!@ ili2db.dispName = "(Avalúos) Grupo Calificación"
     CLASS FCM_Grupo_Calificacion =
       !!@ ili2db.dispName = "Clase de calificación"
-      Clase_Calificacion : MANDATORY Formulario_Catastro_V2_9_6.FCM_ClaseCalificacionTipo;
+      Clase_Calificacion : MANDATORY Formulario_Catastro_V2_9_7.FCM_ClaseCalificacionTipo;
       !!@ ili2db.dispName = "Conservación"
-      Conservacion : Formulario_Catastro_V2_9_6.FCM_EstadoConservacionTipo;
+      Conservacion : Formulario_Catastro_V2_9_7.FCM_EstadoConservacionTipo;
       !!@ ili2db.dispName = "Subtotal"
       Subtotal : 0 .. 9999999;
     END FCM_Grupo_Calificacion;
@@ -474,16 +474,16 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     CLASS FCM_Calificacion_Convencional
     EXTENDS FCM_Calificacion_Unidad_Construccion =
       !!@ ili2db.dispName = "Tipo a calificar"
-      Tipo_Calificar : Formulario_Catastro_V2_9_6.FCM_CalificarTipo;
+      Tipo_Calificar : Formulario_Catastro_V2_9_7.FCM_CalificarTipo;
       !!@ ili2db.dispName = "Total calificación"
-      Total_Calificacion : LADM_COL_V1_3.LADM_Nucleo.Integer;
+      Total_Calificacion : LADM_COL_V1_5.LADM_Nucleo.Integer;
     END FCM_Calificacion_Convencional;
 
     !!@ ili2db.dispName = "(Avalúos) Calificación No Convencional"
     CLASS FCM_Calificacion_No_Convencional
     EXTENDS FCM_Calificacion_Unidad_Construccion =
       !!@ ili2db.dispName = "Tipo de anexo"
-      Tipo_Anexo : Formulario_Catastro_V2_9_6.FCM_AnexoTipo;
+      Tipo_Anexo : Formulario_Catastro_V2_9_7.FCM_AnexoTipo;
       !!@ ili2db.dispName = "Descripción de anexo"
       Descripcion_Anexo : TEXT*256;
       !!@ ili2db.dispName = "Puntaje anexo"
@@ -503,19 +503,19 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       /** Describe si el predio es formal o informal
        */
       !!@ ili2db.dispName = "Formalidad"
-      Formalidad : MANDATORY Formulario_Catastro_V2_9_6.FCM_FormalidadTipo;
+      Formalidad : Formulario_Catastro_V2_9_7.FCM_FormalidadTipo;
       /** Uso económico que se hace del predio.
        */
       !!@ ili2db.dispName = "Destinación económica"
-      Destinacion_Economica : MANDATORY Formulario_Catastro_V2_9_6.FCM_DestinacionEconomicaTipo;
+      Destinacion_Economica : MANDATORY Formulario_Catastro_V2_9_7.FCM_DestinacionEconomicaTipo;
       /** Clasificación del suelo según el Plan de Ordenamiento Territorial vigente.
        */
       !!@ ili2db.dispName = "Clase de suelo"
-      Clase_Suelo : MANDATORY Formulario_Catastro_V2_9_6.FCM_ClaseSueloTipo;
+      Clase_Suelo : MANDATORY Formulario_Catastro_V2_9_7.FCM_ClaseSueloTipo;
       /** Categoría del suelo según el Plan de Ordenamiento Territorial vigente.
        */
       !!@ ili2db.dispName = "Categoría de suelo"
-      Categoria_Suelo : Formulario_Catastro_V2_9_6.FCM_CategoriaSueloTipo;
+      Categoria_Suelo : Formulario_Catastro_V2_9_7.FCM_CategoriaSueloTipo;
       !!@ ili2db.dispName = "Tiene FMI"
       Tiene_FMI : MANDATORY BOOLEAN;
       !!@ ili2db.dispName = "Fecha de inicio de tenencia"
@@ -525,7 +525,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       /** Predios catastrales que se engloban
        */
       !!@ ili2db.dispName = "Predios catastrales que se engloban"
-      Numeros_Prediales_Englobe : BAG {0..*} OF Formulario_Catastro_V2_9_6.Formulario_Catastro.FCM_Predio_Englobe;
+      Numeros_Prediales_Englobe : BAG {0..*} OF Formulario_Catastro_V2_9_7.Formulario_Catastro.FCM_Predio_Englobe;
       !!@ ili2db.dispName = "Observaciones"
       Observaciones : MTEXT*500;
       !!@ ili2db.dispName = "Fecha de visita predial"
@@ -537,20 +537,20 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     !!@ ili2db.dispName = "(Avalúos) Objeto Construcción"
     CLASS FCM_Objeto_Construccion =
       !!@ ili2db.dispName = "Tipo de objeto de construcción"
-      Tipo_Objeto_Construccion : MANDATORY Formulario_Catastro_V2_9_6.Formulario_Catastro.FCM_Estructura_Objeto_Construccion;
+      Tipo_Objeto_Construccion : MANDATORY Formulario_Catastro_V2_9_7.Formulario_Catastro.FCM_Estructura_Objeto_Construccion;
       !!@ ili2db.dispName = "Puntos"
       Puntos : MANDATORY 0 .. 16;
     END FCM_Objeto_Construccion;
 
     ASSOCIATION fcm_opunidadconstruccion_tipologiaconstruccion =
-      op_unidadconstruccion (EXTERNAL) -- {1} Operacion_V2_9_6.Operacion.OP_UnidadConstruccion;
+      op_unidadconstruccion (EXTERNAL) -- {1} Operacion_V2_9_7.Operacion.OP_UnidadConstruccion;
       fcm_tipologia_construccion -- {0..1} FCM_Tipologia_Construccion;
     END fcm_opunidadconstruccion_tipologiaconstruccion;
 
     /** Relación entre la clase Unidad_Construccion del modelo de Avalúos y Calificacion_Unidad_Construccion de modelo de Avalúos
      */
     ASSOCIATION fcm_calificacion_unidadconstruccion =
-      op_av_unidad_construccion (EXTERNAL) -- {1} Operacion_V2_9_6.Operacion.OP_UnidadConstruccion;
+      op_av_unidad_construccion (EXTERNAL) -- {1} Operacion_V2_9_7.Operacion.OP_UnidadConstruccion;
       av_calificacion_unidad_construccion -- {0..1} FCM_Calificacion_Unidad_Construccion;
     END fcm_calificacion_unidadconstruccion;
 
@@ -562,7 +562,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     /** Relación entre el Predio catastral (módulo de catastro) y la clase Formulario_Unico_CM, que permite determinar sobre qué predio se toman los datos específicos del formulario único de catastro multipropósito
      */
     ASSOCIATION fcm_formulario_predio =
-      op_predio (EXTERNAL) -- {1} Operacion_V2_9_6.Operacion.OP_Predio;
+      op_predio (EXTERNAL) -- {1} Operacion_V2_9_7.Operacion.OP_Predio;
       fcm_formulario_unico -- {0..1} FCM_Formulario_Unico_CM;
     END fcm_formulario_predio;
 
@@ -578,4 +578,4 @@ VERSION "V2.2.1"  // 2018-02-01 // =
 
   END Formulario_Catastro;
 
-END Formulario_Catastro_V2_9_6.
+END Formulario_Catastro_V2_9_7.
