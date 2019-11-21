@@ -10,115 +10,128 @@ AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-04-19 // =
   IMPORTS ISO19107_PLANAS_V1,Catastro_Registro_V2_9_7,LADM_COL_V1_5;
 
-  /** Este tema almacena espec韋icamente las clases que definen la divisi髇 administrativa desde el punto de vista operativo de catastro.
+  /** Este tema almacena espec铆ficamente las clases que definen la divisi贸n administrativa desde el punto de vista operativo de catastro.
    */
   TOPIC LimitesOperativosCatastro =
 
     DOMAIN
 
       CRF_ZonaTipo = (
-        !!@ ili2db.dispName = "Per韒etro urbano"
+        !!@ ili2db.dispName = "Per铆metro urbano"
         Perimetro_Urbano,
         !!@ ili2db.dispName = "Rural"
         Rural,
         !!@ ili2db.dispName = "Corregimiento"
         Corregimiento,
-        !!@ ili2db.dispName = "Caser韔s"
+        !!@ ili2db.dispName = "Caser铆os"
         Caserios,
-        !!@ ili2db.dispName = "Inspecci髇 de polic韆"
+        !!@ ili2db.dispName = "Inspecci贸n de polic铆a"
         Inspecion_Policia
       );
 
-    !!@ ili2db.dispName = "(CRF) Per韒etro"
+    !!@ ili2db.dispName = "(CRF) Per铆metro"
     CLASS CRF_Perimetro =
+      !!@ ili2db.dispName = "C贸digo del departamento"
       Codigo_Departamento : TEXT*2;
+      !!@ ili2db.dispName = "C贸digo del municipio"
       Codigo_Municipio : TEXT*5;
+      !!@ ili2db.dispName = "Tipo de aval煤o"
       Tipo_Avaluo : TEXT*30;
+      !!@ ili2db.dispName = "Nombre geogr谩fico"
       Nombre_Geografico : TEXT*50;
+      !!@ ili2db.dispName = "C贸digo de nombre"
       Codigo_Nombre : TEXT*255;
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END CRF_Perimetro;
 
     !!@ ili2db.dispName = "(CRF) Sector Rural"
     CLASS CRF_Sector_Rural =
+      !!@ ili2db.dispName = "C贸digo"
       Codigo : MANDATORY TEXT*9;
+      !!@ ili2db.dispName = "Nombre"
       Nombre : MANDATORY TEXT*50;
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END CRF_Sector_Rural;
 
-    /** Zona ocupada por un sector catastral determinado y su determinaci髇 topon韒ica y catastral.
+    /** Zona ocupada por un sector catastral determinado y su determinaci贸n topon铆mica y catastral.
      */
     !!@ ili2db.dispName = "(CRF) Sector Urbano"
     CLASS CRF_Sector_Urbano =
-      /** C骴igo de identificaci髇 鷑ica del sector catastral.
+      /** C贸digo de identificaci贸n 煤nica del sector catastral.
        */
-      !!@ ili2db.dispName = "C骴igo"
+      !!@ ili2db.dispName = "C贸digo"
       Codigo : MANDATORY TEXT*9;
       /** Nombre por el que es conocido el sector catastral.
        */
       !!@ ili2db.dispName = "Nombre"
       Nombre : MANDATORY TEXT*50;
-      /** Tipo de geometr韆 y su representaci髇 georrefenciada que definen los l韒ites y el 醨ea ocupada por el sector catastral.
+      /** Tipo de geometr铆a y su representaci贸n georrefenciada que definen los l铆mites y el 谩rea ocupada por el sector catastral.
        */
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END CRF_Sector_Urbano;
 
-    /** Zona ocupada por una vereda dada y su determinaci髇 topon韒ica y catastral.
+    /** Zona ocupada por una vereda dada y su determinaci贸n topon铆mica y catastral.
      */
+    !!@ ili2db.dispName = "(CRF) Vereda"
     CLASS CRF_Vereda =
-      !!@ ili2db.dispName = "C骴igo"
+      !!@ ili2db.dispName = "C贸digo"
       Codigo : MANDATORY TEXT*4;
       !!@ ili2db.dispName = "Nombre"
       Nombre : MANDATORY TEXT*50;
-      !!@ ili2db.dispName = "C骴igo del sector"
+      !!@ ili2db.dispName = "C贸digo del sector"
       Codigo_Sector : TEXT*2;
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END CRF_Vereda;
 
-    /** Zona ocupada por una localidad o comuna dadas y su determinaci髇 topon韒ica y catastral.
+    /** Zona ocupada por una localidad o comuna dadas y su determinaci贸n topon铆mica y catastral.
      */
+    !!@ ili2db.dispName = "(CRF) Localidad Comuna"
     CLASS CRF_LocalidadComuna =
-      /** Codigo de identificaci髇 鷑ica de la localidad o comuna.
+      /** Codigo de identificaci贸n 煤nica de la localidad o comuna.
        */
-      !!@ ili2db.dispName = "C骴igo"
+      !!@ ili2db.dispName = "C贸digo"
       Codigo : MANDATORY TEXT*2;
       /** Nombre por el que es conocida la localidad o comuna.
        */
       !!@ ili2db.dispName = "Nombre"
       Nombre : MANDATORY TEXT*50;
-      /** Tipo de geometr韆 y su representaci髇 georrefenciada que definen los l韒ites y el 醨ea ocupada por la localidad o comuna.
+      /** Tipo de geometr铆a y su representaci贸n georrefenciada que definen los l铆mites y el 谩rea ocupada por la localidad o comuna.
        */
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END CRF_LocalidadComuna;
 
-    /** Zona ocupada por un barrio dado y su determinaci髇 topon韒ica y catastral.
+    /** Zona ocupada por un barrio dado y su determinaci贸n topon铆mica y catastral.
      */
+    !!@ ili2db.dispName = "(CRF) Barrio"
     CLASS CRF_Barrio =
-      /** Codigo de identificaci髇 鷑ica del barrio.
+      /** Codigo de identificaci贸n 煤nica del barrio.
        */
-      !!@ ili2db.dispName = "C骴igo"
+      !!@ ili2db.dispName = "C贸digo"
       Codigo : MANDATORY TEXT*2;
       /** Nombre por el que es conocido el barrio.
        */
       !!@ ili2db.dispName = "Nombre"
       Nombre : MANDATORY TEXT*100;
-      !!@ ili2db.dispName = "C骴igo del sector"
+      !!@ ili2db.dispName = "C贸digo del sector"
       Codigo_Sector : TEXT*2;
-      /** Tipo de geometr韆 y su representaci髇 georrefenciada que definen los l韒ites y el 醨ea ocupada por el barrio.
+      /** Tipo de geometr铆a y su representaci贸n georrefenciada que definen los l铆mites y el 谩rea ocupada por el barrio.
        */
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END CRF_Barrio;
 
-    /** 羠ea ocupada por una zona catastral determinada y su determinaci髇 topon韒ica y catastral.
+    /** 脕rea ocupada por una zona catastral determinada y su determinaci贸n topon铆mica y catastral.
      */
+    !!@ ili2db.dispName = "(CRF) Zona"
     CLASS CRF_Zona =
-      /** C骴igo de identificaci髇 鷑ica de la zona catastral.
+      /** C贸digo de identificaci贸n 煤nica de la zona catastral.
        */
-      !!@ ili2db.dispName = "C骴igo"
+      !!@ ili2db.dispName = "C贸digo"
       Codigo : MANDATORY TEXT*2;
       /** Nombre por el que es conocida la zona.
        */
@@ -128,28 +141,29 @@ VERSION "V2.2.1"  // 2018-04-19 // =
        */
       !!@ ili2db.dispName = "Tipo de zona"
       Tipo_Zona : CRF_ZonaTipo;
-      /** Tipo de geometr韆 y su representaci髇 georrefenciada que definen los l韒ites y el 醨ea ocupada por la zona.
+      /** Tipo de geometr铆a y su representaci贸n georrefenciada que definen los l铆mites y el 谩rea ocupada por la zona.
        */
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END CRF_Zona;
 
-    /** Zona ocupada por una manzana dada y su determinaci髇 topon韒ica y catastral.
+    /** Zona ocupada por una manzana dada y su determinaci贸n topon铆mica y catastral.
      */
+    !!@ ili2db.dispName = "(CRF) Manzana"
     CLASS CRF_Manzana =
-      /** C骴igo de identificaci髇 鷑ica de la manzana o vereda.
+      /** C贸digo de identificaci贸n 煤nica de la manzana o vereda.
        */
-      !!@ ili2db.dispName = "C骴igo"
+      !!@ ili2db.dispName = "C贸digo"
       Codigo : MANDATORY TEXT*4;
-      !!@ ili2db.dispName = "C骴igo del barrio"
+      !!@ ili2db.dispName = "C贸digo del barrio"
       Codigo_Barrio : TEXT*2;
       /** Nombre por el que es conocida la vereda.
        */
       !!@ ili2db.dispName = "Nombre"
       Nombre : MANDATORY TEXT*50;
-      /** Tipo de geometr韆 y su representaci髇 georrefenciada que definen los l韒ites y el 醨ea ocupada por la manzana o vereda.
+      /** Tipo de geometr铆a y su representaci贸n georrefenciada que definen los l铆mites y el 谩rea ocupada por la manzana o vereda.
        */
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END CRF_Manzana;
 
@@ -162,51 +176,51 @@ VERSION "V2.2.1"  // 2018-04-19 // =
     CLASS CRF_FronteraNacional =
       !!@ ili2db.dispName = "Nombre"
       Nombre : MANDATORY TEXT*8;
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END CRF_FronteraNacional;
 
     CLASS CRF_DivisionDepartamento =
-      !!@ ili2db.dispName = "C骴igo"
+      !!@ ili2db.dispName = "C贸digo"
       Codigo : MANDATORY TEXT*2;
       !!@ ili2db.dispName = "Nombre"
       Nombre : MANDATORY TEXT*40;
       !!@ ili2db.dispName = "Normatividad"
       Normatividad : TEXT*255;
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END CRF_DivisionDepartamento;
 
     CLASS CRF_DivisionDistrito =
-      !!@ ili2db.dispName = "C骴igo"
+      !!@ ili2db.dispName = "C贸digo"
       Codigo : MANDATORY TEXT*2;
       !!@ ili2db.dispName = "Nombre"
       Nombre : MANDATORY TEXT*50;
       !!@ ili2db.dispName = "Normatividad"
       Normatividad : TEXT*255;
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END CRF_DivisionDistrito;
 
     CLASS CRF_DivisionMunicipio =
-      !!@ ili2db.dispName = "C骴igo"
+      !!@ ili2db.dispName = "C贸digo"
       Codigo : MANDATORY TEXT*5;
       !!@ ili2db.dispName = "Nombre"
       Nombre : MANDATORY TEXT*50;
       !!@ ili2db.dispName = "Normatividad"
       Normatividad : TEXT*255;
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END CRF_DivisionMunicipio;
 
     CLASS CRF_DivisionCentroPoblado =
-      !!@ ili2db.dispName = "C骴igo"
+      !!@ ili2db.dispName = "C贸digo"
       Codigo : TEXT*8;
       !!@ ili2db.dispName = "Nombre"
       Nombre : TEXT*50;
       !!@ ili2db.dispName = "Normatividad"
       Normatividad : TEXT*255;
-      !!@ ili2db.dispName = "Geometr韆"
+      !!@ ili2db.dispName = "Geometr铆a"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END CRF_DivisionCentroPoblado;
 
@@ -220,9 +234,9 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       Exactitud_Posicional : MANDATORY 0 .. 1000 [LADM_COL_V1_5.cm];
       !!@ ili2db.dispName = "Confiabilidad"
       Confiabilidad : BOOLEAN;
-      !!@ ili2db.dispName = "Posici髇 interpolaci髇"
+      !!@ ili2db.dispName = "Posici贸n interpolaci贸n"
       Posicion_Interpolacion (EXTENDED) : LADM_COL_V1_5.LADM_Nucleo.COL_InterpolacionTipo;
-      !!@ ili2db.dispName = "Monumentaci髇"
+      !!@ ili2db.dispName = "Monumentaci贸n"
       Monumentacion : MANDATORY Catastro_Registro_V2_9_7.CR_PuntoTipo;
       !!@ ili2db.dispName = "Nombre punto"
       Nombre_Punto : TEXT*255;
@@ -230,7 +244,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
 
   END LimitesPoliticoAdministrativos;
 
-  /** Topic para separar las clases del paquete de Topograf韆 y Representaci髇 que se usan de apoyo en el catastro.
+  /** Topic para separar las clases del paquete de Topograf铆a y Representaci贸n que se usan de apoyo en el catastro.
    */
   TOPIC Auxiliares =
     DEPENDS ON Catastro_Registro_V2_9_7.Catastro_Registro;
@@ -238,33 +252,33 @@ VERSION "V2.2.1"  // 2018-04-19 // =
     DOMAIN
 
       CRF_EstructuraLinealTipo = (
-        !!@ ili2db.dispName = "V韆, metro o metrov韆"
+        !!@ ili2db.dispName = "V铆a, metro o metrov铆a"
         Via_Metro_o_Metrovia,
-        !!@ ili2db.dispName = "V韆 troncal"
+        !!@ ili2db.dispName = "V铆a troncal"
         Via_Troncal,
-        !!@ ili2db.dispName = "V韆 F閞rea"
+        !!@ ili2db.dispName = "V铆a F茅rrea"
         Via_Ferrea,
         !!@ ili2db.dispName = "Autopista"
         Autopista,
         !!@ ili2db.dispName = "Arteria"
         Arteria,
-        !!@ ili2db.dispName = "V韆 principal"
+        !!@ ili2db.dispName = "V铆a principal"
         Via_Principal,
-        !!@ ili2db.dispName = "V韆 secundaria"
+        !!@ ili2db.dispName = "V铆a secundaria"
         Via_Secundaria,
-        !!@ ili2db.dispName = "V韆 colectora"
+        !!@ ili2db.dispName = "V铆a colectora"
         Via_Colectora,
-        !!@ ili2db.dispName = "V韆 ordinaria"
+        !!@ ili2db.dispName = "V铆a ordinaria"
         Via_Ordinaria,
-        !!@ ili2db.dispName = "V韆 local"
+        !!@ ili2db.dispName = "V铆a local"
         Via_Local,
-        !!@ ili2db.dispName = "V韆 privada"
+        !!@ ili2db.dispName = "V铆a privada"
         Via_Privada,
         !!@ ili2db.dispName = "Ciclorruta"
         Ciclorruta,
-        !!@ ili2db.dispName = "V韆 peatonal"
+        !!@ ili2db.dispName = "V铆a peatonal"
         Via_Peatonal,
-        !!@ ili2db.dispName = "V韆 carreteable"
+        !!@ ili2db.dispName = "V铆a carreteable"
         Via_Carreteable,
         !!@ ili2db.dispName = "Tunel"
         Tunel,
@@ -283,7 +297,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
         Pista_Aterrizaje,
         !!@ ili2db.dispName = "Puente"
         Puente,
-        !!@ ili2db.dispName = "Puerto de v韆 navegable"
+        !!@ ili2db.dispName = "Puerto de v铆a navegable"
         Puerto_Via_Navegable,
         !!@ ili2db.dispName = "Represa"
         Represa,
@@ -307,7 +321,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
      */
     CLASS CRF_EstructuraPuntual
     EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_Punto =
-      /** Descripci髇 del tipo de punto que se indica.
+      /** Descripci贸n del tipo de punto que se indica.
        */
       !!@ ili2db.dispName = "Tipo"
       Tipo : CRF_EstructuraPuntualTipo;

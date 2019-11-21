@@ -157,23 +157,6 @@ VERSION "V1.2.0"  // 2019-08-13 // =
         Registro_Fotografico
       );
 
-      COL_FuncionInteresadoTipo = (
-        !!@ ili2db.dispName = "Abogado demandas"
-        Abogado_Demandas,
-        !!@ ili2db.dispName = "Administrador del estado"
-        Administrador_Estado,
-        !!@ ili2db.dispName = "Banco"
-        Banco,
-        !!@ ili2db.dispName = "Ciudadano"
-        Ciudadano,
-        !!@ ili2db.dispName = "Juez"
-        Juez,
-        !!@ ili2db.dispName = "Notario"
-        Notario,
-        !!@ ili2db.dispName = "Reconocedor o agrimensor"
-        Reconocedor_Agrimensor
-      );
-
       COL_GrupoInteresadoTipo = (
         !!@ ili2db.dispName = "Grupo civil"
         Grupo_Civil,
@@ -273,7 +256,6 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Currency = -2000000000.00 .. 2000000000.00;
 
       Real = 0.000 .. 999999999.999;
-    STRUCTURE COL_FuncionInteresadoTipo_ = value : MANDATORY COL_FuncionInteresadoTipo; END COL_FuncionInteresadoTipo_;
 
     /** Estructura que proviene de la traducción de la clase CC_OperationMethod de la ISO 19111. Indica el método utilizado, mediante un algoritmo o un procedimiento, para realizar operaciones con coordenadas.
      */
@@ -831,7 +813,6 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Nombre : MANDATORY TEXT*255;
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY COL_FuenteEspacialTipo;
-      !!@ ili2db.dispName = "Descripción"
       Descripcion : MANDATORY MTEXT;
       !!@ ili2db.dispName = "Metadato"
       Metadato : MTEXT;
@@ -942,10 +923,6 @@ VERSION "V1.2.0"  // 2019-08-13 // =
        */
       !!@ ili2db.dispName = "Nombre"
       Nombre : CharacterString;
-      /** Función o tarea que realiza el interesado dentro del marco de derechos, obligaciones y restricciones.
-       */
-      !!@ ili2db.dispName = "Tarea"
-      Tarea : LIST {0..*} OF COL_FuncionInteresadoTipo_;
     END COL_Interesado;
 
     /** Registra interesados que representan a grupos de personas. Se registra el grupo en si, independientemete de las personas por separado. Es lo que ocurreo, por ejemplo, con un grupo étnico.
