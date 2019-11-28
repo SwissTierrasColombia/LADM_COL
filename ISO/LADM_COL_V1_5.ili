@@ -813,6 +813,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Nombre : MANDATORY TEXT*255;
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY COL_FuenteEspacialTipo;
+      !!@ ili2db.dispName = "Descripción"
       Descripcion : MANDATORY MTEXT;
       !!@ ili2db.dispName = "Metadato"
       Metadato : MTEXT;

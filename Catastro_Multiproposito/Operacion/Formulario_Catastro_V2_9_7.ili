@@ -550,8 +550,8 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     /** Relación entre la clase Unidad_Construccion del modelo de Avalúos y Calificacion_Unidad_Construccion de modelo de Avalúos
      */
     ASSOCIATION fcm_calificacion_unidadconstruccion =
-      op_av_unidad_construccion (EXTERNAL) -- {1} Operacion_V2_9_7.Operacion.OP_UnidadConstruccion;
-      av_calificacion_unidad_construccion -- {0..1} FCM_Calificacion_Unidad_Construccion;
+      op_unidad_construccion (EXTERNAL) -- {1} Operacion_V2_9_7.Operacion.OP_UnidadConstruccion;
+      fcm_calificacion_unidad_construccion -- {0..1} FCM_Calificacion_Unidad_Construccion;
     END fcm_calificacion_unidadconstruccion;
 
     ASSOCIATION fcm_formulario_contacto =
@@ -567,13 +567,13 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     END fcm_formulario_predio;
 
     ASSOCIATION fcm_grupo_calificacionconvencional =
-      av_calificacion_convencional -- {1} FCM_Calificacion_Convencional;
-      av_grupo_calificacion -- {1..*} FCM_Grupo_Calificacion;
+      fcm_calificacion_convencional -- {1} FCM_Calificacion_Convencional;
+      fcm_grupo_calificacion -- {1..*} FCM_Grupo_Calificacion;
     END fcm_grupo_calificacionconvencional;
 
     ASSOCIATION fcm_objetoconstruccion_grupocalificacion =
-      av_grupo_calificacion -- {1} FCM_Grupo_Calificacion;
-      av_objeto_construccion -- {0..*} FCM_Objeto_Construccion;
+      fcm_grupo_calificacion -- {1} FCM_Grupo_Calificacion;
+      fcm_objeto_construccion -- {0..*} FCM_Objeto_Construccion;
     END fcm_objetoconstruccion_grupocalificacion;
 
   END Formulario_Catastro;
