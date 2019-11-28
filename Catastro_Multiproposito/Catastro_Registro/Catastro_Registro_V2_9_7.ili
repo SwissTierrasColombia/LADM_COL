@@ -1315,18 +1315,18 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     END cr_predio_copropiedad;
 
     ASSOCIATION cr_publicidadBAUnit =
-      publicidad -- {0..*} CR_Publicidad;
-      baunit -- {1} LADM_COL_V1_5.LADM_Nucleo.COL_BAUnit;
+      cr_publicidad -- {0..*} CR_Publicidad;
+      cr_baunit -- {1} LADM_COL_V1_5.LADM_Nucleo.COL_BAUnit;
     END cr_publicidadBAUnit;
 
     ASSOCIATION cr_publicidadFuente =
-      publicidad -- {0..1} CR_Publicidad;
-      fuente -- {1..*} LADM_COL_V1_5.LADM_Nucleo.COL_FuenteAdministrativa;
+      cr_publicidad -- {0..1} CR_Publicidad;
+      col_fuente -- {1..*} LADM_COL_V1_5.LADM_Nucleo.COL_FuenteAdministrativa;
     END cr_publicidadFuente;
 
     ASSOCIATION cr_publicidadInteresado =
-      publicidad -- {0..*} CR_Publicidad;
-      interesado -- {0..1} LADM_COL_V1_5.LADM_Nucleo.COL_Interesado;
+      cr_publicidad -- {0..*} CR_Publicidad;
+      col_interesado -- {0..1} LADM_COL_V1_5.LADM_Nucleo.COL_Interesado;
     END cr_publicidadInteresado;
 
     !!@ ili2db.dispName = "Hipoteca"
@@ -1346,13 +1346,13 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     END CR_ServidumbrePaso;
 
     ASSOCIATION cr_grupo_calificacionconvencional =
-      av_calificacion_convencional -- {1} CR_Calificacion_Convencional;
-      av_grupo_calificacion -- {1..*} CR_Grupo_Calificacion;
+      cr_calificacion_convencional -- {1} CR_Calificacion_Convencional;
+      cr_grupo_calificacion -- {1..*} CR_Grupo_Calificacion;
     END cr_grupo_calificacionconvencional;
 
     ASSOCIATION cr_objetoconstruccion_grupocalificacion =
-      av_grupo_calificacion -- {1} CR_Grupo_Calificacion;
-      av_objeto_construccion -- {0..*} CR_Objeto_Construccion;
+      cr_grupo_calificacion -- {1} CR_Grupo_Calificacion;
+      cr_objeto_construccion -- {0..*} CR_Objeto_Construccion;
     END cr_objetoconstruccion_grupocalificacion;
 
     /** Es cada conjunto de materiales consolidados dentro de un predio que tiene una caracteristicas especificas en cuanto a elementos constitutivos físicos y usos de los mismos.
@@ -1399,25 +1399,25 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     END CR_UnidadConstruccion;
 
     ASSOCIATION cr_hipotecaDerecho =
-      hipoteca -- {0..*} CR_Hipoteca;
-      derecho -- {0..*} CR_Derecho;
+      cr_hipoteca -- {0..*} CR_Hipoteca;
+      cr_derecho -- {0..*} CR_Derecho;
     END cr_hipotecaDerecho;
 
     /** Relación entre la clase Unidad_Construccion del modelo de Avalúos y Calificacion_Unidad_Construccion de modelo de Avalúos
      */
     ASSOCIATION cr_calificacion_unidadconstruccion =
-      op_av_unidad_construccion (EXTERNAL) -- {1} CR_UnidadConstruccion;
-      av_calificacion_unidad_construccion -- {0..1} CR_Calificacion_Unidad_Construccion;
+      cr_unidad_construccion (EXTERNAL) -- {1} CR_UnidadConstruccion;
+      cr_calificacion_unidad_construccion -- {0..1} CR_Calificacion_Unidad_Construccion;
     END cr_calificacion_unidadconstruccion;
 
     ASSOCIATION cr_construccion_unidadconstruccion =
-      op_unidadconstruccion -- {0..*} CR_UnidadConstruccion;
-      op_construccion -<> {1} CR_Construccion;
+      cr_unidadconstruccion -- {0..*} CR_UnidadConstruccion;
+      cr_construccion -<> {1} CR_Construccion;
     END cr_construccion_unidadconstruccion;
 
     ASSOCIATION cr_opunidadconstruccion_tipologiaconstruccion =
-      op_unidadconstruccion (EXTERNAL) -- {1} CR_UnidadConstruccion;
-      fcm_tipologia_construccion -- {0..1} CR_Tipologia_Construccion;
+      cr_unidadconstruccion (EXTERNAL) -- {1} CR_UnidadConstruccion;
+      cr_tipologia_construccion -- {0..1} CR_Tipologia_Construccion;
     END cr_opunidadconstruccion_tipologiaconstruccion;
 
   END Catastro_Registro;
