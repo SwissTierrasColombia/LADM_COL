@@ -132,20 +132,24 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     );
 
     OP_DerechoTipo = (
-      !!@ ili2db.dispName = "Derecho de propiedad colectiva"
-      Derecho_Propiedad_Colectiva,
-      !!@ ili2db.dispName = "Nuda propiedad"
-      Nuda_Propiedad,
-      !!@ ili2db.dispName = "Ocupación"
-      Ocupacion,
-      !!@ ili2db.dispName = "Posesión"
-      Posesion,
       /** Derecho de dominio o propiedad
        */
       !!@ ili2db.dispName = "Dominio"
       Dominio,
+      !!@ ili2db.dispName = "Ocupación"
+      Ocupacion,
+      !!@ ili2db.dispName = "Posesión"
+      Posesion,
+      !!@ ili2db.dispName = "Derecho de propiedad colectiva"
+      Derecho_Propiedad_Colectiva,
+      !!@ ili2db.dispName = "Nuda propiedad"
+      Nuda_Propiedad,
       !!@ ili2db.dispName = "Usufructo"
-      Usufructo
+      Usufructo,
+      !!@ ili2db.dispName = "Tenencia"
+      Tenencia,
+      !!@ ili2db.dispName = "Minero"
+      Minero
     );
 
     OP_DominioConstruccionTipo = (
@@ -220,15 +224,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Persona_Juridica
     );
 
-    OP_PredioTipo = (
-      !!@ ili2db.dispName = "Público"
-      Publico,
-      !!@ ili2db.dispName = "Privado"
-      Privado,
-      !!@ ili2db.dispName = "Territorio colectivo"
-      Territorio_Colectivo
-    );
-
     /** Conjunto de valores para indicar si se trata de un punto de control de referencia (un punto principal) o de apoyo (uso para levantamientos locales con estación total)
      */
     OP_PuntoControlTipo = (
@@ -274,7 +269,34 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     OP_RestriccionTipo = (
       !!@ ili2db.dispName = "Servidumbre de paso"
-      Servidumbre
+      Servidumbre(
+        !!@ ili2db.dispName = "(Servidumbre) Tránsito"
+        Transito,
+        !!@ ili2db.dispName = "(Servidumbre) Aguas negras"
+        Aguas_Negras,
+        !!@ ili2db.dispName = "(Servidumbre) Aire"
+        Aire,
+        !!@ ili2db.dispName = "(Servidumbre) Energía eléctrica"
+        Energia_Electrica,
+        !!@ ili2db.dispName = "(Servidumbre) Gasoducto"
+        Gasoducto,
+        !!@ ili2db.dispName = "(Servidumbre) Luz"
+        Luz,
+        !!@ ili2db.dispName = "(Servidumbre) Oleoducto"
+        Oleoducto,
+        !!@ ili2db.dispName = "(Servidumbre) Agua"
+        Agua,
+        !!@ ili2db.dispName = "(Servidumbre) Minera"
+        Minera,
+        !!@ ili2db.dispName = "(Servidumbre) Legal de hidrocarburos"
+        Legal_Hidrocarburos,
+        !!@ ili2db.dispName = "(Servidumbre) Catenaria (decreto 738 de 2014, ley 1682 de 2013)"
+        Catenaria,
+        !!@ ili2db.dispName = "(Servidumbre) Alcantarillado"
+        Alcantarillado,
+        !!@ ili2db.dispName = "(Servidumbre) Acueducto"
+        Acueducto
+      )
     );
 
     OP_SexoTipo = (
@@ -663,6 +685,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Identificador único de operación"
       Id_Operacion : MANDATORY TEXT*30;
+      !!@ ili2db.dispName = "Tiene FMI"
+      Tiene_FMI : MANDATORY BOOLEAN;
       /** Circulo registral
        */
       !!@ ili2db.dispName = "Código ORIP"
@@ -685,8 +709,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Avaluo_Predio : LADM_COL_V1_5.LADM_Nucleo.Peso;
       !!@ ili2db.dispName = "Condición del predio"
       Condicion_Predio : MANDATORY Operacion_V2_9_7.OP_CondicionPredioTipo;
-      !!@ ili2db.dispName = "Tipo"
-      Tipo (EXTENDED) : Operacion_V2_9_7.OP_PredioTipo;
       !!@ ili2db.dispName = "Dirección"
       Direccion : MANDATORY TEXT*255;
       UNIQUE Id_Operacion; 
@@ -819,14 +841,14 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     /** Tipo de unidad espacial que permite la representación de una servidumbre de paso asociada a una LA_BAUnit.
      */
-    !!@ ili2db.dispName = "Servidumbre de Paso"
-    CLASS OP_ServidumbrePaso
+    !!@ ili2db.dispName = "Servidumbre de Tránsito"
+    CLASS OP_ServidumbreTransito
     EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_UnidadEspacial =
       /** Fecha de inscripción de la servidumbre en el Catastro.
        */
       !!@ ili2db.dispName = "Área de la servidumbre"
       Area_Servidumbre : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_5.m2];
-    END OP_ServidumbrePaso;
+    END OP_ServidumbreTransito;
 
     /** Es cada conjunto de materiales consolidados dentro de un predio que tiene una caracteristicas especificas en cuanto a elementos constitutivos físicos y usos de los mismos.
      */
