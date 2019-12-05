@@ -515,7 +515,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       !!@ ili2db.dispName = "Localidad comuna"
       Localidad_Comuna : TEXT*100;
       !!@ ili2db.dispName = "Barrio vereda"
-      Barrio_Vereda : MANDATORY TEXT*100;
+      Barrio_Vereda : TEXT*100;
       /** Uso económico que se hace del predio.
        */
       !!@ ili2db.dispName = "Destinación económica"
