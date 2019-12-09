@@ -942,6 +942,32 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Avaluo_Construccion : LADM_COL_V1_5.LADM_Nucleo.Peso;
     END CR_Construccion;
 
+    !!@ ili2db.dispName = "Datos PH Condominio"
+    CLASS CR_Datos_PH_Condominio =
+      !!@ ili2db.dispName = "Área total de terreno"
+      Area_Total_Terreno : 0.00 .. 99999999999999.98 [LADM_COL_V1_5.m2];
+      !!@ ili2db.dispName = "Área total de terreno privada"
+      Area_Total_Terreno_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_5.m2];
+      !!@ ili2db.dispName = "Área total de terreno común"
+      Area_Total_Terreno_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_5.m2];
+      !!@ ili2db.dispName = "Área total construida"
+      Area_Total_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_5.m2];
+      !!@ ili2db.dispName = "Área total construida privada"
+      Area_Total_Construida_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_5.m2];
+      !!@ ili2db.dispName = "Área total construida común"
+      Area_Total_Construida_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_5.m2];
+      !!@ ili2db.dispName = "Torre número"
+      Torre_No : TEXT*10;
+      !!@ ili2db.dispName = "Total pisos de torre"
+      Total_Pisos_Torre : 0 .. 200;
+      !!@ ili2db.dispName = "Total de unidades privadas"
+      Total_Unidades_Privadas : 0 .. 99999999;
+      !!@ ili2db.dispName = "Total de sótanos"
+      Total_Sotanos : 0 .. 30;
+      !!@ ili2db.dispName = "Total de únidades de sótanos"
+      Total_Unidades_Sotanos : 0 .. 99999999;
+    END CR_Datos_PH_Condominio;
+
     STRUCTURE CR_Estructura_Objeto_Construccion =
       !!@ ili2db.dispName = "Clase de calificación"
       Clase_Calificacion : MANDATORY Catastro_Registro_V2_9_7.CR_ClaseCalificacionTipo;
@@ -1307,6 +1333,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY Catastro_Registro_V2_9_7.CR_RestriccionTipo;
     END CR_Restriccion;
+
+    ASSOCIATION cr_ph_predio =
+      cr_predio -- {1} CR_Predio;
+      cr_datos_ph -- {0..1} CR_Datos_PH_Condominio;
+    END cr_ph_predio;
 
     ASSOCIATION cr_predio_copropiedad =
       predio -- {0..*} CR_Predio;
