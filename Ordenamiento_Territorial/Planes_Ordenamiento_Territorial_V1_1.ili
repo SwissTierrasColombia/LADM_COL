@@ -1,9 +1,9 @@
 INTERLIS 2.3;
 
-MODEL Planes_Ordenamiento_Territorial_V1_0 (es)
+MODEL Planes_Ordenamiento_Territorial_V1_1 (es)
 AT "mailto:PC4@localhost"
 VERSION "2019-10-10"  =
-  IMPORTS ISO19107_PLANAS_V1,LADM_COL_V1_2;
+  IMPORTS LADM_COL_V1_5,ISO19107_PLANAS_V1;
 
   DOMAIN
 
@@ -38,7 +38,7 @@ VERSION "2019-10-10"  =
     );
 
     POT_ProduccionTipo = (
-      !!@ ili2db.dispName = "脕reas estrat茅gicas de inter茅s agropecuario"
+      !!@ ili2db.dispName = "羠eas estrat間icas de inter閟 agropecuario"
       Areas_Estrategias_Interes_Agropecuario,
       Mineria_Hidrocarburos
     );
@@ -82,13 +82,13 @@ VERSION "2019-10-10"  =
     );
 
     POT_SueloProteccionTipo = (
-      !!@ ili2db.dispName = "脕reas de especial inter茅s ambiental"
+      !!@ ili2db.dispName = "羠eas de especial inter閟 ambiental"
       Areas_Especial_Interes_Ambiental,
-      !!@ ili2db.dispName = "Patrimonio hist贸rico cultural y/o arquitect贸nico"
+      !!@ ili2db.dispName = "Patrimonio hist髍ico cultural y/o arquitect髇ico"
       Patrimonio_Historico_Cultural_Arquitectonico,
       !!@ ili2db.dispName = "Riesgo no mitigable"
       Riesgo_No_Mitigable,
-      !!@ ili2db.dispName = "Servicios p煤blicos e infraestructuras asociadas"
+      !!@ ili2db.dispName = "Servicios p鷅licos e infraestructuras asociadas"
       Servicios_Publicos_Infraestructuras_Asociadas
     );
 
@@ -97,22 +97,22 @@ VERSION "2019-10-10"  =
       Desarrollo,
       !!@ ili2db.dispName = "Consolidacion"
       Consolidacion,
-      !!@ ili2db.dispName = "Renovaci贸n urbana"
+      !!@ ili2db.dispName = "Renovaci髇 urbana"
       Renovacion_Urbana,
       Renovacion_Urbana_(
-        !!@ ili2db.dispName = "Renovaci贸n urbana - reactivaci贸n"
+        !!@ ili2db.dispName = "Renovaci髇 urbana - reactivaci髇"
         Reactivacion,
-        !!@ ili2db.dispName = "Renovaci贸n urbana - Redesarrollo"
+        !!@ ili2db.dispName = "Renovaci髇 urbana - Redesarrollo"
         Redesarrollo
       ),
-      !!@ ili2db.dispName = "Conservaci贸n"
+      !!@ ili2db.dispName = "Conservaci髇"
       Conservacion,
       Conservacion_(
-        !!@ ili2db.dispName = "Bien de inter茅s cultural 谩mbito nacional o departamental"
+        !!@ ili2db.dispName = "Bien de inter閟 cultural 醡bito nacional o departamental"
         BIC_Nacional_Departamental,
-        !!@ ili2db.dispName = "Bien de inter茅s cultural 谩mbito municipal o distrital"
+        !!@ ili2db.dispName = "Bien de inter閟 cultural 醡bito municipal o distrital"
         BIC_Municipal,
-        !!@ ili2db.dispName = "Patrimonio cultural material 谩mbito municipal o distrital"
+        !!@ ili2db.dispName = "Patrimonio cultural material 醡bito municipal o distrital"
         Patrimonio_Cultural_Municipal
       ),
       !!@ ili2db.dispName = "Mejoramiento integral"
@@ -131,9 +131,9 @@ VERSION "2019-10-10"  =
     );
 
     POT_ZonaPOTTipo = (
-      !!@ ili2db.dispName = "Clasificaci贸n del suelo"
+      !!@ ili2db.dispName = "Clasificaci髇 del suelo"
       Clasificacion_Suelo,
-      !!@ ili2db.dispName = "Suelo de protecci贸n"
+      !!@ ili2db.dispName = "Suelo de protecci髇"
       Suelo_Proteccion,
       !!@ ili2db.dispName = "Uso del suelo"
       Uso_Suelo,
@@ -147,115 +147,121 @@ VERSION "2019-10-10"  =
       Desarrollo_Restringido,
       !!@ ili2db.dispName = "Sistemas generales"
       Sistemas_Generales,
-      !!@ ili2db.dispName = "Zona de producci贸n"
+      !!@ ili2db.dispName = "Zona de producci髇"
       Zona_Produccion
     );
   STRUCTURE POT_UsoSueloTipo_ = value : MANDATORY POT_UsoSueloTipo; END POT_UsoSueloTipo_;
 
   TOPIC Planes_Ordenamiento_Territorial =
-    DEPENDS ON LADM_COL_V1_2.LADM_Nucleo;
+    DEPENDS ON LADM_COL_V1_5.LADM_Nucleo;
 
-    !!@ ili2db.dispName = "Clasificaci贸n del suelo"
+    !!@ ili2db.dispName = "(POT) Clasificaci髇 del suelo"
     CLASS POT_Clasificacion_Suelo
-    EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_UnidadEspacial =
-      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_0.POT_ClasificacionSueloTipo;
+    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_UnidadEspacial =
+      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_ClasificacionSueloTipo;
     END POT_Clasificacion_Suelo;
 
+    !!@ ili2db.dispName = "(POT) Derecho"
     CLASS POT_Derecho
-    EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_RRR =
+    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_RRR =
       Nombre : TEXT*255;
     END POT_Derecho;
 
-    !!@ ili2db.dispName = "Desarrollo restringido"
+    !!@ ili2db.dispName = "(POT) Desarrollo restringido"
     CLASS POT_Desarrollo_Restringido
-    EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_UnidadEspacial =
-      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_0.POT_DesarrolloRestringidoTipo;
+    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_UnidadEspacial =
+      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_DesarrolloRestringidoTipo;
     END POT_Desarrollo_Restringido;
 
-    !!@ ili2db.dispName = "Edificabilidad"
+    !!@ ili2db.dispName = "(POT) Edificabilidad"
     CLASS POT_Edificabilidad
-    EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_UnidadEspacial =
+    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_UnidadEspacial =
       Altura : -50 .. 200;
       Indice_Construccion : 0.00 .. 200.00;
       Indice_Ocupacion : 0.00 .. 1.00;
     END POT_Edificabilidad;
 
+    !!@ ili2db.dispName = "(POT) Fuente Administrativa"
     CLASS POT_FuenteAdministrativa
-    EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_FuenteAdministrativa =
-      Tipo (EXTENDED) : MANDATORY Planes_Ordenamiento_Territorial_V1_0.POT_FuenteAdministrativaTipo;
+    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_FuenteAdministrativa =
+      Tipo (EXTENDED) : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_FuenteAdministrativaTipo;
       Fecha : INTERLIS.XMLDate;
     END POT_FuenteAdministrativa;
 
+    !!@ ili2db.dispName = "(POT) Municipio"
     CLASS POT_Municipio
-    EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_Interesado =
+    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_Interesado =
       Departamento : TEXT*255;
       Nombre (EXTENDED) : MANDATORY TEXT*255;
       Categoria : 1 .. 6;
       Codigo : TEXT*3;
     END POT_Municipio;
 
+    !!@ ili2db.dispName = "(POT) Responsabilidad"
     CLASS POT_Responsabilidad
-    EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_RRR =
+    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_RRR =
       Nombre : TEXT*255;
     END POT_Responsabilidad;
 
+    !!@ ili2db.dispName = "(POT) Restricci髇"
     CLASS POT_Restriccion
-    EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_RRR =
+    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_RRR =
       Nombre : TEXT*255;
     END POT_Restriccion;
 
-    !!@ ili2db.dispName = "Riesgos"
+    !!@ ili2db.dispName = "(POT) Riesgos"
     CLASS POT_Riesgos
-    EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_UnidadEspacial =
-      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_0.POT_RiesgoTipo;
+    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_UnidadEspacial =
+      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_RiesgoTipo;
     END POT_Riesgos;
 
-    !!@ ili2db.dispName = "Sistemas generales"
+    !!@ ili2db.dispName = "(POT) Sistemas generales"
     CLASS POT_Sistemas_Generales
-    EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_UnidadEspacial =
-      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_0.POT_SistemasGeneralesTipo;
-      Nivel : MANDATORY Planes_Ordenamiento_Territorial_V1_0.POT_SistemasGeneralesNivel;
+    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_UnidadEspacial =
+      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_SistemasGeneralesTipo;
+      Nivel : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_SistemasGeneralesNivel;
       Nombre : TEXT*255;
       Descripcion : TEXT*255;
     END POT_Sistemas_Generales;
 
-    !!@ ili2db.dispName = "Suelo de protecci贸n"
+    !!@ ili2db.dispName = "(POT) Suelo de protecci髇"
     CLASS POT_Suelo_Proteccion
-    EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_UnidadEspacial =
-      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_0.POT_SueloProteccionTipo;
+    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_UnidadEspacial =
+      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_SueloProteccionTipo;
     END POT_Suelo_Proteccion;
 
-    !!@ ili2db.dispName = "Tratamiento urban铆stico"
+    !!@ ili2db.dispName = "(POT) Tratamiento urban韘tico"
     CLASS POT_Tratamiento_Urbanistico
-    EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_UnidadEspacial =
-      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_0.POT_TratamientoUrbanisticoTipo;
+    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_UnidadEspacial =
+      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_TratamientoUrbanisticoTipo;
     END POT_Tratamiento_Urbanistico;
 
-    !!@ ili2db.dispName = "Uso del suelo"
+    !!@ ili2db.dispName = "(POT) Uso del suelo"
     CLASS POT_Uso_Suelo
-    EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_UnidadEspacial =
-      Uso_Principal : MANDATORY Planes_Ordenamiento_Territorial_V1_0.POT_UsoSueloTipo;
-      Usos_Complementarios : BAG {0..*} OF Planes_Ordenamiento_Territorial_V1_0.POT_UsoSueloTipo_;
-      Usos_Restringidos : BAG {0..*} OF Planes_Ordenamiento_Territorial_V1_0.POT_UsoSueloTipo_;
+    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_UnidadEspacial =
+      Uso_Principal : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_UsoSueloTipo;
+      Usos_Complementarios : BAG {0..*} OF Planes_Ordenamiento_Territorial_V1_1.POT_UsoSueloTipo_;
+      Usos_Restringidos : BAG {0..*} OF Planes_Ordenamiento_Territorial_V1_1.POT_UsoSueloTipo_;
     END POT_Uso_Suelo;
 
-    !!@ ili2db.dispName = "Zona generadora de plusval铆a"
+    !!@ ili2db.dispName = "(POT) Zona generadora de plusval韆"
     CLASS POT_Zona_Generadora_Plusvalia
-    EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_UnidadEspacial =
-      Causal_Posible_Plusvalia : MANDATORY Planes_Ordenamiento_Territorial_V1_0.POT_CausalPlusvaliaTipo;
+    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_UnidadEspacial =
+      Causal_Posible_Plusvalia : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_CausalPlusvaliaTipo;
     END POT_Zona_Generadora_Plusvalia;
 
-    !!@ ili2db.dispName = "Zona de producci贸n"
+    !!@ ili2db.dispName = "(POT) Zona de producci髇"
     CLASS POT_Zona_Produccion
-    EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_UnidadEspacial =
-      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_0.POT_ProduccionTipo;
+    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_UnidadEspacial =
+      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_ProduccionTipo;
     END POT_Zona_Produccion;
 
+    !!@ ili2db.dispName = "(POT) Zona POT"
     CLASS POT_ZonaPOT
-    EXTENDS LADM_COL_V1_2.LADM_Nucleo.COL_BAUnit =
-      Tipo (EXTENDED) : MANDATORY Planes_Ordenamiento_Territorial_V1_0.POT_ZonaPOTTipo;
+    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_BAUnit =
+      Tipo (EXTENDED) : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_ZonaPOTTipo;
     END POT_ZonaPOT;
 
   END Planes_Ordenamiento_Territorial;
 
-END Planes_Ordenamiento_Territorial_V1_0.
+END Planes_Ordenamiento_Territorial_V1_1.
