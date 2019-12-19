@@ -566,17 +566,17 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "Datos PH Condominio"
     CLASS OP_Datos_PH_Condominio =
       !!@ ili2db.dispName = "Área total de terreno"
-      Area_Total_Terreno : 0.00 .. 99999999999999.98;
+      Area_Total_Terreno : 0.00 .. 99999999999999.98 [LADM_COL_V1_5.m2];
       !!@ ili2db.dispName = "Área total de terreno privada"
-      Area_Total_Terreno_Privada : 0.00 .. 99999999999999.98;
+      Area_Total_Terreno_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_5.m2];
       !!@ ili2db.dispName = "Área total de terreno común"
-      Area_Total_Terreno_Comun : 0.00 .. 99999999999999.98;
+      Area_Total_Terreno_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_5.m2];
       !!@ ili2db.dispName = "Área total construida"
-      Area_Total_Construida : 0.00 .. 99999999999999.98;
+      Area_Total_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_5.m2];
       !!@ ili2db.dispName = "Área total construida privada"
-      Area_Total_Construida_Privada : 0.00 .. 99999999999999.98;
+      Area_Total_Construida_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_5.m2];
       !!@ ili2db.dispName = "Área total construida común"
-      Area_Total_Construida_Comun : 0.00 .. 99999999999999.98;
+      Area_Total_Construida_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_5.m2];
       !!@ ili2db.dispName = "Torre número"
       Torre_No : TEXT*10;
       !!@ ili2db.dispName = "Total pisos de torre"
@@ -894,10 +894,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Tipo_Construccion : Operacion_V2_9_7.OP_ConstruccionTipo;
       !!@ ili2db.dispName = "Tipo de unidad de construcción"
       Tipo_Unidad_Construccion : Operacion_V2_9_7.OP_UnidadConstruccionTipo;
-      !!@ ili2db.dispName = "Planta ubicación"
-      Planta_Ubicacion : 0 .. 500;
       !!@ ili2db.dispName = "Tipo de planta"
       Tipo_Planta : Operacion_V2_9_7.OP_ConstruccionPlantaTipo;
+      !!@ ili2db.dispName = "Planta ubicación"
+      Planta_Ubicacion : 0 .. 500;
       !!@ ili2db.dispName = "Total de habitaciones"
       Total_Habitaciones : 0 .. 999999;
       !!@ ili2db.dispName = "Total de baños"
