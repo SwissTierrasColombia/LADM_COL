@@ -1209,11 +1209,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_UnidadEspacial =
       /** Área de predio resultado de los calculos realizados en el proceso de levantamiento planimetrico
        */
-      !!@ ili2db.dispName = "Área de terreno"
+      !!@ ili2db.dispName = "Área del Terreno"
       Area_Terreno : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_5.m2];
       /** Valor asignado en el proceso de valoración economica masiva al terreno del predio
        */
-      !!@ ili2db.dispName = "Avalúo de terreno"
+      !!@ ili2db.dispName = "Avalúo del terreno"
       Avaluo_Terreno : LADM_COL_V1_5.LADM_Nucleo.Peso;
       !!@ ili2db.dispName = "Código de manzana vereda"
       Manzana_Vereda_Codigo : TEXT*17;
@@ -1399,10 +1399,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Tipo_Construccion : Catastro_Registro_V2_9_7.CR_ConstruccionTipo;
       !!@ ili2db.dispName = "Tipo de unidad de construcción"
       Tipo_Unidad_Construccion : Catastro_Registro_V2_9_7.CR_UnidadConstruccionTipo;
-      !!@ ili2db.dispName = "Planta ubicación"
-      Planta_Ubicacion : 0 .. 500;
       !!@ ili2db.dispName = "Tipo de planta"
       Tipo_Planta : Catastro_Registro_V2_9_7.CR_ConstruccionPlantaTipo;
+      !!@ ili2db.dispName = "Planta ubicación"
+      Planta_Ubicacion : 0 .. 500;
       !!@ ili2db.dispName = "Total de habitaciones"
       Total_Habitaciones : 0 .. 999999;
       !!@ ili2db.dispName = "Total de baños"
