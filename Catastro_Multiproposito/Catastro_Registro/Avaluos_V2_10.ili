@@ -26,10 +26,10 @@ INTERLIS 2.3;
  * 
  * -----------------------------------------------------------
  */
-MODEL Avaluos_V2_9_7 (es)
+MODEL Avaluos_V2_10 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-02-01 // =
-  IMPORTS ISO19107_PLANAS_V1,Catastro_Registro_V2_9_7,LADM_COL_V1_5;
+  IMPORTS ISO19107_PLANAS_V1,Catastro_Registro_V2_10,LADM_COL_V1_5;
 
   DOMAIN
 
@@ -330,14 +330,14 @@ VERSION "V2.2.1"  // 2018-02-01 // =
    */
   TOPIC Avaluos =
     OID AS INTERLIS.UUIDOID;
-    DEPENDS ON Catastro_Registro_V2_9_7.Catastro_Registro;
+    DEPENDS ON Catastro_Registro_V2_10.Catastro_Registro;
 
     !!@ ili2db.dispName = "(Avalúos) Tabla Calificación de la Construcción"
     CLASS AV_Tabla_Calificacion_Construccion =
       !!@ ili2db.dispName = "Valor M2 de construcción"
       Valor_M2_Construccion : TEXT*20;
       !!@ ili2db.dispName = "Uso"
-      Uso : Avaluos_V2_9_7.AV_UsoUConsTipo;
+      Uso : Avaluos_V2_10.AV_UsoUConsTipo;
       !!@ ili2db.dispName = "Puntuación"
       Puntuacion : TEXT*20;
     END AV_Tabla_Calificacion_Construccion;
@@ -367,11 +367,11 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       !!@ ili2db.dispName = "Área homogénea tierra"
       Area_Homogenea_Tierra : 0.00 .. 99999999999999990000000.00;
       !!@ ili2db.dispName = "Disponibilidad agua"
-      Disponibilidad_Agua : Avaluos_V2_9_7.AV_DisponibilidadAguaTipo;
+      Disponibilidad_Agua : Avaluos_V2_10.AV_DisponibilidadAguaTipo;
       !!@ ili2db.dispName = "Influencia vial"
-      Influencia_Vial : Avaluos_V2_9_7.AV_InfluenciaVialRuralTipo;
+      Influencia_Vial : Avaluos_V2_10.AV_InfluenciaVialRuralTipo;
       !!@ ili2db.dispName = "Uso actual del suelo"
-      Uso_Actual_Suelo : Avaluos_V2_9_7.AV_UsoSueloRuralTipo;
+      Uso_Actual_Suelo : Avaluos_V2_10.AV_UsoSueloRuralTipo;
       !!@ ili2db.dispName = "Norma uso del suelo"
       Norma_Uso_Suelo : TEXT*250;
       !!@ ili2db.dispName = "Vigencia"
@@ -389,17 +389,17 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       !!@ ili2db.dispName = "Código zona física"
       Codigo_Zona_Fisica : MANDATORY TEXT*20;
       !!@ ili2db.dispName = "Topografía"
-      Topografia : Avaluos_V2_9_7.AV_TopografiaZonaTipo;
+      Topografia : Avaluos_V2_10.AV_TopografiaZonaTipo;
       !!@ ili2db.dispName = "Influencia vial"
-      Influencia_Vial : Avaluos_V2_9_7.AV_InfluenciaVialUrbanaTipo;
+      Influencia_Vial : Avaluos_V2_10.AV_InfluenciaVialUrbanaTipo;
       !!@ ili2db.dispName = "Servicio público"
-      Servicio_Publico : Avaluos_V2_9_7.AV_ServiciosPublicosTipo;
+      Servicio_Publico : Avaluos_V2_10.AV_ServiciosPublicosTipo;
       !!@ ili2db.dispName = "Uso actual del suelo"
-      Uso_Actual_Suelo : Avaluos_V2_9_7.AV_UsoSueloUrbanoTipo;
+      Uso_Actual_Suelo : Avaluos_V2_10.AV_UsoSueloUrbanoTipo;
       !!@ ili2db.dispName = "Norma uso del suelo"
       Norma_Uso_Suelo : TEXT*250;
       !!@ ili2db.dispName = "Tipificación de la construcción"
-      Tipificacion_Construccion : Avaluos_V2_9_7.AV_TipificacionConstruccionTipo;
+      Tipificacion_Construccion : Avaluos_V2_10.AV_TipificacionConstruccionTipo;
       !!@ ili2db.dispName = "Vigencia"
       Vigencia : INTERLIS.XMLDate;
       !!@ ili2db.dispName = "Geometría"
@@ -448,4 +448,4 @@ VERSION "V2.2.1"  // 2018-02-01 // =
 
   END Avaluos;
 
-END Avaluos_V2_9_7.
+END Avaluos_V2_10.

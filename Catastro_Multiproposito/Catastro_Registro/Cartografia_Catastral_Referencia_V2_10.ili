@@ -5,10 +5,10 @@ INTERLIS 2.3;
  * 02.08.2018: FM/ Actualizacion de dependencia a la version 2.2.1 del nucleo y LADM 1.1
  * 19.04.2018: FM-GC/ Cambio de geometrias de GM_Surface2D a GM_MultiSurface2D
  */
-MODEL Cartografia_Catastral_Referencia_V2_9_7 (es)
+MODEL Cartografia_Catastral_Referencia_V2_10 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-04-19 // =
-  IMPORTS ISO19107_PLANAS_V1,Operacion_V2_9_7,LADM_COL_V1_5;
+  IMPORTS ISO19107_PLANAS_V1,Catastro_Registro_V2_10,LADM_COL_V1_5;
 
   /** Este tema almacena específicamente las clases que definen la división administrativa desde el punto de vista operativo de catastro.
    */
@@ -29,11 +29,11 @@ VERSION "V2.2.1"  // 2018-04-19 // =
         Inspecion_Policia
       );
 
-    !!@ ili2db.dispName = "(CRF) Perimetro"
+    !!@ ili2db.dispName = "(CRF) Perímetro"
     CLASS CRF_Perimetro =
       !!@ ili2db.dispName = "Código del departamento"
       Codigo_Departamento : TEXT*2;
-      !!@ ili2db.dispName = "Código municipio"
+      !!@ ili2db.dispName = "Código del municipio"
       Codigo_Municipio : TEXT*5;
       !!@ ili2db.dispName = "Tipo de avalúo"
       Tipo_Avaluo : TEXT*30;
@@ -41,10 +41,11 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       Nombre_Geografico : TEXT*50;
       !!@ ili2db.dispName = "Código de nombre"
       Codigo_Nombre : TEXT*255;
+      !!@ ili2db.dispName = "Geometría"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END CRF_Perimetro;
 
-    !!@ ili2db.dispName = "(CRF) Sector rural"
+    !!@ ili2db.dispName = "(CRF) Sector Rural"
     CLASS CRF_Sector_Rural =
       !!@ ili2db.dispName = "Código"
       Codigo : MANDATORY TEXT*9;
@@ -226,7 +227,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
     CLASS CRF_PuntoLimite
     EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_Punto =
       !!@ ili2db.dispName = "Acuerdo"
-      Acuerdo : MANDATORY Operacion_V2_9_7.OP_AcuerdoTipo;
+      Acuerdo : MANDATORY Catastro_Registro_V2_10.CR_AcuerdoTipo;
       !!@ ili2db.dispName = "Exactitud vertical"
       Exactitud_Vertical : 0 .. 1000 [LADM_COL_V1_5.cm];
       !!@ ili2db.dispName = "Exactitud posicional"
@@ -236,7 +237,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       !!@ ili2db.dispName = "Posición interpolación"
       Posicion_Interpolacion (EXTENDED) : LADM_COL_V1_5.LADM_Nucleo.COL_InterpolacionTipo;
       !!@ ili2db.dispName = "Monumentación"
-      Monumentacion : MANDATORY Operacion_V2_9_7.OP_PuntoTipo;
+      Monumentacion : MANDATORY Catastro_Registro_V2_10.CR_PuntoTipo;
       !!@ ili2db.dispName = "Nombre punto"
       Nombre_Punto : TEXT*255;
     END CRF_PuntoLimite;
@@ -246,7 +247,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
   /** Topic para separar las clases del paquete de Topografía y Representación que se usan de apoyo en el catastro.
    */
   TOPIC Auxiliares =
-    DEPENDS ON Operacion_V2_9_7.Operacion;
+    DEPENDS ON Catastro_Registro_V2_10.Catastro_Registro;
 
     DOMAIN
 
@@ -328,4 +329,4 @@ VERSION "V2.2.1"  // 2018-04-19 // =
 
   END Auxiliares;
 
-END Cartografia_Catastral_Referencia_V2_9_7.
+END Cartografia_Catastral_Referencia_V2_10.

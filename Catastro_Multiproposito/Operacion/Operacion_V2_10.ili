@@ -52,10 +52,10 @@ INTERLIS 2.3;
  * 
  * -----------------------------------------------------------
  */
-CONTRACTED MODEL Operacion_V2_9_7 (es)
+CONTRACTED MODEL Operacion_V2_10 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-02-19 // =
-  IMPORTS ISO19107_PLANAS_V1,LADM_COL_V1_5,Datos_Integracion_Insumos_V2_9_7;
+  IMPORTS ISO19107_PLANAS_V1,LADM_COL_V1_5,Datos_Integracion_Insumos_V2_10;
 
   DOMAIN
 
@@ -525,7 +525,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
   TOPIC Operacion
   EXTENDS LADM_COL_V1_5.LADM_Nucleo =
     OID AS INTERLIS.UUIDOID;
-    DEPENDS ON LADM_COL_V1_5.LADM_Nucleo,Datos_Integracion_Insumos_V2_9_7.Datos_Integracion_Insumos;
+    DEPENDS ON LADM_COL_V1_5.LADM_Nucleo,Datos_Integracion_Insumos_V2_10.Datos_Integracion_Insumos;
 
     !!@ ili2db.dispName = "Agrupación de Interesados"
     CLASS OP_Agrupacion_Interesados
@@ -540,9 +540,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Identificador"
       Identificador : TEXT*2;
       !!@ ili2db.dispName = "Tipo de construcción"
-      Tipo_Construccion : Operacion_V2_9_7.OP_ConstruccionTipo;
+      Tipo_Construccion : Operacion_V2_10.OP_ConstruccionTipo;
       !!@ ili2db.dispName = "Tipo de dominio"
-      Tipo_Dominio : Operacion_V2_9_7.OP_DominioConstruccionTipo;
+      Tipo_Dominio : Operacion_V2_10.OP_DominioConstruccionTipo;
       /** Cantidad de plantas que tiene la construcción
        */
       !!@ ili2db.dispName = "Número de pisos"
@@ -597,14 +597,14 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Derecho que se ejerce.
        */
       !!@ ili2db.dispName = "Tipo"
-      Tipo : Operacion_V2_9_7.OP_DerechoTipo;
+      Tipo : Operacion_V2_10.OP_DerechoTipo;
     END OP_Derecho;
 
     !!@ ili2db.dispName = "Fuente Administrativa"
     CLASS OP_FuenteAdministrativa
     EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_FuenteAdministrativa =
       !!@ ili2db.dispName = "Tipo"
-      Tipo (EXTENDED) : MANDATORY Operacion_V2_9_7.OP_FuenteAdministrativaTipo;
+      Tipo (EXTENDED) : MANDATORY Operacion_V2_10.OP_FuenteAdministrativaTipo;
       !!@ ili2db.dispName = "Ente emisor"
       Ente_Emisor : TEXT*255;
     END OP_FuenteAdministrativa;
@@ -620,11 +620,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Tipo de persona del que se trata
        */
       !!@ ili2db.dispName = "Tipo"
-      Tipo : MANDATORY Operacion_V2_9_7.OP_InteresadoTipo;
+      Tipo : MANDATORY Operacion_V2_10.OP_InteresadoTipo;
       /** Tipo de documento del que se trata.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : MANDATORY Operacion_V2_9_7.OP_InteresadoDocumentoTipo;
+      Tipo_Documento : MANDATORY Operacion_V2_10.OP_InteresadoDocumentoTipo;
       /** Documento de identidad del interesado.
        */
       !!@ ili2db.dispName = "Documento de identidad"
@@ -646,9 +646,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Segundo apellido"
       Segundo_Apellido : TEXT*100;
       !!@ ili2db.dispName = "Sexo"
-      Sexo : Operacion_V2_9_7.OP_SexoTipo;
+      Sexo : Operacion_V2_10.OP_SexoTipo;
       !!@ ili2db.dispName = "Grupo étnico"
-      Grupo_Etnico : Operacion_V2_9_7.OP_GrupoEtnicoTipo;
+      Grupo_Etnico : Operacion_V2_10.OP_GrupoEtnicoTipo;
       /** Nombre con el que está inscrito.
        */
       !!@ ili2db.dispName = "Razón social"
@@ -734,7 +734,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Avalúo del predio"
       Avaluo_Predio : LADM_COL_V1_5.LADM_Nucleo.Peso;
       !!@ ili2db.dispName = "Condición del predio"
-      Condicion_Predio : MANDATORY Operacion_V2_9_7.OP_CondicionPredioTipo;
+      Condicion_Predio : MANDATORY Operacion_V2_10.OP_CondicionPredioTipo;
       !!@ ili2db.dispName = "Dirección"
       Direccion : MANDATORY TEXT*255;
       UNIQUE Id_Operacion; 
@@ -750,11 +750,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "ID del punto de control"
       ID_Punto_Control : MANDATORY TEXT*255;
       !!@ ili2db.dispName = "Tipo de punto"
-      PuntoTipo (EXTENDED) : MANDATORY Operacion_V2_9_7.OP_PuntoTipo;
+      PuntoTipo (EXTENDED) : MANDATORY Operacion_V2_10.OP_PuntoTipo;
       /** Si se trata deun punto de control o de apoyo.
        */
       !!@ ili2db.dispName = "Tipo de punto de control"
-      Tipo_Punto_Control : Operacion_V2_9_7.OP_PuntoControlTipo;
+      Tipo_Punto_Control : Operacion_V2_10.OP_PuntoControlTipo;
       /** Exactitud horizontal de la medición del punto.
        */
       !!@ ili2db.dispName = "Exactitud horizontal"
@@ -775,15 +775,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "ID del punto de lindero"
       ID_Punto_Lindero : TEXT*255;
       !!@ ili2db.dispName = "Tipo de punto"
-      PuntoTipo (EXTENDED) : MANDATORY Operacion_V2_9_7.OP_PuntoTipo;
+      PuntoTipo (EXTENDED) : MANDATORY Operacion_V2_10.OP_PuntoTipo;
       /** Se Indica si existe acuerdo o no entre los colindantes en relación al punto lindero que se está midiendo.
        */
       !!@ ili2db.dispName = "Acuerdo"
-      Acuerdo : MANDATORY Operacion_V2_9_7.OP_AcuerdoTipo;
+      Acuerdo : MANDATORY Operacion_V2_10.OP_AcuerdoTipo;
       !!@ ili2db.dispName = "Fotoidentificación"
-      Fotoidentificacion : Operacion_V2_9_7.OP_FotoidentificacionTipo;
+      Fotoidentificacion : Operacion_V2_10.OP_FotoidentificacionTipo;
       !!@ ili2db.dispName = "Ubicación del punto"
-      Ubicacion_Punto : Operacion_V2_9_7.OP_UbicacionPuntoTipo;
+      Ubicacion_Punto : Operacion_V2_10.OP_UbicacionPuntoTipo;
       /** Corresponde a la exactitud horizontal del punto lindero
        */
       !!@ ili2db.dispName = "Exactitud horizontal"
@@ -798,7 +798,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     CLASS OP_Restriccion
     EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_RRR =
       !!@ ili2db.dispName = "Tipo"
-      Tipo : MANDATORY Operacion_V2_9_7.OP_RestriccionTipo;
+      Tipo : MANDATORY Operacion_V2_10.OP_RestriccionTipo;
     END OP_Restriccion;
 
     /** Porción de tierra con una extensión geográfica definida.
@@ -834,11 +834,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "ID del punto de levantamiento"
       ID_Punto_Levantamiento : TEXT*255;
       !!@ ili2db.dispName = "Tipo de punto"
-      PuntoTipo (EXTENDED) : MANDATORY Operacion_V2_9_7.OP_PuntoTipo;
+      PuntoTipo (EXTENDED) : MANDATORY Operacion_V2_10.OP_PuntoTipo;
       !!@ ili2db.dispName = "Tipo de punto de levantamiento"
-      Tipo_Punto_Levantamiento : Operacion_V2_9_7.OP_PuntoLevTipo;
+      Tipo_Punto_Levantamiento : Operacion_V2_10.OP_PuntoLevTipo;
       !!@ ili2db.dispName = "Fotoidentificación"
-      Fotoidentificacion : Operacion_V2_9_7.OP_FotoidentificacionTipo;
+      Fotoidentificacion : Operacion_V2_10.OP_FotoidentificacionTipo;
       /** Corresponde a la exactitud horizontal del punto levantamiento
        */
       !!@ ili2db.dispName = "Exactitud horizontal"
@@ -866,7 +866,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     END op_predio_copropiedad;
 
     ASSOCIATION op_predio_insumos_operacion =
-      ini_predio_insumos (EXTERNAL) -- {0..*} Datos_Integracion_Insumos_V2_9_7.Datos_Integracion_Insumos.INI_Predio_Insumos;
+      ini_predio_insumos (EXTERNAL) -- {0..*} Datos_Integracion_Insumos_V2_10.Datos_Integracion_Insumos.INI_Predio_Insumos;
       op_predio -- {0..*} OP_Predio;
     END op_predio_insumos_operacion;
 
@@ -889,13 +889,13 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Identificador"
       Identificador : TEXT*3;
       !!@ ili2db.dispName = "Tipo de dominio"
-      Tipo_Dominio : Operacion_V2_9_7.OP_DominioConstruccionTipo;
+      Tipo_Dominio : Operacion_V2_10.OP_DominioConstruccionTipo;
       !!@ ili2db.dispName = "Tipo de construcción"
-      Tipo_Construccion : Operacion_V2_9_7.OP_ConstruccionTipo;
+      Tipo_Construccion : Operacion_V2_10.OP_ConstruccionTipo;
       !!@ ili2db.dispName = "Tipo de unidad de construcción"
-      Tipo_Unidad_Construccion : Operacion_V2_9_7.OP_UnidadConstruccionTipo;
+      Tipo_Unidad_Construccion : Operacion_V2_10.OP_UnidadConstruccionTipo;
       !!@ ili2db.dispName = "Tipo de planta"
-      Tipo_Planta : Operacion_V2_9_7.OP_ConstruccionPlantaTipo;
+      Tipo_Planta : Operacion_V2_10.OP_ConstruccionPlantaTipo;
       !!@ ili2db.dispName = "Planta ubicación"
       Planta_Ubicacion : 0 .. 500;
       !!@ ili2db.dispName = "Total de habitaciones"
@@ -907,7 +907,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Total de pisos"
       Total_Pisos : 0 .. 150;
       !!@ ili2db.dispName = "Uso"
-      Uso : MANDATORY Operacion_V2_9_7.OP_UsoUConsTipo;
+      Uso : MANDATORY Operacion_V2_10.OP_UsoUConsTipo;
       !!@ ili2db.dispName = "Año de construcción"
       Anio_Construccion : 1512 .. 2500;
       !!@ ili2db.dispName = "Avalúo de la construcción"
@@ -931,4 +931,4 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
   END Operacion;
 
-END Operacion_V2_9_7.
+END Operacion_V2_10.

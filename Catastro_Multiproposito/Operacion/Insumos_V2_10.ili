@@ -1,6 +1,6 @@
 INTERLIS 2.3;
 
-MODEL Datos_Gestor_Catastral_V2_9_7 (es)
+MODEL Datos_Gestor_Catastral_V2_10 (es)
 AT "mailto:PC4@localhost"
 VERSION "2019-08-01"  =
   IMPORTS ISO19107_PLANAS_V1,LADM_COL_V1_5;
@@ -99,7 +99,7 @@ VERSION "2019-08-01"  =
       !!@ ili2db.dispName = "Etiqueta"
       Etiqueta : TEXT*50;
       !!@ ili2db.dispName = "Tipo de construcción"
-      Tipo_Construccion : Datos_Gestor_Catastral_V2_9_7.GC_UnidadConstruccionTipo;
+      Tipo_Construccion : Datos_Gestor_Catastral_V2_10.GC_UnidadConstruccionTipo;
       !!@ ili2db.dispName = "Tipo de dominio"
       Tipo_Dominio : TEXT*20;
       !!@ ili2db.dispName = "Número de pisos"
@@ -189,11 +189,11 @@ VERSION "2019-08-01"  =
       !!@ ili2db.dispName = "Matrícula inmobiliaria catastro"
       Matricula_Inmobiliaria_Catastro : TEXT*80;
       !!@ ili2db.dispName = "Direcciones"
-      Direcciones : BAG {0..*} OF Datos_Gestor_Catastral_V2_9_7.GC_Direccion;
+      Direcciones : BAG {0..*} OF Datos_Gestor_Catastral_V2_10.GC_Direccion;
       !!@ ili2db.dispName = "Tipo de predio"
       Tipo_Predio : TEXT*100;
       !!@ ili2db.dispName = "Condición del predio"
-      Condicion_Predio : Datos_Gestor_Catastral_V2_9_7.GC_CondicionPredioTipo;
+      Condicion_Predio : Datos_Gestor_Catastral_V2_10.GC_CondicionPredioTipo;
       !!@ ili2db.dispName = "Destinación económica"
       Destinacion_Economica : TEXT*150;
       !!@ ili2db.dispName = "Estado alerta"
@@ -203,7 +203,7 @@ VERSION "2019-08-01"  =
       !!@ ili2db.dispName = "Fecha de alerta"
       Fecha_Alerta : INTERLIS.XMLDate;
       !!@ ili2db.dispName = "Sistema procedencia de los datos"
-      Sistema_Procedencia_Datos : Datos_Gestor_Catastral_V2_9_7.GC_SistemaProcedenciaDatosTipo;
+      Sistema_Procedencia_Datos : Datos_Gestor_Catastral_V2_10.GC_SistemaProcedenciaDatosTipo;
       !!@ ili2db.dispName = "Fecha de los datos"
       Fecha_Datos : MANDATORY INTERLIS.XMLDate;
     END GC_Predio_Catastro;
@@ -271,7 +271,7 @@ VERSION "2019-08-01"  =
       !!@ ili2db.dispName = "Tipo de dominio"
       Tipo_Dominio : TEXT*20;
       !!@ ili2db.dispName = "Tipo de construcción"
-      Tipo_Construccion : Datos_Gestor_Catastral_V2_9_7.GC_UnidadConstruccionTipo;
+      Tipo_Construccion : Datos_Gestor_Catastral_V2_10.GC_UnidadConstruccionTipo;
       !!@ ili2db.dispName = "Planta"
       Planta : TEXT*10;
       !!@ ili2db.dispName = "Total de habitaciones"
@@ -345,9 +345,9 @@ VERSION "2019-08-01"  =
 
   END Datos_Gestor_Catastral;
 
-END Datos_Gestor_Catastral_V2_9_7.
+END Datos_Gestor_Catastral_V2_10.
 
-MODEL Datos_SNR_V2_9_7 (es)
+MODEL Datos_SNR_V2_10 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.3"  // 2019-07-31 // =
   IMPORTS LADM_COL_V1_5;
@@ -413,7 +413,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Calidad de derecho en registro
        */
       !!@ ili2db.dispName = "Calidad derecho registro"
-      Calidad_Derecho_Registro : MANDATORY Datos_SNR_V2_9_7.SNR_CalidadDerechoTipo;
+      Calidad_Derecho_Registro : MANDATORY Datos_SNR_V2_10.SNR_CalidadDerechoTipo;
       !!@ ili2db.dispName = "Código naturaleza jurídica"
       Codigo_Naturaleza_Juridica : TEXT*5;
     END SNR_Derecho;
@@ -421,7 +421,7 @@ VERSION "V2.3"  // 2019-07-31 // =
     !!@ ili2db.dispName = "(SNR) Fuente Cabida Linderos"
     CLASS SNR_Fuente_CabidaLinderos =
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : Datos_SNR_V2_9_7.SNR_FuenteTipo;
+      Tipo_Documento : Datos_SNR_V2_10.SNR_FuenteTipo;
       !!@ ili2db.dispName = "Número de documento"
       Numero_Documento : TEXT*255;
       !!@ ili2db.dispName = "Fecha de documento"
@@ -439,7 +439,7 @@ VERSION "V2.3"  // 2019-07-31 // =
     !!@ ili2db.dispName = "(SNR) Fuente Derecho"
     CLASS SNR_Fuente_Derecho =
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : Datos_SNR_V2_9_7.SNR_FuenteTipo;
+      Tipo_Documento : Datos_SNR_V2_10.SNR_FuenteTipo;
       !!@ ili2db.dispName = "Número de documento"
       Numero_Documento : TEXT*255;
       !!@ ili2db.dispName = "Fecha del documento"
@@ -479,9 +479,9 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Tipo de persona
        */
       !!@ ili2db.dispName = "Tipo de persona"
-      Tipo_Persona : Datos_SNR_V2_9_7.SNR_PersonaTitularTipo;
+      Tipo_Persona : Datos_SNR_V2_10.SNR_PersonaTitularTipo;
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : Datos_SNR_V2_9_7.SNR_DocumentoTitularTipo;
+      Tipo_Documento : Datos_SNR_V2_10.SNR_DocumentoTitularTipo;
       !!@ ili2db.dispName = "Número de documento"
       Numero_Documento : MANDATORY TEXT*50;
       !!@ ili2db.dispName = "Nombres"
@@ -517,30 +517,30 @@ VERSION "V2.3"  // 2019-07-31 // =
 
   END Datos_SNR;
 
-END Datos_SNR_V2_9_7.
+END Datos_SNR_V2_10.
 
-MODEL Datos_Integracion_Insumos_V2_9_7 (es)
+MODEL Datos_Integracion_Insumos_V2_10 (es)
 AT "mailto:PC4@localhost"
 VERSION "2019-09-06"  =
-  IMPORTS Datos_Gestor_Catastral_V2_9_7,Datos_SNR_V2_9_7;
+  IMPORTS Datos_Gestor_Catastral_V2_10,Datos_SNR_V2_10;
 
   TOPIC Datos_Integracion_Insumos =
-    DEPENDS ON Datos_SNR_V2_9_7.Datos_SNR,Datos_Gestor_Catastral_V2_9_7.Datos_Gestor_Catastral;
+    DEPENDS ON Datos_SNR_V2_10.Datos_SNR,Datos_Gestor_Catastral_V2_10.Datos_Gestor_Catastral;
 
     !!@ ili2db.dispName = "(Integración Insumos) Predio Insumos"
     CLASS INI_Predio_Insumos =
     END INI_Predio_Insumos;
 
     ASSOCIATION ini_predio_integracion_gc =
-      gc_predio_catastro (EXTERNAL) -- {0..1} Datos_Gestor_Catastral_V2_9_7.Datos_Gestor_Catastral.GC_Predio_Catastro;
+      gc_predio_catastro (EXTERNAL) -- {0..1} Datos_Gestor_Catastral_V2_10.Datos_Gestor_Catastral.GC_Predio_Catastro;
       ini_predio_insumos -- {0..*} INI_Predio_Insumos;
     END ini_predio_integracion_gc;
 
     ASSOCIATION ini_predio_integracion_snr =
-      snr_predio_juridico (EXTERNAL) -- {0..1} Datos_SNR_V2_9_7.Datos_SNR.SNR_Predio_Registro;
+      snr_predio_juridico (EXTERNAL) -- {0..1} Datos_SNR_V2_10.Datos_SNR.SNR_Predio_Registro;
       ini_predio -- {0..*} INI_Predio_Insumos;
     END ini_predio_integracion_snr;
 
   END Datos_Integracion_Insumos;
 
-END Datos_Integracion_Insumos_V2_9_7.
+END Datos_Integracion_Insumos_V2_10.

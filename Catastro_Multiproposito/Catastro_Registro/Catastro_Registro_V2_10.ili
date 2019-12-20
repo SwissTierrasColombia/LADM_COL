@@ -52,7 +52,7 @@ INTERLIS 2.3;
  * 
  * -----------------------------------------------------------
  */
-CONTRACTED MODEL Catastro_Registro_V2_9_7 (es)
+CONTRACTED MODEL Catastro_Registro_V2_10 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-02-19 // =
   IMPORTS ISO19107_PLANAS_V1,LADM_COL_V1_5;
@@ -919,9 +919,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Identificador"
       Identificador : TEXT*2;
       !!@ ili2db.dispName = "Tipo de construcción"
-      Tipo_Construccion : Catastro_Registro_V2_9_7.CR_ConstruccionTipo;
+      Tipo_Construccion : Catastro_Registro_V2_10.CR_ConstruccionTipo;
       !!@ ili2db.dispName = "Tipo de dominio"
-      Tipo_Dominio : Catastro_Registro_V2_9_7.CR_DominioConstruccionTipo;
+      Tipo_Dominio : Catastro_Registro_V2_10.CR_DominioConstruccionTipo;
       /** Cantidad de plantas que tiene la construcción
        */
       !!@ ili2db.dispName = "Número de pisos"
@@ -970,9 +970,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     STRUCTURE CR_Estructura_Objeto_Construccion =
       !!@ ili2db.dispName = "Clase de calificación"
-      Clase_Calificacion : MANDATORY Catastro_Registro_V2_9_7.CR_ClaseCalificacionTipo;
+      Clase_Calificacion : MANDATORY Catastro_Registro_V2_10.CR_ClaseCalificacionTipo;
       !!@ ili2db.dispName = "Tipo de objeto de construcción"
-      Tipo_Objeto_Construccion : MANDATORY Catastro_Registro_V2_9_7.CR_ObjetoConstruccionTipo;
+      Tipo_Objeto_Construccion : MANDATORY Catastro_Registro_V2_10.CR_ObjetoConstruccionTipo;
       !!@ ili2db.dispName = "Nombre"
       Nombre : MANDATORY TEXT*255;
     END CR_Estructura_Objeto_Construccion;
@@ -981,7 +981,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     CLASS CR_FuenteAdministrativa
     EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_FuenteAdministrativa =
       !!@ ili2db.dispName = "Tipo"
-      Tipo (EXTENDED) : MANDATORY Catastro_Registro_V2_9_7.CR_FuenteAdministrativaTipo;
+      Tipo (EXTENDED) : MANDATORY Catastro_Registro_V2_10.CR_FuenteAdministrativaTipo;
       !!@ ili2db.dispName = "Ente emisor"
       Ente_Emisor : TEXT*255;
       !!@ ili2db.dispName = "Oficina de origen"
@@ -998,9 +998,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "(Avalúos) Grupo Calificación"
     CLASS CR_Grupo_Calificacion =
       !!@ ili2db.dispName = "Clase de calificación"
-      Clase_Calificacion : MANDATORY Catastro_Registro_V2_9_7.CR_ClaseCalificacionTipo;
+      Clase_Calificacion : MANDATORY Catastro_Registro_V2_10.CR_ClaseCalificacionTipo;
       !!@ ili2db.dispName = "Conservación"
-      Conservacion : Catastro_Registro_V2_9_7.CR_EstadoConservacionTipo;
+      Conservacion : Catastro_Registro_V2_10.CR_EstadoConservacionTipo;
       !!@ ili2db.dispName = "Subtotal"
       Subtotal : 0 .. 9999999;
     END CR_Grupo_Calificacion;
@@ -1009,7 +1009,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     CLASS CR_Informalidad
     EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_RRR =
       !!@ ili2db.dispName = "Tipo"
-      Tipo : MANDATORY Catastro_Registro_V2_9_7.CR_InformalidadTipo;
+      Tipo : MANDATORY Catastro_Registro_V2_10.CR_InformalidadTipo;
     END CR_Informalidad;
 
     !!@ ili2db.dispName = "Interesado"
@@ -1018,11 +1018,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Tipo de persona del que se trata
        */
       !!@ ili2db.dispName = "Tipo"
-      Tipo : MANDATORY Catastro_Registro_V2_9_7.CR_InteresadoTipo;
+      Tipo : MANDATORY Catastro_Registro_V2_10.CR_InteresadoTipo;
       /** Tipo de documento del que se trata.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : MANDATORY Catastro_Registro_V2_9_7.CR_InteresadoDocumentoTipo;
+      Tipo_Documento : MANDATORY Catastro_Registro_V2_10.CR_InteresadoDocumentoTipo;
       /** Documento de identidad del interesado.
        */
       !!@ ili2db.dispName = "Documento de identidad"
@@ -1044,7 +1044,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Segundo apellido"
       Segundo_Apellido : TEXT*100;
       !!@ ili2db.dispName = "Sexo"
-      Sexo : Catastro_Registro_V2_9_7.CR_SexoTipo;
+      Sexo : Catastro_Registro_V2_10.CR_SexoTipo;
       /** Nombre con el que está inscrito.
        */
       !!@ ili2db.dispName = "Razón social"
@@ -1092,7 +1092,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Fecha de apertura FMI"
       Fecha_Apertura_FMI : INTERLIS.XMLDate;
       !!@ ili2db.dispName = "Estado del FMI"
-      Estado_FMI : Catastro_Registro_V2_9_7.CR_EstadoFMITipo;
+      Estado_FMI : Catastro_Registro_V2_10.CR_EstadoFMITipo;
       /** Nuevo código númerico de treinta (30) dígitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi.
        */
       !!@ ili2db.dispName = "Número predial"
@@ -1106,13 +1106,13 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Avalúo del predio"
       Avaluo_Predio : LADM_COL_V1_5.LADM_Nucleo.Peso;
       !!@ ili2db.dispName = "Condición del predio"
-      Condicion_Predio : MANDATORY Catastro_Registro_V2_9_7.CR_CondicionPredioTipo;
+      Condicion_Predio : MANDATORY Catastro_Registro_V2_10.CR_CondicionPredioTipo;
       !!@ ili2db.dispName = "Vigencia del predio"
       Vigencia_Predio : 1512 .. 2550;
       !!@ ili2db.dispName = "Tipo"
-      Tipo (EXTENDED) : Catastro_Registro_V2_9_7.CR_PredioTipo;
+      Tipo (EXTENDED) : Catastro_Registro_V2_10.CR_PredioTipo;
       !!@ ili2db.dispName = "Destinación económica"
-      Destinacion_Economica : Catastro_Registro_V2_9_7.CR_DestinacionEconomicaTipo;
+      Destinacion_Economica : Catastro_Registro_V2_10.CR_DestinacionEconomicaTipo;
       !!@ ili2db.dispName = "Dirección"
       Direccion : MANDATORY TEXT*255;
       !!@ ili2db.dispName = "Matrícula predio matriz"
@@ -1125,7 +1125,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "Publicidad"
     CLASS CR_Publicidad =
       !!@ ili2db.dispName = "Tipo de publicidad"
-      Tipo_Publicidad : MANDATORY Catastro_Registro_V2_9_7.CR_PublicidadTipo;
+      Tipo_Publicidad : MANDATORY Catastro_Registro_V2_10.CR_PublicidadTipo;
       !!@ ili2db.dispName = "Naturaleza jurídica"
       Naturaleza_Juridica : TEXT*100;
       !!@ ili2db.dispName = "Código de naturaleza jurídica"
@@ -1146,11 +1146,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "ID del punto de control"
       ID_Punto_Control : MANDATORY TEXT*255;
       !!@ ili2db.dispName = "Tipo de punto"
-      PuntoTipo (EXTENDED) : MANDATORY Catastro_Registro_V2_9_7.CR_PuntoTipo;
+      PuntoTipo (EXTENDED) : MANDATORY Catastro_Registro_V2_10.CR_PuntoTipo;
       /** Si se trata deun punto de control o de apoyo.
        */
       !!@ ili2db.dispName = "Tipo de punto de control"
-      Tipo_Punto_Control : Catastro_Registro_V2_9_7.CR_PuntoControlTipo;
+      Tipo_Punto_Control : Catastro_Registro_V2_10.CR_PuntoControlTipo;
       /** Exactitud horizontal de la medición del punto.
        */
       !!@ ili2db.dispName = "Exactitud horizontal"
@@ -1171,15 +1171,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "ID del punto de lindero"
       ID_Punto_Lindero : TEXT*255;
       !!@ ili2db.dispName = "Tipo de punto"
-      PuntoTipo (EXTENDED) : MANDATORY Catastro_Registro_V2_9_7.CR_PuntoTipo;
+      PuntoTipo (EXTENDED) : MANDATORY Catastro_Registro_V2_10.CR_PuntoTipo;
       /** Se Indica si existe acuerdo o no entre los colindantes en relación al punto lindero que se está midiendo.
        */
       !!@ ili2db.dispName = "Acuerdo"
-      Acuerdo : MANDATORY Catastro_Registro_V2_9_7.CR_AcuerdoTipo;
+      Acuerdo : MANDATORY Catastro_Registro_V2_10.CR_AcuerdoTipo;
       !!@ ili2db.dispName = "Fotoidentificación"
-      Fotoidentificacion : Catastro_Registro_V2_9_7.CR_FotoidentificacionTipo;
+      Fotoidentificacion : Catastro_Registro_V2_10.CR_FotoidentificacionTipo;
       !!@ ili2db.dispName = "Ubicación del punto"
-      Ubicacion_Punto : Catastro_Registro_V2_9_7.CR_UbicacionPuntoTipo;
+      Ubicacion_Punto : Catastro_Registro_V2_10.CR_UbicacionPuntoTipo;
       /** Corresponde a la exactitud horizontal del punto lindero
        */
       !!@ ili2db.dispName = "Exactitud horizontal"
@@ -1243,7 +1243,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Número de la anotación"
       Numero_Anotacion : 0 .. 9999999999;
       !!@ ili2db.dispName = "Estado de la anotación"
-      Estado_Anotacion : Catastro_Registro_V2_9_7.CR_EstadoAnotacionTipo;
+      Estado_Anotacion : Catastro_Registro_V2_10.CR_EstadoAnotacionTipo;
       !!@ ili2db.dispName = "Valor de la transacción"
       Valor_Transaccion : 0 .. 10000000000000000;
     END CR_Anotacion_Registro;
@@ -1254,7 +1254,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     CLASS CR_Calificacion_Convencional
     EXTENDS CR_Calificacion_Unidad_Construccion =
       !!@ ili2db.dispName = "Tipo a calificar"
-      Tipo_Calificar : Catastro_Registro_V2_9_7.CR_CalificarTipo;
+      Tipo_Calificar : Catastro_Registro_V2_10.CR_CalificarTipo;
       !!@ ili2db.dispName = "Total calificación"
       Total_Calificacion : LADM_COL_V1_5.LADM_Nucleo.Integer;
     END CR_Calificacion_Convencional;
@@ -1263,7 +1263,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     CLASS CR_Calificacion_No_Convencional
     EXTENDS CR_Calificacion_Unidad_Construccion =
       !!@ ili2db.dispName = "Tipo de anexo"
-      Tipo_Anexo : Catastro_Registro_V2_9_7.CR_AnexoTipo;
+      Tipo_Anexo : Catastro_Registro_V2_10.CR_AnexoTipo;
       !!@ ili2db.dispName = "Descripción de anexo"
       Descripcion_Anexo : TEXT*256;
       !!@ ili2db.dispName = "Puntaje anexo"
@@ -1278,7 +1278,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Derecho que se ejerce.
        */
       !!@ ili2db.dispName = "Tipo"
-      Tipo : MANDATORY Catastro_Registro_V2_9_7.CR_DerechoTipo;
+      Tipo : MANDATORY Catastro_Registro_V2_10.CR_DerechoTipo;
       !!@ ili2db.dispName = "Cabida y linderos"
       Cabida_Linderos : MANDATORY MTEXT;
       !!@ ili2db.dispName = "Área actualizada"
@@ -1290,7 +1290,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "(Avalúos) Objeto Construcción"
     CLASS CR_Objeto_Construccion =
       !!@ ili2db.dispName = "Tipo de objeto de construcción"
-      Tipo_Objeto_Construccion : MANDATORY Catastro_Registro_V2_9_7.Catastro_Registro.CR_Estructura_Objeto_Construccion;
+      Tipo_Objeto_Construccion : MANDATORY Catastro_Registro_V2_10.Catastro_Registro.CR_Estructura_Objeto_Construccion;
       !!@ ili2db.dispName = "Puntos"
       Puntos : MANDATORY 0 .. 16;
     END CR_Objeto_Construccion;
@@ -1305,11 +1305,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "ID del punto de levantamiento"
       ID_Punto_Levantamiento : TEXT*255;
       !!@ ili2db.dispName = "Tipo de punto"
-      PuntoTipo (EXTENDED) : MANDATORY Catastro_Registro_V2_9_7.CR_PuntoTipo;
+      PuntoTipo (EXTENDED) : MANDATORY Catastro_Registro_V2_10.CR_PuntoTipo;
       !!@ ili2db.dispName = "Tipo de punto de levantamiento"
-      Tipo_Punto_Levantamiento : Catastro_Registro_V2_9_7.CR_PuntoLevTipo;
+      Tipo_Punto_Levantamiento : Catastro_Registro_V2_10.CR_PuntoLevTipo;
       !!@ ili2db.dispName = "Fotoidentificación"
-      Fotoidentificacion : Catastro_Registro_V2_9_7.CR_FotoidentificacionTipo;
+      Fotoidentificacion : Catastro_Registro_V2_10.CR_FotoidentificacionTipo;
       /** Corresponde a la exactitud horizontal del punto levantamiento
        */
       !!@ ili2db.dispName = "Exactitud horizontal"
@@ -1324,14 +1324,14 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     CLASS CR_Responsabilidad
     EXTENDS CR_RRR =
       !!@ ili2db.dispName = "Tipo"
-      Tipo : MANDATORY Catastro_Registro_V2_9_7.CR_ResponsabilidadTipo;
+      Tipo : MANDATORY Catastro_Registro_V2_10.CR_ResponsabilidadTipo;
     END CR_Responsabilidad;
 
     !!@ ili2db.dispName = "Restricción"
     CLASS CR_Restriccion
     EXTENDS CR_RRR =
       !!@ ili2db.dispName = "Tipo"
-      Tipo : MANDATORY Catastro_Registro_V2_9_7.CR_RestriccionTipo;
+      Tipo : MANDATORY Catastro_Registro_V2_10.CR_RestriccionTipo;
     END CR_Restriccion;
 
     ASSOCIATION cr_ph_predio =
@@ -1394,13 +1394,13 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Identificador"
       Identificador : TEXT*3;
       !!@ ili2db.dispName = "Tipo de dominio"
-      Tipo_Dominio : Catastro_Registro_V2_9_7.CR_DominioConstruccionTipo;
+      Tipo_Dominio : Catastro_Registro_V2_10.CR_DominioConstruccionTipo;
       !!@ ili2db.dispName = "Tipo de construcción"
-      Tipo_Construccion : Catastro_Registro_V2_9_7.CR_ConstruccionTipo;
+      Tipo_Construccion : Catastro_Registro_V2_10.CR_ConstruccionTipo;
       !!@ ili2db.dispName = "Tipo de unidad de construcción"
-      Tipo_Unidad_Construccion : Catastro_Registro_V2_9_7.CR_UnidadConstruccionTipo;
+      Tipo_Unidad_Construccion : Catastro_Registro_V2_10.CR_UnidadConstruccionTipo;
       !!@ ili2db.dispName = "Tipo de planta"
-      Tipo_Planta : Catastro_Registro_V2_9_7.CR_ConstruccionPlantaTipo;
+      Tipo_Planta : Catastro_Registro_V2_10.CR_ConstruccionPlantaTipo;
       !!@ ili2db.dispName = "Planta ubicación"
       Planta_Ubicacion : 0 .. 500;
       !!@ ili2db.dispName = "Total de habitaciones"
@@ -1412,7 +1412,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Total de pisos"
       Total_Pisos : 0 .. 150;
       !!@ ili2db.dispName = "Uso"
-      Uso : MANDATORY Catastro_Registro_V2_9_7.CR_UsoUConsTipo;
+      Uso : MANDATORY Catastro_Registro_V2_10.CR_UsoUConsTipo;
       !!@ ili2db.dispName = "Año de construcción"
       Anio_Construccion : 1512 .. 2500;
       !!@ ili2db.dispName = "Avalúo de la construcción"
@@ -1453,4 +1453,4 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
   END Catastro_Registro;
 
-END Catastro_Registro_V2_9_7.
+END Catastro_Registro_V2_10.
