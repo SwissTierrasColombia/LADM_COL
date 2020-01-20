@@ -55,7 +55,7 @@ INTERLIS 2.3;
 CONTRACTED MODEL Catastro_Registro_V2_10 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-02-19 // =
-  IMPORTS ISO19107_PLANAS_V1,LADM_COL_V1_5;
+  IMPORTS ISO19107_PLANAS_V1,LADM_COL_V1_6;
 
   DOMAIN
 
@@ -895,17 +895,17 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     );
 
   TOPIC Catastro_Registro
-  EXTENDS LADM_COL_V1_5.LADM_Nucleo =
+  EXTENDS LADM_COL_V1_6.LADM_Nucleo =
     OID AS INTERLIS.UUIDOID;
-    DEPENDS ON LADM_COL_V1_5.LADM_Nucleo;
+    DEPENDS ON LADM_COL_V1_6.LADM_Nucleo;
 
     !!@ ili2db.dispName = "Agrupación de Interesados"
     CLASS CR_Agrupacion_Interesados
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_Agrupacion_Interesados =
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_Agrupacion_Interesados =
     END CR_Agrupacion_Interesados;
 
     CLASS CR_AgrupacionUnidadesEspaciales
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_AgrupacionUnidadesEspaciales =
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_AgrupacionUnidadesEspaciales =
     END CR_AgrupacionUnidadesEspaciales;
 
     CLASS CR_Calificacion_Unidad_Construccion (ABSTRACT) =
@@ -915,7 +915,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
      */
     !!@ ili2db.dispName = "Construcción"
     CLASS CR_Construccion
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_UnidadEspacial =
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadEspacial =
       !!@ ili2db.dispName = "Identificador"
       Identificador : TEXT*2;
       !!@ ili2db.dispName = "Tipo de construcción"
@@ -935,27 +935,29 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Código de edificación"
       Codigo_Edificacion : 0 .. 10000000000000000000;
       !!@ ili2db.dispName = "Área de construcción"
-      Area_Construccion : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_5.m2];
+      Area_Construccion : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_6.m2];
+      !!@ ili2db.dispName = "Altura"
+      Altura : 0 .. 1000 [INTERLIS.m];
       /** Rsultado del cálculo de su avalúo mediante la metodología legalmente establecida.
        */
       !!@ ili2db.dispName = "Ávaluo de construcción"
-      Avaluo_Construccion : LADM_COL_V1_5.LADM_Nucleo.Peso;
+      Avaluo_Construccion : LADM_COL_V1_6.LADM_Nucleo.Peso;
     END CR_Construccion;
 
     !!@ ili2db.dispName = "Datos PH Condominio"
     CLASS CR_Datos_PH_Condominio =
       !!@ ili2db.dispName = "Área total de terreno"
-      Area_Total_Terreno : 0.00 .. 99999999999999.98 [LADM_COL_V1_5.m2];
+      Area_Total_Terreno : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
       !!@ ili2db.dispName = "Área total de terreno privada"
-      Area_Total_Terreno_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_5.m2];
+      Area_Total_Terreno_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
       !!@ ili2db.dispName = "Área total de terreno común"
-      Area_Total_Terreno_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_5.m2];
+      Area_Total_Terreno_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
       !!@ ili2db.dispName = "Área total construida"
-      Area_Total_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_5.m2];
+      Area_Total_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
       !!@ ili2db.dispName = "Área total construida privada"
-      Area_Total_Construida_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_5.m2];
+      Area_Total_Construida_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
       !!@ ili2db.dispName = "Área total construida común"
-      Area_Total_Construida_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_5.m2];
+      Area_Total_Construida_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
       !!@ ili2db.dispName = "Torre número"
       Torre_No : TEXT*10;
       !!@ ili2db.dispName = "Total pisos de torre"
@@ -968,18 +970,37 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Total_Unidades_Sotanos : 0 .. 99999999;
     END CR_Datos_PH_Condominio;
 
-    STRUCTURE CR_Estructura_Objeto_Construccion =
-      !!@ ili2db.dispName = "Clase de calificación"
-      Clase_Calificacion : MANDATORY Catastro_Registro_V2_10.CR_ClaseCalificacionTipo;
-      !!@ ili2db.dispName = "Tipo de objeto de construcción"
-      Tipo_Objeto_Construccion : MANDATORY Catastro_Registro_V2_10.CR_ObjetoConstruccionTipo;
-      !!@ ili2db.dispName = "Nombre"
-      Nombre : MANDATORY TEXT*255;
-    END CR_Estructura_Objeto_Construccion;
+    CLASS CR_DRR (ABSTRACT)
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_DRR =
+      !!@ ili2db.dispName = "Naturaleza jurídica"
+      Naturaleza_Juridica : TEXT*100;
+      !!@ ili2db.dispName = "Código de la naturaleza jurídica"
+      Codigo_Naturaleza_Juridica : TEXT*4;
+      !!@ ili2db.dispName = "Naturaleza complemento"
+      Naturaleza_Complemento : TEXT*200;
+      !!@ ili2db.dispName = "Fecha de la anotación"
+      Fecha_Anotacion : INTERLIS.XMLDate;
+    END CR_DRR;
+
+    !!@ ili2db.dispName = "Estructura Matrícula Matriz"
+    STRUCTURE CR_Estructura_Matricula_Matriz =
+      !!@ ili2db.dispName = "Código ORIP"
+      Codigo_ORIP : TEXT*20;
+      !!@ ili2db.dispName = "Matrícula inmobiliaria"
+      Matricula_Inmobiliaria : TEXT*20;
+    END CR_Estructura_Matricula_Matriz;
+
+    !!@ ili2db.dispName = "Estructura Matrícula Segregados"
+    STRUCTURE CR_Estructura_Matricula_Segregados =
+      !!@ ili2db.dispName = "Código ORIP"
+      Codigo_ORIP : TEXT*20;
+      !!@ ili2db.dispName = "Matrícula inmobiliaria"
+      Matricula_Inmobiliaria : TEXT*20;
+    END CR_Estructura_Matricula_Segregados;
 
     !!@ ili2db.dispName = "Fuente Administrativa"
     CLASS CR_FuenteAdministrativa
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_FuenteAdministrativa =
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_FuenteAdministrativa =
       !!@ ili2db.dispName = "Tipo"
       Tipo (EXTENDED) : MANDATORY Catastro_Registro_V2_10.CR_FuenteAdministrativaTipo;
       !!@ ili2db.dispName = "Ente emisor"
@@ -992,7 +1013,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     !!@ ili2db.dispName = "Fuente Espacial"
     CLASS CR_FuenteEspacial
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_FuenteEspacial =
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_FuenteEspacial =
     END CR_FuenteEspacial;
 
     !!@ ili2db.dispName = "(Avalúos) Grupo Calificación"
@@ -1007,14 +1028,14 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     !!@ ili2db.dispName = "Informalidad"
     CLASS CR_Informalidad
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_RRR =
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_DRR =
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY Catastro_Registro_V2_10.CR_InformalidadTipo;
     END CR_Informalidad;
 
     !!@ ili2db.dispName = "Interesado"
     CLASS CR_Interesado
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_Interesado =
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_Interesado =
       /** Tipo de persona del que se trata
        */
       !!@ ili2db.dispName = "Tipo"
@@ -1056,71 +1077,22 @@ VERSION "V2.2.1"  // 2018-02-19 // =
      */
     !!@ ili2db.dispName = "Lindero"
     CLASS CR_Lindero
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_CadenaCarasLimite =
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_CadenaCarasLimite =
       /** Lóngitud en m del lindero.
        */
       !!@ ili2db.dispName = "Longitud"
       Longitud : MANDATORY 0.0 .. 10000.0 [INTERLIS.m];
     END CR_Lindero;
 
-    /** Clase especializada de BaUnit, que describe la unidad administrativa básica para el caso de Colombia.
-     * El predio es la unidad territorial legal propia de Catastro. Esta formada por el terreno y puede o no tener construcciones asociadas.
-     */
-    !!@ ili2db.dispName = "Predio"
-    CLASS CR_Predio
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_BAUnit =
-      /** Corresponde al codigo del departamento al cual pertenece el predio. Es asignado por DIVIPOLA y tiene 2 dígitos.
-       */
-      !!@ ili2db.dispName = "Departamento"
-      Departamento : MANDATORY TEXT*2;
-      /** Corresponde al codigo del municipio al cual pertenece el predio. Es asignado por DIVIPOLA y tiene 3 dígitos.
-       */
-      !!@ ili2db.dispName = "Municipio"
-      Municipio : MANDATORY TEXT*3;
-      /** Numero Unico de identificación Predial. Es el codigo definido en el proyecto de ley que será el codigo de identificación del predio tanto para catastratro como para Registro.
-       */
-      !!@ ili2db.dispName = "Número único predial"
-      NUPRE : MANDATORY TEXT*30;
-      /** Circulo registral
-       */
-      !!@ ili2db.dispName = "Código ORIP"
-      Codigo_ORIP : TEXT*3;
-      /** Matricula inmobiliaria
-       */
-      !!@ ili2db.dispName = "Matrícula inmobiliaria"
-      Matricula_Inmobiliaria : TEXT*80;
-      !!@ ili2db.dispName = "Fecha de apertura FMI"
-      Fecha_Apertura_FMI : INTERLIS.XMLDate;
-      !!@ ili2db.dispName = "Estado del FMI"
-      Estado_FMI : Catastro_Registro_V2_10.CR_EstadoFMITipo;
-      /** Nuevo código númerico de treinta (30) dígitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi.
-       */
-      !!@ ili2db.dispName = "Número predial"
-      Numero_Predial : TEXT*30;
-      /** Anterior código númerico de veinte (20) digitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi.
-       */
-      !!@ ili2db.dispName = "Número predial anterior"
-      Numero_Predial_Anterior : TEXT*20;
-      /** Valor de cada predio, obtenido mediante investigación y análisis estadistico del mercado inmobiliario y la metodología de aplicación  correspondiente. El avalúo  catastral de cada predio se determina a partir de la adición de los avalúos parciales practicados independientemente para los terrenos y para las edificaciones en el comprendidos.
-       */
-      !!@ ili2db.dispName = "Avalúo del predio"
-      Avaluo_Predio : LADM_COL_V1_5.LADM_Nucleo.Peso;
-      !!@ ili2db.dispName = "Condición del predio"
-      Condicion_Predio : MANDATORY Catastro_Registro_V2_10.CR_CondicionPredioTipo;
-      !!@ ili2db.dispName = "Vigencia del predio"
-      Vigencia_Predio : 1512 .. 2550;
-      !!@ ili2db.dispName = "Tipo"
-      Tipo (EXTENDED) : Catastro_Registro_V2_10.CR_PredioTipo;
-      !!@ ili2db.dispName = "Destinación económica"
-      Destinacion_Economica : Catastro_Registro_V2_10.CR_DestinacionEconomicaTipo;
-      !!@ ili2db.dispName = "Dirección"
-      Direccion : MANDATORY TEXT*255;
-      !!@ ili2db.dispName = "Matrícula predio matriz"
-      Matricula_Matriz : TEXT*80;
-      !!@ ili2db.dispName = "Matrícula predios segregados"
-      Matricula_Segregados : TEXT*80;
-      UNIQUE NUPRE; 
-    END CR_Predio;
+    !!@ ili2db.dispName = "(Avalúos) Objeto Construcción"
+    CLASS CR_Objeto_Construccion =
+      !!@ ili2db.dispName = "Tipo de objeto de construcción"
+      Tipo_Objeto_Construccion : MANDATORY Catastro_Registro_V2_10.CR_ObjetoConstruccionTipo;
+      !!@ ili2db.dispName = "Nombre"
+      Nombre : MANDATORY TEXT*255;
+      !!@ ili2db.dispName = "Puntos"
+      Puntos : MANDATORY 0 .. 16;
+    END CR_Objeto_Construccion;
 
     !!@ ili2db.dispName = "Publicidad"
     CLASS CR_Publicidad =
@@ -1140,7 +1112,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
      */
     !!@ ili2db.dispName = "Punto Control"
     CLASS CR_PuntoControl
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_Punto =
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_Punto =
       /** Nombre que recibe el punto.
        */
       !!@ ili2db.dispName = "ID del punto de control"
@@ -1154,18 +1126,18 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Exactitud horizontal de la medición del punto.
        */
       !!@ ili2db.dispName = "Exactitud horizontal"
-      Exactitud_Horizontal : MANDATORY 0 .. 1000 [LADM_COL_V1_5.cm];
+      Exactitud_Horizontal : MANDATORY 0 .. 1000 [LADM_COL_V1_6.cm];
       /** Exactitud vertical de la medición del punto.
        */
       !!@ ili2db.dispName = "Exactitud vertical"
-      Exactitud_Vertical : MANDATORY 0 .. 1000 [LADM_COL_V1_5.cm];
+      Exactitud_Vertical : MANDATORY 0 .. 1000 [LADM_COL_V1_6.cm];
     END CR_PuntoControl;
 
     /** Clase especializada de LA_Punto que almacena puntos que definen un lindero, instancia de la clase LA_CadenaCarasLindero y sus especializaciones.
      */
     !!@ ili2db.dispName = "Punto Lindero"
     CLASS CR_PuntoLindero
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_Punto =
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_Punto =
       /** Nombre o codigo del punto lindero
        */
       !!@ ili2db.dispName = "ID del punto de lindero"
@@ -1183,38 +1155,26 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Corresponde a la exactitud horizontal del punto lindero
        */
       !!@ ili2db.dispName = "Exactitud horizontal"
-      Exactitud_Horizontal : MANDATORY 0 .. 1000 [LADM_COL_V1_5.cm];
+      Exactitud_Horizontal : MANDATORY 0 .. 1000 [LADM_COL_V1_6.cm];
       /** Corresponde a la exactitud vertical del punto lindero
        */
       !!@ ili2db.dispName = "Exactitud vertical"
-      Exactitud_Vertical : 0 .. 1000 [LADM_COL_V1_5.cm];
+      Exactitud_Vertical : 0 .. 1000 [LADM_COL_V1_6.cm];
     END CR_PuntoLindero;
-
-    CLASS CR_RRR (ABSTRACT)
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_RRR =
-      !!@ ili2db.dispName = "Naturaleza jurídica"
-      Naturaleza_Juridica : TEXT*100;
-      !!@ ili2db.dispName = "Código de la naturaleza jurídica"
-      Codigo_Naturaleza_Juridica : TEXT*4;
-      !!@ ili2db.dispName = "Naturaleza complemento"
-      Naturaleza_Complemento : TEXT*200;
-      !!@ ili2db.dispName = "Fecha de la anotación"
-      Fecha_Anotacion : INTERLIS.XMLDate;
-    END CR_RRR;
 
     /** Porción de tierra con una extensión geográfica definida.
      */
     !!@ ili2db.dispName = "Terreno"
     CLASS CR_Terreno
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_UnidadEspacial =
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadEspacial =
       /** Área de predio resultado de los calculos realizados en el proceso de levantamiento planimetrico
        */
       !!@ ili2db.dispName = "Área del Terreno"
-      Area_Terreno : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_5.m2];
+      Area_Terreno : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_6.m2];
       /** Valor asignado en el proceso de valoración economica masiva al terreno del predio
        */
       !!@ ili2db.dispName = "Avalúo del terreno"
-      Avaluo_Terreno : LADM_COL_V1_5.LADM_Nucleo.Peso;
+      Avaluo_Terreno : LADM_COL_V1_6.LADM_Nucleo.Peso;
       !!@ ili2db.dispName = "Código de manzana vereda"
       Manzana_Vereda_Codigo : TEXT*17;
       !!@ ili2db.dispName = "Número de subterráneos"
@@ -1256,7 +1216,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Tipo a calificar"
       Tipo_Calificar : Catastro_Registro_V2_10.CR_CalificarTipo;
       !!@ ili2db.dispName = "Total calificación"
-      Total_Calificacion : LADM_COL_V1_5.LADM_Nucleo.Integer;
+      Total_Calificacion : LADM_COL_V1_6.LADM_Nucleo.Integer;
     END CR_Calificacion_Convencional;
 
     !!@ ili2db.dispName = "(Avalúos) Calificación No Convencional"
@@ -1274,7 +1234,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
      */
     !!@ ili2db.dispName = "Derecho"
     CLASS CR_Derecho
-    EXTENDS CR_RRR =
+    EXTENDS CR_DRR =
       /** Derecho que se ejerce.
        */
       !!@ ili2db.dispName = "Tipo"
@@ -1282,24 +1242,77 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Cabida y linderos"
       Cabida_Linderos : MANDATORY MTEXT;
       !!@ ili2db.dispName = "Área actualizada"
-      Area_Actualizada : 0.00 .. 100000000000000000000000000000000.00 [LADM_COL_V1_5.m2];
+      Area_Actualizada : 0.00 .. 100000000000000000000000000000000.00 [LADM_COL_V1_6.m2];
       !!@ ili2db.dispName = "Linderos actualizados"
       Linderos_Actualizados : MTEXT;
     END CR_Derecho;
 
-    !!@ ili2db.dispName = "(Avalúos) Objeto Construcción"
-    CLASS CR_Objeto_Construccion =
-      !!@ ili2db.dispName = "Tipo de objeto de construcción"
-      Tipo_Objeto_Construccion : MANDATORY Catastro_Registro_V2_10.Catastro_Registro.CR_Estructura_Objeto_Construccion;
-      !!@ ili2db.dispName = "Puntos"
-      Puntos : MANDATORY 0 .. 16;
-    END CR_Objeto_Construccion;
+    /** Clase especializada de BaUnit, que describe la unidad administrativa básica para el caso de Colombia.
+     * El predio es la unidad territorial legal propia de Catastro. Esta formada por el terreno y puede o no tener construcciones asociadas.
+     */
+    !!@ ili2db.dispName = "Predio"
+    CLASS CR_Predio
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_BAUnit =
+      /** Corresponde al codigo del departamento al cual pertenece el predio. Es asignado por DIVIPOLA y tiene 2 dígitos.
+       */
+      !!@ ili2db.dispName = "Departamento"
+      Departamento : MANDATORY TEXT*2;
+      /** Corresponde al codigo del municipio al cual pertenece el predio. Es asignado por DIVIPOLA y tiene 3 dígitos.
+       */
+      !!@ ili2db.dispName = "Municipio"
+      Municipio : MANDATORY TEXT*3;
+      /** Numero Unico de identificación Predial. Es el codigo definido en el proyecto de ley que será el codigo de identificación del predio tanto para catastratro como para Registro.
+       */
+      !!@ ili2db.dispName = "Número único predial"
+      NUPRE : MANDATORY TEXT*30;
+      /** Circulo registral
+       */
+      !!@ ili2db.dispName = "Código ORIP"
+      Codigo_ORIP : TEXT*3;
+      /** Matricula inmobiliaria
+       */
+      !!@ ili2db.dispName = "Matrícula inmobiliaria"
+      Matricula_Inmobiliaria : TEXT*80;
+      !!@ ili2db.dispName = "Fecha de apertura FMI"
+      Fecha_Apertura_FMI : INTERLIS.XMLDate;
+      !!@ ili2db.dispName = "Estado del FMI"
+      Estado_FMI : Catastro_Registro_V2_10.CR_EstadoFMITipo;
+      /** Nuevo código númerico de treinta (30) dígitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi.
+       */
+      !!@ ili2db.dispName = "Número predial"
+      Numero_Predial : TEXT*30;
+      /** Anterior código númerico de veinte (20) digitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi.
+       */
+      !!@ ili2db.dispName = "Número predial anterior"
+      Numero_Predial_Anterior : TEXT*20;
+      /** Valor de cada predio, obtenido mediante investigación y análisis estadistico del mercado inmobiliario y la metodología de aplicación  correspondiente. El avalúo  catastral de cada predio se determina a partir de la adición de los avalúos parciales practicados independientemente para los terrenos y para las edificaciones en el comprendidos.
+       */
+      !!@ ili2db.dispName = "Avalúo Catastral"
+      Avaluo_Catastral : LADM_COL_V1_6.LADM_Nucleo.Peso;
+      !!@ ili2db.dispName = "Condición del predio"
+      Condicion_Predio : MANDATORY Catastro_Registro_V2_10.CR_CondicionPredioTipo;
+      !!@ ili2db.dispName = "Inscripción Catastral"
+      Inscripcion_Catastral : INTERLIS.XMLDate;
+      !!@ ili2db.dispName = "Vigencia Catastral"
+      Vigencia_Catastral : 1512 .. 2550;
+      !!@ ili2db.dispName = "Tipo"
+      Tipo (EXTENDED) : Catastro_Registro_V2_10.CR_PredioTipo;
+      !!@ ili2db.dispName = "Destinación económica"
+      Destinacion_Economica : Catastro_Registro_V2_10.CR_DestinacionEconomicaTipo;
+      !!@ ili2db.dispName = "Dirección"
+      Direccion : MANDATORY TEXT*255;
+      !!@ ili2db.dispName = "Matrícula predio matriz"
+      Matricula_Matriz : BAG {0..*} OF Catastro_Registro_V2_10.Catastro_Registro.CR_Estructura_Matricula_Matriz;
+      !!@ ili2db.dispName = "Matrícula predios segregados"
+      Matricula_Segregados : BAG {0..*} OF Catastro_Registro_V2_10.Catastro_Registro.CR_Estructura_Matricula_Segregados;
+      UNIQUE NUPRE; 
+    END CR_Predio;
 
     /** Clase especializada de LA_Punto que representa puntos demarcados que representan la posición horizontal de un vértice de construcción, servidumbre o auxiliare.
      */
     !!@ ili2db.dispName = "Punto Levantamiento"
     CLASS CR_PuntoLevantamiento
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_Punto =
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_Punto =
       /** Se caracterizan los diferentes tipos de punto levantamiento, estos son punto de construccción, punto de servidumbre o punto auxiliar
        */
       !!@ ili2db.dispName = "ID del punto de levantamiento"
@@ -1313,51 +1326,45 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Corresponde a la exactitud horizontal del punto levantamiento
        */
       !!@ ili2db.dispName = "Exactitud horizontal"
-      Exactitud_Horizontal : MANDATORY 0 .. 1000 [LADM_COL_V1_5.cm];
+      Exactitud_Horizontal : MANDATORY 0 .. 1000 [LADM_COL_V1_6.cm];
       /** Corresponde a la exactitud vertical del punto levantamiento
        */
       !!@ ili2db.dispName = "Exactitud vertical"
-      Exactitud_Vertical : 0 .. 1000 [LADM_COL_V1_5.cm];
+      Exactitud_Vertical : 0 .. 1000 [LADM_COL_V1_6.cm];
     END CR_PuntoLevantamiento;
 
     !!@ ili2db.dispName = "Responsabilidad"
     CLASS CR_Responsabilidad
-    EXTENDS CR_RRR =
+    EXTENDS CR_DRR =
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY Catastro_Registro_V2_10.CR_ResponsabilidadTipo;
     END CR_Responsabilidad;
 
     !!@ ili2db.dispName = "Restricción"
     CLASS CR_Restriccion
-    EXTENDS CR_RRR =
+    EXTENDS CR_DRR =
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY Catastro_Registro_V2_10.CR_RestriccionTipo;
     END CR_Restriccion;
 
-    ASSOCIATION cr_ph_predio =
-      cr_predio -- {1} CR_Predio;
-      cr_datos_ph -- {0..1} CR_Datos_PH_Condominio;
-    END cr_ph_predio;
-
-    ASSOCIATION cr_predio_copropiedad =
-      predio -- {0..*} CR_Predio;
-      copropiedad -<> {0..1} CR_Predio;
-      coeficiente : LADM_COL_V1_5.LADM_Nucleo.Fraccion;
-    END cr_predio_copropiedad;
+    ASSOCIATION cr_objetoconstruccion_grupocalificacion =
+      cr_grupo_calificacion -- {1} CR_Grupo_Calificacion;
+      cr_objeto_construccion -- {0..*} CR_Objeto_Construccion;
+    END cr_objetoconstruccion_grupocalificacion;
 
     ASSOCIATION cr_publicidadBAUnit =
       cr_publicidad -- {0..*} CR_Publicidad;
-      cr_baunit -- {1} LADM_COL_V1_5.LADM_Nucleo.COL_BAUnit;
+      cr_baunit -- {1} LADM_COL_V1_6.LADM_Nucleo.COL_BAUnit;
     END cr_publicidadBAUnit;
 
     ASSOCIATION cr_publicidadFuente =
       cr_publicidad -- {0..1} CR_Publicidad;
-      col_fuente -- {1..*} LADM_COL_V1_5.LADM_Nucleo.COL_FuenteAdministrativa;
+      col_fuente -- {1..*} LADM_COL_V1_6.LADM_Nucleo.COL_FuenteAdministrativa;
     END cr_publicidadFuente;
 
     ASSOCIATION cr_publicidadInteresado =
       cr_publicidad -- {0..*} CR_Publicidad;
-      col_interesado -- {0..1} LADM_COL_V1_5.LADM_Nucleo.COL_Interesado;
+      col_interesado -- {0..1} LADM_COL_V1_6.LADM_Nucleo.COL_Interesado;
     END cr_publicidadInteresado;
 
     !!@ ili2db.dispName = "Hipoteca"
@@ -1369,11 +1376,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
      */
     !!@ ili2db.dispName = "Servidumbre de Paso"
     CLASS CR_ServidumbrePaso
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_UnidadEspacial =
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadEspacial =
       /** Fecha de inscripción de la servidumbre en el Catastro.
        */
       !!@ ili2db.dispName = "Área de la servidumbre"
-      Area_Servidumbre : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_5.m2];
+      Area_Servidumbre : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_6.m2];
     END CR_ServidumbrePaso;
 
     ASSOCIATION cr_grupo_calificacionconvencional =
@@ -1381,16 +1388,22 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       cr_grupo_calificacion -- {1..*} CR_Grupo_Calificacion;
     END cr_grupo_calificacionconvencional;
 
-    ASSOCIATION cr_objetoconstruccion_grupocalificacion =
-      cr_grupo_calificacion -- {1} CR_Grupo_Calificacion;
-      cr_objeto_construccion -- {0..*} CR_Objeto_Construccion;
-    END cr_objetoconstruccion_grupocalificacion;
+    ASSOCIATION cr_ph_predio =
+      cr_predio -- {1} CR_Predio;
+      cr_datos_ph -- {0..1} CR_Datos_PH_Condominio;
+    END cr_ph_predio;
+
+    ASSOCIATION cr_predio_copropiedad =
+      predio -- {0..*} CR_Predio;
+      copropiedad -<> {0..1} CR_Predio;
+      coeficiente : LADM_COL_V1_6.LADM_Nucleo.Fraccion;
+    END cr_predio_copropiedad;
 
     /** Es cada conjunto de materiales consolidados dentro de un predio que tiene una caracteristicas especificas en cuanto a elementos constitutivos físicos y usos de los mismos.
      */
     !!@ ili2db.dispName = "Unidad de Construcción"
     CLASS CR_UnidadConstruccion
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_UnidadEspacial =
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadEspacial =
       !!@ ili2db.dispName = "Identificador"
       Identificador : TEXT*3;
       !!@ ili2db.dispName = "Tipo de dominio"
@@ -1416,15 +1429,17 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Año de construcción"
       Anio_Construccion : 1512 .. 2500;
       !!@ ili2db.dispName = "Avalúo de la construcción"
-      Avaluo_Construccion : LADM_COL_V1_5.LADM_Nucleo.Peso;
+      Avaluo_Construccion : LADM_COL_V1_6.LADM_Nucleo.Peso;
       /** Area de la unidad de contrucción.
        */
       !!@ ili2db.dispName = "Área construida"
-      Area_Construida : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_5.m2];
+      Area_Construida : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_6.m2];
       /** Área privada de la unidad de construcción para el caso en que las construcciones tienen regimen de propiedad horizontal.
        */
       !!@ ili2db.dispName = "Área privada construida"
-      Area_Privada_Construida : 0.0 .. 99999999999999.9 [LADM_COL_V1_5.m2];
+      Area_Privada_Construida : 0.0 .. 99999999999999.9 [LADM_COL_V1_6.m2];
+      !!@ ili2db.dispName = "Altura"
+      Altura : 0 .. 1000 [INTERLIS.m];
       !!@ ili2db.dispName = "Observaciones"
       Observaciones : TEXT;
     END CR_UnidadConstruccion;
