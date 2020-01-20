@@ -8,7 +8,7 @@ INTERLIS 2.3;
 MODEL Cartografia_Catastral_Referencia_V2_10 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-04-19 // =
-  IMPORTS ISO19107_PLANAS_V1,Operacion_V2_10,LADM_COL_V1_5;
+  IMPORTS ISO19107_PLANAS_V1,Operacion_V2_10,LADM_COL_V1_6;
 
   /** Este tema almacena específicamente las clases que definen la división administrativa desde el punto de vista operativo de catastro.
    */
@@ -29,8 +29,8 @@ VERSION "V2.2.1"  // 2018-04-19 // =
         Inspecion_Policia
       );
 
-    !!@ ili2db.dispName = "(CRF) Perimetro"
-    CLASS CRF_Perimetro =
+    !!@ ili2db.dispName = "(CRF) Perímetro Urbano"
+    CLASS CRF_Perimetro_Urbano =
       !!@ ili2db.dispName = "Código del departamento"
       Codigo_Departamento : TEXT*2;
       !!@ ili2db.dispName = "Código municipio"
@@ -42,7 +42,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       !!@ ili2db.dispName = "Código de nombre"
       Codigo_Nombre : TEXT*255;
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
-    END CRF_Perimetro;
+    END CRF_Perimetro_Urbano;
 
     !!@ ili2db.dispName = "(CRF) Sector rural"
     CLASS CRF_Sector_Rural =
@@ -224,17 +224,17 @@ VERSION "V2.2.1"  // 2018-04-19 // =
     END CRF_DivisionCentroPoblado;
 
     CLASS CRF_PuntoLimite
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_Punto =
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_Punto =
       !!@ ili2db.dispName = "Acuerdo"
       Acuerdo : MANDATORY Operacion_V2_10.OP_AcuerdoTipo;
       !!@ ili2db.dispName = "Exactitud vertical"
-      Exactitud_Vertical : 0 .. 1000 [LADM_COL_V1_5.cm];
+      Exactitud_Vertical : 0 .. 1000 [LADM_COL_V1_6.cm];
       !!@ ili2db.dispName = "Exactitud posicional"
-      Exactitud_Posicional : MANDATORY 0 .. 1000 [LADM_COL_V1_5.cm];
+      Exactitud_Posicional : MANDATORY 0 .. 1000 [LADM_COL_V1_6.cm];
       !!@ ili2db.dispName = "Confiabilidad"
       Confiabilidad : BOOLEAN;
       !!@ ili2db.dispName = "Posición interpolación"
-      Posicion_Interpolacion (EXTENDED) : LADM_COL_V1_5.LADM_Nucleo.COL_InterpolacionTipo;
+      Posicion_Interpolacion (EXTENDED) : LADM_COL_V1_6.LADM_Nucleo.COL_InterpolacionTipo;
       !!@ ili2db.dispName = "Monumentación"
       Monumentacion : MANDATORY Operacion_V2_10.OP_PuntoTipo;
       !!@ ili2db.dispName = "Nombre punto"
@@ -309,7 +309,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
     /** Clase de tipo LA_CadenaCarasLindero del modelo de Catastro cuyo objetivo es almacenar el tipo de estructura lineal que genera un lindero.
      */
     CLASS CRF_EstructuraLineal
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_CadenaCarasLimite =
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_CadenaCarasLimite =
       /** Tipo de la estructura lineal que genera el lindero.
        */
       !!@ ili2db.dispName = "Tipo"
@@ -319,7 +319,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
     /** Clase especializada a patir de LA_Punto del modelo de catastro cuya finalidad es indicar el tipo de punto que se utiliza como referencia.
      */
     CLASS CRF_EstructuraPuntual
-    EXTENDS LADM_COL_V1_5.LADM_Nucleo.COL_Punto =
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_Punto =
       /** Descripción del tipo de punto que se indica.
        */
       !!@ ili2db.dispName = "Tipo"

@@ -14,7 +14,7 @@ INTERLIS 2.3;
 MODEL ANT_V2_10 (es)
 AT "mailto:PC4@localhost"
 VERSION "2019-07-04"  =
-  IMPORTS Operacion_V2_10,LADM_COL_V1_5;
+  IMPORTS Operacion_V2_10,LADM_COL_V1_6;
 
   DOMAIN
 
@@ -401,7 +401,7 @@ VERSION "2019-07-04"  =
       !!@ ili2db.dispName = "Dirección predio"
       Direccion_Predio : MANDATORY TEXT*200;
       !!@ ili2db.dispName = "Área aproximada del predio solicitud"
-      Area_Aprox_Predio_Solicitud : 0.0 .. 99999999999999.9 [LADM_COL_V1_5.m2];
+      Area_Aprox_Predio_Solicitud : 0.0 .. 99999999999999.9 [LADM_COL_V1_6.m2];
       !!@ ili2db.dispName = "Predio parte de un predio de mayor extensión"
       Predio_Parte_Predio_Mayor : BOOLEAN;
       !!@ ili2db.dispName = "Nombre del predio de mayor extensión"
@@ -465,7 +465,7 @@ VERSION "2019-07-04"  =
       !!@ ili2db.dispName = "Otro"
       Otro : TEXT*500;
       !!@ ili2db.dispName = "Área de explotación aproximada"
-      Area_Explotacion_Aprox : 0.0 .. 9999999999999.9 [LADM_COL_V1_5.m2];
+      Area_Explotacion_Aprox : 0.0 .. 9999999999999.9 [LADM_COL_V1_6.m2];
       !!@ ili2db.dispName = "Fecha de explotación del predio"
       Fecha_Explota_Predio : INTERLIS.XMLDate;
       !!@ ili2db.dispName = "Quiénes habitan el predio"

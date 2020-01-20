@@ -29,7 +29,7 @@ INTERLIS 2.3;
 MODEL Avaluos_V2_10 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-02-01 // =
-  IMPORTS ISO19107_PLANAS_V1,Operacion_V2_10,LADM_COL_V1_5;
+  IMPORTS ISO19107_PLANAS_V1,Operacion_V2_10,LADM_COL_V1_6;
 
   DOMAIN
 
@@ -351,7 +351,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       !!@ ili2db.dispName = "Uso"
       Uso : TEXT;
       !!@ ili2db.dispName = "Valor unitario"
-      Valor_Unitario : 0 .. 100000000000000000000000000000000000000000000000000 [LADM_COL_V1_5.COP];
+      Valor_Unitario : 0 .. 100000000000000000000000000000000000000000000000000 [LADM_COL_V1_6.COP];
     END AV_Tipologia_Construccion;
 
     /** Esta clase permite gestionar las zonas físicamente homogéneas definidas para el avalúo y que delimitan las zonas que tienen características físicas similares. REVISAR DOCUMENTACIÓN
@@ -413,7 +413,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       !!@ ili2db.dispName = "Código zona geoeconómica"
       Codigo_Zona_Geoeconomica : MANDATORY TEXT*20;
       !!@ ili2db.dispName = "Valor del metro cuadrado"
-      Valor_Metro : MANDATORY 0.00 .. 100000000000000000000000000000.00 [LADM_COL_V1_5.COP];
+      Valor_Metro : MANDATORY 0.00 .. 100000000000000000000000000000.00 [LADM_COL_V1_6.COP];
       !!@ ili2db.dispName = "Subzona física"
       Subzona_Fisica : TEXT;
       !!@ ili2db.dispName = "Vigencia"

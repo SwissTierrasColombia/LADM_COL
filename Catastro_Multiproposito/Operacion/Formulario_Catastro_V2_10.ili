@@ -12,7 +12,7 @@ INTERLIS 2.3;
 MODEL Formulario_Catastro_V2_10 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-02-01 // =
-  IMPORTS Operacion_V2_10,Avaluos_V2_10,LADM_COL_V1_5;
+  IMPORTS Operacion_V2_10,Avaluos_V2_10,LADM_COL_V1_6;
 
   DOMAIN
 
@@ -429,15 +429,6 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Autoriza_Notificaciones : BOOLEAN;
     END FCM_Contacto_Visita;
 
-    STRUCTURE FCM_Estructura_Objeto_Construccion =
-      !!@ ili2db.dispName = "Clase de calificación"
-      Clase_Calificacion : MANDATORY Formulario_Catastro_V2_10.FCM_ClaseCalificacionTipo;
-      !!@ ili2db.dispName = "Tipo de objeto de construcción"
-      Tipo_Objeto_Construccion : MANDATORY Formulario_Catastro_V2_10.FCM_ObjetoConstruccionTipo;
-      !!@ ili2db.dispName = "Nombre"
-      Nombre : MANDATORY TEXT*255;
-    END FCM_Estructura_Objeto_Construccion;
-
     !!@ ili2db.dispName = "(Avalúos) Grupo Calificación"
     CLASS FCM_Grupo_Calificacion =
       !!@ ili2db.dispName = "Clase de calificación"
@@ -476,6 +467,16 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       );
     END FCM_Novedad_Numero_Predial;
 
+    !!@ ili2db.dispName = "(Avalúos) Objeto Construcción"
+    CLASS FCM_Objeto_Construccion =
+      !!@ ili2db.dispName = "Tipo de objeto de construcción"
+      Tipo_Objeto_Construccion : MANDATORY Formulario_Catastro_V2_10.FCM_ObjetoConstruccionTipo;
+      !!@ ili2db.dispName = "Nombre"
+      Nombre : MANDATORY TEXT*255;
+      !!@ ili2db.dispName = "Puntos"
+      Puntos : MANDATORY 0 .. 16;
+    END FCM_Objeto_Construccion;
+
     !!@ ili2db.dispName = "(FCM) Tipología de la construcción"
     CLASS FCM_Tipologia_Construccion =
       !!@ ili2db.dispName = "Identificador de la tipología"
@@ -492,7 +493,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       !!@ ili2db.dispName = "Tipo a calificar"
       Tipo_Calificar : Formulario_Catastro_V2_10.FCM_CalificarTipo;
       !!@ ili2db.dispName = "Total calificación"
-      Total_Calificacion : LADM_COL_V1_5.LADM_Nucleo.Integer;
+      Total_Calificacion : LADM_COL_V1_6.LADM_Nucleo.Integer;
     END FCM_Calificacion_Convencional;
 
     !!@ ili2db.dispName = "(Avalúos) Calificación No Convencional"
@@ -544,13 +545,10 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Nombre_Reconocedor : MANDATORY TEXT*255;
     END FCM_Formulario_Unico_CM;
 
-    !!@ ili2db.dispName = "(Avalúos) Objeto Construcción"
-    CLASS FCM_Objeto_Construccion =
-      !!@ ili2db.dispName = "Tipo de objeto de construcción"
-      Tipo_Objeto_Construccion : MANDATORY Formulario_Catastro_V2_10.Formulario_Catastro.FCM_Estructura_Objeto_Construccion;
-      !!@ ili2db.dispName = "Puntos"
-      Puntos : MANDATORY 0 .. 16;
-    END FCM_Objeto_Construccion;
+    ASSOCIATION fcm_objetoconstruccion_grupocalificacion =
+      fcm_grupo_calificacion -- {1} FCM_Grupo_Calificacion;
+      fcm_objeto_construccion -- {0..*} FCM_Objeto_Construccion;
+    END fcm_objetoconstruccion_grupocalificacion;
 
     ASSOCIATION fcm_opunidadconstruccion_tipologiaconstruccion =
       op_unidadconstruccion (EXTERNAL) -- {1} Operacion_V2_10.Operacion.OP_UnidadConstruccion;
@@ -580,11 +578,6 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       fcm_calificacion_convencional -- {1} FCM_Calificacion_Convencional;
       fcm_grupo_calificacion -- {1..*} FCM_Grupo_Calificacion;
     END fcm_grupo_calificacionconvencional;
-
-    ASSOCIATION fcm_objetoconstruccion_grupocalificacion =
-      fcm_grupo_calificacion -- {1} FCM_Grupo_Calificacion;
-      fcm_objeto_construccion -- {0..*} FCM_Objeto_Construccion;
-    END fcm_objetoconstruccion_grupocalificacion;
 
   END Formulario_Catastro;
 
