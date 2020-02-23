@@ -306,6 +306,12 @@ VERSION "V1.2.0"  // 2019-08-13 // =
         Avenida_Calle,
         !!@ ili2db.dispName = "Avenida carrera"
         Avenida_Carrera,
+        !!@ ili2db.dispName = "Avenida"
+        Avenida,
+        !!@ ili2db.dispName = "Autopista"
+        Autopista,
+        !!@ ili2db.dispName = "Circunvalar"
+        Circunvalar,
         !!@ ili2db.dispName = "Calle"
         Calle,
         !!@ ili2db.dispName = "Carrera"
@@ -505,6 +511,8 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Fotografia : LADM_COL_V1_6.LADM_Nucleo.Imagen;
       !!@ ili2db.dispName = "Firma"
       Firma : LADM_COL_V1_6.LADM_Nucleo.Imagen;
+      !!@ ili2db.dispName = "Documento escaneado"
+      Documento_Escaneado : CharacterString;
     END ExtInteresado;
 
     /** Referencia a una clase externa para gestionar las redes físicas de servicios.
