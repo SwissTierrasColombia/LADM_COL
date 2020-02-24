@@ -1403,7 +1403,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Área total construida común"
       Area_Total_Construida_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
       !!@ ili2db.dispName = "Número de torres"
-      Numero_Torre : 0 .. 1000;
+      Numero_Torres : 0 .. 1000;
       !!@ ili2db.dispName = "Total pisos de torre"
       Total_Pisos_Torre : 0 .. 200;
       !!@ ili2db.dispName = "Total de unidades privadas"
@@ -1793,7 +1793,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     CLASS CR_Tipologia_Construccion
     EXTENDS CR_Calificacion_Unidad_Construccion =
       !!@ ili2db.dispName = "Tipo de tipología"
-      Tipologia : Catastro_Registro_V2_10.CR_TipologiaTipo;
+      Tipo_Tipologia : Catastro_Registro_V2_10.CR_TipologiaTipo;
     END CR_Tipologia_Construccion;
 
     ASSOCIATION cr_objetoconstruccion_grupocalificacion =
