@@ -14,7 +14,7 @@ INTERLIS 2.3;
 MODEL ANT_V2_10 (es)
 AT "mailto:PC4@localhost"
 VERSION "2019-07-04"  =
-  IMPORTS Operacion_V2_10,LADM_COL_V1_6;
+  IMPORTS Levantamiento_Catastral_V2_10,LADM_COL_V1_6;
 
   DOMAIN
 
@@ -206,7 +206,7 @@ VERSION "2019-07-04"  =
 
   TOPIC Fiso =
     OID AS INTERLIS.UUIDOID;
-    DEPENDS ON Operacion_V2_10.Operacion;
+    DEPENDS ON Levantamiento_Catastral_V2_10.Levantamiento_Catastral;
 
     !!@ ili2db.dispName = "(ANT) Conflictos"
     CLASS ANT_Conflictos =
@@ -345,7 +345,7 @@ VERSION "2019-07-04"  =
       !!@ ili2db.dispName = "Segundo apellido"
       Segundo_Apellido : TEXT*100;
       !!@ ili2db.dispName = "Tipo documento"
-      Tipo_Documento : MANDATORY Operacion_V2_10.OP_InteresadoDocumentoTipo;
+      Tipo_Documento : MANDATORY Levantamiento_Catastral_V2_10.LC_InteresadoDocumentoTipo;
       !!@ ili2db.dispName = "Documento identidad"
       Documento_Identidad : MANDATORY TEXT*50;
       !!@ ili2db.dispName = "Fecha de nacimiento"
@@ -473,12 +473,12 @@ VERSION "2019-07-04"  =
     END ANT_Solicitud;
 
     ASSOCIATION ant_conflictos_predio =
-      op_predio (EXTERNAL) -- {1} Operacion_V2_10.Operacion.OP_Predio;
+      op_predio (EXTERNAL) -- {1} Levantamiento_Catastral_V2_10.Levantamiento_Catastral.LC_Predio;
       ant_conflictos -- {0..*} ANT_Conflictos;
     END ant_conflictos_predio;
 
     ASSOCIATION ant_interesado_caracterizacion =
-      op_interesado (EXTERNAL) -- {1} Operacion_V2_10.Operacion.OP_Interesado;
+      op_interesado (EXTERNAL) -- {1} Levantamiento_Catastral_V2_10.Levantamiento_Catastral.LC_Interesado;
       ant_interesado_caracterizacion -- {0..1} ANT_Interesado_Caracterizacion;
     END ant_interesado_caracterizacion;
 
@@ -488,17 +488,17 @@ VERSION "2019-07-04"  =
     END ant_interesado_nucleofamiliar;
 
     ASSOCIATION ant_interesado_solicitud =
-      op_interesado (EXTERNAL) -- {1} Operacion_V2_10.Operacion.OP_Interesado;
+      op_interesado (EXTERNAL) -- {1} Levantamiento_Catastral_V2_10.Levantamiento_Catastral.LC_Interesado;
       ant_solicitud -- {0..*} ANT_Solicitud;
     END ant_interesado_solicitud;
 
     ASSOCIATION ant_interesadocontacto_datosalterno =
-      op_interesado_contacto (EXTERNAL) -- {0..1} Operacion_V2_10.Operacion.OP_Interesado_Contacto;
+      op_interesado_contacto (EXTERNAL) -- {0..1} Levantamiento_Catastral_V2_10.Levantamiento_Catastral.LC_Interesado_Contacto;
       ant_interesado_contacto_datos_alterno -- {0..*} ANT_Interesado_Contacto_Datos_Alterno;
     END ant_interesadocontacto_datosalterno;
 
     ASSOCIATION ant_predio_solicitud =
-      op_predio (EXTERNAL) -- {0..1} Operacion_V2_10.Operacion.OP_Predio;
+      op_predio (EXTERNAL) -- {0..1} Levantamiento_Catastral_V2_10.Levantamiento_Catastral.LC_Predio;
       ant_solicitud -- {0..*} ANT_Solicitud;
     END ant_predio_solicitud;
 
