@@ -84,9 +84,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       !!@ ili2db.dispName = "Servicios básicos completos"
       Servicios_Basicos_Completos,
       !!@ ili2db.dispName = "Servicios básicos y complementarios"
-      Servicios_Basicos_Y_Complementarios,
-      !!@ ili2db.dispName = "Servicios básicos incompletos y complementarios"
-      Servicios_Basicos_Incompletos_Y_Complementarios
+      Servicios_Basicos_Y_Complementarios
     );
 
     AV_TipificacionConstruccionTipo = (
@@ -664,164 +662,176 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     );
 
     AV_UsoUConsTipo = (
-      !!@ ili2db.dispName = "Vivienda de hasta 3 pisos"
-      Vivienda_Hasta_3_Pisos,
-      !!@ ili2db.dispName = "Ramadas, cobertizos o caneyes"
-      Ramadas_Cobertizos_Caneyes,
-      !!@ ili2db.dispName = "Galpones o gallineros"
-      Galpones_Gallineros,
-      !!@ ili2db.dispName = "Establos, pesebreras o caballerizas"
-      Establos_Pesebreras_Caballerizas,
-      !!@ ili2db.dispName = "Cocheras, bañeras o porquerizas"
-      Cocheras_Banieras_Porquerizas,
-      !!@ ili2db.dispName = "Bodega casa bomba"
-      Bodega_Casa_Bomba,
-      !!@ ili2db.dispName = "Industrias"
-      Industrias,
-      !!@ ili2db.dispName = "Silos"
-      Silos,
-      !!@ ili2db.dispName = "Piscinas"
-      Piscinas,
-      !!@ ili2db.dispName = "Tanques"
-      Tanques,
-      !!@ ili2db.dispName = "Beneficiaderos"
-      Beneficiaderos,
-      !!@ ili2db.dispName = "Colegios y universidades"
-      Colegios_Y_Universidades,
-      !!@ ili2db.dispName = "Bibliotecas"
-      Bibliotecas,
-      !!@ ili2db.dispName = "Garajes cubiertos"
-      Garajes_Cubiertos,
-      !!@ ili2db.dispName = "Bodegas comerciales, grandes almacenes"
-      Bodegas_Comerciales_Grandes_Almacenes,
-      !!@ ili2db.dispName = "Secaderos"
-      Secaderos,
-      !!@ ili2db.dispName = "Centros hospitales, centros médicos"
-      Clinicas_Hospitales_Centros_Medicos,
-      !!@ ili2db.dispName = "Pozos"
-      Pozos,
-      !!@ ili2db.dispName = "Kioskos"
-      Kioskos,
-      !!@ ili2db.dispName = "Albercas o bañaderas"
-      Albercas_Baniaderas,
-      !!@ ili2db.dispName = "Hoteles en propiedad horizontal"
-      Hoteles_En_PH,
-      !!@ ili2db.dispName = "Corrales"
-      Corrales,
-      !!@ ili2db.dispName = "Casa de elbas"
-      Casa_Elbas,
-      !!@ ili2db.dispName = "Comercio"
-      Comercio,
-      !!@ ili2db.dispName = "Iglesias"
-      Iglesias,
-      !!@ ili2db.dispName = "Hoteles"
-      Hoteles,
-      !!@ ili2db.dispName = "Clubes o casinos"
-      Clubes_Casinos,
-      !!@ ili2db.dispName = "Oficinas o consultorios"
-      Oficinas_Consultorios,
-      !!@ ili2db.dispName = "Apartamentos de más de 4 pisos"
-      Apartamentos_Mas_De_4_Pisos,
-      !!@ ili2db.dispName = "Restaurante"
-      Restaurante,
-      !!@ ili2db.dispName = "Pensiones o residencias"
-      Pensiones_Residencias,
-      !!@ ili2db.dispName = "Puesto de salud"
-      Puesto_De_Salud,
-      !!@ ili2db.dispName = "Parqueaderos"
-      Parqueaderos,
-      !!@ ili2db.dispName = "Barracas"
-      Barracas,
-      !!@ ili2db.dispName = "Teatro o cinemas"
-      Teatro_Cinemas,
-      !!@ ili2db.dispName = "Aulas de clase"
-      Aulas_De_Clase,
-      !!@ ili2db.dispName = "Coliseos"
-      Coliseos,
-      !!@ ili2db.dispName = "Casas de culto"
-      Casas_De_Culto,
-      !!@ ili2db.dispName = "Talleres"
-      Talleres,
-      !!@ ili2db.dispName = "Jardín infantil en casa"
-      Jardin_Infantil_En_Casa,
-      !!@ ili2db.dispName = "Torres de enfriamiento"
-      Torres_De_Enfriamiento,
-      !!@ ili2db.dispName = "Muelles"
-      Muelles,
-      !!@ ili2db.dispName = "Estación de bombeo"
-      Estacion_De_Bombeo,
-      !!@ ili2db.dispName = "Estadio, plaza de toros"
-      Estadio_Plaza_De_Toros,
-      !!@ ili2db.dispName = "Cárceles"
-      Carceles,
-      !!@ ili2db.dispName = "Parque cementerio"
-      Parque_Cementerio,
-      !!@ ili2db.dispName = "Vivienda colonial"
-      Vivienda_Colonial,
-      !!@ ili2db.dispName = "Comercio colonial"
-      Comercio_Colonial,
-      !!@ ili2db.dispName = "Oficinas o consultorios colonial"
-      Oficinas_Consultorios_Colonial,
-      !!@ ili2db.dispName = "Apartamentos en edificios de 4 o 5 pisos"
-      Aptos_En_Edificios_4_5_Pisos,
-      !!@ ili2db.dispName = "Centros comerciales"
-      Centros_Comerciales,
-      !!@ ili2db.dispName = "Canchas de tenis"
-      Canchas_De_Tenis,
-      !!@ ili2db.dispName = "Toboganes"
-      Toboganes,
-      !!@ ili2db.dispName = "Vivienda recreacional"
-      Vivienda_Recreacional,
-      !!@ ili2db.dispName = "Camaroneras"
-      Camaroneras,
-      !!@ ili2db.dispName = "Fuertes y castillos"
-      Fuertes_Y_Castillos,
-      !!@ ili2db.dispName = "Murallas"
-      Murallas,
-      !!@ ili2db.dispName = "Vivienda de hasta 3 pisos"
-      Vivienda_Hasta_3_Pisos_En_PH,
-      !!@ ili2db.dispName = "Apartamentos de 4 y más pisos en propiedad horizontal"
-      Apartamentos_4_Y_Mas_Pisos_En_PH,
-      !!@ ili2db.dispName = "Vivienda recreacional en propiedad horizontal"
-      Vivienda_Recreacional_En_PH,
-      !!@ ili2db.dispName = "Bodega casa bomba en propiedad horizontal"
-      Bodega_Casa_Bomba_En_PH,
-      !!@ ili2db.dispName = "Bodega comercial en propiedad horizontal"
-      Bodega_Comercial_En_PH,
-      !!@ ili2db.dispName = "Comercio en propiedad horizontal"
-      Comercio_En_PH,
-      !!@ ili2db.dispName = "Centros comerciales en propiedad horizontal"
-      Centros_Comerciales_En_PH,
-      !!@ ili2db.dispName = "Oficinas o consultorios en propiedad horizontal"
-      Oficinas_Consultorios_En_PH,
-      !!@ ili2db.dispName = "Parqueaderos en propiedad horizontal"
-      Parqueaderos_En_PH,
-      !!@ ili2db.dispName = "Garajes en propiedad horizontal"
-      Garajes_En_PH,
-      !!@ ili2db.dispName = "Industria en propiedad horizontal"
-      Industria_En_PH,
-      !!@ ili2db.dispName = "Marquesinas, patios o cubiertos"
-      Marquesinas_Patios_Cubiertos,
-      !!@ ili2db.dispName = "Lagunas de oxidación"
-      Lagunas_De_Oxidacion,
-      !!@ ili2db.dispName = "Vía férrea"
-      Via_Ferrea,
-      !!@ ili2db.dispName = "Carretera"
-      Carretera,
-      !!@ ili2db.dispName = "Teatro o cinema en propiedad horizontal"
-      Teatro_Cinema_En_PH,
-      !!@ ili2db.dispName = "Iglesia en propiedad horizontal"
-      Iglesia_En_PH,
-      !!@ ili2db.dispName = "Restaurante en propiedad horizontal"
-      Restaurante_En_PH,
-      !!@ ili2db.dispName = "Hotel colonial"
-      Hotel_Colonial,
-      !!@ ili2db.dispName = "Restaurante colonial"
-      Restaurante_Colonial,
-      !!@ ili2db.dispName = "Entidad educativa colonial o colegio colonial"
-      Entidad_Educativa_Colonial_Colegio_Colonial,
-      !!@ ili2db.dispName = "Cimientos de estructura, muros y placa base"
-      Cimientos_Estructura_Muros_Y_Placa_Base
+      !!@ ili2db.dispName = "Residencial"
+      Residencial(
+        !!@ ili2db.dispName = "(Residencial) Apartamentos 4 y más pisos en PH"
+        Apartamentos_4_y_mas_pisos_en_PH,
+        !!@ ili2db.dispName = "(Residencial) Apartamentos en Edificio de 4 y 5 Pisos (Cartagena)"
+        Apartamentos_En_Edificio_4_y_5_Pisos_Cartagena,
+        !!@ ili2db.dispName = "(Residencial) Apartamentos mas de 4 Pisos"
+        Apartamentos_Mas_De_4_Pisos,
+        !!@ ili2db.dispName = "(Residencial) Barracas"
+        Barracas,
+        !!@ ili2db.dispName = "(Residencial) Casa Elbas"
+        Casa_Elbas,
+        !!@ ili2db.dispName = "(Residencial) Garajes Cubiertos"
+        Garajes_Cubiertos,
+        !!@ ili2db.dispName = "(Residencial) Garajes en PH"
+        Garajes_En_PH,
+        !!@ ili2db.dispName = "(Residencial) Vivienda Colonial"
+        Vivienda_Colonial,
+        !!@ ili2db.dispName = "(Residencial) Vivienda hasta 3 pisos"
+        Vivienda_Hasta_3_Pisos,
+        !!@ ili2db.dispName = "(Residencial) Vivienda hasta 3 pisos en PH"
+        Vivienda_Hasta_3_Pisos_En_PH,
+        !!@ ili2db.dispName = "(Residencial) Vivienda Recreacional"
+        Vivienda_Recreacional,
+        !!@ ili2db.dispName = "(Residencial) Vivienda Recreacional en PH"
+        Vivienda_Recreacional_En_PH
+      ),
+      !!@ ili2db.dispName = "Comercial"
+      Comercial(
+        !!@ ili2db.dispName = "(Comercial) Aulas de Clases"
+        Aulas_de_Clases,
+        !!@ ili2db.dispName = "(Comercial) Biblioteca"
+        Biblioteca,
+        !!@ ili2db.dispName = "(Comercial) Bodegas Comerciales - Grandes Almacenes"
+        Bodegas_Comerciales_Grandes_Almacenes,
+        !!@ ili2db.dispName = "(Comercial) Bodegas Comerciales en PH"
+        Bodegas_Comerciales_en_PH,
+        !!@ ili2db.dispName = "(Comercial) Cárceles"
+        Carceles,
+        !!@ ili2db.dispName = "(Comercial) Casas de Culto"
+        Casas_de_Culto,
+        !!@ ili2db.dispName = "(Comercial) Centros Comerciales"
+        Centros_Comerciales,
+        !!@ ili2db.dispName = "(Comercial) Centros Comerciales en PH"
+        Centros_Comerciales_en_PH,
+        !!@ ili2db.dispName = "(Comercial) Clinicas - Hospitales - Centros Medicos"
+        Clinicas_Hospitales_Centros_Medicos,
+        !!@ ili2db.dispName = "(Comercial) Clubes - Casinos"
+        Clubes_Casinos,
+        !!@ ili2db.dispName = "(Comercial) Colegio y Universidades"
+        Colegio_y_Universidades,
+        !!@ ili2db.dispName = "(Comercial) Coliseos"
+        Coliseos,
+        !!@ ili2db.dispName = "(Comercial) Comercio"
+        Comercio,
+        !!@ ili2db.dispName = "(Comercial) Comercio Colonial"
+        Comercio_Colonial,
+        !!@ ili2db.dispName = "(Comercial) Comercio en PH"
+        Comercio_en_PH,
+        !!@ ili2db.dispName = "(Comercial) Entidad Educativa Colonial - Colegio Colonial"
+        Entidad_Educativa_Colonial_Colegio_Colonial,
+        !!@ ili2db.dispName = "(Comercial) Estacion de Bombeo"
+        Estacion_de_Bombeo,
+        !!@ ili2db.dispName = "(Comercial) Estadios - Plaza de Toros"
+        Estadios_Plaza_de_Toros,
+        !!@ ili2db.dispName = "(Comercial) Hotel Colonial"
+        Hotel_Colonial,
+        !!@ ili2db.dispName = "(Comercial) Hoteles"
+        Hoteles,
+        !!@ ili2db.dispName = "(Comercial) Hoteles en PH"
+        Hoteles_en_PH,
+        !!@ ili2db.dispName = "(Comercial) Iglesia"
+        Iglesia,
+        !!@ ili2db.dispName = "(Comercial) Iglesia en PH"
+        Iglesia_en_PH,
+        !!@ ili2db.dispName = "(Comercial) Jardin Infantil en Casa"
+        Jardin_Infantil_en_Casa,
+        !!@ ili2db.dispName = "(Comercial) Oficinas - Consultorios"
+        Oficinas_Consultorios,
+        !!@ ili2db.dispName = "(Comercial) Oficinas - Consultorios Coloniales"
+        Oficinas_Consultorios_Coloniales,
+        !!@ ili2db.dispName = "(Comercial) Oficinas Consultorios en PH"
+        Oficinas_Consultorios_en_PH,
+        !!@ ili2db.dispName = "(Comercial) Parque Cementerios"
+        Parque_Cementerios,
+        !!@ ili2db.dispName = "(Comercial) Parqueaderos"
+        Parqueaderos,
+        !!@ ili2db.dispName = "(Comercial) Parqueaderos en PH"
+        Parqueaderos_en_PH,
+        !!@ ili2db.dispName = "(Comercial) Pensiones y Residencias"
+        Pensiones_y_Residencias,
+        !!@ ili2db.dispName = "(Comercial) Puestos de Salud"
+        Puestos_de_Salud,
+        !!@ ili2db.dispName = "(Comercial) Restaurante Colonial"
+        Restaurante_Colonial,
+        !!@ ili2db.dispName = "(Comercial) Restaurantes"
+        Restaurantes,
+        !!@ ili2db.dispName = "(Comercial) Restaurantes en PH"
+        Restaurantes_en_PH,
+        !!@ ili2db.dispName = "(Comercial) Teatro - Cinemas"
+        Teatro_Cinemas,
+        !!@ ili2db.dispName = "(Comercial) Teatro - Cinemas en PH"
+        Teatro_Cinemas_en_PH
+      ),
+      !!@ ili2db.dispName = "Industrial"
+      Industrial(
+        !!@ ili2db.dispName = "(Industrial) Bodega Casa Bomba"
+        Bodega_Casa_Bomba,
+        !!@ ili2db.dispName = "(Industrial) Bodegas Casa Bomba en PH"
+        Bodegas_Casa_Bomba_en_PH,
+        !!@ ili2db.dispName = "(Industrial) Industrias"
+        Industrias,
+        !!@ ili2db.dispName = "(Industrial) Industrias en PH"
+        Industrias_en_PH,
+        !!@ ili2db.dispName = "(Industrial) Talleres"
+        Talleres
+      ),
+      !!@ ili2db.dispName = "Anexo"
+      Anexo(
+        !!@ ili2db.dispName = "(Anexo) Albercas - Banaderas"
+        Albercas_Banaderas,
+        !!@ ili2db.dispName = "(Anexo) Beneficiaderos"
+        Beneficiaderos,
+        !!@ ili2db.dispName = "(Anexo) Camaroneras"
+        Camaroneras,
+        !!@ ili2db.dispName = "(Anexo) Canchas de Tenis"
+        Canchas_de_Tenis,
+        !!@ ili2db.dispName = "(Anexo) Carretera"
+        Carretera,
+        !!@ ili2db.dispName = "(Anexo) Cimientos, Estructura, Muros y Placa Base"
+        Cimientos_Estructura_Muros_y_Placa_Base,
+        !!@ ili2db.dispName = "(Anexo) Cocheras - Marraneras - Porquerizas"
+        Cocheras_Marraneras_Porquerizas,
+        !!@ ili2db.dispName = "(Anexo) Corrales"
+        Corrales,
+        !!@ ili2db.dispName = "(Anexo) Establos - Pesebreras - Caballerizas"
+        Establos_Pesebreras_Caballerizas,
+        !!@ ili2db.dispName = "(Anexo) Fuertes y Castillos"
+        Fuertes_y_Castillos,
+        !!@ ili2db.dispName = "(Anexo) Galpones - Gallineros"
+        Galpones_Gallineros,
+        !!@ ili2db.dispName = "(Anexo) Kioscos"
+        Kioscos,
+        !!@ ili2db.dispName = "(Anexo) Lagunas de Oxidación"
+        Lagunas_de_Oxidacion,
+        !!@ ili2db.dispName = "(Anexo) Marquesinas - Patios Cubiertos"
+        Marquesinas_Patios_Cubiertos,
+        !!@ ili2db.dispName = "(Anexo) Muelles"
+        Muelles,
+        !!@ ili2db.dispName = "(Anexo) Murallas"
+        Murallas,
+        !!@ ili2db.dispName = "(Anexo) Piscinas"
+        Piscinas,
+        !!@ ili2db.dispName = "(Anexo) Pozos"
+        Pozos,
+        !!@ ili2db.dispName = "(Anexo) Ramadas - Cobertizos - Caneyes"
+        Ramadas_Cobertizos_Caneyes,
+        !!@ ili2db.dispName = "(Anexo) Secaderos"
+        Secaderos,
+        !!@ ili2db.dispName = "(Anexo) Silos"
+        Silos,
+        !!@ ili2db.dispName = "(Anexo) Tanques"
+        Tanques,
+        !!@ ili2db.dispName = "(Anexo) Toboganes"
+        Toboganes,
+        !!@ ili2db.dispName = "(Anexo) Torres de Enfriamiento"
+        Torres_de_Enfriamiento,
+        !!@ ili2db.dispName = "(Anexo) Vía Férrea"
+        Via_Ferrea
+      )
     );
 
   /** Este Topic agrupa a las clases específicas del avalúo, así como sus atributos.
