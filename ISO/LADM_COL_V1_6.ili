@@ -738,14 +738,6 @@ VERSION "V1.2.0"  // 2019-08-13 // =
        */
       !!@ ili2db.dispName = "Descripción"
       Descripcion : CharacterString;
-      /** Indicación de si se activa el constraint (a+b+...+n=100%) de la fracción Compartido.
-       */
-      !!@ ili2db.dispName = "Comprobación si comparte"
-      Comprobacion_Comparte : BOOLEAN;
-      /** Descripción de cual es el uso efectivo.
-       */
-      !!@ ili2db.dispName = "Uso efectivo"
-      Uso_Efectivo : CharacterString;
     END COL_DRR;
 
     /** De forma genérica, representa el objeto territorial legal (Catastro 2014) que se gestiona en el modelo, en este caso, la parcela catastral o predio. Es independiente del conocimiento de su realidad espacial y se centra en su existencia conocida y reconocida.
