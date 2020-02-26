@@ -1426,13 +1426,13 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Fecha_Anotacion : INTERLIS.XMLDate;
     END CR_DRR;
 
-    !!@ ili2db.dispName = "(CR) Estructura avalúo"
-    STRUCTURE CR_Estructura_Avaluo =
+    !!@ ili2db.dispName = "(CR) Estructura Avalúo Catastral"
+    STRUCTURE CR_Estructura_Avaluo_Catastral =
       !!@ ili2db.dispName = "Vigencia avalúo"
       Vigencia_Avaluo : INTERLIS.XMLDate;
       !!@ ili2db.dispName = "Valor avalúo"
       Valor_Avaluo : LADM_COL_V1_6.LADM_Nucleo.Peso;
-    END CR_Estructura_Avaluo;
+    END CR_Estructura_Avaluo_Catastral;
 
     !!@ ili2db.dispName = "Estructura Matrícula Matriz"
     STRUCTURE CR_Estructura_Matricula_Matriz =
@@ -1730,7 +1730,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Valor de cada predio, obtenido mediante investigación y análisis estadistico del mercado inmobiliario y la metodología de aplicación  correspondiente. El avalúo  catastral de cada predio se determina a partir de la adición de los avalúos parciales practicados independientemente para los terrenos y para las edificaciones en el comprendidos.
        */
       !!@ ili2db.dispName = "Avalúo Catastral"
-      Avaluo_Catastral : BAG {0..*} OF Catastro_Registro_V2_10.Catastro_Registro.CR_Estructura_Avaluo;
+      Avaluo_Catastral : BAG {0..*} OF Catastro_Registro_V2_10.Catastro_Registro.CR_Estructura_Avaluo_Catastral;
       !!@ ili2db.dispName = "Condición del predio"
       Condicion_Predio : MANDATORY Catastro_Registro_V2_10.CR_CondicionPredioTipo;
       !!@ ili2db.dispName = "Inscripción Catastral"
