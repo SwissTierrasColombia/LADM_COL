@@ -396,7 +396,11 @@ VERSION "V2.3"  // 2019-07-31 // =
       !!@ ili2db.dispName = "Escritura pública"
       Escritura_Publica,
       !!@ ili2db.dispName = "Sentencia judicial"
-      Sentencia_Judicial
+      Sentencia_Judicial,
+      !!@ ili2db.dispName = "Documento privado"
+      Documento_Privado,
+      !!@ ili2db.dispName = "Sin documento"
+      Sin_Documento
     );
 
     SNR_PersonaTitularTipo = (
