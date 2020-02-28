@@ -901,8 +901,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     /** Punto de leventamiento planimetrico que se identifican en el marco de la identificación de las construcciones, los linderos o puntos auxiliares levantado para el apoyo en la mediciión
      */
     LC_PuntoLevTipo = (
-      !!@ ili2db.dispName = "Auxiliar"
-      Auxiliar,
       !!@ ili2db.dispName = "Construcción"
       Construccion,
       !!@ ili2db.dispName = "Servidumbre"
@@ -1668,7 +1666,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Condición del predio"
       Condicion_Predio : MANDATORY Levantamiento_Catastral_V2_10.LC_CondicionPredioTipo;
       !!@ ili2db.dispName = "Dirección"
-      Direccion : MANDATORY TEXT*255;
+      Direccion : MANDATORY LADM_COL_V1_6.LADM_Nucleo.ExtDireccion;
       UNIQUE Id_Operacion; 
     END LC_Predio;
 
