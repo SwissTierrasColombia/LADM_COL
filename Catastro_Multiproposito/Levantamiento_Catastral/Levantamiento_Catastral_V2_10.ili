@@ -1666,7 +1666,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Condición del predio"
       Condicion_Predio : MANDATORY Levantamiento_Catastral_V2_10.LC_CondicionPredioTipo;
       !!@ ili2db.dispName = "Dirección"
-      Direccion : MANDATORY LADM_COL_V1_6.LADM_Nucleo.ExtDireccion;
+      Direccion : BAG {1..*} OF LADM_COL_V1_6.LADM_Nucleo.ExtDireccion;
       UNIQUE Id_Operacion; 
     END LC_Predio;
 
