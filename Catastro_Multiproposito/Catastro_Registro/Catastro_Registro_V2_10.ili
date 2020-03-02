@@ -894,8 +894,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     /** Punto de leventamiento planimetrico que se identifican en el marco de la identificación de las construcciones, los linderos o puntos auxiliares levantado para el apoyo en la mediciión
      */
     CR_PuntoLevTipo = (
-      !!@ ili2db.dispName = "Auxiliar"
-      Auxiliar,
       !!@ ili2db.dispName = "Construcción"
       Construccion,
       !!@ ili2db.dispName = "Servidumbre"
@@ -1742,7 +1740,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Destinación económica"
       Destinacion_Economica : Catastro_Registro_V2_10.CR_DestinacionEconomicaTipo;
       !!@ ili2db.dispName = "Dirección"
-      Direccion : MANDATORY TEXT*255;
+      Direccion : BAG {1..*} OF LADM_COL_V1_6.LADM_Nucleo.ExtDireccion;
       !!@ ili2db.dispName = "Matrícula predio matriz"
       Matricula_Matriz : BAG {0..*} OF Catastro_Registro_V2_10.Catastro_Registro.CR_Estructura_Matricula_Matriz;
       !!@ ili2db.dispName = "Matrícula predios segregados"
