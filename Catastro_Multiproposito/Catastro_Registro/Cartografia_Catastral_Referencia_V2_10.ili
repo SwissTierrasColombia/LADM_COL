@@ -58,7 +58,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Nombre por el que es conocida la vereda.
        */
       !!@ ili2db.dispName = "Nombre"
-      Nombre : MANDATORY TEXT*50;
+      Nombre : TEXT*50;
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por la manzana o vereda.
        */
       !!@ ili2db.dispName = "Geometría"
