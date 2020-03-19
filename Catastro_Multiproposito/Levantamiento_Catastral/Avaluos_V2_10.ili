@@ -34,74 +34,137 @@ VERSION "V2.2.1"  // 2018-02-01 // =
   DOMAIN
 
     AV_DisponibilidadAguaTipo = (
+      /** Se consideran aquellas que poseen sistemas de riego bien sea por gravedad o por sistemas mecánicos, o afiliadas a distritos de riego de manera que disponen de agua en forma permanente durante todo el año.
+       */
       !!@ ili2db.dispName = "Zonas con aguas abundantes"
       Zonas_Con_Aguas_Abundantes,
+      /** Son aquellas zonas que poseen fuentes de aguas en forma permanente, bien sean corrientes o estancadas, pero que debido a limitaciones de pendiente se dificulta su utilización para fines de riego o aprovechamiento ganadero.
+       */
       !!@ ili2db.dispName = "Zonas con aguas suficientes"
       Zonas_Con_Aguas_Suficientes,
+      /** Son aquellas zonas con fuentes de aguas permanentes o semipermanentes pero con limitaciones de aprovechamiento a causa de la pendiente de terreno o a causa de la calidad de los suelos que limitan su uso agrícola o ganadero.
+       */
       !!@ ili2db.dispName = "Zonas con aguas escasas"
       Zonas_Con_Aguas_Escasas,
+      /** Donde solo hay posibilidades de agua en el invierno ó zonas de pendientes mayores al 50%, en las cuales el aprovechamiento se hace imposible.
+       */
       !!@ ili2db.dispName = "Zonas sin agua"
       Zonas_Sin_Aguas
     );
 
     AV_InfluenciaVialRuralTipo = (
+      /** Son aquellas zonas que están comunicadas por vías pavimentadas de primer orden tipo 1
+       */
       !!@ ili2db.dispName = "Buenas 1 - Pavimentada, dos o más vías"
       Buenas_1,
+      /** Son aquellas zonas que están comunicadas por vía destapadas tipo 2
+       */
       !!@ ili2db.dispName = "Buenas 2 - Sin pavimentar, dos o más vías"
       Buenas_2,
+      /** Aquellas que presentan vías de tipo 3 y 4. De regular desarrollo agropecuario; por lo general son zonas de ganadería extensiva o de agricultura de subsistencia. Las pendientes van de inclinadas a fuertemente inclinadas. Más alejadas de los centros Urbanos. Pavimentadas, vía angosta.
+       */
       !!@ ili2db.dispName = "Regulares 3 - Pavimentadas, vía angosta"
       Regulares_3,
+      /** Aquellas que presentan vías de tipo 3 y 4. De regular desarrollo agropecuario; por lo general son zonas de ganadería extensiva o de agricultura de subsistencia. Las pendientes van de inclinadas a fuertemente inclinadas. Más alejadas de los centros Urbanos. Sin pavimentar, vía angosta.
+       */
       !!@ ili2db.dispName = "Regulares 4 - Sin pavimentar, vía angosta"
       Regulares_4,
+      /** Presentan en su mayoría vías de tipo 5 en adelante; zonas dedicadas a la agricultura y ganadería extensiva; zonas de pendiente fuertemente inclinadas y relieve quebrado o escarpado. Si se presentan zonas con pendientes menores estas, por lo general, están erosionadas. Las vías malas se presentan, con mayor frecuencia en zonas muy alejadas de los centros urbanos.
+       * Transitables en tiempo seco
+       */
       !!@ ili2db.dispName = "Malas 5 - Transitable en tiempo seco"
       Malas_5,
+      /** Presentan en su mayoría vías de tipo 5 en adelante; zonas dedicadas a la agricultura y ganadería extensiva; zonas de pendiente fuertemente inclinadas y relieve quebrado o escarpado. Si se presentan zonas con pendientes menores estas, por lo general, están erosionadas. Las vías malas se presentan, con mayor frecuencia en zonas muy alejadas de los centros urbanos.
+       * Carreteable solo para vehículos
+       */
       !!@ ili2db.dispName = "Malas 6 - Carreteable sólo para vehículos medianos"
       Malas_6,
+      /** Presentan en su mayoría vías de tipo 5 en adelante; zonas dedicadas a la agricultura y ganadería extensiva; zonas de pendiente fuertemente inclinadas y relieve quebrado o escarpado. Si se presentan zonas con pendientes menores estas, por lo general, están erosionadas. Las vías malas se presentan, con mayor frecuencia en zonas muy alejadas de los centros urbanos.
+       * Camino real o de herradura.
+       */
       !!@ ili2db.dispName = "Malas 7 - Camino real o de herradura"
       Malas_7,
+      /** Carecen de vías de comunicación importantes y solo se presentan caminos para el tránsito de personas o animales de carga. Sendero
+       */
       !!@ ili2db.dispName = "Sin vías 8 - Sendero"
       Sin_Vias_8,
+      /** Carecen de vías de comunicación importantes y solo se presentan caminos para el tránsito de personas o animales de carga. Sin vías.
+       */
       !!@ ili2db.dispName = "Sin vías 9 - Sin vías"
       Sin_Vias_9
     );
 
     AV_InfluenciaVialUrbanaTipo = (
+      /** Aquella zona en la cual las vías vehiculares han sido revestidas de asfalto o pavimento.
+       */
       !!@ ili2db.dispName = "Pavimentadas"
       Pavimentadas,
+      /** Zona donde las vías realizadas no han sido revestidas por ningún material resistente al uso y la intemperie.
+       */
       !!@ ili2db.dispName = "Sin pavimentar"
       Sin_Pavimentar,
+      /** Zona donde las vías realizadas no han sido revestidas por ningún material resistente al uso y la intemperie.
+       */
       !!@ ili2db.dispName = "Peatonales"
       Peatonales,
+      /** Aquellas zonas donde no se ha realizado el trazado de vías.
+       */
       !!@ ili2db.dispName = "Sin vías"
       Sin_Vias
     );
 
     AV_ServiciosPublicosTipo = (
+      /** Corresponde a las áreas dentro del perímetro urbano (cabecera y corregimientos) donde no existen servicios públicos básicos.
+       */
       !!@ ili2db.dispName = "Sin servicios"
       Sin_Servicios,
+      /** Aquella que carece de por lo menos uno de los servicios básicos. La existencia de otro tipo de servicios no mejora la condición en cuanto a servicios básicos.
+       */
       !!@ ili2db.dispName = "Servicios básicos incompletos"
       Servicios_Basicos_incompletos,
+      /** Se califica en aquellos sectores que cuentan con la prestación de los tres servicios básicos (acueducto, energía y alcantarillado), que cuente con la infraestructura para garantizar la prestación del servicio.
+       */
       !!@ ili2db.dispName = "Servicios básicos completos"
       Servicios_Basicos_Completos,
+      /** Sectores que además de contar con acueducto, energía y alcantarillado, poseen la prestación de uno, o más servicios adicionales tales como: teléfono, gas, alumbrado público, alcantarillado de aguas lluvias, etc.
+       */
       !!@ ili2db.dispName = "Servicios básicos y complementarios"
       Servicios_Basicos_Y_Complementarios
     );
 
     AV_TipificacionConstruccionTipo = (
+      /** Las viviendas que pertenecen a este grupo están construidas sin planeación alguna y generalmente con materiales de desecho tanto en las paredes como en los techos, construido o acondicionado para alojamiento, aunque no reúna las condiciones sanitarias indispensables. Generalmente carecen de algún servicio público básico y/o están ubicadas en zonas marginales no urbanizadas ni urbanizables, siendo de invasión y con escasez de vías de comunicación y transporte urbano.
+       */
       !!@ ili2db.dispName = "Residencial 1 – (Bajo-Bajo)"
       Residencial_1_Bajo_Bajo,
+      /** Las viviendas que pertenecen a este grupo están construidas con o sin planeación y generalmente con materiales como madera, prefabricado, ladrillo o bloque, cubiertas en zinc o teja de barro y con acabados sencillos, pueden disponer de algunos servicios públicos básicos, están situados por lo general en la periferia y disponen de algunas vías públicas sin pavimentar y escasos medios de transporte.
+       */
       !!@ ili2db.dispName = "Residencial 2 – (Bajo)"
       Residencial_2_Bajo,
+      /** Las viviendas que pertenecen a este grupo generalmente están constituidas por edificaciones técnicamente planeadas, con fachadas calificadas como regular, con muros de ladrillo o bloque, cubiertas de placa de concreto o teja en asbesto cemento. Generalmente cuentan con servicios públicos básicos, poseen vías de comunicación pavimentadas y medio de transporte urbano.
+       */
       !!@ ili2db.dispName = "Residencial 3 – (Medio-Bajo)"
       Residencial_3_Medio_Bajo,
+      /** Las viviendas que pertenecen a este grupo generalmente están constituidas por edificaciones técnicamente planeadas con fachada calificada de regular a buena, estructura en concreto, muros de ladrillo o bloque revocados, estucados y pintados, cubiertas de placa de concreto o teja en asbesto cemento; baños y cocinas calificados como medianos enchapados.
+       */
       !!@ ili2db.dispName = "Residencial 4 – (Medio)"
       Residencial_4_Medio,
+      /** Las viviendas que pertenecen a este grupo generalmente están constituidas por edificaciones totalmente terminadas y técnicamente planeadas con fachada calificada como buena así como sus acabados, estructura en concreto. Generalmente cuentan con muros de ladrillo o bloque, cubiertas de placa de concreto o con materiales de buena calidad; baños y cocinas calificados como buenos y tamaño entre mediano y grande.
+       * Cuentan con todos los servicios públicos básicos y complementarios, con grandes zonas verdes, sociales y de recreación, parqueaderos y buenas vías de acceso.
+       */
       !!@ ili2db.dispName = "Residencial 5 – (Medio-Alto)"
       Residencial_5_Medio_Alto,
+      /** Las viviendas que pertenecen a este grupo generalmente están constituidas por edificaciones con grandes áreas, amplios jardines o apartamentos lujosos, paredes de bloque o ladrillo, cubiertas de placa de concreto o con materiales de excelente calidad y cuentan con los servicios públicos básicos y complementarios.
+       * Estas viviendas están ubicadas en sectores exclusivos y disfrutan de amplias zonas verdes, sociales y de recreación, parqueaderos y excelentes vías de acceso.
+       */
       !!@ ili2db.dispName = "Residencial 6 – (Alto)"
       Residencial_6_Alto,
+      /** Corresponde a la venta de bienes y servicios de consumo doméstico requeridos por la comunidad de residentes en barrios. Presenta dos modalidades principales de desarrollo: en áreas o espacios de edificaciones residenciales que fueron destinadas al uso comercial sin adecuaciones físicas importantes, ni del espacio mismo, ni del resto de la vivienda que se mantiene como tal; en establecimientos situados en edificaciones multifamiliares, en manzanas o en locales comerciales de las urbanizaciones.
+       */
       !!@ ili2db.dispName = "Comercial barrial"
       Comercial_Barrial,
+      /** Corresponde al destinado a la venta de productos y/o servicios ubicados en un sector consolidado o en proceso de consolidación.
+       */
       !!@ ili2db.dispName = "Comercial sectorial"
       Comercial_Sectorial
     );
@@ -602,62 +665,112 @@ VERSION "V2.2.1"  // 2018-02-01 // =
           !!@ ili2db.dispName = "(Anexo) (Plaza de toros) Tipo 20"
           Tipo_20
         )
-      )
+      ),
+      !!@ ili2db.dispName = "Otro"
+      Otro
     );
 
     AV_TopografiaZonaTipo = (
+      /** Facilita suministrar servicios públicos, realizar obras de urbanismo o construir una edificación.
+       */
       !!@ ili2db.dispName = "Plano"
       Plano,
+      /** Las construcciones ubicadas dentro de esta zona han tenido una mayor dificultad para ser construidas.
+       */
       !!@ ili2db.dispName = "Inclinado"
       Inclinado,
+      /** Se presenta máxima dificultad para el suministro de servicios públicos, edificar, etc. generando altos costos.
+       */
       !!@ ili2db.dispName = "Empinado"
       Empinado
     );
 
     AV_UsoSueloRuralTipo = (
+      /** Comprende la agrupación de edificaciones de tipo habitacional, industrial, comercial e institucional que no estén consideradas dentro del plan de ordenamiento territorial como parte de la zona urbana ej. Caseríos, zonas industriales, universidades.
+       */
       !!@ ili2db.dispName = "Edificios"
       Edificios,
+      /** Comprende construcciones de otro tipo diferente a edificios por su tamaño o actividad ej, represas, aeropuertos, centrales hidroeléctricas, estadios, plazas de toros, bases militares.
+       */
       !!@ ili2db.dispName = "Otras construcciones"
       Otras_Construcciones,
+      /** Son áreas naturales definidas y delimitadas oficialmente poco transformadas por la explotación u ocupación humana que, en razón a la belleza de sus paisajes, la representatividad de sus ecosistemas o la singularidad de su flora, de su fauna o de sus formaciones geomorfológicas, poseen unos valores ecológicos, estéticos, educativos y científicos cuya conservación merece una atención preferente.
+       */
       !!@ ili2db.dispName = "Parques naturales"
       Parques_Naturales,
+      /** Aquellos cultivos tales como café, palma africana, palma africana, palma de coco, caucho, cítricos, arboles maderables, aguacate, guayabo, mango, manzano, pera, durazno, uva, noli, fique, cacao y cualquier otro cultivo que exija un periodo superior a tres años entre su siembre y su cosecha, o cuyo periodo de producción se prolongue por mas de cinco años.
+       */
       !!@ ili2db.dispName = "Cultivos de carácter permanente"
       Cultivos_De_Caracter_Permanente,
+      /** Aquellas tierras que para su producción cuentan con aplicación de agua, que de suyo falta para el desarrollo del cultivo, mediante la utilización de un sistema de irrigación.
+       */
       !!@ ili2db.dispName = "Tierras de labor irrigadas"
       Tierras_De_Labor_Irrigadas,
+      /** Aquellas tierras que carecen de un sistema de irrigación y que para su producción dependen exclusivamente del agua lluvia ciada sobre ellas.
+       */
       !!@ ili2db.dispName = "Tierras de labor no irrigadas"
       Tierras_De_Labor_No_Irrigadas,
+      /** Aquellas tierras en donde predominen las plantaciones espontaneas de arbustos que obstaculizan la utilización económica del suelo.
+       */
       !!@ ili2db.dispName = "Tierras con maleza"
       Tierras_Con_Maleza,
+      /** Aquellas áreas que por sus condiciones topográficas, climatológicas y que en general por las características físicas o químicas de sus suelos no puedan ser explotadas.
+       */
       !!@ ili2db.dispName = "Tierras improductivas"
       Tierras_Improductivas,
+      /** Conjuntos de herbáceos forrajeros producidos espontáneamente por el suelo.
+       */
       !!@ ili2db.dispName = "Pastos naturales"
       Pastos_Naturales,
+      /** Conjunto de cultivos herbáceos forrajeros no producidos espontáneamente.
+       */
       !!@ ili2db.dispName = "Pastos artificiales"
       Pastos_Artificales,
+      /** Pastos naturales sometidos a prácticas técnicas de uso y manejo
+       */
       !!@ ili2db.dispName = "Pastos naturales mejorados"
       Pastos_Naturales_Mejorados,
+      /** Conjunto de plantaciones naturales o de cultivos de arboles de igual o distinta naturaleza que están en explotación o pueden ser explotados.
+       */
       !!@ ili2db.dispName = "Bosques"
       Bosques,
+      /** Terrenos extensos, incultos y abundantemente poblados con vegetación arbórea y nativa.
+       */
       !!@ ili2db.dispName = "Selvas vírgenes"
       Selvas_Virgenes,
+      /** Comprende aquellas área cubiertas de agua con carácter permanente que puede ser de origen natural o artificial.
+       */
       !!@ ili2db.dispName = "Cuerpos de agua"
       Cuerpos_De_Agua,
+      /** Comprende aquellas edificaciones que por sus características especiales por actividad son diferentes a las anteriores ej. Condominios, parcelaciones, parques recreacionales.
+       */
       !!@ ili2db.dispName = "Condiciones especiales"
       Condiciones_Especiales,
+      /** Al clasificar usos mixtos, se agrupan máximo 2 tipos de uso que son de difícil separación por la escala de mapeo, considérelos como, una unidad miscelánea pero destaque el uso dominante designándolo con un número fraccionario en que el numerador sea el elemento dominante
+       */
       !!@ ili2db.dispName = "Mixto"
       Mixto
     );
 
     AV_UsoSueloUrbanoTipo = (
+      /** Es aquel espacio geográfico dedicado a la vivienda, de tipo unifamiliar o multifamiliar.
+       */
       !!@ ili2db.dispName = "Residencial"
       Residencial,
+      /** Es aquel espacio geográfico dedicado a la venta de mercancías (almacenes, centros comerciales, aeropuerto, etc.) y de servicios (oficinas, hoteles, restaurantes, bancos, consultorios, etc.). Se incluyen corredores comerciales en barrios residenciales.
+       */
       !!@ ili2db.dispName = "Comercial"
       Comercial,
+      /** Es aquel espacio geográfico dedicado a la transformación de materia prima en mercancías y a la reparación de maquinaria y equipos, con las características propias de una industria (Altura mayor de 2.50 mts, columnas, vigas perimetrales, cerchas, existencia puente grúas, Luces mayores de 6 mts). Incluye zonas de almacenamiento y zonas francas portuarias y aeroportuarias.
+       */
       !!@ ili2db.dispName = "Industrial"
       Industrial,
+      /** Es aquel espacio geográfico dedicado a la administración y prestación de servicios del estado (hospitales, colegios, alcaldía, canchas deportivas, etc.) y que no se encuentra clasificado en otros usos.
+       */
       !!@ ili2db.dispName = "Institucional"
       Institucional,
+      /** Es aquel espacio geográfico no construido que puede contar o no con algún tipo de obra de urbanismo. Dentro de esta clasificación se incluirán los cuerpos de agua, los cuales se consideran como lotes no urbanizables.
+       */
       !!@ ili2db.dispName = "Lote"
       Lote
     );
@@ -665,169 +778,327 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     AV_UsoUConsTipo = (
       !!@ ili2db.dispName = "Residencial"
       Residencial(
+        /** Es una vivienda que comprende una o más habitaciones, en un edificio de varios pisos 4 o más pisos sometido en régimen de propiedad horizontal.
+         */
         !!@ ili2db.dispName = "(Residencial) Apartamentos 4 y más pisos en PH"
         Apartamentos_4_y_mas_pisos_en_PH,
+        /** Es una vivienda que comprende una o más habitaciones, en un edificio de 4 o 5 pisos.
+         */
         !!@ ili2db.dispName = "(Residencial) Apartamentos en Edificio de 4 y 5 Pisos (Cartagena)"
         Apartamentos_En_Edificio_4_y_5_Pisos_Cartagena,
+        /** Es una vivienda que comprende una o más habitaciones, en un edificio de varios pisos 4 o más pisos
+         */
         !!@ ili2db.dispName = "(Residencial) Apartamentos mas de 4 Pisos"
         Apartamentos_Mas_De_4_Pisos,
+        /** Dormitorios de las fuerzas militares y armadas.
+         */
         !!@ ili2db.dispName = "(Residencial) Barracas"
         Barracas,
+        /** Típica casa con mampostería de piedra, pizarra y madera. Ha sido rehabilitada respetando escrupulosamente sus características exteriores y decorada con un interior tradicional
+         */
         !!@ ili2db.dispName = "(Residencial) Casa Elbas"
         Casa_Elbas,
+        /** Es el lugar cubierto, destinado al estacionamiento privado de vehículos.
+         */
         !!@ ili2db.dispName = "(Residencial) Garajes Cubiertos"
         Garajes_Cubiertos,
+        /** Es el lugar cubierto, destinado al estacionamiento privado o comunal en viviendas sometidas a   régimen de propiedad  horizontal.
+         */
         !!@ ili2db.dispName = "(Residencial) Garajes en PH"
         Garajes_En_PH,
+        /** La vivienda colonial siempre se desarrolla en un solo nivel ya sea en la planta baja o en la planta alta de las edificaciones, sin importar la jerarquía de ‘estas, distribuida en crujías o bloques, paralelos o perpendiculares a la calle en forma de  “I” ,de “L”, de “C” o de “O”
+         */
         !!@ ili2db.dispName = "(Residencial) Vivienda Colonial"
         Vivienda_Colonial,
+        /** Es una casa de tres niveles cuya función arquitectónica y ambiental principal, es dar albergue en forma adecuada a una familia.
+         */
         !!@ ili2db.dispName = "(Residencial) Vivienda hasta 3 pisos"
         Vivienda_Hasta_3_Pisos,
+        /** Corresponde a edificaciones residenciales desarrolladas sobre un lote de terreno que comprende más de tres unidades prediales independientes, generalmente en edificios de varios pisos. Este tipo de vivienda prevé? áreas de servicios comunales cuya propiedad y utilización privada se definen en reglamentos de propiedad horizontal
+         */
         !!@ ili2db.dispName = "(Residencial) Vivienda hasta 3 pisos en PH"
         Vivienda_Hasta_3_Pisos_En_PH,
+        /** Es una casa cuya función arquitectónica y ambiental principal, es brindar descanso y recreación
+         */
         !!@ ili2db.dispName = "(Residencial) Vivienda Recreacional"
         Vivienda_Recreacional,
+        /** Es una casa cuya función arquitectónica y ambiental principal, es brindar descanso y recreación. Este tipo de vivienda  prevé? áreas de servicios comunales cuya propiedad y utilización privada se definen en reglamentos de propiedad horizontal.
+         */
         !!@ ili2db.dispName = "(Residencial) Vivienda Recreacional en PH"
         Vivienda_Recreacional_En_PH
       ),
       !!@ ili2db.dispName = "Comercial"
       Comercial(
+        /** Es un salón de un edificio que se destina a actividades de enseñanza, y es la unidad básica de todo recinto destinado a la educación.
+         */
         !!@ ili2db.dispName = "(Comercial) Aulas de Clases"
         Aulas_de_Clases,
+        /** Edificación donde podemos encontrar libros o cualquier otro soporte de un texto, como publicaciones, revistas, documentos, catálogo entre otros.
+         */
         !!@ ili2db.dispName = "(Comercial) Biblioteca"
         Biblioteca,
+        /** Es el espacio construido para la ejecución la recepción, almacenamiento y movimientos de materiales, materias primas y productos semielaborados, hasta el punto de consumo por un cliente externo o interno
+         */
         !!@ ili2db.dispName = "(Comercial) Bodegas Comerciales - Grandes Almacenes"
         Bodegas_Comerciales_Grandes_Almacenes,
+        /** Es el espacio construido para la ejecución la recepción, almacenamiento y movimientos de materiales, materias primas y productos semielaborados, hasta el punto de consumo por un cliente externo o interno sometido a régimen de propiedad horizontal.
+         */
         !!@ ili2db.dispName = "(Comercial) Bodegas Comerciales en PH"
         Bodegas_Comerciales_en_PH,
+        /** Son instalaciones en las que se encarcela a los prisioneros, se encuentran bajo la autoridad del estado.
+         */
         !!@ ili2db.dispName = "(Comercial) Cárceles"
         Carceles,
+        /** Lugar sin altar (diferente a iglesias y capillas) que congrega a un determinado número de personas para actividades de culto asociadas con manifestaciones religiosas.
+         */
         !!@ ili2db.dispName = "(Comercial) Casas de Culto"
         Casas_de_Culto,
+        /** es una construcción que consta de uno o varios edificios, por lo general de gran tamaño, que albergan servicios, locales y oficinas comerciales aglutinados en un espacio determinado concentrando mayor cantidad de clientes potenciales dentro del recinto.
+         */
         !!@ ili2db.dispName = "(Comercial) Centros Comerciales"
         Centros_Comerciales,
+        /** es una construcción que consta de uno o varios edificios, por lo general de gran tamaño, que albergan servicios, locales y oficinas comerciales aglutinados en un espacio determinado concentrando mayor cantidad de clientes potenciales dentro del recinto, sometido a régimen de propiedad horizontal.
+         */
         !!@ ili2db.dispName = "(Comercial) Centros Comerciales en PH"
         Centros_Comerciales_en_PH,
+        /** Establecimiento construido y destinado a proporcionar todo tipo de asistencia médica, incluidas operaciones quirúrgicas y estancia durante la recuperación o tratamiento, y en el que también se practican la investigación y la enseñanza médica
+         */
         !!@ ili2db.dispName = "(Comercial) Clinicas - Hospitales - Centros Medicos"
         Clinicas_Hospitales_Centros_Medicos,
+        /** Es la edificación o  Establecimiento que brinda servicios recreativos y tiene capacidad para ciertos juegos de azar
+         */
         !!@ ili2db.dispName = "(Comercial) Clubes - Casinos"
         Clubes_Casinos,
+        /** Institución edificada  destinada a la enseñanza primaria, secundaria y universitaria
+         */
         !!@ ili2db.dispName = "(Comercial) Colegio y Universidades"
         Colegio_y_Universidades,
+        /** Teatro o edificio destinado a espectáculos con capacidad para un gran número de personas.
+         */
         !!@ ili2db.dispName = "(Comercial) Coliseos"
         Coliseos,
+        /** Se denomina a la construcción en la cual se lleva a acabo una actividad socioeconómica que consiste en el intercambio de algunos materiales en el mercado de compra y venta de bienes
+         */
         !!@ ili2db.dispName = "(Comercial) Comercio"
         Comercio,
+        /** Se denomina a la construcción con características arquitectónicas coloniales,  en el cual se lleva a acabo una actividad socioeconómica que consiste en el intercambio de algunos materiales en el mercado de compra y venta de bienes
+         */
         !!@ ili2db.dispName = "(Comercial) Comercio Colonial"
         Comercio_Colonial,
+        /** Se denomina a la construcción en la cual se lleva a acabo una actividad socioeconómica que consiste en el intercambio de algunos materiales en el mercado de compra y venta de bienes sometida a régimen de propiedad horizontal
+         */
         !!@ ili2db.dispName = "(Comercial) Comercio en PH"
         Comercio_en_PH,
+        /** Institución edificada  construcción con características arquitectónicas coloniales  destinada a la enseñanza primaria
+         */
         !!@ ili2db.dispName = "(Comercial) Entidad Educativa Colonial - Colegio Colonial"
         Entidad_Educativa_Colonial_Colegio_Colonial,
+        /** Son obras arquitectónicas  que se construyen con el objeto de elevar el nivel del agua de la fuente de riego a los sitios donde se desea utilizar
+         */
         !!@ ili2db.dispName = "(Comercial) Estacion de Bombeo"
         Estacion_de_Bombeo,
+        /** Un estadio es una construcción cerrada con graderías para los espectadores, destinado a competiciones deportivas. Puede ser al aire libre o cubierto.
+         */
         !!@ ili2db.dispName = "(Comercial) Estadios - Plaza de Toros"
         Estadios_Plaza_de_Toros,
+        /** Establecimiento que ocupa un edificio total o parcialmente con uso exclusivo de sus servicios (entradas, ascensores, escaleras, etc.) y que ofrece alojamiento y posee características arquitectónicas coloniales.
+         */
         !!@ ili2db.dispName = "(Comercial) Hotel Colonial"
         Hotel_Colonial,
+        /** Establecimiento que ocupa un edificio total o parcialmente con uso exclusivo de sus servicios (entradas, ascensores, escaleras, etc.) y que ofrece alojamiento
+         */
         !!@ ili2db.dispName = "(Comercial) Hoteles"
         Hoteles,
+        /** Establecimiento que ocupa un edificio total o parcialmente que ofrece alojamiento
+         */
         !!@ ili2db.dispName = "(Comercial) Hoteles en PH"
         Hoteles_en_PH,
+        /** edificación en la que se reúnen y consagran a los fieles  que le rinden culto a un ser superior
+         */
         !!@ ili2db.dispName = "(Comercial) Iglesia"
         Iglesia,
+        /** edificación en la que se reúnen y consagran a los fieles  que le rinden culto a un ser superior sometido a régimen de propiedad horizontal
+         */
         !!@ ili2db.dispName = "(Comercial) Iglesia en PH"
         Iglesia_en_PH,
+        /** Construcción con características de una vivienda que se  encarga de brindar educación y  asistencia integral a los niños
+         */
         !!@ ili2db.dispName = "(Comercial) Jardin Infantil en Casa"
         Jardin_Infantil_en_Casa,
+        /** Espacio construido en el que se  realiza un trabajo profesional de gestión, administración o atención médica
+         */
         !!@ ili2db.dispName = "(Comercial) Oficinas - Consultorios"
         Oficinas_Consultorios,
+        /** Espacio construido con características arquitectónicas coloniales en el que se  realiza un trabajo profesional de gestión, administración o atención médica
+         */
         !!@ ili2db.dispName = "(Comercial) Oficinas - Consultorios Coloniales"
         Oficinas_Consultorios_Coloniales,
+        /** espacio construido en el que se  realiza un trabajo profesional de gestión, administración o atención médica, sometida a régimen de propiedad horizontal
+         */
         !!@ ili2db.dispName = "(Comercial) Oficinas Consultorios en PH"
         Oficinas_Consultorios_en_PH,
+        /** Es un terreno que está destinado a árboles, jardines y prados donde se depositan los restos mortales o cadáveres.
+         */
         !!@ ili2db.dispName = "(Comercial) Parque Cementerios"
         Parque_Cementerios,
+        /** Es el espacio que con ánimo de lucro se destina a guardar o arrendar espacios para depositar vehículos dentro de una edificación construida para tal fin, o dentro de un predio habilitado con el mismo objeto.
+         */
         !!@ ili2db.dispName = "(Comercial) Parqueaderos"
         Parqueaderos,
+        /** Es el espacio o se destina a guardar o arrendar espacios para depositar vehículos dentro de una edificación construida privado o comunal bajo régimen de propiedad horizontal
+         */
         !!@ ili2db.dispName = "(Comercial) Parqueaderos en PH"
         Parqueaderos_en_PH,
+        /** Vivienda que proporciona alojamiento y hospedaje temporal
+         */
         !!@ ili2db.dispName = "(Comercial) Pensiones y Residencias"
         Pensiones_y_Residencias,
+        /** Edificio donde se atiende a la población en un primer nivel asistencial sanitario.
+         */
         !!@ ili2db.dispName = "(Comercial) Puestos de Salud"
         Puestos_de_Salud,
+        /** Establecimiento con caracteristicas arquitectónicas coloniales en el que se preparan y sirven comidas.
+         */
         !!@ ili2db.dispName = "(Comercial) Restaurante Colonial"
         Restaurante_Colonial,
+        /** Establecimiento en el que se preparan y sirven comidas.
+         */
         !!@ ili2db.dispName = "(Comercial) Restaurantes"
         Restaurantes,
+        /** Establecimiento en el que se preparan y sirven comidas sometido a régimen de propiedad horizontal.
+         */
         !!@ ili2db.dispName = "(Comercial) Restaurantes en PH"
         Restaurantes_en_PH,
+        /** Edificación destinado a la proyección de películas cinematográfica.
+         */
         !!@ ili2db.dispName = "(Comercial) Teatro - Cinemas"
         Teatro_Cinemas,
+        /** Establecimiento destinado a la proyección de películas cinematográficas sometida a  régimen de propiedad horizontal
+         */
         !!@ ili2db.dispName = "(Comercial) Teatro - Cinemas en PH"
         Teatro_Cinemas_en_PH
       ),
       !!@ ili2db.dispName = "Industrial"
       Industrial(
+        /** Infraestructura de bombeo.
+         */
         !!@ ili2db.dispName = "(Industrial) Bodega Casa Bomba"
         Bodega_Casa_Bomba,
+        /** Infraestructura de bombeo para bodegas sometidas en régimen de propiedad horizontal.
+         */
         !!@ ili2db.dispName = "(Industrial) Bodegas Casa Bomba en PH"
         Bodegas_Casa_Bomba_en_PH,
+        /** Conjunto de instalaciones dedicadas a esta actividad de transformar las materias primas en productos elaborados
+         */
         !!@ ili2db.dispName = "(Industrial) Industrias"
         Industrias,
+        /** Conjunto de instalaciones sometidas a régimen de propiedad horizontal dedicadas a la actividad de transformar las materias primas en productos elaborados
+         */
         !!@ ili2db.dispName = "(Industrial) Industrias en PH"
         Industrias_en_PH,
+        /** Es el espacio construido en el que se realiza un trabajo, manual en su origen, bien de tipo artesanal o fabril.
+         */
         !!@ ili2db.dispName = "(Industrial) Talleres"
         Talleres
       ),
       !!@ ili2db.dispName = "Anexo"
       Anexo(
+        /** Depósito de agua construido a nivel del terreno con el propósito de almacenar agua, o en el caso de las bañadera con el fin de hacer limpieza al ganado, estas construcciones son cubiertas para guardar de la intemperie.
+         */
         !!@ ili2db.dispName = "(Anexo) Albercas - Banaderas"
         Albercas_Banaderas,
+        /** Nombre dado en zonas cafeteras a aquellas construcciones donde realizan el beneficio del café. Consiste en áreas cubiertas dentro de las cuales se encuentran los elementos destinados a la labor de seleccionar, lavar y despulpar el grano y su posterior empaque
+         */
         !!@ ili2db.dispName = "(Anexo) Beneficiaderos"
         Beneficiaderos,
+        /** Construcción para el desarrollo de proyectos acuícolas del cultivo de camarones.
+         */
         !!@ ili2db.dispName = "(Anexo) Camaroneras"
         Camaroneras,
+        /** Superficie  terreno rectangular cruzada al medio por una red baja.
+         */
         !!@ ili2db.dispName = "(Anexo) Canchas de Tenis"
         Canchas_de_Tenis,
+        /** Es una vía de transporte de dominio y uso público, proyectada y construida fundamentalmente para la circulación de vehículos automóviles
+         */
         !!@ ili2db.dispName = "(Anexo) Carretera"
         Carretera,
+        /** Construcción anexa conformada por unos cimientos, muros y placa base
+         */
         !!@ ili2db.dispName = "(Anexo) Cimientos, Estructura, Muros y Placa Base"
         Cimientos_Estructura_Muros_y_Placa_Base,
+        /** Construcciòn destinada a la cría y albergue de cerdos. Se utiliza cualesquiera de los tres nombres enunciados según la región donde se ubique; los elementos que la conforman son: estructura, muros y pisos.
+         */
         !!@ ili2db.dispName = "(Anexo) Cocheras - Marraneras - Porquerizas"
         Cocheras_Marraneras_Porquerizas,
+        /** Sitio cerrado y descubierto que se utiliza par la cría y albergue de ganado generalmente vacuno. consta de los elementos estructura  y pisos.
+         */
         !!@ ili2db.dispName = "(Anexo) Corrales"
         Corrales,
+        /** Lugar cubierto donde se encierra ganado o caballos y/o se realizan actividades propias de su explotación, constituidos por estructura, cubierta, muros y pisos.
+         */
         !!@ ili2db.dispName = "(Anexo) Establos - Pesebreras - Caballerizas"
         Establos_Pesebreras_Caballerizas,
+        /** Lugar construido  fuerte, cercado de murallas, baluartes, fosos y otras fortificaciones.
+         */
         !!@ ili2db.dispName = "(Anexo) Fuertes y Castillos"
         Fuertes_y_Castillos,
+        /** Unidad construida con destino a la cría y/o protección de aves principalmente para explotación avícola.  Conformada por estructura cubierta pisos y muros que son parcialmente elaborados en ladrillo y el resto descubierto o con algún material provisional (plásticos, alambres, etc.).
+         */
         !!@ ili2db.dispName = "(Anexo) Galpones - Gallineros"
         Galpones_Gallineros,
+        /** Construcción consistente en una cubierta apoyada en columnas de materiales diferentes, elaborados con el fin de guarecer de la intemperie.
+         */
         !!@ ili2db.dispName = "(Anexo) Kioscos"
         Kioscos,
+        /** Son depósitos construidos mediante la excavación y compactación de la tierra que almacenan agua de cualquier calidad por un periodo determinado
+         */
         !!@ ili2db.dispName = "(Anexo) Lagunas de Oxidación"
         Lagunas_de_Oxidacion,
+        /** Cobertizo dentro de una edificación de mayor extensión o patio cubierto, clasificados según su estructura, pisos y el material de la cubierta.
+         */
         !!@ ili2db.dispName = "(Anexo) Marquesinas - Patios Cubiertos"
         Marquesinas_Patios_Cubiertos,
+        /** Deberán diferenciarse de acuerdo a su estructura, longitud, capacidad, usos turísticos o de carga
+         */
         !!@ ili2db.dispName = "(Anexo) Muelles"
         Muelles,
+        /** Muro cerrado destinado a la protección y defensa de determinado sitio.
+         */
         !!@ ili2db.dispName = "(Anexo) Murallas"
         Murallas,
+        /** Estanque artificial con destino al deporte o a la recreación.  Se diferencia por sus acabados y especificaciones técnicas para su mantenimiento y operación; sus dimensiones deben darse en unidades de área (m2).
+         */
         !!@ ili2db.dispName = "(Anexo) Piscinas"
         Piscinas,
+        /** Perforaciones profundas  manuales para extraer agua subterránea.  Medida en metros de profundidad.
+         */
         !!@ ili2db.dispName = "(Anexo) Pozos"
         Pozos,
+        /** Consiste en un sitio cubierto elaborado con el fin de resguardar de la intemperie; el nombre de enramadas, cobertizos o caney se utiliza según la forma de la cubierta y la región donde se ubique.
+         */
         !!@ ili2db.dispName = "(Anexo) Ramadas - Cobertizos - Caneyes"
         Ramadas_Cobertizos_Caneyes,
+        /** Construcciones elaboradas con el objeto de secar en condiciones naturales el café principalmente, aunque es común su uso en otros productos.  Consta de estructura y pisos para su calificación
+         */
         !!@ ili2db.dispName = "(Anexo) Secaderos"
         Secaderos,
+        /** Construcción de grandes dimensiones que sirve para almacén o depósito, se exceptúan los silos cafeteros
+         */
         !!@ ili2db.dispName = "(Anexo) Silos"
         Silos,
+        /** Depósitos subterráneos o de altura, construidos en zonas con deficiencias en abastecimiento para el consumo de los habitantes o para el uso agrícola.  El elemento a calificar es la estructura relacionada con la capacidad de almacenamiento medida en metros cúbicos.
+         *  
+         * Se excluyen de este tipo de construcción los tanques de almacenamiento domiciliario
+         */
         !!@ ili2db.dispName = "(Anexo) Tanques"
         Tanques,
+        /** Deslizadores construidos alrededor de piscinas, medidos en metros lineales.  Se clasifican según su altura y materiales de construcción
+         */
         !!@ ili2db.dispName = "(Anexo) Toboganes"
         Toboganes,
+        /** Son estructuras diseñadas para disminuir la temperatura del agua y otros medios.
+         */
         !!@ ili2db.dispName = "(Anexo) Torres de Enfriamiento"
         Torres_de_Enfriamiento,
         !!@ ili2db.dispName = "(Anexo) Vía Férrea"
@@ -841,116 +1112,187 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     OID AS INTERLIS.UUIDOID;
     DEPENDS ON Levantamiento_Catastral_V2_10.Levantamiento_Catastral;
 
+    /** Clase los valores por M2 de construcción según el uso y puntaje de calificación de construcción.
+     */
     !!@ ili2db.dispName = "(Avalúos) Tabla Calificación de la Construcción"
-    CLASS AV_Tabla_Calificacion_Construccion =
+    CLASS AV_TablaCalificacionConstruccion =
+      /** Valor por metros cuadrado de construcción clasificando por uso y puntaje de las unidades de construcción.
+       */
       !!@ ili2db.dispName = "Valor M2 de construcción"
       Valor_M2_Construccion : TEXT*20;
+      /** Es la actividad que se desarrolla en una unidad de construcción.
+       */
       !!@ ili2db.dispName = "Uso"
       Uso : Avaluos_V2_10.AV_UsoUConsTipo;
+      /** Puntaje de las edificaciones de acuerdo a sus características constructivas.
+       */
       !!@ ili2db.dispName = "Puntuación"
       Puntuacion : TEXT*20;
-    END AV_Tabla_Calificacion_Construccion;
+    END AV_TablaCalificacionConstruccion;
 
+    /** Clase que relaciona las tipologias de las construcciones con su respectivo valor por M2 de construcción.
+     */
     !!@ ili2db.dispName = "(Avalúos) Tipología de la construcción"
-    CLASS AV_Tipologia_Construccion =
+    CLASS AV_TipologiaConstruccion =
+      /** Se refiere a la zonificación del municipio de acuerdo con las clasificaciones de los inmuebles según su
+       * actividad residencial, comercial e industrial.
+       */
       !!@ ili2db.dispName = "Tipo de topología"
       Tipo_Tipologia : Avaluos_V2_10.AV_TipologiaTipo;
+      /** Valor unitario en pesos del tipo de tipología constructiva.
+       */
       !!@ ili2db.dispName = "Valor unitario"
       Valor_Unitario : 0 .. 100000000000000000000000000000000000000000000000000 [LADM_COL_V1_6.COP];
       UNIQUE Tipo_Tipologia; 
-    END AV_Tipologia_Construccion;
+    END AV_TipologiaConstruccion;
 
-    /** Esta clase permite gestionar las zonas físicamente homogéneas definidas para el avalúo y que delimitan las zonas que tienen características físicas similares. REVISAR DOCUMENTACIÓN
+    /** Clase que contiene las variables que componen las Zonas Homogeneas Fisicas rurales. Las ZHF Son espacios geográficos con características similares en cuanto a vías, topografía, servicios públicos, uso actual del suelo, norma de uso del suelo, tipificación de las construcciones y/o edificaciones, áreas homogéneas de tierra, disponibilidad de aguas superficiales permanentes u otras variables que permitan diferenciar estas áreas de las adyacentes.
      */
     !!@ ili2db.dispName = "(Avalúos) Zona homogénea física rural"
-    CLASS AV_Zona_Homogenea_Fisica_Rural =
+    CLASS AV_ZonaHomogeneaFisicaRural =
       /** Código único del registro de la instancia de ZonaHomegeneaFisca.
        */
       !!@ ili2db.dispName = "Código"
       Codigo : MANDATORY TEXT*7;
+      /** Identificador de la zona homogénea física rural.
+       */
       !!@ ili2db.dispName = "Código zona física"
       Codigo_Zona_Fisica : MANDATORY TEXT*20;
+      /** Espacios de la superficie terrestre que presentan características o cualidades similares en cuanto a las condiciones de clima, relieve, material litológico superficial o depósitos superficiales y de las características internas de los suelos, condiciones que expresan la capacidad productiva de las tierras; ello se indica mediante un valor numérico denominado Valor Potencial (VP).
+       */
       !!@ ili2db.dispName = "Área homogénea tierra"
       Area_Homogenea_Tierra : 0.00 .. 99999999999999990000000.00;
+      /** En el estudio de esta variable se analiza la existencia de fuentes de aguas superficiales permanentes y su clasificación, con el fin de zonificar de acuerdo con la posibilidad de aprovechamiento para el uso actual que se da al suelo.
+       */
       !!@ ili2db.dispName = "Disponibilidad agua"
       Disponibilidad_Agua : Avaluos_V2_10.AV_DisponibilidadAguaTipo;
+      /** Se refiere a la existencia y calidad de las vías, analizada a nivel de zona. A esta condición se asocia la existencia de otras obras de ingeniería, la instalación de redes de servicios públicos, etc.
+       */
       !!@ ili2db.dispName = "Influencia vial"
       Influencia_Vial : Avaluos_V2_10.AV_InfluenciaVialRuralTipo;
+      /** Actividad que se desarrolla en un determinado espacio geográfico en el momento de la elaboración del estudio de zonas homogéneas físicas.
+       */
       !!@ ili2db.dispName = "Uso actual del suelo"
       Uso_Actual_Suelo : Avaluos_V2_10.AV_UsoSueloRuralTipo;
+      /** Indicación legal sobre la actividad que se puede desarrollar en un determinado espacio geográfico con lo planificado y reglamentado por la respectiva autoridad de la unidad orgánica catastral.
+       */
       !!@ ili2db.dispName = "Norma uso del suelo"
       Norma_Uso_Suelo : TEXT*250;
+      /** Vigencia del estudio de zonas homogeneas fisicas rurales.
+       */
       !!@ ili2db.dispName = "Vigencia"
       Vigencia : INTERLIS.XMLDate;
       /** Definición de la geometría espacial georreferenciada de la zona homogénea física, delimitada mediante un polígono que contiene sus linderos y la superficie ocupada.
        */
       !!@ ili2db.dispName = "Geometría"
       Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
-    END AV_Zona_Homogenea_Fisica_Rural;
+    END AV_ZonaHomogeneaFisicaRural;
 
+    /** Clase que contiene las variables que componen las Zonas Homogeneas Fisicas urbanas. Las ZHF Son espacios geográficos con características similares en cuanto a vías, topografía, servicios públicos, uso actual del suelo, norma de uso del suelo, tipificación de las construcciones y/o edificaciones, áreas homogéneas de tierra, disponibilidad de aguas superficiales permanentes u otras variables que permitan diferenciar estas áreas de las adyacentes.
+     */
     !!@ ili2db.dispName = "(Avalúos) Zona homogénea fisíca urbana"
-    CLASS AV_Zona_Homogenea_Fisica_Urbana =
+    CLASS AV_ZonaHomogeneaFisicaUrbana =
+      /** Código único del registro de la instancia de ZonaHomegeneaFisca.
+       */
       !!@ ili2db.dispName = "Código"
       Codigo : MANDATORY TEXT*7;
+      /** Identificador de la zona homogénea física urbana.
+       */
       !!@ ili2db.dispName = "Código zona física"
       Codigo_Zona_Fisica : MANDATORY TEXT*20;
+      /** Características naturales relacionadas con el relieve que permitan o dificulten el desarrollo de las construcciones, dentro de esta variable deben considerarse factores tales como zonas anegadizas o inundables, las discontinuidades físicas tales como taludes, caños y ríos, altura por encima de la cota de servicios, áreas potenciales de derrumbe, por inclinación o presencia de drenajes superficiales.
+       */
       !!@ ili2db.dispName = "Topografía"
       Topografia : Avaluos_V2_10.AV_TopografiaZonaTipo;
+      /** Se refiere a la existencia y calidad de las vías, analizada a nivel de zona. A esta condición se asocia la existencia de otras obras de ingeniería, la instalación de redes de servicios públicos, etc.
+       */
       !!@ ili2db.dispName = "Influencia vial"
       Influencia_Vial : Avaluos_V2_10.AV_InfluenciaVialUrbanaTipo;
+      /** Se prestan con la finalidad específica de satisfacer las necesidades esenciales de las personas. Para efectos de la presente metodología se consideran servicios públicos básicos: Acueducto, Alcantarillado y Energía Eléctrica.
+       */
       !!@ ili2db.dispName = "Servicio público"
       Servicio_Publico : Avaluos_V2_10.AV_ServiciosPublicosTipo;
+      /** Actividad que se desarrolla en un determinado espacio geográfico en el momento de la elaboración del estudio de zonas homogéneas físicas.
+       */
       !!@ ili2db.dispName = "Uso actual del suelo"
       Uso_Actual_Suelo : Avaluos_V2_10.AV_UsoSueloUrbanoTipo;
+      /** Indicación legal sobre la actividad que se puede desarrollar en un determinado espacio geográfico con lo planificado y reglamentado por la respectiva autoridad de la unidad orgánica catastral.
+       */
       !!@ ili2db.dispName = "Norma uso del suelo"
       Norma_Uso_Suelo : TEXT*250;
+      /** Clasificación de las construcciones de acuerdo a ciertas características observables y cuantificables que reflejan las condiciones socioeconómicas (ingresos y cultura) de los habitantes de las viviendas.
+       */
       !!@ ili2db.dispName = "Tipificación de la construcción"
       Tipificacion_Construccion : Avaluos_V2_10.AV_TipificacionConstruccionTipo;
+      /** Vigencia del estudio de zonas homogeneas fisicas urbanas.
+       */
       !!@ ili2db.dispName = "Vigencia"
       Vigencia : INTERLIS.XMLDate;
+      /** Definición de la geometría espacial georreferenciada de la zona homogénea física, delimitada mediante un polígono que contiene sus linderos y la superficie ocupada.
+       */
       !!@ ili2db.dispName = "Geometría"
       Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
-    END AV_Zona_Homogenea_Fisica_Urbana;
+    END AV_ZonaHomogeneaFisicaUrbana;
 
-    !!@ ili2db.dispName = "(Avalúos) Zona homogénea geoeconómica urbana"
-    CLASS AV_Zona_Homogenea_Geoeconomica_Urbana =
-      !!@ ili2db.dispName = "Código"
-      Codigo : MANDATORY TEXT*7;
-      !!@ ili2db.dispName = "Código zona geoeconómica"
-      Codigo_Zona_Geoeconomica : MANDATORY TEXT*20;
-      !!@ ili2db.dispName = "Valor del metro cuadrado"
-      Valor_Metro : MANDATORY 0.00 .. 100000000000000000000000000000.00 [LADM_COL_V1_6.COP];
-      !!@ ili2db.dispName = "Subzona física"
-      Subzona_Fisica : TEXT;
-      !!@ ili2db.dispName = "Vigencia"
-      Vigencia : INTERLIS.XMLDate;
-      !!@ ili2db.dispName = "Geometría"
-      Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
-    END AV_Zona_Homogenea_Geoeconomica_Urbana;
-
-    /** Esta clase permite gestionar las zonas con características económicas y de localización geográfica similares, definidas para caracterizar el avalúo.
+    /** Clase que contiene las variables que componen las Zonas Homogeneas Geoconómicas rurales. Las ZHG son los espacios geográficos determinados a partir de Zonas Homogéneas Físicas con valores unitarios similares en cuanto a su precio, según las condiciones del mercado inmobiliario.
      */
-    !!@ ili2db.dispName = "(Avalúos) Zona homogénea geoeconómica rural"
-    CLASS AV_Zona_Homogenea_Geoeconomica_Rural =
+    !!@ ili2db.dispName = "(Avalúos) Zona homogénea geoeconómica urbana"
+    CLASS AV_ZonaHomogeneaGeoeconomicaUrbana =
       /** Código único del registro de la instancia de la zona geoeconómica.
        */
       !!@ ili2db.dispName = "Código"
       Codigo : MANDATORY TEXT*7;
+      /** Identificador de la zona homogénea geoeconómica urbana.
+       */
       !!@ ili2db.dispName = "Código zona geoeconómica"
       Codigo_Zona_Geoeconomica : MANDATORY TEXT*20;
       /** Valor económico de la zona homogénea que representa la instancia de la clase.
        */
-      !!@ ili2db.dispName = "Valor por hectárea"
-      Valor_Hectarea : MANDATORY 0.00 .. 100000000000000000000000000000000.00;
+      !!@ ili2db.dispName = "Valor del metro cuadrado"
+      Valor_Metro : MANDATORY 0.00 .. 100000000000000000000000000000.00 [LADM_COL_V1_6.COP];
+      /** Códigos de las zonas homogeneas fisicas urbanas que componen la zona homogénea geoeconómica urbana.
+       */
       !!@ ili2db.dispName = "Subzona física"
       Subzona_Fisica : TEXT;
+      /** Vigencia del estudio de zonas homogéneas geoeconómicas urbanas.
+       */
       !!@ ili2db.dispName = "Vigencia"
       Vigencia : INTERLIS.XMLDate;
       /** Definición de la geometría espacial georreferenciada de la zona homogénea geoeconómica, delimitada mediante un polígono que contiene sus linderos y la superficie ocupada.
        */
       !!@ ili2db.dispName = "Geometría"
       Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
-    END AV_Zona_Homogenea_Geoeconomica_Rural;
+    END AV_ZonaHomogeneaGeoeconomicaUrbana;
+
+    /** Esta clase permite gestionar las zonas con características económicas y de localización geográfica similares, definidas para caracterizar el avalúo.
+     */
+    !!@ ili2db.dispName = "(Avalúos) Zona homogénea geoeconómica rural"
+    CLASS AV_ZonaHomogeneaGeoeconomicaRural =
+      /** Código único del registro de la instancia de la zona geoeconómica.
+       */
+      !!@ ili2db.dispName = "Código"
+      Codigo : MANDATORY TEXT*7;
+      /** Identificador de la zona homogénea geoeconómica rural.
+       */
+      !!@ ili2db.dispName = "Código zona geoeconómica"
+      Codigo_Zona_Geoeconomica : MANDATORY TEXT*20;
+      /** Valor económico de la zona homogénea que representa la instancia de la clase.
+       */
+      !!@ ili2db.dispName = "Valor por hectárea"
+      Valor_Hectarea : MANDATORY 0.00 .. 100000000000000000000000000000000.00;
+      /** Códigos de las zonas homogeneas fisicas rurales que componen la zona homogénea geoeconómica rural.
+       */
+      !!@ ili2db.dispName = "Subzona física"
+      Subzona_Fisica : TEXT;
+      /** Vigencia del estudio de zonas homogéneas geoeconómicas rurales.
+       */
+      !!@ ili2db.dispName = "Vigencia"
+      Vigencia : INTERLIS.XMLDate;
+      /** Definición de la geometría espacial georreferenciada de la zona homogénea geoeconómica, delimitada mediante un polígono que contiene sus linderos y la superficie ocupada.
+       */
+      !!@ ili2db.dispName = "Geometría"
+      Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
+    END AV_ZonaHomogeneaGeoeconomicaRural;
 
   END Avaluos;
 

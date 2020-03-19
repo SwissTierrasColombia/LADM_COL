@@ -217,7 +217,7 @@ VERSION "2019-07-04"  =
     END ANT_Conflictos;
 
     !!@ ili2db.dispName = "(ANT) Interesado Caracterización"
-    CLASS ANT_Interesado_Caracterizacion =
+    CLASS ANT_InteresadoCaracterizacion =
       !!@ ili2db.dispName = "Cabeza de hogar"
       Cabeza_hogar : MANDATORY BOOLEAN;
       !!@ ili2db.dispName = "Datos alternos de contacto"
@@ -304,10 +304,10 @@ VERSION "2019-07-04"  =
       Hace_Parte_Asociacion_Economia_Campesina : MANDATORY BOOLEAN;
       !!@ ili2db.dispName = "Reside o residió en municipio en la ubicación del predio en solicitud"
       Reside_Residio_Municipio_Ubicacion_Predio_Solicitud : MANDATORY BOOLEAN;
-    END ANT_Interesado_Caracterizacion;
+    END ANT_InteresadoCaracterizacion;
 
     !!@ ili2db.dispName = "(ANT) Interesado Contacto Datos Alterno"
-    CLASS ANT_Interesado_Contacto_Datos_Alterno =
+    CLASS ANT_InteresadoContactoDatosAlterno =
       !!@ ili2db.dispName = "Primer nombre"
       Primer_Nombre : MANDATORY TEXT*100;
       !!@ ili2db.dispName = "Segundo nombre"
@@ -332,10 +332,10 @@ VERSION "2019-07-04"  =
       Vereda : TEXT*100;
       !!@ ili2db.dispName = "Corregimiento"
       Corregimiento : TEXT*100;
-    END ANT_Interesado_Contacto_Datos_Alterno;
+    END ANT_InteresadoContactoDatosAlterno;
 
     !!@ ili2db.dispName = "(ANT) Interesado - Nucleo Familiar"
-    CLASS ANT_Interesado_Nucleo_Familiar =
+    CLASS ANT_InteresadoNucleoFamiliar =
       !!@ ili2db.dispName = "Primer nombre"
       Primer_Nombre : MANDATORY TEXT*100;
       !!@ ili2db.dispName = "Segundo nombre"
@@ -370,7 +370,7 @@ VERSION "2019-07-04"  =
       Beneficiario_Atencion_Forma_Acceso_Tierra : BOOLEAN;
       !!@ ili2db.dispName = "Cuál es la ocupación actual"
       Cual_Es_La_Ocupacion_Actual : MANDATORY TEXT*500;
-    END ANT_Interesado_Nucleo_Familiar;
+    END ANT_InteresadoNucleoFamiliar;
 
     !!@ ili2db.dispName = "(ANT) Solicitud"
     CLASS ANT_Solicitud =
@@ -479,12 +479,12 @@ VERSION "2019-07-04"  =
 
     ASSOCIATION ant_interesado_caracterizacion =
       op_interesado (EXTERNAL) -- {1} Levantamiento_Catastral_V2_10.Levantamiento_Catastral.LC_Interesado;
-      ant_interesado_caracterizacion -- {0..1} ANT_Interesado_Caracterizacion;
+      ant_interesado_caracterizacion -- {0..1} ANT_InteresadoCaracterizacion;
     END ant_interesado_caracterizacion;
 
     ASSOCIATION ant_interesado_nucleofamiliar =
-      ant_interesado_caracterizacion -- {1} ANT_Interesado_Caracterizacion;
-      ant_interesado_nucleo_familiar -- {0..*} ANT_Interesado_Nucleo_Familiar;
+      ant_interesado_caracterizacion -- {1} ANT_InteresadoCaracterizacion;
+      ant_interesado_nucleo_familiar -- {0..*} ANT_InteresadoNucleoFamiliar;
     END ant_interesado_nucleofamiliar;
 
     ASSOCIATION ant_interesado_solicitud =
@@ -493,8 +493,8 @@ VERSION "2019-07-04"  =
     END ant_interesado_solicitud;
 
     ASSOCIATION ant_interesadocontacto_datosalterno =
-      op_interesado_contacto (EXTERNAL) -- {0..1} Levantamiento_Catastral_V2_10.Levantamiento_Catastral.LC_Interesado_Contacto;
-      ant_interesado_contacto_datos_alterno -- {0..*} ANT_Interesado_Contacto_Datos_Alterno;
+      op_interesado_contacto (EXTERNAL) -- {0..1} Levantamiento_Catastral_V2_10.Levantamiento_Catastral.LC_InteresadoContacto;
+      ant_interesado_contacto_datos_alterno -- {0..*} ANT_InteresadoContactoDatosAlterno;
     END ant_interesadocontacto_datosalterno;
 
     ASSOCIATION ant_predio_solicitud =
