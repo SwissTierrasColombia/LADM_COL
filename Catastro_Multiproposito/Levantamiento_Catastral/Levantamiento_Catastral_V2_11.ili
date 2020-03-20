@@ -575,137 +575,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     LC_DerechoTipo = (
       /** El dominio que se llama también propiedad es el derecho real en una cosa corporal, para gozar y disponer de ella arbitrariamente, no siendo contra ley o contra derecho ajeno. (Art. 669 CC):
-       * Tradicion
-       * Accesion Del Suelo
-       * Acta Entrega De Inmuebles A Entidad
-       * Adjudicacion Baldios
-       * Adjudicacion De Bienes Vacantes
-       * Adjudicacion De La Cosa Hipotecada
-       * Adjudicacion En Remate
-       * Adjudicacion En Sucesion
-       * Adjudicacion Liquidacion De La Comunidad
-       * Adjudicacion Liquidacion Sociedad Comercial
-       * Adjudicacion Liquidacion Sociedad Conyugal
-       * Adjudicacion Liquidacion Sociedad Patrimonial De Hecho
-       * Adjudicacion Por Expropiacion
-       * Adjudicacion Sucesion Particion Adicional
-       * Adjudicacion Unidad Agricola Familiar
-       * Adquisicion Por Absorcion De Acciones Y Patrimonio De Entidades Financieras
-       * Aporte A Sociedad
-       * Aporte De Subsidio En Especie
-       * Caducidad Administrativa
-       * Cesion A Titulo Gratuito De Bienes Fiscales
-       * Cesion De Bienes Obligatoria
-       * Cesion Obligatoria De Zonas Con Destino A Uso Publico
-       * Compraventa
-       * Compraventa Parcial
-       * Consolidacion De Dominio Pleno
-       * Constitucion De Fiducia Mercantil
-       * Dacion En Pago
-       * Dacion En Pago Obligatoria
-       * Declaracion Judicial De Pertenencia
-       * Declaratoria De Nulidad De Escritura Publica
-       * Declaratoria  De  Propiedad  Publica  Sobre  Zonas  De  Cesion  Obligatoria Gratuita
-       * Declaratoria Simulacion De Contrato
-       * Destinacion Definitiva
-       * Donacion
-       * Escision
-       * Expropiacion Por Via Admninistrativa
-       * Expropiacion Por Via Judicial
-       * Extincion Del Derecho De Dominio Privado
-       * Fusion
-       * Permuta
-       * Prescripcion Agraria
-       * Ratificacion Contrato
-       * Recuperacion Parcial Titularidad  Bien Expropiado
-       * Recuperacion Total Titularidad Bien Expropiado
-       * Renta Vitalicia
-       * Resciliacion
-       * Rescision Contrato
-       * Resolucion Contrato
-       * Restitucion En Fideicomiso Civil
-       * Restitucion En Fiducia Mercantil
-       * Reversion Del Baldio
-       * Revocacion Adjudicacion Baldios En Propiedad Colectiva A Comunidades Negras
-       * Revocatoria Administrativa
-       * Revocatoria Concursal
-       * Revocatoria Judicial
-       * Revocatoria Voluntaria
-       * Transaccion
-       * Transferencia De Dominio A Titulo De Beneficio En Fiducia Mercantil
-       * Transferencia De Dominio Por Solucion O Pago Efectivo
-       * Adjudicacion Terreno Ejido
-       * Adjudicacion Liquidacion Sociedad De Hecho
-       * Transferencia De Dominio A Titulo De Leasing Habitacional De Vivienda Familiar
-       * Transferencia De Dominio A Titulo De Leasing Habitacional De Vivienda No Familiar
-       * Entrega Anticipada De Cesiones
-       * Transferencia De Dominio De Bienes Fiscales
-       * Saneamiento Titulacion Ley No. 1561 De 2012
-       * Cesion De Baldio Urbano De La Nacion Al Municipio. Instrucción Administrativa No. 18 De 2009 (Art. 123 De La Ley 388 De 1997)
-       * "Sentencia De Extinción De Dominio En Proceso De
-       * Justicia Y Paz- Ley 975 De 2005"
-       * "Resciliacion De Negocio Jurídico En Proceso De Justicia
-       * Y Paz- Ley 975 De 2005"
-       * Acuerdo De Reorganizacion- Art. 36 Ley 1116 De 2006
-       * Acuerdo De Adjudicación- Art.37 Ley 1116 De 2006
-       * Adjudicación En Proceso De Liquidación Judicial Art. 58 Ley 1116 De 2006
-       * Restitución Derecho De Dominio Art. 86 Ley 1448 De 2011
-       * Transferencia De Dominio Por Compensación En Especie Literal J) Art.97 Ley 1448 De 2011
-       * Otorgamiento De Dominio En Comun Y Proindiviso En Proceso De Restitucion. Ad 118 De La Ley 1448 De 2011
-       * Declaratoria De Saneamiento Automatico Por Ministerio De La Ley (Ley 1682 De 2013, Decreto 737 De 2014)
-       * Transferencia A Titulo De Subsidio En Especie. ( Ley 1537 De 2012)
-       * Modificacion Fiducia Mercantil (Titulo Xi Del C. De Co.)
-       * Reconstitucion De Sociedad (Ars. 250 Y 251 Del C. De Co.)
-       * Transferencia De Domino Por Adicion A Fiducia Mercantil
-       * Comiso Definitivo ( Art.  100 De La Ley 599 De 2000, Arts. 83 ,84, 85 Y 86 De La Ley 906 De 2004 Y El Parágrafo 2 Del Artículo 67 De La Ley 600 De 2004.)
-       * Ajdjudicacion Liquidacion Organización De Accion Comunal,  Artículos 58 A 61 De La Ley 743 De 2002.
-       * Cesion A Titulo Gratuito O Declaratoria De Silencio Administrativo Positivo A Favor De Entidad De Orden Municipal O Distrital De Bienes O Terrenos Destinados O Que Tengan Vocacion De Uso Público O Zonas De Cesion  ( Art. 48 Ley 1551 De 2012)
-       * Restitucion Parte Restante De Bien Fideicomitido (Ley 1537 De 2012).
-       * Transferencia A Titulo De Leasign Inmobiliario ( Decreto 193 De 1993, Decreto 2555 De 2010)
-       * Transferencia De Dominio Por Compensacion (  Art. 1625 C.C.)
-       * Titulacion De La Posesion Material De Inmueble Urbano. (Ley 1561 De 2012)
-       * Adjudicación En Sucesión Y Liquidación De La Sociedad Conyugal Y/O Sociedad Patrimonial De Hecho
-       * Disminución De Capital Bajo La Modalidad De Reembolso De Aportes
-       * Adjudicación Expropiación Parcial
-       * Adición Adjudicación Liquidación Sociedad Catastral
-       * Partición De Patrimonio En Vida
-       * Transferencia A Titulo De Restitución En Aporte
-       * Restitución Administrativa
-       * Transferencia De Dominio Por Distribucion Anticipada De Activos Sociales
-       * Liquidacion Persona Natural No Comerciante
-       * Transferencia A Titulo  De Reverson Gratuita
-       * Transferencia A Titulo De Asignacion Por Reasentamiento Por Desastre
-       * Declaracion De Titulacion De La Posesion Y Saneamiento De La Falsa Tradicion - Decreto 902 De 2017
-       * Transferencia De Dominio A Titulo De Cesion
-       * Transferencia De Dominio Para Enajenacion Temprana
-       * Adjudicacion Sucesion Derecho De Cuota
-       * Compraventa Derechos De Cuota
-       * Deslinde Y Amojonamiento
-       * Remate Derecho De Cuota
-       * Adjudicacion Liquidacion De La Sociedad Conyugal Derecho De Cuota
-       * Declaratoria De Zona Franca
-       * Aporte A Sociedad Derechos De Cuota
-       * Dacion En Pago Derechos De Cuota
-       * Donación Derechos De Cuota
-       * Permuta Derechos De Cuota
-       * Cambio De Nombre
-       * Cambio De Razon Social
-       * Declaracion De Construccion Con Subsidio Familiar De Vivienda
-       * Declaracion De Construccion En Suelo Propio
-       * Declaracion De Mejora En Suelo Propio
-       * Declaracion Parte Restante
-       * Desenglobe
-       * Determinacion Area Y Linderos Predio Del Municipio
-       * Division Material
-       * Englobe
-       * Loteo
-       * Reloteo
-       * Restitución Material Al Propietario Del Inmueble Literal P) Art. 91 Ley 1448 De 2011
-       * Inventario De Bienes Por Declaración Judicial De Interdicción
-       * Identificacion Terreno Baldio De La Nacion - Agencia Nacional De Tierras. Solo Procedera Inscripcion De Actos Con La Expresa Autorizacion De La A.N.T O La Citade La Ley Que Asi Lo Autorice
-       * Identificacion Terreno Baldio De La Nacion - Parque Nacionales De Colombia
-       * 
-       * Códigos:
        * 
        * 0100
        * 0101
@@ -871,17 +740,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Nuda_Propiedad,
       /** El derecho de usufructo es un derecho real que consiste en la facultad de gozar de una cosa con cargo de conservar su forma y sustancia, y de restituir a su dueño, si la cosa no es fungible; o con cargo de volver igual cantidad y calidad del mismo género, o de pagar su valor si la cosa es fungible. (art. 823 CC):
        * 
-       * Compraventa Usufructo
-       * Constitucion De Usufructo
-       * Donacion Usufructo
-       * Reserva Derecho De Usufructo
-       * Adjudicación Sucesión Usufructo
-       * Remate Usufructo
-       * Adjudicación Liquidación Sociedad Conyugal Derecho De Usufructo
-       * Acrecimiento Del Usufructo
-       * 
-       * Códigos:
-       * 
        * 0310
        * 0314
        * 0323
@@ -894,21 +752,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Usufructo"
       Usufructo,
       /** Se llama mera tenencia la que se ejerce sobre una cosa, no como dueño, sino en lugar o a nombre del dueño. El acreedor prendario, el secuestre, el usufructuario, el usuario, el que tiene derecho de habitación, son meros tenedores de la cosa empeñada, secuestrada o cuyo usufructo, uso o habitación les pertenece. Lo dicho se aplica generalmente a todo el que tiene una cosa reconociendo dominio ajeno. (art. 775 CC):
-       * Titulo De Tenencia
-       * Administracion Anticretica
-       * Arrendamiento
-       * Comodato
-       * Comodato A Titulo Precario
-       * Constitucion De Leasing  Inmobiliario
-       * Destinacion Provisional
-       * "Bienes Recibidos Por El Fondo Para Reparación De
-       * Victimas"
-       * Deposito Provisional
-       * Derecho De Habitacion
-       * Derecho De Uso
-       * Constitucion Tiempo Compartido
-       * 
-       * Códigos:
        * 
        * 0500
        * 0501
@@ -926,11 +769,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Tenencia"
       Tenencia,
       /** Son las inscripciones relacionadas con subsuelo que tengan antecedente registral: 
-       * Adjudicacion Sucesion Subsuelo Con Antecedente Registral
-       * Compraventa Subsuelo Con Antecedente Registral
-       * Titulo De Minas Con Antecedente Registral
-       * 
-       * Códigos:
        * 
        * 0303
        * 0309
@@ -1509,26 +1347,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     LC_RestriccionTipo = (
       /** Es la agrupación de códigos registrales que hacen referencia a servidumbres:
-       * Medianeria
-       * Servidumbre De Acueducto Activa
-       * Servidumbre De Acueducto Pasiva
-       * Servidumbre De Aguas Negras Activa
-       * Servidumbre De Aguas Negras Pasiva
-       * Servidumbre De Aire
-       * Servidumbre De Energia Electrica
-       * Servidumbre De Gasoducto
-       * Servidumbre De Luz
-       * Servidumbre De Oleoducto
-       * Servidumbre De Transito Activa
-       * Servidumbre De Transito Pasiva
-       * Servidumbre De Agua Activa
-       * Servidumbre De Agua Pasiva
-       * Servidumbre Minera
-       * Servidumbre Legal De Hidrocarburos
-       * Servidumbre De Catenaria (Decreto 738 De 2014, Ley 1682 De 2013)
-       * Servidumbre Alcantarillado
-       * 
-       * Códigos:
        * 
        * 0325
        * 0334

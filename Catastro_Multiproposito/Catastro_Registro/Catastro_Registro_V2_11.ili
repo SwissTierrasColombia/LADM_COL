@@ -582,33 +582,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Nuda propiedad"
       Nuda_Propiedad,
       /** Es la inscripción en la Oficina de Registro de Instrumentos Públicos, de todo acto de transferencia de un derecho incompleto que se hace a favor de una persona, por parte de quien carece del derecho de dominio sobre determinado inmueble: 
-       * Falsa Tradición
-       * Adjudicacion Sucesion Derechos Y Acciones
-       * Adjudicacion Sucesion Gananciales
-       * Compraventa De Cosa Ajena
-       * Transferencia De Cuerpo Cierto Teniendo Solo Derechos De Cuota Con Antecedentes Registrales
-       * Compraventa Derechos Gananciales
-       * Compraventa Derechos Y Acciones
-       * Compraventa Posesion Con Antecedente Registral
-       * Declaracion Mejoras En Predio Ajeno  Par. Art. 5 Ley 258/96
-       * Donacion Derechos Y Acciones
-       * Donacion Gananciales
-       * Remate Derechos Y Acciones
-       * Remate Gananciales
-       * Adjudicacion Liquidacion Sociedad Conyugal Derechos Y Acciones
-       * Compraventa Mejoras En Suelo Ajeno Con Antecedente Registral
-       * Dacion En Pago De Derechos Y Acciones
-       * Transferencia De Posesion Con Antecedente Registral
-       * Declaratoria De Posesion Regular Art.1 Ley 1183 De 2008
-       * Restitución Material Al Poseedor Literal H) Art. 91 Ley 1448 De 2011
-       * Compensación Inmueble En Proceso De Restitución Literal J) Art. 91 Y Art. 97 Ley 1448 De 2011
-       * Adjudicación Liquidación Sociedad Patrimonial De Hecho, Derechos Y Acciones
-       * Decreto De Posesion Efectiva
-       * Permuta De Derechos Y Acciones
-       * "Predio Declarado En Abandono Por Poseedor-Ocupante,
-       * Tenedor O Anterior Propietario"
-       * 
-       * Códigos:
        * 
        * 0600
        * 0601
@@ -638,137 +611,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Falsa tradición"
       Falsa_Tradicion,
       /** El dominio que se llama también propiedad es el derecho real en una cosa corporal, para gozar y disponer de ella arbitrariamente, no siendo contra ley o contra derecho ajeno. (Art. 669 CC):
-       * Tradicion
-       * Accesion Del Suelo
-       * Acta Entrega De Inmuebles A Entidad
-       * Adjudicacion Baldios
-       * Adjudicacion De Bienes Vacantes
-       * Adjudicacion De La Cosa Hipotecada
-       * Adjudicacion En Remate
-       * Adjudicacion En Sucesion
-       * Adjudicacion Liquidacion De La Comunidad
-       * Adjudicacion Liquidacion Sociedad Comercial
-       * Adjudicacion Liquidacion Sociedad Conyugal
-       * Adjudicacion Liquidacion Sociedad Patrimonial De Hecho
-       * Adjudicacion Por Expropiacion
-       * Adjudicacion Sucesion Particion Adicional
-       * Adjudicacion Unidad Agricola Familiar
-       * Adquisicion Por Absorcion De Acciones Y Patrimonio De Entidades Financieras
-       * Aporte A Sociedad
-       * Aporte De Subsidio En Especie
-       * Caducidad Administrativa
-       * Cesion A Titulo Gratuito De Bienes Fiscales
-       * Cesion De Bienes Obligatoria
-       * Cesion Obligatoria De Zonas Con Destino A Uso Publico
-       * Compraventa
-       * Compraventa Parcial
-       * Consolidacion De Dominio Pleno
-       * Constitucion De Fiducia Mercantil
-       * Dacion En Pago
-       * Dacion En Pago Obligatoria
-       * Declaracion Judicial De Pertenencia
-       * Declaratoria De Nulidad De Escritura Publica
-       * Declaratoria  De  Propiedad  Publica  Sobre  Zonas  De  Cesion  Obligatoria Gratuita
-       * Declaratoria Simulacion De Contrato
-       * Destinacion Definitiva
-       * Donacion
-       * Escision
-       * Expropiacion Por Via Admninistrativa
-       * Expropiacion Por Via Judicial
-       * Extincion Del Derecho De Dominio Privado
-       * Fusion
-       * Permuta
-       * Prescripcion Agraria
-       * Ratificacion Contrato
-       * Recuperacion Parcial Titularidad  Bien Expropiado
-       * Recuperacion Total Titularidad Bien Expropiado
-       * Renta Vitalicia
-       * Resciliacion
-       * Rescision Contrato
-       * Resolucion Contrato
-       * Restitucion En Fideicomiso Civil
-       * Restitucion En Fiducia Mercantil
-       * Reversion Del Baldio
-       * Revocacion Adjudicacion Baldios En Propiedad Colectiva A Comunidades Negras
-       * Revocatoria Administrativa
-       * Revocatoria Concursal
-       * Revocatoria Judicial
-       * Revocatoria Voluntaria
-       * Transaccion
-       * Transferencia De Dominio A Titulo De Beneficio En Fiducia Mercantil
-       * Transferencia De Dominio Por Solucion O Pago Efectivo
-       * Adjudicacion Terreno Ejido
-       * Adjudicacion Liquidacion Sociedad De Hecho
-       * Transferencia De Dominio A Titulo De Leasing Habitacional De Vivienda Familiar
-       * Transferencia De Dominio A Titulo De Leasing Habitacional De Vivienda No Familiar
-       * Entrega Anticipada De Cesiones
-       * Transferencia De Dominio De Bienes Fiscales
-       * Saneamiento Titulacion Ley No. 1561 De 2012
-       * Cesion De Baldio Urbano De La Nacion Al Municipio. Instrucción Administrativa No. 18 De 2009 (Art. 123 De La Ley 388 De 1997)
-       * "Sentencia De Extinción De Dominio En Proceso De
-       * Justicia Y Paz- Ley 975 De 2005"
-       * "Resciliacion De Negocio Jurídico En Proceso De Justicia
-       * Y Paz- Ley 975 De 2005"
-       * Acuerdo De Reorganizacion- Art. 36 Ley 1116 De 2006
-       * Acuerdo De Adjudicación- Art.37 Ley 1116 De 2006
-       * Adjudicación En Proceso De Liquidación Judicial Art. 58 Ley 1116 De 2006
-       * Restitución Derecho De Dominio Art. 86 Ley 1448 De 2011
-       * Transferencia De Dominio Por Compensación En Especie Literal J) Art.97 Ley 1448 De 2011
-       * Otorgamiento De Dominio En Comun Y Proindiviso En Proceso De Restitucion. Ad 118 De La Ley 1448 De 2011
-       * Declaratoria De Saneamiento Automatico Por Ministerio De La Ley (Ley 1682 De 2013, Decreto 737 De 2014)
-       * Transferencia A Titulo De Subsidio En Especie. ( Ley 1537 De 2012)
-       * Modificacion Fiducia Mercantil (Titulo Xi Del C. De Co.)
-       * Reconstitucion De Sociedad (Ars. 250 Y 251 Del C. De Co.)
-       * Transferencia De Domino Por Adicion A Fiducia Mercantil
-       * Comiso Definitivo ( Art.  100 De La Ley 599 De 2000, Arts. 83 ,84, 85 Y 86 De La Ley 906 De 2004 Y El Parágrafo 2 Del Artículo 67 De La Ley 600 De 2004.)
-       * Ajdjudicacion Liquidacion Organización De Accion Comunal,  Artículos 58 A 61 De La Ley 743 De 2002.
-       * Cesion A Titulo Gratuito O Declaratoria De Silencio Administrativo Positivo A Favor De Entidad De Orden Municipal O Distrital De Bienes O Terrenos Destinados O Que Tengan Vocacion De Uso Público O Zonas De Cesion  ( Art. 48 Ley 1551 De 2012)
-       * Restitucion Parte Restante De Bien Fideicomitido (Ley 1537 De 2012).
-       * Transferencia A Titulo De Leasign Inmobiliario ( Decreto 193 De 1993, Decreto 2555 De 2010)
-       * Transferencia De Dominio Por Compensacion (  Art. 1625 C.C.)
-       * Titulacion De La Posesion Material De Inmueble Urbano. (Ley 1561 De 2012)
-       * Adjudicación En Sucesión Y Liquidación De La Sociedad Conyugal Y/O Sociedad Patrimonial De Hecho
-       * Disminución De Capital Bajo La Modalidad De Reembolso De Aportes
-       * Adjudicación Expropiación Parcial
-       * Adición Adjudicación Liquidación Sociedad Catastral
-       * Partición De Patrimonio En Vida
-       * Transferencia A Titulo De Restitución En Aporte
-       * Restitución Administrativa
-       * Transferencia De Dominio Por Distribucion Anticipada De Activos Sociales
-       * Liquidacion Persona Natural No Comerciante
-       * Transferencia A Titulo  De Reverson Gratuita
-       * Transferencia A Titulo De Asignacion Por Reasentamiento Por Desastre
-       * Declaracion De Titulacion De La Posesion Y Saneamiento De La Falsa Tradicion - Decreto 902 De 2017
-       * Transferencia De Dominio A Titulo De Cesion
-       * Transferencia De Dominio Para Enajenacion Temprana
-       * Adjudicacion Sucesion Derecho De Cuota
-       * Compraventa Derechos De Cuota
-       * Deslinde Y Amojonamiento
-       * Remate Derecho De Cuota
-       * Adjudicacion Liquidacion De La Sociedad Conyugal Derecho De Cuota
-       * Declaratoria De Zona Franca
-       * Aporte A Sociedad Derechos De Cuota
-       * Dacion En Pago Derechos De Cuota
-       * Donación Derechos De Cuota
-       * Permuta Derechos De Cuota
-       * Cambio De Nombre
-       * Cambio De Razon Social
-       * Declaracion De Construccion Con Subsidio Familiar De Vivienda
-       * Declaracion De Construccion En Suelo Propio
-       * Declaracion De Mejora En Suelo Propio
-       * Declaracion Parte Restante
-       * Desenglobe
-       * Determinacion Area Y Linderos Predio Del Municipio
-       * Division Material
-       * Englobe
-       * Loteo
-       * Reloteo
-       * Restitución Material Al Propietario Del Inmueble Literal P) Art. 91 Ley 1448 De 2011
-       * Inventario De Bienes Por Declaración Judicial De Interdicción
-       * Identificacion Terreno Baldio De La Nacion - Agencia Nacional De Tierras. Solo Procedera Inscripcion De Actos Con La Expresa Autorizacion De La A.N.T O La Citade La Ley Que Asi Lo Autorice
-       * Identificacion Terreno Baldio De La Nacion - Parque Nacionales De Colombia
-       * 
-       * Códigos:
        * 
        * 0100
        * 0101
@@ -902,17 +744,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Dominio,
       /** El derecho de usufructo es un derecho real que consiste en la facultad de gozar de una cosa con cargo de conservar su forma y sustancia, y de restituir a su dueño, si la cosa no es fungible; o con cargo de volver igual cantidad y calidad del mismo género, o de pagar su valor si la cosa es fungible. (art. 823 CC):
        * 
-       * Compraventa Usufructo
-       * Constitucion De Usufructo
-       * Donacion Usufructo
-       * Reserva Derecho De Usufructo
-       * Adjudicación Sucesión Usufructo
-       * Remate Usufructo
-       * Adjudicación Liquidación Sociedad Conyugal Derecho De Usufructo
-       * Acrecimiento Del Usufructo
-       * 
-       * Códigos:
-       * 
        * 0310
        * 0314
        * 0323
@@ -925,21 +756,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Usufructo"
       Usufructo,
       /** Se llama mera tenencia la que se ejerce sobre una cosa, no como dueño, sino en lugar o a nombre del dueño. El acreedor prendario, el secuestre, el usufructuario, el usuario, el que tiene derecho de habitación, son meros tenedores de la cosa empeñada, secuestrada o cuyo usufructo, uso o habitación les pertenece. Lo dicho se aplica generalmente a todo el que tiene una cosa reconociendo dominio ajeno. (art. 775 CC):
-       * Titulo De Tenencia
-       * Administracion Anticretica
-       * Arrendamiento
-       * Comodato
-       * Comodato A Titulo Precario
-       * Constitucion De Leasing  Inmobiliario
-       * Destinacion Provisional
-       * "Bienes Recibidos Por El Fondo Para Reparación De
-       * Victimas"
-       * Deposito Provisional
-       * Derecho De Habitacion
-       * Derecho De Uso
-       * Constitucion Tiempo Compartido
-       * 
-       * Códigos:
        * 
        * 0500
        * 0501
@@ -957,9 +773,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Tenencia"
       Tenencia,
       /** Son las inscripciones relacionadas con subsuelo que tengan antecedente registral: 
-       * Adjudicacion Sucesion Subsuelo Con Antecedente Registral
-       * Compraventa Subsuelo Con Antecedente Registral
-       * Titulo De Minas Con Antecedente Registral
        * 
        * Códigos:
        * 
@@ -1470,33 +1283,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     CR_PublicidadTipo = (
       /** Se refiere a la agrupación de códigos de naturaleza jurídica de demanda: 
-       * Demanda En Accion De Simulacion
-       * Demanda En Accion Revocatoria
-       * Demanda En Acuerdo De Reestructuracion
-       * Demanda En Proceso De Declaratoria De Union Marital De Hecho
-       * Demanda En Proceso De Deslinde Y Amojonamiento
-       * Demanda En Proceso De Divorcio
-       * Demanda En Proceso De Pertenencia
-       * Demanda En Proceso De Separacion De Cuerpos
-       * Demanda En Proceso De Servidumbres
-       * Demanda En Proceso Divisorio
-       * Demanda En Proceso Separacion De Bienes
-       * Demanda Ordinaria De Enriquecimiento Sin Justa Causa
-       * Demanda Ordinaria Por Lesion Enorme
-       * Demanda Por Expropiacion
-       * Demanda Por Ineficacia Del Acuerdo De Reestructuracion
-       * Inscripcion De La Demanda En Proceso Arbitral ( Artículo 32 De La Ley 1563 De 2012, Artículo 590 Del Código General Del Proceso)
-       * Demanda De Accion De Peticion De Herencia
-       * Demanda En Proceso Ordinario
-       * Demanda En Proceso Reivindicatorio
-       * Demanda En Proceso Liquidatorio
-       * Demanda Proceso Especial De Saneamiento De La Titulacion De La Propiedad Inmueble Art. 14 De La Ley 1561 De 2012
-       * Demanda En Proceso Verbal De Responsabilidad Civil Extracontractual ( Código General Del Proceso Art.590)
-       * Demanda En Proceso Verbal
-       * Demanda En Proceso Monitorio
-       * Demanda En Proceso Declarativo
-       * 
-       * Códigos:
        * 
        * 0406
        * 0407
@@ -1527,27 +1313,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Demanda"
       Demanda,
       /** Se refiere a la agrupación de códigos de iniciación de procesos administrativos: 
-       * Declaratoria De Interes Social
-       * Declaratoria De Utilidad Publica
-       * Iniciacion Del Proceso De Enajenacion Forzosa
-       * Iniciacion Diligencias Administrativas De Clarificacion De La Propiedad
-       * Iniciacion Diligencias Administrativas Deslinde De Tierras De Propiedad  De La Nacion
-       * Iniciacion Diligencias Administrativas Por Indebida Ocupacion De Baldios
-       * Iniciacion Procedimiento De Expropiacion Por Via Administrativa
-       * Iniciacion Procedimiento De Extincion Del Derecho De  Dominio
-       * Iniciacion Proceso Administrativo De Adquisicion
-       * Inicio De Proceso De Liquidación Judicial  Art. 47 Ley 1116 De 2006
-       * Inicio Del Proceso De Reorganización
-       * Deslinde De Terreno De Propiedad De La Nacion
-       * Iniciación Proceso De Clarificación De La Propiedad Art. 4 Decreto 2663 De 1991
-       * Proceso De Clarificacion - Vigencia Del Titulo De Origen Colonial O Republicano
-       * Proceso  De Clarificacion - El Predio No Ha Salido Del Dominio Del Estado
-       * Identidad Registral A Predio Con Presunción De Baldio
-       * Inicio De Procedimiento De Revocatoria Directa A La Adjudicacion Del Baldio Por Afectacion Del Derecho De Dominio ( Decreto 1465 De 2013).
-       * Apertura Del Procedimiento Unico De Ordenamiento Social De La Propiedad Rural
-       * Inicio De Proceso De Intervencion
-       * 
-       * Códigos:
        * 
        * 0403
        * 0404
@@ -1572,24 +1337,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Inicio de proceso administrativo"
       Inicio_Proceso_Administrativo,
       /** Se refiere a la agrupación de códigos de cancelaciones: 
-       * Cancelacion Providencia Judicial
-       * Cancelacion Providencia Administrativa
-       * Cancelacion Por Voluntad De Las Partes
-       * Levantamiento De Declaratoria De Inminencia De Riesgo O Desplazamiento Forzado
-       * Cancelacion De Prohibicion De Enajenar Predio Declarado En Abandono
-       * Cancelacion Proteccion Juridica Del Predio Art. 17 Decreto 4829 De 2011
-       * Cancelación Solicitud De Restitución
-       * Cancelación Sustracción Provisional Del Comercio En Proceso De Restitucion
-       * Cancelación Inscripciones En Proceso De Restitucion Literal N) Art. 91 Ley 1448 De 2011
-       * Sustraccion De Area De Reserva Forestal Protectora
-       * Sustraccion De Area De Distritos De Manejo Integrado
-       * Sustraccion De Area De Distritos De Conservacion De Suelos
-       * Sustraccion De Area De Areas De Recreacion.
-       * Sustraccion De Area De Reservas Naturales De La Sociedad Civil.
-       * Cancelacion Parcial
-       * Cancelacion Por Orden Judicial
-       * 
-       * Códigos:
        * 
        * 0841
        * 0842
@@ -1611,19 +1358,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Cancelación"
       Cancelacion,
       /** Es la agrupación de códigos que publicitan asuntos relacionados con desplazamiento, ley de víctimas o restitución: 
-       * Autorizacion De Enajenar Dada Por El Comité De Atencion De La Poblacion Desplazada
-       * Informe Del Comité De Atencion De La Poblacion Desplazada De  Poseedor - Ocupante O Tenedor De Predio
-       * Bienes Denunciados Ante La Fiscalia Como Despojados
-       * "Bienes Entregados Por Postulados Para Reparación De
-       * Victimas"
-       * Predio Ingresado Al Registro De Tierras Despojadas Art. 17 Decreto 4829 De 2011
-       * Identidad De Inmueble En Proceso De Restitucion De Tierras Nº2 Art 13 Decreto 4829 De 2011
-       * Inscripcion De Denuncia De Desplazamiento Y Usurpacion De Bienes
-       * Proteccion Juridica Del Predio Art. 13 No. 2o.Decreto 4829 De 2011
-       * Protección Jurídica Del Predio
-       * Admision Solicitud De Restitucion De Predio - Literal A) Art. 86 Ley 1448 De 2011
-       * 
-       * Códigos:
        * 
        * 0928
        * 0930
@@ -1639,30 +1373,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Desplazamiento forzado, victimas o restitución"
       Victima_Restitucion,
       /** Es la agrupación de codigos que publicitan actos jurídicos en los FMI:
-       * Otro
-       * Aclaracion
-       * Correccion Del Titulo Respecto A Los Linderos Y Area (Art. 49 Del Decreto 2148 De 1983)
-       * Actualizacion De Linderos
-       * Actualizacion De Nomenclatura
-       * Autorizacion Registro
-       * Confirmacion Sentencia
-       * Permiso Constituir Gravamen
-       * Permiso Venta
-       * Declaracion Extincion Obligacion Hipotecaria
-       * Autorizacion Cambio De Destinacion Y Sustraccion Del Regimen De Unidad Agricola Familiar
-       * Intencion De Adelantar Saneaminento Automatico ( Artículo 4 Decreto 737 De 2014)
-       *  Levantamiento De Declaracion De Desarrollo O Construccion Prioritaria ( Arts. 52 Y Siguientes De La Ley 388 De 1997,Adicionados Por El Artículo 64 De La Ley 1537 De 2012. Decretos  Distritales 161 De 1999 Y 502 De 2003).
-       * Actualizacion Cedula Catastral
-       * Certificación Tecnica De Ocupación
-       * Rectificacion  Administrativa De Area Y Linderos
-       * Declaratoria - Este Predio Salio Del Dominio De La Nacion Y En Consecuencia Conserva Su Calidad De Bien Privado
-       * Cesion De Posicion Contractual En Servidumbre
-       * Se Determina La Existencia De Derecho Real Antes Del 5 De Agosto De 1974
-       * Autorizacion De Enajenacion Temprana
-       * Suspension Exigibilidad De Gravamenes Y Garantias Reales Y Fiduciarias
-       * Proteccion Del Domicilio (Art. 82 Codigo Nacional De Policia Y Convivencia)
-       * 
-       * Códigos:
        * 
        * 0900
        * 0901
@@ -1758,14 +1468,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     CR_ResponsabilidadTipo = (
       /** Es la agrupación de códigos registrales que indican una obligacion de hacer frente al inmueble originada en un contrato o documento privado por voluntad de las partes:
-       * Condicion Resolutoria Expresa
-       * Condicion Suspensiva
-       * Constitucion De Fideicomiso Civil
-       * Pacto De Reserva De Dominio
-       * Pacto De Retroventa
-       * Cesion De Posicion Contractual De Fiduciario
-       * 
-       * Códigos:
        *  
        * 0311
        * 0312
@@ -1777,16 +1479,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Contractual"
       Contractual,
       /** Es la agrupación de códigos registrales que indican una obligacion de hacer frente al inmueble originada en una orden administrativa:
-       * Constitucion De Movilizacion
-       * Valorizacion
-       * Liquidacion Del Efecto De Plusvalia
-       * Pacto Comisorio
-       * Derecho De Preferencia "Art. 21 Ley 1537 De 2012 Que Modifico El Art. 8 De La Ley 3 De 1991"
-       * Derecho De Opción Adquisición Conforme Art. 73 Ley 160/94
-       * Derecho De Preferencia
-       * "Liquidacion De Revision Art.719-1 Y 719-2 Del Estatuto Tributario"
-       * 
-       * Códigos:
        * 
        * 0202
        * 0212
@@ -1800,9 +1492,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Administrativa"
       Administrativa,
       /** Es la agrupación de códigos registrales que indican una obligacion de hacer frente al inmueble originada en una orden judicial:
-       * Beneficio De Separación
-       * 
-       * Código:
        * 
        * 0216
        */
@@ -1812,26 +1501,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     CR_RestriccionTipo = (
       /** Es la agrupación de códigos registrales que hacen referencia a servidumbres:
-       * Medianeria
-       * Servidumbre De Acueducto Activa
-       * Servidumbre De Acueducto Pasiva
-       * Servidumbre De Aguas Negras Activa
-       * Servidumbre De Aguas Negras Pasiva
-       * Servidumbre De Aire
-       * Servidumbre De Energia Electrica
-       * Servidumbre De Gasoducto
-       * Servidumbre De Luz
-       * Servidumbre De Oleoducto
-       * Servidumbre De Transito Activa
-       * Servidumbre De Transito Pasiva
-       * Servidumbre De Agua Activa
-       * Servidumbre De Agua Pasiva
-       * Servidumbre Minera
-       * Servidumbre Legal De Hidrocarburos
-       * Servidumbre De Catenaria (Decreto 738 De 2014, Ley 1682 De 2013)
-       * Servidumbre Alcantarillado
-       * 
-       * Códigos:
        * 
        * 0325
        * 0334
@@ -1855,12 +1524,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Servidumbre de paso"
       Servidumbre,
       /** Es la agrupación de códigos registrales que hacen referencia a afectaciones de interes general:
-       * Declaratoria De Bien Inmueble De Interés Cultural
-       * Afectacion Por Causa De Una Obra Publica
-       * Declaratoria De Bien Inmueble De Interes Cultural Numeral 1.2. Art. 7 De La Ley 1185 De 2008
-       * Declaratoria De Bien Existencia Del Plan Especial De Manejo Y Proteccion Numeral 1.2. Art. 7 De La Ley 1185 De 2008
-       * 
-       * Códigos:
        * 
        * 0973
        * 0305
@@ -1870,24 +1533,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Afectaciones de interés general"
       Afectaciones_Interes_General,
       /** Es la agrupación de códigos registrales que hacen referencia a restricciones de tipo ambiental:
-       * Declaracion, Alinderacion Y Creacion De Reserva Forestal Y Protectora.
-       * Declaracion De Reserva, Alinderacion Y Creacion De Parques Naturales Regionales
-       * Declaración, Alinderación Y Creación De Reservas Naturales De La Sociedad Civil.
-       * Declaracion De Reserva, Alinderacion Y Creacion De Area Del Sistema De Parques Nacionales Y Naturales
-       * Declaración, Alinderación Y Creación De Distritos De Conservación De Suelos
-       * Declaración, Alinderación Y Creación De Areas De Recreación
-       * Declaración, Alinderación Y Creación De Reservas Naturales De La Sociedad Civil
-       * Declaracion, Alinderacion Y Creacion De Distritos De Manejo Integrado
-       * Protección Provisional De La Posesión De Territorios Ancestrales Y/O Tradicionales Por Pueblos Indigenas
-       * Reservas Forestales Productoras (Ley 1076 De 2015)
-       * Reservas Forestales Protectoras- Productoras (Ley 1076 De 2016)
-       * Declaratorias De Rondas Hidricas (Ley 1076 De 2015 )
-       * Reservas Hidricas (Ley 1076 De 2015)
-       * Identificacion Y Delimitacion De Una Zona De Interes De Desarrollo Rural, Economico Y Social, Zidres
-       * Declaratoria De Existencia Del Plan Especial De Manejo Y Protección - Pemp.
-       * Declaración, Alineación Y Creación De Reserva Forestal Protectora
-       * 
-       * Códigos:
        * 
        * 0363
        * 0364
@@ -1909,17 +1554,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Ambientales"
       Ambientales,
       /** Es la agrupación de códigos registrales que hacen referencia a restricciones u obligaciones de abstenerse frente a la propiedad por asuntos relacionados con desplazamiento, ley de víctimas o restitución de tierras: 
-       * Abstenerse Inscribir  Enajenaciones Por Declaratoria Inminencia De Riesgo O Desplazamiento Forzado
-       * Prohibición De Enajenar Derechos Inscritos En Predio Declarado  Abandonado Por El Titular
-       * Sustraccion Provisional Del Comercio En Proceso De Restitucion Literal B) Art. 86 Ley 1448 De 2011
-       * No Negociable Por Acto Entre Vivos Dentro De Los Dos Años Siguiente A La Ejecutoria De La Restitucion O Entrega Del Inmueble, Art. 101 Ley 1448 De 2011
-       * "Declaratoria De Zonas De Inminencia De Riesgo De Desplazamiento Y De Des
-       * Plazamiento Forzado"
-       * Declaratoria De Inminencia De Riesgo O Desplazamiento Forzado En Territorio Etnico
-       * Medida De Protección A Solicitud De La Comunidad Indigena
-       * Medida De Protección A Solicitud De Comunidades Negras.
-       * 
-       * Códigos:
        * 
        * 0470
        * 0474
@@ -1933,43 +1567,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Desplazamiento forzado restitución"
       Desplazamiento_Forzado_Restitucion,
       /** Es la agrupación de códigos registrales que hacen referencia a embargos:
-       * Embargo De Alimentos
-       * Embargo De Bienes Y Haberes De Propiedad Del  Intervenido
-       * Embargo De La Sucesion
-       * Embargo Derechos Y Acciones Por Garantia Hipotecaria
-       * Embargo Ejecutivo  Con Accion Personal
-       * Embargo Ejecutivo Con Accion Mixta
-       * Embargo Ejecutivo Con Accion Real
-       * Embargo Ejecutivo Derechos De Cuota
-       * Embargo En Accion De Simulacion
-       * Embargo En Accion Revocatoria
-       * Embargo En Acuerdo De Reestructuracion
-       * Embargo En Liquidacion Obligatoria
-       * Embargo En Proceso De Divorcio
-       * Embargo En Proceso De Fiscalia
-       * Embargo En Proceso De Separacion De Bienes
-       * Embargo Especial Art. 66 Codigo De Procedimiento Penal (Ley 600/2000)
-       * Embargo Laboral
-       * Embargo Penal
-       * Embargo Por Ineficacia Del Acuerdo De Reestructuracion
-       * Embargo Por Jurisdiccion Coactiva
-       * Embargo Por Valorizacion
-       * Embargo En Proceso De Jurisdiccion Voluntaria
-       * Embargo En Proceso Ordinario
-       * Embargo Proceso Abreviado
-       * Embargo Proceso De Reorganizacion Ley 1116 De 2006
-       * Embargo Proceso Art. 95 De La Ley 1306 De 2009
-       * Embargo En Proceso De Justicia Y Paz — Ley 1592 De 2012
-       * Embargo En Proceso De Responsabilidad Fiscal
-       * Embargo En Proceso De Liquidacion Judicial  ( Artículo 50, En Concordancia Con El Artículo 54 De La Ley 1116 De 2006)
-       * Embargo Derechos De Cuota
-       * Embargo En Proceso Divisorio
-       * Embargo En Proceso Verbal
-       * Embargo En Proceso Declarativo
-       * Embargo En Proceso Liquidatorio
-       * Embargo En Proceso Monitorio
-       * 
-       * Códigos:
        * 
        * 0423
        * 0424
@@ -2010,22 +1607,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Embargo"
       Embargo,
       /** Es la agrupación de códigos registrales que hacen referencia a propiedad horizontal, uso del suelo, urbanismo:
-       * Cambio Regimen De Copropiedad
-       * Constitucion Regimen De Condominio
-       * Constitucion Reglamento De Propiedad Horizontal
-       * Reforma Regimen De Condominio
-       * Reforma Reglamento De Propiedad Horizontal
-       * Adicion Regimen De Condominio
-       * Adicion Regimen De Propiedad Horizontal
-       * Constitucion De Urbanizacion
-       * Delimitacion Unidad De Actuacion Urbanistica
-       * Reglamentacion Urbanistica Especial
-       *  Declaracion De Desarrollo O Construccion Prioritaria ( Arts. 52 Y Siguientes De La Ley 388 De 1997,Adicionados Por El Artículo 64 De La Ley 1537 De 2012,  Decretos  Distritales 161 De 1999 Y 502 De 2003).
-       * Cambio De Uso Del Suelo
-       * Suelo Destinado Para El Desarrollo De Proyecto De Vis O Vip
-       * Constitución De Parcelación
-       * 
-       * Códigos:
        * 
        * 0306
        * 0316
@@ -2045,36 +1626,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Propiedad horizontal y urbanismo"
       Propiedad_Horizontal_Urbanismo,
       /** Es la agrupación de códigos registrales que hacen referencia a prohibiciones expresas de origen administrativo, contractual o judicial:
-       * declaratoria de indivision
-       * pacto de indivision
-       * prohibicion de transferencia "art. 21 ley 1537 de 2012 que modifico el art. 8 de la ley 3 de 1991"
-       * durante los cinco (5) años siguientes a la  adjudicación, sólo podrá hipotdecarse para créditos agropecuarios con entidades financieras (art. 73 ley 160/94)
-       * prohibición de transferencia
-       * limitacion al dominio
-       * comiso especial
-       * declaracion no podra rematarse, adjudicarse, ni  enajenarse a ningun titulo bienes del garante
-       * decomiso de bienes
-       * oferta de compra en bien rural
-       * oferta de compra en bien urbano
-       * prevencion no procede la realizacion de nuevos embargos sobre bienes de  la intervenida
-       * prohibicion administrativa
-       * prohibicion cancelacion gravamenes constituidos a favor de intervenida  sin autorizacion liquidador
-       * prohibicion enajenar sin autorizacion
-       * prohibicion gravar, ceder, limitar o arrendar sin autorizacion
-       * prohibicion  inscripcion actos afecten dominio de bienes intervenida  salvo lo realizado por agente especial
-       * prohibicion judicial
-       * prohibicion  registro actos afecten dominio bienes propiedad de intervenida salvo autorizacion liquidador
-       * toma  de  posesion  inmediata  de bienes, haberes  y  negocios  de  entidad vigilada
-       * suspension provisional a la libre disposicion de dominio en proceso de justicia y paz - ley 975 de 2005
-       * liquidacion forzosa administrativa
-       * prohibicion fraccionamiento predio en area inferior a uaf de zona o municipio, salvo autorizacion incoder o excepciones arto 45 ley 160/94 ( arto 72 ley 160/94)
-       * prohibición de enajenar art. 97 ley 906 de 2004
-       * suspensión del poder dispositivo
-       * medida cautelar
-       * prohibicion de aportar baldio a sociedad o comunidad, si con ellas dichas sociedades o comunidades consolidan propiedad sobre area que exceda a uaf (arto. 72 ley 160 de 1994)
-       * prohibicion adquisicion de predios adjudicados incialmente como baldios si las extensiones exceden los limites maximos para la titulacion  señalados por la junta directiva para las uaf del respectivo municipio o region (arto. 72 ley 160 de 1994).
-       * 
-       * Códigos:
        * 
        * 0306
        * 0316
@@ -2123,24 +1674,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Prohibiciones expresas"
       Prohibiciones_Expresas,
       /** Es la agrupación de códigos registrales que hacen referencia a hipotecas:
-       * Gravamen
-       * Ampliacion De Hipoteca
-       * Hipoteca
-       * Hipoteca Abierta
-       * Hipoteca Con Cuantia Indeterminada
-       * Hipoteca De Bienes En Usufructo
-       * Hipoteca De Derechos Y Acciones
-       * Hipoteca De Gananciales
-       * Hipoteca De Minas Con Antecedente Registral
-       * Hipoteca De Unidad Agricola Familiar
-       * Hipoteca Derechos De Cuota
-       * Hipoteca Nuda Propiedad
-       * Conservacion De La Calidad De Acreedor Hipotecario (Art. 3 Ley 1555 De 2012, Art. 2.2.6.14.6 Decreto 1310 De 2015).
-       * Ratificacion Ampliación Hipoteca
-       * Ratificación Hipoteca
-       * Hipoteca Abierta Sin Límite De Cuantía
-       * 
-       * Códigos:
        * 
        * 0200
        * 0201
@@ -2162,13 +1695,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Hipoteca"
       Hipoteca,
       /** Es la agrupación de códigos registrales que hacen referencia a restricciones en la propiedad relacionadas con la proteccion a la familia: 
-       * Afectacion A Vivienda Familiar
-       * Constitucion Patrimonio De Familia
-       * Abstenerse De Inscribir Nuevos Embargos
-       * Afectacion  A Vivienda Familiar Sobre Mejoras En Predio Ajeno Par.  Art.  5  Ley 258/96
-       * Patrimonio De Familia Sobre Mejoras En Predio Ajeno  Par. Art. 5 Ley 258/96
-       * 
-       * Códigos:
        * 
        * 0304
        * 0315
