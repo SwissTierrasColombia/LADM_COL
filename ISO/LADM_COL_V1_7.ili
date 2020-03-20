@@ -26,7 +26,7 @@ INTERLIS 2.3;
  * 
  * -----------------------------------------------------------
  */
-MODEL LADM_COL_V1_6 (es)
+MODEL LADM_COL_V1_7 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V1.2.0"  // 2019-08-13 // =
   IMPORTS ISO19107_PLANAS_V1;
@@ -343,7 +343,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
 
     STRUCTURE COL_AreaValor =
       !!@ ili2db.dispName = "Área"
-      areaSize : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_6.m2];
+      areaSize : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_7.m2];
       !!@ ili2db.dispName = "Tipo"
       type : MANDATORY COL_AreaTipo;
     END COL_AreaValor;
@@ -472,7 +472,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
         Telecomunicacion
       );
 
-      Peso = 0.0 .. 999999999999999.0 [LADM_COL_V1_6.COP];
+      Peso = 0.0 .. 999999999999999.0 [LADM_COL_V1_7.COP];
 
     /** Registro de la fórmula o procedimiento utilizado en la transformación y de su resultado.
      */
@@ -480,7 +480,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Fórmula o procedimiento utilizado en la transformación.
        */
       !!@ ili2db.dispName = "Transformación"
-      Transformacion : MANDATORY LADM_COL_V1_6.LADM_Nucleo.CC_MetodoOperacion;
+      Transformacion : MANDATORY LADM_COL_V1_7.LADM_Nucleo.CC_MetodoOperacion;
       /** Geometría una vez realizado el proceso de transformación.
        */
       !!@ ili2db.dispName = "Localización transformada"
@@ -491,7 +491,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
      */
     STRUCTURE ExtUnidadEdificacionFisica =
       !!@ ili2db.dispName = "Ext dirección id"
-      Ext_Direccion_ID : LADM_COL_V1_6.LADM_Nucleo.ExtDireccion;
+      Ext_Direccion_ID : LADM_COL_V1_7.LADM_Nucleo.ExtDireccion;
     END ExtUnidadEdificacionFisica;
 
     /** Referencia a una imagen mediante su url.
@@ -533,11 +533,11 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Identificador externo del interesado.
        */
       !!@ ili2db.dispName = "Ext dirección id"
-      Ext_Direccion_ID : LADM_COL_V1_6.LADM_Nucleo.ExtDireccion;
+      Ext_Direccion_ID : LADM_COL_V1_7.LADM_Nucleo.ExtDireccion;
       /** Imagen de la huella dactilar del interesado.
        */
       !!@ ili2db.dispName = "Huella dactilar"
-      Huella_Dactilar : LADM_COL_V1_6.LADM_Nucleo.Imagen;
+      Huella_Dactilar : LADM_COL_V1_7.LADM_Nucleo.Imagen;
       /** Campo de nombre del interesado.
        */
       !!@ ili2db.dispName = "Nombre"
@@ -545,11 +545,11 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Fotografía del interesado.
        */
       !!@ ili2db.dispName = "Fotografía"
-      Fotografia : LADM_COL_V1_6.LADM_Nucleo.Imagen;
+      Fotografia : LADM_COL_V1_7.LADM_Nucleo.Imagen;
       /** Firma del interesado.
        */
       !!@ ili2db.dispName = "Firma"
-      Firma : LADM_COL_V1_6.LADM_Nucleo.Imagen;
+      Firma : LADM_COL_V1_7.LADM_Nucleo.Imagen;
       /** Ruta de almacenamiento del documento escaneado del interesado.
        */
       !!@ ili2db.dispName = "Documento escaneado"
@@ -566,7 +566,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Identificador de referencia a un interesado externo que es el administrador.
        */
       !!@ ili2db.dispName = "Ext interesado administrador id"
-      Ext_Interesado_Administrador_ID : LADM_COL_V1_6.LADM_Nucleo.ExtInteresado;
+      Ext_Interesado_Administrador_ID : LADM_COL_V1_7.LADM_Nucleo.ExtInteresado;
     END ExtRedServiciosFisica;
 
     /** Referencia a clase externa desde donde se gestiona el repositorio de archivos.
@@ -610,7 +610,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Identificador del archivo fuente controlado por una clase externa.
        */
       !!@ ili2db.dispName = "Ext archivo id"
-      Ext_Archivo_ID : LADM_COL_V1_6.LADM_Nucleo.ExtArchivo;
+      Ext_Archivo_ID : LADM_COL_V1_7.LADM_Nucleo.ExtArchivo;
       /** Tipo de formato en el que es presentada la fuente, de acuerdo con el registro de metadatos.
        */
       !!@ ili2db.dispName = "Tipo principal"
@@ -659,7 +659,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Registros del área en diferentes sistemas.
        */
       !!@ ili2db.dispName = "Área"
-      Area : LIST {0..*} OF LADM_COL_V1_6.LADM_Nucleo.COL_AreaValor;
+      Area : LIST {0..*} OF LADM_COL_V1_7.LADM_Nucleo.COL_AreaValor;
       /** Dimensión del objeto.
        */
       !!@ ili2db.dispName = "Dimensión"
@@ -667,7 +667,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Corresponde al atributo extAddressID de la clase en LADM.
        */
       !!@ ili2db.dispName = "Ext dirección id"
-      Ext_Direccion_ID : LIST {0..*} OF LADM_COL_V1_6.LADM_Nucleo.ExtDireccion;
+      Ext_Direccion_ID : LIST {0..*} OF LADM_COL_V1_7.LADM_Nucleo.ExtDireccion;
       /** Corresponde al atributo label de la clase en LADM.
        */
       !!@ ili2db.dispName = "Etiqueta"
@@ -679,7 +679,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Corresponde al atributo volume de la clase en LADM.
        */
       !!@ ili2db.dispName = "Volumen"
-      Volumen : LIST {0..*} OF LADM_COL_V1_6.LADM_Nucleo.COL_VolumenValor;
+      Volumen : LIST {0..*} OF LADM_COL_V1_7.LADM_Nucleo.COL_VolumenValor;
       /** Materializacion del metodo createArea(). Almacena de forma permanente la geometría de tipo poligonal.
        */
       !!@ ili2db.dispName = "Geometría"
@@ -715,7 +715,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Identificador de la unidad de edificación.
        */
       !!@ ili2db.dispName = "Ext unidad edificación física id"
-      Ext_Unidad_Edificacion_Fisica_ID : LADM_COL_V1_6.LADM_Nucleo.ExtUnidadEdificacionFisica;
+      Ext_Unidad_Edificacion_Fisica_ID : LADM_COL_V1_7.LADM_Nucleo.ExtUnidadEdificacionFisica;
       /** Tipo de unidad de edificación de la que se trata.
        */
       !!@ ili2db.dispName = "Tipo"
@@ -734,7 +734,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Identificador de la red física hacia una referencia externa.
        */
       !!@ ili2db.dispName = "Ext id red física"
-      ext_ID_Red_Fisica : LADM_COL_V1_6.LADM_Nucleo.ExtRedServiciosFisica;
+      ext_ID_Red_Fisica : LADM_COL_V1_7.LADM_Nucleo.ExtRedServiciosFisica;
       /** Estado de operatividad de la red.
        */
       !!@ ili2db.dispName = "Estado"
@@ -853,7 +853,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Transformación y Resultado.
        */
       !!@ ili2db.dispName = "Transformación y resultado"
-      Transformacion_Y_Resultado : LIST {0..*} OF LADM_COL_V1_6.LADM_Nucleo.COL_Transformacion;
+      Transformacion_Y_Resultado : LIST {0..*} OF LADM_COL_V1_7.LADM_Nucleo.COL_Transformacion;
       /** Geometria punto para administración de los objetos: punto de lindero, punto levantamiento y punto de control.
        */
       !!@ ili2db.dispName = "Geometría"
@@ -982,7 +982,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Identificador del interesado.
        */
       !!@ ili2db.dispName = "Ext PID"
-      ext_PID : LADM_COL_V1_6.LADM_Nucleo.ExtInteresado;
+      ext_PID : LADM_COL_V1_7.LADM_Nucleo.ExtInteresado;
       /** Nombre del interesado.
        */
       !!@ ili2db.dispName = "Nombre"
@@ -1022,9 +1022,9 @@ VERSION "V1.2.0"  // 2019-08-13 // =
     ASSOCIATION col_miembros =
       interesado -- {2..*} COL_Interesado;
       agrupacion -<> {0..*} COL_AgrupacionInteresados;
-      participacion : LADM_COL_V1_6.LADM_Nucleo.Fraccion;
+      participacion : LADM_COL_V1_7.LADM_Nucleo.Fraccion;
     END col_miembros;
 
   END LADM_Nucleo;
 
-END LADM_COL_V1_6.
+END LADM_COL_V1_7.

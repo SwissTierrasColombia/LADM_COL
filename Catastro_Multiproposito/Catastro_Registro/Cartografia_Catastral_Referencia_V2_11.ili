@@ -5,15 +5,16 @@ INTERLIS 2.3;
  * 02.08.2018: FM/ Actualizacion de dependencia a la version 2.2.1 del nucleo y LADM 1.1
  * 19.04.2018: FM-GC/ Cambio de geometrias de GM_Surface2D a GM_MultiSurface2D
  */
-MODEL Cartografia_Catastral_Referencia_V2_10 (es)
+MODEL Cartografia_Catastral_Referencia_V2_11 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-04-19 // =
-  IMPORTS ISO19107_PLANAS_V1,Levantamiento_Catastral_V2_10,LADM_COL_V1_6;
+  IMPORTS ISO19107_PLANAS_V1,Catastro_Registro_V2_11,LADM_COL_V1_7;
 
   /** Este tema almacena específicamente las clases que definen la división administrativa desde el punto de vista operativo de catastro.
    */
   TOPIC LimitesOperativosCatastro =
 
+    !!@ ili2db.dispName = "(CRF) Centro poblado"
     CLASS CC_CentroPoblado =
       /** Código de identificación del centro poblado.
        */
@@ -100,28 +101,23 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       Codigo_Departamento : TEXT*2;
       /** Código de 3 dígitos correspondiente al municipio según la clasificación del Divipola.
        */
-      !!@ ili2db.dispName = "Código municipio"
+      !!@ ili2db.dispName = "Código del municipio"
       Codigo_Municipio : TEXT*5;
-      /** Tipo de avaluo del perimetro urbano que para efectos catastrales es 01.
-       */
       !!@ ili2db.dispName = "Tipo de avalúo"
       Tipo_Avaluo : TEXT*30;
-      /** Nombre geográfico del perimetro urbano, ejemplo, TABIO.
-       */
       !!@ ili2db.dispName = "Nombre geográfico"
       Nombre_Geografico : TEXT*50;
-      /** Codgio del nombre geografico.
-       */
       !!@ ili2db.dispName = "Código nombre"
       Codigo_Nombre : TEXT*255;
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por el perímetro urbano.
        */
+      !!@ ili2db.dispName = "Geometría"
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
     END CC_PerimetroUrbano;
 
     /** Es la delimitación física del suelo rual, determina su área y se representa gráficamente por una línea imaginaria continua que divide el suelo urbano del suelo rural y del suelo de expansión urbana.
      */
-    !!@ ili2db.dispName = "(CRF) Sector rural"
+    !!@ ili2db.dispName = "(CRF) Sector Rural"
     CLASS CC_SectorRural =
       /** Código de identificación del sector rural catastral.
        */
@@ -211,4 +207,4 @@ VERSION "V2.2.1"  // 2018-04-19 // =
 
   END LimitesOperativosCatastro;
 
-END Cartografia_Catastral_Referencia_V2_10.
+END Cartografia_Catastral_Referencia_V2_11.

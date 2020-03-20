@@ -1,9 +1,9 @@
 INTERLIS 2.3;
 
-MODEL Datos_Gestor_Catastral_V2_10 (es)
+MODEL Datos_Gestor_Catastral_V2_11 (es)
 AT "mailto:PC4@localhost"
 VERSION "2019-08-01"  =
-  IMPORTS ISO19107_PLANAS_V1,LADM_COL_V1_6;
+  IMPORTS ISO19107_PLANAS_V1,LADM_COL_V1_7;
 
   DOMAIN
 
@@ -165,7 +165,7 @@ VERSION "2019-08-01"  =
       /** Indica si la construcción es de tipo convencional o no convencional.
        */
       !!@ ili2db.dispName = "Tipo de construcción"
-      Tipo_Construccion : Datos_Gestor_Catastral_V2_10.GC_UnidadConstruccionTipo;
+      Tipo_Construccion : Datos_Gestor_Catastral_V2_11.GC_UnidadConstruccionTipo;
       /** Indica el tipo de dominio de la unidad de construcción: común y privado.
        */
       !!@ ili2db.dispName = "Tipo de dominio"
@@ -197,7 +197,7 @@ VERSION "2019-08-01"  =
       /** Área total construida.
        */
       !!@ ili2db.dispName = "Área construida"
-      Area_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
+      Area_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Polígono de la construcción existente en la base de datos catastral.
        */
       !!@ ili2db.dispName = "Geometría"
@@ -211,27 +211,27 @@ VERSION "2019-08-01"  =
       /** Área total del terreno del PH o Condominio Matriz.
        */
       !!@ ili2db.dispName = "Área total de terreno"
-      Area_Total_Terreno : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
+      Area_Total_Terreno : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Área total privada del terreno del PH o Condominio Matriz.
        */
       !!@ ili2db.dispName = "Área total de terreno privada"
-      Area_Total_Terreno_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
+      Area_Total_Terreno_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Área total de terreno común del PH o Condominio Matriz.
        */
       !!@ ili2db.dispName = "Área total de terreno común"
-      Area_Total_Terreno_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
+      Area_Total_Terreno_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Área total de construida del PH o Condominio Matriz.
        */
       !!@ ili2db.dispName = "Área total construida"
-      Area_Total_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
+      Area_Total_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Área total construida privada del PH o Condominio Matriz.
        */
       !!@ ili2db.dispName = "Área total construida privada"
-      Area_Total_Construida_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
+      Area_Total_Construida_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Área total construida común del PH o Condominio Matriz.
        */
       !!@ ili2db.dispName = "Área total construida común"
-      Area_Total_Construida_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
+      Area_Total_Construida_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Número de torres en el PH o Condominio.
        */
       !!@ ili2db.dispName = "Numero de torres"
@@ -395,11 +395,11 @@ VERSION "2019-08-01"  =
       /** Área de terreno alfanumérica registrada en la base de datos catastral.
        */
       !!@ ili2db.dispName = "Área terreno alfanumérica"
-      Area_Terreno_Alfanumerica : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
+      Area_Terreno_Alfanumerica : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Área de terreno digital registrada en la base de datos catastral.
        */
       !!@ ili2db.dispName = "Área terreno digital"
-      Area_Terreno_Digital : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
+      Area_Terreno_Digital : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Código de la manzana o vereda donde se localiza el terreno.
        */
       !!@ ili2db.dispName = "Código de manzana vereda"
@@ -433,7 +433,7 @@ VERSION "2019-08-01"  =
       /** Indica si la construcción es de tipo convencional o no convencional.
        */
       !!@ ili2db.dispName = "Tipo de construcción"
-      Tipo_Construccion : Datos_Gestor_Catastral_V2_10.GC_UnidadConstruccionTipo;
+      Tipo_Construccion : Datos_Gestor_Catastral_V2_11.GC_UnidadConstruccionTipo;
       /** Indica numéricamente la ubicación del predio de acuerdo al tipo de planta.
        */
       !!@ ili2db.dispName = "Planta"
@@ -469,11 +469,11 @@ VERSION "2019-08-01"  =
       /** Área total construida en la unidad de construcción.
        */
       !!@ ili2db.dispName = "Área construida"
-      Area_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
+      Area_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Área total privada de la unidad de construcción para los predios en régimen de propiedad horizontal.
        */
       !!@ ili2db.dispName = "Área privada"
-      Area_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
+      Area_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Código catastral del terreno donde se encuentra localizada la unidad de construcción.
        */
       !!@ ili2db.dispName = "Código terreno"
@@ -537,7 +537,7 @@ VERSION "2019-08-01"  =
       /** Direcciones del predio inscritas en catastro.
        */
       !!@ ili2db.dispName = "Direcciones"
-      Direcciones : BAG {0..*} OF Datos_Gestor_Catastral_V2_10.Datos_Gestor_Catastral.GC_Direccion;
+      Direcciones : BAG {0..*} OF Datos_Gestor_Catastral_V2_11.Datos_Gestor_Catastral.GC_Direccion;
       /** Tipo de predio inscrito en catastro: Nacional, Departamental, Municipal, Particular, Baldío, Ejido, Resguardo Indígena, Tierra de comunidades negras y Reservas Naturales.
        */
       !!@ ili2db.dispName = "Tipo de predio"
@@ -545,7 +545,7 @@ VERSION "2019-08-01"  =
       /** Caracterización temática del predio.
        */
       !!@ ili2db.dispName = "Condición del predio"
-      Condicion_Predio : Datos_Gestor_Catastral_V2_10.GC_CondicionPredioTipo;
+      Condicion_Predio : Datos_Gestor_Catastral_V2_11.GC_CondicionPredioTipo;
       /** Es la clasificación para fines estadísticos que se da a cada inmueble en su conjunto–terreno, construcciones o edificaciones-, en el momento de la identificación predial de conformidad con la actividad predominante que en él se desarrolle.
        */
       !!@ ili2db.dispName = "Destinación económica"
@@ -565,7 +565,7 @@ VERSION "2019-08-01"  =
       /** Indica el sistema de gestión catastral de donde proceden los datos, en el caso del IGAC puede ser COBOL o SNC.
        */
       !!@ ili2db.dispName = "Sistema procedencia de los datos"
-      Sistema_Procedencia_Datos : Datos_Gestor_Catastral_V2_10.GC_SistemaProcedenciaDatosTipo;
+      Sistema_Procedencia_Datos : Datos_Gestor_Catastral_V2_11.GC_SistemaProcedenciaDatosTipo;
       /** Fecha de la vigencia de los datos.
        */
       !!@ ili2db.dispName = "Fecha de los datos"
@@ -607,12 +607,12 @@ VERSION "2019-08-01"  =
 
   END Datos_Gestor_Catastral;
 
-END Datos_Gestor_Catastral_V2_10.
+END Datos_Gestor_Catastral_V2_11.
 
-MODEL Datos_SNR_V2_10 (es)
+MODEL Datos_SNR_V2_11 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.3"  // 2019-07-31 // =
-  IMPORTS LADM_COL_V1_6;
+  IMPORTS LADM_COL_V1_7;
 
   DOMAIN
 
@@ -1060,7 +1060,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Calidad de derecho en registro
        */
       !!@ ili2db.dispName = "Calidad derecho registro"
-      Calidad_Derecho_Registro : MANDATORY Datos_SNR_V2_10.SNR_CalidadDerechoTipo;
+      Calidad_Derecho_Registro : MANDATORY Datos_SNR_V2_11.SNR_CalidadDerechoTipo;
       /** es el número asignado en el registro a cada acto sujeto a registro.
        */
       !!@ ili2db.dispName = "Código naturaleza jurídica"
@@ -1086,7 +1086,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Tipo de documento que soporta la relación de tenencia entre el interesado con el predio.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : Datos_SNR_V2_10.SNR_FuenteTipo;
+      Tipo_Documento : Datos_SNR_V2_11.SNR_FuenteTipo;
       /** Identificador del documento, ejemplo: numero de la resolución
        */
       !!@ ili2db.dispName = "Número de documento"
@@ -1104,7 +1104,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Identificador del archivo fuente controlado por una clase externa.
        */
       !!@ ili2db.dispName = "Archivo"
-      Archivo : LADM_COL_V1_6.LADM_Nucleo.ExtArchivo;
+      Archivo : LADM_COL_V1_7.LADM_Nucleo.ExtArchivo;
     END SNR_FuenteCabidaLinderos;
 
     /** Datos del documento que soporta el derecho.
@@ -1114,7 +1114,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Tipo de documento que soporta la relación de tenencia entre el interesado con el predio.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : Datos_SNR_V2_10.SNR_FuenteTipo;
+      Tipo_Documento : Datos_SNR_V2_11.SNR_FuenteTipo;
       /** Identificador del documento, ejemplo: numero de la resolución
        */
       !!@ ili2db.dispName = "Número de documento"
@@ -1138,11 +1138,11 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Tipo de persona
        */
       !!@ ili2db.dispName = "Tipo de persona"
-      Tipo_Persona : Datos_SNR_V2_10.SNR_PersonaTitularTipo;
+      Tipo_Persona : Datos_SNR_V2_11.SNR_PersonaTitularTipo;
       /** Tipo de documento del que se trata.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : Datos_SNR_V2_10.SNR_DocumentoTitularTipo;
+      Tipo_Documento : Datos_SNR_V2_11.SNR_DocumentoTitularTipo;
       /** Documento de identidad del interesado.
        */
       !!@ ili2db.dispName = "Número de documento"
@@ -1192,7 +1192,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Es la matrícula por la cual se dio apertura al predio objeto de estudio (la madre).
        */
       !!@ ili2db.dispName = "Matrícula inmobiliaria matriz"
-      Matricula_Inmobiliaria_Matriz : BAG {0..*} OF Datos_SNR_V2_10.Datos_SNR.SNR_EstructuraMatriculaMatriz;
+      Matricula_Inmobiliaria_Matriz : BAG {0..*} OF Datos_SNR_V2_11.Datos_SNR.SNR_EstructuraMatriculaMatriz;
       /** Fecha de la generación de datos.
        */
       !!@ ili2db.dispName = "Fecha de datos"
@@ -1224,12 +1224,12 @@ VERSION "V2.3"  // 2019-07-31 // =
 
   END Datos_SNR;
 
-END Datos_SNR_V2_10.
+END Datos_SNR_V2_11.
 
-MODEL Datos_Integracion_Insumos_V2_10 (es)
+MODEL Datos_Integracion_Insumos_V2_11 (es)
 AT "mailto:PC4@localhost"
 VERSION "2019-09-06"  =
-  IMPORTS Datos_Gestor_Catastral_V2_10,Datos_SNR_V2_10;
+  IMPORTS Datos_Gestor_Catastral_V2_11,Datos_SNR_V2_11;
 
   DOMAIN
 
@@ -1243,7 +1243,7 @@ VERSION "2019-09-06"  =
     );
 
   TOPIC Datos_Integracion_Insumos =
-    DEPENDS ON Datos_SNR_V2_10.Datos_SNR,Datos_Gestor_Catastral_V2_10.Datos_Gestor_Catastral;
+    DEPENDS ON Datos_SNR_V2_11.Datos_SNR,Datos_Gestor_Catastral_V2_11.Datos_Gestor_Catastral;
 
     /** Clase que relaciona los predios en los modelos de insumos para el Gestor Catastral y la SNR.
      */
@@ -1252,7 +1252,7 @@ VERSION "2019-09-06"  =
       /** Confiabilidad de la relación.
        */
       !!@ ili2db.dispName = "Confiabilidad"
-      Confiabilidad : Datos_Integracion_Insumos_V2_10.INI_ConfiabilidadTipo;
+      Confiabilidad : Datos_Integracion_Insumos_V2_11.INI_ConfiabilidadTipo;
       /** Observaciones de la relación.
        */
       !!@ ili2db.dispName = "Observaciones"
@@ -1260,15 +1260,15 @@ VERSION "2019-09-06"  =
     END INI_PredioInsumos;
 
     ASSOCIATION ini_predio_integracion_gc =
-      gc_predio_catastro (EXTERNAL) -- {0..1} Datos_Gestor_Catastral_V2_10.Datos_Gestor_Catastral.GC_PredioCatastro;
+      gc_predio_catastro (EXTERNAL) -- {0..1} Datos_Gestor_Catastral_V2_11.Datos_Gestor_Catastral.GC_PredioCatastro;
       ini_predio_insumos -- {0..*} INI_PredioInsumos;
     END ini_predio_integracion_gc;
 
     ASSOCIATION ini_predio_integracion_snr =
-      snr_predio_juridico (EXTERNAL) -- {0..1} Datos_SNR_V2_10.Datos_SNR.SNR_PredioRegistro;
+      snr_predio_juridico (EXTERNAL) -- {0..1} Datos_SNR_V2_11.Datos_SNR.SNR_PredioRegistro;
       ini_predio -- {0..*} INI_PredioInsumos;
     END ini_predio_integracion_snr;
 
   END Datos_Integracion_Insumos;
 
-END Datos_Integracion_Insumos_V2_10.
+END Datos_Integracion_Insumos_V2_11.

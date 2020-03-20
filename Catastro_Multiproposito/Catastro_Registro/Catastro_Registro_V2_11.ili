@@ -52,16 +52,16 @@ INTERLIS 2.3;
  * 
  * -----------------------------------------------------------
  */
-CONTRACTED MODEL Levantamiento_Catastral_V2_10 (es)
+CONTRACTED MODEL Catastro_Registro_V2_11 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-02-19 // =
-  IMPORTS ISO19107_PLANAS_V1,LADM_COL_V1_6,Datos_Integracion_Insumos_V2_10;
+  IMPORTS ISO19107_PLANAS_V1,LADM_COL_V1_7;
 
   DOMAIN
 
     /** Valores para indicar el nivel de acuerdo
      */
-    LC_AcuerdoTipo = (
+    CR_AcuerdoTipo = (
       /** Existe un acuerdo sobre la posición del punto
        */
       !!@ ili2db.dispName = "Acuerdo"
@@ -72,7 +72,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Desacuerdo
     );
 
-    LC_AnexoTipo = (
+    CR_AnexoTipo = (
       !!@ ili2db.dispName = "Enramadas o cobertizos o caneyes"
       Enramadas_Cobertizos_Caneyes(
         /** Locales de venta de vehículos: Estructura concreto, cubierta cercha metálica y teja canaleta; fachada vidrio y polarizado, piso baldosín conservación general buena.
@@ -394,7 +394,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     /** Calificación del suelo.
      */
-    LC_CalificarTipo = (
+    CR_CalificarTipo = (
       /** Calificación para predios de uso residencial.
        */
       !!@ ili2db.dispName = "Residencial"
@@ -409,22 +409,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Comercial
     );
 
-    /** Categoría de suelo de la clasificación del Plan de Ordenamiento Territorial.
-     */
-    LC_CategoriaSueloTipo = (
-      /** Constituyen esta categoría las áreas ubicadas dentro del suelo rural, en las que se mezclan los usos del suelo y las formas de vida del campo y la ciudad, diferentes a las clasificadas como áreas de expansión urbana, que pueden ser objeto de desarrollo con restricciones de uso, de intensidad y de densidad, garantizando el autoabastecimiento en servicios públicos domiciliarios, de conformidad con lo establecido en la Ley 99 de 1993 y en la Ley 142 de 1994. Podrán formar parte de esta categoría los suelos correspondientes a los corredores urbanos interregionales.
-       * 
-       * Los municipios y distritos deberán establecer las regulaciones complementarias tendientes a impedir el desarrollo de actividades y usos urbanos en estas áreas, sin que previamente se surta el proceso de incorporación al suelo urbano, para lo cual deberán contar con la infraestructura de espacio público, de infraestructura vial y redes de energía, acueducto y alcantarillado requerida para este tipo de suelo. (Artículo 34, Ley 388 de 1997)
-       */
-      !!@ ili2db.dispName = "Suburbano"
-      Suburbano,
-      /** Constituido por las zonas y áreas de terrenos localizados dentro de cualquiera de las anteriores clases, que por sus características geográficas, paisajísticas o ambientales, o por formar parte de las zonas de utilidad pública para la ubicación de infraestructuras para la provisión de servicios públicos domiciliarios o de las áreas de amenazas y riesgo no mitigable para la localización de asentamientos humanos, tiene restringida la posibilidad de urbanizarse. (Articulo 35, Ley 388 de 1997)
-       */
-      !!@ ili2db.dispName = "Protección"
-      Proteccion
-    );
-
-    LC_ClaseCalificacionTipo = (
+    CR_ClaseCalificacionTipo = (
       /** En construcción, es el nombre que recibe el conjunto de elementos, unidos, ensamblados o conectados entre sí, que tienen la función de recibir cargas, soportar esfuerzos y transmitir esas cargas al suelo, garantizando así la función estático - resistente de la construcción. Sus componentes son: armazon, muros y cubierta.
        */
       !!@ ili2db.dispName = "Estructura"
@@ -433,7 +418,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Acabados principales"
       Acabados_Principales,
-      /** Son los revestimientos  o recubrimientos a todos aquellos materiales que se colocan sobre una superficie de obra negra, para darle terminación a las obras, quedando ésta con un aspecto habitable. Sus componentes son: fachada, cubrimiento de muros y pisos
+      /** Son los revestimientos  o recubrimientos a todos aquellos materiales que se colocan sobre una superficie de obra negra, para darle terminación a las obras, quedando ésta con un aspecto habitable. Sus componentes son: fachada, cubrimiento de muros y pisosv
        */
       !!@ ili2db.dispName = "Baño"
       Banio,
@@ -447,9 +432,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Complemento_Industria
     );
 
-    /** Clase de suelo de la clasificación del Plan de Ordenamiento Territorial.
-     */
-    LC_ClaseSueloTipo = (
+    CR_ClaseSueloTipo = (
       /** Constituyen el suelo urbano, las áreas del territorio distrital o municipal destinadas a usos urbanos por el plan de ordenamiento, que cuenten con infraestructura vial y redes primarias de energía, acueducto y alcantarillado, posibilitándose su urbanización y edificación, según sea el caso. Podrán pertenecer a esta categoría aquellas zonas con procesos de urbanización incompletos, comprendidos en áreas consolidadas con edificación, que se definan como áreas de mejoramiento integral en los planes de ordenamiento territorial.
        * 
        * Las áreas que conforman el suelo urbano serán delimitadas por perímetros y podrán incluir los centros poblados de los corregimientos. En ningún caso el perímetro urbano podrá ser mayor que el denominado perímetro de servicios públicos o sanitario. (Artículo 31, Ley 388 de 1997)
@@ -472,7 +455,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     /** Valores para indicar el tipo de condición de predio
      */
-    LC_CondicionPredioTipo = (
+    CR_CondicionPredioTipo = (
       /** Predio no sometido al régimen de propiedad horizontal.
        */
       !!@ ili2db.dispName = "No propiedad horizontal"
@@ -539,7 +522,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Bien_Uso_Publico
     );
 
-    LC_ConstruccionPlantaTipo = (
+    CR_ConstruccionPlantaTipo = (
       /** Superficie horizontal de un espacio arquitectónico que divide los espacios en altura.
        */
       !!@ ili2db.dispName = "Piso"
@@ -562,7 +545,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Subterraneo
     );
 
-    LC_ConstruccionTipo = (
+    CR_ConstruccionTipo = (
       /** Se refiere aquellas construcciones de uso residencial, comercial e industrial.
        */
       !!@ ili2db.dispName = "Convencional"
@@ -573,7 +556,87 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       No_Convencional
     );
 
-    LC_DerechoTipo = (
+    CR_DerechoTipo = (
+      /** Es la propiedad de toda una comunidad sea indígena o negra. Adjudicacion Baldios En Propiedad Colectiva A Comunidades Negras, Adjudicacion Baldios Resguardos Indigenas, Constitución Resguardo Indigena,
+       * Ampliación De Resguardo Indígena
+       * 
+       * Códigos:
+       * 
+       * 0104
+       * 0105
+       * 01001
+       * 01002
+       */
+      !!@ ili2db.dispName = "Derecho de propiedad colectiva"
+      Derecho_Propiedad_Colectiva,
+      /** La propiedad separada del goce de la cosa se llama mera o nuda propiedad (art 669 CC):
+       * 
+       * Códigos:
+       * 
+       * 0302
+       * 0308
+       * 0322
+       * 0349
+       * 0379
+       */
+      !!@ ili2db.dispName = "Nuda propiedad"
+      Nuda_Propiedad,
+      /** Es la inscripción en la Oficina de Registro de Instrumentos Públicos, de todo acto de transferencia de un derecho incompleto que se hace a favor de una persona, por parte de quien carece del derecho de dominio sobre determinado inmueble: 
+       * Falsa Tradición
+       * Adjudicacion Sucesion Derechos Y Acciones
+       * Adjudicacion Sucesion Gananciales
+       * Compraventa De Cosa Ajena
+       * Transferencia De Cuerpo Cierto Teniendo Solo Derechos De Cuota Con Antecedentes Registrales
+       * Compraventa Derechos Gananciales
+       * Compraventa Derechos Y Acciones
+       * Compraventa Posesion Con Antecedente Registral
+       * Declaracion Mejoras En Predio Ajeno  Par. Art. 5 Ley 258/96
+       * Donacion Derechos Y Acciones
+       * Donacion Gananciales
+       * Remate Derechos Y Acciones
+       * Remate Gananciales
+       * Adjudicacion Liquidacion Sociedad Conyugal Derechos Y Acciones
+       * Compraventa Mejoras En Suelo Ajeno Con Antecedente Registral
+       * Dacion En Pago De Derechos Y Acciones
+       * Transferencia De Posesion Con Antecedente Registral
+       * Declaratoria De Posesion Regular Art.1 Ley 1183 De 2008
+       * Restitución Material Al Poseedor Literal H) Art. 91 Ley 1448 De 2011
+       * Compensación Inmueble En Proceso De Restitución Literal J) Art. 91 Y Art. 97 Ley 1448 De 2011
+       * Adjudicación Liquidación Sociedad Patrimonial De Hecho, Derechos Y Acciones
+       * Decreto De Posesion Efectiva
+       * Permuta De Derechos Y Acciones
+       * "Predio Declarado En Abandono Por Poseedor-Ocupante,
+       * Tenedor O Anterior Propietario"
+       * 
+       * Códigos:
+       * 
+       * 0600
+       * 0601
+       * 0602
+       * 0604
+       * 0605
+       * 0606
+       * 0607
+       * 0608
+       * 0609
+       * 0610
+       * 0611
+       * 0613
+       * 0614
+       * 0615
+       * 0616
+       * 0617
+       * 0618
+       * 0619
+       * 0620
+       * 0621
+       * 0622
+       * 0136
+       * 0508
+       * 0927
+       */
+      !!@ ili2db.dispName = "Falsa tradición"
+      Falsa_Tradicion,
       /** El dominio que se llama también propiedad es el derecho real en una cosa corporal, para gozar y disponer de ella arbitrariamente, no siendo contra ley o contra derecho ajeno. (Art. 669 CC):
        * Tradicion
        * Accesion Del Suelo
@@ -837,38 +900,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Dominio"
       Dominio,
-      /** Por la ocupación se adquiere el dominio de las cosas que no pertenecen a nadie, y cuya adquisición no es prohibida por las leyes o por el derecho internacional.
-       */
-      !!@ ili2db.dispName = "Ocupación"
-      Ocupacion,
-      /** La posesión es la tenencia de una cosa determinada con ánimo de señor o dueño, sea que el dueño o el que se da por tal, tenga la cosa por sí mismo, o por otra persona que la tenga en lugar y a nombre de él. El poseedor es reputado dueño, mientras otra persona no justifique serlo.
-       */
-      !!@ ili2db.dispName = "Posesión"
-      Posesion,
-      /** Es la propiedad de toda una comunidad sea indígena o negra. Adjudicacion Baldios En Propiedad Colectiva A Comunidades Negras, Adjudicacion Baldios Resguardos Indigenas, Constitución Resguardo Indigena,
-       * Ampliación De Resguardo Indígena
-       * 
-       * Códigos:
-       * 
-       * 0104
-       * 0105
-       * 01001
-       * 01002
-       */
-      !!@ ili2db.dispName = "Derecho de propiedad colectiva"
-      Derecho_Propiedad_Colectiva,
-      /** La propiedad separada del goce de la cosa se llama mera o nuda propiedad (art 669 CC):
-       * 
-       * Códigos:
-       * 
-       * 0302
-       * 0308
-       * 0322
-       * 0349
-       * 0379
-       */
-      !!@ ili2db.dispName = "Nuda propiedad"
-      Nuda_Propiedad,
       /** El derecho de usufructo es un derecho real que consiste en la facultad de gozar de una cosa con cargo de conservar su forma y sustancia, y de restituir a su dueño, si la cosa no es fungible; o con cargo de volver igual cantidad y calidad del mismo género, o de pagar su valor si la cosa es fungible. (art. 823 CC):
        * 
        * Compraventa Usufructo
@@ -942,7 +973,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     /** Uso económico de la propiedad inmobiliaria.
      */
-    LC_DestinacionEconomicaTipo = (
+    CR_DestinacionEconomicaTipo = (
       /** Se califica con destino acuícola, aquellos predios donde se realizan cultivos de organismos acuáticos, en ambientes naturales o artificiales.
        */
       !!@ ili2db.dispName = "Acuicola"
@@ -1047,7 +1078,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Uso_Publico
     );
 
-    LC_DominioConstruccionTipo = (
+    CR_DominioConstruccionTipo = (
       /** Tipo de dominio común.
        */
       !!@ ili2db.dispName = "Común"
@@ -1058,7 +1089,18 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Privado
     );
 
-    LC_EstadoConservacionTipo = (
+    CR_EstadoAnotacionTipo = (
+      /** Corresponde al estado de la anotación cuando la misma se encuentra vigente y por lo tanto se tiene en cuenta para la tradición del dominio.
+       */
+      !!@ ili2db.dispName = "Vigente"
+      Vigente,
+      /** es la anotación que no tiene efecto jurídico en el folio de matrícula inmobiliaria.
+       */
+      !!@ ili2db.dispName = "Anulada"
+      Anulada
+    );
+
+    CR_EstadoConservacionTipo = (
       /** Se agrupan en este concepto, aquellas estructuras con el mayor grado de deterioro que se puedan encontrar, en condiciones precarias lo cual las hace prácticamente inhabitables.  Generalmente se presenta en construcciones antiguas o con material de muy mala calidad.
        */
       !!@ ili2db.dispName = "Malo"
@@ -1077,7 +1119,18 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Excelente
     );
 
-    LC_FotoidentificacionTipo = (
+    CR_EstadoFMITipo = (
+      /** Corresponden a todos los folios que se encuentran activos y no han sido cerrados.
+       */
+      !!@ ili2db.dispName = "Activo"
+      Activo,
+      /** Siempre que se engloben varios predios o la venta de la parte restante de ellos o se cancelen por orden judicial o administrativa los títulos o documentos que la sustentan jurídicamente y no existan anotaciones vigentes, las matrículas inmobiliarias se cerrarán para el efecto o se hará una anotación que diga "Folio Cerrado".
+       */
+      !!@ ili2db.dispName = "Cerrado"
+      Cerrado
+    );
+
+    CR_FotoidentificacionTipo = (
       /** Demarcación de un área con un punto que se encuentra visible en un proceso de fotoidentificación.
        */
       !!@ ili2db.dispName = "Visible"
@@ -1088,7 +1141,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Estimado
     );
 
-    LC_FuenteAdministrativaTipo = (
+    CR_FuenteAdministrativaTipo = (
       /** Una escritura pública es un documento público en el que se realiza ante un notario público un determinado hecho o un derecho autorizado por dicho fedatario público, que firma con el otorgante u otorgantes,mostrando sobre la capacidad jurídica del contenido y de la fecha en que se realizó
        */
       !!@ ili2db.dispName = "Escritura pública"
@@ -1111,24 +1164,18 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Sin_Documento
     );
 
-    LC_GrupoEtnicoTipo = (
-      !!@ ili2db.dispName = "Indígena"
-      Indigena,
-      !!@ ili2db.dispName = "Rrom"
-      Rrom,
-      !!@ ili2db.dispName = "Raizal"
-      Raizal,
-      !!@ ili2db.dispName = "Palenquero"
-      Palenquero,
-      !!@ ili2db.dispName = "Negro"
-      Negro,
-      !!@ ili2db.dispName = "Afrocolombiano"
-      Afrocolombiano,
-      !!@ ili2db.dispName = "Ninguno"
-      Ninguno
+    CR_InformalidadTipo = (
+      /** La posesión es la tenencia de una cosa determinada con ánimo de señor o dueño, sea que el dueño o el que se da por tal, tenga la cosa por sí mismo, o por otra persona que la tenga en lugar y a nombre de él. El poseedor es reputado dueño, mientras otra persona no justifique serlo.
+       */
+      !!@ ili2db.dispName = "Posesión"
+      Posesion,
+      /** Por la ocupación se adquiere el dominio de las cosas que no pertenecen a nadie, y cuya adquisición no es prohibida por las leyes o por el derecho internacional.
+       */
+      !!@ ili2db.dispName = "Ocupación"
+      Ocupacion
     );
 
-    LC_InteresadoDocumentoTipo = (
+    CR_InteresadoDocumentoTipo = (
       /** Es un documento emitido por la Registraduría Nacional del Estado Civil para permitir la identificación personal de los ciudadanos.
        */
       !!@ ili2db.dispName = "Cédula de ciudadanía"
@@ -1155,7 +1202,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Secuencial
     );
 
-    LC_InteresadoTipo = (
+    CR_InteresadoTipo = (
       /** Se refiere a la persona humana.
        */
       !!@ ili2db.dispName = "Persona natural"
@@ -1166,7 +1213,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Persona_Juridica
     );
 
-    LC_ObjetoConstruccionTipo = (
+    CR_ObjetoConstruccionTipo = (
       /** Se refiere al conjunto compuesto por los cimientos, columnas, vigas, entrepisos y demás componentes del esqueleto o armadura que soportan las cargas y sostienen la edificación.  El adobe, bahareque, tapia, califíquelos con el puntaje correspondiente a madera.  En el caso de tener muros de carga en ladrillo, califíquelos como armazón de ladrillo.  En aquellas viviendas de hasta tres pisos y en donde se observe, vigas, columnas y planchas se colocan en la opción “concreto hasta tres pisos”.  La máxima calificación será para edificaciones de concreto de 4 o más pisos.
        */
       !!@ ili2db.dispName = "Armazón"
@@ -1261,16 +1308,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Fachada) Lujosa"
         Lujosa
       ),
-      /** Se califica de acuerdo al material y según las opciones que se presentan en el formulario, se tendrá en cuenta que si aparece por lo menos el 80% en pañete, se marcará este material y si aparece por lo menos un 20% de otro material de los más costosos (granito, madera, mármol), se marcará este en el formulario.  Si se encuentra por lo menos el 50% sin cubrimiento, se calificará como tal.  En caso de encontrarse un cubrimiento no completado en el formulario se asimilará, según el factor, más cercano de los referidos.  El pañete se refiere al cubrimiento en el cual se emplea solamente arena y cemento; el estuco es el cubrimiento fino sobre pañete.
-       * 
-       * Es necesario aclarar que en el caso del papel de colgadura, se debe tener en cuenta que éste se encuentra en dos categorías:
-       * 
-       * Papel común:  Características de las construcciones de estratos medio bajo y medio medio, se presenta en la mayoría de los casos textura gruesa y superficie corrugada.
-       * 
-       * Papel fino: Contrario al anterior, se encuentra normalmente en construcciones lujosas y se caracteriza por su textura fina, visible en los orillos y superficie lisa.  Sus acabados siempre son finos.
-       * 
-       * Además de los muros, el papel se encuentra en enchapes de baños y cocinas.
-       */
       !!@ ili2db.dispName = "Cubrimiento de muros"
       Cubrimiento_Muros(
         !!@ ili2db.dispName = "(Cubrimiento de muros) Sin cubrimiento"
@@ -1416,18 +1453,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       )
     );
 
-    LC_OfertaTipo = (
-      /** Es una operación que se realiza a través del mercado inmobiliario, mediante la cual un ofertante pone a la venta algún un inmueble.
-       */
-      !!@ ili2db.dispName = "Venta"
-      Venta,
-      /** Es una operación que se realiza a través del mercado inmobiliario, mediante la cual un ofertante pone en alquiler o arriendo un bien inmueble.
-       */
-      !!@ ili2db.dispName = "Arriendo"
-      Arriendo
-    );
-
-    LC_PredioTipo = (
+    CR_PredioTipo = (
       /** Son los predios adjudicados a comunidades pertenecientes a grupos étnicos en el marco del reconocimiento de los resguardos legalmente constituidos según el Decreto 2164 de 1995 o de las propiedades colectivas de comunidades negras conforme Ley 70 de 1993.
        */
       !!@ ili2db.dispName = "Público"
@@ -1442,9 +1468,232 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Territorio_Colectivo
     );
 
+    CR_PublicidadTipo = (
+      /** Se refiere a la agrupación de códigos de naturaleza jurídica de demanda: 
+       * Demanda En Accion De Simulacion
+       * Demanda En Accion Revocatoria
+       * Demanda En Acuerdo De Reestructuracion
+       * Demanda En Proceso De Declaratoria De Union Marital De Hecho
+       * Demanda En Proceso De Deslinde Y Amojonamiento
+       * Demanda En Proceso De Divorcio
+       * Demanda En Proceso De Pertenencia
+       * Demanda En Proceso De Separacion De Cuerpos
+       * Demanda En Proceso De Servidumbres
+       * Demanda En Proceso Divisorio
+       * Demanda En Proceso Separacion De Bienes
+       * Demanda Ordinaria De Enriquecimiento Sin Justa Causa
+       * Demanda Ordinaria Por Lesion Enorme
+       * Demanda Por Expropiacion
+       * Demanda Por Ineficacia Del Acuerdo De Reestructuracion
+       * Inscripcion De La Demanda En Proceso Arbitral ( Artículo 32 De La Ley 1563 De 2012, Artículo 590 Del Código General Del Proceso)
+       * Demanda De Accion De Peticion De Herencia
+       * Demanda En Proceso Ordinario
+       * Demanda En Proceso Reivindicatorio
+       * Demanda En Proceso Liquidatorio
+       * Demanda Proceso Especial De Saneamiento De La Titulacion De La Propiedad Inmueble Art. 14 De La Ley 1561 De 2012
+       * Demanda En Proceso Verbal De Responsabilidad Civil Extracontractual ( Código General Del Proceso Art.590)
+       * Demanda En Proceso Verbal
+       * Demanda En Proceso Monitorio
+       * Demanda En Proceso Declarativo
+       * 
+       * Códigos:
+       * 
+       * 0406
+       * 0407
+       * 0408
+       * 0409
+       * 0410
+       * 0411
+       * 0412
+       * 0413
+       * 0414
+       * 0415
+       * 0416
+       * 0417
+       * 0418
+       * 0419
+       * 0420
+       * 0453
+       * 0467
+       * 0468
+       * 0469
+       * 0473
+       * 0477
+       * 0490
+       * 0492
+       * 0499
+       * 04001
+       */
+      !!@ ili2db.dispName = "Demanda"
+      Demanda,
+      /** Se refiere a la agrupación de códigos de iniciación de procesos administrativos: 
+       * Declaratoria De Interes Social
+       * Declaratoria De Utilidad Publica
+       * Iniciacion Del Proceso De Enajenacion Forzosa
+       * Iniciacion Diligencias Administrativas De Clarificacion De La Propiedad
+       * Iniciacion Diligencias Administrativas Deslinde De Tierras De Propiedad  De La Nacion
+       * Iniciacion Diligencias Administrativas Por Indebida Ocupacion De Baldios
+       * Iniciacion Procedimiento De Expropiacion Por Via Administrativa
+       * Iniciacion Procedimiento De Extincion Del Derecho De  Dominio
+       * Iniciacion Proceso Administrativo De Adquisicion
+       * Inicio De Proceso De Liquidación Judicial  Art. 47 Ley 1116 De 2006
+       * Inicio Del Proceso De Reorganización
+       * Deslinde De Terreno De Propiedad De La Nacion
+       * Iniciación Proceso De Clarificación De La Propiedad Art. 4 Decreto 2663 De 1991
+       * Proceso De Clarificacion - Vigencia Del Titulo De Origen Colonial O Republicano
+       * Proceso  De Clarificacion - El Predio No Ha Salido Del Dominio Del Estado
+       * Identidad Registral A Predio Con Presunción De Baldio
+       * Inicio De Procedimiento De Revocatoria Directa A La Adjudicacion Del Baldio Por Afectacion Del Derecho De Dominio ( Decreto 1465 De 2013).
+       * Apertura Del Procedimiento Unico De Ordenamiento Social De La Propiedad Rural
+       * Inicio De Proceso De Intervencion
+       * 
+       * Códigos:
+       * 
+       * 0403
+       * 0404
+       * 0446
+       * 0447
+       * 0448
+       * 0449
+       * 0450
+       * 0451
+       * 0452
+       * 0481
+       * 04004
+       * 0916
+       * 0936
+       * 0937
+       * 0938
+       * 0939
+       * 0952
+       * 0965
+       * 0969
+       */
+      !!@ ili2db.dispName = "Inicio de proceso administrativo"
+      Inicio_Proceso_Administrativo,
+      /** Se refiere a la agrupación de códigos de cancelaciones: 
+       * Cancelacion Providencia Judicial
+       * Cancelacion Providencia Administrativa
+       * Cancelacion Por Voluntad De Las Partes
+       * Levantamiento De Declaratoria De Inminencia De Riesgo O Desplazamiento Forzado
+       * Cancelacion De Prohibicion De Enajenar Predio Declarado En Abandono
+       * Cancelacion Proteccion Juridica Del Predio Art. 17 Decreto 4829 De 2011
+       * Cancelación Solicitud De Restitución
+       * Cancelación Sustracción Provisional Del Comercio En Proceso De Restitucion
+       * Cancelación Inscripciones En Proceso De Restitucion Literal N) Art. 91 Ley 1448 De 2011
+       * Sustraccion De Area De Reserva Forestal Protectora
+       * Sustraccion De Area De Distritos De Manejo Integrado
+       * Sustraccion De Area De Distritos De Conservacion De Suelos
+       * Sustraccion De Area De Areas De Recreacion.
+       * Sustraccion De Area De Reservas Naturales De La Sociedad Civil.
+       * Cancelacion Parcial
+       * Cancelacion Por Orden Judicial
+       * 
+       * Códigos:
+       * 
+       * 0841
+       * 0842
+       * 0843
+       * 0844
+       * 0845
+       * 0846
+       * 0847
+       * 0848
+       * 0849
+       * 0850
+       * 0851
+       * 0852
+       * 0853
+       * 0854
+       * 0855
+       * 0856
+       */
+      !!@ ili2db.dispName = "Cancelación"
+      Cancelacion,
+      /** Es la agrupación de códigos que publicitan asuntos relacionados con desplazamiento, ley de víctimas o restitución: 
+       * Autorizacion De Enajenar Dada Por El Comité De Atencion De La Poblacion Desplazada
+       * Informe Del Comité De Atencion De La Poblacion Desplazada De  Poseedor - Ocupante O Tenedor De Predio
+       * Bienes Denunciados Ante La Fiscalia Como Despojados
+       * "Bienes Entregados Por Postulados Para Reparación De
+       * Victimas"
+       * Predio Ingresado Al Registro De Tierras Despojadas Art. 17 Decreto 4829 De 2011
+       * Identidad De Inmueble En Proceso De Restitucion De Tierras Nº2 Art 13 Decreto 4829 De 2011
+       * Inscripcion De Denuncia De Desplazamiento Y Usurpacion De Bienes
+       * Proteccion Juridica Del Predio Art. 13 No. 2o.Decreto 4829 De 2011
+       * Protección Jurídica Del Predio
+       * Admision Solicitud De Restitucion De Predio - Literal A) Art. 86 Ley 1448 De 2011
+       * 
+       * Códigos:
+       * 
+       * 0928
+       * 0930
+       * 0931
+       * 0932
+       * 0933
+       * 0934
+       * 0480
+       * 0482
+       * 04006
+       * 0483
+       */
+      !!@ ili2db.dispName = "Desplazamiento forzado, victimas o restitución"
+      Victima_Restitucion,
+      /** Es la agrupación de codigos que publicitan actos jurídicos en los FMI:
+       * Otro
+       * Aclaracion
+       * Correccion Del Titulo Respecto A Los Linderos Y Area (Art. 49 Del Decreto 2148 De 1983)
+       * Actualizacion De Linderos
+       * Actualizacion De Nomenclatura
+       * Autorizacion Registro
+       * Confirmacion Sentencia
+       * Permiso Constituir Gravamen
+       * Permiso Venta
+       * Declaracion Extincion Obligacion Hipotecaria
+       * Autorizacion Cambio De Destinacion Y Sustraccion Del Regimen De Unidad Agricola Familiar
+       * Intencion De Adelantar Saneaminento Automatico ( Artículo 4 Decreto 737 De 2014)
+       *  Levantamiento De Declaracion De Desarrollo O Construccion Prioritaria ( Arts. 52 Y Siguientes De La Ley 388 De 1997,Adicionados Por El Artículo 64 De La Ley 1537 De 2012. Decretos  Distritales 161 De 1999 Y 502 De 2003).
+       * Actualizacion Cedula Catastral
+       * Certificación Tecnica De Ocupación
+       * Rectificacion  Administrativa De Area Y Linderos
+       * Declaratoria - Este Predio Salio Del Dominio De La Nacion Y En Consecuencia Conserva Su Calidad De Bien Privado
+       * Cesion De Posicion Contractual En Servidumbre
+       * Se Determina La Existencia De Derecho Real Antes Del 5 De Agosto De 1974
+       * Autorizacion De Enajenacion Temprana
+       * Suspension Exigibilidad De Gravamenes Y Garantias Reales Y Fiduciarias
+       * Proteccion Del Domicilio (Art. 82 Codigo Nacional De Policia Y Convivencia)
+       * 
+       * Códigos:
+       * 
+       * 0900
+       * 0901
+       * 0902
+       * 0903
+       * 0904
+       * 0905
+       * 0908
+       * 0921
+       * 0922
+       * 0925
+       * 0926
+       * 0944
+       * 0951
+       * 0958
+       * 0960
+       * 0964
+       * 0967
+       * 0966
+       * 0970
+       * 0972
+       * 0465
+       * 04003
+       */
+      !!@ ili2db.dispName = "Publicidad de acto jurídico"
+      Publicidad_Acto_Juridico
+    );
+
     /** Conjunto de valores para indicar si se trata de un punto de control de referencia (un punto principal) o de apoyo (uso para levantamientos locales con estación total)
      */
-    LC_PuntoControlTipo = (
+    CR_PuntoControlTipo = (
       /** Puntos en el terreno levantados por topografía o geodesia que sirven de base para la orientación absoluta en la restitución fotogramétrica, y para efectuar un tratamiento geométrico o geo-referenciación de los datos en teledetección.
        */
       !!@ ili2db.dispName = "Control"
@@ -1457,7 +1706,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     /** Punto de leventamiento planimetrico que se identifican en el marco de la identificación de las construcciones, los linderos o puntos auxiliares levantado para el apoyo en la mediciión
      */
-    LC_PuntoLevTipo = (
+    CR_PuntoLevTipo = (
       /** Puntos de levantamiento para delimitar las construcción y unidades de construcción.
        */
       !!@ ili2db.dispName = "Construcción"
@@ -1468,7 +1717,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Servidumbre
     );
 
-    LC_PuntoTipo = (
+    CR_PuntoTipo = (
       /** Punto referido a los soportes verticales que sirven de apoyo,utilizados en la construcción de alambradas, tendidos eléctricos y telefónicos, televisión por cable, para iluminar calles, plazas o estadios y en las actividades agrícolas.
        */
       !!@ ili2db.dispName = "Poste"
@@ -1507,7 +1756,61 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Pilastra
     );
 
-    LC_RestriccionTipo = (
+    CR_ResponsabilidadTipo = (
+      /** Es la agrupación de códigos registrales que indican una obligacion de hacer frente al inmueble originada en un contrato o documento privado por voluntad de las partes:
+       * Condicion Resolutoria Expresa
+       * Condicion Suspensiva
+       * Constitucion De Fideicomiso Civil
+       * Pacto De Reserva De Dominio
+       * Pacto De Retroventa
+       * Cesion De Posicion Contractual De Fiduciario
+       * 
+       * Códigos:
+       *  
+       * 0311
+       * 0312
+       * 0313
+       * 0328
+       * 0329
+       * 0957
+       */
+      !!@ ili2db.dispName = "Contractual"
+      Contractual,
+      /** Es la agrupación de códigos registrales que indican una obligacion de hacer frente al inmueble originada en una orden administrativa:
+       * Constitucion De Movilizacion
+       * Valorizacion
+       * Liquidacion Del Efecto De Plusvalia
+       * Pacto Comisorio
+       * Derecho De Preferencia "Art. 21 Ley 1537 De 2012 Que Modifico El Art. 8 De La Ley 3 De 1991"
+       * Derecho De Opción Adquisición Conforme Art. 73 Ley 160/94
+       * Derecho De Preferencia
+       * "Liquidacion De Revision Art.719-1 Y 719-2 Del Estatuto Tributario"
+       * 
+       * Códigos:
+       * 
+       * 0202
+       * 0212
+       * 0214
+       * 0326
+       * 0369
+       * 0371
+       * 0421
+       * 04002
+       */
+      !!@ ili2db.dispName = "Administrativa"
+      Administrativa,
+      /** Es la agrupación de códigos registrales que indican una obligacion de hacer frente al inmueble originada en una orden judicial:
+       * Beneficio De Separación
+       * 
+       * Código:
+       * 
+       * 0216
+       */
+      !!@ ili2db.dispName = "Judicial"
+      Judicial
+    );
+
+    CR_RestriccionTipo = (
       /** Es la agrupación de códigos registrales que hacen referencia a servidumbres:
        * Medianeria
        * Servidumbre De Acueducto Activa
@@ -1550,68 +1853,334 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        * 0381
        */
       !!@ ili2db.dispName = "Servidumbre de paso"
-      Servidumbre(
-        /** Se trata de predio sirviente que sufre el gravamen para permitir la comunicación uso y bienestar de otro predio. (Artículo 905 del C.C.)
-         */
-        !!@ ili2db.dispName = "(Servidumbre) Tránsito"
-        Transito,
-        /** Es el gravamen impuesto sobre un predio para permitir la salida de las aguas sobrantes de otro predio. (Art. 928 del C.C.).
-         */
-        !!@ ili2db.dispName = "(Servidumbre) Aguas negras"
-        Aguas_Negras,
-        /** Permite realizar y mantener las obras necesarias para la eficiencia y segura ventilación. Las empresas de servicios públicos podrán pasar por predios ajenos por vía aérea y realizar en ellos las actividades necesarias para prestar el servicio. (Artículo 215 del Decreto 1275 de 1970, artículo 57 de la Ley 142 de 1994).
-         */
-        !!@ ili2db.dispName = "(Servidumbre) Aire"
-        Aire,
-        /** Supone para las entidades públicas que tienen a su cargo la construcción de centrales generadoras, líneas de interconexión, transmisión y prestación del servicio público de distribución de energía eléctrica, la facultad de pasar por los predios afectados, por vía aérea, subterránea o superficial, las líneas de transmisión y distribución del fluido eléctrico, ocupar las zonas objeto de servidumbre, transitar por los mismos, adelantar las obras, ejercer la vigilancia, conservación y mantenimiento y emplear los demás medios necesarios para su ejercicio. (Artículo 18 de la Ley 126 de 1938 y Artículo 25 de la Ley 56 de 1981). (Artículo 57 de la Ley 142 de 1994).
-         */
-        !!@ ili2db.dispName = "(Servidumbre) Energía eléctrica"
-        Energia_Electrica,
-        /** Es el conjunto de actividades ordenadas a la distribución de gas combustible, por tubería u otro medio, desde un sitio de acopio de grandes volúmenes o desde un gasoducto central hasta la instalación de un consumidor final, incluyendo su conexión y medición. 
-         *  Se constituye la servidumbre a favor de la explotación de los gases derivados del petróleo.
-         *  Cuando sea necesario las empresas que prestan el servicio podrán pasar por predios ajenos por vía subterránea o superficial los cables o tuberías, ocupar temporalmente las zonas que requieren esos predios, remover los cultivos y obstáculos de toda clase que se encuentren en ellos, transitar, adelantar las obras y ejercer vigilancia en ellos y en general realizar todas las actividades necesarias para prestar el servicio.
-         *  Las líneas de distribución de gas combustible, podrán atravesar los ríos, caudales, líneas férreas, puentes, calles, caminos, y cruzar acueductos, oleoductos, y otras líneas o conducciones. (Art. 14 númeral 28, y artículo 57 de la Ley 142 de 1994).
-         */
-        !!@ ili2db.dispName = "(Servidumbre) Gasoducto"
-        Gasoducto,
-        /** Tiene por objeto dar luz a un espacio cualquiera, cerrado y techado. 
-         * Se llama predio sirviente el que debe permitir el paso de la luz y predio dominante el que tiene derecho a ella. (Artículos 931 al 935 del Código Civil).
-         */
-        !!@ ili2db.dispName = "(Servidumbre) Luz"
-        Luz,
-        /** Se constituye a favor de la explotación de petróleo, comprendiendo el terreno suficiente para las estaciones de bombeo y demás dependencias necesarias para el funcionamiento de los oleoductos y el de establecer muelles, cargaderos y tuberías submarinas y fluviales. (Artículo 9 Decreto 1056 de 1954).
-         */
-        !!@ ili2db.dispName = "(Servidumbre) Oleoducto"
-        Oleoducto,
-        /** El predio inferior está sujeto a recibir las aguas que descienden del predio superior naturalmente, es decir, sin que la mano del hombre contribuya a ello. No se puede, por consiguiente, dirigir un albañal o acequia sobre el predio vecino, si no se ha constituido esta servidumbre especial. En el predio servil no se puede hacer cosa alguna que estorbe la servidumbre natural, ni el predio dominante, que la grave.
-         */
-        !!@ ili2db.dispName = "(Servidumbre) Agua"
-        Agua,
-        /** Para el ejercicio eficiente de la industria minera en todas sus fases y etapas, podrán establecerse las servidumbres que sean necesarias sobre los predios ubicados dentro o fuera del área objeto del título minero. Cuando, para la construcción, el montaje, la explotación, el acopio y el beneficio, en ejercicio de las servidumbres se requiera usar recursos naturales renovables, será indispensable que dicho uso esté autorizado por la autoridad ambiental, cuando la ley así lo exija. También procede el establecimiento de servidumbre sobre zonas, objeto de otros títulos mineros. Tales gravámenes no podrán impedir o dificultar la exploración o la explotación de la concesión que los soporte. (Art 166 Ley 685 de 2001)
-         */
-        !!@ ili2db.dispName = "(Servidumbre) Minera"
-        Minera,
-        /** La industria de los hidrocarburos está declarada de utilidad pública en sus ramos de exploración, producción, transporte, refinación y distribución. Los predios deberán soportar todas las servidumbres legales que sean necesarias para realizar las actividades de exploración, producción y transporte de los hidrocarburos, salvo las excepciones establecidas por la ley. Se entenderá que la servidumbre de ocupación de terrenos comprenderá el derecho a construir la infraestructura necesaria en campo e instalar todas las obras y servicios propios para beneficio del recurso de los hidrocarburos y del ejercicio de las demás servidumbres que se requieran. (Art. 1 Ley 1274 de 2009)
-         */
-        !!@ ili2db.dispName = "(Servidumbre) Legal de hidrocarburos"
-        Legal_Hidrocarburos,
-        /** Es el conjunto de derechos y obligaciones que dimanan de la existencia y disfrute en común de una pared, cerca, vallado, etc. 
-         * En todos los casos, y aun cuando conste que una cerca o pared divisoria pertenece exclusivamente a uno de los predios contiguos, el dueño del otro predio tendrá el derecho de hacer la medianería en todo o en parte, aun sin el consentimiento de su vecino, pagándole la mitad del valor del terreno en que está hecho el cerramiento, y la mitad del valor actual de la porción del cerramiento cuya medianería pretende. (Artículo 912 del C.C.).
-         */
-        !!@ ili2db.dispName = "(Servidumbre) Medianeria"
-        Medianeria,
-        /** Gravamen que afecta un predio, permitiendo que sobre el se conduzcan el alcantarillado que benefician a otro predio de diferente propietario.
-         */
-        !!@ ili2db.dispName = "(Servidumbre) Alcantarillado"
-        Alcantarillado,
-        /** Gravamen que afecta un predio, permitiendo que sobre el se conduzcan las aguas que benefician a otro predio de diferente propietario. (Artículos 919 a 930 del Código Civil; Artículo 214 del Decreto 1275 de 1970. Artículo 57 de la Ley 142 de 1998).
-         */
-        !!@ ili2db.dispName = "(Servidumbre) Acueducto"
-        Acueducto
-      )
+      Servidumbre,
+      /** Es la agrupación de códigos registrales que hacen referencia a afectaciones de interes general:
+       * Declaratoria De Bien Inmueble De Interés Cultural
+       * Afectacion Por Causa De Una Obra Publica
+       * Declaratoria De Bien Inmueble De Interes Cultural Numeral 1.2. Art. 7 De La Ley 1185 De 2008
+       * Declaratoria De Bien Existencia Del Plan Especial De Manejo Y Proteccion Numeral 1.2. Art. 7 De La Ley 1185 De 2008
+       * 
+       * Códigos:
+       * 
+       * 0973
+       * 0305
+       * 0359
+       * 0360
+       */
+      !!@ ili2db.dispName = "Afectaciones de interés general"
+      Afectaciones_Interes_General,
+      /** Es la agrupación de códigos registrales que hacen referencia a restricciones de tipo ambiental:
+       * Declaracion, Alinderacion Y Creacion De Reserva Forestal Y Protectora.
+       * Declaracion De Reserva, Alinderacion Y Creacion De Parques Naturales Regionales
+       * Declaración, Alinderación Y Creación De Reservas Naturales De La Sociedad Civil.
+       * Declaracion De Reserva, Alinderacion Y Creacion De Area Del Sistema De Parques Nacionales Y Naturales
+       * Declaración, Alinderación Y Creación De Distritos De Conservación De Suelos
+       * Declaración, Alinderación Y Creación De Areas De Recreación
+       * Declaración, Alinderación Y Creación De Reservas Naturales De La Sociedad Civil
+       * Declaracion, Alinderacion Y Creacion De Distritos De Manejo Integrado
+       * Protección Provisional De La Posesión De Territorios Ancestrales Y/O Tradicionales Por Pueblos Indigenas
+       * Reservas Forestales Productoras (Ley 1076 De 2015)
+       * Reservas Forestales Protectoras- Productoras (Ley 1076 De 2016)
+       * Declaratorias De Rondas Hidricas (Ley 1076 De 2015 )
+       * Reservas Hidricas (Ley 1076 De 2015)
+       * Identificacion Y Delimitacion De Una Zona De Interes De Desarrollo Rural, Economico Y Social, Zidres
+       * Declaratoria De Existencia Del Plan Especial De Manejo Y Protección - Pemp.
+       * Declaración, Alineación Y Creación De Reserva Forestal Protectora
+       * 
+       * Códigos:
+       * 
+       * 0363
+       * 0364
+       * 0368
+       * 0357
+       * 0945
+       * 0946
+       * 0947
+       * 0948
+       * 0949
+       * 0953
+       * 0954
+       * 0955
+       * 0956
+       * 0968
+       * 0974
+       * 0961
+       */
+      !!@ ili2db.dispName = "Ambientales"
+      Ambientales,
+      /** Es la agrupación de códigos registrales que hacen referencia a restricciones u obligaciones de abstenerse frente a la propiedad por asuntos relacionados con desplazamiento, ley de víctimas o restitución de tierras: 
+       * Abstenerse Inscribir  Enajenaciones Por Declaratoria Inminencia De Riesgo O Desplazamiento Forzado
+       * Prohibición De Enajenar Derechos Inscritos En Predio Declarado  Abandonado Por El Titular
+       * Sustraccion Provisional Del Comercio En Proceso De Restitucion Literal B) Art. 86 Ley 1448 De 2011
+       * No Negociable Por Acto Entre Vivos Dentro De Los Dos Años Siguiente A La Ejecutoria De La Restitucion O Entrega Del Inmueble, Art. 101 Ley 1448 De 2011
+       * "Declaratoria De Zonas De Inminencia De Riesgo De Desplazamiento Y De Des
+       * Plazamiento Forzado"
+       * Declaratoria De Inminencia De Riesgo O Desplazamiento Forzado En Territorio Etnico
+       * Medida De Protección A Solicitud De La Comunidad Indigena
+       * Medida De Protección A Solicitud De Comunidades Negras.
+       * 
+       * Códigos:
+       * 
+       * 0470
+       * 0474
+       * 484
+       * 0361
+       * 0352
+       * 0929
+       * 0940
+       * 0941
+       */
+      !!@ ili2db.dispName = "Desplazamiento forzado restitución"
+      Desplazamiento_Forzado_Restitucion,
+      /** Es la agrupación de códigos registrales que hacen referencia a embargos:
+       * Embargo De Alimentos
+       * Embargo De Bienes Y Haberes De Propiedad Del  Intervenido
+       * Embargo De La Sucesion
+       * Embargo Derechos Y Acciones Por Garantia Hipotecaria
+       * Embargo Ejecutivo  Con Accion Personal
+       * Embargo Ejecutivo Con Accion Mixta
+       * Embargo Ejecutivo Con Accion Real
+       * Embargo Ejecutivo Derechos De Cuota
+       * Embargo En Accion De Simulacion
+       * Embargo En Accion Revocatoria
+       * Embargo En Acuerdo De Reestructuracion
+       * Embargo En Liquidacion Obligatoria
+       * Embargo En Proceso De Divorcio
+       * Embargo En Proceso De Fiscalia
+       * Embargo En Proceso De Separacion De Bienes
+       * Embargo Especial Art. 66 Codigo De Procedimiento Penal (Ley 600/2000)
+       * Embargo Laboral
+       * Embargo Penal
+       * Embargo Por Ineficacia Del Acuerdo De Reestructuracion
+       * Embargo Por Jurisdiccion Coactiva
+       * Embargo Por Valorizacion
+       * Embargo En Proceso De Jurisdiccion Voluntaria
+       * Embargo En Proceso Ordinario
+       * Embargo Proceso Abreviado
+       * Embargo Proceso De Reorganizacion Ley 1116 De 2006
+       * Embargo Proceso Art. 95 De La Ley 1306 De 2009
+       * Embargo En Proceso De Justicia Y Paz — Ley 1592 De 2012
+       * Embargo En Proceso De Responsabilidad Fiscal
+       * Embargo En Proceso De Liquidacion Judicial  ( Artículo 50, En Concordancia Con El Artículo 54 De La Ley 1116 De 2006)
+       * Embargo Derechos De Cuota
+       * Embargo En Proceso Divisorio
+       * Embargo En Proceso Verbal
+       * Embargo En Proceso Declarativo
+       * Embargo En Proceso Liquidatorio
+       * Embargo En Proceso Monitorio
+       * 
+       * Códigos:
+       * 
+       * 0423
+       * 0424
+       * 0425
+       * 0426
+       * 0427
+       * 0428
+       * 0429
+       * 0430
+       * 0431
+       * 0432
+       * 0433
+       * 0434
+       * 0435
+       * 0436
+       * 0437
+       * 0438
+       * 0439
+       * 0440
+       * 0443
+       * 0444
+       * 0445
+       * 0471
+       * 0472
+       * 0475
+       * 0476
+       * 0478
+       * 0485
+       * 0487
+       * 0489
+       * 0491
+       * 0493
+       * 0495
+       * 0496
+       * 0497
+       * 0498
+       */
+      !!@ ili2db.dispName = "Embargo"
+      Embargo,
+      /** Es la agrupación de códigos registrales que hacen referencia a propiedad horizontal, uso del suelo, urbanismo:
+       * Cambio Regimen De Copropiedad
+       * Constitucion Regimen De Condominio
+       * Constitucion Reglamento De Propiedad Horizontal
+       * Reforma Regimen De Condominio
+       * Reforma Reglamento De Propiedad Horizontal
+       * Adicion Regimen De Condominio
+       * Adicion Regimen De Propiedad Horizontal
+       * Constitucion De Urbanizacion
+       * Delimitacion Unidad De Actuacion Urbanistica
+       * Reglamentacion Urbanistica Especial
+       *  Declaracion De Desarrollo O Construccion Prioritaria ( Arts. 52 Y Siguientes De La Ley 388 De 1997,Adicionados Por El Artículo 64 De La Ley 1537 De 2012,  Decretos  Distritales 161 De 1999 Y 502 De 2003).
+       * Cambio De Uso Del Suelo
+       * Suelo Destinado Para El Desarrollo De Proyecto De Vis O Vip
+       * Constitución De Parcelación
+       * 
+       * Códigos:
+       * 
+       * 0306
+       * 0316
+       * 0317
+       * 0330
+       * 0331
+       * 0346
+       * 0347
+       * 0909
+       * 0914
+       * 0923
+       * 0950
+       * 0971
+       * 0975
+       * 0976
+       */
+      !!@ ili2db.dispName = "Propiedad horizontal y urbanismo"
+      Propiedad_Horizontal_Urbanismo,
+      /** Es la agrupación de códigos registrales que hacen referencia a prohibiciones expresas de origen administrativo, contractual o judicial:
+       * declaratoria de indivision
+       * pacto de indivision
+       * prohibicion de transferencia "art. 21 ley 1537 de 2012 que modifico el art. 8 de la ley 3 de 1991"
+       * durante los cinco (5) años siguientes a la  adjudicación, sólo podrá hipotdecarse para créditos agropecuarios con entidades financieras (art. 73 ley 160/94)
+       * prohibición de transferencia
+       * limitacion al dominio
+       * comiso especial
+       * declaracion no podra rematarse, adjudicarse, ni  enajenarse a ningun titulo bienes del garante
+       * decomiso de bienes
+       * oferta de compra en bien rural
+       * oferta de compra en bien urbano
+       * prevencion no procede la realizacion de nuevos embargos sobre bienes de  la intervenida
+       * prohibicion administrativa
+       * prohibicion cancelacion gravamenes constituidos a favor de intervenida  sin autorizacion liquidador
+       * prohibicion enajenar sin autorizacion
+       * prohibicion gravar, ceder, limitar o arrendar sin autorizacion
+       * prohibicion  inscripcion actos afecten dominio de bienes intervenida  salvo lo realizado por agente especial
+       * prohibicion judicial
+       * prohibicion  registro actos afecten dominio bienes propiedad de intervenida salvo autorizacion liquidador
+       * toma  de  posesion  inmediata  de bienes, haberes  y  negocios  de  entidad vigilada
+       * suspension provisional a la libre disposicion de dominio en proceso de justicia y paz - ley 975 de 2005
+       * liquidacion forzosa administrativa
+       * prohibicion fraccionamiento predio en area inferior a uaf de zona o municipio, salvo autorizacion incoder o excepciones arto 45 ley 160/94 ( arto 72 ley 160/94)
+       * prohibición de enajenar art. 97 ley 906 de 2004
+       * suspensión del poder dispositivo
+       * medida cautelar
+       * prohibicion de aportar baldio a sociedad o comunidad, si con ellas dichas sociedades o comunidades consolidan propiedad sobre area que exceda a uaf (arto. 72 ley 160 de 1994)
+       * prohibicion adquisicion de predios adjudicados incialmente como baldios si las extensiones exceden los limites maximos para la titulacion  señalados por la junta directiva para las uaf del respectivo municipio o region (arto. 72 ley 160 de 1994).
+       * 
+       * Códigos:
+       * 
+       * 0306
+       * 0316
+       * 0317
+       * 0330
+       * 0331
+       * 0346
+       * 0347
+       * 0909
+       * 0914
+       * 0923
+       * 0950
+       * 0971
+       * 0975
+       * 0976
+       *  
+       * 0318
+       * 0327
+       * 0362
+       * 0372
+       * 0384
+       * 0300
+       * 0401
+       * 0402
+       * 0405
+       * 0454
+       * 0455
+       * 0456
+       * 0458
+       * 0459
+       * 0460
+       * 0461
+       * 0462
+       * 0463
+       * 0464
+       * 0466
+       * 0479
+       * 0486
+       * 0488
+       * 0494
+       * 04005
+       * 0400
+       * 0942
+       * 0943
+       */
+      !!@ ili2db.dispName = "Prohibiciones expresas"
+      Prohibiciones_Expresas,
+      /** Es la agrupación de códigos registrales que hacen referencia a hipotecas:
+       * Gravamen
+       * Ampliacion De Hipoteca
+       * Hipoteca
+       * Hipoteca Abierta
+       * Hipoteca Con Cuantia Indeterminada
+       * Hipoteca De Bienes En Usufructo
+       * Hipoteca De Derechos Y Acciones
+       * Hipoteca De Gananciales
+       * Hipoteca De Minas Con Antecedente Registral
+       * Hipoteca De Unidad Agricola Familiar
+       * Hipoteca Derechos De Cuota
+       * Hipoteca Nuda Propiedad
+       * Conservacion De La Calidad De Acreedor Hipotecario (Art. 3 Ley 1555 De 2012, Art. 2.2.6.14.6 Decreto 1310 De 2015).
+       * Ratificacion Ampliación Hipoteca
+       * Ratificación Hipoteca
+       * Hipoteca Abierta Sin Límite De Cuantía
+       * 
+       * Códigos:
+       * 
+       * 0200
+       * 0201
+       * 0203
+       * 0204
+       * 0205
+       * 0206
+       * 0207
+       * 0208
+       * 0209
+       * 0210
+       * 0211
+       * 0213
+       * 0215
+       * 0217
+       * 0218
+       * 0219
+       */
+      !!@ ili2db.dispName = "Hipoteca"
+      Hipoteca,
+      /** Es la agrupación de códigos registrales que hacen referencia a restricciones en la propiedad relacionadas con la proteccion a la familia: 
+       * Afectacion A Vivienda Familiar
+       * Constitucion Patrimonio De Familia
+       * Abstenerse De Inscribir Nuevos Embargos
+       * Afectacion  A Vivienda Familiar Sobre Mejoras En Predio Ajeno Par.  Art.  5  Ley 258/96
+       * Patrimonio De Familia Sobre Mejoras En Predio Ajeno  Par. Art. 5 Ley 258/96
+       * 
+       * Códigos:
+       * 
+       * 0304
+       * 0315
+       * 04007
+       * 0603
+       * 0612
+       */
+      !!@ ili2db.dispName = "Proteccion familia"
+      Proteccion_Familia
     );
 
-    LC_SexoTipo = (
+    CR_SexoTipo = (
       /** Que tiene órganos para fecundar
        */
       !!@ ili2db.dispName = "Masculino"
@@ -1622,7 +2191,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Femenino
     );
 
-    LC_TipologiaTipo = (
+    CR_TipologiaTipo = (
+      !!@ ili2db.dispName = "Residencial"
       Residencial(
         /** Armazón: Madera; Muro: Material de desecho, esterilla; Cubierta material desecho, telas asfálticas; Pisos tierra pisada.
          */
@@ -1675,6 +2245,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Residencial) Tipo 6B"
         Tipo_6B
       ),
+      !!@ ili2db.dispName = "Comercial"
       Comercial(
         /** Armazón: Madera, prefabricado
          * Muros: adobe, bahareque, tapia
@@ -1734,6 +2305,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Comercial) Especializado 2"
         Especializado_2
       ),
+      !!@ ili2db.dispName = "Industrial"
       Industrial(
         /** Armazón: Madera, prefabricado
          * Muros: adobe, bahareque, tapia
@@ -1796,13 +2368,12 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Industrial) Pesada 2"
         Pesada_2
       ),
-      !!@ ili2db.dispName = "Otro"
       Otro
     );
 
     /** Valores válidos para indicar el tipo de construcción empleada para levantar una unidad de construcción, con incidencia en su avalúo. REVISAR DOCUMENTACIÓN
      */
-    LC_UnidadConstruccionTipo = (
+    CR_UnidadConstruccionTipo = (
       /** Tipo de unidad de construcción en uso para vivienda.
        */
       !!@ ili2db.dispName = "Residencial"
@@ -1821,7 +2392,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Anexo
     );
 
-    LC_UsoUConsTipo = (
+    CR_UsoUConsTipo = (
       !!@ ili2db.dispName = "Residencial"
       Residencial(
         /** Es una vivienda que comprende una o más habitaciones, en un edificio de varios pisos 4 o más pisos sometido en régimen de propiedad horizontal.
@@ -1985,6 +2556,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         Oficinas_Consultorios_en_PH,
         /** Es un terreno que está destinado a árboles, jardines y prados donde se depositan los restos mortales o cadáveres.
          */
+        !!@ ili2db.dispName = "(Comercial) Parque Cementerios"
         Parque_Cementerios,
         /** Es el espacio que con ánimo de lucro se destina a guardar o arrendar espacios para depositar vehículos dentro de una edificación construida para tal fin, o dentro de un predio habilitado con el mismo objeto.
          */
@@ -2153,107 +2725,42 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       )
     );
 
-    LC_ViaTipo = (
-      /** Vía de un sistema vial urbano con prelación de circulación de tránsito sobre las demás vías, con excepción de la vía férrea y la autopista
-       */
-      !!@ ili2db.dispName = "Arteria"
-      Arteria,
-      /** vía de calzadas separadas, cada una con dos (2) o más carriles, control total de acceso y salida, con intersecciones en desnivel o mediante entradas y salidas directas a otras carreteras y con control de velocidades mínimas y máximas por carril.
-       */
-      !!@ ili2db.dispName = "Autopista"
-      Autopista,
-      /** Vía cuya finalidad es permitir la circulación de vehículos, con niveles adecuados de seguridad y comodidad.
-       */
-      !!@ ili2db.dispName = "Carreteable"
-      Carreteable,
-      /** vía o sección de la calzada destinada al tránsito de bicicletas en forma exclusiva.
-       */
-      !!@ ili2db.dispName = "Ciclorruta"
-      Cicloruta,
-      /** Tramo de carretera que se introduce paralelamente a la carretera principal en la zona de un enlace o entre enlaces consecutivos.
-       */
-      !!@ ili2db.dispName = "Colectora"
-      Colectora,
-      /** Son aquellas a cargo de los departamentos
-       */
-      !!@ ili2db.dispName = "Departamental"
-      Departamental,
-      /** Diseñada para el transito de vehículos sobre rieles, con prelación sobre las demás vías, excepto para las ciudades donde existe metro, en cuyos casos será este el que tenga prelación.
-       */
-      !!@ ili2db.dispName = "Férrea"
-      Ferrea,
-      /** Conforman el sistema vial urbano menor y se conectan solamente con las vías colectoras
-       */
-      !!@ ili2db.dispName = "Local"
-      Local,
-      /** Es aquella de exclusiva destinación para las líneas de metro, independientemente de su configuración y que hacen parte integral de su infraestructura de operación.
-       */
-      !!@ ili2db.dispName = "Metro o metrovía"
-      Metro_o_Metrovia,
-      /** Aquellas vías cuyo mantenimiento corresponde al gobierno nacional.
-       */
-      !!@ ili2db.dispName = "Nacional"
-      Nacional,
-      /** La que tiene tránsito subordinado a las vías principales.
-       */
-      !!@ ili2db.dispName = "Ordinaria"
-      Ordinaria,
-      /** Zonas destinadas para el transito exclusivo de peatones.
-       */
-      !!@ ili2db.dispName = "Peatonal"
-      Peatonal,
-      /** Son aquellas troncales, transversales y accesos a capitales de Departamento que cumplen la función básica de integración de las principales zonas de producción y consumo del país y de éste con los demás países.
-       */
-      !!@ ili2db.dispName = "Principal"
-      Principal,
-      /** Via que está destinada al uso particular.
-       */
-      !!@ ili2db.dispName = "Privada"
-      Privada,
-      /** Son aquellas vías que unen las cabeceras municipales entre sí y/o que provienen de una cabecera municipal y conectan con una carretera Primaria.
-       */
-      !!@ ili2db.dispName = "Secundaria"
-      Secundaria,
-      /** Vía de dos (2) calzadas con ocho o más carriles y con destinación exclusiva de las calzadas interiores para el tránsito de servicio público masivo.
-       */
-      !!@ ili2db.dispName = "Troncal"
-      Troncal
-    );
-
-  TOPIC Levantamiento_Catastral
-  EXTENDS LADM_COL_V1_6.LADM_Nucleo =
+  TOPIC Catastro_Registro
+  EXTENDS LADM_COL_V1_7.LADM_Nucleo =
     OID AS INTERLIS.UUIDOID;
-    DEPENDS ON LADM_COL_V1_6.LADM_Nucleo,Datos_Integracion_Insumos_V2_10.Datos_Integracion_Insumos;
+    DEPENDS ON LADM_COL_V1_7.LADM_Nucleo;
 
     /** Clase que hereda los atributos de la  Clase COL_Agrupación_Interesados.
      */
     !!@ ili2db.dispName = "Agrupación de Interesados"
-    CLASS LC_AgrupacionInteresados
-    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_AgrupacionInteresados =
-    END LC_AgrupacionInteresados;
+    CLASS CR_AgrupacionInteresados
+    EXTENDS LADM_COL_V1_7.LADM_Nucleo.COL_AgrupacionInteresados =
+    END CR_AgrupacionInteresados;
+
+    CLASS CR_AgrupacionUnidadesEspaciales
+    EXTENDS LADM_COL_V1_7.LADM_Nucleo.COL_AgrupacionUnidadesEspaciales =
+    END CR_AgrupacionUnidadesEspaciales;
 
     /** Clase para determinar el tipo de calificación para las unidades de construcción, permite 3 opciones: a) calificación por tipologias constructivas, b)calificación total de la ficha de calificación de construcción y c) calificación parcial de la ficha de calificación de construcción como lo puede ser fachada y estructura.
      */
-    CLASS LC_CalificacionUnidadConstruccion (ABSTRACT) =
-    END LC_CalificacionUnidadConstruccion;
+    CLASS CR_CalificacionUnidadConstruccion (ABSTRACT) =
+    END CR_CalificacionUnidadConstruccion;
 
     /** Es la unión de materiales adheridos al terreno, con carácter de permanente, cualesquiera sean los elementos que la constituyan.
      */
     !!@ ili2db.dispName = "Construcción"
-    CLASS LC_Construccion
-    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadEspacial =
-      /** Identificado de la unidad de construcción, su codificación puede ser por letras del abecedario.
-       */
+    CLASS CR_Construccion
+    EXTENDS LADM_COL_V1_7.LADM_Nucleo.COL_UnidadEspacial =
       !!@ ili2db.dispName = "Identificador"
       Identificador : TEXT*2;
       /** Indica si la construcción es de tipo convencional o no convencional.
        */
       !!@ ili2db.dispName = "Tipo de construcción"
-      Tipo_Construccion : Levantamiento_Catastral_V2_10.LC_ConstruccionTipo;
+      Tipo_Construccion : Catastro_Registro_V2_11.CR_ConstruccionTipo;
       /** Indica el tipo de dominio de la unidad de construcción: común y privado.
        */
       !!@ ili2db.dispName = "Tipo de dominio"
-      Tipo_Dominio : Levantamiento_Catastral_V2_10.LC_DominioConstruccionTipo;
+      Tipo_Dominio : Catastro_Registro_V2_11.CR_DominioConstruccionTipo;
       /** Número total de pisos de la construcción.
        */
       !!@ ili2db.dispName = "Número de pisos"
@@ -2281,89 +2788,49 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Avalúo total catastral de la construcción.
        */
       !!@ ili2db.dispName = "Ávaluo de construcción"
-      Avaluo_Construccion : LADM_COL_V1_6.LADM_Nucleo.Peso;
+      Avaluo_Construccion : LADM_COL_V1_7.LADM_Nucleo.Peso;
       /** Área total construida.
        */
       !!@ ili2db.dispName = "Área de construcción"
-      Area_Construccion : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_6.m2];
+      Area_Construccion : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_7.m2];
       /** Altura total de la construcción.
        */
       !!@ ili2db.dispName = "Altura"
-      Altura : 1 .. 1000 [INTERLIS.m];
+      Altura : 0 .. 1000 [INTERLIS.m];
       /** Observaciones generales de la construcción.
        */
       !!@ ili2db.dispName = "Observaciones"
       Observaciones : TEXT;
-    END LC_Construccion;
-
-    !!@ ili2db.dispName = "(LC) Contacto Visita"
-    CLASS LC_ContactoVisita =
-      /** Primer nombre de la persona encargada de atender la visita de ejecución de actividades catastrales sobre el predio.
-       */
-      !!@ ili2db.dispName = "Primer nombre de quien atendió"
-      Primer_Nombre_Quien_Atendio : MANDATORY TEXT*100;
-      /** Segundo nombre de la persona encargada de atender la visita de ejecución de actividades catastrales sobre el predio.
-       */
-      !!@ ili2db.dispName = "Segundo nombre de quien atendió"
-      Segundo_Nombre_Quien_Atendio : TEXT*100;
-      /** Primer apellido de la persona encargada de atender la visita de ejecución de actividades catastrales sobre el predio.
-       */
-      !!@ ili2db.dispName = "Primer apellido de quien atendió"
-      Primer_Apellido_Quien_Atendio : MANDATORY TEXT*100;
-      /** Segundo apellido de la persona encargada de atender la visita de ejecución de actividades catastrales sobre el predio.
-       */
-      !!@ ili2db.dispName = "Segundo apellido de quien atendió"
-      Segundo_Apellido_Quien_Atendio : TEXT*100;
-      /** Relación con el predio de la persona encargada de atender la visita, por ejemplo propietario, encargado, administrador, poseedor, etc.
-       */
-      !!@ ili2db.dispName = "Relación con el predio"
-      Relacion_Con_Predio : MANDATORY TEXT*100;
-      /** Dirección de domicilio para notificaciones.
-       */
-      !!@ ili2db.dispName = "Domicilio notificaciones"
-      Domicilio_Notificaciones : TEXT*255;
-      /** Número de celular de la persona que atendió la visita de actividades catastrales.
-       */
-      !!@ ili2db.dispName = "Celular"
-      Celular : TEXT*20;
-      /** Correo electrónico de la persona que atendió la visita de actividades catastrales.
-       */
-      !!@ ili2db.dispName = "Correo electrónico"
-      Correo_Electronico : TEXT*100;
-      /** Indica si autoriza las notificaciones administrativas por medio de vía electrónica.
-       */
-      !!@ ili2db.dispName = "Autoriza notificaciones"
-      Autoriza_Notificaciones : BOOLEAN;
-    END LC_ContactoVisita;
+    END CR_Construccion;
 
     /** Clase que contiene los datos principales del predio matriz sometido al regimen de propiedad horizontal.
      */
     !!@ ili2db.dispName = "Datos PH Condominio"
-    CLASS LC_DatosPHCondominio =
+    CLASS CR_DatosPHCondominio =
       /** Área total del terreno del PH o Condominio Matriz.
        */
       !!@ ili2db.dispName = "Área total de terreno"
-      Area_Total_Terreno : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
+      Area_Total_Terreno : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Área total privada del terreno del PH o Condominio Matriz.
        */
       !!@ ili2db.dispName = "Área total de terreno privada"
-      Area_Total_Terreno_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
+      Area_Total_Terreno_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Área total de terreno común del PH o Condominio Matriz.
        */
       !!@ ili2db.dispName = "Área total de terreno común"
-      Area_Total_Terreno_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
+      Area_Total_Terreno_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Área total de construida del PH o Condominio Matriz.
        */
       !!@ ili2db.dispName = "Área total construida"
-      Area_Total_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
+      Area_Total_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Área total construida privada del PH o Condominio Matriz.
        */
       !!@ ili2db.dispName = "Área total construida privada"
-      Area_Total_Construida_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
+      Area_Total_Construida_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Área total construida común del PH o Condominio Matriz.
        */
       !!@ ili2db.dispName = "Área total construida común"
-      Area_Total_Construida_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_6.m2];
+      Area_Total_Construida_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Número de torres en el PH o Condominio.
        */
       !!@ ili2db.dispName = "Número de torres"
@@ -2384,101 +2851,138 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Total de únidades de sótanos"
       Total_Unidades_Sotanos : 0 .. 99999999;
-    END LC_DatosPHCondominio;
+    END CR_DatosPHCondominio;
 
-    /** Clase que registra las instancias de los derechos que un interesado ejerce sobre un predio. Es una especialización de la clase COL_DRR del propio modelo.
+    /** Es la clase que hace referencia a los Derechos, Restricciones y Responsabilidades que existen entre algún o algunos interesados frente a un predio.
      */
-    !!@ ili2db.dispName = "Derecho"
-    CLASS LC_Derecho
-    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_DRR =
-      /** Derecho que se ejerce.
+    CLASS CR_DRR (ABSTRACT)
+    EXTENDS LADM_COL_V1_7.LADM_Nucleo.COL_DRR =
+      /** Es el tipo de descripciòn por la cual se hacen las incripciones en registro de acuerdo con lo contemplado en el art. 8 de la ley 1579 de 2012.
        */
-      !!@ ili2db.dispName = "Tipo"
-      Tipo : MANDATORY Levantamiento_Catastral_V2_10.LC_DerechoTipo;
-    END LC_Derecho;
+      !!@ ili2db.dispName = "Naturaleza jurídica"
+      Naturaleza_Juridica : TEXT*100;
+      /** es el número asignado en el registro a cada acto sujeto a registro.
+       */
+      !!@ ili2db.dispName = "Código de la naturaleza jurídica"
+      Codigo_Naturaleza_Juridica : TEXT*4;
+      /** Es el comentario que puede hacer cada calificador para dar claridad a cada inscripción registral.
+       */
+      !!@ ili2db.dispName = "Naturaleza complemento"
+      Naturaleza_Complemento : TEXT*200;
+      /** Es la fecha en la cual se culmina el tramite registral y queda centado el documento en la matricula inmobiliaria.
+       */
+      !!@ ili2db.dispName = "Fecha de la anotación"
+      Fecha_Anotacion : INTERLIS.XMLDate;
+    END CR_DRR;
 
-    !!@ ili2db.dispName = "(LC) Estructura Novedad FMI"
-    STRUCTURE LC_EstructuraNovedadFMI =
+    !!@ ili2db.dispName = "(CR) Estructura Avalúo Catastral"
+    STRUCTURE CR_EstructuraAvaluoCatastral =
+      !!@ ili2db.dispName = "Vigencia avalúo"
+      Vigencia_Avaluo : INTERLIS.XMLDate;
+      !!@ ili2db.dispName = "Valor avalúo"
+      Valor_Avaluo : LADM_COL_V1_7.LADM_Nucleo.Peso;
+    END CR_EstructuraAvaluoCatastral;
+
+    /** Corresponde a la información del código de la ORIP y el número de matrícula inmobiliaria de los predios por los cuales nació el predio objeto de estudio.
+     */
+    !!@ ili2db.dispName = "Estructura Matrícula Matriz"
+    STRUCTURE CR_EstructuraMatriculaMatriz =
+      /** Es el nùmero que se ha asignado a la Oficina de Registro de Instrumentos públicos correspondiente.
+       */
       !!@ ili2db.dispName = "Código ORIP"
-      Codigo_ORIP : TEXT*3;
-      !!@ ili2db.dispName = "Número FMI"
-      Numero_FMI : TEXT*80;
-    END LC_EstructuraNovedadFMI;
+      Codigo_ORIP : TEXT*20;
+      /** Es el consecutivo que se asigna a cada predio jurídico abierto en la ORIP.
+       */
+      !!@ ili2db.dispName = "Matrícula inmobiliaria"
+      Matricula_Inmobiliaria : TEXT*20;
+    END CR_EstructuraMatriculaMatriz;
 
-    !!@ ili2db.dispName = "(LC) Estructura Novedad Número Predial"
-    STRUCTURE LC_EstructuraNovedadNumeroPredial =
-      !!@ ili2db.dispName = "Número predial"
-      Numero_Predial : MANDATORY TEXT*30;
-      !!@ ili2db.dispName = "Tipo de novedad"
-      Tipo_Novedad : (
-        !!@ ili2db.dispName = "Predio nuevo"
-        Predio_Nuevo,
-        !!@ ili2db.dispName = "Desenglobe"
-        Desenglobe,
-        !!@ ili2db.dispName = "Englobe"
-        Englobe,
-        !!@ ili2db.dispName = "Cancelación"
-        Cancelacion,
-        !!@ ili2db.dispName = "Cambio de número predial"
-        Cambio_Numero_Predial,
-        !!@ ili2db.dispName = "Ninguna"
-        Ninguna
-      );
-    END LC_EstructuraNovedadNumeroPredial;
+    /** Corresponde a la información del código de la ORIP y el número de matrícula inmobiliaria de los predios que se han aperturado con base en el predio objeto de estudio.
+     */
+    !!@ ili2db.dispName = "Estructura Matrícula Segregados"
+    STRUCTURE CR_EstructuraMatriculaSegregados =
+      /** Es el nùmero que se ha asignado a la Oficina de Registro de Instrumentos públicos correspondiente.
+       */
+      !!@ ili2db.dispName = "Código ORIP"
+      Codigo_ORIP : TEXT*20;
+      /** Es el consecutivo que se asigna a cada predio jurídico abierto en la ORIP.
+       */
+      !!@ ili2db.dispName = "Matrícula inmobiliaria"
+      Matricula_Inmobiliaria : TEXT*20;
+    END CR_EstructuraMatriculaSegregados;
 
     /** Clase que almacena las fuentes administrativas (escrituras, sentencias, actos administrativos, etc) que sustentan el Derecho respecto de la relación de tenencia entre el Interesado y el predio.
      */
     !!@ ili2db.dispName = "Fuente Administrativa"
-    CLASS LC_FuenteAdministrativa
-    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_FuenteAdministrativa =
+    CLASS CR_FuenteAdministrativa
+    EXTENDS LADM_COL_V1_7.LADM_Nucleo.COL_FuenteAdministrativa =
       /** Tipo de documento que soporta la relación de tenencia entre el interesado con el predio.
        */
       !!@ ili2db.dispName = "Tipo"
-      Tipo (EXTENDED) : MANDATORY Levantamiento_Catastral_V2_10.LC_FuenteAdministrativaTipo;
+      Tipo (EXTENDED) : MANDATORY Catastro_Registro_V2_11.CR_FuenteAdministrativaTipo;
       /** Es tipo de oficina que emite el documento (notaria, juzgado)
        */
       !!@ ili2db.dispName = "Ente emisor"
       Ente_Emisor : TEXT*255;
-    END LC_FuenteAdministrativa;
+      /** Es el número con el cual se identifica la oficina que origina el documento.
+       */
+      !!@ ili2db.dispName = "Oficina de origen"
+      Oficina_Origen : 0 .. 100;
+      /** Es la ciudad donde se encuentra ubicada la oficina que expide el documento.
+       */
+      !!@ ili2db.dispName = "Ciudad de origen"
+      Ciudad_Origen : TEXT*60;
+    END CR_FuenteAdministrativa;
 
     /** Clase que hereda los atributos de la  Clase COL_FuenteEspacial.
      */
     !!@ ili2db.dispName = "Fuente Espacial"
-    CLASS LC_FuenteEspacial
-    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_FuenteEspacial =
-    END LC_FuenteEspacial;
+    CLASS CR_FuenteEspacial
+    EXTENDS LADM_COL_V1_7.LADM_Nucleo.COL_FuenteEspacial =
+    END CR_FuenteEspacial;
 
     /** Calificación de la construccion según los item determinados para calificar.
      */
-    !!@ ili2db.dispName = "(LC) Grupo Calificación"
-    CLASS LC_GrupoCalificacion =
+    !!@ ili2db.dispName = "(CR) Grupo Calificación"
+    CLASS CR_GrupoCalificacion =
       /** Indica los elementos generales de la calificación de la construcción de acuerdo al método vigente.
        */
       !!@ ili2db.dispName = "Clase de calificación"
-      Clase_Calificacion : MANDATORY Levantamiento_Catastral_V2_10.LC_ClaseCalificacionTipo;
+      Clase_Calificacion : MANDATORY Catastro_Registro_V2_11.CR_ClaseCalificacionTipo;
       /** Estado de conservación del grupo calificado.
        */
       !!@ ili2db.dispName = "Conservación"
-      Conservacion : Levantamiento_Catastral_V2_10.LC_EstadoConservacionTipo;
+      Conservacion : Catastro_Registro_V2_11.CR_EstadoConservacionTipo;
       /** Subtotal del grupo calificado.
        */
       !!@ ili2db.dispName = "Subtotal"
       Subtotal : 0 .. 9999999;
-    END LC_GrupoCalificacion;
+    END CR_GrupoCalificacion;
+
+    /** Es la relación de tenencia que no corresponde a la propiedad, se presenta en los casos en los que la persona que ejerce la tenencia no es la misma que se encuentra en el registro de propiedad consignado en el folio de matrícula inmobiliaria correspondiente.
+     */
+    !!@ ili2db.dispName = "Informalidad"
+    CLASS CR_Informalidad
+    EXTENDS LADM_COL_V1_7.LADM_Nucleo.COL_DRR =
+      /** tipo de informalidad que puede presentarse en cada predio
+       */
+      !!@ ili2db.dispName = "Tipo"
+      Tipo : MANDATORY Catastro_Registro_V2_11.CR_InformalidadTipo;
+    END CR_Informalidad;
 
     /** Es la parte que tiene una relación con el predio por algún tipo de derecho, restricción, publicidad o responsabilidad
      */
     !!@ ili2db.dispName = "Interesado"
-    CLASS LC_Interesado
-    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_Interesado =
+    CLASS CR_Interesado
+    EXTENDS LADM_COL_V1_7.LADM_Nucleo.COL_Interesado =
       /** Tipo de persona del que se trata
        */
       !!@ ili2db.dispName = "Tipo"
-      Tipo : MANDATORY Levantamiento_Catastral_V2_10.LC_InteresadoTipo;
+      Tipo : MANDATORY Catastro_Registro_V2_11.CR_InteresadoTipo;
       /** Tipo de documento del que se trata.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : MANDATORY Levantamiento_Catastral_V2_10.LC_InteresadoDocumentoTipo;
+      Tipo_Documento : MANDATORY Catastro_Registro_V2_11.CR_InteresadoDocumentoTipo;
       /** Documento de identidad del interesado.
        */
       !!@ ili2db.dispName = "Documento de identidad"
@@ -2502,176 +3006,65 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Condición orgánica que distingue a los machos de las hembras.
        */
       !!@ ili2db.dispName = "Sexo"
-      Sexo : Levantamiento_Catastral_V2_10.LC_SexoTipo;
-      !!@ ili2db.dispName = "Grupo étnico"
-      Grupo_Etnico : Levantamiento_Catastral_V2_10.LC_GrupoEtnicoTipo;
-      /** Nombre con el que está inscrito.
+      Sexo : Catastro_Registro_V2_11.CR_SexoTipo;
+      /** Nombre con el que está inscrita la persona jurídica
        */
       !!@ ili2db.dispName = "Razón social"
       Razon_Social : TEXT*255;
-    END LC_Interesado;
-
-    /** Datos de contacto de la parte interesada.
-     */
-    !!@ ili2db.dispName = "Interesado Contacto"
-    CLASS LC_InteresadoContacto =
-      /** Numero de telefono de contacto del interesado.
-       */
-      !!@ ili2db.dispName = "Teléfono 1"
-      Telefono1 : TEXT*20;
-      /** Numero de telefono de contacto del interesado.
-       */
-      !!@ ili2db.dispName = "Teléfono 2"
-      Telefono2 : TEXT*20;
-      /** Domicilio para notificaciones del interesado.
-       */
-      !!@ ili2db.dispName = "Domicilio notificación"
-      Domicilio_Notificacion : TEXT*500;
-      /** Dirección de residencia del interesado.
-       */
-      !!@ ili2db.dispName = "Dirección de residencia"
-      Direccion_Residencia : TEXT*500;
-      /** Correo electrónico del interesado.
-       */
-      !!@ ili2db.dispName = "Correo electrónico"
-      Correo_Electronico : TEXT*100;
-      /** Indica si el interesado autoriza notificación vía correo electrónico
-       */
-      !!@ ili2db.dispName = "Autoriza notificación correo"
-      Autoriza_Notificacion_Correo : BOOLEAN;
-      /** Departamento de residencia del interesado.
-       */
-      !!@ ili2db.dispName = "Departamento"
-      Departamento : MANDATORY TEXT*100;
-      /** Municipio de residencia del interesado.
-       */
-      !!@ ili2db.dispName = "Municipio"
-      Municipio : MANDATORY TEXT*100;
-      /** Vereda de residencia del interesado.
-       */
-      !!@ ili2db.dispName = "Vereda"
-      Vereda : TEXT*100;
-      /** Corregimiento de residencia del interesado.
-       */
-      !!@ ili2db.dispName = "Corregimiento"
-      Corregimiento : TEXT*100;
-    END LC_InteresadoContacto;
+    END CR_Interesado;
 
     /** Linea de división que separa un bien inmueble de otro, que puede o no estar materializada físicamente.
      */
     !!@ ili2db.dispName = "Lindero"
-    CLASS LC_Lindero
-    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_CadenaCarasLimite =
+    CLASS CR_Lindero
+    EXTENDS LADM_COL_V1_7.LADM_Nucleo.COL_CadenaCarasLimite =
       /** Longitud en metros del lindero.
        */
       !!@ ili2db.dispName = "Longitud"
       Longitud : MANDATORY 0.0 .. 10000.0 [INTERLIS.m];
-    END LC_Lindero;
+    END CR_Lindero;
 
     /** Puntaje de cada item de la calificación de construcción.
      */
-    !!@ ili2db.dispName = "(LC) Objeto Construcción"
-    CLASS LC_ObjetoConstruccion =
+    !!@ ili2db.dispName = "(CR) Objeto Construcción"
+    CLASS CR_ObjetoConstruccion =
       /** Item de la calificación de construcción según la método de calificación vigente.
        */
       !!@ ili2db.dispName = "Tipo de objeto de construcción"
-      Tipo_Objeto_Construccion : MANDATORY Levantamiento_Catastral_V2_10.LC_ObjetoConstruccionTipo;
+      Tipo_Objeto_Construccion : MANDATORY Catastro_Registro_V2_11.CR_ObjetoConstruccionTipo;
       /** Puntaje del ítem calificado.
        */
       !!@ ili2db.dispName = "Puntos"
       Puntos : MANDATORY 0 .. 16;
-    END LC_ObjetoConstruccion;
+    END CR_ObjetoConstruccion;
 
-    !!@ ili2db.dispName = "(LC) Ofertas mercado inmobiliario"
-    CLASS LC_OfertasMercadoInmobiliario =
-      /** La clase de oferta corresponde a una oferta de venta o a una oferta de arriendo del predio.
+    !!@ ili2db.dispName = "Publicidad"
+    CLASS CR_Publicidad =
+      !!@ ili2db.dispName = "Tipo de publicidad"
+      Tipo_Publicidad : MANDATORY Catastro_Registro_V2_11.CR_PublicidadTipo;
+      /** Es el tipo de descripciòn por la cual se hacen las incripciones en registro de acuerdo con lo contemplado en el art. 8 de la ley 1579 de 2012.
        */
-      !!@ ili2db.dispName = "Tipo de oferta"
-      Tipo_Oferta : MANDATORY Levantamiento_Catastral_V2_10.LC_OfertaTipo;
-      /** Dato del valor en pesos de la oferta
+      !!@ ili2db.dispName = "Naturaleza jurídica"
+      Naturaleza_Juridica : TEXT*100;
+      /** es el número asignado en el registro a cada acto sujeto a registro.
        */
-      !!@ ili2db.dispName = "Valor pedido"
-      Valor_Pedido : MANDATORY LADM_COL_V1_6.LADM_Nucleo.Peso;
-      /** Dato del valor en pesos negociado entre el vendedor y el posible comprador
+      !!@ ili2db.dispName = "Código de naturaleza jurídica"
+      Codigo_Naturaleza_Juridica : TEXT*4;
+      /** Es el comentario que puede hacer cada calificador para dar claridad a cada inscripción registral.
        */
-      !!@ ili2db.dispName = "Valor negociado"
-      Valor_Negociado : MANDATORY LADM_COL_V1_6.LADM_Nucleo.Peso;
-      /** Año, mes y día de captura de la oferta en campo.
+      !!@ ili2db.dispName = "Naturaleza complemento"
+      Naturaleza_Complemento : TEXT*200;
+      /** Es la fecha en la cual se culmina el tramite registral y queda centado el documento en la matricula inmobiliaria.
        */
-      !!@ ili2db.dispName = "Fecha de captura de la oferta"
-      Fecha_Captura_Oferta : MANDATORY INTERLIS.XMLDate;
-      /** Número de meses de la publicitación de la oferta en el mercado inmobiliario.
-       */
-      !!@ ili2db.dispName = "Tiempo de la oferta en el mercado inmobiliario en meses"
-      Tiempo_Oferta_Mercado : 0 .. 1000;
-      /** Número de teléfono fijo o número celular de la persona que está publicitando el bien inmueble.
-       */
-      !!@ ili2db.dispName = "Número de contacto del oferente"
-      Numero_Contacto_Oferente : MANDATORY TEXT*20;
-      !!@ ili2db.dispName = "Nombre del oferente"
-      Nombre_Oferente : MANDATORY TEXT*255;
-    END LC_OfertasMercadoInmobiliario;
-
-    /** Clase especializada de BaUnit, que describe la unidad administrativa básica para el caso de Colombia.
-     * El predio es la unidad territorial legal propia de Catastro. Está formada por el terreno y puede o no tener construcciones asociadas.
-     */
-    !!@ ili2db.dispName = "Predio"
-    CLASS LC_Predio
-    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadAdministrativaBasica =
-      /** Corresponde al código del departamento al cual pertenece el predio. Es asignado por DIVIPOLA y tiene 2 dígitos.
-       */
-      !!@ ili2db.dispName = "Departamento"
-      Departamento : MANDATORY TEXT*2;
-      /** Corresponde al código del municipio al cual pertenece el predio. Es asignado por DIVIPOLA y tiene 3 dígitos.
-       */
-      !!@ ili2db.dispName = "Municipio"
-      Municipio : MANDATORY TEXT*3;
-      /** Identificador único temporal de cada predio que se asigna en el desarrollo del levantamiento catastral.
-       */
-      !!@ ili2db.dispName = "Identificador único de operación"
-      Id_Operacion : MANDATORY TEXT*30;
-      /** Indica si el predio tiene matricula inmobiliaria.
-       */
-      !!@ ili2db.dispName = "Tiene FMI"
-      Tiene_FMI : MANDATORY BOOLEAN;
-      /** Circulo registral
-       */
-      !!@ ili2db.dispName = "Código ORIP"
-      Codigo_ORIP : TEXT*3;
-      /** Matricula inmobiliaria
-       */
-      !!@ ili2db.dispName = "Matrícula inmobiliaria"
-      Matricula_Inmobiliaria : TEXT*80;
-      /** Nuevo Código numérico de treinta (30) dígitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustín Codazzi.
-       */
-      !!@ ili2db.dispName = "Número predial"
-      Numero_Predial : TEXT*30;
-      /** Anterior código númerico de veinte (20) digitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi.
-       */
-      !!@ ili2db.dispName = "Número predial anterior"
-      Numero_Predial_Anterior : TEXT*20;
-      /** Valor catastral del predio, obtenido mediante investigación y análisis estadístico del mercado inmobiliario y la metodología de aplicación correspondiente.
-       */
-      !!@ ili2db.dispName = "Avalúo catastral"
-      Avaluo_Catastral : LADM_COL_V1_6.LADM_Nucleo.Peso;
-      !!@ ili2db.dispName = "Tipo de predio"
-      Tipo (EXTENDED) : MANDATORY Levantamiento_Catastral_V2_10.LC_PredioTipo;
-      /** Caracterización temática del predio.
-       */
-      !!@ ili2db.dispName = "Condición del predio"
-      Condicion_Predio : MANDATORY Levantamiento_Catastral_V2_10.LC_CondicionPredioTipo;
-      /** Dirección del predio.
-       */
-      !!@ ili2db.dispName = "Dirección"
-      Direccion : BAG {1..*} OF LADM_COL_V1_6.LADM_Nucleo.ExtDireccion;
-      UNIQUE Id_Operacion; 
-    END LC_Predio;
+      !!@ ili2db.dispName = "Fecha de anotación"
+      Fecha_Anotacion : INTERLIS.XMLDate;
+    END CR_Publicidad;
 
     /** Puntos topograficos o geodesicos utilizados como amarre para la ejecución del levantamiento catastral.
      */
     !!@ ili2db.dispName = "Punto Control"
-    CLASS LC_PuntoControl
-    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_Punto =
+    CLASS CR_PuntoControl
+    EXTENDS LADM_COL_V1_7.LADM_Nucleo.COL_Punto =
       /** Nombre o código del punto de control.
        */
       !!@ ili2db.dispName = "ID del punto de control"
@@ -2679,11 +3072,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Indica la clasificación del tipo de punto de acuerdo a sus características.
        */
       !!@ ili2db.dispName = "Tipo de punto"
-      PuntoTipo (EXTENDED) : MANDATORY Levantamiento_Catastral_V2_10.LC_PuntoTipo;
+      PuntoTipo (EXTENDED) : MANDATORY Catastro_Registro_V2_11.CR_PuntoTipo;
       /** Si se trata de un punto de control o de apoyo.
        */
       !!@ ili2db.dispName = "Tipo de punto de control"
-      Tipo_Punto_Control : Levantamiento_Catastral_V2_10.LC_PuntoControlTipo;
+      Tipo_Punto_Control : Catastro_Registro_V2_11.CR_PuntoControlTipo;
       /** Exactitud horizontal de la medición del punto.
        */
       !!@ ili2db.dispName = "Exactitud horizontal"
@@ -2692,29 +3085,29 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Exactitud vertical"
       Exactitud_Vertical : MANDATORY 0.000 .. 10.000 [INTERLIS.m];
-    END LC_PuntoControl;
+    END CR_PuntoControl;
 
     /** Puntos que definen los lindero de un terreno. La sucesión de estos puntos forman una línea que representa el límite entre dos terrenos.
      */
     !!@ ili2db.dispName = "Punto Lindero"
-    CLASS LC_PuntoLindero
-    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_Punto =
-      /** Nombre o código del punto lindero
+    CLASS CR_PuntoLindero
+    EXTENDS LADM_COL_V1_7.LADM_Nucleo.COL_Punto =
+      /** Nombre o codigo del punto lindero
        */
       !!@ ili2db.dispName = "ID del punto de lindero"
       ID_Punto_Lindero : TEXT*255;
       /** Indica la clasificación del tipo de punto de acuerdo a sus características.
        */
       !!@ ili2db.dispName = "Tipo de punto"
-      PuntoTipo (EXTENDED) : MANDATORY Levantamiento_Catastral_V2_10.LC_PuntoTipo;
+      PuntoTipo (EXTENDED) : MANDATORY Catastro_Registro_V2_11.CR_PuntoTipo;
       /** Indica si existe acuerdo o no entre los colindantes en relación al punto lindero que se está midiendo.
        */
       !!@ ili2db.dispName = "Acuerdo"
-      Acuerdo : MANDATORY Levantamiento_Catastral_V2_10.LC_AcuerdoTipo;
+      Acuerdo : MANDATORY Catastro_Registro_V2_11.CR_AcuerdoTipo;
       /** Indica si el punto es fotoidentificable.
        */
       !!@ ili2db.dispName = "Fotoidentificación"
-      Fotoidentificacion : Levantamiento_Catastral_V2_10.LC_FotoidentificacionTipo;
+      Fotoidentificacion : Catastro_Registro_V2_11.CR_FotoidentificacionTipo;
       /** Corresponde a la exactitud horizontal del punto lindero
        */
       !!@ ili2db.dispName = "Exactitud horizontal"
@@ -2723,32 +3116,21 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Exactitud vertical"
       Exactitud_Vertical : 0.000 .. 10.000 [INTERLIS.m];
-    END LC_PuntoLindero;
-
-    /** Restricción legalmente constituida y registrada que afecta el derecho de un persona en relación con el predio.
-     */
-    !!@ ili2db.dispName = "Restricción"
-    CLASS LC_Restriccion
-    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_DRR =
-      /** Tipo de Restricción que afecta el derecho.
-       */
-      !!@ ili2db.dispName = "Tipo"
-      Tipo : MANDATORY Levantamiento_Catastral_V2_10.LC_RestriccionTipo;
-    END LC_Restriccion;
+    END CR_PuntoLindero;
 
     /** Porción de tierra con una extensión geográfica definida.
      */
     !!@ ili2db.dispName = "Terreno"
-    CLASS LC_Terreno
-    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadEspacial =
+    CLASS CR_Terreno
+    EXTENDS LADM_COL_V1_7.LADM_Nucleo.COL_UnidadEspacial =
       /** Área total del terreno  resultante del levantamiento catastral..
        */
-      !!@ ili2db.dispName = "Área de terreno"
-      Area_Terreno : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_6.m2];
+      !!@ ili2db.dispName = "Área del Terreno"
+      Area_Terreno : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_7.m2];
       /** Valor catastral asignado en el proceso de valoración económica masiva al terreno del predio.
        */
-      !!@ ili2db.dispName = "Avalúo de terreno"
-      Avaluo_Terreno : LADM_COL_V1_6.LADM_Nucleo.Peso;
+      !!@ ili2db.dispName = "Avalúo del terreno"
+      Avaluo_Terreno : LADM_COL_V1_7.LADM_Nucleo.Peso;
       /** Código catastral del predio hasta la posición de la manzana y vereda.
        */
       !!@ ili2db.dispName = "Código de manzana vereda"
@@ -2761,93 +3143,168 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Geometría"
       Geometria (EXTENDED) : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
-    END LC_Terreno;
+    END CR_Terreno;
+
+    /** Es la culminación de trámite registral, luego de efectuada la inscripción y puesta la constancia de ella en el título o documento objeto de registro.
+     */
+    !!@ ili2db.dispName = "Anotación Registro"
+    CLASS CR_AnotacionRegistro
+    EXTENDS CR_FuenteAdministrativa =
+      /** Es el número del turno con el cual se radicó el título o documento presentado en la ORIP directamente o por medios electrónicos
+       */
+      !!@ ili2db.dispName = "Número de radicación"
+      Numero_Radicacion : TEXT*10;
+      /** Es la fecha en la cual se recibió el documento en la ORIP
+       */
+      !!@ ili2db.dispName = "Fecha de radicación"
+      Fecha_Radicacion : INTERLIS.XMLDate;
+      /** Es el consecutivo asignado por la ORIP a las inscripciones sobre la matrícula inmobiliaria.
+       */
+      !!@ ili2db.dispName = "Número de la anotación"
+      Numero_Anotacion : 0 .. 9999999999;
+      /** corresponde al estado de la anotación, ver dominios.
+       */
+      !!@ ili2db.dispName = "Estado de la anotación"
+      Estado_Anotacion : Catastro_Registro_V2_11.CR_EstadoAnotacionTipo;
+      /** Es el valor de la transacción
+       */
+      !!@ ili2db.dispName = "Valor de la transacción"
+      Valor_Transaccion : 0 .. 10000000000000000;
+    END CR_AnotacionRegistro;
 
     /** Proceso mediante el cual se le asigna un puntaje a las edificaciones de acuerdo a sus características constructivas
      */
-    !!@ ili2db.dispName = "(LC) Calificación Convencional"
-    CLASS LC_CalificacionConvencional
-    EXTENDS LC_CalificacionUnidadConstruccion =
+    !!@ ili2db.dispName = "(CR) Calificación Convencional"
+    CLASS CR_CalificacionConvencional
+    EXTENDS CR_CalificacionUnidadConstruccion =
       /** Indica si la calificación de construcción corresponde a residencial, comercial o industrial.
        */
       !!@ ili2db.dispName = "Tipo a calificar"
-      Tipo_Calificar : Levantamiento_Catastral_V2_10.LC_CalificarTipo;
+      Tipo_Calificar : Catastro_Registro_V2_11.CR_CalificarTipo;
       /** Puntaje total de la calificación de la unidad de construcción.
        */
       !!@ ili2db.dispName = "Total calificación"
-      Total_Calificacion : LADM_COL_V1_6.LADM_Nucleo.Integer;
-    END LC_CalificacionConvencional;
+      Total_Calificacion : LADM_COL_V1_7.LADM_Nucleo.Integer;
+    END CR_CalificacionConvencional;
 
     /** Relaciona el tipo de construcción consideradas como anexo para el catastro.
      */
-    !!@ ili2db.dispName = "(LC) Calificación No Convencional"
-    CLASS LC_CalificacionNoConvencional
-    EXTENDS LC_CalificacionUnidadConstruccion =
+    !!@ ili2db.dispName = "(CR) Calificación No Convencional"
+    CLASS CR_CalificacionNoConvencional
+    EXTENDS CR_CalificacionUnidadConstruccion =
       /** Relaciona el tipo de construcción consideradas como anexo para el catastro.
        */
       !!@ ili2db.dispName = "Tipo de anexo"
-      Tipo_Anexo : Levantamiento_Catastral_V2_10.LC_AnexoTipo;
-    END LC_CalificacionNoConvencional;
+      Tipo_Anexo : Catastro_Registro_V2_11.CR_AnexoTipo;
+    END CR_CalificacionNoConvencional;
 
-    /** Datos de adicionales del predio para catastro multipropósito
+    /** Clase que registra las instancias de los derechos que un interesado ejerce sobre un predio. Es una especialización de la clase COL_DRR del propio modelo.
      */
-    !!@ ili2db.dispName = "(LC) Formulario Único Catastro Multipropósito"
-    CLASS LC_DatosAdicionalesLevantamientoCatastral =
+    !!@ ili2db.dispName = "Derecho"
+    CLASS CR_Derecho
+    EXTENDS CR_DRR =
+      /** Derecho que se ejerce.
+       */
+      !!@ ili2db.dispName = "Tipo"
+      Tipo : MANDATORY Catastro_Registro_V2_11.CR_DerechoTipo;
+      /** El texto de cabida y linderosque está consignado en el registro público de la propiedad sobre el cual se ejercen los derechos.
+       */
+      !!@ ili2db.dispName = "Cabida y linderos"
+      Cabida_Linderos : MANDATORY MTEXT;
+      /** el área actualizada a partir de la información remitida por el catastro a través de acto administrativo
+       */
+      !!@ ili2db.dispName = "Área actualizada"
+      Area_Actualizada : 0.00 .. 100000000000000000000000000000000.00 [LADM_COL_V1_7.m2];
+      /** Los linderos actualizados a partir de la información remitida por el catastro a través de acto administrativo
+       */
+      !!@ ili2db.dispName = "Linderos actualizados"
+      Linderos_Actualizados : MTEXT;
+    END CR_Derecho;
+
+    /** Clase especializada de BaUnit, que describe la unidad administrativa básica para el caso de Colombia.
+     * El predio es la unidad territorial legal propia de Catastro. Esta formada por el terreno y puede o no tener construcciones asociadas.
+     */
+    !!@ ili2db.dispName = "Predio"
+    CLASS CR_Predio
+    EXTENDS LADM_COL_V1_7.LADM_Nucleo.COL_UnidadAdministrativaBasica =
+      /** Corresponde al codigo del departamento al cual pertenece el predio. Es asignado por DIVIPOLA y tiene 2 dígitos.
+       */
+      !!@ ili2db.dispName = "Departamento"
+      Departamento : MANDATORY TEXT*2;
+      /** Corresponde al código del municipio al cual pertenece el predio. Es asignado por DIVIPOLA y tiene 3 dígitos.
+       */
+      !!@ ili2db.dispName = "Municipio"
+      Municipio : MANDATORY TEXT*3;
+      /** Numero Unico de identificación Predial. Es el codigo definido en el proyecto de ley que será el codigo de identificación del predio tanto para catastratro como para Registro.
+       */
+      !!@ ili2db.dispName = "Número único predial"
+      NUPRE : MANDATORY TEXT*30;
+      /** Circulo registral
+       */
+      !!@ ili2db.dispName = "Código ORIP"
+      Codigo_ORIP : TEXT*3;
+      /** Matricula inmobiliaria
+       */
+      !!@ ili2db.dispName = "Matrícula inmobiliaria"
+      Matricula_Inmobiliaria : TEXT*80;
+      /** Es la fecha en la cual se abrió el Folio de matricula inmobiliaria.
+       */
+      !!@ ili2db.dispName = "Fecha de apertura FMI"
+      Fecha_Apertura_FMI : INTERLIS.XMLDate;
+      /** se refiere a la situación actual en la que se encuentra una matricula inmobiliaria.
+       */
+      !!@ ili2db.dispName = "Estado del FMI"
+      Estado_FMI : Catastro_Registro_V2_11.CR_EstadoFMITipo;
+      /** Nuevo código númerico de treinta (30) dígitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi.
+       */
+      !!@ ili2db.dispName = "Número predial"
+      Numero_Predial : TEXT*30;
+      /** Anterior código númerico de veinte (20) digitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi.
+       */
+      !!@ ili2db.dispName = "Número predial anterior"
+      Numero_Predial_Anterior : TEXT*20;
+      /** Clasificación del suelo según el instrumento de planeación vigente.
+       */
+      !!@ ili2db.dispName = "Clase del suelo"
+      Clase_Suelo : MANDATORY Catastro_Registro_V2_11.CR_ClaseSueloTipo;
+      /** Valor catastral del predio, obtenido mediante investigación y análisis estadístico del mercado inmobiliario y la metodología de aplicación correspondiente.
+       */
+      !!@ ili2db.dispName = "Avalúo Catastral"
+      Avaluo_Catastral : BAG {0..*} OF Catastro_Registro_V2_11.Catastro_Registro.CR_EstructuraAvaluoCatastral;
+      /** Caracterización temática del predio.
+       */
+      !!@ ili2db.dispName = "Condición del predio"
+      Condicion_Predio : MANDATORY Catastro_Registro_V2_11.CR_CondicionPredioTipo;
+      !!@ ili2db.dispName = "Inscripción Catastral"
+      Inscripcion_Catastral : INTERLIS.XMLDate;
+      !!@ ili2db.dispName = "Fecha última mutación"
+      Fecha_Ultima_Mutacion : 1512 .. 2550;
+      !!@ ili2db.dispName = "Tipo de predio"
+      Tipo (EXTENDED) : MANDATORY Catastro_Registro_V2_11.CR_PredioTipo;
       /** Es la clasificación para fines estadísticos que se da a cada inmueble en su conjunto–terreno, construcciones o edificaciones-, en el momento de la identificación predial de conformidad con la actividad predominante que en él se desarrolle.
        */
       !!@ ili2db.dispName = "Destinación económica"
-      Destinacion_Economica : MANDATORY Levantamiento_Catastral_V2_10.LC_DestinacionEconomicaTipo;
-      /** Clasificación del suelo según el instrumento de planeación vigente.
+      Destinacion_Economica : Catastro_Registro_V2_11.CR_DestinacionEconomicaTipo;
+      /** Dirección del predio.
        */
-      !!@ ili2db.dispName = "Clase de suelo"
-      Clase_Suelo : MANDATORY Levantamiento_Catastral_V2_10.LC_ClaseSueloTipo;
-      /** Categoría del suelo según el instrumento de planeación vigente.
+      !!@ ili2db.dispName = "Dirección"
+      Direccion : BAG {1..*} OF LADM_COL_V1_7.LADM_Nucleo.ExtDireccion;
+      /** Es la matrícula por la cual se dio apertura al predio objeto de estudio (la madre).
        */
-      !!@ ili2db.dispName = "Categoría de suelo"
-      Categoria_Suelo : Levantamiento_Catastral_V2_10.LC_CategoriaSueloTipo;
-      /** Fecha de inicio de tenencia del interesado con respecto al predio.
+      !!@ ili2db.dispName = "Matrícula predio matriz"
+      Matricula_Matriz : BAG {0..*} OF Catastro_Registro_V2_11.Catastro_Registro.CR_EstructuraMatriculaMatriz;
+      /** Las matriculas aperturadas con base en el folio objeto de estudio (los hijos).
        */
-      !!@ ili2db.dispName = "Fecha de inicio de tenencia"
-      Fecha_Inicio_Tenencia : INTERLIS.XMLDate;
-      /** Relaciona los cambios del predio respecto de la información catastral vigente.
-       */
-      !!@ ili2db.dispName = "Novedad números prediales"
-      Novedad_Numeros_Prediales : BAG {0..*} OF Levantamiento_Catastral_V2_10.Levantamiento_Catastral.LC_EstructuraNovedadNumeroPredial;
-      /** Relaciona los cambios del predio respecto de la información registral vigente.
-       */
-      !!@ ili2db.dispName = "Novedad folio de matrícula de inmobiliaria"
-      Novedad_FMI : BAG {0..*} OF Levantamiento_Catastral_V2_10.Levantamiento_Catastral.LC_EstructuraNovedadFMI;
-      /** Observaciones generales respecto del predio.
-       */
-      !!@ ili2db.dispName = "Observaciones"
-      Observaciones : MTEXT*500;
-      /** Fecha de la visita en campo al predio.
-       */
-      !!@ ili2db.dispName = "Fecha de visita predial"
-      Fecha_Visita_predial : MANDATORY INTERLIS.XMLDate;
-      /** Primer nombre del delegado de ejecutar las actividades catastrales en campo en el predio.
-       */
-      !!@ ili2db.dispName = "Primer nombre del reconocedor"
-      Primer_Nombre_Reconocedor : MANDATORY TEXT*100;
-      /** Segundo nombre del delegado de ejecutar las actividades catastrales en campo en el predio.
-       */
-      !!@ ili2db.dispName = "Segundo nombre del reconocedor"
-      Segundo_Nombre_Reconocedor : TEXT*100;
-      /** Primer apellido del delegado de ejecutar las actividades catastrales en campo en el predio.
-       */
-      !!@ ili2db.dispName = "Primer apellido del reconocedor"
-      Primer_Apellido_Reconocedor : MANDATORY TEXT*100;
-      /** Segundo apellido del delegado de ejecutar las actividades catastrales en campo en el predio.
-       */
-      !!@ ili2db.dispName = "Segundo apellido del reconocedor"
-      Segundo_Apellido_Reconocedor : TEXT*100;
-    END LC_DatosAdicionalesLevantamientoCatastral;
+      !!@ ili2db.dispName = "Matrícula predios segregados"
+      Matricula_Segregados : BAG {0..*} OF Catastro_Registro_V2_11.Catastro_Registro.CR_EstructuraMatriculaSegregados;
+      UNIQUE NUPRE; 
+    END CR_Predio;
 
     /** Puntos que definen los limites de las construcciones, unidad de construcción y servidumbres de transito.
      */
     !!@ ili2db.dispName = "Punto Levantamiento"
-    CLASS LC_PuntoLevantamiento
-    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_Punto =
+    CLASS CR_PuntoLevantamiento
+    EXTENDS LADM_COL_V1_7.LADM_Nucleo.COL_Punto =
       /** Nombre o código del punto levantamiento.
        */
       !!@ ili2db.dispName = "ID del punto de levantamiento"
@@ -2855,16 +3312,16 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Indica la clasificación del tipo de punto de acuerdo a sus características.
        */
       !!@ ili2db.dispName = "Tipo de punto"
-      PuntoTipo (EXTENDED) : MANDATORY Levantamiento_Catastral_V2_10.LC_PuntoTipo;
+      PuntoTipo (EXTENDED) : MANDATORY Catastro_Registro_V2_11.CR_PuntoTipo;
       /** Indica si el tipo de punto corresponde a una construcción o servidumbre de tránsito.
        */
       !!@ ili2db.dispName = "Tipo de punto de levantamiento"
-      Tipo_Punto_Levantamiento : Levantamiento_Catastral_V2_10.LC_PuntoLevTipo;
+      Tipo_Punto_Levantamiento : Catastro_Registro_V2_11.CR_PuntoLevTipo;
       /** Indica si el punto es fotoidentificable.
        */
       !!@ ili2db.dispName = "Fotoidentificación"
-      Fotoidentificacion : Levantamiento_Catastral_V2_10.LC_FotoidentificacionTipo;
-      /** Corresponde a la exactitud horizontal del punto levantamiento.
+      Fotoidentificacion : Catastro_Registro_V2_11.CR_FotoidentificacionTipo;
+      /** Corresponde a la exactitud horizontal del punto levantamiento
        */
       !!@ ili2db.dispName = "Exactitud horizontal"
       Exactitud_Horizontal : MANDATORY 0.000 .. 10.000 [INTERLIS.m];
@@ -2872,83 +3329,100 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Exactitud vertical"
       Exactitud_Vertical : 0.000 .. 10.000 [INTERLIS.m];
-    END LC_PuntoLevantamiento;
+    END CR_PuntoLevantamiento;
+
+    /** es la obligación de hacer algo relacionado con el predio.
+     */
+    !!@ ili2db.dispName = "Responsabilidad"
+    CLASS CR_Responsabilidad
+    EXTENDS CR_DRR =
+      /** los tipos se desarrollan por el origen de la responsabilidad.
+       */
+      !!@ ili2db.dispName = "Tipo"
+      Tipo : MANDATORY Catastro_Registro_V2_11.CR_ResponsabilidadTipo;
+    END CR_Responsabilidad;
+
+    /** Es una prohibición específica relacionada con un predio.
+     */
+    !!@ ili2db.dispName = "Restricción"
+    CLASS CR_Restriccion
+    EXTENDS CR_DRR =
+      /** son los tipos de restricciones de acuerdo con la naturaleza del registro colombiano.c
+       */
+      !!@ ili2db.dispName = "Tipo"
+      Tipo : MANDATORY Catastro_Registro_V2_11.CR_RestriccionTipo;
+    END CR_Restriccion;
 
     /** Son las características de diseño y constructivas especiales de las construcciones y/o edificaciones.
      */
-    !!@ ili2db.dispName = "(LC) Tipología de la construcción"
-    CLASS LC_TipologiaConstruccion
-    EXTENDS LC_CalificacionUnidadConstruccion =
+    !!@ ili2db.dispName = "(CR) Tipología de la construcción"
+    CLASS CR_TipologiaConstruccion
+    EXTENDS CR_CalificacionUnidadConstruccion =
       /** Son las características de diseño y constructivas especiales de las construcciones y/o edificaciones.
        */
       !!@ ili2db.dispName = "Tipo de tipología"
-      Tipo_Tipologia : Levantamiento_Catastral_V2_10.LC_TipologiaTipo;
-    END LC_TipologiaConstruccion;
+      Tipo_Tipologia : Catastro_Registro_V2_11.CR_TipologiaTipo;
+    END CR_TipologiaConstruccion;
 
-    ASSOCIATION lc_interesado_contacto =
-      lc_contacto -- {0..*} LC_InteresadoContacto;
-      lc_interesado -- {1} LC_Interesado;
-    END lc_interesado_contacto;
+    ASSOCIATION cr_objetoconstruccion_grupocalificacion =
+      cr_grupo_calificacion -- {1} CR_GrupoCalificacion;
+      cr_objeto_construccion -- {0..*} CR_ObjetoConstruccion;
+    END cr_objetoconstruccion_grupocalificacion;
 
-    ASSOCIATION lc_objetoconstruccion_grupocalificacion =
-      lc_grupo_calificacion -- {1} LC_GrupoCalificacion;
-      lc_objeto_construccion -- {0..*} LC_ObjetoConstruccion;
-    END lc_objetoconstruccion_grupocalificacion;
+    ASSOCIATION cr_publicidadBAUnit =
+      cr_publicidad -- {0..*} CR_Publicidad;
+      cr_baunit -- {1} LADM_COL_V1_7.LADM_Nucleo.COL_UnidadAdministrativaBasica;
+    END cr_publicidadBAUnit;
 
-    ASSOCIATION lc_ph_predio =
-      lc_predio -- {1} LC_Predio;
-      lc_datos_ph -- {0..1} LC_DatosPHCondominio;
-    END lc_ph_predio;
+    ASSOCIATION cr_publicidadFuente =
+      cr_publicidad -- {0..1} CR_Publicidad;
+      col_fuente -- {1..*} LADM_COL_V1_7.LADM_Nucleo.COL_FuenteAdministrativa;
+    END cr_publicidadFuente;
 
-    ASSOCIATION lc_predio_copropiedad =
-      predio -- {0..*} LC_Predio;
-      copropiedad -<> {0..1} LC_Predio;
-      coeficiente : LADM_COL_V1_6.LADM_Nucleo.Fraccion;
-    END lc_predio_copropiedad;
+    ASSOCIATION cr_publicidadInteresado =
+      cr_publicidad -- {0..*} CR_Publicidad;
+      col_interesado -- {0..1} LADM_COL_V1_7.LADM_Nucleo.COL_Interesado;
+    END cr_publicidadInteresado;
 
-    ASSOCIATION lc_predio_insumos_operacion =
-      ini_predio_insumos (EXTERNAL) -- {0..*} Datos_Integracion_Insumos_V2_10.Datos_Integracion_Insumos.INI_PredioInsumos;
-      lc_predio -- {0..*} LC_Predio;
-    END lc_predio_insumos_operacion;
-
-    ASSOCIATION lc_predio_ofertas_mercado_inmobiliario =
-      lc_predio -- {0..1} LC_Predio;
-      lc_ofertas_mercado_inmobiliario -- {0..*} LC_OfertasMercadoInmobiliario;
-    END lc_predio_ofertas_mercado_inmobiliario;
+    /** Es un tipo de restricción específico que persigue al bien independientemente de la parte interesada que respalde la acreencia.
+     */
+    !!@ ili2db.dispName = "Hipoteca"
+    CLASS CR_Hipoteca
+    EXTENDS CR_Restriccion =
+    END CR_Hipoteca;
 
     /** Tipo de unidad espacial que permite la representación de una servidumbre de paso asociada a una COL_BAUnit.
      */
-    !!@ ili2db.dispName = "Servidumbre de Tránsito"
-    CLASS LC_ServidumbreTransito
-    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadEspacial =
+    !!@ ili2db.dispName = "Servidumbre de Paso"
+    CLASS CR_ServidumbreTransito
+    EXTENDS LADM_COL_V1_7.LADM_Nucleo.COL_UnidadEspacial =
       /** Área total de la servidumbre.
        */
       !!@ ili2db.dispName = "Área de la servidumbre"
-      Area_Servidumbre : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_6.m2];
-    END LC_ServidumbreTransito;
+      Area_Servidumbre : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_7.m2];
+    END CR_ServidumbreTransito;
 
-    ASSOCIATION lc_grupo_calificacionconvencional =
-      lc_calificacion_convencional -- {1} LC_CalificacionConvencional;
-      lc_grupo_calificacion -- {1..*} LC_GrupoCalificacion;
-    END lc_grupo_calificacionconvencional;
+    ASSOCIATION cr_grupo_calificacionconvencional =
+      cr_calificacion_convencional -- {1} CR_CalificacionConvencional;
+      cr_grupo_calificacion -- {1..*} CR_GrupoCalificacion;
+    END cr_grupo_calificacionconvencional;
 
-    ASSOCIATION lc_informacion_adicional_contacto =
-      lc_contacto_visita -- {0..*} LC_ContactoVisita;
-      lc_formulario -- {1} LC_DatosAdicionalesLevantamientoCatastral;
-    END lc_informacion_adicional_contacto;
+    ASSOCIATION cr_ph_predio =
+      cr_predio -- {1} CR_Predio;
+      cr_datos_ph -- {0..1} CR_DatosPHCondominio;
+    END cr_ph_predio;
 
-    /** Relación entre el Predio catastral y la clase información adicional, que permite determinar sobre qué predio se toman los datos específicos del predio para catastro multipropósito
-     */
-    ASSOCIATION lc_informacion_adicional_predio =
-      lc_predio (EXTERNAL) -- {1} LC_Predio;
-      lc_formulario_unico -- {0..1} LC_DatosAdicionalesLevantamientoCatastral;
-    END lc_informacion_adicional_predio;
+    ASSOCIATION cr_predio_copropiedad =
+      predio -- {0..*} CR_Predio;
+      copropiedad -<> {0..1} CR_Predio;
+      coeficiente : LADM_COL_V1_7.LADM_Nucleo.Fraccion;
+    END cr_predio_copropiedad;
 
     /** Es cada conjunto de materiales consolidados dentro de un predio que tiene unas características específicas en cuanto a elementos constitutivos físicos y usos de la misma.
      */
     !!@ ili2db.dispName = "Unidad de Construcción"
-    CLASS LC_UnidadConstruccion
-    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadEspacial =
+    CLASS CR_UnidadConstruccion
+    EXTENDS LADM_COL_V1_7.LADM_Nucleo.COL_UnidadEspacial =
       /** Identificado de la unidad de construcción, su codificación puede ser por letras del abecedario.
        */
       !!@ ili2db.dispName = "Identificador"
@@ -2956,19 +3430,19 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Indica el tipo de dominio de la unidad de construcción: común y privado.
        */
       !!@ ili2db.dispName = "Tipo de dominio"
-      Tipo_Dominio : Levantamiento_Catastral_V2_10.LC_DominioConstruccionTipo;
+      Tipo_Dominio : Catastro_Registro_V2_11.CR_DominioConstruccionTipo;
       /** Indica si la construcción es de tipo convencional o no convencional.
        */
       !!@ ili2db.dispName = "Tipo de construcción"
-      Tipo_Construccion : Levantamiento_Catastral_V2_10.LC_ConstruccionTipo;
+      Tipo_Construccion : Catastro_Registro_V2_11.CR_ConstruccionTipo;
       /** Indica si la unidad de construcción es residencial, comercial, industrial o anexo.
        */
       !!@ ili2db.dispName = "Tipo de unidad de construcción"
-      Tipo_Unidad_Construccion : Levantamiento_Catastral_V2_10.LC_UnidadConstruccionTipo;
+      Tipo_Unidad_Construccion : Catastro_Registro_V2_11.CR_UnidadConstruccionTipo;
       /** Indica el tipo de planta donde se ubica la unidad de construcción.
        */
       !!@ ili2db.dispName = "Tipo de planta"
-      Tipo_Planta : Levantamiento_Catastral_V2_10.LC_ConstruccionPlantaTipo;
+      Tipo_Planta : Catastro_Registro_V2_11.CR_ConstruccionPlantaTipo;
       /** Indica numéricamente la ubicación del predio de acuerdo al tipo de planta.
        */
       !!@ ili2db.dispName = "Planta ubicación"
@@ -2992,7 +3466,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Actividad que se desarrolla en una unidad de construcción.
        */
       !!@ ili2db.dispName = "Uso"
-      Uso : Levantamiento_Catastral_V2_10.LC_UsoUConsTipo;
+      Uso : Catastro_Registro_V2_11.CR_UsoUConsTipo;
       /** Año de construcción de la unidad de construcción.
        */
       !!@ ili2db.dispName = "Año de construcción"
@@ -3000,37 +3474,44 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Avalúo catastral de la unidad de construcción.
        */
       !!@ ili2db.dispName = "Avalúo de la unidad de construcción"
-      Avaluo_Unidad_Construccion : LADM_COL_V1_6.LADM_Nucleo.Peso;
+      Avaluo_Unidad_Construccion : LADM_COL_V1_7.LADM_Nucleo.Peso;
       /** Área total construida en la unidad de construcción.
        */
       !!@ ili2db.dispName = "Área construida"
-      Area_Construida : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_6.m2];
+      Area_Construida : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_7.m2];
       /** Área total privada de la unidad de construcción para los predios en régimen de propiedad horizontal.
        */
       !!@ ili2db.dispName = "Área privada construida"
-      Area_Privada_Construida : 0.0 .. 99999999999999.9 [LADM_COL_V1_6.m2];
+      Area_Privada_Construida : 0.0 .. 99999999999999.9 [LADM_COL_V1_7.m2];
       /** Altura total de la unidad de construcción.
        */
       !!@ ili2db.dispName = "Altura"
-      Altura : 1 .. 1000 [INTERLIS.m];
+      Altura : 0 .. 1000 [INTERLIS.m];
       /** Observaciones generales respecto de la unidad de construcción.
        */
       !!@ ili2db.dispName = "Observaciones"
       Observaciones : TEXT;
-    END LC_UnidadConstruccion;
+    END CR_UnidadConstruccion;
+
+    ASSOCIATION cr_hipotecaDerecho =
+      cr_hipoteca -- {0..*} CR_Hipoteca;
+      cr_derecho -- {0..*} CR_Derecho;
+    END cr_hipotecaDerecho;
 
     /** Relación entre la clase Unidad_Construccion del modelo de Avalúos y Calificacion_Unidad_Construccion de modelo de Avalúos
      */
-    ASSOCIATION lc_calificacion_unidadconstruccion =
-      lc_unidad_construccion (EXTERNAL) -- {1} LC_UnidadConstruccion;
-      lc_calificacion_unidad_construccion -- {0..1} LC_CalificacionUnidadConstruccion;
-    END lc_calificacion_unidadconstruccion;
+    ASSOCIATION cr_calificacion_unidadconstruccion =
+      /** Identificado de la unidad de construcción, su codificación puede ser por letras del abecedario.
+       */
+      cr_unidad_construccion (EXTERNAL) -- {1} CR_UnidadConstruccion;
+      cr_calificacion_unidad_construccion -- {0..1} CR_CalificacionUnidadConstruccion;
+    END cr_calificacion_unidadconstruccion;
 
-    ASSOCIATION lc_construccion_unidadconstruccion =
-      lc_unidadconstruccion -- {0..*} LC_UnidadConstruccion;
-      lc_construccion -<> {1} LC_Construccion;
-    END lc_construccion_unidadconstruccion;
+    ASSOCIATION cr_construccion_unidadconstruccion =
+      cr_unidadconstruccion -- {0..*} CR_UnidadConstruccion;
+      cr_construccion -<> {1} CR_Construccion;
+    END cr_construccion_unidadconstruccion;
 
-  END Levantamiento_Catastral;
+  END Catastro_Registro;
 
-END Levantamiento_Catastral_V2_10.
+END Catastro_Registro_V2_11.
