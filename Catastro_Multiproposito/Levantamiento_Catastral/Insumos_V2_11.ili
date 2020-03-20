@@ -1180,11 +1180,11 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Nuevo código númerico de treinta (30) dígitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi, registrado en SNR.
        */
       !!@ ili2db.dispName = "Número predial nuevo en FMI"
-      Numero_Predial_Nuevo_en_FMI : TEXT*30;
+      Numero_Predial_Nuevo_en_FMI : TEXT*100;
       /** Anterior código númerico de veinte (20) digitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi, registrado en SNR.
        */
       !!@ ili2db.dispName = "Número predial anterior en FMI"
-      Numero_Predial_Anterior_en_FMI : TEXT*30;
+      Numero_Predial_Anterior_en_FMI : TEXT*100;
       /** El texto de cabida y linderosque está consignado en el registro público de la propiedad sobre el cual se ejercen los derechos.
        */
       !!@ ili2db.dispName = "Cabida y linderos"
@@ -1209,7 +1209,7 @@ VERSION "V2.3"  // 2019-07-31 // =
     ASSOCIATION snr_titular_derecho =
       snr_titular -- {1..*} SNR_Titular;
       snr_derecho -- {1..*} SNR_Derecho;
-      Porcentaje_Participacion : 0 .. 100;
+      Porcentaje_Participacion : TEXT*100;
     END snr_titular_derecho;
 
     ASSOCIATION snr_derecho_predio =
