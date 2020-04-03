@@ -120,10 +120,35 @@ VERSION "2019-08-01"  =
       Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
     END GC_Barrio;
 
+    /** Relaciona la calificación de las unidades de construcción de los datos de insumos del Gestor Catastral.
+     */
+    CLASS GC_CalificacionUnidadConstruccion =
+      /** Indica el componente de la calificación de la unidad de construcción.
+       */
+      !!@ ili2db.dispName = "Componente"
+      Componente : TEXT*255;
+      /** Indica el elemento de calificación de la unidad de construcción.
+       */
+      !!@ ili2db.dispName = "Elemento de calificación"
+      Elemento_Calificacion : TEXT*255;
+      /** Indica el detalle de calificación del elemento de calificación de la unidad de construcción.
+       */
+      !!@ ili2db.dispName = "Detalle de calificación"
+      Detalle_Calificacion : TEXT*255;
+      /** Puntaje asociado al detalle del elemento de calificación.
+       */
+      !!@ ili2db.dispName = "Puntos"
+      Puntos : 0 .. 100;
+    END GC_CalificacionUnidadConstruccion;
+
     /** Construcciones que no cuentan con información alfanumérica en la base de datos catastral.
      */
     !!@ ili2db.dispName = "(GC) Comisiones Construcción"
     CLASS GC_ComisionesConstruccion =
+      /** Numero Predial del Construcciones que no cuentan con información alfanumérica en la base de datos catastral.
+       */
+      !!@ ili2db.dispName = "Número predial"
+      Numero_Predial : MANDATORY TEXT*30;
       /** Construcciones que no cuentan con información alfanumérica en la base catastral.
        */
       !!@ ili2db.dispName = "Geometría"
@@ -134,6 +159,11 @@ VERSION "2019-08-01"  =
      */
     !!@ ili2db.dispName = "(GC) Comisiones Terreno"
     CLASS GC_ComisionesTerreno =
+      /** Numero Predial del terreno que no cuentan con información
+       * alfanumérica en la base de datos catastral.
+       */
+      !!@ ili2db.dispName = "Número predial"
+      Numero_Predial : MANDATORY TEXT*30;
       /** Terrenos que no cuentan con información alfanumérica en la base catastral.
        */
       !!@ ili2db.dispName = "Geometría"
@@ -144,6 +174,10 @@ VERSION "2019-08-01"  =
      */
     !!@ ili2db.dispName = "(GC) Comisiones Unidad Construcción"
     CLASS GC_ComisionesUnidadConstruccion =
+      /** Numero Predial del terreno que no cuentan con información alfanumérica en la base de datos catastral.
+       */
+      !!@ ili2db.dispName = "Número predial"
+      Numero_Predial : MANDATORY TEXT*30;
       /** Unidades de construcción que no cuentan con información alfanumérica en la base catastral.
        */
       !!@ ili2db.dispName = "Geometría"
@@ -208,10 +242,6 @@ VERSION "2019-08-01"  =
      */
     !!@ ili2db.dispName = "(GC) Datos Propiedad Horizontal Condominio"
     CLASS GC_DatosPHCondominio =
-      /** Área total del terreno del PH o Condominio Matriz.
-       */
-      !!@ ili2db.dispName = "Área total de terreno"
-      Area_Total_Terreno : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Área total privada del terreno del PH o Condominio Matriz.
        */
       !!@ ili2db.dispName = "Área total de terreno privada"
@@ -220,10 +250,6 @@ VERSION "2019-08-01"  =
        */
       !!@ ili2db.dispName = "Área total de terreno común"
       Area_Total_Terreno_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
-      /** Área total de construida del PH o Condominio Matriz.
-       */
-      !!@ ili2db.dispName = "Área total construida"
-      Area_Total_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
       /** Área total construida privada del PH o Condominio Matriz.
        */
       !!@ ili2db.dispName = "Área total construida privada"
@@ -232,27 +258,44 @@ VERSION "2019-08-01"  =
        */
       !!@ ili2db.dispName = "Área total construida común"
       Area_Total_Construida_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V1_7.m2];
-      /** Número de torres en el PH o Condominio.
-       */
-      !!@ ili2db.dispName = "Numero de torres"
-      Numero_Torres : 0 .. 1000;
-      /** Total de pisos por torre en el PH o Condominio.
-       */
-      !!@ ili2db.dispName = "Total pisos de torre"
-      Total_Pisos_Torre : 0 .. 200;
       /** Total de unidades privadas en el PH o Condominio.
        */
       !!@ ili2db.dispName = "Total de unidades privadas"
       Total_Unidades_Privadas : 0 .. 99999999;
-      /** Total de sótanos en PH o Condominio.
-       */
-      !!@ ili2db.dispName = "Total de sótanos"
-      Total_Sotanos : 0 .. 30;
       /** Total de unidades prediales en el sótano del PH o Condominio.
        */
       !!@ ili2db.dispName = "Total de unidades de sótano"
       Total_Unidades_Sotano : 0 .. 99999999;
+      /** Avalúo catastral total de la propiedad horizontal o condominio.
+       */
+      !!@ ili2db.dispName = "Valor total avaúo catastral"
+      Valor_Total_Avaluo_Catastral : LADM_COL_V1_7.LADM_Nucleo.Peso;
     END GC_DatosPHCondominio;
+
+    /** Relaciona la información de las torres asociadas al PH o Condominio de los datos insumos del Gestor Catastral
+     */
+    CLASS GC_DatosTorrePH =
+      /** Número de torre en el PH o Condominio.
+       */
+      !!@ ili2db.dispName = "Torre"
+      Torre : 0 .. 1500;
+      /** Total de pisos de la torre.
+       */
+      !!@ ili2db.dispName = "Total de pisos torre"
+      Total_Pisos_Torre : 0 .. 100;
+      /** Total de unidades privadas en la torre.
+       */
+      !!@ ili2db.dispName = "Total de unidades privadas"
+      Total_Unidades_Privadas : 0 .. 99999999;
+      /** Total de sótanos en la torre.
+       */
+      !!@ ili2db.dispName = "Total de sótanos"
+      Total_Sotanos : 0 .. 99;
+      /** Total de unidades prediales en el sótano de la torre.
+       */
+      !!@ ili2db.dispName = "Total de unidades sótano"
+      Total_Unidades_Sotano : 0 .. 99999999;
+    END GC_DatosTorrePH;
 
     !!@ ili2db.dispName = "(GC) Dirección"
     STRUCTURE GC_Direccion =
@@ -576,6 +619,16 @@ VERSION "2019-08-01"  =
       gc_unidad_construccion -- {0..*} GC_UnidadConstruccion;
       gc_construccion -- {1} GC_Construccion;
     END gc_construccion_unidad;
+
+    ASSOCIATION gc_datosphcondominio_datostorreph =
+      gc_datostorreph -- {0..*} GC_DatosTorrePH;
+      gc_datosphcondominio -- {0..1} GC_DatosPHCondominio;
+    END gc_datosphcondominio_datostorreph;
+
+    ASSOCIATION gc_unidadconstruccion_calificacionunidadconstruccion =
+      gc_unidadconstruccion -- {0..1} GC_UnidadConstruccion;
+      gc_calificacionunidadconstruccion -- {0..*} GC_CalificacionUnidadConstruccion;
+    END gc_unidadconstruccion_calificacionunidadconstruccion;
 
     ASSOCIATION gc_construccion_predio =
       gc_predio -- {1} GC_PredioCatastro;
