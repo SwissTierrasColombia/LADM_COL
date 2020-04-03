@@ -2361,22 +2361,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Número de torres"
       Numero_Torres : 0 .. 1000;
-      /** Total de pisos por torre en el PH o Condominio.
-       */
-      !!@ ili2db.dispName = "Total pisos de torre"
-      Total_Pisos_Torre : 0 .. 200;
       /** Total de unidades privadas en el PH o Condominio.
        */
       !!@ ili2db.dispName = "Total de unidades privadas"
       Total_Unidades_Privadas : 0 .. 99999999;
-      /** Total de sótanos en PH o Condominio.
-       */
-      !!@ ili2db.dispName = "Total de sótanos"
-      Total_Sotanos : 0 .. 30;
-      /** Total de unidades prediales en el sótano del PH o Condominio.
-       */
-      !!@ ili2db.dispName = "Total de únidades de sótanos"
-      Total_Unidades_Sotanos : 0 .. 99999999;
     END CR_DatosPHCondominio;
 
     /** Es la clase que hace referencia a los Derechos, Restricciones y Responsabilidades que existen entre algún o algunos interesados frente a un predio.
