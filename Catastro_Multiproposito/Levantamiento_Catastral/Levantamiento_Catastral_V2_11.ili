@@ -1662,6 +1662,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Residencial) Casa Elbas"
         Casa_Elbas,
+        /** (en propiedad Horizontal): Edificación destinada al almacenamiento o resguardo de enceres, generalmente ubicados en los sótanos y semisótanos de los edificios, junto a los parqueaderos. Las áreas de estos depósitos generalmente no supera los 25 metros cuadrados.
+         */
+        !!@ ili2db.dispName = "Depósitos o lockers"
+        Depositos_Lockers,
         /** Es el lugar cubierto, destinado al estacionamiento privado de vehículos.
          */
         !!@ ili2db.dispName = "(Residencial) Garajes Cubiertos"
@@ -1789,6 +1793,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Comercial) Jardin Infantil en Casa"
         Jardin_Infantil_en_Casa,
+        /** Construcciones, oficiales o privadas, destinadas a salvaguardar obras de arte, reliquias o antigüedades de carácter histórico, religioso o científico, que representan un periodo, una época de la humanidad o del país.
+         */
+        !!@ ili2db.dispName = "Museos"
+        Museos,
         /** Espacio construido en el que se  realiza un trabajo profesional de gestión, administración o atención médica
          */
         !!@ ili2db.dispName = "(Comercial) Oficinas - Consultorios"
@@ -1804,6 +1812,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         /** Es un terreno que está destinado a árboles, jardines y prados donde se depositan los restos mortales o cadáveres.
          */
         Parque_Cementerios,
+        /** Construcciones dedicadas al esparcimiento y a la diversión, generalmente son predios con grandes espacios, ejemplo parque el salitre.
+         */
+        !!@ ili2db.dispName = "Parque de diversiones"
+        Parque_Diversiones,
         /** Es el espacio que con ánimo de lucro se destina a guardar o arrendar espacios para depositar vehículos dentro de una edificación construida para tal fin, o dentro de un predio habilitado con el mismo objeto.
          */
         !!@ ili2db.dispName = "(Comercial) Parqueaderos"
@@ -1910,6 +1922,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Anexo) Galpones - Gallineros"
         Galpones_Gallineros,
+        /** Construcciones adaptadas o utilizadas por los organismos de seguridad de una nación para acuartelar a las tropas y sus equipos. Estas son organizadas de una forma tal que les facilite cumplir con la rutina diaria de los cuerpos militares, desde dormitorios, patios de ejercicios, estacionamientos para los vehículos, parques, comedores, oficinas y son fortificadas a fin de presentar resistencia al momento de un posible ataque externo.
+         */
+        !!@ ili2db.dispName = "Instalaciones militares"
+        Instalaciones_Militares,
         /** Construcción consistente en una cubierta apoyada en columnas de materiales diferentes, elaborados con el fin de guarecer de la intemperie.
          */
         !!@ ili2db.dispName = "(Anexo) Kioscos"
@@ -1934,6 +1950,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Anexo) Piscinas"
         Piscinas,
+        /** Edificación sin cubierta con que se identifican las pistas de los aeropuertos construidas en asfalto o concreto, incluye la zona o calle de redaje y calles de salida rápida.
+         */
+        !!@ ili2db.dispName = "Pista aeropuerto"
+        Pista_Aeropuerto,
         /** Perforaciones profundas  manuales para extraer agua subterránea.  Medida en metros de profundidad.
          */
         !!@ ili2db.dispName = "(Anexo) Pozos"
