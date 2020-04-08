@@ -313,6 +313,24 @@ VERSION "2019-08-01"  =
       Geometria_Referencia : ISO19107_PLANAS_V1.GM_Curve3D;
     END GC_Direccion;
 
+    /** Estructura que contiene el estado del predio en la base de datos catastral.
+     */
+    !!@ ili2db.dispName = "(GC) EstadoPredio"
+    STRUCTURE GC_EstadoPredio =
+      /** Indica el estado del predio en la base de datos catastral.
+       */
+      !!@ ili2db.dispName = "Estado alerta"
+      Estado_Alerta : TEXT*30;
+      /** Entidad emisora del estado de alerta del predio.
+       */
+      !!@ ili2db.dispName = "Entidad emisora de la alerta"
+      Entidad_Emisora_Alerta : TEXT*255;
+      /** Fecha de la alerta en el sistema de gestión catastral.
+       */
+      !!@ ili2db.dispName = "Fecha de alerta"
+      Fecha_Alerta : INTERLIS.XMLDate;
+    END GC_EstadoPredio;
+
     /** Dato geografico aportado por el Gestor Catastral respecto de las manzanas de una entidad territorial.
      */
     !!@ ili2db.dispName = "(GC) Manzana"
@@ -593,18 +611,10 @@ VERSION "2019-08-01"  =
        */
       !!@ ili2db.dispName = "Destinación económica"
       Destinacion_Economica : TEXT*150;
-      /** Indica el estado del predio en la base de datos catastral.
+      /** Estado del predio en la base de datos catastral según los actos administrativos o judiciales que versan sobre el mismo.
        */
-      !!@ ili2db.dispName = "Estado alerta"
-      Estado_Alerta : TEXT*30;
-      /** Entidad emisora del estado de alerta del predio.
-       */
-      !!@ ili2db.dispName = "Entidad emisora de la alerta"
-      Entidad_Emisora_Alerta : TEXT*255;
-      /** Fecha de la alerta en el sistema de gestión catastral.
-       */
-      !!@ ili2db.dispName = "Fecha de alerta"
-      Fecha_Alerta : INTERLIS.XMLDate;
+      !!@ ili2db.dispName = "Estado del predio"
+      Estado_Predio : BAG {0..*} OF Datos_Gestor_Catastral_V2_11.Datos_Gestor_Catastral.GC_EstadoPredio;
       /** Indica el sistema de gestión catastral de donde proceden los datos, en el caso del IGAC puede ser COBOL o SNC.
        */
       !!@ ili2db.dispName = "Sistema procedencia de los datos"
