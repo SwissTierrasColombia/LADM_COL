@@ -2711,10 +2711,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Tipo_Tipologia : Levantamiento_Catastral_V2_11.LC_TipologiaTipo;
     END LC_TipologiaConstruccion;
 
-    ASSOCIATION lc_interesado_contacto =
+    ASSOCIATION lc_interesado_interesadocontacto =
       lc_contacto -- {0..*} LC_InteresadoContacto;
       lc_interesado -- {1} LC_Interesado;
-    END lc_interesado_contacto;
+    END lc_interesado_interesadocontacto;
 
     ASSOCIATION lc_objetoconstruccion_grupocalificacion =
       lc_grupo_calificacion -- {1} LC_GrupoCalificacion;

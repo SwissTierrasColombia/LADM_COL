@@ -473,14 +473,14 @@ VERSION "2019-07-04"  =
     END ANT_Solicitud;
 
     ASSOCIATION ant_conflictos_predio =
-      op_predio (EXTERNAL) -- {1} Levantamiento_Catastral_V2_11.Levantamiento_Catastral.LC_Predio;
+      lc_predio (EXTERNAL) -- {1} Levantamiento_Catastral_V2_11.Levantamiento_Catastral.LC_Predio;
       ant_conflictos -- {0..*} ANT_Conflictos;
     END ant_conflictos_predio;
 
-    ASSOCIATION ant_interesado_caracterizacion =
-      op_interesado (EXTERNAL) -- {1} Levantamiento_Catastral_V2_11.Levantamiento_Catastral.LC_Interesado;
+    ASSOCIATION ant_interesado_interesadocaracterizacion =
+      lc_interesado (EXTERNAL) -- {1} Levantamiento_Catastral_V2_11.Levantamiento_Catastral.LC_Interesado;
       ant_interesado_caracterizacion -- {0..1} ANT_InteresadoCaracterizacion;
-    END ant_interesado_caracterizacion;
+    END ant_interesado_interesadocaracterizacion;
 
     ASSOCIATION ant_interesado_nucleofamiliar =
       ant_interesado_caracterizacion -- {1} ANT_InteresadoCaracterizacion;
@@ -488,17 +488,17 @@ VERSION "2019-07-04"  =
     END ant_interesado_nucleofamiliar;
 
     ASSOCIATION ant_interesado_solicitud =
-      op_interesado (EXTERNAL) -- {1} Levantamiento_Catastral_V2_11.Levantamiento_Catastral.LC_Interesado;
+      lc_interesado (EXTERNAL) -- {1} Levantamiento_Catastral_V2_11.Levantamiento_Catastral.LC_Interesado;
       ant_solicitud -- {0..*} ANT_Solicitud;
     END ant_interesado_solicitud;
 
     ASSOCIATION ant_interesadocontacto_datosalterno =
-      op_interesado_contacto (EXTERNAL) -- {0..1} Levantamiento_Catastral_V2_11.Levantamiento_Catastral.LC_InteresadoContacto;
+      lc_interesado_contacto (EXTERNAL) -- {0..1} Levantamiento_Catastral_V2_11.Levantamiento_Catastral.LC_InteresadoContacto;
       ant_interesado_contacto_datos_alterno -- {0..*} ANT_InteresadoContactoDatosAlterno;
     END ant_interesadocontacto_datosalterno;
 
     ASSOCIATION ant_predio_solicitud =
-      op_predio (EXTERNAL) -- {0..1} Levantamiento_Catastral_V2_11.Levantamiento_Catastral.LC_Predio;
+      lc_predio (EXTERNAL) -- {0..1} Levantamiento_Catastral_V2_11.Levantamiento_Catastral.LC_Predio;
       ant_solicitud -- {0..*} ANT_Solicitud;
     END ant_predio_solicitud;
 
