@@ -1140,7 +1140,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       /** Valor por metros cuadrado de construcción clasificando por uso y puntaje de las unidades de construcción.
        */
       !!@ ili2db.dispName = "Valor M2 de construcción"
-      Valor_M2_Construccion : TEXT*20;
+      Valor_M2_Construccion : LADM_COL_V1_7.LADM_Nucleo.Peso;
       /** Es la actividad que se desarrolla en una unidad de construcción.
        */
       !!@ ili2db.dispName = "Uso"
@@ -1163,7 +1163,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       /** Valor unitario en pesos del tipo de tipología constructiva.
        */
       !!@ ili2db.dispName = "Valor unitario"
-      Valor_Unitario : 0 .. 100000000000000000000000000000000000000000000000000 [LADM_COL_V1_7.COP];
+      Valor_Unitario : LADM_COL_V1_7.LADM_Nucleo.Peso;
       UNIQUE Tipo_Tipologia; 
     END AV_TipologiaConstruccion;
 
@@ -1270,7 +1270,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       /** Valor económico de la zona homogénea que representa la instancia de la clase.
        */
       !!@ ili2db.dispName = "Valor del metro cuadrado"
-      Valor_Metro : MANDATORY 0.00 .. 100000000000000000000000000000.00 [LADM_COL_V1_7.COP];
+      Valor_Metro : MANDATORY LADM_COL_V1_7.LADM_Nucleo.Peso;
       /** Códigos de las zonas homogeneas fisicas urbanas que componen la zona homogénea geoeconómica urbana.
        */
       !!@ ili2db.dispName = "Subzona física"
@@ -1300,7 +1300,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       /** Valor económico de la zona homogénea que representa la instancia de la clase.
        */
       !!@ ili2db.dispName = "Valor por hectárea"
-      Valor_Hectarea : MANDATORY 0.00 .. 100000000000000000000000000000000.00;
+      Valor_Hectarea : MANDATORY LADM_COL_V1_7.LADM_Nucleo.Peso;
       /** Códigos de las zonas homogeneas fisicas rurales que componen la zona homogénea geoeconómica rural.
        */
       !!@ ili2db.dispName = "Subzona física"
