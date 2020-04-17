@@ -880,6 +880,21 @@ VERSION "V2.3"  // 2019-07-31 // =
       Usufructo
     );
 
+    SNR_ClasePredioRegistroTipo = (
+      /** Constituyen esta categoría los terrenos no aptos para el uso urbano, por razones de oportunidad, o por su destinación a usos agrícolas, ganaderos, forestales, de explotación de recursos naturales y actividades análogas. (Artículo 33, Ley 388 de 1997)
+       */
+      !!@ ili2db.dispName = "Rural"
+      Rural,
+      /** Constituyen el suelo urbano, las áreas del territorio distrital o municipal destinadas a usos urbanos por el plan de ordenamiento, que cuenten con infraestructura vial y redes primarias de energía, acueducto y alcantarillado, posibilitándose su urbanización y edificación, según sea el caso. Podrán pertenecer a esta categoría aquellas zonas con procesos de urbanización incompletos, comprendidos en áreas consolidadas con edificación, que se definan como áreas de mejoramiento integral en los planes de ordenamiento territorial.
+       * 
+       * Las áreas que conforman el suelo urbano serán delimitadas por perímetros y podrán incluir los centros poblados de los corregimientos. En ningún caso el perímetro urbano podrá ser mayor que el denominado perímetro de servicios públicos o sanitario. (Artículo 31, Ley 388 de 1997)
+       */
+      !!@ ili2db.dispName = "Urbano"
+      Urbano,
+      !!@ ili2db.dispName = "Sin información"
+      Sin_Informacion
+    );
+
     SNR_DocumentoTitularTipo = (
       /** Es un documento emitido por la Registraduría Nacional del Estado Civil para permitir la identificación personal de los ciudadanos.
        */
@@ -1079,10 +1094,18 @@ VERSION "V2.3"  // 2019-07-31 // =
        */
       !!@ ili2db.dispName = "Número predial anterior en FMI"
       Numero_Predial_Anterior_en_FMI : TEXT*100;
+      /** Conjunto de símbolos alfanuméricos, los cuales designan vías y predios de la ciudad.
+       */
+      !!@ ili2db.dispName = "Nomenclatura según registro"
+      Nomenclatura_Registro : TEXT*255;
       /** El texto de cabida y linderosque está consignado en el registro público de la propiedad sobre el cual se ejercen los derechos.
        */
       !!@ ili2db.dispName = "Cabida y linderos"
       Cabida_Linderos : MTEXT;
+      /** Corresponde al dato de tipo de predio incorporado en las bases de datos registrales
+       */
+      !!@ ili2db.dispName = "Clase del suelo según registro"
+      Clase_Suelo_Registro : Datos_SNR_V2_11.SNR_ClasePredioRegistroTipo;
       /** Es la matrícula por la cual se dio apertura al predio objeto de estudio (la madre).
        */
       !!@ ili2db.dispName = "Matrícula inmobiliaria matriz"
