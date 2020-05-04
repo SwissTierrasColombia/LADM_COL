@@ -96,10 +96,31 @@ VERSION "V2.2.1"  // 2018-04-19 // =
      */
     !!@ ili2db.dispName = "(CC) Nomenclatura vial"
     CLASS CC_NomenclaturaVial =
+      /** Tipo de eje vial.
+       */
       !!@ ili2db.dispName = "Tipo de vía"
-      Tipo_Via : MANDATORY TEXT*20;
-      !!@ ili2db.dispName = "Número de via"
+      Tipo_Via : MANDATORY (
+        !!@ ili2db.dispName = "Avenida calle"
+        Avenida_Calle,
+        !!@ ili2db.dispName = "Avenida carrera"
+        Avenida_Carrera,
+        Avenida,
+        Autopista,
+        Circunvalar,
+        Calle,
+        Carrera,
+        Diagonal,
+        Transversal,
+        Circular,
+        !!@ ili2db.dispName = "Vía rural"
+        Via_Rural
+      );
+      /** Indica el número o nombre del tipo de vía.
+       */
+      !!@ ili2db.dispName = "Numero o nombre de la vía"
       Numero_Via : MANDATORY TEXT*100;
+      /** Geometría de tipo línea que corresponde a la representación espacial de la vía.
+       */
       !!@ ili2db.dispName = "Geometría"
       Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiCurve3D;
     END CC_NomenclaturaVial;
