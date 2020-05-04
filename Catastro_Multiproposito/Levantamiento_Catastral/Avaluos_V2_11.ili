@@ -29,7 +29,7 @@ INTERLIS 2.3;
 MODEL Avaluos_V2_11 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-02-01 // =
-  IMPORTS ISO19107_PLANAS_V1,Levantamiento_Catastral_V2_11,LADM_COL_V1_7;
+  IMPORTS ISO19107_PLANAS_V2,Levantamiento_Catastral_V2_11,LADM_COL_V1_7;
 
   DOMAIN
 
@@ -1205,7 +1205,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       /** Definición de la geometría espacial georreferenciada de la zona homogénea física, delimitada mediante un polígono que contiene sus linderos y la superficie ocupada.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END AV_ZonaHomogeneaFisicaRural;
 
     /** Clase que contiene las variables que componen las Zonas Homogeneas Fisicas urbanas. Las ZHF Son espacios geográficos con características similares en cuanto a vías, topografía, servicios públicos, uso actual del suelo, norma de uso del suelo, tipificación de las construcciones y/o edificaciones, áreas homogéneas de tierra, disponibilidad de aguas superficiales permanentes u otras variables que permitan diferenciar estas áreas de las adyacentes.
@@ -1251,7 +1251,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       /** Definición de la geometría espacial georreferenciada de la zona homogénea física, delimitada mediante un polígono que contiene sus linderos y la superficie ocupada.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END AV_ZonaHomogeneaFisicaUrbana;
 
     /** Clase que contiene las variables que componen las Zonas Homogeneas Geoconómicas rurales. Las ZHG son los espacios geográficos determinados a partir de Zonas Homogéneas Físicas con valores unitarios similares en cuanto a su precio, según las condiciones del mercado inmobiliario.
@@ -1281,7 +1281,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       /** Definición de la geometría espacial georreferenciada de la zona homogénea geoeconómica, delimitada mediante un polígono que contiene sus linderos y la superficie ocupada.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END AV_ZonaHomogeneaGeoeconomicaUrbana;
 
     /** Esta clase permite gestionar las zonas con características económicas y de localización geográfica similares, definidas para caracterizar el avalúo.
@@ -1311,7 +1311,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       /** Definición de la geometría espacial georreferenciada de la zona homogénea geoeconómica, delimitada mediante un polígono que contiene sus linderos y la superficie ocupada.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END AV_ZonaHomogeneaGeoeconomicaRural;
 
   END Avaluos;

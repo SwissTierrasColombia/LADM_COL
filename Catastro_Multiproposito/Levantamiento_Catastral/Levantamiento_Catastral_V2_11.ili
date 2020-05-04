@@ -55,7 +55,7 @@ INTERLIS 2.3;
 CONTRACTED MODEL Levantamiento_Catastral_V2_11 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-02-19 // =
-  IMPORTS ISO19107_PLANAS_V1,LADM_COL_V1_7,Datos_Integracion_Insumos_V2_11;
+  IMPORTS ISO19107_PLANAS_V2,LADM_COL_V1_7,Datos_Integracion_Insumos_V2_11;
 
   DOMAIN
 
@@ -2257,10 +2257,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY Levantamiento_Catastral_V2_11.LC_DerechoTipo;
-      /** Indica el porcentaje del derecho en relación a la forma de tenencia y el área que esta ocupa dentro de la extensión del predio. Ejemplo: un predio informal que se encuentra sobre un predio baldío y un predio privado tendrá un porcentaje de derecho de ocupación y posesión.
+      /** Indica la fracción del derecho en relación a la forma de tenencia y el área que esta ocupa dentro de la extensión del predio. Ejemplo: un predio informal que se encuentra sobre un predio baldío y un predio privado tendrá un porcentaje de derecho de ocupación y posesión expresado en tanto por uno (0.0000000000 a 1.0000000000).
        */
-      !!@ ili2db.dispName = "Porcentaje de derecho"
-      Porcentaje_Derecho : MANDATORY 0.000 .. 1.000;
+      !!@ ili2db.dispName = "Fracción de derecho"
+      Fraccion_Derecho : MANDATORY 0.0000000000 .. 1.0000000000;
     END LC_Derecho;
 
     !!@ ili2db.dispName = "(LC) Estructura Novedad FMI"
@@ -2622,7 +2622,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Corresponde a la figura geométrica vectorial poligonal, generada a partir de los linderos del predio.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria (EXTENDED) : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria (EXTENDED) : MANDATORY ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END LC_Terreno;
 
     /** Proceso mediante el cual se le asigna un puntaje a las edificaciones de acuerdo a sus características constructivas

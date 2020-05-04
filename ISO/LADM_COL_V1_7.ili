@@ -29,7 +29,7 @@ INTERLIS 2.3;
 MODEL LADM_COL_V1_7 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V1.2.0"  // 2019-08-13 // =
-  IMPORTS ISO19107_PLANAS_V1;
+  IMPORTS ISO19107_PLANAS_V2;
 
   UNIT
 
@@ -364,7 +364,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Par de valores georreferenciados (x,y) en la que se encuentra la dirección.
        */
       !!@ ili2db.dispName = "Localización"
-      Localizacion : ISO19107_PLANAS_V1.GM_Point3D;
+      Localizacion : ISO19107_PLANAS_V2.GM_Point3D;
       !!@ ili2db.dispName = "Código postal"
       Codigo_Postal : CharacterString;
       !!@ ili2db.dispName = "Clase de vía principal"
@@ -486,7 +486,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Geometría una vez realizado el proceso de transformación.
        */
       !!@ ili2db.dispName = "Localización transformada"
-      Localizacion_Transformada : MANDATORY ISO19107_PLANAS_V1.GM_Point3D;
+      Localizacion_Transformada : MANDATORY ISO19107_PLANAS_V2.GM_Point3D;
     END COL_Transformacion;
 
     /** Control externo de la unidad de edificación física.
@@ -685,7 +685,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Materializacion del metodo createArea(). Almacena de forma permanente la geometría de tipo poligonal.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END COL_UnidadEspacial;
 
     /** Agrupa unidades espaciales, es decir, representaciones geográficas de las unidades administrativas básicas (clase LA_BAUnit) para representar otras unidades espaciales que se forman en base a estas, como puede ser el caso de los polígonos catastrales.
@@ -707,7 +707,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Punto de referencia de toda la agrupación, a modo de centro de masas.
        */
       !!@ ili2db.dispName = "Punto de referencia"
-      Punto_Referencia : ISO19107_PLANAS_V1.GM_Point3D;
+      Punto_Referencia : ISO19107_PLANAS_V2.GM_Point3D;
     END COL_AgrupacionUnidadesEspaciales;
 
     /** Traducción al español de la clase LA_LegalSpaceBuildingUnit. Sus intancias son las unidades de edificación
@@ -859,7 +859,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Geometria punto para administración de los objetos: punto de lindero, punto levantamiento y punto de control.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : MANDATORY ISO19107_PLANAS_V1.GM_Point3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V2.GM_Point3D;
     END COL_Punto;
 
     /** Especialización de la clase COL_Fuente para almacenar las fuentes constituidas por datos espaciales (entidades geográficas, imágenes de satélite, vuelos fotogramétricos, listados de coordenadas, mapas, planos antiguos o modernos, descripción de localizaciones, etc.) que documentan técnicamente la relación entre instancias de interesados y de predios
@@ -891,7 +891,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Geometría lineal que define el lindero. Puede estar asociada a geometrías de tipo punto que definen sus vértices o ser una entidad lineal independiente.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : ISO19107_PLANAS_V1.GM_Curve3D;
+      Geometria : ISO19107_PLANAS_V2.GM_Curve3D;
       /** Descripción de la localización, cuando esta se basa en texto.
        */
       !!@ ili2db.dispName = "Localización textual"
@@ -905,7 +905,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Geometría en 3D del límite o lindero, asociada a putos o a descripciones textuales.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : ISO19107_PLANAS_V2.GM_MultiSurface3D;
       /** Cuando la localización del límte está dada por una descripción textual, aquí se recoge esta.
        */
       !!@ ili2db.dispName = "Localización textual"

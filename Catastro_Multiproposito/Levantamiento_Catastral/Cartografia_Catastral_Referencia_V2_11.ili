@@ -8,7 +8,7 @@ INTERLIS 2.3;
 MODEL Cartografia_Catastral_Referencia_V2_11 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-04-19 // =
-  IMPORTS ISO19107_PLANAS_V1,Levantamiento_Catastral_V2_11,LADM_COL_V1_7;
+  IMPORTS ISO19107_PLANAS_V2,Levantamiento_Catastral_V2_11,LADM_COL_V1_7;
 
   /** Este tema almacena específicamente las clases que definen la división administrativa desde el punto de vista operativo de catastro.
    */
@@ -27,7 +27,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por el centro poblado.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END CC_CentroPoblado;
 
     /** Es una división del departamento, al tenor del Decreto 2274 del 4 de octubre de 1991, la cual incluye un núcleo de población. Según esta misma disposición, los ahora corregimientos departamentales no forman parte de un determinado municipio.
@@ -45,7 +45,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por el corregimiento.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END CC_Corregimiento;
 
     /** Límites geográficos fijados entre municipios que determinan su jurisdicción territorial.
@@ -67,7 +67,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por limite del municipio.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END CC_LimiteMunicipio;
 
     /** Es una superficie de espacio geograáfico delimitada por calles en sus cuatro lados.
@@ -89,7 +89,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por la manzana.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END CC_Manzana;
 
     /** La Nomenclatura Vial es el conjunto de caracteres alfanuméricos que se emplean para identificar una vía espacialmente.
@@ -122,7 +122,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Geometría de tipo línea que corresponde a la representación espacial de la vía.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiCurve3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V2.GM_MultiCurve3D;
     END CC_NomenclaturaVial;
 
     /** Es la delimitación física del suelo urbano, determina su área y se representa gráficamente por una línea imaginaria continua que divide el suelo urbano del suelo rural y del suelo de expansión urbana.
@@ -151,7 +151,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       Codigo_Nombre : TEXT*255;
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por el perímetro urbano.
        */
-      Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END CC_PerimetroUrbano;
 
     /** Es la delimitación física del suelo rual, determina su área y se representa gráficamente por una línea imaginaria continua que divide el suelo urbano del suelo rural y del suelo de expansión urbana.
@@ -165,7 +165,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por el sector rural.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END CC_SectorRural;
 
     /** Es la delimitación física del suelo urbano, determina su área y se representa gráficamente por una línea imaginaria continua que divide el suelo urbano del suelo rural y del suelo de expansión urbana.
@@ -179,7 +179,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por el sector urbano catastral.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END CC_SectorUrbano;
 
     /** Unidad geográfica rural conformada por un número determinado de predios pertenecientes a una o varias parcelaciones, delimitado por accidentes geográficos naturales o vías.
@@ -201,7 +201,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por la vereda.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END CC_Vereda;
 
     /** Unidad administrativa en la cual se subdivide el área urbana de una ciudad media o principal del país, que agrupa barrios o sectores determinados.
@@ -219,7 +219,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por la localidad o comuna.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END CC_LocalidadComuna;
 
     /** Zona ocupada por un barrio dado y su determinación toponímica y catastral.
@@ -241,7 +241,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por el barrio.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : MANDATORY ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END CC_Barrio;
 
   END LimitesOperativosCatastro;

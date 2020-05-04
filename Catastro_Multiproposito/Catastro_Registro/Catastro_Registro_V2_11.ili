@@ -55,7 +55,7 @@ INTERLIS 2.3;
 CONTRACTED MODEL Catastro_Registro_V2_11 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-02-19 // =
-  IMPORTS ISO19107_PLANAS_V1,LADM_COL_V1_7;
+  IMPORTS ISO19107_PLANAS_V2,LADM_COL_V1_7;
 
   DOMAIN
 
@@ -2323,10 +2323,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Número de semisótanos"
       Numero_Semisotanos : 0 .. 99;
-      /** Código catastral de la construcción.
-       */
-      !!@ ili2db.dispName = "Código de edificación"
-      Codigo_Edificacion : 0 .. 10000000000000000000;
       /** Año de edificación de la construcción.
        */
       !!@ ili2db.dispName = "Año de la construcción"
@@ -2502,6 +2498,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY Catastro_Registro_V2_11.CR_InformalidadTipo;
+      /** Indica la fracción de la informalidad en relación a la forma de tenencia y el área que esta ocupa dentro de la extensión del predio. Ejemplo: un predio informal que se encuentra sobre un predio baldío y un predio privado tendrá un porcentaje de derecho de ocupación y posesión expresado en tanto por uno (0.0000000000 a 1.0000000000).
+       */
+      !!@ ili2db.dispName = "Fracción de informalidad"
+      Fraccion_Informalidad : MANDATORY 0.0000000000 .. 1.0000000000;
     END CR_Informalidad;
 
     /** Es la parte que tiene una relación con el predio por algún tipo de derecho, restricción, publicidad o responsabilidad
@@ -2669,14 +2669,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Código de manzana vereda"
       Manzana_Vereda_Codigo : TEXT*17;
-      /** Número de subterraneos en el terreno.
-       */
-      !!@ ili2db.dispName = "Número de subterráneos"
-      Numero_Subterraneos : 0 .. 999;
       /** Corresponde a la figura geométrica vectorial poligonal, generada a partir de los linderos del predio.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria (EXTENDED) : MANDATORY ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria (EXTENDED) : MANDATORY ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END CR_Terreno;
 
     /** Es la culminación de trámite registral, luego de efectuada la inscripción y puesta la constancia de ella en el título o documento objeto de registro.
@@ -2753,6 +2749,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Linderos actualizados"
       Linderos_Actualizados : MTEXT;
+      /** Indica la fracción del derecho en relación a la forma de tenencia y el área que esta ocupa dentro de la extensión del predio. Ejemplo: un predio informal que se encuentra sobre un predio baldío y un predio privado tendrá un porcentaje de derecho de ocupación y posesión expresado en tanto por uno (0.0000000000 a 1.0000000000).
+       */
+      !!@ ili2db.dispName = "Fracción de derecho"
+      Fraccion_Derecho : MANDATORY 0.0000000000 .. 1.0000000000;
     END CR_Derecho;
 
     /** Clase especializada de BaUnit, que describe la unidad administrativa básica para el caso de Colombia.

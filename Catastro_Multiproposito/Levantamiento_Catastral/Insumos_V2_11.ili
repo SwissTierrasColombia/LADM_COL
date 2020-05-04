@@ -3,7 +3,7 @@ INTERLIS 2.3;
 MODEL Datos_Gestor_Catastral_V2_11 (es)
 AT "mailto:PC4@localhost"
 VERSION "2019-08-01"  =
-  IMPORTS ISO19107_PLANAS_V1,LADM_COL_V1_7;
+  IMPORTS ISO19107_PLANAS_V2,LADM_COL_V1_7;
 
   DOMAIN
 
@@ -117,7 +117,7 @@ VERSION "2019-08-01"  =
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por el barrio.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
+      Geometria : ISO19107_PLANAS_V2.GM_MultiSurface2D;
     END GC_Barrio;
 
     /** Relaciona la calificación de las unidades de construcción de los datos de insumos del Gestor Catastral.
@@ -152,7 +152,7 @@ VERSION "2019-08-01"  =
       /** Construcciones que no cuentan con información alfanumérica en la base catastral.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END GC_ComisionesConstruccion;
 
     /** Terrenos que no cuentan con información alfanumérica en la base de datos catastral.
@@ -167,7 +167,7 @@ VERSION "2019-08-01"  =
       /** Terrenos que no cuentan con información alfanumérica en la base catastral.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
+      Geometria : ISO19107_PLANAS_V2.GM_MultiSurface2D;
     END GC_ComisionesTerreno;
 
     /** Unidades de construcción que no cuentan con información alfanumérica en la base de datos catastral.
@@ -181,7 +181,7 @@ VERSION "2019-08-01"  =
       /** Unidades de construcción que no cuentan con información alfanumérica en la base catastral.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END GC_ComisionesUnidadConstruccion;
 
     /** Datos de las construcciones inscritas en las bases de datos catastrales en una entidad territorial.
@@ -235,7 +235,7 @@ VERSION "2019-08-01"  =
       /** Polígono de la construcción existente en la base de datos catastral.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END GC_Construccion;
 
     /** Clase que contiene los datos principales del predio matriz sometido al regimen de propiedad horizontal inscrito en las bases de datos catastrales.
@@ -310,7 +310,7 @@ VERSION "2019-08-01"  =
       /** Línea de donde se encuentra la placa de nomenclatura del predio.
        */
       !!@ ili2db.dispName = "Geometría de referencia"
-      Geometria_Referencia : ISO19107_PLANAS_V1.GM_Curve3D;
+      Geometria_Referencia : ISO19107_PLANAS_V2.GM_Curve3D;
     END GC_Direccion;
 
     /** Estructura que contiene el estado del predio en la base de datos catastral.
@@ -350,7 +350,7 @@ VERSION "2019-08-01"  =
       /** Polígonos de la manzanas catastrales.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
+      Geometria : ISO19107_PLANAS_V2.GM_MultiSurface2D;
     END GC_Manzana;
 
     /** Dato geografico aportado por el Gestor Catastral respecto del perimetro urbano de una entidad territorial.
@@ -380,7 +380,7 @@ VERSION "2019-08-01"  =
       /** Polígono del perímetro urbano.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
+      Geometria : ISO19107_PLANAS_V2.GM_MultiSurface2D;
     END GC_Perimetro;
 
     /** Datos de los propietarios inscritos en las bases de datos catastrales que tienen relación con un predio.
@@ -432,7 +432,7 @@ VERSION "2019-08-01"  =
       /** Polígono de los sectores catastrales existentes en la base de datos catastral.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
+      Geometria : ISO19107_PLANAS_V2.GM_MultiSurface2D;
     END GC_SectorRural;
 
     /** Dato geografico aportado por el Gestor Catastral respecto de los sectores catastrales urbanos de una entidad territorial.
@@ -446,7 +446,7 @@ VERSION "2019-08-01"  =
       /** Polígono de los sectores catastrales existentes en la base de datos catastral.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
+      Geometria : ISO19107_PLANAS_V2.GM_MultiSurface2D;
     END GC_SectorUrbano;
 
     /** Datos de los terrenos inscritos en las bases de datos catastrales en una entidad territorial.
@@ -472,7 +472,7 @@ VERSION "2019-08-01"  =
       /** Polígono de la unidad de construcción existente en la base de datos catastral.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
+      Geometria : ISO19107_PLANAS_V2.GM_MultiSurface2D;
     END GC_Terreno;
 
     /** Datos de las unidades de construcción inscritas en las bases de datos catastrales en una entidad territorial.
@@ -542,7 +542,7 @@ VERSION "2019-08-01"  =
       /** Polígono de la unidad de construcción existente en la base de datos catastral.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : ISO19107_PLANAS_V1.GM_MultiSurface3D;
+      Geometria : ISO19107_PLANAS_V2.GM_MultiSurface3D;
     END GC_UnidadConstruccion;
 
     /** Dato geografico aportado por el Gestor Catastral respecto de las veredades de una entidad territorial.
@@ -568,7 +568,7 @@ VERSION "2019-08-01"  =
       /** Geometría en 2D de la vereda.
        */
       !!@ ili2db.dispName = "Geometría"
-      Geometria : ISO19107_PLANAS_V1.GM_MultiSurface2D;
+      Geometria : ISO19107_PLANAS_V2.GM_MultiSurface2D;
     END GC_Vereda;
 
     /** Información existente en las bases de datos catastrales respecto de los predios en una entidad territorial.
