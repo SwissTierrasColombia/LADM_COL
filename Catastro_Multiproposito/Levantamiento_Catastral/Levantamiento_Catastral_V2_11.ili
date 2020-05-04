@@ -713,69 +713,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** La posesión es la tenencia de una cosa determinada con ánimo de señor o dueño, sea que el dueño o el que se da por tal, tenga la cosa por sí mismo, o por otra persona que la tenga en lugar y a nombre de él. El poseedor es reputado dueño, mientras otra persona no justifique serlo.
        */
       !!@ ili2db.dispName = "Posesión"
-      Posesion,
-      /** Es la propiedad de toda una comunidad sea indígena o negra. Adjudicacion Baldios En Propiedad Colectiva A Comunidades Negras, Adjudicacion Baldios Resguardos Indigenas, Constitución Resguardo Indigena,
-       * Ampliación De Resguardo Indígena
-       * 
-       * Códigos:
-       * 
-       * 0104
-       * 0105
-       * 01001
-       * 01002
-       */
-      !!@ ili2db.dispName = "Derecho de propiedad colectiva"
-      Derecho_Propiedad_Colectiva,
-      /** La propiedad separada del goce de la cosa se llama mera o nuda propiedad (art 669 CC):
-       * 
-       * Códigos:
-       * 
-       * 0302
-       * 0308
-       * 0322
-       * 0349
-       * 0379
-       */
-      !!@ ili2db.dispName = "Nuda propiedad"
-      Nuda_Propiedad,
-      /** El derecho de usufructo es un derecho real que consiste en la facultad de gozar de una cosa con cargo de conservar su forma y sustancia, y de restituir a su dueño, si la cosa no es fungible; o con cargo de volver igual cantidad y calidad del mismo género, o de pagar su valor si la cosa es fungible. (art. 823 CC):
-       * 
-       * 0310
-       * 0314
-       * 0323
-       * 0333
-       * 0378
-       * 0380
-       * 0382
-       * 0383
-       */
-      !!@ ili2db.dispName = "Usufructo"
-      Usufructo,
-      /** Se llama mera tenencia la que se ejerce sobre una cosa, no como dueño, sino en lugar o a nombre del dueño. El acreedor prendario, el secuestre, el usufructuario, el usuario, el que tiene derecho de habitación, son meros tenedores de la cosa empeñada, secuestrada o cuyo usufructo, uso o habitación les pertenece. Lo dicho se aplica generalmente a todo el que tiene una cosa reconociendo dominio ajeno. (art. 775 CC):
-       * 
-       * 0500
-       * 0501
-       * 0502
-       * 0503
-       * 0504
-       * 0505
-       * 0506
-       * 0507
-       * 0509
-       * 0319
-       * 0320
-       * 0355
-       */
-      !!@ ili2db.dispName = "Tenencia"
-      Tenencia,
-      /** Son las inscripciones relacionadas con subsuelo que tengan antecedente registral: 
-       * 
-       * 0303
-       * 0309
-       * 0162
-       */
-      !!@ ili2db.dispName = "Minero"
-      Minero
+      Posesion
     );
 
     /** Uso económico de la propiedad inmobiliaria.
@@ -1269,15 +1207,51 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Son los predios adjudicados a comunidades pertenecientes a grupos étnicos en el marco del reconocimiento de los resguardos legalmente constituidos según el Decreto 2164 de 1995 o de las propiedades colectivas de comunidades negras conforme Ley 70 de 1993.
        */
       !!@ ili2db.dispName = "Público"
-      Publico,
+      Publico(
+        /** Es un bien inmueble de propiedad de la Nación y ubicado en zonas rurales
+         */
+        !!@ ili2db.dispName = "(Público) Baldío"
+        Baldio,
+        /** Los bienes de la Unión cuyo uso no pertenece generalmente a los habitantes, se llaman bienes de la Unión o bienes fiscales
+         */
+        !!@ ili2db.dispName = "(Público) Fiscal"
+        Fiscal,
+        /** Son bienes patrimoniales los de titularidad de las administraciones públicas que no tengan el carácter de bienes de dominio público, es decir, que no estén destinados directamente al uso público o afectados a un servicio público. Si no consta la afectación de un bien se presume su carácter patrimonial.
+         */
+        !!@ ili2db.dispName = "(Público) Patrimonial"
+        Patrimonial,
+        /** Son aquellos inmuebles de dominio público cuyo uso pertenece a todos los habitantes del territorio nacional, destinados al uso o disfrute colectivo.
+         */
+        !!@ ili2db.dispName = "(Público) Uso público"
+        Uso_Publico
+      ),
       /** Es aquel que ha salido del patrimonio del estado, cuenta con un propietario inscrito en el folio de matrícula y se considera propiedad privada en los términos del artículo 48 de la Ley 160 de 1993.
        */
-      !!@ ili2db.dispName = "Privado"
+      !!@ ili2db.dispName = "(Privado)"
       Privado,
       /** es el predio que pertenece al estado y/o cuyo propietario es una entidad de derecho público
        */
-      !!@ ili2db.dispName = "Territorio colectivo"
-      Territorio_Colectivo
+      !!@ ili2db.dispName = "(Territorio colectivo)"
+      Territorio_Colectivo,
+      /** Son bienes inmuebles que se encuentran dentro de territorio respectivo a cargo de la Nación, sin dueño aparente o conocido
+       */
+      !!@ ili2db.dispName = "Vacante"
+      Vacante
+    );
+
+    LC_ProcedimientoCatastralRegistralTipo = (
+      /** El gestor catastral competente, de oficio o a solicitud de parte del titular del derecho de dominio, o de las entidades públicas que con ocasión de sus funciones legales administran inmuebles propios o ajenos, podrán efectuar la actualización mediante la descripción técnica de linderos de bienes inmuebles, cuando sean verificables mediante métodos directos y/o indirectos sin variación, o cuando la variación o diferencia se encuentre dentro de los márgenes de tolerancia establecidos por la máxima autoridad catastral. La descripción de los linderos llevará a la certeza del área. Articulo 2.2.2.2.17. Decreto 148 de 2020.
+       */
+      !!@ ili2db.dispName = "Actualización linderos con efectos registrales"
+      Actualizacion_Linderos,
+      /** La rectificación de área en el sistema catastral y/o registral procederá ante el gestor catastral, de oficio o a solicitud de parte del titular  del derecho de dominio, o de las entidades públicas que con ocasión de sus funciones legales administran inmuebles propios o ajenos, cuando los linderos estén debida y técnicamente descritos, sean verificables mediante métodos directos y/o indirectos sin variación, pero que a lo largo de la tradición del bien inmueble el área de éste no haya sido determinada adecuadamente, o cuando la variación o diferencia se encuentre dentro de los márgenes de tolerancia establecidos por la máxima autoridad catastral. Artículo 2.2.2.2.17. Decreto 148 de 2020.
+       */
+      !!@ ili2db.dispName = "Rectificación de área por imprecisa determinación con efectos registrales"
+      Rectificacion_Area,
+      /** La rectificación de linderos en el sistema catastral y registral procederá de oficio o a solicitud de parte, ante el gestor catastral, siempre y cuando se haya suscrito acta de colindancia con pleno acuerdo entre los propietarios que compartan uno o varios linderos, pero se adviertan diferencias de linderos y áreas, entre la verificación mediante métodos directos y/o indirectos y la información del folio de matricula inmobiliaria. La rectificación de todos los linderos puede llevar a la certeza del área del inmueble. Artículo 2.2.2.2.17. Decreto 148 de 2020.
+       */
+      !!@ ili2db.dispName = "Rectificación de linderos por acuerdo entre las partes con efectos registrales"
+      Rectificacion_Linderos
     );
 
     /** Conjunto de valores para indicar si se trata de un punto de control de referencia (un punto principal) o de apoyo (uso para levantamientos locales con estación total)
@@ -1343,6 +1317,29 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Pilastra"
       Pilastra
+    );
+
+    LC_RelacionPredioTipo = (
+      /** Parte interesada (Propietario, Poseedor, Ocupante)
+       */
+      !!@ ili2db.dispName = "Parte interesada (Propietario, Poseedor, Ocupante)"
+      Parte_Interesada,
+      /** Indica si un vecino de la parte interesada (propietario, poseedor u ocupante) fue el encargado de atender la visita predial.
+       */
+      !!@ ili2db.dispName = "Vecino"
+      Vecino,
+      /** Indica si un familiar de la parte interesada (propietario, poseedor u ocupante) fue el encargado de atender la visita predial.
+       */
+      !!@ ili2db.dispName = "Familiar"
+      Familiar,
+      /** Indica si el arrendatario o alguna persona de su núcleo familiar fue el encargado de atender la visita predial.
+       */
+      !!@ ili2db.dispName = "Arrendatario"
+      Arrendatario,
+      /** Indica si el administrador o alguna persona de su núcleo familiar fue el encargado de atender la visita predial.
+       */
+      !!@ ili2db.dispName = "Administrador"
+      Administrador
     );
 
     LC_RestriccionTipo = (
@@ -1427,6 +1424,41 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Servidumbre) Acueducto"
         Acueducto
       )
+    );
+
+    LC_ResultadoVisitaTipo = (
+      /** Tuvo acceso total al predio
+       */
+      !!@ ili2db.dispName = "Exitoso"
+      Exitoso,
+      /** Tuvo acceso parcial al predio.
+       */
+      !!@ ili2db.dispName = "Incompleto"
+      Incompleto,
+      /** Sin atención por parte de personas. Predio Desocupado.
+       */
+      !!@ ili2db.dispName = "No hay nadie"
+      No_hay_nadie,
+      /** No permitieron acceso al predio.
+       */
+      !!@ ili2db.dispName = "No permitieron acceso"
+      No_permitieron_acceso,
+      /** No hay adulto en el momento de la visita.
+       */
+      !!@ ili2db.dispName = "Menor de Edad"
+      Menor_de_Edad,
+      /** Por temas de seguridad asociados a orden público no es posible el acceso.
+       */
+      !!@ ili2db.dispName = "Situación de Orden Público"
+      Situacion_de_Orden_Publico,
+      /** Por limitaciones relacionadas con la topografía o accidentes geográficos no hubo acceso al predio.
+       */
+      !!@ ili2db.dispName = "Zona de difícil acceso"
+      Zona_de_dificil_acceso,
+      /** Otros casos no relacionados anteriormente.
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
     );
 
     LC_SexoTipo = (
@@ -2108,10 +2140,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Número de semisótanos"
       Numero_Semisotanos : 0 .. 99;
-      /** Código catastral de la construcción.
-       */
-      !!@ ili2db.dispName = "Código de edificación"
-      Codigo_Edificacion : 0 .. 10000000000000000000;
       /** Año de edificación de la construcción.
        */
       !!@ ili2db.dispName = "Año de la construcción"
@@ -2155,7 +2183,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Relación con el predio de la persona encargada de atender la visita, por ejemplo propietario, encargado, administrador, poseedor, etc.
        */
       !!@ ili2db.dispName = "Relación con el predio"
-      Relacion_Con_Predio : MANDATORY TEXT*100;
+      Relacion_Con_Predio : MANDATORY Levantamiento_Catastral_V2_11.LC_RelacionPredioTipo;
       /** Dirección de domicilio para notificaciones.
        */
       !!@ ili2db.dispName = "Domicilio notificaciones"
@@ -2172,6 +2200,14 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Autoriza notificaciones"
       Autoriza_Notificaciones : BOOLEAN;
+      /** Indica el tipo de documento de la persona que atendió la visita predial.
+       */
+      !!@ ili2db.dispName = "Tipo de documento de quien atendió la visita predial"
+      Tipo_Documento_Quien_Atendio : MANDATORY Levantamiento_Catastral_V2_11.LC_InteresadoDocumentoTipo;
+      /** Indica el número de documento de la persona que atendió la visita predial.
+       */
+      !!@ ili2db.dispName = "Numero de documento de quien atendió la visita predial"
+      Numero_Documento_Quien_Atendio : MANDATORY TEXT*50;
     END LC_ContactoVisita;
 
     /** Clase que contiene los datos principales del predio matriz sometido al regimen de propiedad horizontal.
@@ -2221,6 +2257,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY Levantamiento_Catastral_V2_11.LC_DerechoTipo;
+      /** Indica el porcentaje del derecho en relación a la forma de tenencia y el área que esta ocupa dentro de la extensión del predio. Ejemplo: un predio informal que se encuentra sobre un predio baldío y un predio privado tendrá un porcentaje de derecho de ocupación y posesión.
+       */
+      !!@ ili2db.dispName = "Porcentaje de derecho"
+      Porcentaje_Derecho : MANDATORY 0.000 .. 1.000;
     END LC_Derecho;
 
     !!@ ili2db.dispName = "(LC) Estructura Novedad FMI"
@@ -2579,10 +2619,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Código de manzana vereda"
       Manzana_Vereda_Codigo : TEXT*17;
-      /** Número de subterraneos en el terreno.
-       */
-      !!@ ili2db.dispName = "Número de subterráneos"
-      Numero_Subterraneos : 0 .. 999;
       /** Corresponde a la figura geométrica vectorial poligonal, generada a partir de los linderos del predio.
        */
       !!@ ili2db.dispName = "Geometría"
@@ -2651,6 +2687,18 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Fecha de visita predial"
       Fecha_Visita_predial : MANDATORY INTERLIS.XMLDate;
+      /** Se considerará como procedimientos catastrales con efectos registrales los siguientes: actualización de linderos, rectificación de área por imprecisa determinación, actualización masiva y puntual de linderos y áreas, rectificación de linderos por acuerdo entre las partes, e inclusión de área y/o linderos.
+       */
+      !!@ ili2db.dispName = "Procedimientos catastrales con efectos registrales"
+      Procedimiento_Catastral_Registral : Levantamiento_Catastral_V2_11.LC_ProcedimientoCatastralRegistralTipo;
+      /** Indica el tipo de documento del reconocedor predial encargado de efectuar el levantamiento catastral.
+       */
+      !!@ ili2db.dispName = "Tipo de documento del reconocedor predial"
+      Tipo_Documento_Reconocedor : MANDATORY Levantamiento_Catastral_V2_11.LC_InteresadoDocumentoTipo;
+      /** Indica el número de documento del reconocedor predial encargado de efectuar el levantamiento catastral.
+       */
+      !!@ ili2db.dispName = "Numero de documento del reconocedor predial"
+      Numero_Documento_Reconocedor : MANDATORY TEXT*50;
       /** Primer nombre del delegado de ejecutar las actividades catastrales en campo en el predio.
        */
       !!@ ili2db.dispName = "Primer nombre del reconocedor"
@@ -2667,6 +2715,18 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Segundo apellido del reconocedor"
       Segundo_Apellido_Reconocedor : TEXT*100;
+      /** Posibles situaciones que se presentan y afectan el resultado del levantamiento de la información en campo.
+       */
+      !!@ ili2db.dispName = "Resultado de la visita predial"
+      Resultado_Visita : MANDATORY Levantamiento_Catastral_V2_11.LC_ResultadoVisitaTipo;
+      /** Indica si el predio según la información registral cuenta con el valor de área en la cabida y linderos.
+       */
+      !!@ ili2db.dispName = "¿El predio tiene área registral?"
+      Tiene_Area_Registral : MANDATORY BOOLEAN;
+      /** Indica el valor del área registral del predio en metros cuadrados.
+       */
+      !!@ ili2db.dispName = "Área registral en metros cuadrados."
+      Area_Registral_M2 : 0.00 .. 10000000000000000000000.00 [LADM_COL_V1_7.m2];
     END LC_DatosAdicionalesLevantamientoCatastral;
 
     /** Puntos que definen los limites de las construcciones, unidad de construcción y servidumbres de transito.
