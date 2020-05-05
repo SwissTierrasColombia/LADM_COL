@@ -851,7 +851,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       /** Indica si el método de levantamiento catastral: método directo o indirecto.
        */
       !!@ ili2db.dispName = "Método de producción"
-      MetodoProduccion : COL_MetodoProduccionTipo;
+      MetodoProduccion : MANDATORY COL_MetodoProduccionTipo;
       /** Transformación y Resultado.
        */
       !!@ ili2db.dispName = "Transformación y resultado"

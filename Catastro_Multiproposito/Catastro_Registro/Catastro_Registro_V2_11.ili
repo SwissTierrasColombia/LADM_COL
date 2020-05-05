@@ -2298,7 +2298,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     CLASS CR_Construccion
     EXTENDS LADM_COL_V1_7.LADM_Nucleo.COL_UnidadEspacial =
       !!@ ili2db.dispName = "Identificador"
-      Identificador : TEXT*2;
+      Identificador : MANDATORY TEXT*2;
       /** Indica si la construcción es de tipo convencional o no convencional.
        */
       !!@ ili2db.dispName = "Tipo de construcción"
@@ -2482,11 +2482,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Estado de conservación del grupo calificado.
        */
       !!@ ili2db.dispName = "Conservación"
-      Conservacion : Catastro_Registro_V2_11.CR_EstadoConservacionTipo;
+      Conservacion : MANDATORY Catastro_Registro_V2_11.CR_EstadoConservacionTipo;
       /** Subtotal del grupo calificado.
        */
       !!@ ili2db.dispName = "Subtotal"
-      Subtotal : 0 .. 9999999;
+      Subtotal : MANDATORY 0 .. 9999999;
     END CR_GrupoCalificacion;
 
     /** Es la relación de tenencia que no corresponde a la propiedad, se presenta en los casos en los que la persona que ejerce la tenencia no es la misma que se encuentra en el registro de propiedad consignado en el folio de matrícula inmobiliaria correspondiente.
@@ -2629,7 +2629,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Nombre o codigo del punto lindero
        */
       !!@ ili2db.dispName = "ID del punto de lindero"
-      ID_Punto_Lindero : TEXT*255;
+      ID_Punto_Lindero : MANDATORY TEXT*255;
       /** Indica la clasificación del tipo de punto de acuerdo a sus características.
        */
       !!@ ili2db.dispName = "Tipo de punto"
@@ -2710,11 +2710,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Indica si la calificación de construcción corresponde a residencial, comercial o industrial.
        */
       !!@ ili2db.dispName = "Tipo a calificar"
-      Tipo_Calificar : Catastro_Registro_V2_11.CR_CalificarTipo;
+      Tipo_Calificar : MANDATORY Catastro_Registro_V2_11.CR_CalificarTipo;
       /** Puntaje total de la calificación de la unidad de construcción.
        */
       !!@ ili2db.dispName = "Total calificación"
-      Total_Calificacion : LADM_COL_V1_7.LADM_Nucleo.Integer;
+      Total_Calificacion : MANDATORY LADM_COL_V1_7.LADM_Nucleo.Integer;
     END CR_CalificacionConvencional;
 
     /** Relaciona el tipo de construcción consideradas como anexo para el catastro.
@@ -2725,7 +2725,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Relaciona el tipo de construcción consideradas como anexo para el catastro.
        */
       !!@ ili2db.dispName = "Tipo de anexo"
-      Tipo_Anexo : Catastro_Registro_V2_11.CR_AnexoTipo;
+      Tipo_Anexo : MANDATORY Catastro_Registro_V2_11.CR_AnexoTipo;
     END CR_CalificacionNoConvencional;
 
     /** Clase que registra las instancias de los derechos que un interesado ejerce sobre un predio. Es una especialización de la clase COL_DRR del propio modelo.
@@ -2842,7 +2842,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Nombre o código del punto levantamiento.
        */
       !!@ ili2db.dispName = "ID del punto de levantamiento"
-      ID_Punto_Levantamiento : TEXT*255;
+      ID_Punto_Levantamiento : MANDATORY TEXT*255;
       /** Indica la clasificación del tipo de punto de acuerdo a sus características.
        */
       !!@ ili2db.dispName = "Tipo de punto"
@@ -2895,7 +2895,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Son las características de diseño y constructivas especiales de las construcciones y/o edificaciones.
        */
       !!@ ili2db.dispName = "Tipo de tipología"
-      Tipo_Tipologia : Catastro_Registro_V2_11.CR_TipologiaTipo;
+      Tipo_Tipologia : MANDATORY Catastro_Registro_V2_11.CR_TipologiaTipo;
     END CR_TipologiaConstruccion;
 
     ASSOCIATION cr_objetoconstruccion_grupocalificacion =
@@ -2960,7 +2960,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Identificado de la unidad de construcción, su codificación puede ser por letras del abecedario.
        */
       !!@ ili2db.dispName = "Identificador"
-      Identificador : TEXT*3;
+      Identificador : MANDATORY TEXT*3;
       /** Indica el tipo de dominio de la unidad de construcción: común y privado.
        */
       !!@ ili2db.dispName = "Tipo de dominio"
@@ -2972,11 +2972,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Indica si la unidad de construcción es residencial, comercial, industrial o anexo.
        */
       !!@ ili2db.dispName = "Tipo de unidad de construcción"
-      Tipo_Unidad_Construccion : Catastro_Registro_V2_11.CR_UnidadConstruccionTipo;
+      Tipo_Unidad_Construccion : MANDATORY Catastro_Registro_V2_11.CR_UnidadConstruccionTipo;
       /** Indica el tipo de planta donde se ubica la unidad de construcción.
        */
       !!@ ili2db.dispName = "Tipo de planta"
-      Tipo_Planta : Catastro_Registro_V2_11.CR_ConstruccionPlantaTipo;
+      Tipo_Planta : MANDATORY Catastro_Registro_V2_11.CR_ConstruccionPlantaTipo;
       /** Indica numéricamente la ubicación del predio de acuerdo al tipo de planta.
        */
       !!@ ili2db.dispName = "Planta ubicación"

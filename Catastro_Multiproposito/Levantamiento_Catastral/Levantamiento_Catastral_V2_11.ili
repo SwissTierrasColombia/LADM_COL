@@ -2124,7 +2124,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Identificado de la unidad de construcción, su codificación puede ser por letras del abecedario.
        */
       !!@ ili2db.dispName = "Identificador"
-      Identificador : TEXT*2;
+      Identificador : MANDATORY TEXT*2;
       /** Indica si la construcción es de tipo convencional o no convencional.
        */
       !!@ ili2db.dispName = "Tipo de construcción"
@@ -2173,6 +2173,14 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     !!@ ili2db.dispName = "(LC) Contacto Visita"
     CLASS LC_ContactoVisita =
+      /** Indica el tipo de documento de la persona que atendió la visita predial.
+       */
+      !!@ ili2db.dispName = "Tipo de documento de quien atendió la visita predial"
+      Tipo_Documento_Quien_Atendio : MANDATORY Levantamiento_Catastral_V2_11.LC_InteresadoDocumentoTipo;
+      /** Indica el número de documento de la persona que atendió la visita predial.
+       */
+      !!@ ili2db.dispName = "Numero de documento de quien atendió la visita predial"
+      Numero_Documento_Quien_Atendio : MANDATORY TEXT*50;
       /** Primer nombre de la persona encargada de atender la visita de ejecución de actividades catastrales sobre el predio.
        */
       !!@ ili2db.dispName = "Primer nombre de quien atendió"
@@ -2209,14 +2217,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Autoriza notificaciones"
       Autoriza_Notificaciones : BOOLEAN;
-      /** Indica el tipo de documento de la persona que atendió la visita predial.
-       */
-      !!@ ili2db.dispName = "Tipo de documento de quien atendió la visita predial"
-      Tipo_Documento_Quien_Atendio : MANDATORY Levantamiento_Catastral_V2_11.LC_InteresadoDocumentoTipo;
-      /** Indica el número de documento de la persona que atendió la visita predial.
-       */
-      !!@ ili2db.dispName = "Numero de documento de quien atendió la visita predial"
-      Numero_Documento_Quien_Atendio : MANDATORY TEXT*50;
     END LC_ContactoVisita;
 
     /** Clase que contiene los datos principales del predio matriz sometido al regimen de propiedad horizontal.
@@ -2334,11 +2334,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Estado de conservación del grupo calificado.
        */
       !!@ ili2db.dispName = "Conservación"
-      Conservacion : Levantamiento_Catastral_V2_11.LC_EstadoConservacionTipo;
+      Conservacion : MANDATORY Levantamiento_Catastral_V2_11.LC_EstadoConservacionTipo;
       /** Subtotal del grupo calificado.
        */
       !!@ ili2db.dispName = "Subtotal"
-      Subtotal : 0 .. 9999999;
+      Subtotal : MANDATORY 0 .. 9999999;
     END LC_GrupoCalificacion;
 
     /** Es la parte que tiene una relación con el predio por algún tipo de derecho, restricción, publicidad o responsabilidad
@@ -2577,7 +2577,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Nombre o código del punto lindero
        */
       !!@ ili2db.dispName = "ID del punto de lindero"
-      ID_Punto_Lindero : TEXT*255;
+      ID_Punto_Lindero : MANDATORY TEXT*255;
       /** Indica la clasificación del tipo de punto de acuerdo a sus características.
        */
       !!@ ili2db.dispName = "Tipo de punto"
@@ -2642,11 +2642,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Indica si la calificación de construcción corresponde a residencial, comercial o industrial.
        */
       !!@ ili2db.dispName = "Tipo a calificar"
-      Tipo_Calificar : Levantamiento_Catastral_V2_11.LC_CalificarTipo;
+      Tipo_Calificar : MANDATORY Levantamiento_Catastral_V2_11.LC_CalificarTipo;
       /** Puntaje total de la calificación de la unidad de construcción.
        */
       !!@ ili2db.dispName = "Total calificación"
-      Total_Calificacion : LADM_COL_V1_7.LADM_Nucleo.Integer;
+      Total_Calificacion : MANDATORY LADM_COL_V1_7.LADM_Nucleo.Integer;
     END LC_CalificacionConvencional;
 
     /** Relaciona el tipo de construcción consideradas como anexo para el catastro.
@@ -2657,13 +2657,25 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Relaciona el tipo de construcción consideradas como anexo para el catastro.
        */
       !!@ ili2db.dispName = "Tipo de anexo"
-      Tipo_Anexo : Levantamiento_Catastral_V2_11.LC_AnexoTipo;
+      Tipo_Anexo : MANDATORY Levantamiento_Catastral_V2_11.LC_AnexoTipo;
     END LC_CalificacionNoConvencional;
 
     /** Datos de adicionales del predio para catastro multipropósito
      */
     !!@ ili2db.dispName = "(LC) Formulario Único Catastro Multipropósito"
     CLASS LC_DatosAdicionalesLevantamientoCatastral =
+      /** Indica si el predio según la información registral cuenta con el valor de área en la cabida y linderos.
+       */
+      !!@ ili2db.dispName = "¿El predio tiene área registral?"
+      Tiene_Area_Registral : MANDATORY BOOLEAN;
+      /** Indica el valor del área registral del predio en metros cuadrados.
+       */
+      !!@ ili2db.dispName = "Área registral en metros cuadrados."
+      Area_Registral_M2 : 0.00 .. 10000000000000000000000.00 [LADM_COL_V1_7.m2];
+      /** Se considerará como procedimientos catastrales con efectos registrales los siguientes: actualización de linderos, rectificación de área por imprecisa determinación, actualización masiva y puntual de linderos y áreas, rectificación de linderos por acuerdo entre las partes, e inclusión de área y/o linderos.
+       */
+      !!@ ili2db.dispName = "Procedimientos catastrales con efectos registrales"
+      Procedimiento_Catastral_Registral : MANDATORY Levantamiento_Catastral_V2_11.LC_ProcedimientoCatastralRegistralTipo;
       /** Es la clasificación para fines estadísticos que se da a cada inmueble en su conjunto–terreno, construcciones o edificaciones-, en el momento de la identificación predial de conformidad con la actividad predominante que en él se desarrolle.
        */
       !!@ ili2db.dispName = "Destinación económica"
@@ -2696,10 +2708,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Fecha de visita predial"
       Fecha_Visita_predial : MANDATORY INTERLIS.XMLDate;
-      /** Se considerará como procedimientos catastrales con efectos registrales los siguientes: actualización de linderos, rectificación de área por imprecisa determinación, actualización masiva y puntual de linderos y áreas, rectificación de linderos por acuerdo entre las partes, e inclusión de área y/o linderos.
-       */
-      !!@ ili2db.dispName = "Procedimientos catastrales con efectos registrales"
-      Procedimiento_Catastral_Registral : MANDATORY Levantamiento_Catastral_V2_11.LC_ProcedimientoCatastralRegistralTipo;
       /** Indica el tipo de documento del reconocedor predial encargado de efectuar el levantamiento catastral.
        */
       !!@ ili2db.dispName = "Tipo de documento del reconocedor predial"
@@ -2728,14 +2736,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Resultado de la visita predial"
       Resultado_Visita : MANDATORY Levantamiento_Catastral_V2_11.LC_ResultadoVisitaTipo;
-      /** Indica si el predio según la información registral cuenta con el valor de área en la cabida y linderos.
-       */
-      !!@ ili2db.dispName = "¿El predio tiene área registral?"
-      Tiene_Area_Registral : MANDATORY BOOLEAN;
-      /** Indica el valor del área registral del predio en metros cuadrados.
-       */
-      !!@ ili2db.dispName = "Área registral en metros cuadrados."
-      Area_Registral_M2 : 0.00 .. 10000000000000000000000.00 [LADM_COL_V1_7.m2];
     END LC_DatosAdicionalesLevantamientoCatastral;
 
     /** Puntos que definen los limites de las construcciones, unidad de construcción y servidumbres de transito.
@@ -2746,7 +2746,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Nombre o código del punto levantamiento.
        */
       !!@ ili2db.dispName = "ID del punto de levantamiento"
-      ID_Punto_Levantamiento : TEXT*255;
+      ID_Punto_Levantamiento : MANDATORY TEXT*255;
       /** Indica la clasificación del tipo de punto de acuerdo a sus características.
        */
       !!@ ili2db.dispName = "Tipo de punto"
@@ -2754,7 +2754,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Indica si el tipo de punto corresponde a una construcción o servidumbre de tránsito.
        */
       !!@ ili2db.dispName = "Tipo de punto de levantamiento"
-      Tipo_Punto_Levantamiento : Levantamiento_Catastral_V2_11.LC_PuntoLevTipo;
+      Tipo_Punto_Levantamiento : MANDATORY Levantamiento_Catastral_V2_11.LC_PuntoLevTipo;
       /** Indica si el punto es fotoidentificable.
        */
       !!@ ili2db.dispName = "Fotoidentificación"
@@ -2777,7 +2777,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Son las características de diseño y constructivas especiales de las construcciones y/o edificaciones.
        */
       !!@ ili2db.dispName = "Tipo de tipología"
-      Tipo_Tipologia : Levantamiento_Catastral_V2_11.LC_TipologiaTipo;
+      Tipo_Tipologia : MANDATORY Levantamiento_Catastral_V2_11.LC_TipologiaTipo;
     END LC_TipologiaConstruccion;
 
     ASSOCIATION lc_interesado_interesadocontacto =
@@ -2847,7 +2847,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Identificado de la unidad de construcción, su codificación puede ser por letras del abecedario.
        */
       !!@ ili2db.dispName = "Identificador"
-      Identificador : TEXT*3;
+      Identificador : MANDATORY TEXT*3;
       /** Indica el tipo de dominio de la unidad de construcción: común y privado.
        */
       !!@ ili2db.dispName = "Tipo de dominio"
@@ -2859,11 +2859,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Indica si la unidad de construcción es residencial, comercial, industrial o anexo.
        */
       !!@ ili2db.dispName = "Tipo de unidad de construcción"
-      Tipo_Unidad_Construccion : Levantamiento_Catastral_V2_11.LC_UnidadConstruccionTipo;
+      Tipo_Unidad_Construccion : MANDATORY Levantamiento_Catastral_V2_11.LC_UnidadConstruccionTipo;
       /** Indica el tipo de planta donde se ubica la unidad de construcción.
        */
       !!@ ili2db.dispName = "Tipo de planta"
-      Tipo_Planta : Levantamiento_Catastral_V2_11.LC_ConstruccionPlantaTipo;
+      Tipo_Planta : MANDATORY Levantamiento_Catastral_V2_11.LC_ConstruccionPlantaTipo;
       /** Indica numéricamente la ubicación del predio de acuerdo al tipo de planta.
        */
       !!@ ili2db.dispName = "Planta ubicación"
