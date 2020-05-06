@@ -3001,7 +3001,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Indica numéricamente la ubicación del predio de acuerdo al tipo de planta.
        */
       !!@ ili2db.dispName = "Planta ubicación"
-      Planta_Ubicacion : 0 .. 500;
+      Planta_Ubicacion : MANDATORY 0 .. 500;
       /** Número total de  habitaciones en la unidad de construcción.
        */
       !!@ ili2db.dispName = "Total de habitaciones"
