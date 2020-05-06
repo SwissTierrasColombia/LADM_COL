@@ -1267,18 +1267,39 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     );
 
     CR_PredioTipo = (
-      /** Son los predios adjudicados a comunidades pertenecientes a grupos étnicos en el marco del reconocimiento de los resguardos legalmente constituidos según el Decreto 2164 de 1995 o de las propiedades colectivas de comunidades negras conforme Ley 70 de 1993.
+      /** Es el predio que pertenece al estado y/o cuyo propietario es una entidad de derecho público.
        */
       !!@ ili2db.dispName = "Público"
-      Publico,
+      Publico(
+        /** Es un bien inmueble de propiedad de la Nación y ubicado en zonas rurales
+         */
+        !!@ ili2db.dispName = "(Público) Baldío"
+        Baldio,
+        /** Los bienes de la Unión cuyo uso no pertenece generalmente a los habitantes, se llaman bienes de la Unión o bienes fiscales
+         */
+        !!@ ili2db.dispName = "(Público) Fiscal"
+        Fiscal,
+        /** Son bienes patrimoniales los de titularidad de las administraciones públicas que no tengan el carácter de bienes de dominio público, es decir, que no estén destinados directamente al uso público o afectados a un servicio público. Si no consta la afectación de un bien se presume su carácter patrimonial.
+         */
+        !!@ ili2db.dispName = "(Público) Patrimonial"
+        Patrimonial,
+        /** Son aquellos inmuebles de dominio público cuyo uso pertenece a todos los habitantes del territorio nacional, destinados al uso o disfrute colectivo.
+         */
+        !!@ ili2db.dispName = "(Público) Uso público"
+        Uso_Publico
+      ),
       /** Es aquel que ha salido del patrimonio del estado, cuenta con un propietario inscrito en el folio de matrícula y se considera propiedad privada en los términos del artículo 48 de la Ley 160 de 1993.
        */
-      !!@ ili2db.dispName = "Privado"
+      !!@ ili2db.dispName = "(Privado)"
       Privado,
-      /** es el predio que pertenece al estado y/o cuyo propietario es una entidad de derecho público
+      /** Son los predios adjudicados a comunidades pertenecientes a grupos étnicos en el marco del reconocimiento de los resguardos legalmente constituidos según el Decreto 2164 de 1995 o de las propiedades colectivas de comunidades negras conforme Ley 70 de 1993.
        */
-      !!@ ili2db.dispName = "Territorio colectivo"
-      Territorio_Colectivo
+      !!@ ili2db.dispName = "(Territorio colectivo)"
+      Territorio_Colectivo,
+      /** Son bienes inmuebles que se encuentran dentro de territorio respectivo a cargo de la Nación, sin dueño aparente o conocido
+       */
+      !!@ ili2db.dispName = "Vacante"
+      Vacante
     );
 
     CR_PublicidadTipo = (

@@ -1204,7 +1204,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     );
 
     LC_PredioTipo = (
-      /** Son los predios adjudicados a comunidades pertenecientes a grupos étnicos en el marco del reconocimiento de los resguardos legalmente constituidos según el Decreto 2164 de 1995 o de las propiedades colectivas de comunidades negras conforme Ley 70 de 1993.
+      /** Es el predio que pertenece al estado y/o cuyo propietario es una entidad de derecho público
        */
       !!@ ili2db.dispName = "Público"
       Publico(
@@ -1229,7 +1229,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "(Privado)"
       Privado,
-      /** es el predio que pertenece al estado y/o cuyo propietario es una entidad de derecho público
+      /** Son los predios adjudicados a comunidades pertenecientes a grupos étnicos en el marco del reconocimiento de los resguardos legalmente constituidos según el Decreto 2164 de 1995 o de las propiedades colectivas de comunidades negras conforme Ley 70 de 1993.
        */
       !!@ ili2db.dispName = "(Territorio colectivo)"
       Territorio_Colectivo,
