@@ -2758,22 +2758,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY Catastro_Registro_V2_11.CR_DerechoTipo;
-      /** El texto de cabida y linderosque está consignado en el registro público de la propiedad sobre el cual se ejercen los derechos.
-       */
-      !!@ ili2db.dispName = "Cabida y linderos"
-      Cabida_Linderos : MANDATORY MTEXT;
-      /** el área actualizada a partir de la información remitida por el catastro a través de acto administrativo
-       */
-      !!@ ili2db.dispName = "Área actualizada"
-      Area_Actualizada : 0.00 .. 100000000000000000000000000000000.00 [LADM_COL_V1_7.m2];
-      /** Los linderos actualizados a partir de la información remitida por el catastro a través de acto administrativo
-       */
-      !!@ ili2db.dispName = "Linderos actualizados"
-      Linderos_Actualizados : MTEXT;
       /** Indica la fracción del derecho en relación a la forma de tenencia y el área que esta ocupa dentro de la extensión del predio. Ejemplo: un predio informal que se encuentra sobre un predio baldío y un predio privado tendrá un porcentaje de derecho de ocupación y posesión expresado en tanto por uno (0.0000000000 a 1.0000000000).
        */
       !!@ ili2db.dispName = "Fracción de derecho"
-      Fraccion_Derecho : MANDATORY 0.0000000000 .. 1.0000000000;
+      Fraccion_Derecho : MANDATORY TEXT*255;
     END CR_Derecho;
 
     /** Clase especializada de BaUnit, que describe la unidad administrativa básica para el caso de Colombia.

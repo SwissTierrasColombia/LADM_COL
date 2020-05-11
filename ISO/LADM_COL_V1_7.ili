@@ -71,18 +71,14 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       );
 
       COL_AreaTipo = (
-        !!@ ili2db.dispName = "Área calculada artura local"
-        Area_Calculada_Altura_Local,
-        !!@ ili2db.dispName = "Área calculada altura mar"
-        Area_Calculada_Altura_Mar,
-        !!@ ili2db.dispName = "Área catastral administrativa"
-        Area_Catastral_Administrativa,
-        !!@ ili2db.dispName = "Área estimado construcción"
-        Area_Estimado_Construccion,
-        !!@ ili2db.dispName = "Área no oficial"
-        Area_No_Oficial,
-        !!@ ili2db.dispName = "Área registral"
-        Area_Registral
+        /** Corresponde al área gráfica inscrita en la base de datos catastral sobre un predio antes de efectuar la transformación al nuevo sistema de proyección para catastro.
+         */
+        !!@ ili2db.dispName = "Area catastral gráfica del predio"
+        Area_Catastral_Grafica,
+        /** Corresponde al área alfanumérica inscrita en la base de datos catastral sobre un predio antes de efectuar la transformación al nuevo sistema de proyección para catastro. En la mayoría de los casos el área alfanumérica corresponde al valor de área inscrita en los datos de Registro.
+         */
+        !!@ ili2db.dispName = "Area catastral alfanumérica"
+        Area_Catastral_Alfanumerica
       );
 
       COL_ContenidoNivelTipo = (
@@ -341,11 +337,20 @@ VERSION "V1.2.0"  // 2019-08-13 // =
       Ddimensiones_Objetivo : Integer;
     END CC_MetodoOperacion;
 
+    !!@ ili2db.dispName = "Valores de área"
     STRUCTURE COL_AreaValor =
-      !!@ ili2db.dispName = "Área"
-      areaSize : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_7.m2];
+      /** Indica si el valor a registrar corresponde al área gráfica o alfanumérica de la base de datos catastral.
+       */
       !!@ ili2db.dispName = "Tipo"
-      type : MANDATORY COL_AreaTipo;
+      Tipo : MANDATORY COL_AreaTipo;
+      /** Corresponde al valor del área registrada en la base de datos catastral.
+       */
+      !!@ ili2db.dispName = "Área"
+      Area : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V1_7.m2];
+      /** Parametros de la proyección utilizada para el cálculo del área de la forma proj, ejemplo: 'EPSG:3116', '+proj=tmerc +lat_0=4.59620041666667 +lon_0=-74.0775079166667 +k=1 +x_0=1000000 +y_0=1000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs'
+       */
+      !!@ ili2db.dispName = "Datos de la proyección"
+      Datos_Proyeccion : TEXT;
     END COL_AreaValor;
 
     /** Referencia a una clase externa para gestionar direcciones.
