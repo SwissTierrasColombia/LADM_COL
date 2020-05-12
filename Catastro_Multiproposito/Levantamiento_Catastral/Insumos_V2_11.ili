@@ -1154,13 +1154,51 @@ VERSION "2019-09-06"  =
 
   DOMAIN
 
-    INI_ConfiabilidadTipo = (
-      !!@ ili2db.dispName = "Muy confiable"
-      Muy_Confiable,
-      !!@ ili2db.dispName = "Medianamente confiable"
-      Medianamente_Confiable,
-      !!@ ili2db.dispName = "Poco confiable"
-      Poco_Confiable
+    INI_EmparejamientoTipo = (
+      /** FMI SNR - Matricula Inmobiliaria IGAC ; Número Predial IGAC - Número predial SNR ; Número predial Anterior IGAC - Número predial Anterior SNR
+       */
+      !!@ ili2db.dispName = "Tipo 1"
+      Tipo_1,
+      /** FMI SNR - Matricula Inmobiliaria IGAC ; Número Predial IGAC - Número predial SNR
+       */
+      !!@ ili2db.dispName = "Tipo 2"
+      Tipo_2,
+      /** FMI SNR - Matricula Inmobiliaria IGAC ; Número predial Anterior IGAC - Número predial Anterior SNR
+       */
+      !!@ ili2db.dispName = "Tipo 3"
+      Tipo_3,
+      /** FMI SNR - Matricula Inmobiliaria IGAC ; Número Predial IGAC - Número predial Anterior SNR
+       */
+      !!@ ili2db.dispName = "Tipo 4"
+      Tipo_4,
+      /** FMI SNR - Matricula Inmobiliaria IGAC ; Número predial Anterior IGAC - Número predial SNR
+       */
+      !!@ ili2db.dispName = "Tipo 5"
+      Tipo_5,
+      /** Número Predial IGAC - Número predial SNR ; Número predial Anterior IGAC - Número predial Anterior SNR
+       */
+      !!@ ili2db.dispName = "Tipo 6"
+      Tipo_6,
+      /** Número Predial IGAC - Número predial SNR
+       */
+      !!@ ili2db.dispName = "Tipo 7"
+      Tipo_7,
+      /** Número predial Anterior IGAC - Número predial Anterior SNR
+       */
+      !!@ ili2db.dispName = "Tipo 8"
+      Tipo_8,
+      /** Número Predial IGAC - Número predial Anterior SNR
+       */
+      !!@ ili2db.dispName = "Tipo 9"
+      Tipo_9,
+      /** Número predial Anterior IGAC - Número predial SNR
+       */
+      !!@ ili2db.dispName = "Tipo 10"
+      Tipo_10,
+      /** FMI SNR - Matricula Inmobiliaria IGAC
+       */
+      !!@ ili2db.dispName = "Tipo 11"
+      Tipo_11
     );
 
   TOPIC Datos_Integracion_Insumos =
@@ -1170,10 +1208,10 @@ VERSION "2019-09-06"  =
      */
     !!@ ili2db.dispName = "(Integración Insumos) Predio Insumos"
     CLASS INI_PredioInsumos =
-      /** Confiabilidad de la relación.
+      /** Tipo de emparejamiento de insumos Catastro-Registro
        */
-      !!@ ili2db.dispName = "Confiabilidad"
-      Confiabilidad : Datos_Integracion_Insumos_V2_11.INI_ConfiabilidadTipo;
+      !!@ ili2db.dispName = "Tipo de emparejamiento"
+      Tipo_Emparejamiento : Datos_Integracion_Insumos_V2_11.INI_EmparejamientoTipo;
       /** Observaciones de la relación.
        */
       !!@ ili2db.dispName = "Observaciones"

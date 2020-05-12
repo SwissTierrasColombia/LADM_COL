@@ -2801,10 +2801,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       coeficiente : LADM_COL_V1_7.LADM_Nucleo.Fraccion;
     END lc_predio_copropiedad;
 
-    ASSOCIATION lc_predio_insumos_operacion =
+    ASSOCIATION lc_predio_ini_predioinsumos =
       ini_predio_insumos (EXTERNAL) -- {0..*} Datos_Integracion_Insumos_V2_11.Datos_Integracion_Insumos.INI_PredioInsumos;
       lc_predio -- {0..*} LC_Predio;
-    END lc_predio_insumos_operacion;
+    END lc_predio_ini_predioinsumos;
 
     ASSOCIATION lc_predio_ofertas_mercado_inmobiliario =
       lc_predio -- {0..1} LC_Predio;
