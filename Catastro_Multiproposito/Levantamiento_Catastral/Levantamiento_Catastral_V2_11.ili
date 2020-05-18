@@ -2829,14 +2829,14 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     ASSOCIATION lc_informacion_adicional_contacto =
       lc_contacto_visita -- {0..*} LC_ContactoVisita;
-      lc_formulario -- {1} LC_DatosAdicionalesLevantamientoCatastral;
+      lc_datos_adicionales -- {1} LC_DatosAdicionalesLevantamientoCatastral;
     END lc_informacion_adicional_contacto;
 
     /** Relación entre el Predio catastral y la clase información adicional, que permite determinar sobre qué predio se toman los datos específicos del predio para catastro multipropósito
      */
     ASSOCIATION lc_informacion_adicional_predio =
       lc_predio (EXTERNAL) -- {1} LC_Predio;
-      lc_formulario_unico -- {0..1} LC_DatosAdicionalesLevantamientoCatastral;
+      lc_datos_adicionales -- {0..1} LC_DatosAdicionalesLevantamientoCatastral;
     END lc_informacion_adicional_predio;
 
     /** Es cada conjunto de materiales consolidados dentro de un predio que tiene unas características específicas en cuanto a elementos constitutivos físicos y usos de la misma.
