@@ -974,10 +974,6 @@ VERSION "V2.3"  // 2019-07-31 // =
        */
       !!@ ili2db.dispName = "Código naturaleza jurídica"
       Codigo_Naturaleza_Juridica : TEXT*5;
-      /** Indica la fracción del derecho en relación a la forma de tenencia y el área que esta ocupa dentro de la extensión del predio. Ejemplo: un predio informal que se encuentra sobre un predio baldío y un predio privado tendrá un porcentaje de derecho de ocupación y posesión.
-       */
-      !!@ ili2db.dispName = "Fracción del derecho"
-      Fraccion_Derecho : TEXT*255;
     END SNR_Derecho;
 
     !!@ ili2db.dispName = "(SNR) Estructura Matrícula Matriz"
