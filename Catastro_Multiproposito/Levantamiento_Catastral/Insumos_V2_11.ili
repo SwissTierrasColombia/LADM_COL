@@ -122,6 +122,7 @@ VERSION "2019-08-01"  =
 
     /** Relaciona la calificación de las unidades de construcción de los datos de insumos del Gestor Catastral.
      */
+    !!@ ili2db.dispName = "(GC) Calificación unidad de construcción"
     CLASS GC_CalificacionUnidadConstruccion =
       /** Indica el componente de la calificación de la unidad de construcción.
        */
@@ -274,6 +275,7 @@ VERSION "2019-08-01"  =
 
     /** Relaciona la información de las torres asociadas al PH o Condominio de los datos insumos del Gestor Catastral
      */
+    !!@ ili2db.dispName = "(GC) Datos torre PH"
     CLASS GC_DatosTorrePH =
       /** Número de torre en el PH o Condominio.
        */
@@ -587,6 +589,10 @@ VERSION "2019-08-01"  =
        */
       !!@ ili2db.dispName = "Número predial anterior"
       Numero_Predial_Anterior : TEXT*20;
+      /** Es un código único para identificar los inmuebles tanto en los sistemas de información catastral como registral. El NUPRE no implicará supresión de la numeración catastral ni registral asociada a la cédula catastral ni a la matrícula inmobiliaria actual.
+       */
+      !!@ ili2db.dispName = "Número único predial"
+      NUPRE : TEXT*11;
       /** Circulo registral al que se encuentra inscrito el predio.
        */
       !!@ ili2db.dispName = "Círculo registral"

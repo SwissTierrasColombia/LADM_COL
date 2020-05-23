@@ -522,14 +522,6 @@ VERSION "V1.2.0"  // 2019-08-13 // =
        */
       !!@ ili2db.dispName = "Versión de fin de vida útil"
       Fin_Vida_Util_Version : INTERLIS.XMLDateTime;
-      /** Metadatos relativos a la calidad de la instancia.
-       */
-      !!@ ili2db.dispName = "Calidad"
-      Calidad : LIST {0..*} OF ANYSTRUCTURE;
-      /** Metadatos corresondientes a la responsabilidad de la instancia.
-       */
-      !!@ ili2db.dispName = "Procedencia"
-      Procedencia : LIST {0..*} OF ANYSTRUCTURE;
       MANDATORY CONSTRAINT
         Fin_Vida_Util_Version >= Comienzo_Vida_Util_Version;
     END ObjetoVersionado;

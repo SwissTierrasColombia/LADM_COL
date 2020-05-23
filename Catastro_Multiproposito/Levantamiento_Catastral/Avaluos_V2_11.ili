@@ -790,7 +790,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Residencial) Apartamentos mas de 4 Pisos"
         Apartamentos_Mas_De_4_Pisos,
-        /** Dormitorios de las fuerzas militares y armadas.
+        /** Dormitorios de las fuerzas armadas y militares
          */
         !!@ ili2db.dispName = "(Residencial) Barracas"
         Barracas,
@@ -798,19 +798,23 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Residencial) Casa Elbas"
         Casa_Elbas,
-        /** (en propiedad Horizontal): Edificación destinada al almacenamiento o resguardo de enceres, generalmente ubicados en los sótanos y semisótanos de los edificios, junto a los parqueaderos. Las áreas de estos depósitos generalmente no supera los 25 metros cuadrados.
+        /** Edificación destinada al almacenamiento o resguardo de enceres, generalmente ubicados en los sótanos y semisótanos de los edificios, junto a los parqueaderos. Las áreas de estos depósitos generalmente no supera los 25 metros cuadrados.
          */
-        !!@ ili2db.dispName = "Depósitos o lockers"
+        !!@ ili2db.dispName = "(Residencial) Depósitos o lockers"
         Depositos_Lockers,
         /** Es el lugar cubierto, destinado al estacionamiento privado de vehículos.
          */
         !!@ ili2db.dispName = "(Residencial) Garajes Cubiertos"
         Garajes_Cubiertos,
-        /** Es el lugar cubierto, destinado al estacionamiento privado o comunal en viviendas sometidas a   régimen de propiedad  horizontal.
+        /** Es el lugar cubierto, destinado al estacionamiento privado o comunal en viviendas sometidas a régimen de propiedad  horizontal.
          */
         !!@ ili2db.dispName = "(Residencial) Garajes en PH"
         Garajes_En_PH,
-        /** La vivienda colonial siempre se desarrolla en un solo nivel ya sea en la planta baja o en la planta alta de las edificaciones, sin importar la jerarquía de ‘estas, distribuida en crujías o bloques, paralelos o perpendiculares a la calle en forma de  “I” ,de “L”, de “C” o de “O”
+        /** Bien inmueble cubierto o descubierto ubicado en el último piso de algunos edificios utilizado para extender y secar la ropa y que está sometido a régimen de propiedad horizontal.
+         */
+        !!@ ili2db.dispName = "(Residencial) Secadero de ropa"
+        Secadero_Ropa,
+        /** Son las viviendas construidas durante el tiempo de la colonia española, se caracterizan por tener varias habitaciones, con ventanales que dan a uno o dos patios generalmente ubicados en el centro de la vivienda. Los principales materiales de la época era la tapia, bahareque, ladrillo, paja y teja.
          */
         !!@ ili2db.dispName = "(Residencial) Vivienda Colonial"
         Vivienda_Colonial,
@@ -822,7 +826,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Residencial) Vivienda hasta 3 pisos en PH"
         Vivienda_Hasta_3_Pisos_En_PH,
-        /** Es una casa cuya función arquitectónica y ambiental principal, es brindar descanso y recreación
+        /** Es una vivienda acondicionada para la realización de actividades recreativas libres y el descanso.
          */
         !!@ ili2db.dispName = "(Residencial) Vivienda Recreacional"
         Vivienda_Recreacional,
@@ -833,14 +837,6 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       ),
       !!@ ili2db.dispName = "Comercial"
       Comercial(
-        /** Es un salón de un edificio que se destina a actividades de enseñanza, y es la unidad básica de todo recinto destinado a la educación.
-         */
-        !!@ ili2db.dispName = "(Comercial) Aulas de Clases"
-        Aulas_de_Clases,
-        /** Edificación donde podemos encontrar libros o cualquier otro soporte de un texto, como publicaciones, revistas, documentos, catálogo entre otros.
-         */
-        !!@ ili2db.dispName = "(Comercial) Biblioteca"
-        Biblioteca,
         /** Es el espacio construido para la ejecución la recepción, almacenamiento y movimientos de materiales, materias primas y productos semielaborados, hasta el punto de consumo por un cliente externo o interno
          */
         !!@ ili2db.dispName = "(Comercial) Bodegas Comerciales - Grandes Almacenes"
@@ -849,38 +845,18 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Comercial) Bodegas Comerciales en PH"
         Bodegas_Comerciales_en_PH,
-        /** Son instalaciones en las que se encarcela a los prisioneros, se encuentran bajo la autoridad del estado.
-         */
-        !!@ ili2db.dispName = "(Comercial) Cárceles"
-        Carceles,
-        /** Lugar sin altar (diferente a iglesias y capillas) que congrega a un determinado número de personas para actividades de culto asociadas con manifestaciones religiosas.
-         */
-        !!@ ili2db.dispName = "(Comercial) Casas de Culto"
-        Casas_de_Culto,
         /** es una construcción que consta de uno o varios edificios, por lo general de gran tamaño, que albergan servicios, locales y oficinas comerciales aglutinados en un espacio determinado concentrando mayor cantidad de clientes potenciales dentro del recinto.
          */
         !!@ ili2db.dispName = "(Comercial) Centros Comerciales"
         Centros_Comerciales,
-        /** es una construcción que consta de uno o varios edificios, por lo general de gran tamaño, que albergan servicios, locales y oficinas comerciales aglutinados en un espacio determinado concentrando mayor cantidad de clientes potenciales dentro del recinto, sometido a régimen de propiedad horizontal.
+        /** Es una construcción que consta de uno o varios edificios, por lo general de gran tamaño, que albergan servicios, locales y oficinas comerciales aglutinados en un espacio determinado concentrando mayor cantidad de clientes potenciales dentro del recinto, sometido a régimen de propiedad horizontal.
          */
         !!@ ili2db.dispName = "(Comercial) Centros Comerciales en PH"
         Centros_Comerciales_en_PH,
-        /** Establecimiento construido y destinado a proporcionar todo tipo de asistencia médica, incluidas operaciones quirúrgicas y estancia durante la recuperación o tratamiento, y en el que también se practican la investigación y la enseñanza médica
-         */
-        !!@ ili2db.dispName = "(Comercial) Clinicas - Hospitales - Centros Medicos"
-        Clinicas_Hospitales_Centros_Medicos,
         /** Es la edificación o  Establecimiento que brinda servicios recreativos y tiene capacidad para ciertos juegos de azar
          */
         !!@ ili2db.dispName = "(Comercial) Clubes - Casinos"
         Clubes_Casinos,
-        /** Institución edificada  destinada a la enseñanza primaria, secundaria y universitaria
-         */
-        !!@ ili2db.dispName = "(Comercial) Colegio y Universidades"
-        Colegio_y_Universidades,
-        /** Teatro o edificio destinado a espectáculos con capacidad para un gran número de personas.
-         */
-        !!@ ili2db.dispName = "(Comercial) Coliseos"
-        Coliseos,
         /** Se denomina a la construcción en la cual se lleva a acabo una actividad socioeconómica que consiste en el intercambio de algunos materiales en el mercado de compra y venta de bienes
          */
         !!@ ili2db.dispName = "(Comercial) Comercio"
@@ -893,18 +869,10 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Comercial) Comercio en PH"
         Comercio_en_PH,
-        /** Institución edificada  construcción con características arquitectónicas coloniales  destinada a la enseñanza primaria
-         */
-        !!@ ili2db.dispName = "(Comercial) Entidad Educativa Colonial - Colegio Colonial"
-        Entidad_Educativa_Colonial_Colegio_Colonial,
-        /** Son obras arquitectónicas  que se construyen con el objeto de elevar el nivel del agua de la fuente de riego a los sitios donde se desea utilizar
+        /** Son obras arquitectónicas  que se construyen con el objeto de elevar el nivel del agua de la fuente de riego a los sitios donde se desea utilizar.
          */
         !!@ ili2db.dispName = "(Comercial) Estacion de Bombeo"
         Estacion_de_Bombeo,
-        /** Un estadio es una construcción cerrada con graderías para los espectadores, destinado a competiciones deportivas. Puede ser al aire libre o cubierto.
-         */
-        !!@ ili2db.dispName = "(Comercial) Estadios - Plaza de Toros"
-        Estadios_Plaza_de_Toros,
         /** Establecimiento que ocupa un edificio total o parcialmente con uso exclusivo de sus servicios (entradas, ascensores, escaleras, etc.) y que ofrece alojamiento y posee características arquitectónicas coloniales.
          */
         !!@ ili2db.dispName = "(Comercial) Hotel Colonial"
@@ -917,22 +885,6 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Comercial) Hoteles en PH"
         Hoteles_en_PH,
-        /** edificación en la que se reúnen y consagran a los fieles  que le rinden culto a un ser superior
-         */
-        !!@ ili2db.dispName = "(Comercial) Iglesia"
-        Iglesia,
-        /** edificación en la que se reúnen y consagran a los fieles  que le rinden culto a un ser superior sometido a régimen de propiedad horizontal
-         */
-        !!@ ili2db.dispName = "(Comercial) Iglesia en PH"
-        Iglesia_en_PH,
-        /** Construcción con características de una vivienda que se  encarga de brindar educación y  asistencia integral a los niños
-         */
-        !!@ ili2db.dispName = "(Comercial) Jardin Infantil en Casa"
-        Jardin_Infantil_en_Casa,
-        /** Construcciones, oficiales o privadas, destinadas a salvaguardar obras de arte, reliquias o antigüedades de carácter histórico, religioso o científico, que representan un periodo, una época de la humanidad o del país.
-         */
-        !!@ ili2db.dispName = "Museos"
-        Museos,
         /** Espacio construido en el que se  realiza un trabajo profesional de gestión, administración o atención médica
          */
         !!@ ili2db.dispName = "(Comercial) Oficinas - Consultorios"
@@ -945,13 +897,9 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Comercial) Oficinas Consultorios en PH"
         Oficinas_Consultorios_en_PH,
-        /** Es un terreno que está destinado a árboles, jardines y prados donde se depositan los restos mortales o cadáveres.
-         */
-        !!@ ili2db.dispName = "(Comercial) Parque Cementerios"
-        Parque_Cementerios,
         /** Construcciones dedicadas al esparcimiento y a la diversión, generalmente son predios con grandes espacios, ejemplo parque el salitre.
          */
-        !!@ ili2db.dispName = "Parque de diversiones"
+        !!@ ili2db.dispName = "(Comercial) Parque de diversiones"
         Parque_Diversiones,
         /** Es el espacio que con ánimo de lucro se destina a guardar o arrendar espacios para depositar vehículos dentro de una edificación construida para tal fin, o dentro de un predio habilitado con el mismo objeto.
          */
@@ -965,11 +913,11 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Comercial) Pensiones y Residencias"
         Pensiones_y_Residencias,
-        /** Edificio donde se atiende a la población en un primer nivel asistencial sanitario.
+        /** Edificaciones tipo bodega destinadas a la prestacion de un servicio público, como es la oferta de productos básicos, principalmente de origen agropecuario y consumo doméstico
          */
-        !!@ ili2db.dispName = "(Comercial) Puestos de Salud"
-        Puestos_de_Salud,
-        /** Establecimiento con caracteristicas arquitectónicas coloniales en el que se preparan y sirven comidas.
+        !!@ ili2db.dispName = "(Comercial) Plaza de mercado"
+        Plaza_Mercado,
+        /** Establecimiento con características arquitectónicas coloniales en el que se preparan y sirven comidas.
          */
         !!@ ili2db.dispName = "(Comercial) Restaurante Colonial"
         Restaurante_Colonial,
@@ -981,11 +929,11 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Comercial) Restaurantes en PH"
         Restaurantes_en_PH,
-        /** Edificación destinado a la proyección de películas cinematográfica.
+        /** Edificación destinada a la proyección de películas cinematográfica o la presentación de obras artísticas actorales o musicales.
          */
         !!@ ili2db.dispName = "(Comercial) Teatro - Cinemas"
         Teatro_Cinemas,
-        /** Establecimiento destinado a la proyección de películas cinematográficas sometida a  régimen de propiedad horizontal
+        /** Establecimiento destinado a la proyección de películas cinematográficas sometida o la presentación de obras artísticas actores o musicales en un predio sometido en régimen de propiedad horizontal
          */
         !!@ ili2db.dispName = "(Comercial) Teatro - Cinemas en PH"
         Teatro_Cinemas_en_PH
@@ -996,7 +944,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Industrial) Bodega Casa Bomba"
         Bodega_Casa_Bomba,
-        /** Infraestructura de bombeo para bodegas sometidas en régimen de propiedad horizontal.
+        /** Infraestructura de bombeo de bodegas sometidas a régimen de propiedad horizontal.
          */
         !!@ ili2db.dispName = "(Industrial) Bodegas Casa Bomba en PH"
         Bodegas_Casa_Bomba_en_PH,
@@ -1013,6 +961,93 @@ VERSION "V2.2.1"  // 2018-02-01 // =
         !!@ ili2db.dispName = "(Industrial) Talleres"
         Talleres
       ),
+      !!@ ili2db.dispName = "Institucional"
+      Institucional(
+        /** Es un salón de un edificio que se destina a actividades de enseñanza, y es la unidad básica de todo recinto destinado a la educación.
+         */
+        !!@ ili2db.dispName = "(Institucional) Aula de clases"
+        Aulas_de_Clases,
+        /** Edificación donde podemos encontrar libros o cualquier otro soporte de un texto, como publicaciones, revistas, documentos, catálogo entre otros.
+         */
+        !!@ ili2db.dispName = "(Institucional) Biblioteca"
+        Biblioteca,
+        /** Son instalaciones en las que se encarcela a los prisioneros, se encuentran bajo la autoridad del estado.
+         */
+        !!@ ili2db.dispName = "(Institucional) Cárceles"
+        Carceles,
+        /** Lugar sin altar (diferente a iglesias y capillas) que congrega a un determinado número de personas para actividades de culto asociadas con manifestaciones religiosas.
+         */
+        !!@ ili2db.dispName = "(Institucional) Casas de culto"
+        Casas_de_Culto,
+        /** Establecimiento construido y destinado a proporcionar todo tipo de asistencia médica, incluidas operaciones quirúrgicas y estancia durante la recuperación o tratamiento, y en el que también se practican la investigación y la enseñanza médica
+         */
+        !!@ ili2db.dispName = "(Institucional) Clinicas, hospitales, centros médicos"
+        Clinicas_Hospitales_Centros_Medicos,
+        /** Institución edificada destinada a la enseñanza primaria, secundaria y universitaria
+         */
+        !!@ ili2db.dispName = "(Institucional) Colegios y universidades"
+        Colegio_y_Universidades,
+        /** Teatro o edificio destinado a espectáculos con capacidad para un gran número de personas.
+         */
+        !!@ ili2db.dispName = "(Institucional) Coliseos"
+        Coliseos,
+        /** Institución edificada construcción con características arquitectónicas coloniales destinada a la enseñanza primaria
+         */
+        !!@ ili2db.dispName = "(Institucional) Entidad educativa colonial colegio colonial"
+        Entidad_Educativa_Colonial_Colegio_Colonial,
+        /** Un estadio es una construcción cerrada con graderías para los espectadores, destinado a competiciones deportivas. Puede ser al aire libre o cubierto.
+         */
+        !!@ ili2db.dispName = "(Institucional) Estadios, Plaza de toros"
+        Estadios_Plaza_de_Toros,
+        /** Edificación en la que se reúnen y consagran a los fieles que le rinden culto a un ser superior
+         */
+        !!@ ili2db.dispName = "(Institucional) Iglesia"
+        Iglesia,
+        /** Edificación en la que se reúnen y consagran a los fieles que le rinden culto a un ser superior sometido a régimen de propiedad horizontal
+         */
+        !!@ ili2db.dispName = "(Institucional) Iglesia en PH"
+        Iglesia_en_PH,
+        /** Construcciones adaptadas o utilizadas por los organismos de seguridad de una nación para acuartelar a las tropas y sus equipos. Estas son organizadas de una forma tal que les facilite cumplir con la rutina diaria de los cuerpos militares, desde dormitorios, patios de ejercicios, estacionamientos para los vehículos, parques, comedores, oficinas y son fortificadas a fin de presentar resistencia al momento de un posible ataque externo.
+         */
+        !!@ ili2db.dispName = "(Institucional) Instalaciones militares"
+        Instalaciones_Militares,
+        /** Construcción con características de una vivienda que se encarga de brindar educación y asistencia integral a los niños
+         */
+        !!@ ili2db.dispName = "(Institucional) Jardín infantil en casa"
+        Jardin_Infantil_en_Casa,
+        /** Es un terreno que está destinado a árboles, jardines y prados donde se depositan los restos mortales o cadáveres.
+         */
+        !!@ ili2db.dispName = "(Institucional) Parque Cementerio"
+        Parque_Cementerio,
+        /** Centro cultural donde se realizan presentaciones astronómicas al público en general.
+         */
+        !!@ ili2db.dispName = "(Institucional) Planetario"
+        Planetario,
+        /** Edificio donde se atiende a la población en un primer nivel asistencial sanitario.
+         */
+        !!@ ili2db.dispName = "(Institucional) Puestos de salud"
+        Puestos_de_Salud,
+        /** Construcciones, oficiales o privadas, destinadas a salvaguardar obras de arte, reliquias o antigüedades de carácter histórico, religioso o científico, que representan un periodo, una época de la humanidad o del país.
+         */
+        !!@ ili2db.dispName = "(Institucional) Museos"
+        Museos,
+        /** Edificación donde habitan congregaciones religiosas de distintas órdenes menticantes en el itinerario de formación o consagración religiosa.
+         */
+        !!@ ili2db.dispName = "(Institucional) Seminarios, conventos"
+        Seminarios_Conventos,
+        /** Edificio o sala destinados a la representación de obras de teatro o de otro tipo de espectáculos, que dispone de un escenario y gradas o asientos para el público, se caracterizan por sus condiciones arquitectónicas
+         */
+        !!@ ili2db.dispName = "(Institucional) Teatro"
+        Teatro,
+        /** Escenario deportivo destinado a la práctica de distintas disciplinas deportivas.
+         */
+        !!@ ili2db.dispName = "(Institucional) Unidad deportiva"
+        Unidad_Deportiva,
+        /** Instalación deportiva donde se desarrollan carreras ciclistas o de patinaje.
+         */
+        !!@ ili2db.dispName = "(Institucional) Velódromo, patinódromo"
+        Velodromo_Patinodromo
+      ),
       !!@ ili2db.dispName = "Anexo"
       Anexo(
         /** Depósito de agua construido a nivel del terreno con el propósito de almacenar agua, o en el caso de las bañadera con el fin de hacer limpieza al ganado, estas construcciones son cubiertas para guardar de la intemperie.
@@ -1027,6 +1062,10 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Anexo) Camaroneras"
         Camaroneras,
+        /** Superficie de terreno adecuada sobre un placa para la practica de deportes como fútbol de salón, voleibol, balocento u alguna otra disciplina que haga uso de la cancha, todo ello a pequeña escala. Se excluyen las canchas de tenis, los estadios, coliseo u otras edificaciones de gran tamaño.
+         */
+        !!@ ili2db.dispName = "(Anexo) Canchas"
+        Canchas,
         /** Superficie  terreno rectangular cruzada al medio por una red baja.
          */
         !!@ ili2db.dispName = "(Anexo) Canchas de Tenis"
@@ -1035,6 +1074,10 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Anexo) Carretera"
         Carretera,
+        /** Cada una de las superficies de un edificio que disponen de una cara al interior y de otra al exterior.
+         */
+        !!@ ili2db.dispName = "(Anexo) Cerramiento"
+        Cerramiento,
         /** Construcción anexa conformada por unos cimientos, muros y placa base
          */
         !!@ ili2db.dispName = "(Anexo) Cimientos, Estructura, Muros y Placa Base"
@@ -1043,6 +1086,14 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Anexo) Cocheras - Marraneras - Porquerizas"
         Cocheras_Marraneras_Porquerizas,
+        /** Tenso estructuras, arquitectura textil, o membranas arquitectónicas, son los nombres con los que se le conoce a los tipos de estructura que emplean materiales que trabajan bajo tensión, sean membranas textiles, láminas, mallas de cables, etc.
+         */
+        !!@ ili2db.dispName = "(Anexo) Construccion en membrana arquitectónica"
+        Construccion_en_Membrana_Arquitectonica,
+        /** Un contenedor es un recipiente de carga para el transporte marítimo o fluvial, transporte terrestre y transporte multimodal adecuado para la vivienda o el comercio o servicios.
+         */
+        !!@ ili2db.dispName = "(Anexo) Contenedor"
+        Contenedor,
         /** Sitio cerrado y descubierto que se utiliza par la cría y albergue de ganado generalmente vacuno. consta de los elementos estructura  y pisos.
          */
         !!@ ili2db.dispName = "(Anexo) Corrales"
@@ -1051,6 +1102,10 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Anexo) Establos - Pesebreras - Caballerizas"
         Establos_Pesebreras_Caballerizas,
+        /** Instalación que permite el tránsito de personas y la conexión con sistemas de transporte como buses, metro, tren, tranvía, terminales y estaciones, destinadas para la movilidad de las personas.
+         */
+        !!@ ili2db.dispName = "(Anexo) Estación de sistema de transporte"
+        Estacion_Sistema_Transporte,
         /** Lugar construido  fuerte, cercado de murallas, baluartes, fosos y otras fortificaciones.
          */
         !!@ ili2db.dispName = "(Anexo) Fuertes y Castillos"
@@ -1059,10 +1114,10 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Anexo) Galpones - Gallineros"
         Galpones_Gallineros,
-        /** Construcciones adaptadas o utilizadas por los organismos de seguridad de una nación para acuartelar a las tropas y sus equipos. Estas son organizadas de una forma tal que les facilite cumplir con la rutina diaria de los cuerpos militares, desde dormitorios, patios de ejercicios, estacionamientos para los vehículos, parques, comedores, oficinas y son fortificadas a fin de presentar resistencia al momento de un posible ataque externo.
+        /** Espacio destinado para el almacenamiento y disposición de aeronaves.
          */
-        !!@ ili2db.dispName = "Instalaciones militares"
-        Instalaciones_Militares,
+        !!@ ili2db.dispName = "(Anexo) Hangar"
+        Hangar,
         /** Construcción consistente en una cubierta apoyada en columnas de materiales diferentes, elaborados con el fin de guarecer de la intemperie.
          */
         !!@ ili2db.dispName = "(Anexo) Kioscos"
@@ -1079,17 +1134,21 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Anexo) Muelles"
         Muelles,
-        /** Muro cerrado destinado a la protección y defensa de determinado sitio.
+        /** Se denomina muralla a un muro cerrado destinado a la protección y defensa de determinado sitio.
          */
         !!@ ili2db.dispName = "(Anexo) Murallas"
         Murallas,
+        /** Las pérgolas son estructuras compuestas por columnas y una armazón superior, cubiertas con mucho follaje o toldo especial que protegen de la lluvia y el sol, también usadas como elemento decorativo en un espacio de las viviendas.
+         */
+        !!@ ili2db.dispName = "(Anexo) Pérgolas"
+        Pergolas,
         /** Estanque artificial con destino al deporte o a la recreación.  Se diferencia por sus acabados y especificaciones técnicas para su mantenimiento y operación; sus dimensiones deben darse en unidades de área (m2).
          */
         !!@ ili2db.dispName = "(Anexo) Piscinas"
         Piscinas,
         /** Edificación sin cubierta con que se identifican las pistas de los aeropuertos construidas en asfalto o concreto, incluye la zona o calle de redaje y calles de salida rápida.
          */
-        !!@ ili2db.dispName = "Pista aeropuerto"
+        !!@ ili2db.dispName = "(Anexo) Pista aeropuerto"
         Pista_Aeropuerto,
         /** Perforaciones profundas  manuales para extraer agua subterránea.  Medida en metros de profundidad.
          */
@@ -1117,10 +1176,20 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Anexo) Toboganes"
         Toboganes,
+        /** Edificio en forma de torre, en cuya cima se sitúa una sala de control, desde la que se dirige y controla el tráfico de un puerto, de un aeropuerto o de un circuito de carreras.
+         */
+        !!@ ili2db.dispName = "(Anexo) Torre de control"
+        Torre_de_Control,
         /** Son estructuras diseñadas para disminuir la temperatura del agua y otros medios.
          */
         !!@ ili2db.dispName = "(Anexo) Torres de Enfriamiento"
         Torres_de_Enfriamiento,
+        /** Se le asigna a las unidades prediales no edificadas o por construir
+         */
+        !!@ ili2db.dispName = "(Anexo) Unidad predial por construir"
+        Unidad_Predial_por_Construir,
+        /** Parte de la infraestructura ferroviaria que une dos puntos determinados del territorio
+         */
         !!@ ili2db.dispName = "(Anexo) Vía Férrea"
         Via_Ferrea
       )
