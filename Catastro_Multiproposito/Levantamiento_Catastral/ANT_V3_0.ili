@@ -4,22 +4,22 @@ INTERLIS 2.3;
  * 
  * -----------------------------------------------------------
  * 
- * 04.07.2019/at: Creaci√≥n de la primera versi√≥n del modelo 
+ * 04.07.2019/at: CreaciÛn de la primera versiÛn del modelo 
  * -----------------------------------------------------------
  * 
  *  (c) IGAC y SNR con apoyo de la Cooperacion Suiza
  * 
  * -----------------------------------------------------------
  */
-MODEL ANT_V2_11 (es)
+MODEL ANT_V3_0 (es)
 AT "mailto:PC4@localhost"
 VERSION "2019-07-04"  =
-  IMPORTS Levantamiento_Catastral_V2_11,LADM_COL_V1_7;
+  IMPORTS Levantamiento_Catastral_V3_0,LADM_COL_V3_0;
 
   DOMAIN
 
     ANT_AfirmacionTipo = (
-      !!@ ili2db.dispName = "S√≠"
+      !!@ ili2db.dispName = "SÌ"
       Si,
       !!@ ili2db.dispName = "No"
       No,
@@ -28,11 +28,11 @@ VERSION "2019-07-04"  =
     );
 
     ANT_ConflictoTipo = (
-      !!@ ili2db.dispName = "Sucesi√≥n"
+      !!@ ili2db.dispName = "SucesiÛn"
       Sucesion,
       !!@ ili2db.dispName = "Linderos"
       Linderos,
-      !!@ ili2db.dispName = "Afectaci√≥n ambiental"
+      !!@ ili2db.dispName = "AfectaciÛn ambiental"
       Afectacion_Ambiental,
       !!@ ili2db.dispName = "Seguridad"
       Seguridad,
@@ -47,11 +47,11 @@ VERSION "2019-07-04"  =
       Documento_Privado,
       !!@ ili2db.dispName = "Sentencia judicial"
       Sentencia_Judicial,
-      !!@ ili2db.dispName = "Resoluci√≥n de adjudicaci√≥n"
+      !!@ ili2db.dispName = "ResoluciÛn de adjudicaciÛn"
       Resolucion_Adjudicacion,
       !!@ ili2db.dispName = "Contrato de usufructo"
       Contrato_Usufructo,
-      !!@ ili2db.dispName = "Escritura p√∫blica"
+      !!@ ili2db.dispName = "Escritura p˙blica"
       Escritura_Publica,
       !!@ ili2db.dispName = "Ninguno"
       Ninguno,
@@ -60,20 +60,20 @@ VERSION "2019-07-04"  =
     );
 
     ANT_DocumentoRespaldoDonacionTipo = (
-      !!@ ili2db.dispName = "Escritura p√∫blica registrada"
+      !!@ ili2db.dispName = "Escritura p˙blica registrada"
       Escritura_Publica_Registrada,
-      !!@ ili2db.dispName = "Escritura p√∫blica sin registrar"
+      !!@ ili2db.dispName = "Escritura p˙blica sin registrar"
       Escritura_Publica_Sin_Registrar,
       !!@ ili2db.dispName = "Documento privado"
       Documento_Privado,
       !!@ ili2db.dispName = "No tiene documento"
       No_Tiene_Documento,
-      !!@ ili2db.dispName = "La donaci√≥n est√° por hacerse"
+      !!@ ili2db.dispName = "La donaciÛn est· por hacerse"
       Donacion_Esta_Por_Hacerse
     );
 
     ANT_DocumentoRespaldoTipo = (
-      !!@ ili2db.dispName = "Escritura p√∫blica"
+      !!@ ili2db.dispName = "Escritura p˙blica"
       Escritura_Publica,
       !!@ ili2db.dispName = "Documento privado"
       Documento_Privado,
@@ -90,66 +90,66 @@ VERSION "2019-07-04"  =
     );
 
     ANT_EstadoCivilTipo = (
-      !!@ ili2db.dispName = "No est√° casado(a) y vive en pareja hace menos de dos a√±os"
+      !!@ ili2db.dispName = "No est· casado(a) y vive en pareja hace menos de dos aÒos"
       No_Casado_En_Pareja_Menos_2_Anios,
-      !!@ ili2db.dispName = "No est√° casado(a) y vive en pareja hace dos a√±os o m√°s"
+      !!@ ili2db.dispName = "No est· casado(a) y vive en pareja hace dos aÒos o m·s"
       No_Casado_En_Pareja_Mas_2_Anios,
-      !!@ ili2db.dispName = "Est√° separado(a) o divorciado(a)"
+      !!@ ili2db.dispName = "Est· separado(a) o divorciado(a)"
       Separado_o_Divorciado,
-      !!@ ili2db.dispName = "Est√° viudo(a)"
+      !!@ ili2db.dispName = "Est· viudo(a)"
       Viudo,
-      !!@ ili2db.dispName = "Est√° soltero(a)"
+      !!@ ili2db.dispName = "Est· soltero(a)"
       Soltero,
-      !!@ ili2db.dispName = "Est√° casado(a)"
+      !!@ ili2db.dispName = "Est· casado(a)"
       Casado
     );
 
     ANT_ModuloIngresarTipo = (
       !!@ ili2db.dispName = "Acceso a tierras"
       Acceso_Tierras,
-      !!@ ili2db.dispName = "Formalizaci√≥n de la propiedad"
+      !!@ ili2db.dispName = "FormalizaciÛn de la propiedad"
       Formalizacion_Propiedad,
       !!@ ili2db.dispName = "Proceso o pretenciones agrarias"
       Proceso_o_Pretenciones_Agrarias,
-      !!@ ili2db.dispName = "Administraci√≥n"
+      !!@ ili2db.dispName = "AdministraciÛn"
       Administracion,
       !!@ ili2db.dispName = "Otros"
       Otros
     );
 
     ANT_MotivoConsideracionDerechoTipo = (
-      !!@ ili2db.dispName = "Porque lo compr√≥"
+      !!@ ili2db.dispName = "Porque lo comprÛ"
       Compra,
       !!@ ili2db.dispName = "Porque tiene una sentencia judicial"
       Sentencia_Judicial,
       !!@ ili2db.dispName = "Porque es una herencia"
       Herencia,
-      !!@ ili2db.dispName = "Porque es una donaci√≥n"
+      !!@ ili2db.dispName = "Porque es una donaciÛn"
       Donacion,
       !!@ ili2db.dispName = "Porque lo trabaja"
       Lo_Trabaja,
-      !!@ ili2db.dispName = "Porque vive en √©l"
+      !!@ ili2db.dispName = "Porque vive en Èl"
       Vive_En_Predio,
       !!@ ili2db.dispName = "Porque lo ha dado en arriendo"
       Ha_Arrendado,
-      !!@ ili2db.dispName = "Porque lo tiene cedido en pr√©stamo a alguien"
+      !!@ ili2db.dispName = "Porque lo tiene cedido en prÈstamo a alguien"
       Esta_Cedido_En_Prestamo,
       !!@ ili2db.dispName = "Porque actualmente paga por el uso del predio"
       Paga_Por_Uso,
-      !!@ ili2db.dispName = "Porque se lo adjudic√≥ el INCORA o el INCODER"
+      !!@ ili2db.dispName = "Porque se lo adjudicÛ el INCORA o el INCODER"
       Adjudicacion_INCORA_INCODER
     );
 
     ANT_MotivoNoEscrituracionTipo = (
-      !!@ ili2db.dispName = "Porque quien vendi√≥ no era el real due√±o"
+      !!@ ili2db.dispName = "Porque quien vendiÛ no era el real dueÒo"
       Vendedor_No_Era_Duenio,
-      !!@ ili2db.dispName = "Porque la compra fue a cr√©dito y no ha acabado de pagar"
+      !!@ ili2db.dispName = "Porque la compra fue a crÈdito y no ha acabado de pagar"
       Credito_No_Pagado,
-      !!@ ili2db.dispName = "Porque falleci√≥ el vendedor (verdadero due√±o)"
+      !!@ ili2db.dispName = "Porque falleciÛ el vendedor (verdadero dueÒo)"
       Fallecimiento_Vendedor,
       !!@ ili2db.dispName = "Porque sobre el predio hay un embargo o existe alguna circunstancia que impida su venta"
       Embargo_o_Impedimento,
-      !!@ ili2db.dispName = "Porque el predio se encuentra en r√©gimen parcelario"
+      !!@ ili2db.dispName = "Porque el predio se encuentra en rÈgimen parcelario"
       Regimen_Parcelario
     );
 
@@ -164,16 +164,16 @@ VERSION "2019-07-04"  =
       Hermano_a,
       !!@ ili2db.dispName = "Sobrino(a)"
       Sobrino_a,
-      !!@ ili2db.dispName = "C√≥nyuge"
+      !!@ ili2db.dispName = "CÛnyuge"
       Conyuge,
       !!@ ili2db.dispName = "Otro"
       Otro
     );
 
     ANT_RegimenEscogenciaTipo = (
-      !!@ ili2db.dispName = "R√©gimen 160"
+      !!@ ili2db.dispName = "RÈgimen 160"
       Regimen_160,
-      !!@ ili2db.dispName = "R√©gimen 160"
+      !!@ ili2db.dispName = "RÈgimen 160"
       Regimen_902
     );
 
@@ -193,7 +193,7 @@ VERSION "2019-07-04"  =
     ANT_TituloTipo = (
       !!@ ili2db.dispName = "Individual"
       Individual,
-      !!@ ili2db.dispName = "C√≥nyuges o compa√±eros permanentes"
+      !!@ ili2db.dispName = "CÛnyuges o compaÒeros permanentes"
       Conyuges_o_Companieros_Permanentes
     );
 
@@ -206,23 +206,23 @@ VERSION "2019-07-04"  =
 
   TOPIC Fiso =
     OID AS INTERLIS.UUIDOID;
-    DEPENDS ON Levantamiento_Catastral_V2_11.Levantamiento_Catastral;
+    DEPENDS ON Levantamiento_Catastral_V3_0.Levantamiento_Catastral;
 
     !!@ ili2db.dispName = "(ANT) Conflictos"
     CLASS ANT_Conflictos =
       !!@ ili2db.dispName = "Conflicto"
-      Conflicto : MANDATORY ANT_V2_11.ANT_ConflictoTipo;
-      !!@ ili2db.dispName = "Descripci√≥n"
+      Conflicto : MANDATORY ANT_V3_0.ANT_ConflictoTipo;
+      !!@ ili2db.dispName = "DescripciÛn"
       Descripcion : MTEXT*4096;
     END ANT_Conflictos;
 
-    !!@ ili2db.dispName = "(ANT) Interesado Caracterizaci√≥n"
+    !!@ ili2db.dispName = "(ANT) Interesado CaracterizaciÛn"
     CLASS ANT_InteresadoCaracterizacion =
       !!@ ili2db.dispName = "Cabeza de hogar"
       Cabeza_hogar : MANDATORY BOOLEAN;
       !!@ ili2db.dispName = "Datos alternos de contacto"
       Datos_Alternos_Contacto : MANDATORY BOOLEAN;
-      !!@ ili2db.dispName = "Direcci√≥n de residencia"
+      !!@ ili2db.dispName = "DirecciÛn de residencia"
       Direccion_Residencia : MANDATORY TEXT*500;
       !!@ ili2db.dispName = "Departamento"
       Departamento : MANDATORY TEXT*100;
@@ -232,46 +232,46 @@ VERSION "2019-07-04"  =
       Vereda : TEXT*100;
       !!@ ili2db.dispName = "Corregimiento"
       Corregimiento : TEXT*100;
-      !!@ ili2db.dispName = "Correo electr√≥nico"
+      !!@ ili2db.dispName = "Correo electrÛnico"
       Correo_Electronico : TEXT*200;
-      !!@ ili2db.dispName = "G√©nero"
+      !!@ ili2db.dispName = "GÈnero"
       Genero : MANDATORY TEXT*100;
       !!@ ili2db.dispName = "Estado civil actual"
-      Estado_Civil_Actual : MANDATORY ANT_V2_11.ANT_EstadoCivilTipo;
+      Estado_Civil_Actual : MANDATORY ANT_V3_0.ANT_EstadoCivilTipo;
       !!@ ili2db.dispName = "Alguna vez casado"
       Alguna_Vez_Casado : MANDATORY BOOLEAN;
-      !!@ ili2db.dispName = "Fecha de constituci√≥n marital"
+      !!@ ili2db.dispName = "Fecha de constituciÛn marital"
       Fecha_Constitucion_Marital : INTERLIS.XMLDate;
       !!@ ili2db.dispName = "Esta viva la persona caso"
       Esta_Viva_Persona_Caso : BOOLEAN;
-      !!@ ili2db.dispName = "Se separ√≥ legalmente"
+      !!@ ili2db.dispName = "Se separÛ legalmente"
       Se_Separo_Legalmente : BOOLEAN;
       !!@ ili2db.dispName = "Cuenta con sociedad patrimonial anterior sin liquidar"
       Cuenta_Con_Sociedad_Patrimonial_Anterior_Sin_Liquidar : BOOLEAN;
-      !!@ ili2db.dispName = "Vive actualmente persona con quien se cas√≥"
+      !!@ ili2db.dispName = "Vive actualmente persona con quien se casÛ"
       Vive_Actualmente_Persona_Con_Que_Caso : BOOLEAN;
       !!@ ili2db.dispName = "Autoriza a ANT"
       Autoriza_Ant : MANDATORY BOOLEAN;
-      !!@ ili2db.dispName = "Mensaje a correo electr√≥nico"
+      !!@ ili2db.dispName = "Mensaje a correo electrÛnico"
       Mensaje_Correo_Electronico : MANDATORY BOOLEAN;
-      !!@ ili2db.dispName = "Mensaje de voz a tel√©fono m√≥vil"
+      !!@ ili2db.dispName = "Mensaje de voz a telÈfono mÛvil"
       Mensaje_Voz_Telefono_Movil : MANDATORY BOOLEAN;
-      !!@ ili2db.dispName = "Mensaje de texto tel√©fono m√≥vil"
+      !!@ ili2db.dispName = "Mensaje de texto telÈfono mÛvil"
       Mensaje_Texto_Telefono_Movil : MANDATORY BOOLEAN;
       !!@ ili2db.dispName = "Beneficiario INCORA-INCODER-ANT-URT"
       Beneficiario_Incora_Incoder_ANT_URT : MANDATORY BOOLEAN;
       !!@ ili2db.dispName = "Tipo de beneficio"
       Tipo_Beneficio : TEXT*500;
-      !!@ ili2db.dispName = "N√∫mero de resoluci√≥n"
+      !!@ ili2db.dispName = "N˙mero de resoluciÛn"
       Numero_Resolucion : TEXT*100;
-      !!@ ili2db.dispName = "Fecha de resoluci√≥n"
+      !!@ ili2db.dispName = "Fecha de resoluciÛn"
       Fecha_Resolucion : INTERLIS.XMLDate;
       !!@ ili2db.dispName = "Registro SNR"
       Registro_SNR : BOOLEAN;
       !!@ ili2db.dispName = "Conserva registro"
       Conserva_Registro : BOOLEAN;
-      !!@ ili2db.dispName = "Ubicaci√≥n predio"
-      Ubicacion_Predio : ANT_V2_11.ANT_UbicacionPredioTipo;
+      !!@ ili2db.dispName = "UbicaciÛn predio"
+      Ubicacion_Predio : ANT_V3_0.ANT_UbicacionPredioTipo;
       !!@ ili2db.dispName = "Cuenta con predio rural"
       Cuenta_Con_Predio_Rural : MANDATORY BOOLEAN;
       !!@ ili2db.dispName = "Habita en el predio"
@@ -280,19 +280,19 @@ VERSION "2019-07-04"  =
       Fecha_Habita_Predio : INTERLIS.XMLDate;
       !!@ ili2db.dispName = "Se considera propietario"
       Considera_Propietario : BOOLEAN;
-      !!@ ili2db.dispName = "Fecha en la que ejerce relaci√≥n de tenencia"
+      !!@ ili2db.dispName = "Fecha en la que ejerce relaciÛn de tenencia"
       Fecha_Ejerce_Relacion_Tenencia : INTERLIS.XMLDate;
-      !!@ ili2db.dispName = "Por qu√© considera que tiene derecho sobre el predio"
-      Porque_Considera_Derecho_Predio : ANT_V2_11.ANT_MotivoConsideracionDerechoTipo;
+      !!@ ili2db.dispName = "Por quÈ considera que tiene derecho sobre el predio"
+      Porque_Considera_Derecho_Predio : ANT_V3_0.ANT_MotivoConsideracionDerechoTipo;
       !!@ ili2db.dispName = "Explota el predio"
       Explota_Predio : BOOLEAN;
       !!@ ili2db.dispName = "Explotan otros predios rurales"
       Explotan_Otros_Predios_Rurales : BOOLEAN;
-      !!@ ili2db.dispName = "A qu√© t√≠tulo"
-      A_Que_Titulo : ANT_V2_11.ANT_TituloExplotacionTipo;
-      !!@ ili2db.dispName = "Tiene conflicto de linderos con √°rea de servidumbre"
+      !!@ ili2db.dispName = "A quÈ tÌtulo"
+      A_Que_Titulo : ANT_V3_0.ANT_TituloExplotacionTipo;
+      !!@ ili2db.dispName = "Tiene conflicto de linderos con ·rea de servidumbre"
       Tiene_Conflicto_Linderos_Servidumbre_Area : BOOLEAN;
-      !!@ ili2db.dispName = "Descripci√≥n conflicto vigente"
+      !!@ ili2db.dispName = "DescripciÛn conflicto vigente"
       Conflicto_Vigente_Descripcion : MTEXT*4096;
       !!@ ili2db.dispName = "Patrimonio neto en SMMLV"
       Patrimonio_Neto_SMMLV : 0.00 .. 45000000.99;
@@ -300,9 +300,9 @@ VERSION "2019-07-04"  =
       Declara_Renta : BOOLEAN;
       !!@ ili2db.dispName = "Propietario predio rural - urbano - vivienda"
       Propietario_Predio_Rural_Urbano_Vivienda : MANDATORY BOOLEAN;
-      !!@ ili2db.dispName = "Hace parte de asociaci√≥n econom√≠a campesina"
+      !!@ ili2db.dispName = "Hace parte de asociaciÛn economÌa campesina"
       Hace_Parte_Asociacion_Economia_Campesina : MANDATORY BOOLEAN;
-      !!@ ili2db.dispName = "Reside o residi√≥ en municipio en la ubicaci√≥n del predio en solicitud"
+      !!@ ili2db.dispName = "Reside o residiÛ en municipio en la ubicaciÛn del predio en solicitud"
       Reside_Residio_Municipio_Ubicacion_Predio_Solicitud : MANDATORY BOOLEAN;
     END ANT_InteresadoCaracterizacion;
 
@@ -316,13 +316,13 @@ VERSION "2019-07-04"  =
       Primer_Apellido : MANDATORY TEXT*100;
       !!@ ili2db.dispName = "Segundo apellido"
       Segundo_Apellido : TEXT*100;
-      !!@ ili2db.dispName = "Relaci√≥n aspirante"
+      !!@ ili2db.dispName = "RelaciÛn aspirante"
       Relacion_Aspirante : TEXT*100;
-      !!@ ili2db.dispName = "Tel√©fono fijo"
+      !!@ ili2db.dispName = "TelÈfono fijo"
       Telefono_fijo : TEXT*50;
-      !!@ ili2db.dispName = "Tel√©fono m√≥vil"
+      !!@ ili2db.dispName = "TelÈfono mÛvil"
       Telefono_Movil : MANDATORY TEXT*50;
-      !!@ ili2db.dispName = "Direcci√≥n residencia correspondencia"
+      !!@ ili2db.dispName = "DirecciÛn residencia correspondencia"
       Direccion_Residencia_Correspondencia : TEXT*500;
       !!@ ili2db.dispName = "Departamento"
       Departamento : MANDATORY TEXT*100;
@@ -345,7 +345,7 @@ VERSION "2019-07-04"  =
       !!@ ili2db.dispName = "Segundo apellido"
       Segundo_Apellido : TEXT*100;
       !!@ ili2db.dispName = "Tipo documento"
-      Tipo_Documento : MANDATORY Levantamiento_Catastral_V2_11.LC_InteresadoDocumentoTipo;
+      Tipo_Documento : MANDATORY Levantamiento_Catastral_V3_0.LC_InteresadoDocumentoTipo;
       !!@ ili2db.dispName = "Documento identidad"
       Documento_Identidad : MANDATORY TEXT*50;
       !!@ ili2db.dispName = "Fecha de nacimiento"
@@ -356,19 +356,19 @@ VERSION "2019-07-04"  =
       Parentesco : MANDATORY TEXT*50;
       !!@ ili2db.dispName = "Genero"
       Genero : MANDATORY TEXT*100;
-      !!@ ili2db.dispName = "Orientaci√≥n sexual"
+      !!@ ili2db.dispName = "OrientaciÛn sexual"
       Orientacion_Sexual : MANDATORY TEXT*100;
-      !!@ ili2db.dispName = "Otro cu√°l"
+      !!@ ili2db.dispName = "Otro cu·l"
       Otro_Cual : TEXT*100;
       !!@ ili2db.dispName = "Se reconoce como"
       Se_Reconoce_Como : MANDATORY TEXT*100;
       !!@ ili2db.dispName = "Etnia"
       Etnia : TEXT*100;
-      !!@ ili2db.dispName = "Resguardo ind√≠gena al que pertenece"
+      !!@ ili2db.dispName = "Resguardo indÌgena al que pertenece"
       Resguardo_Indigena_Pertenece : TEXT*100;
-      !!@ ili2db.dispName = "Beneficiario atenci√≥n forma acceso tierra"
+      !!@ ili2db.dispName = "Beneficiario atenciÛn forma acceso tierra"
       Beneficiario_Atencion_Forma_Acceso_Tierra : BOOLEAN;
-      !!@ ili2db.dispName = "Cu√°l es la ocupaci√≥n actual"
+      !!@ ili2db.dispName = "Cu·l es la ocupaciÛn actual"
       Cual_Es_La_Ocupacion_Actual : MANDATORY TEXT*500;
     END ANT_InteresadoNucleoFamiliar;
 
@@ -376,19 +376,19 @@ VERSION "2019-07-04"  =
     CLASS ANT_Solicitud =
       !!@ ili2db.dispName = "Fecha solicitud"
       Fecha_Solicitud : MANDATORY INTERLIS.XMLDate;
-      !!@ ili2db.dispName = "Interesado programas formalizaci√≥n acceso a tierras ANT"
+      !!@ ili2db.dispName = "Interesado programas formalizaciÛn acceso a tierras ANT"
       Interesado_Programas_Formalizacion_Acceso_Tierras_ANT : MANDATORY BOOLEAN;
-      !!@ ili2db.dispName = "Especifique t√≠tulo"
-      Especifique_Titulo : MANDATORY ANT_V2_11.ANT_TituloTipo;
-      !!@ ili2db.dispName = "Acpeta notifiaci√≥n a correo electr√≥nico"
+      !!@ ili2db.dispName = "Especifique tÌtulo"
+      Especifique_Titulo : MANDATORY ANT_V3_0.ANT_TituloTipo;
+      !!@ ili2db.dispName = "Acpeta notifiaciÛn a correo electrÛnico"
       Acepta_Notificacion_Correo_Electronico : MANDATORY BOOLEAN;
-      !!@ ili2db.dispName = "Correo electr√≥nico"
+      !!@ ili2db.dispName = "Correo electrÛnico"
       Correo_Electronico : TEXT*200;
-      !!@ ili2db.dispName = "R√©gimen escogencia"
-      Regimen_Escogencia : ANT_V2_11.ANT_RegimenEscogenciaTipo;
-      !!@ ili2db.dispName = "M√≥dulo debe ingresar"
-      Modulo_Debe_Ingresar : ANT_V2_11.ANT_ModuloIngresarTipo;
-      !!@ ili2db.dispName = "N√∫mero formulario"
+      !!@ ili2db.dispName = "RÈgimen escogencia"
+      Regimen_Escogencia : ANT_V3_0.ANT_RegimenEscogenciaTipo;
+      !!@ ili2db.dispName = "MÛdulo debe ingresar"
+      Modulo_Debe_Ingresar : ANT_V3_0.ANT_ModuloIngresarTipo;
+      !!@ ili2db.dispName = "N˙mero formulario"
       Numero_Formulario : TEXT*50;
       !!@ ili2db.dispName = "Vereda"
       Vereda : TEXT*100;
@@ -398,87 +398,87 @@ VERSION "2019-07-04"  =
       Centro_Poblado : TEXT*100;
       !!@ ili2db.dispName = "Nombre predio"
       Nombre_Predio : MANDATORY TEXT*500;
-      !!@ ili2db.dispName = "Direcci√≥n predio"
+      !!@ ili2db.dispName = "DirecciÛn predio"
       Direccion_Predio : MANDATORY TEXT*200;
-      !!@ ili2db.dispName = "√Årea aproximada del predio solicitud"
-      Area_Aprox_Predio_Solicitud : 0.0 .. 99999999999999.9 [LADM_COL_V1_7.m2];
-      !!@ ili2db.dispName = "Predio parte de un predio de mayor extensi√≥n"
+      !!@ ili2db.dispName = "¡rea aproximada del predio solicitud"
+      Area_Aprox_Predio_Solicitud : 0.0 .. 99999999999999.9 [LADM_COL_V3_0.m2];
+      !!@ ili2db.dispName = "Predio parte de un predio de mayor extensiÛn"
       Predio_Parte_Predio_Mayor : BOOLEAN;
-      !!@ ili2db.dispName = "Nombre del predio de mayor extensi√≥n"
+      !!@ ili2db.dispName = "Nombre del predio de mayor extensiÛn"
       Nombre_Predio_Mayor_Extension : TEXT*500;
-      !!@ ili2db.dispName = "Ocupante inicio adjudicaci√≥n del predio"
+      !!@ ili2db.dispName = "Ocupante inicio adjudicaciÛn del predio"
       Ocupante_Inicio_Adjudicacion_Predio : BOOLEAN;
-      !!@ ili2db.dispName = "Entidad adjudicaci√≥n ocupante"
+      !!@ ili2db.dispName = "Entidad adjudicaciÛn ocupante"
       Entidad_Adjudicacion_Ocupante : TEXT*50;
       !!@ ili2db.dispName = "Fecha de solicitud del tramite ocupante"
       Fecha_Solicitud_Tramite_Ocupante : INTERLIS.XMLDate;
-      !!@ ili2db.dispName = "Estado tr√°mite ocupante"
+      !!@ ili2db.dispName = "Estado tr·mite ocupante"
       Estado_Tramite_Ocupante : TEXT*50;
-      !!@ ili2db.dispName = "Poseedor inicio adjudicaci√≥n del predio"
+      !!@ ili2db.dispName = "Poseedor inicio adjudicaciÛn del predio"
       Poseedor_Inicio_Adjudicacion_Predio : BOOLEAN;
-      !!@ ili2db.dispName = "Entidad adjudicaci√≥n del poseedor"
+      !!@ ili2db.dispName = "Entidad adjudicaciÛn del poseedor"
       Entidad_Adjudicacion_Poseedor : TEXT*50;
-      !!@ ili2db.dispName = "Fecha de solicitud del tr√°mite poseedor"
+      !!@ ili2db.dispName = "Fecha de solicitud del tr·mite poseedor"
       Fecha_Solicitud_Tramite_Poseedor : INTERLIS.XMLDate;
-      !!@ ili2db.dispName = "Estado tr√°mite del poseedor"
+      !!@ ili2db.dispName = "Estado tr·mite del poseedor"
       Estado_Tramite_Poseedor : TEXT*50;
-      !!@ ili2db.dispName = "Qui√©n vendi√≥ el predio"
+      !!@ ili2db.dispName = "QuiÈn vendiÛ el predio"
       Quien_Vendio_Predio : TEXT*500;
-      !!@ ili2db.dispName = "Persona que vendi√≥ vive"
-      Persona_Vendio_Vive : ANT_V2_11.ANT_AfirmacionTipo;
-      !!@ ili2db.dispName = "Tiene c√≥mo contactar al vendedor"
+      !!@ ili2db.dispName = "Persona que vendiÛ vive"
+      Persona_Vendio_Vive : ANT_V3_0.ANT_AfirmacionTipo;
+      !!@ ili2db.dispName = "Tiene cÛmo contactar al vendedor"
       Tiene_Como_Contactar_Vendedor : BOOLEAN;
       !!@ ili2db.dispName = "Documento respaldo del negocio"
-      Documento_Respaldo_Negocio : ANT_V2_11.ANT_DocumentoRespaldoTipo;
-      !!@ ili2db.dispName = "Registro t√≠tulo predio ante SNR"
-      Registro_Titulo_Predio_SNR : ANT_V2_11.ANT_AfirmacionTipo;
-      !!@ ili2db.dispName = "Por qu√© no realiz√≥ escritura"
-      Porque_No_Realizo_Escritura : ANT_V2_11.ANT_MotivoNoEscrituracionTipo;
+      Documento_Respaldo_Negocio : ANT_V3_0.ANT_DocumentoRespaldoTipo;
+      !!@ ili2db.dispName = "Registro tÌtulo predio ante SNR"
+      Registro_Titulo_Predio_SNR : ANT_V3_0.ANT_AfirmacionTipo;
+      !!@ ili2db.dispName = "Por quÈ no realizÛ escritura"
+      Porque_No_Realizo_Escritura : ANT_V3_0.ANT_MotivoNoEscrituracionTipo;
       !!@ ili2db.dispName = "Vendedor dispuesto a firmar escritura"
-      Vendedor_Dispuesto_Firmar_Escritura : ANT_V2_11.ANT_AfirmacionTipo;
+      Vendedor_Dispuesto_Firmar_Escritura : ANT_V3_0.ANT_AfirmacionTipo;
       !!@ ili2db.dispName = "Documento tiene nombre de tercero"
-      Documento_Tiene_Nombre_Tercero : ANT_V2_11.ANT_DocumentoNombreTipo;
-      !!@ ili2db.dispName = "A√±o de fallecimiento de persona herencia"
+      Documento_Tiene_Nombre_Tercero : ANT_V3_0.ANT_DocumentoNombreTipo;
+      !!@ ili2db.dispName = "AÒo de fallecimiento de persona herencia"
       Anio_Fallecimiento_Persona_Herencia : 1500 .. 2500;
-      !!@ ili2db.dispName = "Deja herencia el verdadero due√±o"
-      Deja_herencia_Verdadero_Duenio : ANT_V2_11.ANT_AfirmacionTipo;
-      !!@ ili2db.dispName = "Documento tiene nombre de quien dej√≥ herencia"
-      Documento_Tiene_Nombre_Dejo_Herencia : ANT_V2_11.ANT_DocumentoNombreTipo;
+      !!@ ili2db.dispName = "Deja herencia el verdadero dueÒo"
+      Deja_herencia_Verdadero_Duenio : ANT_V3_0.ANT_AfirmacionTipo;
+      !!@ ili2db.dispName = "Documento tiene nombre de quien dejÛ herencia"
+      Documento_Tiene_Nombre_Dejo_Herencia : ANT_V3_0.ANT_DocumentoNombreTipo;
       !!@ ili2db.dispName = "Parentesco persona herencia"
-      Parentesco_Persona_Herencia : ANT_V2_11.ANT_ParentescoTipo;
+      Parentesco_Persona_Herencia : ANT_V3_0.ANT_ParentescoTipo;
       !!@ ili2db.dispName = "Existen herederos"
-      Existe_Herederos : ANT_V2_11.ANT_AfirmacionTipo;
+      Existe_Herederos : ANT_V3_0.ANT_AfirmacionTipo;
       !!@ ili2db.dispName = "Lista de otros herederos"
       Lista_Otros_Herederos : TEXT*4096;
-      !!@ ili2db.dispName = "Herederos acuerdo a adelantar sucesi√≥n"
-      Herederos_Acuerdo_Adelantar_sucesion : ANT_V2_11.ANT_AfirmacionTipo;
-      !!@ ili2db.dispName = "Nombre due√±o del predio"
+      !!@ ili2db.dispName = "Herederos acuerdo a adelantar sucesiÛn"
+      Herederos_Acuerdo_Adelantar_sucesion : ANT_V3_0.ANT_AfirmacionTipo;
+      !!@ ili2db.dispName = "Nombre dueÒo del predio"
       Nombre_Duenio_predio : TEXT*500;
       !!@ ili2db.dispName = "Parentesco persona donante"
-      Parentesco_Persona_Donante : ANT_V2_11.ANT_ParentescoTipo;
+      Parentesco_Persona_Donante : ANT_V3_0.ANT_ParentescoTipo;
       !!@ ili2db.dispName = "Cantidad de personas que recibieron el predio"
       Cantidad_Presonas_Recibieron_Predio : 0 .. 20000;
-      !!@ ili2db.dispName = "Documentos respaldo de la donaci√≥n"
-      Documentos_Respaldo_Donacion : ANT_V2_11.ANT_DocumentoRespaldoDonacionTipo;
-      !!@ ili2db.dispName = "Clase de explotaci√≥n"
+      !!@ ili2db.dispName = "Documentos respaldo de la donaciÛn"
+      Documentos_Respaldo_Donacion : ANT_V3_0.ANT_DocumentoRespaldoDonacionTipo;
+      !!@ ili2db.dispName = "Clase de explotaciÛn"
       Clase_Explotacion : TEXT*100;
       !!@ ili2db.dispName = "Otro"
       Otro : TEXT*500;
-      !!@ ili2db.dispName = "√Årea de explotaci√≥n aproximada"
-      Area_Explotacion_Aprox : 0.0 .. 9999999999999.9 [LADM_COL_V1_7.m2];
-      !!@ ili2db.dispName = "Fecha de explotaci√≥n del predio"
+      !!@ ili2db.dispName = "¡rea de explotaciÛn aproximada"
+      Area_Explotacion_Aprox : 0.0 .. 9999999999999.9 [LADM_COL_V3_0.m2];
+      !!@ ili2db.dispName = "Fecha de explotaciÛn del predio"
       Fecha_Explota_Predio : INTERLIS.XMLDate;
-      !!@ ili2db.dispName = "Qui√©nes habitan el predio"
+      !!@ ili2db.dispName = "QuiÈnes habitan el predio"
       Quienes_Habitan_Predio : TEXT*4096;
     END ANT_Solicitud;
 
     ASSOCIATION ant_conflictos_predio =
-      lc_predio (EXTERNAL) -- {1} Levantamiento_Catastral_V2_11.Levantamiento_Catastral.LC_Predio;
+      lc_predio (EXTERNAL) -- {1} Levantamiento_Catastral_V3_0.Levantamiento_Catastral.LC_Predio;
       ant_conflictos -- {0..*} ANT_Conflictos;
     END ant_conflictos_predio;
 
     ASSOCIATION ant_interesado_interesadocaracterizacion =
-      lc_interesado (EXTERNAL) -- {1} Levantamiento_Catastral_V2_11.Levantamiento_Catastral.LC_Interesado;
+      lc_interesado (EXTERNAL) -- {1} Levantamiento_Catastral_V3_0.Levantamiento_Catastral.LC_Interesado;
       ant_interesado_caracterizacion -- {0..1} ANT_InteresadoCaracterizacion;
     END ant_interesado_interesadocaracterizacion;
 
@@ -488,20 +488,20 @@ VERSION "2019-07-04"  =
     END ant_interesado_nucleofamiliar;
 
     ASSOCIATION ant_interesado_solicitud =
-      lc_interesado (EXTERNAL) -- {1} Levantamiento_Catastral_V2_11.Levantamiento_Catastral.LC_Interesado;
+      lc_interesado (EXTERNAL) -- {1} Levantamiento_Catastral_V3_0.Levantamiento_Catastral.LC_Interesado;
       ant_solicitud -- {0..*} ANT_Solicitud;
     END ant_interesado_solicitud;
 
     ASSOCIATION ant_interesadocontacto_datosalterno =
-      lc_interesado_contacto (EXTERNAL) -- {0..1} Levantamiento_Catastral_V2_11.Levantamiento_Catastral.LC_InteresadoContacto;
+      lc_interesado_contacto (EXTERNAL) -- {0..1} Levantamiento_Catastral_V3_0.Levantamiento_Catastral.LC_InteresadoContacto;
       ant_interesado_contacto_datos_alterno -- {0..*} ANT_InteresadoContactoDatosAlterno;
     END ant_interesadocontacto_datosalterno;
 
     ASSOCIATION ant_predio_solicitud =
-      lc_predio (EXTERNAL) -- {0..1} Levantamiento_Catastral_V2_11.Levantamiento_Catastral.LC_Predio;
+      lc_predio (EXTERNAL) -- {0..1} Levantamiento_Catastral_V3_0.Levantamiento_Catastral.LC_Predio;
       ant_solicitud -- {0..*} ANT_Solicitud;
     END ant_predio_solicitud;
 
   END Fiso;
 
-END ANT_V2_11.
+END ANT_V3_0.
