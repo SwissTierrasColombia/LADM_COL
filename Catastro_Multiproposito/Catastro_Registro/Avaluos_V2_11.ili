@@ -1241,7 +1241,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       /** Código único del registro de la instancia de ZonaHomegeneaFisca.
        */
       !!@ ili2db.dispName = "Código"
-      Codigo : MANDATORY TEXT*7;
+      Codigo : MANDATORY TEXT*20;
       /** Identificador de la zona homogénea física rural.
        */
       !!@ ili2db.dispName = "Código zona física"
@@ -1283,7 +1283,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       /** Código único del registro de la instancia de ZonaHomegeneaFisca.
        */
       !!@ ili2db.dispName = "Código"
-      Codigo : MANDATORY TEXT*7;
+      Codigo : MANDATORY TEXT*20;
       /** Identificador de la zona homogénea física urbana.
        */
       !!@ ili2db.dispName = "Código zona física"
@@ -1329,7 +1329,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       /** Código único del registro de la instancia de la zona geoeconómica.
        */
       !!@ ili2db.dispName = "Código"
-      Codigo : MANDATORY TEXT*7;
+      Codigo : MANDATORY TEXT*20;
       /** Identificador de la zona homogénea geoeconómica urbana.
        */
       !!@ ili2db.dispName = "Código zona geoeconómica"
@@ -1359,7 +1359,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       /** Código único del registro de la instancia de la zona geoeconómica.
        */
       !!@ ili2db.dispName = "Código"
-      Codigo : MANDATORY TEXT*7;
+      Codigo : MANDATORY TEXT*20;
       /** Identificador de la zona homogénea geoeconómica rural.
        */
       !!@ ili2db.dispName = "Código zona geoeconómica"

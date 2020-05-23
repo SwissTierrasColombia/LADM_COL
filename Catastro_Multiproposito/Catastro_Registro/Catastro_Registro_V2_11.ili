@@ -409,6 +409,19 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Comercial
     );
 
+    CR_CategoriaSueloTipo = (
+      /** Constituyen esta categoría las áreas ubicadas dentro del suelo rural, en las que se mezclan los usos del suelo y las formas de vida del campo y la ciudad, diferentes a las clasificadas como áreas de expansión urbana, que pueden ser objeto de desarrollo con restricciones de uso, de intensidad y de densidad, garantizando el autoabastecimiento en servicios públicos domiciliarios, de conformidad con lo establecido en la Ley 99 de 1993 y en la Ley 142 de 1994. Podrán formar parte de esta categoría los suelos correspondientes a los corredores urbanos interregionales.
+       * 
+       * Los municipios y distritos deberán establecer las regulaciones complementarias tendientes a impedir el desarrollo de actividades y usos urbanos en estas áreas, sin que previamente se surta el proceso de incorporación al suelo urbano, para lo cual deberán contar con la infraestructura de espacio público, de infraestructura vial y redes de energía, acueducto y alcantarillado requerida para este tipo de suelo. (Artículo 34, Ley 388 de 1997)
+       */
+      !!@ ili2db.dispName = "Suburbano"
+      Suburbano,
+      /** Constituido por las zonas y áreas de terrenos localizados dentro de cualquiera de las anteriores clases, que por sus características geográficas, paisajísticas o ambientales, o por formar parte de las zonas de utilidad pública para la ubicación de infraestructuras para la provisión de servicios públicos domiciliarios o de las áreas de amenazas y riesgo no mitigable para la localización de asentamientos humanos, tiene restringida la posibilidad de urbanizarse. (Articulo 35, Ley 388 de 1997)
+       */
+      !!@ ili2db.dispName = "Protección"
+      Proteccion
+    );
+
     CR_ClaseCalificacionTipo = (
       /** En construcción, es el nombre que recibe el conjunto de elementos, unidos, ensamblados o conectados entre sí, que tienen la función de recibir cargas, soportar esfuerzos y transmitir esas cargas al suelo, garantizando así la función estático - resistente de la construcción. Sus componentes son: armazon, muros y cubierta.
        */
@@ -2889,56 +2902,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Matrícula inmobiliaria"
       Matricula_Inmobiliaria : TEXT*80;
-      /** Es la fecha en la cual se abrió el Folio de matricula inmobiliaria.
-       */
-      !!@ ili2db.dispName = "Fecha de apertura FMI"
-      Fecha_Apertura_FMI : INTERLIS.XMLDate;
-      /** se refiere a la situación actual en la que se encuentra una matricula inmobiliaria.
-       */
-      !!@ ili2db.dispName = "Estado del FMI"
-      Estado_FMI : Catastro_Registro_V2_11.CR_EstadoFMITipo;
-      /** Nuevo código númerico de treinta (30) dígitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi.
-       */
-      !!@ ili2db.dispName = "Número predial"
-      Numero_Predial : TEXT*30;
-      /** Anterior código númerico de veinte (20) digitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi.
-       */
-      !!@ ili2db.dispName = "Número predial anterior"
-      Numero_Predial_Anterior : TEXT*20;
-      /** Clasificación del suelo según el instrumento de planeación vigente.
-       */
-      !!@ ili2db.dispName = "Clase del suelo"
-      Clase_Suelo : MANDATORY Catastro_Registro_V2_11.CR_ClaseSueloTipo;
-      /** Valor catastral del predio, obtenido mediante investigación y análisis estadístico del mercado inmobiliario y la metodología de aplicación correspondiente.
-       */
-      !!@ ili2db.dispName = "Avalúo Catastral"
-      Avaluo_Catastral : BAG {0..*} OF Catastro_Registro_V2_11.Catastro_Registro.CR_EstructuraAvaluoCatastral;
-      /** Caracterización temática del predio.
-       */
-      !!@ ili2db.dispName = "Condición del predio"
-      Condicion_Predio : MANDATORY Catastro_Registro_V2_11.CR_CondicionPredioTipo;
-      !!@ ili2db.dispName = "Fecha de inscripción catastral"
-      Fecha_Inscripcion_Catastral : INTERLIS.XMLDate;
-      !!@ ili2db.dispName = "Año de la última mutación"
-      Anio_Ultima_Mutacion : 1512 .. 2550;
-      !!@ ili2db.dispName = "Tipo de predio"
-      Tipo (EXTENDED) : MANDATORY Catastro_Registro_V2_11.CR_PredioTipo;
-      /** Es la clasificación para fines estadísticos que se da a cada inmueble en su conjunto–terreno, construcciones o edificaciones-, en el momento de la identificación predial de conformidad con la actividad predominante que en él se desarrolle.
-       */
-      !!@ ili2db.dispName = "Destinación económica"
-      Destinacion_Economica : Catastro_Registro_V2_11.CR_DestinacionEconomicaTipo;
-      /** Dirección del predio.
-       */
-      !!@ ili2db.dispName = "Dirección"
-      Direccion : BAG {1..*} OF LADM_COL_V1_7.LADM_Nucleo.ExtDireccion;
-      /** Es la matrícula por la cual se dio apertura al predio objeto de estudio (la madre).
-       */
-      !!@ ili2db.dispName = "Matrícula predio matriz"
-      Matricula_Matriz : BAG {0..*} OF Catastro_Registro_V2_11.Catastro_Registro.CR_EstructuraMatriculaMatriz;
-      /** Las matriculas aperturadas con base en el folio objeto de estudio (los hijos).
-       */
-      !!@ ili2db.dispName = "Matrícula predios segregados"
-      Matricula_Segregados : BAG {0..*} OF Catastro_Registro_V2_11.Catastro_Registro.CR_EstructuraMatriculaSegregados;
       /** Indica si el predio según la información registral cuenta con el valor de área en la cabida y linderos.
        */
       !!@ ili2db.dispName = "¿El predio tiene área registral?"
@@ -2947,11 +2910,62 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Área registral en metros cuadrados"
       Area_Registral_M2 : 0.00 .. 10000000000000000000000.00 [LADM_COL_V1_7.m2];
+      /** se refiere a la situación actual en la que se encuentra una matricula inmobiliaria.
+       */
+      !!@ ili2db.dispName = "Estado del FMI"
+      Estado_FMI : Catastro_Registro_V2_11.CR_EstadoFMITipo;
+      /** Es la fecha en la cual se abrió el Folio de matricula inmobiliaria.
+       */
+      !!@ ili2db.dispName = "Fecha de apertura FMI"
+      Fecha_Apertura_FMI : INTERLIS.XMLDate;
+      /** Es la matrícula por la cual se dio apertura al predio objeto de estudio (la madre).
+       */
+      !!@ ili2db.dispName = "Matrícula predio matriz"
+      Matricula_Matriz : BAG {0..*} OF Catastro_Registro_V2_11.Catastro_Registro.CR_EstructuraMatriculaMatriz;
+      /** Las matriculas aperturadas con base en el folio objeto de estudio (los hijos).
+       */
+      !!@ ili2db.dispName = "Matrícula predios segregados"
+      Matricula_Segregados : BAG {0..*} OF Catastro_Registro_V2_11.Catastro_Registro.CR_EstructuraMatriculaSegregados;
+      /** Nuevo código númerico de treinta (30) dígitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi.
+       */
+      !!@ ili2db.dispName = "Número predial"
+      Numero_Predial : TEXT*30;
+      /** Anterior código númerico de veinte (20) digitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi.
+       */
+      !!@ ili2db.dispName = "Número predial anterior"
+      Numero_Predial_Anterior : TEXT*20;
+      !!@ ili2db.dispName = "Fecha de inscripción catastral"
+      Fecha_Inscripcion_Catastral : INTERLIS.XMLDate;
+      !!@ ili2db.dispName = "Año de la última mutación"
+      Anio_Ultima_Mutacion : 1512 .. 2550;
+      /** Dirección del predio.
+       */
+      !!@ ili2db.dispName = "Dirección"
+      Direccion : BAG {1..*} OF LADM_COL_V1_7.LADM_Nucleo.ExtDireccion;
+      /** Clasificación del suelo según el instrumento de planeación vigente.
+       */
+      !!@ ili2db.dispName = "Clase del suelo"
+      Clase_Suelo : MANDATORY Catastro_Registro_V2_11.CR_ClaseSueloTipo;
+      !!@ ili2db.dispName = "Categoría del suelo"
+      Categoria_Suelo : Catastro_Registro_V2_11.CR_CategoriaSueloTipo;
+      /** Caracterización temática del predio.
+       */
+      !!@ ili2db.dispName = "Condición del predio"
+      Condicion_Predio : MANDATORY Catastro_Registro_V2_11.CR_CondicionPredioTipo;
+      /** Es la clasificación para fines estadísticos que se da a cada inmueble en su conjunto–terreno, construcciones o edificaciones-, en el momento de la identificación predial de conformidad con la actividad predominante que en él se desarrolle.
+       */
+      !!@ ili2db.dispName = "Destinación económica"
+      Destinacion_Economica : Catastro_Registro_V2_11.CR_DestinacionEconomicaTipo;
+      !!@ ili2db.dispName = "Tipo de predio"
+      Tipo (EXTENDED) : MANDATORY Catastro_Registro_V2_11.CR_PredioTipo;
+      /** Valor catastral del predio, obtenido mediante investigación y análisis estadístico del mercado inmobiliario y la metodología de aplicación correspondiente.
+       */
+      !!@ ili2db.dispName = "Avalúo Catastral"
+      Avaluo_Catastral : BAG {0..*} OF Catastro_Registro_V2_11.Catastro_Registro.CR_EstructuraAvaluoCatastral;
       /** Se considerará como procedimientos catastrales con efectos registrales los siguientes: actualización de linderos, rectificación de área por imprecisa determinación, actualización masiva y puntual de linderos y áreas, rectificación de linderos por acuerdo entre las partes, e inclusión de área y/o linderos.
        */
       !!@ ili2db.dispName = "Procedimientos catastrales con efectos registrales"
       Procedimiento_Catastral_Registral : MANDATORY Catastro_Registro_V2_11.CR_ProcedimientoCatastralRegistralTipo;
-      Categoria_Suelo : TEXT*20;
       UNIQUE NUPRE; 
     END CR_Predio;
 
