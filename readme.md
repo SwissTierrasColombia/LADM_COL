@@ -1,3 +1,5 @@
+<h1>AVISO IMPORTANTE: A partir del 23 de mayo se versionan los archivos del modelo a 3 que se encuentran en la rama ladmcol2_11, pero aún NO es oficial el modelo, aún NO se recomienda para ambientes de producción</h1>
+
 <p>MODERNIZACIÓN DE LA ADMINISTRACIÓN DE TIERRAS EN COLOMBIA</p>
 <p>Documentación del perfil colombiano de la norma ISO19152:2012 (LADM-COL)</p>
 <p>Modelos Catastro Multipropósito:</p>
