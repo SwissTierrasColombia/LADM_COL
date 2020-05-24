@@ -5,7 +5,7 @@ INTERLIS 2.3;
  * -----------------------------------------------------------
  *  Revisiones historicas
  *  2017.06.02 vbp: Extraido el modelo a parir del TOPIC del mismo nombre en el modelo de Catastro y Registro
- *  2017.06.29 vbp: AÒadidos dominios procedentes de Catastro-Registro
+ *  2017.06.29 vbp: A√±adidos dominios procedentes de Catastro-Registro
  *  2017.06.29 vbp: Extraidos dominios de valores de atributos de las clases --> integridad estructural, facilidad de lectura, unicidad de criterio en todos los modelos.
  * -----------------------------------------------------------
  * 
@@ -16,9 +16,9 @@ INTERLIS 2.3;
  *  07.03.2018/fm-gc : Cambio en tipo de geometria de las clases Zona_Homogenea_Fisica y Zona_Homogenea_Geoeconomica de GM_Surface2D a GM_MultiSurface2D
  *  08.03.2018/fm-gc: se ajusta la cardinalidad de atributo Comun_Uso_Exclusivo en la clase Predio
  *  09.07.2018/ : Cambio en cardinalidad en asociaciones avaluoConstruccion y AvaluoUnidadConstruccion de 1 a 0..1
- * 08.08.2018/ : (AT) Se agrega la clase abstracta Calificacion_Unidad_Construccion con clases especializadas Calificacion_No_Convencional y Calificacion_Convencional; Cambio en la cardinalidad de relaciÛn entre Unidad_Construccion y Calificacion_Unidad_Construccion pasa de 1 - 1..* a 1 - 1; Cambio en los valores del dominio COL_AccesoTipo; Se agrega el atributo numÈrico Nivel_de_Acceso en clase Unidad_Construccion; Cambio en el nombre del atributo Actividad_Econo por Uso; Se agrega el dominio COL_UsoConstruccionTipo para que tengan correspondencia con dominios SNC; Cambio en tipo de dato Material de manera que se quita el dominio y se deja abierto para el operador; Cambio en los valores del dominio COL_DestinoEconomicoTipo; Se elimina el atributo numero_total_pisos de clase Unidad_Construccion; Se cambia la cardinalidad de los atributos de Unidad_Construccion y Predio; Cambio de nombre en los atributos Conservacion_Cubierta y Puntos_Cubierta_Conservacion de la clase Calificacion_Convencional por Conservacion_Estructura y Puntos_Estructura_Conservacion; Ajuste de valores de los dominio COL_TipoCalificarTipo, COL_ArmazonTipo, COL_MurosTipo, COL_CubiertaTipo, COL_CubrimientoMurosTipo, COL_CalidadEnchapeTipo; Se agregan los dominios COL_ConservacionCalificacion y COL_AnexoTipo; Se adiciona el atributo Num_Sotanos en la clase Predio_Matriz_PH
+ * 08.08.2018/ : (AT) Se agrega la clase abstracta Calificacion_Unidad_Construccion con clases especializadas Calificacion_No_Convencional y Calificacion_Convencional; Cambio en la cardinalidad de relaci√≥n entre Unidad_Construccion y Calificacion_Unidad_Construccion pasa de 1 - 1..* a 1 - 1; Cambio en los valores del dominio COL_AccesoTipo; Se agrega el atributo num√©rico Nivel_de_Acceso en clase Unidad_Construccion; Cambio en el nombre del atributo Actividad_Econo por Uso; Se agrega el dominio COL_UsoConstruccionTipo para que tengan correspondencia con dominios SNC; Cambio en tipo de dato Material de manera que se quita el dominio y se deja abierto para el operador; Cambio en los valores del dominio COL_DestinoEconomicoTipo; Se elimina el atributo numero_total_pisos de clase Unidad_Construccion; Se cambia la cardinalidad de los atributos de Unidad_Construccion y Predio; Cambio de nombre en los atributos Conservacion_Cubierta y Puntos_Cubierta_Conservacion de la clase Calificacion_Convencional por Conservacion_Estructura y Puntos_Estructura_Conservacion; Ajuste de valores de los dominio COL_TipoCalificarTipo, COL_ArmazonTipo, COL_MurosTipo, COL_CubiertaTipo, COL_CubrimientoMurosTipo, COL_CalidadEnchapeTipo; Se agregan los dominios COL_ConservacionCalificacion y COL_AnexoTipo; Se adiciona el atributo Num_Sotanos en la clase Predio_Matriz_PH
  * 21.08.2018/ : (AT) Se modifica el atributo Cercania_Hitos de la clase Predio dejandolo de tipo String
- * 23.08.2018/ : (AT) Se cambia el nombre de la relaciÛn y de los roles entre unidad_construccion y calificacion_unidad_construccion
+ * 23.08.2018/ : (AT) Se cambia el nombre de la relaci√≥n y de los roles entre unidad_construccion y calificacion_unidad_construccion
  * 
  * -----------------------------------------------------------
  * 
@@ -34,136 +34,136 @@ VERSION "V2.2.1"  // 2018-02-01 // =
   DOMAIN
 
     AV_DisponibilidadAguaTipo = (
-      /** Se consideran aquellas que poseen sistemas de riego bien sea por gravedad o por sistemas mec·nicos, o afiliadas a distritos de riego de manera que disponen de agua en forma permanente durante todo el aÒo.
+      /** Se consideran aquellas que poseen sistemas de riego bien sea por gravedad o por sistemas mec√°nicos, o afiliadas a distritos de riego de manera que disponen de agua en forma permanente durante todo el a√±o.
        */
       !!@ ili2db.dispName = "Zonas con aguas abundantes"
       Zonas_Con_Aguas_Abundantes,
-      /** Son aquellas zonas que poseen fuentes de aguas en forma permanente, bien sean corrientes o estancadas, pero que debido a limitaciones de pendiente se dificulta su utilizaciÛn para fines de riego o aprovechamiento ganadero.
+      /** Son aquellas zonas que poseen fuentes de aguas en forma permanente, bien sean corrientes o estancadas, pero que debido a limitaciones de pendiente se dificulta su utilizaci√≥n para fines de riego o aprovechamiento ganadero.
        */
       !!@ ili2db.dispName = "Zonas con aguas suficientes"
       Zonas_Con_Aguas_Suficientes,
-      /** Son aquellas zonas con fuentes de aguas permanentes o semipermanentes pero con limitaciones de aprovechamiento a causa de la pendiente de terreno o a causa de la calidad de los suelos que limitan su uso agrÌcola o ganadero.
+      /** Son aquellas zonas con fuentes de aguas permanentes o semipermanentes pero con limitaciones de aprovechamiento a causa de la pendiente de terreno o a causa de la calidad de los suelos que limitan su uso agr√≠cola o ganadero.
        */
       !!@ ili2db.dispName = "Zonas con aguas escasas"
       Zonas_Con_Aguas_Escasas,
-      /** Donde solo hay posibilidades de agua en el invierno Û zonas de pendientes mayores al 50%, en las cuales el aprovechamiento se hace imposible.
+      /** Donde solo hay posibilidades de agua en el invierno √≥ zonas de pendientes mayores al 50%, en las cuales el aprovechamiento se hace imposible.
        */
       !!@ ili2db.dispName = "Zonas sin agua"
       Zonas_Sin_Aguas
     );
 
     AV_InfluenciaVialRuralTipo = (
-      /** Son aquellas zonas que est·n comunicadas por vÌas pavimentadas de primer orden tipo 1
+      /** Son aquellas zonas que est√°n comunicadas por v√≠as pavimentadas de primer orden tipo 1
        */
-      !!@ ili2db.dispName = "Buenas 1 - Pavimentada, dos o m·s vÌas"
+      !!@ ili2db.dispName = "Buenas 1 - Pavimentada, dos o m√°s v√≠as"
       Buenas_1,
-      /** Son aquellas zonas que est·n comunicadas por vÌa destapadas tipo 2
+      /** Son aquellas zonas que est√°n comunicadas por v√≠a destapadas tipo 2
        */
-      !!@ ili2db.dispName = "Buenas 2 - Sin pavimentar, dos o m·s vÌas"
+      !!@ ili2db.dispName = "Buenas 2 - Sin pavimentar, dos o m√°s v√≠as"
       Buenas_2,
-      /** Aquellas que presentan vÌas de tipo 3 y 4. De regular desarrollo agropecuario; por lo general son zonas de ganaderÌa extensiva o de agricultura de subsistencia. Las pendientes van de inclinadas a fuertemente inclinadas. M·s alejadas de los centros Urbanos. Pavimentadas, vÌa angosta.
+      /** Aquellas que presentan v√≠as de tipo 3 y 4. De regular desarrollo agropecuario; por lo general son zonas de ganader√≠a extensiva o de agricultura de subsistencia. Las pendientes van de inclinadas a fuertemente inclinadas. M√°s alejadas de los centros Urbanos. Pavimentadas, v√≠a angosta.
        */
-      !!@ ili2db.dispName = "Regulares 3 - Pavimentadas, vÌa angosta"
+      !!@ ili2db.dispName = "Regulares 3 - Pavimentadas, v√≠a angosta"
       Regulares_3,
-      /** Aquellas que presentan vÌas de tipo 3 y 4. De regular desarrollo agropecuario; por lo general son zonas de ganaderÌa extensiva o de agricultura de subsistencia. Las pendientes van de inclinadas a fuertemente inclinadas. M·s alejadas de los centros Urbanos. Sin pavimentar, vÌa angosta.
+      /** Aquellas que presentan v√≠as de tipo 3 y 4. De regular desarrollo agropecuario; por lo general son zonas de ganader√≠a extensiva o de agricultura de subsistencia. Las pendientes van de inclinadas a fuertemente inclinadas. M√°s alejadas de los centros Urbanos. Sin pavimentar, v√≠a angosta.
        */
-      !!@ ili2db.dispName = "Regulares 4 - Sin pavimentar, vÌa angosta"
+      !!@ ili2db.dispName = "Regulares 4 - Sin pavimentar, v√≠a angosta"
       Regulares_4,
-      /** Presentan en su mayorÌa vÌas de tipo 5 en adelante; zonas dedicadas a la agricultura y ganaderÌa extensiva; zonas de pendiente fuertemente inclinadas y relieve quebrado o escarpado. Si se presentan zonas con pendientes menores estas, por lo general, est·n erosionadas. Las vÌas malas se presentan, con mayor frecuencia en zonas muy alejadas de los centros urbanos.
+      /** Presentan en su mayor√≠a v√≠as de tipo 5 en adelante; zonas dedicadas a la agricultura y ganader√≠a extensiva; zonas de pendiente fuertemente inclinadas y relieve quebrado o escarpado. Si se presentan zonas con pendientes menores estas, por lo general, est√°n erosionadas. Las v√≠as malas se presentan, con mayor frecuencia en zonas muy alejadas de los centros urbanos.
        * Transitables en tiempo seco
        */
       !!@ ili2db.dispName = "Malas 5 - Transitable en tiempo seco"
       Malas_5,
-      /** Presentan en su mayorÌa vÌas de tipo 5 en adelante; zonas dedicadas a la agricultura y ganaderÌa extensiva; zonas de pendiente fuertemente inclinadas y relieve quebrado o escarpado. Si se presentan zonas con pendientes menores estas, por lo general, est·n erosionadas. Las vÌas malas se presentan, con mayor frecuencia en zonas muy alejadas de los centros urbanos.
-       * Carreteable solo para vehÌculos
+      /** Presentan en su mayor√≠a v√≠as de tipo 5 en adelante; zonas dedicadas a la agricultura y ganader√≠a extensiva; zonas de pendiente fuertemente inclinadas y relieve quebrado o escarpado. Si se presentan zonas con pendientes menores estas, por lo general, est√°n erosionadas. Las v√≠as malas se presentan, con mayor frecuencia en zonas muy alejadas de los centros urbanos.
+       * Carreteable solo para veh√≠culos
        */
-      !!@ ili2db.dispName = "Malas 6 - Carreteable sÛlo para vehÌculos medianos"
+      !!@ ili2db.dispName = "Malas 6 - Carreteable s√≥lo para veh√≠culos medianos"
       Malas_6,
-      /** Presentan en su mayorÌa vÌas de tipo 5 en adelante; zonas dedicadas a la agricultura y ganaderÌa extensiva; zonas de pendiente fuertemente inclinadas y relieve quebrado o escarpado. Si se presentan zonas con pendientes menores estas, por lo general, est·n erosionadas. Las vÌas malas se presentan, con mayor frecuencia en zonas muy alejadas de los centros urbanos.
+      /** Presentan en su mayor√≠a v√≠as de tipo 5 en adelante; zonas dedicadas a la agricultura y ganader√≠a extensiva; zonas de pendiente fuertemente inclinadas y relieve quebrado o escarpado. Si se presentan zonas con pendientes menores estas, por lo general, est√°n erosionadas. Las v√≠as malas se presentan, con mayor frecuencia en zonas muy alejadas de los centros urbanos.
        * Camino real o de herradura.
        */
       !!@ ili2db.dispName = "Malas 7 - Camino real o de herradura"
       Malas_7,
-      /** Carecen de vÌas de comunicaciÛn importantes y solo se presentan caminos para el tr·nsito de personas o animales de carga. Sendero
+      /** Carecen de v√≠as de comunicaci√≥n importantes y solo se presentan caminos para el tr√°nsito de personas o animales de carga. Sendero
        */
-      !!@ ili2db.dispName = "Sin vÌas 8 - Sendero"
+      !!@ ili2db.dispName = "Sin v√≠as 8 - Sendero"
       Sin_Vias_8,
-      /** Carecen de vÌas de comunicaciÛn importantes y solo se presentan caminos para el tr·nsito de personas o animales de carga. Sin vÌas.
+      /** Carecen de v√≠as de comunicaci√≥n importantes y solo se presentan caminos para el tr√°nsito de personas o animales de carga. Sin v√≠as.
        */
-      !!@ ili2db.dispName = "Sin vÌas 9 - Sin vÌas"
+      !!@ ili2db.dispName = "Sin v√≠as 9 - Sin v√≠as"
       Sin_Vias_9
     );
 
     AV_InfluenciaVialUrbanaTipo = (
-      /** Aquella zona en la cual las vÌas vehiculares han sido revestidas de asfalto o pavimento.
+      /** Aquella zona en la cual las v√≠as vehiculares han sido revestidas de asfalto o pavimento.
        */
       !!@ ili2db.dispName = "Pavimentadas"
       Pavimentadas,
-      /** Zona donde las vÌas realizadas no han sido revestidas por ning˙n material resistente al uso y la intemperie.
+      /** Zona donde las v√≠as realizadas no han sido revestidas por ning√∫n material resistente al uso y la intemperie.
        */
       !!@ ili2db.dispName = "Sin pavimentar"
       Sin_Pavimentar,
-      /** Zona donde las vÌas realizadas no han sido revestidas por ning˙n material resistente al uso y la intemperie.
+      /** Zona donde las v√≠as realizadas no han sido revestidas por ning√∫n material resistente al uso y la intemperie.
        */
       !!@ ili2db.dispName = "Peatonales"
       Peatonales,
-      /** Aquellas zonas donde no se ha realizado el trazado de vÌas.
+      /** Aquellas zonas donde no se ha realizado el trazado de v√≠as.
        */
-      !!@ ili2db.dispName = "Sin vÌas"
+      !!@ ili2db.dispName = "Sin v√≠as"
       Sin_Vias
     );
 
     AV_ServiciosPublicosTipo = (
-      /** Corresponde a las ·reas dentro del perÌmetro urbano (cabecera y corregimientos) donde no existen servicios p˙blicos b·sicos.
+      /** Corresponde a las √°reas dentro del per√≠metro urbano (cabecera y corregimientos) donde no existen servicios p√∫blicos b√°sicos.
        */
       !!@ ili2db.dispName = "Sin servicios"
       Sin_Servicios,
-      /** Aquella que carece de por lo menos uno de los servicios b·sicos. La existencia de otro tipo de servicios no mejora la condiciÛn en cuanto a servicios b·sicos.
+      /** Aquella que carece de por lo menos uno de los servicios b√°sicos. La existencia de otro tipo de servicios no mejora la condici√≥n en cuanto a servicios b√°sicos.
        */
-      !!@ ili2db.dispName = "Servicios b·sicos incompletos"
+      !!@ ili2db.dispName = "Servicios b√°sicos incompletos"
       Servicios_Basicos_incompletos,
-      /** Se califica en aquellos sectores que cuentan con la prestaciÛn de los tres servicios b·sicos (acueducto, energÌa y alcantarillado), que cuente con la infraestructura para garantizar la prestaciÛn del servicio.
+      /** Se califica en aquellos sectores que cuentan con la prestaci√≥n de los tres servicios b√°sicos (acueducto, energ√≠a y alcantarillado), que cuente con la infraestructura para garantizar la prestaci√≥n del servicio.
        */
-      !!@ ili2db.dispName = "Servicios b·sicos completos"
+      !!@ ili2db.dispName = "Servicios b√°sicos completos"
       Servicios_Basicos_Completos,
-      /** Sectores que adem·s de contar con acueducto, energÌa y alcantarillado, poseen la prestaciÛn de uno, o m·s servicios adicionales tales como: telÈfono, gas, alumbrado p˙blico, alcantarillado de aguas lluvias, etc.
+      /** Sectores que adem√°s de contar con acueducto, energ√≠a y alcantarillado, poseen la prestaci√≥n de uno, o m√°s servicios adicionales tales como: tel√©fono, gas, alumbrado p√∫blico, alcantarillado de aguas lluvias, etc.
        */
-      !!@ ili2db.dispName = "Servicios b·sicos y complementarios"
+      !!@ ili2db.dispName = "Servicios b√°sicos y complementarios"
       Servicios_Basicos_Y_Complementarios
     );
 
     AV_TipificacionConstruccionTipo = (
-      /** Las viviendas que pertenecen a este grupo est·n construidas sin planeaciÛn alguna y generalmente con materiales de desecho tanto en las paredes como en los techos, construido o acondicionado para alojamiento, aunque no re˙na las condiciones sanitarias indispensables. Generalmente carecen de alg˙n servicio p˙blico b·sico y/o est·n ubicadas en zonas marginales no urbanizadas ni urbanizables, siendo de invasiÛn y con escasez de vÌas de comunicaciÛn y transporte urbano.
+      /** Las viviendas que pertenecen a este grupo est√°n construidas sin planeaci√≥n alguna y generalmente con materiales de desecho tanto en las paredes como en los techos, construido o acondicionado para alojamiento, aunque no re√∫na las condiciones sanitarias indispensables. Generalmente carecen de alg√∫n servicio p√∫blico b√°sico y/o est√°n ubicadas en zonas marginales no urbanizadas ni urbanizables, siendo de invasi√≥n y con escasez de v√≠as de comunicaci√≥n y transporte urbano.
        */
-      !!@ ili2db.dispName = "Residencial 1 ñ (Bajo-Bajo)"
+      !!@ ili2db.dispName = "Residencial 1 ‚Äì (Bajo-Bajo)"
       Residencial_1_Bajo_Bajo,
-      /** Las viviendas que pertenecen a este grupo est·n construidas con o sin planeaciÛn y generalmente con materiales como madera, prefabricado, ladrillo o bloque, cubiertas en zinc o teja de barro y con acabados sencillos, pueden disponer de algunos servicios p˙blicos b·sicos, est·n situados por lo general en la periferia y disponen de algunas vÌas p˙blicas sin pavimentar y escasos medios de transporte.
+      /** Las viviendas que pertenecen a este grupo est√°n construidas con o sin planeaci√≥n y generalmente con materiales como madera, prefabricado, ladrillo o bloque, cubiertas en zinc o teja de barro y con acabados sencillos, pueden disponer de algunos servicios p√∫blicos b√°sicos, est√°n situados por lo general en la periferia y disponen de algunas v√≠as p√∫blicas sin pavimentar y escasos medios de transporte.
        */
-      !!@ ili2db.dispName = "Residencial 2 ñ (Bajo)"
+      !!@ ili2db.dispName = "Residencial 2 ‚Äì (Bajo)"
       Residencial_2_Bajo,
-      /** Las viviendas que pertenecen a este grupo generalmente est·n constituidas por edificaciones tÈcnicamente planeadas, con fachadas calificadas como regular, con muros de ladrillo o bloque, cubiertas de placa de concreto o teja en asbesto cemento. Generalmente cuentan con servicios p˙blicos b·sicos, poseen vÌas de comunicaciÛn pavimentadas y medio de transporte urbano.
+      /** Las viviendas que pertenecen a este grupo generalmente est√°n constituidas por edificaciones t√©cnicamente planeadas, con fachadas calificadas como regular, con muros de ladrillo o bloque, cubiertas de placa de concreto o teja en asbesto cemento. Generalmente cuentan con servicios p√∫blicos b√°sicos, poseen v√≠as de comunicaci√≥n pavimentadas y medio de transporte urbano.
        */
-      !!@ ili2db.dispName = "Residencial 3 ñ (Medio-Bajo)"
+      !!@ ili2db.dispName = "Residencial 3 ‚Äì (Medio-Bajo)"
       Residencial_3_Medio_Bajo,
-      /** Las viviendas que pertenecen a este grupo generalmente est·n constituidas por edificaciones tÈcnicamente planeadas con fachada calificada de regular a buena, estructura en concreto, muros de ladrillo o bloque revocados, estucados y pintados, cubiertas de placa de concreto o teja en asbesto cemento; baÒos y cocinas calificados como medianos enchapados.
+      /** Las viviendas que pertenecen a este grupo generalmente est√°n constituidas por edificaciones t√©cnicamente planeadas con fachada calificada de regular a buena, estructura en concreto, muros de ladrillo o bloque revocados, estucados y pintados, cubiertas de placa de concreto o teja en asbesto cemento; ba√±os y cocinas calificados como medianos enchapados.
        */
-      !!@ ili2db.dispName = "Residencial 4 ñ (Medio)"
+      !!@ ili2db.dispName = "Residencial 4 ‚Äì (Medio)"
       Residencial_4_Medio,
-      /** Las viviendas que pertenecen a este grupo generalmente est·n constituidas por edificaciones totalmente terminadas y tÈcnicamente planeadas con fachada calificada como buena asÌ como sus acabados, estructura en concreto. Generalmente cuentan con muros de ladrillo o bloque, cubiertas de placa de concreto o con materiales de buena calidad; baÒos y cocinas calificados como buenos y tamaÒo entre mediano y grande.
-       * Cuentan con todos los servicios p˙blicos b·sicos y complementarios, con grandes zonas verdes, sociales y de recreaciÛn, parqueaderos y buenas vÌas de acceso.
+      /** Las viviendas que pertenecen a este grupo generalmente est√°n constituidas por edificaciones totalmente terminadas y t√©cnicamente planeadas con fachada calificada como buena as√≠ como sus acabados, estructura en concreto. Generalmente cuentan con muros de ladrillo o bloque, cubiertas de placa de concreto o con materiales de buena calidad; ba√±os y cocinas calificados como buenos y tama√±o entre mediano y grande.
+       * Cuentan con todos los servicios p√∫blicos b√°sicos y complementarios, con grandes zonas verdes, sociales y de recreaci√≥n, parqueaderos y buenas v√≠as de acceso.
        */
-      !!@ ili2db.dispName = "Residencial 5 ñ (Medio-Alto)"
+      !!@ ili2db.dispName = "Residencial 5 ‚Äì (Medio-Alto)"
       Residencial_5_Medio_Alto,
-      /** Las viviendas que pertenecen a este grupo generalmente est·n constituidas por edificaciones con grandes ·reas, amplios jardines o apartamentos lujosos, paredes de bloque o ladrillo, cubiertas de placa de concreto o con materiales de excelente calidad y cuentan con los servicios p˙blicos b·sicos y complementarios.
-       * Estas viviendas est·n ubicadas en sectores exclusivos y disfrutan de amplias zonas verdes, sociales y de recreaciÛn, parqueaderos y excelentes vÌas de acceso.
+      /** Las viviendas que pertenecen a este grupo generalmente est√°n constituidas por edificaciones con grandes √°reas, amplios jardines o apartamentos lujosos, paredes de bloque o ladrillo, cubiertas de placa de concreto o con materiales de excelente calidad y cuentan con los servicios p√∫blicos b√°sicos y complementarios.
+       * Estas viviendas est√°n ubicadas en sectores exclusivos y disfrutan de amplias zonas verdes, sociales y de recreaci√≥n, parqueaderos y excelentes v√≠as de acceso.
        */
-      !!@ ili2db.dispName = "Residencial 6 ñ (Alto)"
+      !!@ ili2db.dispName = "Residencial 6 ‚Äì (Alto)"
       Residencial_6_Alto,
-      /** Corresponde a la venta de bienes y servicios de consumo domÈstico requeridos por la comunidad de residentes en barrios. Presenta dos modalidades principales de desarrollo: en ·reas o espacios de edificaciones residenciales que fueron destinadas al uso comercial sin adecuaciones fÌsicas importantes, ni del espacio mismo, ni del resto de la vivienda que se mantiene como tal; en establecimientos situados en edificaciones multifamiliares, en manzanas o en locales comerciales de las urbanizaciones.
+      /** Corresponde a la venta de bienes y servicios de consumo dom√©stico requeridos por la comunidad de residentes en barrios. Presenta dos modalidades principales de desarrollo: en √°reas o espacios de edificaciones residenciales que fueron destinadas al uso comercial sin adecuaciones f√≠sicas importantes, ni del espacio mismo, ni del resto de la vivienda que se mantiene como tal; en establecimientos situados en edificaciones multifamiliares, en manzanas o en locales comerciales de las urbanizaciones.
        */
       !!@ ili2db.dispName = "Comercial barrial"
       Comercial_Barrial,
-      /** Corresponde al destinado a la venta de productos y/o servicios ubicados en un sector consolidado o en proceso de consolidaciÛn.
+      /** Corresponde al destinado a la venta de productos y/o servicios ubicados en un sector consolidado o en proceso de consolidaci√≥n.
        */
       !!@ ili2db.dispName = "Comercial sectorial"
       Comercial_Sectorial
@@ -172,123 +172,123 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     AV_TipologiaTipo = (
       !!@ ili2db.dispName = "Residencial"
       Residencial(
-        /** ArmazÛn: Madera; Muro: Material de desecho, esterilla; Cubierta material desecho, telas asf·lticas; Pisos tierra pisada.
+        /** Armaz√≥n: Madera; Muro: Material de desecho, esterilla; Cubierta material desecho, telas asf√°lticas; Pisos tierra pisada.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 1A"
         Tipo_1A,
-        /** ArmazÛn: Madera; Muro: Material de bahareque, adobe, tapia; Cubierta: Zinc, teja de barro, Eternit rustico; Pisos: Cemento, madera burda
+        /** Armaz√≥n: Madera; Muro: Material de bahareque, adobe, tapia; Cubierta: Zinc, teja de barro, Eternit rustico; Pisos: Cemento, madera burda
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 1B"
         Tipo_1B,
-        /** ArmazÛn: Madera; Muros en madera; Cubierta: Zinc, teja de barro, Eternit rustico; Cubrimiento de Muros: PaÒete, papel com˙n, ladrillo presado; Pisos: Cemento, madera burda.
+        /** Armaz√≥n: Madera; Muros en madera; Cubierta: Zinc, teja de barro, Eternit rustico; Cubrimiento de Muros: Pa√±ete, papel com√∫n, ladrillo presado; Pisos: Cemento, madera burda.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 2A"
         Tipo_2A,
-        /** ArmazÛn: Prefabricado; Muros: Concreto prefabricado; Cubierta: Zinc, teja de barro, Eternit rustico; cubrimiento de Muros: PaÒete, papel com˙n,  ladrillo  presado;  Pisos:  Baldosa com˙n de cemento, TablÛn ladrillo.
+        /** Armaz√≥n: Prefabricado; Muros: Concreto prefabricado; Cubierta: Zinc, teja de barro, Eternit rustico; cubrimiento de Muros: Pa√±ete, papel com√∫n,  ladrillo  presado;  Pisos:  Baldosa com√∫n de cemento, Tabl√≥n ladrillo.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 2B"
         Tipo_2B,
-        /** ArmazÛn: Ladrillo, bloque; Muro: ladrillo, Bloque; Cubierta: Eternit o teja de barro; Cubrimiento de muros: PaÒete, papel com˙n, ladrillo prensado; Piso: Baldosa com˙n de cemento, tablÛn ladrillo.
+        /** Armaz√≥n: Ladrillo, bloque; Muro: ladrillo, Bloque; Cubierta: Eternit o teja de barro; Cubrimiento de muros: Pa√±ete, papel com√∫n, ladrillo prensado; Piso: Baldosa com√∫n de cemento, tabl√≥n ladrillo.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 3A"
         Tipo_3A,
-        /** ArmazÛn: Ladrillo, bloque; Muro: ladrillo, Bloque; Cubierta: Azotea, aluminio, placa sencilla con eternit o teja de barro; Cubrimiento muros: Estuco, cer·mica, papel fino; Piso: Baldosa com˙n de cemento, tablÛn ladrillo.
+        /** Armaz√≥n: Ladrillo, bloque; Muro: ladrillo, Bloque; Cubierta: Azotea, aluminio, placa sencilla con eternit o teja de barro; Cubrimiento muros: Estuco, cer√°mica, papel fino; Piso: Baldosa com√∫n de cemento, tabl√≥n ladrillo.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 3B"
         Tipo_3B,
-        /** ArmazÛn: Concreto hasta tres pisos, Muro: Bloque, ladrillo; Cubierta: Azotea, aluminio,
-         * placa sencilla con etnernit o teja de barro; Cubrimiento muro: estuco, cer·mica, papel fino; Piso: ListÛn machi-embredo.
+        /** Armaz√≥n: Concreto hasta tres pisos, Muro: Bloque, ladrillo; Cubierta: Azotea, aluminio,
+         * placa sencilla con etnernit o teja de barro; Cubrimiento muro: estuco, cer√°mica, papel fino; Piso: List√≥n machi-embredo.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 4A"
         Tipo_4A,
-        /** ArmazÛn: Concreto hasta tres pisos, Muro: Bloque, Ladrillo; Cubierta: Azotea, aluminio,
-         * placa sencilla con etnernit o teja de barro; Cubrimiento muro: estuco, cer·mica, papel fino; Piso: Tableta, caucho, acrilico, granito, baldosa fina.
+        /** Armaz√≥n: Concreto hasta tres pisos, Muro: Bloque, Ladrillo; Cubierta: Azotea, aluminio,
+         * placa sencilla con etnernit o teja de barro; Cubrimiento muro: estuco, cer√°mica, papel fino; Piso: Tableta, caucho, acrilico, granito, baldosa fina.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 4B"
         Tipo_4B,
-        /** ArmazÛn: Concreto hasta tres pisos; Muro: Bloque, Ladrillo; Cubierta: Azote, Aluminio, placa sencilla con eternit o teja de barro; Cubrimiento muro: Medra, Piedra ornamental; Piso: Tableta, caucho, acrilico, granito, baldosa fina
+        /** Armaz√≥n: Concreto hasta tres pisos; Muro: Bloque, Ladrillo; Cubierta: Azote, Aluminio, placa sencilla con eternit o teja de barro; Cubrimiento muro: Medra, Piedra ornamental; Piso: Tableta, caucho, acrilico, granito, baldosa fina
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 5A"
         Tipo_5A,
-        /** ArmazÛn: Concreto cuadro y m·s pisos; Muro: Bloque, Ladrillo; Cubierta: Placa impermeabilizada cubierta lujosa u ornamental; Cubrimiento muro: M·rmol, lujoso, otros; Piso: Parquet, alfombra, retal de m·rmol ( grano pequeÒo).
+        /** Armaz√≥n: Concreto cuadro y m√°s pisos; Muro: Bloque, Ladrillo; Cubierta: Placa impermeabilizada cubierta lujosa u ornamental; Cubrimiento muro: M√°rmol, lujoso, otros; Piso: Parquet, alfombra, retal de m√°rmol ( grano peque√±o).
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 5B"
         Tipo_5B,
-        /** ArmazÛn: Concreto hasta tres pisos; Muro: Bloque, ladrillo; Cubierta: Placa impermeabilizada cubierta lujosa u ornamental; Cubrimientos muros: M·rmol, lujosos otros; Piso: Parquet, alfombra, Retal de m·rmol ( grano pequeÒo).
+        /** Armaz√≥n: Concreto hasta tres pisos; Muro: Bloque, ladrillo; Cubierta: Placa impermeabilizada cubierta lujosa u ornamental; Cubrimientos muros: M√°rmol, lujosos otros; Piso: Parquet, alfombra, Retal de m√°rmol ( grano peque√±o).
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 6A"
         Tipo_6A,
-        /** ArmazÛn: Concreto cuatro o m·s pisos; Muro: Bloque, ladrillo; Cubierta: Placa impermeabilizada cubierta lujosa u ornamental; Cubrimientos muros: M·rmol, lujosos otros; Piso: Retal de m·rmol, m·rmol, otros.
+        /** Armaz√≥n: Concreto cuatro o m√°s pisos; Muro: Bloque, ladrillo; Cubierta: Placa impermeabilizada cubierta lujosa u ornamental; Cubrimientos muros: M√°rmol, lujosos otros; Piso: Retal de m√°rmol, m√°rmol, otros.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 6B"
         Tipo_6B
       ),
       !!@ ili2db.dispName = "Comercial"
       Comercial(
-        /** ArmazÛn: Madera, prefabricado
+        /** Armaz√≥n: Madera, prefabricado
          * Muros: adobe, bahareque, tapia
-         * Cubierta: Zinc, material de desecho, telas asf·lticas
+         * Cubierta: Zinc, material de desecho, telas asf√°lticas
          * Fachada: Pobre
          * Cubrimiento de Muros: Sin cubrimiento
          * Pisos: tierra, cemento o madera burda.
          */
         !!@ ili2db.dispName = "(Comercial) Barrial 1"
         Barrial_1,
-        /** ArmazÛn: Ladrillo, bloque.
+        /** Armaz√≥n: Ladrillo, bloque.
          * Muros: Ladrillo y Bloque
          * Cubierta: Zinc, Eternit o teja de barro
          * Fachada: pobre o sencilla.
-         * Cubrimiento de Muros: PaÒete, papel com˙n, ladrillo prensado, estuco, cer·mica
-         * Pisos: cemento Baldosa com˙n de cemento, TablÛn Ladrillo
+         * Cubrimiento de Muros: Pa√±ete, papel com√∫n, ladrillo prensado, estuco, cer√°mica
+         * Pisos: cemento Baldosa com√∫n de cemento, Tabl√≥n Ladrillo
          */
         !!@ ili2db.dispName = "(Comercial) Barrial 2"
         Barrial_2,
-        /** ArmazÛn: Madera, LadrillÛ, Bloque
+        /** Armaz√≥n: Madera, Ladrill√≥, Bloque
          * Muros: Madera, Bloque, concreto prefabricado
          * Cubierta: Eternit o teja de barro, Entrepiso, (cubierta provisional) Prefabricado
          * 
          * Fachada: Regular.
-         * Cubrimiento de Muros: PaÒete, papel com˙n, paÒete, ladrillo prensado
-         * Pisos: Concreto, ListÛn machi-ambrado, baldosa com˙n.
+         * Cubrimiento de Muros: Pa√±ete, papel com√∫n, pa√±ete, ladrillo prensado
+         * Pisos: Concreto, List√≥n machi-ambrado, baldosa com√∫n.
          */
         !!@ ili2db.dispName = "(Comercial) Sectorial 1"
         Sectorial_1,
-        /** ArmazÛn: Concreto hasta 3 pisos.
+        /** Armaz√≥n: Concreto hasta 3 pisos.
          * Muros: Bloque, ladrillo
          * Cubierta: Eternit, teja de barro placa concreto
          * Fachada: Buena.
-         * Cubrimiento de Muros: Ladrillo a la vista, Estuco, cer·mica, papel fino
+         * Cubrimiento de Muros: Ladrillo a la vista, Estuco, cer√°mica, papel fino
          * 
-         * Pisos: Tableta, caucho, acrÌlico, granito, baldosa fina
+         * Pisos: Tableta, caucho, acr√≠lico, granito, baldosa fina
          */
         !!@ ili2db.dispName = "(Comercial) Sectorial 2"
         Sectorial_2,
-        /** ArmazÛn: Concreto hasta 3 pisos
+        /** Armaz√≥n: Concreto hasta 3 pisos
          * Muros: Concreto prefabricado, bloque o ladrillo
          * Cubierta: Azotea, aluminio, placa sencilla con eternit o teja de barro
          * Fachada: Buena.
          * 
          * Cubrimiento de Muros: Ladrillo a la vista, Estuco, Madera, piedra ornamental
-         * Pisos: Parquet, alfombra, retal de m·rmol ( grano pequeÒo); Cer·mica fina
+         * Pisos: Parquet, alfombra, retal de m√°rmol ( grano peque√±o); Cer√°mica fina
          */
         !!@ ili2db.dispName = "(Comercial) Especializado 1"
         Especializado_1,
-        /** ArmazÛn: Concreto 4 o m·s pisos
+        /** Armaz√≥n: Concreto 4 o m√°s pisos
          * Muros: Bloque ladrillo
          * Cubierta: Placa Impermeabilizada cubierta lujosa u ornamental
          * Fachada: Lujosa.
-         * Cubrimiento de Muros: M·rmol, piedra ornamental Estucos especiales, otros lujosos
-         * Pisos: Parquet, alfombra, retal de m·rmol ( grano pequeÒo); Cer·mica fina
+         * Cubrimiento de Muros: M√°rmol, piedra ornamental Estucos especiales, otros lujosos
+         * Pisos: Parquet, alfombra, retal de m√°rmol ( grano peque√±o); Cer√°mica fina
          */
         !!@ ili2db.dispName = "(Comercial) Especializado 2"
         Especializado_2
       ),
       !!@ ili2db.dispName = "Industrial"
       Industrial(
-        /** ArmazÛn: Madera, prefabricado
+        /** Armaz√≥n: Madera, prefabricado
          * Muros: adobe, bahareque, tapia
          * Cerchas: Madera
-         * Cubierta: Material de desecho, telas asf·lticas
+         * Cubierta: Material de desecho, telas asf√°lticas
          * 
          * Fachada: Pobre
          * Cubrimiento de Muros:
@@ -297,51 +297,51 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Industrial) Liviana 1"
         Liviana_1,
-        /** ArmazÛn: Prefabricado, Ladrillo, bloque.
+        /** Armaz√≥n: Prefabricado, Ladrillo, bloque.
          * Muros: Prefabricado, Ladrillo, bloque
          * Cubierta: Zinc, Eternit o teja de barro
          * Fachada: pobre o sencilla.
          * 
-         * Cubrimiento de Muros: Sin, PaÒete, papel com˙n, ladrillo prensado, estuco, cer·mica
-         * Pisos: Cemento Baldosa com˙n de cemento, TablÛn Ladrillo.
+         * Cubrimiento de Muros: Sin, Pa√±ete, papel com√∫n, ladrillo prensado, estuco, cer√°mica
+         * Pisos: Cemento Baldosa com√∫n de cemento, Tabl√≥n Ladrillo.
          */
         !!@ ili2db.dispName = "(Industrial) Liviana 2"
         Liviana_2,
-        /** ArmazÛn: Muros confinados Ladrillo o bloque
+        /** Armaz√≥n: Muros confinados Ladrillo o bloque
          * Muros: Ladrillo, bloque o concreto prefabricado
          * Cubierta: Entrepiso
          * (cubierta provisional ) Prefabricado, teja eternit
          * Fachada: Regular.
          * 
-         * Cubrimiento de Muros: PaÒete, papel com˙n, paÒete, ladrillo prensado
-         * Pisos: Concreto, ListÛn machi-ambrado, baldosa com˙n.
+         * Cubrimiento de Muros: Pa√±ete, papel com√∫n, pa√±ete, ladrillo prensado
+         * Pisos: Concreto, List√≥n machi-ambrado, baldosa com√∫n.
          */
         !!@ ili2db.dispName = "(Industrial) Mediana 1"
         Mediana_1,
-        /** ArmazÛn: Concreto hasta 3 pisos.
+        /** Armaz√≥n: Concreto hasta 3 pisos.
          * Muros: Bloque, ladrillo
-         * Cubierta: teja eternit, termo ac˙stica o teja de barro
+         * Cubierta: teja eternit, termo ac√∫stica o teja de barro
          * Fachada: Buena.
-         * Cubrimiento de Muros: Ladrillo a la vista, Estuco, cer·mica, papel fino
-         * Pisos: Tableta, caucho, acrÌlico, granito, baldosa fina
+         * Cubrimiento de Muros: Ladrillo a la vista, Estuco, cer√°mica, papel fino
+         * Pisos: Tableta, caucho, acr√≠lico, granito, baldosa fina
          */
         !!@ ili2db.dispName = "(Industrial) Mediana 2"
         Mediana_2,
-        /** ArmazÛn: Concreto hasta 3 pisos
+        /** Armaz√≥n: Concreto hasta 3 pisos
          * Muros: Concreto prefabricado, bloque o ladrillo
          * Cubierta: Azotea, aluminio, placa sencilla con eternit o teja de barro
          * Fachada: Buena.
          * Cubrimiento de Muros: Ladrillo a la vista, Estuco, Madera, piedra ornamental
-         * Pisos: Parquet, alfombra, retal de m·rmol ( grano pequeÒo); Cer·mica fina
+         * Pisos: Parquet, alfombra, retal de m√°rmol ( grano peque√±o); Cer√°mica fina
          */
         !!@ ili2db.dispName = "(Industrial) Pesada 1"
         Pesada_1,
-        /** ArmazÛn: Concreto 4 o m·s pisos
+        /** Armaz√≥n: Concreto 4 o m√°s pisos
          * Muros: Bloque ladrillo
          * Cubierta: Placa Impermeabilizada cubierta lujosa u ornamental
          * Fachada: Lujosa.
-         * Cubrimiento de Muros: M·rmol, piedra ornamental Estucos especiales, otros lujosos
-         * Pisos: Parquet, alfombra, retal de m·rmol ( grano pequeÒo); Cer·mica fina
+         * Cubrimiento de Muros: M√°rmol, piedra ornamental Estucos especiales, otros lujosos
+         * Pisos: Parquet, alfombra, retal de m√°rmol ( grano peque√±o); Cer√°mica fina
          */
         !!@ ili2db.dispName = "(Industrial) Pesada 2"
         Pesada_2
@@ -350,83 +350,83 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       Anexo(
         !!@ ili2db.dispName = "Enramadas o cobertizos o caneyes"
         Enramadas_Cobertizos_Caneyes(
-          /** Locales de venta de vehÌculos: Estructura concreto, cubierta cercha met·lica y teja canaleta; fachada vidrio y polarizado, piso baldosÌn conservaciÛn general buena.
+          /** Locales de venta de veh√≠culos: Estructura concreto, cubierta cercha met√°lica y teja canaleta; fachada vidrio y polarizado, piso baldos√≠n conservaci√≥n general buena.
            */
           !!@ ili2db.dispName = "(Anexo) (Enramadas o cobertizos o caneyes) Tipo 90"
           Tipo_90,
-          /** Estructura met·lica; cubierta de zinc, eternit o teja de barro, pisos de cemento, conservaciÛn general buena.
+          /** Estructura met√°lica; cubierta de zinc, eternit o teja de barro, pisos de cemento, conservaci√≥n general buena.
            */
           !!@ ili2db.dispName = "(Anexo) (Enramadas o cobertizos o caneyes) Tipo 80"
           Tipo_80,
-          /** Estructura en madera fina; cubierta de zinc, eternit o teja de barro pisos de cemento; conservaciÛn general buena a regular.
+          /** Estructura en madera fina; cubierta de zinc, eternit o teja de barro pisos de cemento; conservaci√≥n general buena a regular.
            */
           !!@ ili2db.dispName = "(Anexo) (Enramadas o cobertizos o caneyes) Tipo 60"
           Tipo_60,
-          /** Estructura en madera com˙n; cubierta de zinc, eternit o teja de barro; pisos en tierra; conservaciÛn regular a mala.
+          /** Estructura en madera com√∫n; cubierta de zinc, eternit o teja de barro; pisos en tierra; conservaci√≥n regular a mala.
            */
           !!@ ili2db.dispName = "(Anexo) (Enramadas o cobertizos o caneyes) Tipo 40"
           Tipo_40
         ),
         !!@ ili2db.dispName = "Galpones o gallineros"
         Galpones_Gallineros(
-          /** Estructura met·lica o madera fina, cubierta de zinc, eternit o teja de barro; muros a mediana altura en bloque o ladrillo; pisos de cemento; conservaciÛn general buena.
+          /** Estructura met√°lica o madera fina, cubierta de zinc, eternit o teja de barro; muros a mediana altura en bloque o ladrillo; pisos de cemento; conservaci√≥n general buena.
            */
           !!@ ili2db.dispName = "(Anexo) (Galpones o gallineros) Tipo 80"
           Tipo_80,
-          /** Estructura ladrillo o bloque; cubierta de zinc, eternit o teja de barro semi muros en bloque o ladrillo; pisos de cemento; conservaciÛn general buena a regular.
+          /** Estructura ladrillo o bloque; cubierta de zinc, eternit o teja de barro semi muros en bloque o ladrillo; pisos de cemento; conservaci√≥n general buena a regular.
            */
           !!@ ili2db.dispName = "(Anexo) (Galpones o gallineros) Tipo 60"
           Tipo_60,
-          /** Estructura en ladrillo, bloque o madera sencilla; cubierta de zinc, eternit o teja de barro; con o sin muros; pisos en tierra; conservaciÛn regular a mala.
+          /** Estructura en ladrillo, bloque o madera sencilla; cubierta de zinc, eternit o teja de barro; con o sin muros; pisos en tierra; conservaci√≥n regular a mala.
            */
           !!@ ili2db.dispName = "(Anexo) (Galpones o gallineros) Tipo 40"
           Tipo_40,
-          /** Estructura en madera; cubierta de zinc, eternit, teja de barro, paja o material de desecho; con o sin muros; pisos en tierra; conservaciÛn regular o mala.
+          /** Estructura en madera; cubierta de zinc, eternit, teja de barro, paja o material de desecho; con o sin muros; pisos en tierra; conservaci√≥n regular o mala.
            */
           !!@ ili2db.dispName = "(Anexo) (Galpones o gallineros) Tipo 20"
           Tipo_20
         ),
         !!@ ili2db.dispName = "Establos o pesebreras"
         Establos_Pesebreras(
-          /** Estructura met·lica o de concreto; cubierta de zinc, eternit a teja de barro muros en bloque o ladrillo, pisos de cemento, conservaciÛn en general buena.
+          /** Estructura met√°lica o de concreto; cubierta de zinc, eternit a teja de barro muros en bloque o ladrillo, pisos de cemento, conservaci√≥n en general buena.
            */
           !!@ ili2db.dispName = "(Anexo) (Establos o pesebreras) Tipo 80"
           Tipo_80,
-          /** Estructura en bloque, ladrillo o madera fina; cubierta de zinc, eternit o teja de barro muros en bloque o ladrillo, pisos de cemento, conservaciÛn en general buena o regular
+          /** Estructura en bloque, ladrillo o madera fina; cubierta de zinc, eternit o teja de barro muros en bloque o ladrillo, pisos de cemento, conservaci√≥n en general buena o regular
            */
           !!@ ili2db.dispName = "(Anexo) (Establos o pesebreras) Tipo 60"
           Tipo_60,
-          /** Estructura en ladrillo cubierta  de  zinc,  eternit  o  teja  de  barro  muros de ladrillo, pisos en tierra, conservaciÛn regular a mala.
+          /** Estructura en ladrillo cubierta  de  zinc,  eternit  o  teja  de  barro  muros de ladrillo, pisos en tierra, conservaci√≥n regular a mala.
            */
           !!@ ili2db.dispName = "(Anexo) (Establos o pesebreras) Tipo 40"
           Tipo_40,
-          /** Estructura en madera cubierta de  zinc,  eternit  o  teja  de  barro  muros en madera, pisos en tierra, conservaciÛn regular a mala.
+          /** Estructura en madera cubierta de  zinc,  eternit  o  teja  de  barro  muros en madera, pisos en tierra, conservaci√≥n regular a mala.
            */
           !!@ ili2db.dispName = "(Anexo) (Establos o pesebreras) Tipo 20"
           Tipo_20
         ),
         !!@ ili2db.dispName = "Cocheras o marraneras o porquerizas"
         Cocheras_Marraneras_Porquerizas(
-          /** Estructura concreto; cubierta de zinc, eternit o teja de barro, muros en bloque o ladrillo, pisos en cemento o baldosa, conservaciÛn general buena.
+          /** Estructura concreto; cubierta de zinc, eternit o teja de barro, muros en bloque o ladrillo, pisos en cemento o baldosa, conservaci√≥n general buena.
            */
           !!@ ili2db.dispName = "(Anexo) (Cocheras o marraneras o porquerizas) Tipo 80"
           Tipo_80,
-          /** Estructura en ladrillo o bloque, cubierta de zinc, eternit o teja de barro, semi muros en bloque o ladrillo, pisos en cemento o baldosa conservaciÛn general buena a regular.
+          /** Estructura en ladrillo o bloque, cubierta de zinc, eternit o teja de barro, semi muros en bloque o ladrillo, pisos en cemento o baldosa conservaci√≥n general buena a regular.
            */
           !!@ ili2db.dispName = "(Anexo) (Cocheras o marraneras o porquerizas) Tipo 60"
           Tipo_60,
-          /** Estructura en ladrillo; cubierta de zinc, eternit o teja de barro; con muros o sin muros; pisos en tierra; conservaciÛn regular a mala.
+          /** Estructura en ladrillo; cubierta de zinc, eternit o teja de barro; con muros o sin muros; pisos en tierra; conservaci√≥n regular a mala.
            */
           !!@ ili2db.dispName = "(Anexo) (Cocheras o marraneras o porquerizas) Tipo 40"
           Tipo_40,
-          /** Estructura en madera; cubierta de zinc, eternit o teja de barro con o sin muros, pisos en tierra, conservaciÛn regular a mala.
+          /** Estructura en madera; cubierta de zinc, eternit o teja de barro con o sin muros, pisos en tierra, conservaci√≥n regular a mala.
            */
           !!@ ili2db.dispName = "(Anexo) (Cocheras o marraneras o porquerizas) Tipo 20"
           Tipo_20
         ),
         !!@ ili2db.dispName = "Silos"
         Silos(
-          /** Estructura en ferroconcreto met·lica
+          /** Estructura en ferroconcreto met√°lica
            */
           !!@ ili2db.dispName = "(Anexo) (Silos) Tipo 80"
           Tipo_80,
@@ -437,141 +437,141 @@ VERSION "V2.2.1"  // 2018-02-01 // =
         ),
         !!@ ili2db.dispName = "Piscina"
         Piscinas(
-          /** Piscinas olÌmpicas, con sistemas de purificaciÛn e iluminaciÛn; enchape en azulejo fino, trampolÌn a diferentes alturas. Se encuentra com˙nmente en clubes y coliseos.
+          /** Piscinas ol√≠mpicas, con sistemas de purificaci√≥n e iluminaci√≥n; enchape en azulejo fino, trampol√≠n a diferentes alturas. Se encuentra com√∫nmente en clubes y coliseos.
            */
           !!@ ili2db.dispName = "(Anexo) (Piscina) Tipo 80"
           Tipo_80,
-          /** Piscinas semi olÌmpicas, con sistemas de purificaciÛn; enchape en azulejo fino, comunes en clubes y centros de recreaciÛn
+          /** Piscinas semi ol√≠mpicas, con sistemas de purificaci√≥n; enchape en azulejo fino, comunes en clubes y centros de recreaci√≥n
            */
           !!@ ili2db.dispName = "(Anexo) (Piscina) Tipo 60"
           Tipo_60,
-          /** Piscinas de tamaÒo mediano, enchape en azulejo, sistemas de purificaciÛn rudimentaria, comunes en fincas de recreo o centros de recreaciÛn.
+          /** Piscinas de tama√±o mediano, enchape en azulejo, sistemas de purificaci√≥n rudimentaria, comunes en fincas de recreo o centros de recreaci√≥n.
            */
           !!@ ili2db.dispName = "(Anexo) (Piscina) Tipo 50"
           Tipo_50,
-          /** Piscinas pequeÒa, cubierta en baldosÌn o cemento. Comunes en fincas o casas de campo
+          /** Piscinas peque√±a, cubierta en baldos√≠n o cemento. Comunes en fincas o casas de campo
            */
           !!@ ili2db.dispName = "(Anexo) (Piscina) Tipo 40"
           Tipo_40
         ),
         !!@ ili2db.dispName = "Tanques"
         Tanques(
-          /** Tanques que por su capacidad y/b altura requieren estructura en ferroconcreto con revestimiento, encontr·ndose en buen estado de conservaciÛn.
+          /** Tanques que por su capacidad y/b altura requieren estructura en ferroconcreto con revestimiento, encontr√°ndose en buen estado de conservaci√≥n.
            */
           !!@ ili2db.dispName = "(Anexo) (Tanques) Tipo 80"
           Tipo_80,
-          /** Tanques de mediana capacidad con estructura met·lica con altura o profundidad no superior a 10 metros; en buen estado de conservaciÛn.
+          /** Tanques de mediana capacidad con estructura met√°lica con altura o profundidad no superior a 10 metros; en buen estado de conservaci√≥n.
            */
           !!@ ili2db.dispName = "(Anexo) (Tanques) Tipo 60"
           Tipo_60,
-          /** Tanques pequeÒos con estructura en ladrillo o bloque revestido en cemento con altura no mayor a 3 metros o poca profundidad; conservaciÛn buena a regular
+          /** Tanques peque√±os con estructura en ladrillo o bloque revestido en cemento con altura no mayor a 3 metros o poca profundidad; conservaci√≥n buena a regular
            */
           !!@ ili2db.dispName = "(Anexo) (Tanques) Tipo 40"
           Tipo_40,
-          /** Tanques con altura menor a 3 metros o poca profundidad; estructura en ladrillo conservaciÛn regular a mala.
+          /** Tanques con altura menor a 3 metros o poca profundidad; estructura en ladrillo conservaci√≥n regular a mala.
            */
           !!@ ili2db.dispName = "(Anexo) (Tanques) Tipo 20"
           Tipo_20
         ),
         !!@ ili2db.dispName = "Beneficiaderos"
         Beneficiaderos(
-          /** Estructura en ladrillo o bloque; cubierta en zinc, teja de barro o eternit rustico; pisos en cemento, con tanques lavadores y serpentina o canal de carreteo y silo o patio quindiano incorporado estado de conservaciÛn bueno a regular.
+          /** Estructura en ladrillo o bloque; cubierta en zinc, teja de barro o eternit rustico; pisos en cemento, con tanques lavadores y serpentina o canal de carreteo y silo o patio quindiano incorporado estado de conservaci√≥n bueno a regular.
            */
           !!@ ili2db.dispName = "(Anexo) (Beneficiaderos) Tipo 80"
           Tipo_80,
-          /** Estructura en madera; muros en ladrillos o bloque; cubierta en zinc, teja de barro o eternit; existencia de tanques y/o silos; pisos en cemento estado de conservaciÛn bueno a regular.
+          /** Estructura en madera; muros en ladrillos o bloque; cubierta en zinc, teja de barro o eternit; existencia de tanques y/o silos; pisos en cemento estado de conservaci√≥n bueno a regular.
            */
           !!@ ili2db.dispName = "(Anexo) (Beneficiaderos) Tipo 60"
           Tipo_60,
-          /** Beneficiaderos construidos en materiales econÛmicos (bareque, tapia) pisos en tierra conservaciÛn regular a mala; se encuentran en este tipo los elementos apenas necesarios: tanques, despulpaderos, canales, etc. en condiciones rudimentarias, comunes en fincas minifundistas.
+          /** Beneficiaderos construidos en materiales econ√≥micos (bareque, tapia) pisos en tierra conservaci√≥n regular a mala; se encuentran en este tipo los elementos apenas necesarios: tanques, despulpaderos, canales, etc. en condiciones rudimentarias, comunes en fincas minifundistas.
            */
           !!@ ili2db.dispName = "(Anexo) (Beneficiaderos) Tipo 40"
           Tipo_40
         ),
         !!@ ili2db.dispName = "Secaderos"
         Secaderos(
-          /** Estructura met·lica y cercha de madera o met·lica muros medianos o totales en ladrillo marquesina de vidrio; pisos en cemento; estado de conservaciÛn buena.
+          /** Estructura met√°lica y cercha de madera o met√°lica muros medianos o totales en ladrillo marquesina de vidrio; pisos en cemento; estado de conservaci√≥n buena.
            */
           !!@ ili2db.dispName = "(Anexo) (Secaderos) Tipo 80"
           Tipo_80,
-          /** Estructura en ladrillo; pisos en cemento; oreador en madera con sistema de rodamiento; buen estado de conservaciÛn.
+          /** Estructura en ladrillo; pisos en cemento; oreador en madera con sistema de rodamiento; buen estado de conservaci√≥n.
            */
           !!@ ili2db.dispName = "(Anexo) (Secaderos) Tipo 60"
           Tipo_60,
-          /** Estructura en madera pisos en tierra oreador con especificaciones mÌnimas; estado de conservaciÛn regular a mala. Dentro de este tipo se consideran as condiciones de los tipos anteriores, que se encuentran en regular a mal estado de conservaciÛn
+          /** Estructura en madera pisos en tierra oreador con especificaciones m√≠nimas; estado de conservaci√≥n regular a mala. Dentro de este tipo se consideran as condiciones de los tipos anteriores, que se encuentran en regular a mal estado de conservaci√≥n
            */
           !!@ ili2db.dispName = "(Anexo) (Secaderos) Tipo 40"
           Tipo_40
         ),
         !!@ ili2db.dispName = "Kioskos"
         Kioscos(
-          /** Estructura en bloque o ladrillo cubierta en zinc, teja de barro o paja; estado de conservaciÛn general bueno.
+          /** Estructura en bloque o ladrillo cubierta en zinc, teja de barro o paja; estado de conservaci√≥n general bueno.
            */
           !!@ ili2db.dispName = "(Anexo) (Kioskos) Tipo 80"
           Tipo_80,
-          /** Estructura met·lica; todo tipo de cubiertas; piso en cemento; estado de conservaciÛn bueno a regular
+          /** Estructura met√°lica; todo tipo de cubiertas; piso en cemento; estado de conservaci√≥n bueno a regular
            */
           !!@ ili2db.dispName = "(Anexo) (Kioskos) Tipo 60"
           Tipo_60,
-          /** Estructura en madera fina; todo tipo de cubiertas; piso en cemento; estado de conservaciÛn bueno a regular.
+          /** Estructura en madera fina; todo tipo de cubiertas; piso en cemento; estado de conservaci√≥n bueno a regular.
            */
           !!@ ili2db.dispName = "(Anexo) (Kioskos) Tipo 40"
           Tipo_40,
-          /** Estructura en madera com˙n; cubierta en zinc, paja o teja de barro piso en tierra estado de conservaciÛn regular a mala.
+          /** Estructura en madera com√∫n; cubierta en zinc, paja o teja de barro piso en tierra estado de conservaci√≥n regular a mala.
            */
           !!@ ili2db.dispName = "(Anexo) (Kioskos) Tipo 20"
           Tipo_20
         ),
-        !!@ ili2db.dispName = "Albercas o baÒaderas"
+        !!@ ili2db.dispName = "Albercas o ba√±aderas"
         Albercas_Baniaderas(
-          /** Estructura en concreto; cubierta en zinc, eternit o teja de barro; piso en cemento; conservaciÛn buena a regular.
+          /** Estructura en concreto; cubierta en zinc, eternit o teja de barro; piso en cemento; conservaci√≥n buena a regular.
            */
-          !!@ ili2db.dispName = "(Anexo) (Albercas o baÒaderas) Tipo 80"
+          !!@ ili2db.dispName = "(Anexo) (Albercas o ba√±aderas) Tipo 80"
           Tipo_80,
-          /** Estructura en ladrillo; cubierta en zinc, eternit o teja de barro; piso  en cemento; conservaciÛn buena a regular.
+          /** Estructura en ladrillo; cubierta en zinc, eternit o teja de barro; piso  en cemento; conservaci√≥n buena a regular.
            */
-          !!@ ili2db.dispName = "(Anexo) (Albercas o baÒaderas) Tipo 60"
+          !!@ ili2db.dispName = "(Anexo) (Albercas o ba√±aderas) Tipo 60"
           Tipo_60,
-          /** Estructura en madera; cubierta en zinc, eternit o teja de barro; piso en cemento; conservaciÛn regular a mala. Se incluyen en este tipo las condiciones dadas en los anteriores en mal estado de conservaciÛn.
+          /** Estructura en madera; cubierta en zinc, eternit o teja de barro; piso en cemento; conservaci√≥n regular a mala. Se incluyen en este tipo las condiciones dadas en los anteriores en mal estado de conservaci√≥n.
            */
-          !!@ ili2db.dispName = "(Anexo) (Albercas o baÒaderas) Tipo 40"
+          !!@ ili2db.dispName = "(Anexo) (Albercas o ba√±aderas) Tipo 40"
           Tipo_40
         ),
         !!@ ili2db.dispName = "Corrales"
         Corrales(
-          /** Estructura met·lica o de madera aserrada, formado por cuatro varales, pisos en cemento y conservaciÛn buena.
+          /** Estructura met√°lica o de madera aserrada, formado por cuatro varales, pisos en cemento y conservaci√≥n buena.
            */
           !!@ ili2db.dispName = "(Anexo) (Corrales) Tipo 80"
           Tipo_80,
-          /** Estructura en madera aserrada, formado por tres varales, pisos en cemento y conservaciÛn general buena.
+          /** Estructura en madera aserrada, formado por tres varales, pisos en cemento y conservaci√≥n general buena.
            */
           !!@ ili2db.dispName = "(Anexo) (Corrales) Tipo 60"
           Tipo_60,
-          /** Estructura en madera aserrada, formado por tres varales, pisos en tierra y conservaciÛn general regular a mala.
+          /** Estructura en madera aserrada, formado por tres varales, pisos en tierra y conservaci√≥n general regular a mala.
            */
           !!@ ili2db.dispName = "(Anexo) (Corrales) Tipo 40"
           Tipo_40,
-          /** Estructura en madera burda, pisos en tierra y conservaciÛn general regular a mala
+          /** Estructura en madera burda, pisos en tierra y conservaci√≥n general regular a mala
            */
           !!@ ili2db.dispName = "(Anexo) (Corrales) Tipo 20"
           Tipo_20
         ),
         !!@ ili2db.dispName = "Pozos"
         Pozos(
-          /** Pozo de profundidad aproximada a 40 m, revestido en concreto, con tuberÌa, anillado 100% , di·metro pozo de 2m
+          /** Pozo de profundidad aproximada a 40 m, revestido en concreto, con tuber√≠a, anillado 100% , di√°metro pozo de 2m
            */
           !!@ ili2db.dispName = "(Anexo) (Pozos) Tipo 80"
           Tipo_80,
-          /** Pozo de profundidad aproximada 20 m, revestido en concreto, con tuberÌa, anillado 100 % , di·metro pozo < 2m
+          /** Pozo de profundidad aproximada 20 m, revestido en concreto, con tuber√≠a, anillado 100 % , di√°metro pozo < 2m
            */
           !!@ ili2db.dispName = "(Anexo) (Pozos) Tipo 60"
           Tipo_60,
-          /** Pozo profundidad < a 10m, sin revestimiento ni anillar, di·metro pozo de 2m
+          /** Pozo profundidad < a 10m, sin revestimiento ni anillar, di√°metro pozo de 2m
            */
           !!@ ili2db.dispName = "(Anexo) (Pozos) Tipo 40"
           Tipo_40
         ),
-        /** Estructura en concreto y tanque en concreto, fibrocemento o met·lico con recubrimiento interior en resinas de poliÈster reforzadas con fibra de vidrio, partes met·licas en acero inoxidable o galvanizadas buen estado de conservaciÛn
+        /** Estructura en concreto y tanque en concreto, fibrocemento o met√°lico con recubrimiento interior en resinas de poli√©ster reforzadas con fibra de vidrio, partes met√°licas en acero inoxidable o galvanizadas buen estado de conservaci√≥n
          */
         !!@ ili2db.dispName = "(Anexo) (Torres de enfriamiento)"
         Torres_Enfriamiento,
@@ -603,60 +603,60 @@ VERSION "V2.2.1"  // 2018-02-01 // =
         ),
         !!@ ili2db.dispName = "Toboganes"
         Toboganes(
-          /** Altura entre 9 y 15 Mts., longitud de canal entre 75 y 120 Mts. Fibra de vidrio. Estructura de concreto o met·lica. Incluye piscina de Llegada. Sistema de bombeo, purificaciÛn.
+          /** Altura entre 9 y 15 Mts., longitud de canal entre 75 y 120 Mts. Fibra de vidrio. Estructura de concreto o met√°lica. Incluye piscina de Llegada. Sistema de bombeo, purificaci√≥n.
            */
           !!@ ili2db.dispName = "(Anexo) (Toboganes) Tipo 80"
           Tipo_80,
-          /** Altura entre 3 y 9 Mts., longitud 25 a 75 Mts. Estructura y soportes en concreto o met·lica. Incluye piscina de acceso y sistema de bombeo y purificaciÛn.
+          /** Altura entre 3 y 9 Mts., longitud 25 a 75 Mts. Estructura y soportes en concreto o met√°lica. Incluye piscina de acceso y sistema de bombeo y purificaci√≥n.
            */
           !!@ ili2db.dispName = "(Anexo) (Toboganes) Tipo 60"
           Tipo_60,
-          /** Altura de 6 a 9 Mts. ⁄nicamente deslizadero de velocidad de longitud de 20 a 40 Mts. Equipo de bombeo y purificaciÛn. Estructura met·lica o concreto; piscina de acceso.
+          /** Altura de 6 a 9 Mts. √önicamente deslizadero de velocidad de longitud de 20 a 40 Mts. Equipo de bombeo y purificaci√≥n. Estructura met√°lica o concreto; piscina de acceso.
            */
           !!@ ili2db.dispName = "(Anexo) (Toboganes) Tipo 50"
           Tipo_50,
-          /** Altura de 3 a 5 Mts. ⁄nicamente deslizadero; longitud de 10 a 20 Mts. No tienen planta de tratamiento ni de bombeo.
+          /** Altura de 3 a 5 Mts. √önicamente deslizadero; longitud de 10 a 20 Mts. No tienen planta de tratamiento ni de bombeo.
            */
           !!@ ili2db.dispName = "(Anexo) (Toboganes) Tipo 40"
           Tipo_40
         ),
         !!@ ili2db.dispName = "Marquesinas"
         Marquesinas(
-          /** Estructura met·lica; cubierta cristalita o vidrio; piso en baldosa fina.
+          /** Estructura met√°lica; cubierta cristalita o vidrio; piso en baldosa fina.
            */
           !!@ ili2db.dispName = "(Anexo) (Marquesinas) Tipo 80"
           Tipo_80,
-          /** Estructura met·lica; cubierta en cristalita o vidrio; piso en baldosa com˙n.
+          /** Estructura met√°lica; cubierta en cristalita o vidrio; piso en baldosa com√∫n.
            */
           !!@ ili2db.dispName = "(Anexo) (Marquesinas) Tipo 60"
           Tipo_60,
-          /** Estructura met·lica; cubierta de eternit y piso en cemento.
+          /** Estructura met√°lica; cubierta de eternit y piso en cemento.
            */
           !!@ ili2db.dispName = "(Anexo) (Marquesinas) Tipo 40"
           Tipo_40,
-          /** Estructura en madera; cubierta de zinc o eternit; Piso en baldosÌn o cemento.
+          /** Estructura en madera; cubierta de zinc o eternit; Piso en baldos√≠n o cemento.
            */
           !!@ ili2db.dispName = "(Anexo) (Marquesinas) Tipo 20"
           Tipo_20
         ),
         !!@ ili2db.dispName = "Estadios o coliseos"
         Estadios_Coliseos(
-          /** Estadio, estructura en concreto reforzado, graderÌas, con o sin cubierta parcial, capacidad mayor a 8.000 personas
+          /** Estadio, estructura en concreto reforzado, grader√≠as, con o sin cubierta parcial, capacidad mayor a 8.000 personas
            */
           !!@ ili2db.dispName = "(Anexo) (Estadios o coliseos) Tipo 80"
           Tipo_80,
-          /** Coliseo, incluye cerramiento en malla, cancha multifuncional, con camerino y graderÌa, cubierta en teja termo ac˙stica y graderÌa
+          /** Coliseo, incluye cerramiento en malla, cancha multifuncional, con camerino y grader√≠a, cubierta en teja termo ac√∫stica y grader√≠a
            */
           !!@ ili2db.dispName = "(Anexo) (Estadios o coliseos) Tipo 60"
           Tipo_60,
-          /** Coliseo, incluye cerramiento en malla, o en bloque paÒetado cancha multifuncional, cubierta en teja termo ac˙stica
+          /** Coliseo, incluye cerramiento en malla, o en bloque pa√±etado cancha multifuncional, cubierta en teja termo ac√∫stica
            */
           !!@ ili2db.dispName = "(Anexo) (Estadios o coliseos) Tipo 40"
           Tipo_40
         ),
         !!@ ili2db.dispName = "Plaza de toros"
         Plazas_de_Toros(
-          /** Plaza de toros con estructura en concreto y madera capacidad de m·s de 10000 espectadores
+          /** Plaza de toros con estructura en concreto y madera capacidad de m√°s de 10000 espectadores
            */
           !!@ ili2db.dispName = "(Anexo) (Plaza de toros) Tipo 80"
           Tipo_80,
@@ -671,7 +671,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     );
 
     AV_TopografiaZonaTipo = (
-      /** Facilita suministrar servicios p˙blicos, realizar obras de urbanismo o construir una edificaciÛn.
+      /** Facilita suministrar servicios p√∫blicos, realizar obras de urbanismo o construir una edificaci√≥n.
        */
       !!@ ili2db.dispName = "Plano"
       Plano,
@@ -679,97 +679,97 @@ VERSION "V2.2.1"  // 2018-02-01 // =
        */
       !!@ ili2db.dispName = "Inclinado"
       Inclinado,
-      /** Se presenta m·xima dificultad para el suministro de servicios p˙blicos, edificar, etc. generando altos costos.
+      /** Se presenta m√°xima dificultad para el suministro de servicios p√∫blicos, edificar, etc. generando altos costos.
        */
       !!@ ili2db.dispName = "Empinado"
       Empinado
     );
 
     AV_UsoSueloRuralTipo = (
-      /** Comprende la agrupaciÛn de edificaciones de tipo habitacional, industrial, comercial e institucional que no estÈn consideradas dentro del plan de ordenamiento territorial como parte de la zona urbana ej. CaserÌos, zonas industriales, universidades.
+      /** Comprende la agrupaci√≥n de edificaciones de tipo habitacional, industrial, comercial e institucional que no est√©n consideradas dentro del plan de ordenamiento territorial como parte de la zona urbana ej. Caser√≠os, zonas industriales, universidades.
        */
       !!@ ili2db.dispName = "Edificios"
       Edificios,
-      /** Comprende construcciones de otro tipo diferente a edificios por su tamaÒo o actividad ej, represas, aeropuertos, centrales hidroelÈctricas, estadios, plazas de toros, bases militares.
+      /** Comprende construcciones de otro tipo diferente a edificios por su tama√±o o actividad ej, represas, aeropuertos, centrales hidroel√©ctricas, estadios, plazas de toros, bases militares.
        */
       !!@ ili2db.dispName = "Otras construcciones"
       Otras_Construcciones,
-      /** Son ·reas naturales definidas y delimitadas oficialmente poco transformadas por la explotaciÛn u ocupaciÛn humana que, en razÛn a la belleza de sus paisajes, la representatividad de sus ecosistemas o la singularidad de su flora, de su fauna o de sus formaciones geomorfolÛgicas, poseen unos valores ecolÛgicos, estÈticos, educativos y cientÌficos cuya conservaciÛn merece una atenciÛn preferente.
+      /** Son √°reas naturales definidas y delimitadas oficialmente poco transformadas por la explotaci√≥n u ocupaci√≥n humana que, en raz√≥n a la belleza de sus paisajes, la representatividad de sus ecosistemas o la singularidad de su flora, de su fauna o de sus formaciones geomorfol√≥gicas, poseen unos valores ecol√≥gicos, est√©ticos, educativos y cient√≠ficos cuya conservaci√≥n merece una atenci√≥n preferente.
        */
       !!@ ili2db.dispName = "Parques naturales"
       Parques_Naturales,
-      /** Aquellos cultivos tales como cafÈ, palma africana, palma africana, palma de coco, caucho, cÌtricos, arboles maderables, aguacate, guayabo, mango, manzano, pera, durazno, uva, noli, fique, cacao y cualquier otro cultivo que exija un periodo superior a tres aÒos entre su siembre y su cosecha, o cuyo periodo de producciÛn se prolongue por mas de cinco aÒos.
+      /** Aquellos cultivos tales como caf√©, palma africana, palma africana, palma de coco, caucho, c√≠tricos, arboles maderables, aguacate, guayabo, mango, manzano, pera, durazno, uva, noli, fique, cacao y cualquier otro cultivo que exija un periodo superior a tres a√±os entre su siembre y su cosecha, o cuyo periodo de producci√≥n se prolongue por mas de cinco a√±os.
        */
-      !!@ ili2db.dispName = "Cultivos de car·cter permanente"
+      !!@ ili2db.dispName = "Cultivos de car√°cter permanente"
       Cultivos_De_Caracter_Permanente,
-      /** Aquellas tierras que para su producciÛn cuentan con aplicaciÛn de agua, que de suyo falta para el desarrollo del cultivo, mediante la utilizaciÛn de un sistema de irrigaciÛn.
+      /** Aquellas tierras que para su producci√≥n cuentan con aplicaci√≥n de agua, que de suyo falta para el desarrollo del cultivo, mediante la utilizaci√≥n de un sistema de irrigaci√≥n.
        */
       !!@ ili2db.dispName = "Tierras de labor irrigadas"
       Tierras_De_Labor_Irrigadas,
-      /** Aquellas tierras que carecen de un sistema de irrigaciÛn y que para su producciÛn dependen exclusivamente del agua lluvia ciada sobre ellas.
+      /** Aquellas tierras que carecen de un sistema de irrigaci√≥n y que para su producci√≥n dependen exclusivamente del agua lluvia ciada sobre ellas.
        */
       !!@ ili2db.dispName = "Tierras de labor no irrigadas"
       Tierras_De_Labor_No_Irrigadas,
-      /** Aquellas tierras en donde predominen las plantaciones espontaneas de arbustos que obstaculizan la utilizaciÛn econÛmica del suelo.
+      /** Aquellas tierras en donde predominen las plantaciones espontaneas de arbustos que obstaculizan la utilizaci√≥n econ√≥mica del suelo.
        */
       !!@ ili2db.dispName = "Tierras con maleza"
       Tierras_Con_Maleza,
-      /** Aquellas ·reas que por sus condiciones topogr·ficas, climatolÛgicas y que en general por las caracterÌsticas fÌsicas o quÌmicas de sus suelos no puedan ser explotadas.
+      /** Aquellas √°reas que por sus condiciones topogr√°ficas, climatol√≥gicas y que en general por las caracter√≠sticas f√≠sicas o qu√≠micas de sus suelos no puedan ser explotadas.
        */
       !!@ ili2db.dispName = "Tierras improductivas"
       Tierras_Improductivas,
-      /** Conjuntos de herb·ceos forrajeros producidos espont·neamente por el suelo.
+      /** Conjuntos de herb√°ceos forrajeros producidos espont√°neamente por el suelo.
        */
       !!@ ili2db.dispName = "Pastos naturales"
       Pastos_Naturales,
-      /** Conjunto de cultivos herb·ceos forrajeros no producidos espont·neamente.
+      /** Conjunto de cultivos herb√°ceos forrajeros no producidos espont√°neamente.
        */
       !!@ ili2db.dispName = "Pastos artificiales"
       Pastos_Artificales,
-      /** Pastos naturales sometidos a pr·cticas tÈcnicas de uso y manejo
+      /** Pastos naturales sometidos a pr√°cticas t√©cnicas de uso y manejo
        */
       !!@ ili2db.dispName = "Pastos naturales mejorados"
       Pastos_Naturales_Mejorados,
-      /** Conjunto de plantaciones naturales o de cultivos de arboles de igual o distinta naturaleza que est·n en explotaciÛn o pueden ser explotados.
+      /** Conjunto de plantaciones naturales o de cultivos de arboles de igual o distinta naturaleza que est√°n en explotaci√≥n o pueden ser explotados.
        */
       !!@ ili2db.dispName = "Bosques"
       Bosques,
-      /** Terrenos extensos, incultos y abundantemente poblados con vegetaciÛn arbÛrea y nativa.
+      /** Terrenos extensos, incultos y abundantemente poblados con vegetaci√≥n arb√≥rea y nativa.
        */
-      !!@ ili2db.dispName = "Selvas vÌrgenes"
+      !!@ ili2db.dispName = "Selvas v√≠rgenes"
       Selvas_Virgenes,
-      /** Comprende aquellas ·rea cubiertas de agua con car·cter permanente que puede ser de origen natural o artificial.
+      /** Comprende aquellas √°rea cubiertas de agua con car√°cter permanente que puede ser de origen natural o artificial.
        */
       !!@ ili2db.dispName = "Cuerpos de agua"
       Cuerpos_De_Agua,
-      /** Comprende aquellas edificaciones que por sus caracterÌsticas especiales por actividad son diferentes a las anteriores ej. Condominios, parcelaciones, parques recreacionales.
+      /** Comprende aquellas edificaciones que por sus caracter√≠sticas especiales por actividad son diferentes a las anteriores ej. Condominios, parcelaciones, parques recreacionales.
        */
       !!@ ili2db.dispName = "Condiciones especiales"
       Condiciones_Especiales,
-      /** Al clasificar usos mixtos, se agrupan m·ximo 2 tipos de uso que son de difÌcil separaciÛn por la escala de mapeo, considÈrelos como, una unidad miscel·nea pero destaque el uso dominante design·ndolo con un n˙mero fraccionario en que el numerador sea el elemento dominante
+      /** Al clasificar usos mixtos, se agrupan m√°ximo 2 tipos de uso que son de dif√≠cil separaci√≥n por la escala de mapeo, consid√©relos como, una unidad miscel√°nea pero destaque el uso dominante design√°ndolo con un n√∫mero fraccionario en que el numerador sea el elemento dominante
        */
       !!@ ili2db.dispName = "Mixto"
       Mixto
     );
 
     AV_UsoSueloUrbanoTipo = (
-      /** Es aquel espacio geogr·fico dedicado a la vivienda, de tipo unifamiliar o multifamiliar.
+      /** Es aquel espacio geogr√°fico dedicado a la vivienda, de tipo unifamiliar o multifamiliar.
        */
       !!@ ili2db.dispName = "Residencial"
       Residencial,
-      /** Es aquel espacio geogr·fico dedicado a la venta de mercancÌas (almacenes, centros comerciales, aeropuerto, etc.) y de servicios (oficinas, hoteles, restaurantes, bancos, consultorios, etc.). Se incluyen corredores comerciales en barrios residenciales.
+      /** Es aquel espacio geogr√°fico dedicado a la venta de mercanc√≠as (almacenes, centros comerciales, aeropuerto, etc.) y de servicios (oficinas, hoteles, restaurantes, bancos, consultorios, etc.). Se incluyen corredores comerciales en barrios residenciales.
        */
       !!@ ili2db.dispName = "Comercial"
       Comercial,
-      /** Es aquel espacio geogr·fico dedicado a la transformaciÛn de materia prima en mercancÌas y a la reparaciÛn de maquinaria y equipos, con las caracterÌsticas propias de una industria (Altura mayor de 2.50 mts, columnas, vigas perimetrales, cerchas, existencia puente gr˙as, Luces mayores de 6 mts). Incluye zonas de almacenamiento y zonas francas portuarias y aeroportuarias.
+      /** Es aquel espacio geogr√°fico dedicado a la transformaci√≥n de materia prima en mercanc√≠as y a la reparaci√≥n de maquinaria y equipos, con las caracter√≠sticas propias de una industria (Altura mayor de 2.50 mts, columnas, vigas perimetrales, cerchas, existencia puente gr√∫as, Luces mayores de 6 mts). Incluye zonas de almacenamiento y zonas francas portuarias y aeroportuarias.
        */
       !!@ ili2db.dispName = "Industrial"
       Industrial,
-      /** Es aquel espacio geogr·fico dedicado a la administraciÛn y prestaciÛn de servicios del estado (hospitales, colegios, alcaldÌa, canchas deportivas, etc.) y que no se encuentra clasificado en otros usos.
+      /** Es aquel espacio geogr√°fico dedicado a la administraci√≥n y prestaci√≥n de servicios del estado (hospitales, colegios, alcald√≠a, canchas deportivas, etc.) y que no se encuentra clasificado en otros usos.
        */
       !!@ ili2db.dispName = "Institucional"
       Institucional,
-      /** Es aquel espacio geogr·fico no construido que puede contar o no con alg˙n tipo de obra de urbanismo. Dentro de esta clasificaciÛn se incluir·n los cuerpos de agua, los cuales se consideran como lotes no urbanizables.
+      /** Es aquel espacio geogr√°fico no construido que puede contar o no con alg√∫n tipo de obra de urbanismo. Dentro de esta clasificaci√≥n se incluir√°n los cuerpos de agua, los cuales se consideran como lotes no urbanizables.
        */
       !!@ ili2db.dispName = "Lote"
       Lote
@@ -778,15 +778,15 @@ VERSION "V2.2.1"  // 2018-02-01 // =
     AV_UsoUConsTipo = (
       !!@ ili2db.dispName = "Residencial"
       Residencial(
-        /** Es una vivienda que comprende una o m·s habitaciones, en un edificio de varios pisos 4 o m·s pisos sometido en rÈgimen de propiedad horizontal.
+        /** Es una vivienda que comprende una o m√°s habitaciones, en un edificio de varios pisos 4 o m√°s pisos sometido en r√©gimen de propiedad horizontal.
          */
-        !!@ ili2db.dispName = "(Residencial) Apartamentos 4 y m·s pisos en PH"
+        !!@ ili2db.dispName = "(Residencial) Apartamentos 4 y m√°s pisos en PH"
         Apartamentos_4_y_mas_pisos_en_PH,
-        /** Es una vivienda que comprende una o m·s habitaciones, en un edificio de 4 o 5 pisos.
+        /** Es una vivienda que comprende una o m√°s habitaciones, en un edificio de 4 o 5 pisos.
          */
         !!@ ili2db.dispName = "(Residencial) Apartamentos en Edificio de 4 y 5 Pisos (Cartagena)"
         Apartamentos_En_Edificio_4_y_5_Pisos_Cartagena,
-        /** Es una vivienda que comprende una o m·s habitaciones, en un edificio de varios pisos 4 o m·s pisos
+        /** Es una vivienda que comprende una o m√°s habitaciones, en un edificio de varios pisos 4 o m√°s pisos
          */
         !!@ ili2db.dispName = "(Residencial) Apartamentos mas de 4 Pisos"
         Apartamentos_Mas_De_4_Pisos,
@@ -794,86 +794,86 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Residencial) Barracas"
         Barracas,
-        /** TÌpica casa con mamposterÌa de piedra, pizarra y madera. Ha sido rehabilitada respetando escrupulosamente sus caracterÌsticas exteriores y decorada con un interior tradicional
+        /** T√≠pica casa con mamposter√≠a de piedra, pizarra y madera. Ha sido rehabilitada respetando escrupulosamente sus caracter√≠sticas exteriores y decorada con un interior tradicional
          */
         !!@ ili2db.dispName = "(Residencial) Casa Elbas"
         Casa_Elbas,
-        /** EdificaciÛn destinada al almacenamiento o resguardo de enceres, generalmente ubicados en los sÛtanos y semisÛtanos de los edificios, junto a los parqueaderos. Las ·reas de estos depÛsitos generalmente no supera los 25 metros cuadrados.
+        /** Edificaci√≥n destinada al almacenamiento o resguardo de enceres, generalmente ubicados en los s√≥tanos y semis√≥tanos de los edificios, junto a los parqueaderos. Las √°reas de estos dep√≥sitos generalmente no supera los 25 metros cuadrados.
          */
-        !!@ ili2db.dispName = "(Residencial) DepÛsitos o lockers"
+        !!@ ili2db.dispName = "(Residencial) Dep√≥sitos o lockers"
         Depositos_Lockers,
-        /** Es el lugar cubierto, destinado al estacionamiento privado de vehÌculos.
+        /** Es el lugar cubierto, destinado al estacionamiento privado de veh√≠culos.
          */
         !!@ ili2db.dispName = "(Residencial) Garajes Cubiertos"
         Garajes_Cubiertos,
-        /** Es el lugar cubierto, destinado al estacionamiento privado o comunal en viviendas sometidas a rÈgimen de propiedad  horizontal.
+        /** Es el lugar cubierto, destinado al estacionamiento privado o comunal en viviendas sometidas a r√©gimen de propiedad  horizontal.
          */
         !!@ ili2db.dispName = "(Residencial) Garajes en PH"
         Garajes_En_PH,
-        /** Bien inmueble cubierto o descubierto ubicado en el ˙ltimo piso de algunos edificios utilizado para extender y secar la ropa y que est· sometido a rÈgimen de propiedad horizontal.
+        /** Bien inmueble cubierto o descubierto ubicado en el √∫ltimo piso de algunos edificios utilizado para extender y secar la ropa y que est√° sometido a r√©gimen de propiedad horizontal.
          */
         !!@ ili2db.dispName = "(Residencial) Secadero de ropa"
         Secadero_Ropa,
-        /** Son las viviendas construidas durante el tiempo de la colonia espaÒola, se caracterizan por tener varias habitaciones, con ventanales que dan a uno o dos patios generalmente ubicados en el centro de la vivienda. Los principales materiales de la Època era la tapia, bahareque, ladrillo, paja y teja.
+        /** Son las viviendas construidas durante el tiempo de la colonia espa√±ola, se caracterizan por tener varias habitaciones, con ventanales que dan a uno o dos patios generalmente ubicados en el centro de la vivienda. Los principales materiales de la √©poca era la tapia, bahareque, ladrillo, paja y teja.
          */
         !!@ ili2db.dispName = "(Residencial) Vivienda Colonial"
         Vivienda_Colonial,
-        /** Es una casa de tres niveles cuya funciÛn arquitectÛnica y ambiental principal, es dar albergue en forma adecuada a una familia.
+        /** Es una casa de tres niveles cuya funci√≥n arquitect√≥nica y ambiental principal, es dar albergue en forma adecuada a una familia.
          */
         !!@ ili2db.dispName = "(Residencial) Vivienda hasta 3 pisos"
         Vivienda_Hasta_3_Pisos,
-        /** Corresponde a edificaciones residenciales desarrolladas sobre un lote de terreno que comprende m·s de tres unidades prediales independientes, generalmente en edificios de varios pisos. Este tipo de vivienda prevÈ? ·reas de servicios comunales cuya propiedad y utilizaciÛn privada se definen en reglamentos de propiedad horizontal
+        /** Corresponde a edificaciones residenciales desarrolladas sobre un lote de terreno que comprende m√°s de tres unidades prediales independientes, generalmente en edificios de varios pisos. Este tipo de vivienda prev√©? √°reas de servicios comunales cuya propiedad y utilizaci√≥n privada se definen en reglamentos de propiedad horizontal
          */
         !!@ ili2db.dispName = "(Residencial) Vivienda hasta 3 pisos en PH"
         Vivienda_Hasta_3_Pisos_En_PH,
-        /** Es una vivienda acondicionada para la realizaciÛn de actividades recreativas libres y el descanso.
+        /** Es una vivienda acondicionada para la realizaci√≥n de actividades recreativas libres y el descanso.
          */
         !!@ ili2db.dispName = "(Residencial) Vivienda Recreacional"
         Vivienda_Recreacional,
-        /** Es una casa cuya funciÛn arquitectÛnica y ambiental principal, es brindar descanso y recreaciÛn. Este tipo de vivienda  prevÈ? ·reas de servicios comunales cuya propiedad y utilizaciÛn privada se definen en reglamentos de propiedad horizontal.
+        /** Es una casa cuya funci√≥n arquitect√≥nica y ambiental principal, es brindar descanso y recreaci√≥n. Este tipo de vivienda  prev√©? √°reas de servicios comunales cuya propiedad y utilizaci√≥n privada se definen en reglamentos de propiedad horizontal.
          */
         !!@ ili2db.dispName = "(Residencial) Vivienda Recreacional en PH"
         Vivienda_Recreacional_En_PH
       ),
       !!@ ili2db.dispName = "Comercial"
       Comercial(
-        /** Es el espacio construido para la ejecuciÛn la recepciÛn, almacenamiento y movimientos de materiales, materias primas y productos semielaborados, hasta el punto de consumo por un cliente externo o interno
+        /** Es el espacio construido para la ejecuci√≥n la recepci√≥n, almacenamiento y movimientos de materiales, materias primas y productos semielaborados, hasta el punto de consumo por un cliente externo o interno
          */
         !!@ ili2db.dispName = "(Comercial) Bodegas Comerciales - Grandes Almacenes"
         Bodegas_Comerciales_Grandes_Almacenes,
-        /** Es el espacio construido para la ejecuciÛn la recepciÛn, almacenamiento y movimientos de materiales, materias primas y productos semielaborados, hasta el punto de consumo por un cliente externo o interno sometido a rÈgimen de propiedad horizontal.
+        /** Es el espacio construido para la ejecuci√≥n la recepci√≥n, almacenamiento y movimientos de materiales, materias primas y productos semielaborados, hasta el punto de consumo por un cliente externo o interno sometido a r√©gimen de propiedad horizontal.
          */
         !!@ ili2db.dispName = "(Comercial) Bodegas Comerciales en PH"
         Bodegas_Comerciales_en_PH,
-        /** es una construcciÛn que consta de uno o varios edificios, por lo general de gran tamaÒo, que albergan servicios, locales y oficinas comerciales aglutinados en un espacio determinado concentrando mayor cantidad de clientes potenciales dentro del recinto.
+        /** es una construcci√≥n que consta de uno o varios edificios, por lo general de gran tama√±o, que albergan servicios, locales y oficinas comerciales aglutinados en un espacio determinado concentrando mayor cantidad de clientes potenciales dentro del recinto.
          */
         !!@ ili2db.dispName = "(Comercial) Centros Comerciales"
         Centros_Comerciales,
-        /** Es una construcciÛn que consta de uno o varios edificios, por lo general de gran tamaÒo, que albergan servicios, locales y oficinas comerciales aglutinados en un espacio determinado concentrando mayor cantidad de clientes potenciales dentro del recinto, sometido a rÈgimen de propiedad horizontal.
+        /** Es una construcci√≥n que consta de uno o varios edificios, por lo general de gran tama√±o, que albergan servicios, locales y oficinas comerciales aglutinados en un espacio determinado concentrando mayor cantidad de clientes potenciales dentro del recinto, sometido a r√©gimen de propiedad horizontal.
          */
         !!@ ili2db.dispName = "(Comercial) Centros Comerciales en PH"
         Centros_Comerciales_en_PH,
-        /** Es la edificaciÛn o  Establecimiento que brinda servicios recreativos y tiene capacidad para ciertos juegos de azar
+        /** Es la edificaci√≥n o  Establecimiento que brinda servicios recreativos y tiene capacidad para ciertos juegos de azar
          */
         !!@ ili2db.dispName = "(Comercial) Clubes - Casinos"
         Clubes_Casinos,
-        /** Se denomina a la construcciÛn en la cual se lleva a acabo una actividad socioeconÛmica que consiste en el intercambio de algunos materiales en el mercado de compra y venta de bienes
+        /** Se denomina a la construcci√≥n en la cual se lleva a acabo una actividad socioecon√≥mica que consiste en el intercambio de algunos materiales en el mercado de compra y venta de bienes
          */
         !!@ ili2db.dispName = "(Comercial) Comercio"
         Comercio,
-        /** Se denomina a la construcciÛn con caracterÌsticas arquitectÛnicas coloniales,  en el cual se lleva a acabo una actividad socioeconÛmica que consiste en el intercambio de algunos materiales en el mercado de compra y venta de bienes
+        /** Se denomina a la construcci√≥n con caracter√≠sticas arquitect√≥nicas coloniales,  en el cual se lleva a acabo una actividad socioecon√≥mica que consiste en el intercambio de algunos materiales en el mercado de compra y venta de bienes
          */
         !!@ ili2db.dispName = "(Comercial) Comercio Colonial"
         Comercio_Colonial,
-        /** Se denomina a la construcciÛn en la cual se lleva a acabo una actividad socioeconÛmica que consiste en el intercambio de algunos materiales en el mercado de compra y venta de bienes sometida a rÈgimen de propiedad horizontal
+        /** Se denomina a la construcci√≥n en la cual se lleva a acabo una actividad socioecon√≥mica que consiste en el intercambio de algunos materiales en el mercado de compra y venta de bienes sometida a r√©gimen de propiedad horizontal
          */
         !!@ ili2db.dispName = "(Comercial) Comercio en PH"
         Comercio_en_PH,
-        /** Son obras arquitectÛnicas  que se construyen con el objeto de elevar el nivel del agua de la fuente de riego a los sitios donde se desea utilizar.
+        /** Son obras arquitect√≥nicas  que se construyen con el objeto de elevar el nivel del agua de la fuente de riego a los sitios donde se desea utilizar.
          */
         !!@ ili2db.dispName = "(Comercial) Estacion de Bombeo"
         Estacion_de_Bombeo,
-        /** Establecimiento que ocupa un edificio total o parcialmente con uso exclusivo de sus servicios (entradas, ascensores, escaleras, etc.) y que ofrece alojamiento y posee caracterÌsticas arquitectÛnicas coloniales.
+        /** Establecimiento que ocupa un edificio total o parcialmente con uso exclusivo de sus servicios (entradas, ascensores, escaleras, etc.) y que ofrece alojamiento y posee caracter√≠sticas arquitect√≥nicas coloniales.
          */
         !!@ ili2db.dispName = "(Comercial) Hotel Colonial"
         Hotel_Colonial,
@@ -885,27 +885,27 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Comercial) Hoteles en PH"
         Hoteles_en_PH,
-        /** Espacio construido en el que se  realiza un trabajo profesional de gestiÛn, administraciÛn o atenciÛn mÈdica
+        /** Espacio construido en el que se  realiza un trabajo profesional de gesti√≥n, administraci√≥n o atenci√≥n m√©dica
          */
         !!@ ili2db.dispName = "(Comercial) Oficinas - Consultorios"
         Oficinas_Consultorios,
-        /** Espacio construido con caracterÌsticas arquitectÛnicas coloniales en el que se  realiza un trabajo profesional de gestiÛn, administraciÛn o atenciÛn mÈdica
+        /** Espacio construido con caracter√≠sticas arquitect√≥nicas coloniales en el que se  realiza un trabajo profesional de gesti√≥n, administraci√≥n o atenci√≥n m√©dica
          */
         !!@ ili2db.dispName = "(Comercial) Oficinas - Consultorios Coloniales"
         Oficinas_Consultorios_Coloniales,
-        /** espacio construido en el que se  realiza un trabajo profesional de gestiÛn, administraciÛn o atenciÛn mÈdica, sometida a rÈgimen de propiedad horizontal
+        /** espacio construido en el que se  realiza un trabajo profesional de gesti√≥n, administraci√≥n o atenci√≥n m√©dica, sometida a r√©gimen de propiedad horizontal
          */
         !!@ ili2db.dispName = "(Comercial) Oficinas Consultorios en PH"
         Oficinas_Consultorios_en_PH,
-        /** Construcciones dedicadas al esparcimiento y a la diversiÛn, generalmente son predios con grandes espacios, ejemplo parque el salitre.
+        /** Construcciones dedicadas al esparcimiento y a la diversi√≥n, generalmente son predios con grandes espacios, ejemplo parque el salitre.
          */
         !!@ ili2db.dispName = "(Comercial) Parque de diversiones"
         Parque_Diversiones,
-        /** Es el espacio que con ·nimo de lucro se destina a guardar o arrendar espacios para depositar vehÌculos dentro de una edificaciÛn construida para tal fin, o dentro de un predio habilitado con el mismo objeto.
+        /** Es el espacio que con √°nimo de lucro se destina a guardar o arrendar espacios para depositar veh√≠culos dentro de una edificaci√≥n construida para tal fin, o dentro de un predio habilitado con el mismo objeto.
          */
         !!@ ili2db.dispName = "(Comercial) Parqueaderos"
         Parqueaderos,
-        /** Es el espacio o se destina a guardar o arrendar espacios para depositar vehÌculos dentro de una edificaciÛn construida privado o comunal bajo rÈgimen de propiedad horizontal
+        /** Es el espacio o se destina a guardar o arrendar espacios para depositar veh√≠culos dentro de una edificaci√≥n construida privado o comunal bajo r√©gimen de propiedad horizontal
          */
         !!@ ili2db.dispName = "(Comercial) Parqueaderos en PH"
         Parqueaderos_en_PH,
@@ -913,11 +913,11 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Comercial) Pensiones y Residencias"
         Pensiones_y_Residencias,
-        /** Edificaciones tipo bodega destinadas a la prestacion de un servicio p˙blico, como es la oferta de productos b·sicos, principalmente de origen agropecuario y consumo domÈstico
+        /** Edificaciones tipo bodega destinadas a la prestacion de un servicio p√∫blico, como es la oferta de productos b√°sicos, principalmente de origen agropecuario y consumo dom√©stico
          */
         !!@ ili2db.dispName = "(Comercial) Plaza de mercado"
         Plaza_Mercado,
-        /** Establecimiento con caracterÌsticas arquitectÛnicas coloniales en el que se preparan y sirven comidas.
+        /** Establecimiento con caracter√≠sticas arquitect√≥nicas coloniales en el que se preparan y sirven comidas.
          */
         !!@ ili2db.dispName = "(Comercial) Restaurante Colonial"
         Restaurante_Colonial,
@@ -925,15 +925,15 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Comercial) Restaurantes"
         Restaurantes,
-        /** Establecimiento en el que se preparan y sirven comidas sometido a rÈgimen de propiedad horizontal.
+        /** Establecimiento en el que se preparan y sirven comidas sometido a r√©gimen de propiedad horizontal.
          */
         !!@ ili2db.dispName = "(Comercial) Restaurantes en PH"
         Restaurantes_en_PH,
-        /** EdificaciÛn destinada a la proyecciÛn de pelÌculas cinematogr·fica o la presentaciÛn de obras artÌsticas actorales o musicales.
+        /** Edificaci√≥n destinada a la proyecci√≥n de pel√≠culas cinematogr√°fica o la presentaci√≥n de obras art√≠sticas actorales o musicales.
          */
         !!@ ili2db.dispName = "(Comercial) Teatro - Cinemas"
         Teatro_Cinemas,
-        /** Establecimiento destinado a la proyecciÛn de pelÌculas cinematogr·ficas sometida o la presentaciÛn de obras artÌsticas actores o musicales en un predio sometido en rÈgimen de propiedad horizontal
+        /** Establecimiento destinado a la proyecci√≥n de pel√≠culas cinematogr√°ficas sometida o la presentaci√≥n de obras art√≠sticas actores o musicales en un predio sometido en r√©gimen de propiedad horizontal
          */
         !!@ ili2db.dispName = "(Comercial) Teatro - Cinemas en PH"
         Teatro_Cinemas_en_PH
@@ -944,7 +944,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Industrial) Bodega Casa Bomba"
         Bodega_Casa_Bomba,
-        /** Infraestructura de bombeo de bodegas sometidas a rÈgimen de propiedad horizontal.
+        /** Infraestructura de bombeo de bodegas sometidas a r√©gimen de propiedad horizontal.
          */
         !!@ ili2db.dispName = "(Industrial) Bodegas Casa Bomba en PH"
         Bodegas_Casa_Bomba_en_PH,
@@ -952,7 +952,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Industrial) Industrias"
         Industrias,
-        /** Conjunto de instalaciones sometidas a rÈgimen de propiedad horizontal dedicadas a la actividad de transformar las materias primas en productos elaborados
+        /** Conjunto de instalaciones sometidas a r√©gimen de propiedad horizontal dedicadas a la actividad de transformar las materias primas en productos elaborados
          */
         !!@ ili2db.dispName = "(Industrial) Industrias en PH"
         Industrias_en_PH,
@@ -963,106 +963,106 @@ VERSION "V2.2.1"  // 2018-02-01 // =
       ),
       !!@ ili2db.dispName = "Institucional"
       Institucional(
-        /** Es un salÛn de un edificio que se destina a actividades de enseÒanza, y es la unidad b·sica de todo recinto destinado a la educaciÛn.
+        /** Es un sal√≥n de un edificio que se destina a actividades de ense√±anza, y es la unidad b√°sica de todo recinto destinado a la educaci√≥n.
          */
         !!@ ili2db.dispName = "(Institucional) Aula de clases"
         Aulas_de_Clases,
-        /** EdificaciÛn donde podemos encontrar libros o cualquier otro soporte de un texto, como publicaciones, revistas, documentos, cat·logo entre otros.
+        /** Edificaci√≥n donde podemos encontrar libros o cualquier otro soporte de un texto, como publicaciones, revistas, documentos, cat√°logo entre otros.
          */
         !!@ ili2db.dispName = "(Institucional) Biblioteca"
         Biblioteca,
         /** Son instalaciones en las que se encarcela a los prisioneros, se encuentran bajo la autoridad del estado.
          */
-        !!@ ili2db.dispName = "(Institucional) C·rceles"
+        !!@ ili2db.dispName = "(Institucional) C√°rceles"
         Carceles,
-        /** Lugar sin altar (diferente a iglesias y capillas) que congrega a un determinado n˙mero de personas para actividades de culto asociadas con manifestaciones religiosas.
+        /** Lugar sin altar (diferente a iglesias y capillas) que congrega a un determinado n√∫mero de personas para actividades de culto asociadas con manifestaciones religiosas.
          */
         !!@ ili2db.dispName = "(Institucional) Casas de culto"
         Casas_de_Culto,
-        /** Establecimiento construido y destinado a proporcionar todo tipo de asistencia mÈdica, incluidas operaciones quir˙rgicas y estancia durante la recuperaciÛn o tratamiento, y en el que tambiÈn se practican la investigaciÛn y la enseÒanza mÈdica
+        /** Establecimiento construido y destinado a proporcionar todo tipo de asistencia m√©dica, incluidas operaciones quir√∫rgicas y estancia durante la recuperaci√≥n o tratamiento, y en el que tambi√©n se practican la investigaci√≥n y la ense√±anza m√©dica
          */
-        !!@ ili2db.dispName = "(Institucional) Clinicas, hospitales, centros mÈdicos"
+        !!@ ili2db.dispName = "(Institucional) Clinicas, hospitales, centros m√©dicos"
         Clinicas_Hospitales_Centros_Medicos,
-        /** InstituciÛn edificada destinada a la enseÒanza primaria, secundaria y universitaria
+        /** Instituci√≥n edificada destinada a la ense√±anza primaria, secundaria y universitaria
          */
         !!@ ili2db.dispName = "(Institucional) Colegios y universidades"
         Colegio_y_Universidades,
-        /** Teatro o edificio destinado a espect·culos con capacidad para un gran n˙mero de personas.
+        /** Teatro o edificio destinado a espect√°culos con capacidad para un gran n√∫mero de personas.
          */
         !!@ ili2db.dispName = "(Institucional) Coliseos"
         Coliseos,
-        /** InstituciÛn edificada construcciÛn con caracterÌsticas arquitectÛnicas coloniales destinada a la enseÒanza primaria
+        /** Instituci√≥n edificada construcci√≥n con caracter√≠sticas arquitect√≥nicas coloniales destinada a la ense√±anza primaria
          */
         !!@ ili2db.dispName = "(Institucional) Entidad educativa colonial colegio colonial"
         Entidad_Educativa_Colonial_Colegio_Colonial,
-        /** Un estadio es una construcciÛn cerrada con graderÌas para los espectadores, destinado a competiciones deportivas. Puede ser al aire libre o cubierto.
+        /** Un estadio es una construcci√≥n cerrada con grader√≠as para los espectadores, destinado a competiciones deportivas. Puede ser al aire libre o cubierto.
          */
         !!@ ili2db.dispName = "(Institucional) Estadios, Plaza de toros"
         Estadios_Plaza_de_Toros,
-        /** EdificaciÛn en la que se re˙nen y consagran a los fieles que le rinden culto a un ser superior
+        /** Edificaci√≥n en la que se re√∫nen y consagran a los fieles que le rinden culto a un ser superior
          */
         !!@ ili2db.dispName = "(Institucional) Iglesia"
         Iglesia,
-        /** EdificaciÛn en la que se re˙nen y consagran a los fieles que le rinden culto a un ser superior sometido a rÈgimen de propiedad horizontal
+        /** Edificaci√≥n en la que se re√∫nen y consagran a los fieles que le rinden culto a un ser superior sometido a r√©gimen de propiedad horizontal
          */
         !!@ ili2db.dispName = "(Institucional) Iglesia en PH"
         Iglesia_en_PH,
-        /** Construcciones adaptadas o utilizadas por los organismos de seguridad de una naciÛn para acuartelar a las tropas y sus equipos. Estas son organizadas de una forma tal que les facilite cumplir con la rutina diaria de los cuerpos militares, desde dormitorios, patios de ejercicios, estacionamientos para los vehÌculos, parques, comedores, oficinas y son fortificadas a fin de presentar resistencia al momento de un posible ataque externo.
+        /** Construcciones adaptadas o utilizadas por los organismos de seguridad de una naci√≥n para acuartelar a las tropas y sus equipos. Estas son organizadas de una forma tal que les facilite cumplir con la rutina diaria de los cuerpos militares, desde dormitorios, patios de ejercicios, estacionamientos para los veh√≠culos, parques, comedores, oficinas y son fortificadas a fin de presentar resistencia al momento de un posible ataque externo.
          */
         !!@ ili2db.dispName = "(Institucional) Instalaciones militares"
         Instalaciones_Militares,
-        /** ConstrucciÛn con caracterÌsticas de una vivienda que se encarga de brindar educaciÛn y asistencia integral a los niÒos
+        /** Construcci√≥n con caracter√≠sticas de una vivienda que se encarga de brindar educaci√≥n y asistencia integral a los ni√±os
          */
-        !!@ ili2db.dispName = "(Institucional) JardÌn infantil en casa"
+        !!@ ili2db.dispName = "(Institucional) Jard√≠n infantil en casa"
         Jardin_Infantil_en_Casa,
-        /** Es un terreno que est· destinado a ·rboles, jardines y prados donde se depositan los restos mortales o cad·veres.
+        /** Es un terreno que est√° destinado a √°rboles, jardines y prados donde se depositan los restos mortales o cad√°veres.
          */
         !!@ ili2db.dispName = "(Institucional) Parque Cementerio"
         Parque_Cementerio,
-        /** Centro cultural donde se realizan presentaciones astronÛmicas al p˙blico en general.
+        /** Centro cultural donde se realizan presentaciones astron√≥micas al p√∫blico en general.
          */
         !!@ ili2db.dispName = "(Institucional) Planetario"
         Planetario,
-        /** Edificio donde se atiende a la poblaciÛn en un primer nivel asistencial sanitario.
+        /** Edificio donde se atiende a la poblaci√≥n en un primer nivel asistencial sanitario.
          */
         !!@ ili2db.dispName = "(Institucional) Puestos de salud"
         Puestos_de_Salud,
-        /** Construcciones, oficiales o privadas, destinadas a salvaguardar obras de arte, reliquias o antig¸edades de car·cter histÛrico, religioso o cientÌfico, que representan un periodo, una Època de la humanidad o del paÌs.
+        /** Construcciones, oficiales o privadas, destinadas a salvaguardar obras de arte, reliquias o antig√ºedades de car√°cter hist√≥rico, religioso o cient√≠fico, que representan un periodo, una √©poca de la humanidad o del pa√≠s.
          */
         !!@ ili2db.dispName = "(Institucional) Museos"
         Museos,
-        /** EdificaciÛn donde habitan congregaciones religiosas de distintas Ûrdenes menticantes en el itinerario de formaciÛn o consagraciÛn religiosa.
+        /** Edificaci√≥n donde habitan congregaciones religiosas de distintas √≥rdenes menticantes en el itinerario de formaci√≥n o consagraci√≥n religiosa.
          */
         !!@ ili2db.dispName = "(Institucional) Seminarios, conventos"
         Seminarios_Conventos,
-        /** Edificio o sala destinados a la representaciÛn de obras de teatro o de otro tipo de espect·culos, que dispone de un escenario y gradas o asientos para el p˙blico, se caracterizan por sus condiciones arquitectÛnicas
+        /** Edificio o sala destinados a la representaci√≥n de obras de teatro o de otro tipo de espect√°culos, que dispone de un escenario y gradas o asientos para el p√∫blico, se caracterizan por sus condiciones arquitect√≥nicas
          */
         !!@ ili2db.dispName = "(Institucional) Teatro"
         Teatro,
-        /** Escenario deportivo destinado a la pr·ctica de distintas disciplinas deportivas.
+        /** Escenario deportivo destinado a la pr√°ctica de distintas disciplinas deportivas.
          */
         !!@ ili2db.dispName = "(Institucional) Unidad deportiva"
         Unidad_Deportiva,
-        /** InstalaciÛn deportiva donde se desarrollan carreras ciclistas o de patinaje.
+        /** Instalaci√≥n deportiva donde se desarrollan carreras ciclistas o de patinaje.
          */
-        !!@ ili2db.dispName = "(Institucional) VelÛdromo, patinÛdromo"
+        !!@ ili2db.dispName = "(Institucional) Vel√≥dromo, patin√≥dromo"
         Velodromo_Patinodromo
       ),
       !!@ ili2db.dispName = "Anexo"
       Anexo(
-        /** DepÛsito de agua construido a nivel del terreno con el propÛsito de almacenar agua, o en el caso de las baÒadera con el fin de hacer limpieza al ganado, estas construcciones son cubiertas para guardar de la intemperie.
+        /** Dep√≥sito de agua construido a nivel del terreno con el prop√≥sito de almacenar agua, o en el caso de las ba√±adera con el fin de hacer limpieza al ganado, estas construcciones son cubiertas para guardar de la intemperie.
          */
         !!@ ili2db.dispName = "(Anexo) Albercas - Banaderas"
         Albercas_Banaderas,
-        /** Nombre dado en zonas cafeteras a aquellas construcciones donde realizan el beneficio del cafÈ. Consiste en ·reas cubiertas dentro de las cuales se encuentran los elementos destinados a la labor de seleccionar, lavar y despulpar el grano y su posterior empaque
+        /** Nombre dado en zonas cafeteras a aquellas construcciones donde realizan el beneficio del caf√©. Consiste en √°reas cubiertas dentro de las cuales se encuentran los elementos destinados a la labor de seleccionar, lavar y despulpar el grano y su posterior empaque
          */
         !!@ ili2db.dispName = "(Anexo) Beneficiaderos"
         Beneficiaderos,
-        /** ConstrucciÛn para el desarrollo de proyectos acuÌcolas del cultivo de camarones.
+        /** Construcci√≥n para el desarrollo de proyectos acu√≠colas del cultivo de camarones.
          */
         !!@ ili2db.dispName = "(Anexo) Camaroneras"
         Camaroneras,
-        /** Superficie de terreno adecuada sobre un placa para la practica de deportes como f˙tbol de salÛn, voleibol, balocento u alguna otra disciplina que haga uso de la cancha, todo ello a pequeÒa escala. Se excluyen las canchas de tenis, los estadios, coliseo u otras edificaciones de gran tamaÒo.
+        /** Superficie de terreno adecuada sobre un placa para la practica de deportes como f√∫tbol de sal√≥n, voleibol, balocento u alguna otra disciplina que haga uso de la cancha, todo ello a peque√±a escala. Se excluyen las canchas de tenis, los estadios, coliseo u otras edificaciones de gran tama√±o.
          */
         !!@ ili2db.dispName = "(Anexo) Canchas"
         Canchas,
@@ -1070,7 +1070,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Anexo) Canchas de Tenis"
         Canchas_de_Tenis,
-        /** Es una vÌa de transporte de dominio y uso p˙blico, proyectada y construida fundamentalmente para la circulaciÛn de vehÌculos automÛviles
+        /** Es una v√≠a de transporte de dominio y uso p√∫blico, proyectada y construida fundamentalmente para la circulaci√≥n de veh√≠culos autom√≥viles
          */
         !!@ ili2db.dispName = "(Anexo) Carretera"
         Carretera,
@@ -1078,109 +1078,109 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Anexo) Cerramiento"
         Cerramiento,
-        /** ConstrucciÛn anexa conformada por unos cimientos, muros y placa base
+        /** Construcci√≥n anexa conformada por unos cimientos, muros y placa base
          */
         !!@ ili2db.dispName = "(Anexo) Cimientos, Estructura, Muros y Placa Base"
         Cimientos_Estructura_Muros_y_Placa_Base,
-        /** ConstrucciÚn destinada a la crÌa y albergue de cerdos. Se utiliza cualesquiera de los tres nombres enunciados seg˙n la regiÛn donde se ubique; los elementos que la conforman son: estructura, muros y pisos.
+        /** Construcci√≤n destinada a la cr√≠a y albergue de cerdos. Se utiliza cualesquiera de los tres nombres enunciados seg√∫n la regi√≥n donde se ubique; los elementos que la conforman son: estructura, muros y pisos.
          */
         !!@ ili2db.dispName = "(Anexo) Cocheras - Marraneras - Porquerizas"
         Cocheras_Marraneras_Porquerizas,
-        /** Tenso estructuras, arquitectura textil, o membranas arquitectÛnicas, son los nombres con los que se le conoce a los tipos de estructura que emplean materiales que trabajan bajo tensiÛn, sean membranas textiles, l·minas, mallas de cables, etc.
+        /** Tenso estructuras, arquitectura textil, o membranas arquitect√≥nicas, son los nombres con los que se le conoce a los tipos de estructura que emplean materiales que trabajan bajo tensi√≥n, sean membranas textiles, l√°minas, mallas de cables, etc.
          */
-        !!@ ili2db.dispName = "(Anexo) Construccion en membrana arquitectÛnica"
+        !!@ ili2db.dispName = "(Anexo) Construccion en membrana arquitect√≥nica"
         Construccion_en_Membrana_Arquitectonica,
-        /** Un contenedor es un recipiente de carga para el transporte marÌtimo o fluvial, transporte terrestre y transporte multimodal adecuado para la vivienda o el comercio o servicios.
+        /** Un contenedor es un recipiente de carga para el transporte mar√≠timo o fluvial, transporte terrestre y transporte multimodal adecuado para la vivienda o el comercio o servicios.
          */
         !!@ ili2db.dispName = "(Anexo) Contenedor"
         Contenedor,
-        /** Sitio cerrado y descubierto que se utiliza par la crÌa y albergue de ganado generalmente vacuno. consta de los elementos estructura  y pisos.
+        /** Sitio cerrado y descubierto que se utiliza par la cr√≠a y albergue de ganado generalmente vacuno. consta de los elementos estructura  y pisos.
          */
         !!@ ili2db.dispName = "(Anexo) Corrales"
         Corrales,
-        /** Lugar cubierto donde se encierra ganado o caballos y/o se realizan actividades propias de su explotaciÛn, constituidos por estructura, cubierta, muros y pisos.
+        /** Lugar cubierto donde se encierra ganado o caballos y/o se realizan actividades propias de su explotaci√≥n, constituidos por estructura, cubierta, muros y pisos.
          */
         !!@ ili2db.dispName = "(Anexo) Establos - Pesebreras - Caballerizas"
         Establos_Pesebreras_Caballerizas,
-        /** InstalaciÛn que permite el tr·nsito de personas y la conexiÛn con sistemas de transporte como buses, metro, tren, tranvÌa, terminales y estaciones, destinadas para la movilidad de las personas.
+        /** Instalaci√≥n que permite el tr√°nsito de personas y la conexi√≥n con sistemas de transporte como buses, metro, tren, tranv√≠a, terminales y estaciones, destinadas para la movilidad de las personas.
          */
-        !!@ ili2db.dispName = "(Anexo) EstaciÛn de sistema de transporte"
+        !!@ ili2db.dispName = "(Anexo) Estaci√≥n de sistema de transporte"
         Estacion_Sistema_Transporte,
         /** Lugar construido  fuerte, cercado de murallas, baluartes, fosos y otras fortificaciones.
          */
         !!@ ili2db.dispName = "(Anexo) Fuertes y Castillos"
         Fuertes_y_Castillos,
-        /** Unidad construida con destino a la crÌa y/o protecciÛn de aves principalmente para explotaciÛn avÌcola.  Conformada por estructura cubierta pisos y muros que son parcialmente elaborados en ladrillo y el resto descubierto o con alg˙n material provisional (pl·sticos, alambres, etc.).
+        /** Unidad construida con destino a la cr√≠a y/o protecci√≥n de aves principalmente para explotaci√≥n av√≠cola.  Conformada por estructura cubierta pisos y muros que son parcialmente elaborados en ladrillo y el resto descubierto o con alg√∫n material provisional (pl√°sticos, alambres, etc.).
          */
         !!@ ili2db.dispName = "(Anexo) Galpones - Gallineros"
         Galpones_Gallineros,
-        /** Espacio destinado para el almacenamiento y disposiciÛn de aeronaves.
+        /** Espacio destinado para el almacenamiento y disposici√≥n de aeronaves.
          */
         !!@ ili2db.dispName = "(Anexo) Hangar"
         Hangar,
-        /** ConstrucciÛn consistente en una cubierta apoyada en columnas de materiales diferentes, elaborados con el fin de guarecer de la intemperie.
+        /** Construcci√≥n consistente en una cubierta apoyada en columnas de materiales diferentes, elaborados con el fin de guarecer de la intemperie.
          */
         !!@ ili2db.dispName = "(Anexo) Kioscos"
         Kioscos,
-        /** Son depÛsitos construidos mediante la excavaciÛn y compactaciÛn de la tierra que almacenan agua de cualquier calidad por un periodo determinado
+        /** Son dep√≥sitos construidos mediante la excavaci√≥n y compactaci√≥n de la tierra que almacenan agua de cualquier calidad por un periodo determinado
          */
-        !!@ ili2db.dispName = "(Anexo) Lagunas de OxidaciÛn"
+        !!@ ili2db.dispName = "(Anexo) Lagunas de Oxidaci√≥n"
         Lagunas_de_Oxidacion,
-        /** Cobertizo dentro de una edificaciÛn de mayor extensiÛn o patio cubierto, clasificados seg˙n su estructura, pisos y el material de la cubierta.
+        /** Cobertizo dentro de una edificaci√≥n de mayor extensi√≥n o patio cubierto, clasificados seg√∫n su estructura, pisos y el material de la cubierta.
          */
         !!@ ili2db.dispName = "(Anexo) Marquesinas - Patios Cubiertos"
         Marquesinas_Patios_Cubiertos,
-        /** Deber·n diferenciarse de acuerdo a su estructura, longitud, capacidad, usos turÌsticos o de carga
+        /** Deber√°n diferenciarse de acuerdo a su estructura, longitud, capacidad, usos tur√≠sticos o de carga
          */
         !!@ ili2db.dispName = "(Anexo) Muelles"
         Muelles,
-        /** Se denomina muralla a un muro cerrado destinado a la protecciÛn y defensa de determinado sitio.
+        /** Se denomina muralla a un muro cerrado destinado a la protecci√≥n y defensa de determinado sitio.
          */
         !!@ ili2db.dispName = "(Anexo) Murallas"
         Murallas,
-        /** Las pÈrgolas son estructuras compuestas por columnas y una armazÛn superior, cubiertas con mucho follaje o toldo especial que protegen de la lluvia y el sol, tambiÈn usadas como elemento decorativo en un espacio de las viviendas.
+        /** Las p√©rgolas son estructuras compuestas por columnas y una armaz√≥n superior, cubiertas con mucho follaje o toldo especial que protegen de la lluvia y el sol, tambi√©n usadas como elemento decorativo en un espacio de las viviendas.
          */
-        !!@ ili2db.dispName = "(Anexo) PÈrgolas"
+        !!@ ili2db.dispName = "(Anexo) P√©rgolas"
         Pergolas,
-        /** Estanque artificial con destino al deporte o a la recreaciÛn.  Se diferencia por sus acabados y especificaciones tÈcnicas para su mantenimiento y operaciÛn; sus dimensiones deben darse en unidades de ·rea (m2).
+        /** Estanque artificial con destino al deporte o a la recreaci√≥n.  Se diferencia por sus acabados y especificaciones t√©cnicas para su mantenimiento y operaci√≥n; sus dimensiones deben darse en unidades de √°rea (m2).
          */
         !!@ ili2db.dispName = "(Anexo) Piscinas"
         Piscinas,
-        /** EdificaciÛn sin cubierta con que se identifican las pistas de los aeropuertos construidas en asfalto o concreto, incluye la zona o calle de redaje y calles de salida r·pida.
+        /** Edificaci√≥n sin cubierta con que se identifican las pistas de los aeropuertos construidas en asfalto o concreto, incluye la zona o calle de redaje y calles de salida r√°pida.
          */
         !!@ ili2db.dispName = "(Anexo) Pista aeropuerto"
         Pista_Aeropuerto,
-        /** Perforaciones profundas  manuales para extraer agua subterr·nea.  Medida en metros de profundidad.
+        /** Perforaciones profundas  manuales para extraer agua subterr√°nea.  Medida en metros de profundidad.
          */
         !!@ ili2db.dispName = "(Anexo) Pozos"
         Pozos,
-        /** Consiste en un sitio cubierto elaborado con el fin de resguardar de la intemperie; el nombre de enramadas, cobertizos o caney se utiliza seg˙n la forma de la cubierta y la regiÛn donde se ubique.
+        /** Consiste en un sitio cubierto elaborado con el fin de resguardar de la intemperie; el nombre de enramadas, cobertizos o caney se utiliza seg√∫n la forma de la cubierta y la regi√≥n donde se ubique.
          */
         !!@ ili2db.dispName = "(Anexo) Ramadas - Cobertizos - Caneyes"
         Ramadas_Cobertizos_Caneyes,
-        /** Construcciones elaboradas con el objeto de secar en condiciones naturales el cafÈ principalmente, aunque es com˙n su uso en otros productos.  Consta de estructura y pisos para su calificaciÛn
+        /** Construcciones elaboradas con el objeto de secar en condiciones naturales el caf√© principalmente, aunque es com√∫n su uso en otros productos.  Consta de estructura y pisos para su calificaci√≥n
          */
         !!@ ili2db.dispName = "(Anexo) Secaderos"
         Secaderos,
-        /** ConstrucciÛn de grandes dimensiones que sirve para almacÈn o depÛsito, se except˙an los silos cafeteros
+        /** Construcci√≥n de grandes dimensiones que sirve para almac√©n o dep√≥sito, se except√∫an los silos cafeteros
          */
         !!@ ili2db.dispName = "(Anexo) Silos"
         Silos,
-        /** DepÛsitos subterr·neos o de altura, construidos en zonas con deficiencias en abastecimiento para el consumo de los habitantes o para el uso agrÌcola.  El elemento a calificar es la estructura relacionada con la capacidad de almacenamiento medida en metros c˙bicos.
+        /** Dep√≥sitos subterr√°neos o de altura, construidos en zonas con deficiencias en abastecimiento para el consumo de los habitantes o para el uso agr√≠cola.  El elemento a calificar es la estructura relacionada con la capacidad de almacenamiento medida en metros c√∫bicos.
          *  
-         * Se excluyen de este tipo de construcciÛn los tanques de almacenamiento domiciliario
+         * Se excluyen de este tipo de construcci√≥n los tanques de almacenamiento domiciliario
          */
         !!@ ili2db.dispName = "(Anexo) Tanques"
         Tanques,
-        /** Deslizadores construidos alrededor de piscinas, medidos en metros lineales.  Se clasifican seg˙n su altura y materiales de construcciÛn
+        /** Deslizadores construidos alrededor de piscinas, medidos en metros lineales.  Se clasifican seg√∫n su altura y materiales de construcci√≥n
          */
         !!@ ili2db.dispName = "(Anexo) Toboganes"
         Toboganes,
-        /** Edificio en forma de torre, en cuya cima se sit˙a una sala de control, desde la que se dirige y controla el tr·fico de un puerto, de un aeropuerto o de un circuito de carreras.
+        /** Edificio en forma de torre, en cuya cima se sit√∫a una sala de control, desde la que se dirige y controla el tr√°fico de un puerto, de un aeropuerto o de un circuito de carreras.
          */
         !!@ ili2db.dispName = "(Anexo) Torre de control"
         Torre_de_Control,
-        /** Son estructuras diseÒadas para disminuir la temperatura del agua y otros medios.
+        /** Son estructuras dise√±adas para disminuir la temperatura del agua y otros medios.
          */
         !!@ ili2db.dispName = "(Anexo) Torres de Enfriamiento"
         Torres_de_Enfriamiento,
@@ -1190,80 +1190,80 @@ VERSION "V2.2.1"  // 2018-02-01 // =
         Unidad_Predial_por_Construir,
         /** Parte de la infraestructura ferroviaria que une dos puntos determinados del territorio
          */
-        !!@ ili2db.dispName = "(Anexo) VÌa FÈrrea"
+        !!@ ili2db.dispName = "(Anexo) V√≠a F√©rrea"
         Via_Ferrea
       )
     );
 
-  /** Este Topic agrupa a las clases especÌficas del aval˙o, asÌ como sus atributos.
+  /** Este Topic agrupa a las clases espec√≠ficas del aval√∫o, as√≠ como sus atributos.
    */
   TOPIC Avaluos =
     OID AS INTERLIS.UUIDOID;
     DEPENDS ON Levantamiento_Catastral_V3_0.Levantamiento_Catastral;
 
-    /** Clase los valores por M2 de construcciÛn seg˙n el uso y puntaje de calificaciÛn de construcciÛn.
+    /** Clase los valores por M2 de construcci√≥n seg√∫n el uso y puntaje de calificaci√≥n de construcci√≥n.
      */
-    !!@ ili2db.dispName = "(Aval˙os) Tabla CalificaciÛn de la ConstrucciÛn"
+    !!@ ili2db.dispName = "(Aval√∫os) Tabla Calificaci√≥n de la Construcci√≥n"
     CLASS AV_TablaCalificacionConstruccion =
-      /** Valor por metros cuadrado de construcciÛn clasificando por uso y puntaje de las unidades de construcciÛn.
+      /** Valor por metros cuadrado de construcci√≥n clasificando por uso y puntaje de las unidades de construcci√≥n.
        */
-      !!@ ili2db.dispName = "Valor M2 de construcciÛn"
+      !!@ ili2db.dispName = "Valor M2 de construcci√≥n"
       Valor_M2_Construccion : LADM_COL_V3_0.LADM_Nucleo.Peso;
-      /** Es la actividad que se desarrolla en una unidad de construcciÛn.
+      /** Es la actividad que se desarrolla en una unidad de construcci√≥n.
        */
       !!@ ili2db.dispName = "Uso"
       Uso : Avaluos_V3_0.AV_UsoUConsTipo;
-      /** Puntaje de las edificaciones de acuerdo a sus caracterÌsticas constructivas.
+      /** Puntaje de las edificaciones de acuerdo a sus caracter√≠sticas constructivas.
        */
-      !!@ ili2db.dispName = "PuntuaciÛn"
+      !!@ ili2db.dispName = "Puntuaci√≥n"
       Puntuacion : TEXT*20;
     END AV_TablaCalificacionConstruccion;
 
-    /** Clase que relaciona las tipologias de las construcciones con su respectivo valor por M2 de construcciÛn.
+    /** Clase que relaciona las tipologias de las construcciones con su respectivo valor por M2 de construcci√≥n.
      */
-    !!@ ili2db.dispName = "(Aval˙os) TipologÌa de la construcciÛn"
+    !!@ ili2db.dispName = "(Aval√∫os) Tipolog√≠a de la construcci√≥n"
     CLASS AV_TipologiaConstruccion =
-      /** Se refiere a la zonificaciÛn del municipio de acuerdo con las clasificaciones de los inmuebles seg˙n su
+      /** Se refiere a la zonificaci√≥n del municipio de acuerdo con las clasificaciones de los inmuebles seg√∫n su
        * actividad residencial, comercial e industrial.
        */
-      !!@ ili2db.dispName = "Tipo de topologÌa"
+      !!@ ili2db.dispName = "Tipo de topolog√≠a"
       Tipo_Tipologia : Avaluos_V3_0.AV_TipologiaTipo;
-      /** Valor unitario en pesos del tipo de tipologÌa constructiva.
+      /** Valor unitario en pesos del tipo de tipolog√≠a constructiva.
        */
       !!@ ili2db.dispName = "Valor unitario"
       Valor_Unitario : LADM_COL_V3_0.LADM_Nucleo.Peso;
       UNIQUE Tipo_Tipologia; 
     END AV_TipologiaConstruccion;
 
-    /** Clase que contiene las variables que componen las Zonas Homogeneas Fisicas rurales. Las ZHF Son espacios geogr·ficos con caracterÌsticas similares en cuanto a vÌas, topografÌa, servicios p˙blicos, uso actual del suelo, norma de uso del suelo, tipificaciÛn de las construcciones y/o edificaciones, ·reas homogÈneas de tierra, disponibilidad de aguas superficiales permanentes u otras variables que permitan diferenciar estas ·reas de las adyacentes.
+    /** Clase que contiene las variables que componen las Zonas Homogeneas Fisicas rurales. Las ZHF Son espacios geogr√°ficos con caracter√≠sticas similares en cuanto a v√≠as, topograf√≠a, servicios p√∫blicos, uso actual del suelo, norma de uso del suelo, tipificaci√≥n de las construcciones y/o edificaciones, √°reas homog√©neas de tierra, disponibilidad de aguas superficiales permanentes u otras variables que permitan diferenciar estas √°reas de las adyacentes.
      */
-    !!@ ili2db.dispName = "(Aval˙os) Zona homogÈnea fÌsica rural"
+    !!@ ili2db.dispName = "(Aval√∫os) Zona homog√©nea f√≠sica rural"
     CLASS AV_ZonaHomogeneaFisicaRural =
-      /** CÛdigo ˙nico del registro de la instancia de ZonaHomegeneaFisca.
+      /** C√≥digo √∫nico del registro de la instancia de ZonaHomegeneaFisca.
        */
-      !!@ ili2db.dispName = "CÛdigo"
+      !!@ ili2db.dispName = "C√≥digo"
       Codigo : MANDATORY TEXT*20;
-      /** Identificador de la zona homogÈnea fÌsica rural.
+      /** Identificador de la zona homog√©nea f√≠sica rural.
        */
-      !!@ ili2db.dispName = "CÛdigo zona fÌsica"
+      !!@ ili2db.dispName = "C√≥digo zona f√≠sica"
       Codigo_Zona_Fisica : MANDATORY TEXT*20;
-      /** Espacios de la superficie terrestre que presentan caracterÌsticas o cualidades similares en cuanto a las condiciones de clima, relieve, material litolÛgico superficial o depÛsitos superficiales y de las caracterÌsticas internas de los suelos, condiciones que expresan la capacidad productiva de las tierras; ello se indica mediante un valor numÈrico denominado Valor Potencial (VP).
+      /** Espacios de la superficie terrestre que presentan caracter√≠sticas o cualidades similares en cuanto a las condiciones de clima, relieve, material litol√≥gico superficial o dep√≥sitos superficiales y de las caracter√≠sticas internas de los suelos, condiciones que expresan la capacidad productiva de las tierras; ello se indica mediante un valor num√©rico denominado Valor Potencial (VP).
        */
-      !!@ ili2db.dispName = "¡rea homogÈnea tierra"
+      !!@ ili2db.dispName = "√Årea homog√©nea tierra"
       Area_Homogenea_Tierra : 0.00 .. 99999999999999990000000.00;
-      /** En el estudio de esta variable se analiza la existencia de fuentes de aguas superficiales permanentes y su clasificaciÛn, con el fin de zonificar de acuerdo con la posibilidad de aprovechamiento para el uso actual que se da al suelo.
+      /** En el estudio de esta variable se analiza la existencia de fuentes de aguas superficiales permanentes y su clasificaci√≥n, con el fin de zonificar de acuerdo con la posibilidad de aprovechamiento para el uso actual que se da al suelo.
        */
       !!@ ili2db.dispName = "Disponibilidad agua"
       Disponibilidad_Agua : Avaluos_V3_0.AV_DisponibilidadAguaTipo;
-      /** Se refiere a la existencia y calidad de las vÌas, analizada a nivel de zona. A esta condiciÛn se asocia la existencia de otras obras de ingenierÌa, la instalaciÛn de redes de servicios p˙blicos, etc.
+      /** Se refiere a la existencia y calidad de las v√≠as, analizada a nivel de zona. A esta condici√≥n se asocia la existencia de otras obras de ingenier√≠a, la instalaci√≥n de redes de servicios p√∫blicos, etc.
        */
       !!@ ili2db.dispName = "Influencia vial"
       Influencia_Vial : Avaluos_V3_0.AV_InfluenciaVialRuralTipo;
-      /** Actividad que se desarrolla en un determinado espacio geogr·fico en el momento de la elaboraciÛn del estudio de zonas homogÈneas fÌsicas.
+      /** Actividad que se desarrolla en un determinado espacio geogr√°fico en el momento de la elaboraci√≥n del estudio de zonas homog√©neas f√≠sicas.
        */
       !!@ ili2db.dispName = "Uso actual del suelo"
       Uso_Actual_Suelo : Avaluos_V3_0.AV_UsoSueloRuralTipo;
-      /** IndicaciÛn legal sobre la actividad que se puede desarrollar en un determinado espacio geogr·fico con lo planificado y reglamentado por la respectiva autoridad de la unidad org·nica catastral.
+      /** Indicaci√≥n legal sobre la actividad que se puede desarrollar en un determinado espacio geogr√°fico con lo planificado y reglamentado por la respectiva autoridad de la unidad org√°nica catastral.
        */
       !!@ ili2db.dispName = "Norma uso del suelo"
       Norma_Uso_Suelo : TEXT*250;
@@ -1271,115 +1271,115 @@ VERSION "V2.2.1"  // 2018-02-01 // =
        */
       !!@ ili2db.dispName = "Vigencia"
       Vigencia : INTERLIS.XMLDate;
-      /** DefiniciÛn de la geometrÌa espacial georreferenciada de la zona homogÈnea fÌsica, delimitada mediante un polÌgono que contiene sus linderos y la superficie ocupada.
+      /** Definici√≥n de la geometr√≠a espacial georreferenciada de la zona homog√©nea f√≠sica, delimitada mediante un pol√≠gono que contiene sus linderos y la superficie ocupada.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_MultiSurface3D;
     END AV_ZonaHomogeneaFisicaRural;
 
-    /** Clase que contiene las variables que componen las Zonas Homogeneas Fisicas urbanas. Las ZHF Son espacios geogr·ficos con caracterÌsticas similares en cuanto a vÌas, topografÌa, servicios p˙blicos, uso actual del suelo, norma de uso del suelo, tipificaciÛn de las construcciones y/o edificaciones, ·reas homogÈneas de tierra, disponibilidad de aguas superficiales permanentes u otras variables que permitan diferenciar estas ·reas de las adyacentes.
+    /** Clase que contiene las variables que componen las Zonas Homogeneas Fisicas urbanas. Las ZHF Son espacios geogr√°ficos con caracter√≠sticas similares en cuanto a v√≠as, topograf√≠a, servicios p√∫blicos, uso actual del suelo, norma de uso del suelo, tipificaci√≥n de las construcciones y/o edificaciones, √°reas homog√©neas de tierra, disponibilidad de aguas superficiales permanentes u otras variables que permitan diferenciar estas √°reas de las adyacentes.
      */
-    !!@ ili2db.dispName = "(Aval˙os) Zona homogÈnea fisÌca urbana"
+    !!@ ili2db.dispName = "(Aval√∫os) Zona homog√©nea fis√≠ca urbana"
     CLASS AV_ZonaHomogeneaFisicaUrbana =
-      /** CÛdigo ˙nico del registro de la instancia de ZonaHomegeneaFisca.
+      /** C√≥digo √∫nico del registro de la instancia de ZonaHomegeneaFisca.
        */
-      !!@ ili2db.dispName = "CÛdigo"
+      !!@ ili2db.dispName = "C√≥digo"
       Codigo : MANDATORY TEXT*20;
-      /** Identificador de la zona homogÈnea fÌsica urbana.
+      /** Identificador de la zona homog√©nea f√≠sica urbana.
        */
-      !!@ ili2db.dispName = "CÛdigo zona fÌsica"
+      !!@ ili2db.dispName = "C√≥digo zona f√≠sica"
       Codigo_Zona_Fisica : MANDATORY TEXT*20;
-      /** CaracterÌsticas naturales relacionadas con el relieve que permitan o dificulten el desarrollo de las construcciones, dentro de esta variable deben considerarse factores tales como zonas anegadizas o inundables, las discontinuidades fÌsicas tales como taludes, caÒos y rÌos, altura por encima de la cota de servicios, ·reas potenciales de derrumbe, por inclinaciÛn o presencia de drenajes superficiales.
+      /** Caracter√≠sticas naturales relacionadas con el relieve que permitan o dificulten el desarrollo de las construcciones, dentro de esta variable deben considerarse factores tales como zonas anegadizas o inundables, las discontinuidades f√≠sicas tales como taludes, ca√±os y r√≠os, altura por encima de la cota de servicios, √°reas potenciales de derrumbe, por inclinaci√≥n o presencia de drenajes superficiales.
        */
-      !!@ ili2db.dispName = "TopografÌa"
+      !!@ ili2db.dispName = "Topograf√≠a"
       Topografia : Avaluos_V3_0.AV_TopografiaZonaTipo;
-      /** Se refiere a la existencia y calidad de las vÌas, analizada a nivel de zona. A esta condiciÛn se asocia la existencia de otras obras de ingenierÌa, la instalaciÛn de redes de servicios p˙blicos, etc.
+      /** Se refiere a la existencia y calidad de las v√≠as, analizada a nivel de zona. A esta condici√≥n se asocia la existencia de otras obras de ingenier√≠a, la instalaci√≥n de redes de servicios p√∫blicos, etc.
        */
       !!@ ili2db.dispName = "Influencia vial"
       Influencia_Vial : Avaluos_V3_0.AV_InfluenciaVialUrbanaTipo;
-      /** Se prestan con la finalidad especÌfica de satisfacer las necesidades esenciales de las personas. Para efectos de la presente metodologÌa se consideran servicios p˙blicos b·sicos: Acueducto, Alcantarillado y EnergÌa ElÈctrica.
+      /** Se prestan con la finalidad espec√≠fica de satisfacer las necesidades esenciales de las personas. Para efectos de la presente metodolog√≠a se consideran servicios p√∫blicos b√°sicos: Acueducto, Alcantarillado y Energ√≠a El√©ctrica.
        */
-      !!@ ili2db.dispName = "Servicio p˙blico"
+      !!@ ili2db.dispName = "Servicio p√∫blico"
       Servicio_Publico : Avaluos_V3_0.AV_ServiciosPublicosTipo;
-      /** Actividad que se desarrolla en un determinado espacio geogr·fico en el momento de la elaboraciÛn del estudio de zonas homogÈneas fÌsicas.
+      /** Actividad que se desarrolla en un determinado espacio geogr√°fico en el momento de la elaboraci√≥n del estudio de zonas homog√©neas f√≠sicas.
        */
       !!@ ili2db.dispName = "Uso actual del suelo"
       Uso_Actual_Suelo : Avaluos_V3_0.AV_UsoSueloUrbanoTipo;
-      /** IndicaciÛn legal sobre la actividad que se puede desarrollar en un determinado espacio geogr·fico con lo planificado y reglamentado por la respectiva autoridad de la unidad org·nica catastral.
+      /** Indicaci√≥n legal sobre la actividad que se puede desarrollar en un determinado espacio geogr√°fico con lo planificado y reglamentado por la respectiva autoridad de la unidad org√°nica catastral.
        */
       !!@ ili2db.dispName = "Norma uso del suelo"
       Norma_Uso_Suelo : TEXT*250;
-      /** ClasificaciÛn de las construcciones de acuerdo a ciertas caracterÌsticas observables y cuantificables que reflejan las condiciones socioeconÛmicas (ingresos y cultura) de los habitantes de las viviendas.
+      /** Clasificaci√≥n de las construcciones de acuerdo a ciertas caracter√≠sticas observables y cuantificables que reflejan las condiciones socioecon√≥micas (ingresos y cultura) de los habitantes de las viviendas.
        */
-      !!@ ili2db.dispName = "TipificaciÛn de la construcciÛn"
+      !!@ ili2db.dispName = "Tipificaci√≥n de la construcci√≥n"
       Tipificacion_Construccion : Avaluos_V3_0.AV_TipificacionConstruccionTipo;
       /** Vigencia del estudio de zonas homogeneas fisicas urbanas.
        */
       !!@ ili2db.dispName = "Vigencia"
       Vigencia : INTERLIS.XMLDate;
-      /** DefiniciÛn de la geometrÌa espacial georreferenciada de la zona homogÈnea fÌsica, delimitada mediante un polÌgono que contiene sus linderos y la superficie ocupada.
+      /** Definici√≥n de la geometr√≠a espacial georreferenciada de la zona homog√©nea f√≠sica, delimitada mediante un pol√≠gono que contiene sus linderos y la superficie ocupada.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_MultiSurface3D;
     END AV_ZonaHomogeneaFisicaUrbana;
 
-    /** Clase que contiene las variables que componen las Zonas Homogeneas GeoconÛmicas rurales. Las ZHG son los espacios geogr·ficos determinados a partir de Zonas HomogÈneas FÌsicas con valores unitarios similares en cuanto a su precio, seg˙n las condiciones del mercado inmobiliario.
+    /** Clase que contiene las variables que componen las Zonas Homogeneas Geocon√≥micas rurales. Las ZHG son los espacios geogr√°ficos determinados a partir de Zonas Homog√©neas F√≠sicas con valores unitarios similares en cuanto a su precio, seg√∫n las condiciones del mercado inmobiliario.
      */
-    !!@ ili2db.dispName = "(Aval˙os) Zona homogÈnea geoeconÛmica urbana"
+    !!@ ili2db.dispName = "(Aval√∫os) Zona homog√©nea geoecon√≥mica urbana"
     CLASS AV_ZonaHomogeneaGeoeconomicaUrbana =
-      /** CÛdigo ˙nico del registro de la instancia de la zona geoeconÛmica.
+      /** C√≥digo √∫nico del registro de la instancia de la zona geoecon√≥mica.
        */
-      !!@ ili2db.dispName = "CÛdigo"
+      !!@ ili2db.dispName = "C√≥digo"
       Codigo : MANDATORY TEXT*20;
-      /** Identificador de la zona homogÈnea geoeconÛmica urbana.
+      /** Identificador de la zona homog√©nea geoecon√≥mica urbana.
        */
-      !!@ ili2db.dispName = "CÛdigo zona geoeconÛmica"
+      !!@ ili2db.dispName = "C√≥digo zona geoecon√≥mica"
       Codigo_Zona_Geoeconomica : MANDATORY TEXT*20;
-      /** Valor econÛmico de la zona homogÈnea que representa la instancia de la clase.
+      /** Valor econ√≥mico de la zona homog√©nea que representa la instancia de la clase.
        */
       !!@ ili2db.dispName = "Valor del metro cuadrado"
       Valor_Metro : MANDATORY LADM_COL_V3_0.LADM_Nucleo.Peso;
-      /** CÛdigos de las zonas homogeneas fisicas urbanas que componen la zona homogÈnea geoeconÛmica urbana.
+      /** C√≥digos de las zonas homogeneas fisicas urbanas que componen la zona homog√©nea geoecon√≥mica urbana.
        */
-      !!@ ili2db.dispName = "Subzona fÌsica"
+      !!@ ili2db.dispName = "Subzona f√≠sica"
       Subzona_Fisica : TEXT;
-      /** Vigencia del estudio de zonas homogÈneas geoeconÛmicas urbanas.
+      /** Vigencia del estudio de zonas homog√©neas geoecon√≥micas urbanas.
        */
       !!@ ili2db.dispName = "Vigencia"
       Vigencia : INTERLIS.XMLDate;
-      /** DefiniciÛn de la geometrÌa espacial georreferenciada de la zona homogÈnea geoeconÛmica, delimitada mediante un polÌgono que contiene sus linderos y la superficie ocupada.
+      /** Definici√≥n de la geometr√≠a espacial georreferenciada de la zona homog√©nea geoecon√≥mica, delimitada mediante un pol√≠gono que contiene sus linderos y la superficie ocupada.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_MultiSurface3D;
     END AV_ZonaHomogeneaGeoeconomicaUrbana;
 
-    /** Esta clase permite gestionar las zonas con caracterÌsticas econÛmicas y de localizaciÛn geogr·fica similares, definidas para caracterizar el aval˙o.
+    /** Esta clase permite gestionar las zonas con caracter√≠sticas econ√≥micas y de localizaci√≥n geogr√°fica similares, definidas para caracterizar el aval√∫o.
      */
-    !!@ ili2db.dispName = "(Aval˙os) Zona homogÈnea geoeconÛmica rural"
+    !!@ ili2db.dispName = "(Aval√∫os) Zona homog√©nea geoecon√≥mica rural"
     CLASS AV_ZonaHomogeneaGeoeconomicaRural =
-      /** CÛdigo ˙nico del registro de la instancia de la zona geoeconÛmica.
+      /** C√≥digo √∫nico del registro de la instancia de la zona geoecon√≥mica.
        */
-      !!@ ili2db.dispName = "CÛdigo"
+      !!@ ili2db.dispName = "C√≥digo"
       Codigo : MANDATORY TEXT*20;
-      /** Identificador de la zona homogÈnea geoeconÛmica rural.
+      /** Identificador de la zona homog√©nea geoecon√≥mica rural.
        */
-      !!@ ili2db.dispName = "CÛdigo zona geoeconÛmica"
+      !!@ ili2db.dispName = "C√≥digo zona geoecon√≥mica"
       Codigo_Zona_Geoeconomica : MANDATORY TEXT*20;
-      /** Valor econÛmico de la zona homogÈnea que representa la instancia de la clase.
+      /** Valor econ√≥mico de la zona homog√©nea que representa la instancia de la clase.
        */
-      !!@ ili2db.dispName = "Valor por hect·rea"
+      !!@ ili2db.dispName = "Valor por hect√°rea"
       Valor_Hectarea : MANDATORY LADM_COL_V3_0.LADM_Nucleo.Peso;
-      /** CÛdigos de las zonas homogeneas fisicas rurales que componen la zona homogÈnea geoeconÛmica rural.
+      /** C√≥digos de las zonas homogeneas fisicas rurales que componen la zona homog√©nea geoecon√≥mica rural.
        */
-      !!@ ili2db.dispName = "Subzona fÌsica"
+      !!@ ili2db.dispName = "Subzona f√≠sica"
       Subzona_Fisica : TEXT;
-      /** Vigencia del estudio de zonas homogÈneas geoeconÛmicas rurales.
+      /** Vigencia del estudio de zonas homog√©neas geoecon√≥micas rurales.
        */
       !!@ ili2db.dispName = "Vigencia"
       Vigencia : INTERLIS.XMLDate;
-      /** DefiniciÛn de la geometrÌa espacial georreferenciada de la zona homogÈnea geoeconÛmica, delimitada mediante un polÌgono que contiene sus linderos y la superficie ocupada.
+      /** Definici√≥n de la geometr√≠a espacial georreferenciada de la zona homog√©nea geoecon√≥mica, delimitada mediante un pol√≠gono que contiene sus linderos y la superficie ocupada.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_MultiSurface3D;
     END AV_ZonaHomogeneaGeoeconomicaRural;
 

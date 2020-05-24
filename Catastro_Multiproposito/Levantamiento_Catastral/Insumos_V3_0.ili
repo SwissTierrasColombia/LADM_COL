@@ -1,6 +1,6 @@
 INTERLIS 2.3;
 
-MODEL Datos_Gestor_Catastral_V2_11 (es)
+MODEL Datos_Gestor_Catastral_V3_0 (es)
 AT "mailto:PC4@localhost"
 VERSION "2019-08-01"  =
   IMPORTS ISO19107_PLANAS_V3_0,LADM_COL_V3_0;
@@ -8,24 +8,24 @@ VERSION "2019-08-01"  =
   DOMAIN
 
     GC_CondicionPredioTipo = (
-      /** Predio no sometido al rÈgimen de propiedad horizontal.
+      /** Predio no sometido al r√©gimen de propiedad horizontal.
        */
       !!@ ili2db.dispName = "No propiedad horizontal"
       NPH,
-      /** Predio sometido al rÈgimen de propiedad horizontal mediante escritura p˙blica registrada
+      /** Predio sometido al r√©gimen de propiedad horizontal mediante escritura p√∫blica registrada
        */
       !!@ ili2db.dispName = "Propiedad horizontal"
       PH(
-        /** Predio matriz del rÈgimen de propiedad horizontal sobre el cual se segregan todas las unidades prediales.
+        /** Predio matriz del r√©gimen de propiedad horizontal sobre el cual se segregan todas las unidades prediales.
          */
         !!@ ili2db.dispName = "(PH) Matriz"
         Matriz,
-        /** Apartamento, garaje, depÛsito o cualquier otro tipo de unidad predial dentro del PH que se encuentra debidamente inscrito en el registro de instrumentos p˙blicos
+        /** Apartamento, garaje, dep√≥sito o cualquier otro tipo de unidad predial dentro del PH que se encuentra debidamente inscrito en el registro de instrumentos p√∫blicos
          */
         !!@ ili2db.dispName = "(PH) Unidad predial"
         Unidad_Predial
       ),
-      /** Predio sometido al rÈgimen de propiedad horizontal mediante escritura p˙blica registrada en cuyo reglamento define para cada unidad predial un ·rea privada de terreno.
+      /** Predio sometido al r√©gimen de propiedad horizontal mediante escritura p√∫blica registrada en cuyo reglamento define para cada unidad predial un √°rea privada de terreno.
        */
       !!@ ili2db.dispName = "Condiminio"
       Condominio(
@@ -38,48 +38,48 @@ VERSION "2019-08-01"  =
         !!@ ili2db.dispName = "(Condominio) Unidad predial"
         Unidad_Predial
       ),
-      /** Es la construcciÛn o edificaciÛn instalada por una persona natural o jurÌdica sobre un predio que no le pertenece.
+      /** Es la construcci√≥n o edificaci√≥n instalada por una persona natural o jur√≠dica sobre un predio que no le pertenece.
        */
       !!@ ili2db.dispName = "Mejora"
       Mejora(
-        /** Mejora sobre un predio sometido a rÈgimen de propiedad horizontal
+        /** Mejora sobre un predio sometido a r√©gimen de propiedad horizontal
          */
         !!@ ili2db.dispName = "(Mejora) Propiedad horizontal"
         PH,
-        /** Mejora sobre un predio no sometido a rÈgimen de propiedad horizontal.
+        /** Mejora sobre un predio no sometido a r√©gimen de propiedad horizontal.
          */
         !!@ ili2db.dispName = "(Mejora) No propiedad horizontal"
         NPH
       ),
-      /** Predios sobre los cuales las ·reas de terreno y construcciones son dedicadas a la cremaciÛn, inhumaciÛn o enterramiento de personas fallecidas.
+      /** Predios sobre los cuales las √°reas de terreno y construcciones son dedicadas a la cremaci√≥n, inhumaci√≥n o enterramiento de personas fallecidas.
        */
       !!@ ili2db.dispName = "Parque cementerio"
       Parque_Cementerio(
-        /** Predios sobre los cuales las ·reas de terreno y construcciones son dedicadas a la cremaciÛn, inhumaciÛn o enterramiento de personas fallecidas.
+        /** Predios sobre los cuales las √°reas de terreno y construcciones son dedicadas a la cremaci√≥n, inhumaci√≥n o enterramiento de personas fallecidas.
          */
         !!@ ili2db.dispName = "(Parque cementerio) Matriz"
         Matriz,
-        /** ¡rea o secciÛn de terreno con funciÛn de tumba, esta debe encontrarse inscrita en el registro de instrumentos p˙blicos.
+        /** √Årea o secci√≥n de terreno con funci√≥n de tumba, esta debe encontrarse inscrita en el registro de instrumentos p√∫blicos.
          */
         !!@ ili2db.dispName = "(Parque cementerio) Unidad predial"
         Unidad_Predial
       ),
-      /** Espacio (terreno y construcciÛn) diseÒado y destinado para el tr·nsito de vehÌculos, personas, entre otros.
+      /** Espacio (terreno y construcci√≥n) dise√±ado y destinado para el tr√°nsito de veh√≠culos, personas, entre otros.
        */
-      !!@ ili2db.dispName = "VÌa"
+      !!@ ili2db.dispName = "V√≠a"
       Via,
-      /** Inmuebles que siendo de dominio de la NaciÛn, o una entidad territorial o de particulares, est·n destinados al uso de los habitantes.
+      /** Inmuebles que siendo de dominio de la Naci√≥n, o una entidad territorial o de particulares, est√°n destinados al uso de los habitantes.
        */
-      !!@ ili2db.dispName = "Bien de uso p˙blico"
+      !!@ ili2db.dispName = "Bien de uso p√∫blico"
       Bien_Uso_Publico
     );
 
     GC_SistemaProcedenciaDatosTipo = (
-      /** Datos extraÌdos del Sistema Nacional Catastral del IGAC.
+      /** Datos extra√≠dos del Sistema Nacional Catastral del IGAC.
        */
       !!@ ili2db.dispName = "Sistema Nacional Catastral"
       SNC,
-      /** Datos extraÌdos del Sistema COBOL del IGAC.
+      /** Datos extra√≠dos del Sistema COBOL del IGAC.
        */
       !!@ ili2db.dispName = "Cobol"
       Cobol
@@ -90,7 +90,7 @@ VERSION "2019-08-01"  =
        */
       !!@ ili2db.dispName = "Convencional"
       Convencional,
-      /** Se refiere aquellas construcciones considereadas anexos de construcciÛn.
+      /** Se refiere aquellas construcciones considereadas anexos de construcci√≥n.
        */
       !!@ ili2db.dispName = "No convencional"
       No_Convencional
@@ -102,140 +102,140 @@ VERSION "2019-08-01"  =
      */
     !!@ ili2db.dispName = "(GC) Barrio"
     CLASS GC_Barrio =
-      /** CÛdigo de identificaciÛn del barrio.
+      /** C√≥digo de identificaci√≥n del barrio.
        */
-      !!@ ili2db.dispName = "CÛdigo"
+      !!@ ili2db.dispName = "C√≥digo"
       Codigo : TEXT*13;
       /** Nombre del barrio.
        */
       !!@ ili2db.dispName = "Nombre"
       Nombre : TEXT*100;
-      /** CÛdigo del sector donde se encuentra localizado el barrio.
+      /** C√≥digo del sector donde se encuentra localizado el barrio.
        */
-      !!@ ili2db.dispName = "CÛdigo sector"
+      !!@ ili2db.dispName = "C√≥digo sector"
       Codigo_Sector : TEXT*9;
-      /** Tipo de geometrÌa y su representaciÛn georrefenciada que definen los lÌmites y el ·rea ocupada por el barrio.
+      /** Tipo de geometr√≠a y su representaci√≥n georrefenciada que definen los l√≠mites y el √°rea ocupada por el barrio.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : ISO19107_PLANAS_V3_0.GM_MultiSurface2D;
     END GC_Barrio;
 
-    /** Relaciona la calificaciÛn de las unidades de construcciÛn de los datos de insumos del Gestor Catastral.
+    /** Relaciona la calificaci√≥n de las unidades de construcci√≥n de los datos de insumos del Gestor Catastral.
      */
-    !!@ ili2db.dispName = "(GC) CalificaciÛn unidad de construcciÛn"
+    !!@ ili2db.dispName = "(GC) Calificaci√≥n unidad de construcci√≥n"
     CLASS GC_CalificacionUnidadConstruccion =
-      /** Indica el componente de la calificaciÛn de la unidad de construcciÛn.
+      /** Indica el componente de la calificaci√≥n de la unidad de construcci√≥n.
        */
       !!@ ili2db.dispName = "Componente"
       Componente : TEXT*255;
-      /** Indica el elemento de calificaciÛn de la unidad de construcciÛn.
+      /** Indica el elemento de calificaci√≥n de la unidad de construcci√≥n.
        */
-      !!@ ili2db.dispName = "Elemento de calificaciÛn"
+      !!@ ili2db.dispName = "Elemento de calificaci√≥n"
       Elemento_Calificacion : TEXT*255;
-      /** Indica el detalle de calificaciÛn del elemento de calificaciÛn de la unidad de construcciÛn.
+      /** Indica el detalle de calificaci√≥n del elemento de calificaci√≥n de la unidad de construcci√≥n.
        */
-      !!@ ili2db.dispName = "Detalle de calificaciÛn"
+      !!@ ili2db.dispName = "Detalle de calificaci√≥n"
       Detalle_Calificacion : TEXT*255;
-      /** Puntaje asociado al detalle del elemento de calificaciÛn.
+      /** Puntaje asociado al detalle del elemento de calificaci√≥n.
        */
       !!@ ili2db.dispName = "Puntos"
       Puntos : 0 .. 100;
     END GC_CalificacionUnidadConstruccion;
 
-    /** Construcciones que no cuentan con informaciÛn alfanumÈrica en la base de datos catastral.
+    /** Construcciones que no cuentan con informaci√≥n alfanum√©rica en la base de datos catastral.
      */
-    !!@ ili2db.dispName = "(GC) Comisiones ConstrucciÛn"
+    !!@ ili2db.dispName = "(GC) Comisiones Construcci√≥n"
     CLASS GC_ComisionesConstruccion =
-      /** Numero Predial del Construcciones que no cuentan con informaciÛn alfanumÈrica en la base de datos catastral.
+      /** Numero Predial del Construcciones que no cuentan con informaci√≥n alfanum√©rica en la base de datos catastral.
        */
-      !!@ ili2db.dispName = "N˙mero predial"
+      !!@ ili2db.dispName = "N√∫mero predial"
       Numero_Predial : MANDATORY TEXT*30;
-      /** Construcciones que no cuentan con informaciÛn alfanumÈrica en la base catastral.
+      /** Construcciones que no cuentan con informaci√≥n alfanum√©rica en la base catastral.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : ISO19107_PLANAS_V3_0.GM_MultiSurface3D;
     END GC_ComisionesConstruccion;
 
-    /** Terrenos que no cuentan con informaciÛn alfanumÈrica en la base de datos catastral.
+    /** Terrenos que no cuentan con informaci√≥n alfanum√©rica en la base de datos catastral.
      */
     !!@ ili2db.dispName = "(GC) Comisiones Terreno"
     CLASS GC_ComisionesTerreno =
-      /** Numero Predial del terreno que no cuentan con informaciÛn
-       * alfanumÈrica en la base de datos catastral.
+      /** Numero Predial del terreno que no cuentan con informaci√≥n
+       * alfanum√©rica en la base de datos catastral.
        */
-      !!@ ili2db.dispName = "N˙mero predial"
+      !!@ ili2db.dispName = "N√∫mero predial"
       Numero_Predial : MANDATORY TEXT*30;
-      /** Terrenos que no cuentan con informaciÛn alfanumÈrica en la base catastral.
+      /** Terrenos que no cuentan con informaci√≥n alfanum√©rica en la base catastral.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : ISO19107_PLANAS_V3_0.GM_MultiSurface2D;
     END GC_ComisionesTerreno;
 
-    /** Unidades de construcciÛn que no cuentan con informaciÛn alfanumÈrica en la base de datos catastral.
+    /** Unidades de construcci√≥n que no cuentan con informaci√≥n alfanum√©rica en la base de datos catastral.
      */
-    !!@ ili2db.dispName = "(GC) Comisiones Unidad ConstrucciÛn"
+    !!@ ili2db.dispName = "(GC) Comisiones Unidad Construcci√≥n"
     CLASS GC_ComisionesUnidadConstruccion =
-      /** Numero Predial del terreno que no cuentan con informaciÛn alfanumÈrica en la base de datos catastral.
+      /** Numero Predial del terreno que no cuentan con informaci√≥n alfanum√©rica en la base de datos catastral.
        */
-      !!@ ili2db.dispName = "N˙mero predial"
+      !!@ ili2db.dispName = "N√∫mero predial"
       Numero_Predial : MANDATORY TEXT*30;
-      /** Unidades de construcciÛn que no cuentan con informaciÛn alfanumÈrica en la base catastral.
+      /** Unidades de construcci√≥n que no cuentan con informaci√≥n alfanum√©rica en la base catastral.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : ISO19107_PLANAS_V3_0.GM_MultiSurface3D;
     END GC_ComisionesUnidadConstruccion;
 
     /** Datos de las construcciones inscritas en las bases de datos catastrales en una entidad territorial.
      */
-    !!@ ili2db.dispName = "(GC) ConstrucciÛn"
+    !!@ ili2db.dispName = "(GC) Construcci√≥n"
     CLASS GC_Construccion =
-      /** Identificado de la unidad de construcciÛn, su codificaciÛn puede ser por letras del abecedario.
+      /** Identificado de la unidad de construcci√≥n, su codificaci√≥n puede ser por letras del abecedario.
        */
       !!@ ili2db.dispName = "Identificador"
       Identificador : TEXT*30;
-      /** Etiqueta de la construcciÛn.
+      /** Etiqueta de la construcci√≥n.
        */
       !!@ ili2db.dispName = "Etiqueta"
       Etiqueta : TEXT*50;
-      /** Indica si la construcciÛn es de tipo convencional o no convencional.
+      /** Indica si la construcci√≥n es de tipo convencional o no convencional.
        */
-      !!@ ili2db.dispName = "Tipo de construcciÛn"
-      Tipo_Construccion : Datos_Gestor_Catastral_V2_11.GC_UnidadConstruccionTipo;
-      /** Indica el tipo de dominio de la unidad de construcciÛn: com˙n y privado.
+      !!@ ili2db.dispName = "Tipo de construcci√≥n"
+      Tipo_Construccion : Datos_Gestor_Catastral_V3_0.GC_UnidadConstruccionTipo;
+      /** Indica el tipo de dominio de la unidad de construcci√≥n: com√∫n y privado.
        */
       !!@ ili2db.dispName = "Tipo de dominio"
       Tipo_Dominio : TEXT*20;
-      /** N˙mero total de pisos de la construcciÛn.
+      /** N√∫mero total de pisos de la construcci√≥n.
        */
-      !!@ ili2db.dispName = "N˙mero de pisos"
+      !!@ ili2db.dispName = "N√∫mero de pisos"
       Numero_Pisos : 0 .. 200;
-      /** N˙mero total de sÛtanos de la construcciÛn.
+      /** N√∫mero total de s√≥tanos de la construcci√≥n.
        */
-      !!@ ili2db.dispName = "N˙mero de sÛtanos"
+      !!@ ili2db.dispName = "N√∫mero de s√≥tanos"
       Numero_Sotanos : 0 .. 99;
-      /** N˙mero total de mezanines de la construcciÛn.
+      /** N√∫mero total de mezanines de la construcci√≥n.
        */
-      !!@ ili2db.dispName = "N˙mero de mezanines"
+      !!@ ili2db.dispName = "N√∫mero de mezanines"
       Numero_Mezanines : 0 .. 99;
-      /** N˙mero total de semisÛtanos de la construcciÛn.
+      /** N√∫mero total de semis√≥tanos de la construcci√≥n.
        */
-      !!@ ili2db.dispName = "N˙mero de semisÛtanos"
+      !!@ ili2db.dispName = "N√∫mero de semis√≥tanos"
       Numero_Semisotanos : 0 .. 99;
-      /** CÛdigo catastral de la construcciÛn.
+      /** C√≥digo catastral de la construcci√≥n.
        */
-      !!@ ili2db.dispName = "CÛdigo de edificaciÛn"
+      !!@ ili2db.dispName = "C√≥digo de edificaci√≥n"
       Codigo_Edificacion : 0 .. 10000000000000000000;
-      /** CÛdigo de terreno donde se encuentra ubicada la construcciÛn.
+      /** C√≥digo de terreno donde se encuentra ubicada la construcci√≥n.
        */
-      !!@ ili2db.dispName = "CÛdigo de terreno"
+      !!@ ili2db.dispName = "C√≥digo de terreno"
       Codigo_Terreno : TEXT*30;
-      /** ¡rea total construida.
+      /** √Årea total construida.
        */
-      !!@ ili2db.dispName = "¡rea construida"
+      !!@ ili2db.dispName = "√Årea construida"
       Area_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V3_0.m2];
-      /** PolÌgono de la construcciÛn existente en la base de datos catastral.
+      /** Pol√≠gono de la construcci√≥n existente en la base de datos catastral.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : ISO19107_PLANAS_V3_0.GM_MultiSurface3D;
     END GC_Construccion;
 
@@ -243,41 +243,41 @@ VERSION "2019-08-01"  =
      */
     !!@ ili2db.dispName = "(GC) Datos Propiedad Horizontal Condominio"
     CLASS GC_DatosPHCondominio =
-      /** ¡rea total privada del terreno del PH o Condominio Matriz.
+      /** √Årea total privada del terreno del PH o Condominio Matriz.
        */
-      !!@ ili2db.dispName = "¡rea total de terreno privada"
+      !!@ ili2db.dispName = "√Årea total de terreno privada"
       Area_Total_Terreno_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V3_0.m2];
-      /** ¡rea total de terreno com˙n del PH o Condominio Matriz.
+      /** √Årea total de terreno com√∫n del PH o Condominio Matriz.
        */
-      !!@ ili2db.dispName = "¡rea total de terreno com˙n"
+      !!@ ili2db.dispName = "√Årea total de terreno com√∫n"
       Area_Total_Terreno_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V3_0.m2];
-      /** ¡rea total construida privada del PH o Condominio Matriz.
+      /** √Årea total construida privada del PH o Condominio Matriz.
        */
-      !!@ ili2db.dispName = "¡rea total construida privada"
+      !!@ ili2db.dispName = "√Årea total construida privada"
       Area_Total_Construida_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V3_0.m2];
-      /** ¡rea total construida com˙n del PH o Condominio Matriz.
+      /** √Årea total construida com√∫n del PH o Condominio Matriz.
        */
-      !!@ ili2db.dispName = "¡rea total construida com˙n"
+      !!@ ili2db.dispName = "√Årea total construida com√∫n"
       Area_Total_Construida_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V3_0.m2];
       /** Total de unidades privadas en el PH o Condominio.
        */
       !!@ ili2db.dispName = "Total de unidades privadas"
       Total_Unidades_Privadas : 0 .. 99999999;
-      /** Total de unidades prediales en el sÛtano del PH o Condominio.
+      /** Total de unidades prediales en el s√≥tano del PH o Condominio.
        */
-      !!@ ili2db.dispName = "Total de unidades de sÛtano"
+      !!@ ili2db.dispName = "Total de unidades de s√≥tano"
       Total_Unidades_Sotano : 0 .. 99999999;
-      /** Aval˙o catastral total de la propiedad horizontal o condominio.
+      /** Aval√∫o catastral total de la propiedad horizontal o condominio.
        */
-      !!@ ili2db.dispName = "Valor total ava˙o catastral"
+      !!@ ili2db.dispName = "Valor total ava√∫o catastral"
       Valor_Total_Avaluo_Catastral : LADM_COL_V3_0.LADM_Nucleo.Peso;
     END GC_DatosPHCondominio;
 
-    /** Relaciona la informaciÛn de las torres asociadas al PH o Condominio de los datos insumos del Gestor Catastral
+    /** Relaciona la informaci√≥n de las torres asociadas al PH o Condominio de los datos insumos del Gestor Catastral
      */
     !!@ ili2db.dispName = "(GC) Datos torre PH"
     CLASS GC_DatosTorrePH =
-      /** N˙mero de torre en el PH o Condominio.
+      /** N√∫mero de torre en el PH o Condominio.
        */
       !!@ ili2db.dispName = "Torre"
       Torre : 0 .. 1500;
@@ -289,29 +289,29 @@ VERSION "2019-08-01"  =
        */
       !!@ ili2db.dispName = "Total de unidades privadas"
       Total_Unidades_Privadas : 0 .. 99999999;
-      /** Total de sÛtanos en la torre.
+      /** Total de s√≥tanos en la torre.
        */
-      !!@ ili2db.dispName = "Total de sÛtanos"
+      !!@ ili2db.dispName = "Total de s√≥tanos"
       Total_Sotanos : 0 .. 99;
-      /** Total de unidades prediales en el sÛtano de la torre.
+      /** Total de unidades prediales en el s√≥tano de la torre.
        */
-      !!@ ili2db.dispName = "Total de unidades sÛtano"
+      !!@ ili2db.dispName = "Total de unidades s√≥tano"
       Total_Unidades_Sotano : 0 .. 99999999;
     END GC_DatosTorrePH;
 
-    !!@ ili2db.dispName = "(GC) DirecciÛn"
+    !!@ ili2db.dispName = "(GC) Direcci√≥n"
     STRUCTURE GC_Direccion =
       /** Registros de la direcciones del predio.
        */
       !!@ ili2db.dispName = "Valor"
       Valor : TEXT*255;
-      /** Indica si el registro de la direcciÛn corresponde a la principal.
+      /** Indica si el registro de la direcci√≥n corresponde a la principal.
        */
       !!@ ili2db.dispName = "Principal"
       Principal : BOOLEAN;
-      /** LÌnea de donde se encuentra la placa de nomenclatura del predio.
+      /** L√≠nea de donde se encuentra la placa de nomenclatura del predio.
        */
-      !!@ ili2db.dispName = "GeometrÌa de referencia"
+      !!@ ili2db.dispName = "Geometr√≠a de referencia"
       Geometria_Referencia : ISO19107_PLANAS_V3_0.GM_Curve3D;
     END GC_Direccion;
 
@@ -327,7 +327,7 @@ VERSION "2019-08-01"  =
        */
       !!@ ili2db.dispName = "Entidad emisora de la alerta"
       Entidad_Emisora_Alerta : TEXT*255;
-      /** Fecha de la alerta en el sistema de gestiÛn catastral.
+      /** Fecha de la alerta en el sistema de gesti√≥n catastral.
        */
       !!@ ili2db.dispName = "Fecha de alerta"
       Fecha_Alerta : INTERLIS.XMLDate;
@@ -337,55 +337,55 @@ VERSION "2019-08-01"  =
      */
     !!@ ili2db.dispName = "(GC) Manzana"
     CLASS GC_Manzana =
-      /** CÛdigo catastral de 17 dÌgitos de la manzana.
+      /** C√≥digo catastral de 17 d√≠gitos de la manzana.
        */
-      !!@ ili2db.dispName = "CÛdigo"
+      !!@ ili2db.dispName = "C√≥digo"
       Codigo : TEXT*17;
-      /** CÛdigo catastral anterior de la manzana.
+      /** C√≥digo catastral anterior de la manzana.
        */
-      !!@ ili2db.dispName = "CÛdigo anterior"
+      !!@ ili2db.dispName = "C√≥digo anterior"
       Codigo_Anterior : TEXT*255;
-      /** CÛdigo catastral de 13 dÌgitos del barrio donde se encuentra la manzana.
+      /** C√≥digo catastral de 13 d√≠gitos del barrio donde se encuentra la manzana.
        */
-      !!@ ili2db.dispName = "CÛdigo de barrio"
+      !!@ ili2db.dispName = "C√≥digo de barrio"
       Codigo_Barrio : TEXT*13;
-      /** PolÌgonos de la manzanas catastrales.
+      /** Pol√≠gonos de la manzanas catastrales.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : ISO19107_PLANAS_V3_0.GM_MultiSurface2D;
     END GC_Manzana;
 
     /** Dato geografico aportado por el Gestor Catastral respecto del perimetro urbano de una entidad territorial.
      */
-    !!@ ili2db.dispName = "(GC) PerÌmetro"
+    !!@ ili2db.dispName = "(GC) Per√≠metro"
     CLASS GC_Perimetro =
-      /** CÛdigo de 2 dÌgitos del Departamento seg˙n clasificaciÛn de Divipola.
+      /** C√≥digo de 2 d√≠gitos del Departamento seg√∫n clasificaci√≥n de Divipola.
        */
-      !!@ ili2db.dispName = "CÛdigo del departamento"
+      !!@ ili2db.dispName = "C√≥digo del departamento"
       Codigo_Departamento : TEXT*2;
-      /** CÛdigo de 5 dÌgitos que une los 2 dÌgitos del Departamento y los 3 dÌgitos del municipio seg˙n la clasificaciÛn de Divipola.
+      /** C√≥digo de 5 d√≠gitos que une los 2 d√≠gitos del Departamento y los 3 d√≠gitos del municipio seg√∫n la clasificaci√≥n de Divipola.
        */
-      !!@ ili2db.dispName = "CÛdigo del municipio"
+      !!@ ili2db.dispName = "C√≥digo del municipio"
       Codigo_Municipio : TEXT*5;
-      /** Tipo de aval˙o catastral del perÌmetro urbano.
+      /** Tipo de aval√∫o catastral del per√≠metro urbano.
        */
-      !!@ ili2db.dispName = "Tipo de aval˙o"
+      !!@ ili2db.dispName = "Tipo de aval√∫o"
       Tipo_Avaluo : TEXT*30;
-      /** Nombre geogr·fico del perÌmetro municipal, por ejemplo el nombre del municipio.
+      /** Nombre geogr√°fico del per√≠metro municipal, por ejemplo el nombre del municipio.
        */
-      !!@ ili2db.dispName = "Nombre geogr·fico"
+      !!@ ili2db.dispName = "Nombre geogr√°fico"
       Nombre_Geografico : TEXT*50;
-      /** CÛdigo del nombre geogr·fico.
+      /** C√≥digo del nombre geogr√°fico.
        */
-      !!@ ili2db.dispName = "CÛdigo nombre"
+      !!@ ili2db.dispName = "C√≥digo nombre"
       Codigo_Nombre : TEXT*255;
-      /** PolÌgono del perÌmetro urbano.
+      /** Pol√≠gono del per√≠metro urbano.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : ISO19107_PLANAS_V3_0.GM_MultiSurface2D;
     END GC_Perimetro;
 
-    /** Datos de los propietarios inscritos en las bases de datos catastrales que tienen relaciÛn con un predio.
+    /** Datos de los propietarios inscritos en las bases de datos catastrales que tienen relaci√≥n con un predio.
      */
     !!@ ili2db.dispName = "(GC) Propietario"
     CLASS GC_Propietario =
@@ -393,13 +393,13 @@ VERSION "2019-08-01"  =
        */
       !!@ ili2db.dispName = "Tipo de documento"
       Tipo_Documento : TEXT*100;
-      /** N˙mero de documento del propietario registrado en la base de datos catastral.
+      /** N√∫mero de documento del propietario registrado en la base de datos catastral.
        */
-      !!@ ili2db.dispName = "N˙mero de documento"
+      !!@ ili2db.dispName = "N√∫mero de documento"
       Numero_Documento : TEXT*50;
-      /** DÌgito de verificaciÛn de las personas jurÌdicas.
+      /** D√≠gito de verificaci√≥n de las personas jur√≠dicas.
        */
-      !!@ ili2db.dispName = "DÌgito de verificaciÛn"
+      !!@ ili2db.dispName = "D√≠gito de verificaci√≥n"
       Digito_Verificacion : TEXT*1;
       /** Primer nombre del propietario en catastro.
        */
@@ -417,9 +417,9 @@ VERSION "2019-08-01"  =
        */
       !!@ ili2db.dispName = "Segundo apellido"
       Segundo_Apellido : TEXT*255;
-      /** Razon social de las personas jurÌdicas inscritas como propietarios en catastro.
+      /** Razon social de las personas jur√≠dicas inscritas como propietarios en catastro.
        */
-      !!@ ili2db.dispName = "RazÛn social"
+      !!@ ili2db.dispName = "Raz√≥n social"
       Razon_Social : TEXT*255;
     END GC_Propietario;
 
@@ -427,13 +427,13 @@ VERSION "2019-08-01"  =
      */
     !!@ ili2db.dispName = "(GC) Sector Rural"
     CLASS GC_SectorRural =
-      /** CÛdigo catastral de 9 dÌgitos del sector catastral.
+      /** C√≥digo catastral de 9 d√≠gitos del sector catastral.
        */
-      !!@ ili2db.dispName = "CÛdigo"
+      !!@ ili2db.dispName = "C√≥digo"
       Codigo : TEXT*9;
-      /** PolÌgono de los sectores catastrales existentes en la base de datos catastral.
+      /** Pol√≠gono de los sectores catastrales existentes en la base de datos catastral.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : ISO19107_PLANAS_V3_0.GM_MultiSurface2D;
     END GC_SectorRural;
 
@@ -441,13 +441,13 @@ VERSION "2019-08-01"  =
      */
     !!@ ili2db.dispName = "(GC) Sector Urbano"
     CLASS GC_SectorUrbano =
-      /** CÛdigo catastral de 9 dÌgitos del sector catastral.
+      /** C√≥digo catastral de 9 d√≠gitos del sector catastral.
        */
-      !!@ ili2db.dispName = "CÛdigo"
+      !!@ ili2db.dispName = "C√≥digo"
       Codigo : TEXT*9;
-      /** PolÌgono de los sectores catastrales existentes en la base de datos catastral.
+      /** Pol√≠gono de los sectores catastrales existentes en la base de datos catastral.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : ISO19107_PLANAS_V3_0.GM_MultiSurface2D;
     END GC_SectorUrbano;
 
@@ -455,95 +455,95 @@ VERSION "2019-08-01"  =
      */
     !!@ ili2db.dispName = "(GC) Terreno"
     CLASS GC_Terreno =
-      /** ¡rea de terreno alfanumÈrica registrada en la base de datos catastral.
+      /** √Årea de terreno alfanum√©rica registrada en la base de datos catastral.
        */
-      !!@ ili2db.dispName = "¡rea terreno alfanumÈrica"
+      !!@ ili2db.dispName = "√Årea terreno alfanum√©rica"
       Area_Terreno_Alfanumerica : 0.00 .. 99999999999999.98 [LADM_COL_V3_0.m2];
-      /** ¡rea de terreno digital registrada en la base de datos catastral.
+      /** √Årea de terreno digital registrada en la base de datos catastral.
        */
-      !!@ ili2db.dispName = "¡rea terreno digital"
+      !!@ ili2db.dispName = "√Årea terreno digital"
       Area_Terreno_Digital : 0.00 .. 99999999999999.98 [LADM_COL_V3_0.m2];
-      /** CÛdigo de la manzana o vereda donde se localiza el terreno.
+      /** C√≥digo de la manzana o vereda donde se localiza el terreno.
        */
-      !!@ ili2db.dispName = "CÛdigo de manzana vereda"
+      !!@ ili2db.dispName = "C√≥digo de manzana vereda"
       Manzana_Vereda_Codigo : TEXT*17;
-      /** N˙mero de subterr·neos en el terreno.
+      /** N√∫mero de subterr√°neos en el terreno.
        */
-      !!@ ili2db.dispName = "N˙mero de subterr·neos"
+      !!@ ili2db.dispName = "N√∫mero de subterr√°neos"
       Numero_Subterraneos : 0 .. 999999999999999;
-      /** PolÌgono de la unidad de construcciÛn existente en la base de datos catastral.
+      /** Pol√≠gono de la unidad de construcci√≥n existente en la base de datos catastral.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : ISO19107_PLANAS_V3_0.GM_MultiSurface2D;
     END GC_Terreno;
 
-    /** Datos de las unidades de construcciÛn inscritas en las bases de datos catastrales en una entidad territorial.
+    /** Datos de las unidades de construcci√≥n inscritas en las bases de datos catastrales en una entidad territorial.
      */
-    !!@ ili2db.dispName = "(GC) Unidad ConstrucciÛn"
+    !!@ ili2db.dispName = "(GC) Unidad Construcci√≥n"
     CLASS GC_UnidadConstruccion =
-      /** Identificado de la unidad de construcciÛn, su codificaciÛn puede ser por letras del abecedario.
+      /** Identificado de la unidad de construcci√≥n, su codificaci√≥n puede ser por letras del abecedario.
        */
       !!@ ili2db.dispName = "Identificador"
       Identificador : TEXT*2;
-      /** Etiqueta de la unidad de construcciÛn.
+      /** Etiqueta de la unidad de construcci√≥n.
        */
       !!@ ili2db.dispName = "Etiqueta"
       Etiqueta : TEXT*50;
-      /** Indica el tipo de dominio de la unidad de construcciÛn: com˙n y privado.
+      /** Indica el tipo de dominio de la unidad de construcci√≥n: com√∫n y privado.
        */
       !!@ ili2db.dispName = "Tipo de dominio"
       Tipo_Dominio : TEXT*20;
-      /** Indica si la construcciÛn es de tipo convencional o no convencional.
+      /** Indica si la construcci√≥n es de tipo convencional o no convencional.
        */
-      !!@ ili2db.dispName = "Tipo de construcciÛn"
-      Tipo_Construccion : Datos_Gestor_Catastral_V2_11.GC_UnidadConstruccionTipo;
-      /** Indica numÈricamente la ubicaciÛn del predio de acuerdo al tipo de planta.
+      !!@ ili2db.dispName = "Tipo de construcci√≥n"
+      Tipo_Construccion : Datos_Gestor_Catastral_V3_0.GC_UnidadConstruccionTipo;
+      /** Indica num√©ricamente la ubicaci√≥n del predio de acuerdo al tipo de planta.
        */
       !!@ ili2db.dispName = "Planta"
       Planta : TEXT*10;
-      /** N˙mero total de  habitaciones en la unidad de construcciÛn.
+      /** N√∫mero total de  habitaciones en la unidad de construcci√≥n.
        */
       !!@ ili2db.dispName = "Total de habitaciones"
       Total_Habitaciones : 0 .. 999999;
-      /** N˙mero total de baÒos en la unidad de construcciÛn.
+      /** N√∫mero total de ba√±os en la unidad de construcci√≥n.
        */
-      !!@ ili2db.dispName = "Total de baÒos"
+      !!@ ili2db.dispName = "Total de ba√±os"
       Total_Banios : 0 .. 999999;
-      /** N˙mero total de locales en la unidad de construcciÛn.
+      /** N√∫mero total de locales en la unidad de construcci√≥n.
        */
       !!@ ili2db.dispName = "Total de locales"
       Total_Locales : 0 .. 999999;
-      /** N˙mero total de pisos en la unidad de construcciÛn.
+      /** N√∫mero total de pisos en la unidad de construcci√≥n.
        */
       !!@ ili2db.dispName = "Total de pisos"
       Total_Pisos : 0 .. 150;
-      /** Actividad que se desarrolla en una unidad de construcciÛn.
+      /** Actividad que se desarrolla en una unidad de construcci√≥n.
        */
       !!@ ili2db.dispName = "Uso"
       Uso : TEXT*255;
-      /** AÒo de construcciÛn de la unidad de construcciÛn.
+      /** A√±o de construcci√≥n de la unidad de construcci√≥n.
        */
-      !!@ ili2db.dispName = "AÒo de construcciÛn"
+      !!@ ili2db.dispName = "A√±o de construcci√≥n"
       Anio_Construccion : 1512 .. 2500;
-      /** Puntaje total de la calificaciÛn de construcciÛn.
+      /** Puntaje total de la calificaci√≥n de construcci√≥n.
        */
       !!@ ili2db.dispName = "Puntaje"
       Puntaje : 0 .. 200;
-      /** ¡rea total construida en la unidad de construcciÛn.
+      /** √Årea total construida en la unidad de construcci√≥n.
        */
-      !!@ ili2db.dispName = "¡rea construida"
+      !!@ ili2db.dispName = "√Årea construida"
       Area_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V3_0.m2];
-      /** ¡rea total privada de la unidad de construcciÛn para los predios en rÈgimen de propiedad horizontal.
+      /** √Årea total privada de la unidad de construcci√≥n para los predios en r√©gimen de propiedad horizontal.
        */
-      !!@ ili2db.dispName = "¡rea privada"
+      !!@ ili2db.dispName = "√Årea privada"
       Area_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V3_0.m2];
-      /** CÛdigo catastral del terreno donde se encuentra localizada la unidad de construcciÛn.
+      /** C√≥digo catastral del terreno donde se encuentra localizada la unidad de construcci√≥n.
        */
-      !!@ ili2db.dispName = "CÛdigo terreno"
+      !!@ ili2db.dispName = "C√≥digo terreno"
       Codigo_Terreno : TEXT*30;
-      /** PolÌgono de la unidad de construcciÛn existente en la base de datos catastral.
+      /** Pol√≠gono de la unidad de construcci√≥n existente en la base de datos catastral.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : ISO19107_PLANAS_V3_0.GM_MultiSurface3D;
     END GC_UnidadConstruccion;
 
@@ -551,29 +551,29 @@ VERSION "2019-08-01"  =
      */
     !!@ ili2db.dispName = "(GC) Vereda"
     CLASS GC_Vereda =
-      /** CÛdigo catastral de 17 dÌgitos de la vereda.
+      /** C√≥digo catastral de 17 d√≠gitos de la vereda.
        */
-      !!@ ili2db.dispName = "CÛdigo"
+      !!@ ili2db.dispName = "C√≥digo"
       Codigo : TEXT*17;
-      /** CÛdigo catastral de 13 dÌgitos de la vereda.
+      /** C√≥digo catastral de 13 d√≠gitos de la vereda.
        */
-      !!@ ili2db.dispName = "CÛdigo anterior"
+      !!@ ili2db.dispName = "C√≥digo anterior"
       Codigo_Anterior : TEXT*13;
       /** Nombre de la vereda.
        */
       !!@ ili2db.dispName = "Nombre"
       Nombre : TEXT*100;
-      /** CÛdigo catastral de 9 dÌgitos del cÛdigo de sector donde se encuentra la vereda.
+      /** C√≥digo catastral de 9 d√≠gitos del c√≥digo de sector donde se encuentra la vereda.
        */
-      !!@ ili2db.dispName = "CÛdigo del sector"
+      !!@ ili2db.dispName = "C√≥digo del sector"
       Codigo_Sector : TEXT*9;
-      /** GeometrÌa en 2D de la vereda.
+      /** Geometr√≠a en 2D de la vereda.
        */
-      !!@ ili2db.dispName = "GeometrÌa"
+      !!@ ili2db.dispName = "Geometr√≠a"
       Geometria : ISO19107_PLANAS_V3_0.GM_MultiSurface2D;
     END GC_Vereda;
 
-    /** InformaciÛn existente en las bases de datos catastrales respecto de los predios en una entidad territorial.
+    /** Informaci√≥n existente en las bases de datos catastrales respecto de los predios en una entidad territorial.
      */
     !!@ ili2db.dispName = "(GC) Predio Catastro"
     CLASS GC_PredioCatastro =
@@ -581,50 +581,50 @@ VERSION "2019-08-01"  =
        */
       !!@ ili2db.dispName = "Tipo de catastro"
       Tipo_Catastro : TEXT*255;
-      /** CÛdigo numÈrico de 30 dÌgitos que permita localizarlo inequÌvocamente en los respectivos documentos catastrales, seg˙n el modelo determinado por el Instituto Geogr·fico AgustÌn Codazzi.
+      /** C√≥digo num√©rico de 30 d√≠gitos que permita localizarlo inequ√≠vocamente en los respectivos documentos catastrales, seg√∫n el modelo determinado por el Instituto Geogr√°fico Agust√≠n Codazzi.
        */
-      !!@ ili2db.dispName = "N˙mero predial"
+      !!@ ili2db.dispName = "N√∫mero predial"
       Numero_Predial : TEXT*30;
-      /** CÛdigo numÈrico de 20 dÌgitos que permita localizarlo inequÌvocamente en los respectivos documentos catastrales, seg˙n el modelo determinado por el Instituto Geogr·fico AgustÌn Codazzi.
+      /** C√≥digo num√©rico de 20 d√≠gitos que permita localizarlo inequ√≠vocamente en los respectivos documentos catastrales, seg√∫n el modelo determinado por el Instituto Geogr√°fico Agust√≠n Codazzi.
        */
-      !!@ ili2db.dispName = "N˙mero predial anterior"
+      !!@ ili2db.dispName = "N√∫mero predial anterior"
       Numero_Predial_Anterior : TEXT*20;
-      /** Es un cÛdigo ˙nico para identificar los inmuebles tanto en los sistemas de informaciÛn catastral como registral. El NUPRE no implicar· supresiÛn de la numeraciÛn catastral ni registral asociada a la cÈdula catastral ni a la matrÌcula inmobiliaria actual.
+      /** Es un c√≥digo √∫nico para identificar los inmuebles tanto en los sistemas de informaci√≥n catastral como registral. El NUPRE no implicar√° supresi√≥n de la numeraci√≥n catastral ni registral asociada a la c√©dula catastral ni a la matr√≠cula inmobiliaria actual.
        */
-      !!@ ili2db.dispName = "N˙mero ˙nico predial"
+      !!@ ili2db.dispName = "N√∫mero √∫nico predial"
       NUPRE : TEXT*11;
       /** Circulo registral al que se encuentra inscrito el predio.
        */
-      !!@ ili2db.dispName = "CÌrculo registral"
+      !!@ ili2db.dispName = "C√≠rculo registral"
       Circulo_Registral : TEXT*4;
-      /** Identificador ˙nico asignado por las oficinas de registro de instrumentos p˙blicos.
+      /** Identificador √∫nico asignado por las oficinas de registro de instrumentos p√∫blicos.
        */
-      !!@ ili2db.dispName = "MatrÌcula inmobiliaria catastro"
+      !!@ ili2db.dispName = "Matr√≠cula inmobiliaria catastro"
       Matricula_Inmobiliaria_Catastro : TEXT*80;
       /** Direcciones del predio inscritas en catastro.
        */
       !!@ ili2db.dispName = "Direcciones"
-      Direcciones : BAG {0..*} OF Datos_Gestor_Catastral_V2_11.Datos_Gestor_Catastral.GC_Direccion;
-      /** Tipo de predio inscrito en catastro: Nacional, Departamental, Municipal, Particular, BaldÌo, Ejido, Resguardo IndÌgena, Tierra de comunidades negras y Reservas Naturales.
+      Direcciones : BAG {0..*} OF Datos_Gestor_Catastral_V3_0.Datos_Gestor_Catastral.GC_Direccion;
+      /** Tipo de predio inscrito en catastro: Nacional, Departamental, Municipal, Particular, Bald√≠o, Ejido, Resguardo Ind√≠gena, Tierra de comunidades negras y Reservas Naturales.
        */
       !!@ ili2db.dispName = "Tipo de predio"
       Tipo_Predio : TEXT*100;
-      /** CaracterizaciÛn tem·tica del predio.
+      /** Caracterizaci√≥n tem√°tica del predio.
        */
-      !!@ ili2db.dispName = "CondiciÛn del predio"
-      Condicion_Predio : Datos_Gestor_Catastral_V2_11.GC_CondicionPredioTipo;
-      /** Es la clasificaciÛn para fines estadÌsticos que se da a cada inmueble en su conjuntoñterreno, construcciones o edificaciones-, en el momento de la identificaciÛn predial de conformidad con la actividad predominante que en Èl se desarrolle.
+      !!@ ili2db.dispName = "Condici√≥n del predio"
+      Condicion_Predio : Datos_Gestor_Catastral_V3_0.GC_CondicionPredioTipo;
+      /** Es la clasificaci√≥n para fines estad√≠sticos que se da a cada inmueble en su conjunto‚Äìterreno, construcciones o edificaciones-, en el momento de la identificaci√≥n predial de conformidad con la actividad predominante que en √©l se desarrolle.
        */
-      !!@ ili2db.dispName = "DestinaciÛn econÛmica"
+      !!@ ili2db.dispName = "Destinaci√≥n econ√≥mica"
       Destinacion_Economica : TEXT*150;
-      /** Estado del predio en la base de datos catastral seg˙n los actos administrativos o judiciales que versan sobre el mismo.
+      /** Estado del predio en la base de datos catastral seg√∫n los actos administrativos o judiciales que versan sobre el mismo.
        */
       !!@ ili2db.dispName = "Estado del predio"
-      Estado_Predio : BAG {0..*} OF Datos_Gestor_Catastral_V2_11.Datos_Gestor_Catastral.GC_EstadoPredio;
-      /** Indica el sistema de gestiÛn catastral de donde proceden los datos, en el caso del IGAC puede ser COBOL o SNC.
+      Estado_Predio : BAG {0..*} OF Datos_Gestor_Catastral_V3_0.Datos_Gestor_Catastral.GC_EstadoPredio;
+      /** Indica el sistema de gesti√≥n catastral de donde proceden los datos, en el caso del IGAC puede ser COBOL o SNC.
        */
       !!@ ili2db.dispName = "Sistema procedencia de los datos"
-      Sistema_Procedencia_Datos : Datos_Gestor_Catastral_V2_11.GC_SistemaProcedenciaDatosTipo;
+      Sistema_Procedencia_Datos : Datos_Gestor_Catastral_V3_0.GC_SistemaProcedenciaDatosTipo;
       /** Fecha de la vigencia de los datos.
        */
       !!@ ili2db.dispName = "Fecha de los datos"
@@ -676,9 +676,9 @@ VERSION "2019-08-01"  =
 
   END Datos_Gestor_Catastral;
 
-END Datos_Gestor_Catastral_V2_11.
+END Datos_Gestor_Catastral_V3_0.
 
-MODEL Datos_SNR_V2_11 (es)
+MODEL Datos_SNR_V3_0 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.3"  // 2019-07-31 // =
   IMPORTS LADM_COL_V3_0;
@@ -686,7 +686,7 @@ VERSION "V2.3"  // 2019-07-31 // =
   DOMAIN
 
     SNR_CalidadDerechoTipo = (
-      /** El dominio que se llama tambiÈn propiedad es el derecho real en una cosa corporal, para gozar y disponer de ella arbitrariamente, no siendo contra ley o contra derecho ajeno. (Art. 669 CC):
+      /** El dominio que se llama tambi√©n propiedad es el derecho real en una cosa corporal, para gozar y disponer de ella arbitrariamente, no siendo contra ley o contra derecho ajeno. (Art. 669 CC):
        * 
        * 0100
        * 0101
@@ -818,7 +818,7 @@ VERSION "V2.3"  // 2019-07-31 // =
        */
       !!@ ili2db.dispName = "Dominio"
       Dominio,
-      /** Es la inscripciÛn en la Oficina de Registro de Instrumentos P˙blicos, de todo acto de transferencia de un derecho incompleto que se hace a favor de una persona, por parte de quien carece del derecho de dominio sobre determinado inmueble: 
+      /** Es la inscripci√≥n en la Oficina de Registro de Instrumentos P√∫blicos, de todo acto de transferencia de un derecho incompleto que se hace a favor de una persona, por parte de quien carece del derecho de dominio sobre determinado inmueble: 
        * 
        * 0600
        * 0601
@@ -845,11 +845,11 @@ VERSION "V2.3"  // 2019-07-31 // =
        * 0508
        * 0927
        */
-      !!@ ili2db.dispName = "Falsa tradiciÛn"
+      !!@ ili2db.dispName = "Falsa tradici√≥n"
       Falsa_Tradicion,
       /** La propiedad separada del goce de la cosa se llama mera o nuda propiedad (art 669 CC):
        * 
-       * CÛdigos:
+       * C√≥digos:
        * 
        * 0302
        * 0308
@@ -859,10 +859,10 @@ VERSION "V2.3"  // 2019-07-31 // =
        */
       !!@ ili2db.dispName = "Nuda propiedad"
       Nuda_Propiedad,
-      /** Es la propiedad de toda una comunidad sea indÌgena o negra. Adjudicacion Baldios En Propiedad Colectiva A Comunidades Negras, Adjudicacion Baldios Resguardos Indigenas, ConstituciÛn Resguardo Indigena,
-       * AmpliaciÛn De Resguardo IndÌgena
+      /** Es la propiedad de toda una comunidad sea ind√≠gena o negra. Adjudicacion Baldios En Propiedad Colectiva A Comunidades Negras, Adjudicacion Baldios Resguardos Indigenas, Constituci√≥n Resguardo Indigena,
+       * Ampliaci√≥n De Resguardo Ind√≠gena
        * 
-       * CÛdigos:
+       * C√≥digos:
        * 
        * 0104
        * 0105
@@ -871,7 +871,7 @@ VERSION "V2.3"  // 2019-07-31 // =
        */
       !!@ ili2db.dispName = "Derecho de propiedad colectiva"
       Derecho_Propiedad_Colectiva,
-      /** El derecho de usufructo es un derecho real que consiste en la facultad de gozar de una cosa con cargo de conservar su forma y sustancia, y de restituir a su dueÒo, si la cosa no es fungible; o con cargo de volver igual cantidad y calidad del mismo gÈnero, o de pagar su valor si la cosa es fungible. (art. 823 CC):
+      /** El derecho de usufructo es un derecho real que consiste en la facultad de gozar de una cosa con cargo de conservar su forma y sustancia, y de restituir a su due√±o, si la cosa no es fungible; o con cargo de volver igual cantidad y calidad del mismo g√©nero, o de pagar su valor si la cosa es fungible. (art. 823 CC):
        * 
        * 0310
        * 0314
@@ -887,69 +887,69 @@ VERSION "V2.3"  // 2019-07-31 // =
     );
 
     SNR_ClasePredioRegistroTipo = (
-      /** Constituyen esta categorÌa los terrenos no aptos para el uso urbano, por razones de oportunidad, o por su destinaciÛn a usos agrÌcolas, ganaderos, forestales, de explotaciÛn de recursos naturales y actividades an·logas. (ArtÌculo 33, Ley 388 de 1997)
+      /** Constituyen esta categor√≠a los terrenos no aptos para el uso urbano, por razones de oportunidad, o por su destinaci√≥n a usos agr√≠colas, ganaderos, forestales, de explotaci√≥n de recursos naturales y actividades an√°logas. (Art√≠culo 33, Ley 388 de 1997)
        */
       !!@ ili2db.dispName = "Rural"
       Rural,
-      /** Constituyen el suelo urbano, las ·reas del territorio distrital o municipal destinadas a usos urbanos por el plan de ordenamiento, que cuenten con infraestructura vial y redes primarias de energÌa, acueducto y alcantarillado, posibilit·ndose su urbanizaciÛn y edificaciÛn, seg˙n sea el caso. Podr·n pertenecer a esta categorÌa aquellas zonas con procesos de urbanizaciÛn incompletos, comprendidos en ·reas consolidadas con edificaciÛn, que se definan como ·reas de mejoramiento integral en los planes de ordenamiento territorial.
+      /** Constituyen el suelo urbano, las √°reas del territorio distrital o municipal destinadas a usos urbanos por el plan de ordenamiento, que cuenten con infraestructura vial y redes primarias de energ√≠a, acueducto y alcantarillado, posibilit√°ndose su urbanizaci√≥n y edificaci√≥n, seg√∫n sea el caso. Podr√°n pertenecer a esta categor√≠a aquellas zonas con procesos de urbanizaci√≥n incompletos, comprendidos en √°reas consolidadas con edificaci√≥n, que se definan como √°reas de mejoramiento integral en los planes de ordenamiento territorial.
        * 
-       * Las ·reas que conforman el suelo urbano ser·n delimitadas por perÌmetros y podr·n incluir los centros poblados de los corregimientos. En ning˙n caso el perÌmetro urbano podr· ser mayor que el denominado perÌmetro de servicios p˙blicos o sanitario. (ArtÌculo 31, Ley 388 de 1997)
+       * Las √°reas que conforman el suelo urbano ser√°n delimitadas por per√≠metros y podr√°n incluir los centros poblados de los corregimientos. En ning√∫n caso el per√≠metro urbano podr√° ser mayor que el denominado per√≠metro de servicios p√∫blicos o sanitario. (Art√≠culo 31, Ley 388 de 1997)
        */
       !!@ ili2db.dispName = "Urbano"
       Urbano,
-      !!@ ili2db.dispName = "Sin informaciÛn"
+      !!@ ili2db.dispName = "Sin informaci√≥n"
       Sin_Informacion
     );
 
     SNR_DocumentoTitularTipo = (
-      /** Es un documento emitido por la RegistradurÌa Nacional del Estado Civil para permitir la identificaciÛn personal de los ciudadanos.
+      /** Es un documento emitido por la Registradur√≠a Nacional del Estado Civil para permitir la identificaci√≥n personal de los ciudadanos.
        */
-      !!@ ili2db.dispName = "CÈdula de ciudadanÌa"
+      !!@ ili2db.dispName = "C√©dula de ciudadan√≠a"
       Cedula_Ciudadania,
-      /** Es el documento que cumple los fines de identificaciÛn de los extranjeros en el territorio nacional y su utilizaciÛn deber· estar acorde con la visa otorgada al extranjero.
+      /** Es el documento que cumple los fines de identificaci√≥n de los extranjeros en el territorio nacional y su utilizaci√≥n deber√° estar acorde con la visa otorgada al extranjero.
        */
-      !!@ ili2db.dispName = "CÈdula de extranjerÌa"
+      !!@ ili2db.dispName = "C√©dula de extranjer√≠a"
       Cedula_Extranjeria,
-      /** El N˙mero de IdentificaciÛn Tributaria (NIT) es un cÛdigo privado, secreto e intransferible que solamente debe conocer el contribuyente.
+      /** El N√∫mero de Identificaci√≥n Tributaria (NIT) es un c√≥digo privado, secreto e intransferible que solamente debe conocer el contribuyente.
        */
       !!@ ili2db.dispName = "NIT"
       NIT,
-      /** Es el documento oficial que hace las veces de identificaciÛn para los menores de edad entre los 7 y los 18 aÒos.
+      /** Es el documento oficial que hace las veces de identificaci√≥n para los menores de edad entre los 7 y los 18 a√±os.
        */
       !!@ ili2db.dispName = "Tarjeta de identidad"
       Tarjeta_Identidad,
-      /** Registro donde se hacen constar por autoridades competentes los nacimientos, matrimonios, defunciones y dem·s hechos relativos al estado civil de las personas. En el modelo se tendr· en cuenta el n˙mero de registro como identificaciÛn personal de las personas de 0 a 7 aÒos.
+      /** Registro donde se hacen constar por autoridades competentes los nacimientos, matrimonios, defunciones y dem√°s hechos relativos al estado civil de las personas. En el modelo se tendr√° en cuenta el n√∫mero de registro como identificaci√≥n personal de las personas de 0 a 7 a√±os.
        */
       !!@ ili2db.dispName = "Registro civil"
       Registro_Civil,
-      /** El N˙mero ⁄nico de IdentificaciÛn Personal, es el n˙mero que permite identificar a los colombianos durante toda su vida.
+      /** El N√∫mero √önico de Identificaci√≥n Personal, es el n√∫mero que permite identificar a los colombianos durante toda su vida.
        */
       !!@ ili2db.dispName = "NUIP"
       NUIP,
-      /** Es un consecutivo asignado autom·ticamente en registro en lugar del n˙mero de la identificaciÛn de la persona que hace el tr·mite, se usa especialmente en tr·mites de construcciÛn cuando el proyecto est· a nombre de una Fiducia el cual tiene el mismo n˙mero del banco.
+      /** Es un consecutivo asignado autom√°ticamente en registro en lugar del n√∫mero de la identificaci√≥n de la persona que hace el tr√°mite, se usa especialmente en tr√°mites de construcci√≥n cuando el proyecto est√° a nombre de una Fiducia el cual tiene el mismo n√∫mero del banco.
        */
       !!@ ili2db.dispName = "Secuencial SNR"
       Secuencial_SNR
     );
 
     SNR_FuenteTipo = (
-      /** Un acto administrativo es toda manifestaciÛn o declaraciÛn emanada de la administraciÛn p˙blica en el ejercicio de potestades administrativas, mediante el que impone su voluntad sobre los derechos, libertades o intereses de otros sujetos p˙blicos o privados y que queda bajo el del comienzo.
+      /** Un acto administrativo es toda manifestaci√≥n o declaraci√≥n emanada de la administraci√≥n p√∫blica en el ejercicio de potestades administrativas, mediante el que impone su voluntad sobre los derechos, libertades o intereses de otros sujetos p√∫blicos o privados y que queda bajo el del comienzo.
        */
       !!@ ili2db.dispName = "Acto administrativo"
       Acto_Administrativo,
-      /** Una escritura p˙blica es un documento p˙blico en el que se realiza ante un notario p˙blico un determinado hecho o un derecho autorizado por dicho fedatario p˙blico, que firma con el otorgante u otorgantes,mostrando sobre la capacidad jurÌdica del contenido y de la fecha en que se realizÛ
+      /** Una escritura p√∫blica es un documento p√∫blico en el que se realiza ante un notario p√∫blico un determinado hecho o un derecho autorizado por dicho fedatario p√∫blico, que firma con el otorgante u otorgantes,mostrando sobre la capacidad jur√≠dica del contenido y de la fecha en que se realiz√≥
        */
-      !!@ ili2db.dispName = "Escritura p˙blica"
+      !!@ ili2db.dispName = "Escritura p√∫blica"
       Escritura_Publica,
-      /** La sentencia es la resoluciÛn judicial definitiva dictada por un juez o tribunal que pone fin a la litis o caso sometido a su conocimiento y cierra definitivamente su actuaciÛn en el mismo
+      /** La sentencia es la resoluci√≥n judicial definitiva dictada por un juez o tribunal que pone fin a la litis o caso sometido a su conocimiento y cierra definitivamente su actuaci√≥n en el mismo
        */
       !!@ ili2db.dispName = "Sentencia judicial"
       Sentencia_Judicial,
-      /** Documento que contiene un compromiso entre dos o m·s personas que lo firman.
+      /** Documento que contiene un compromiso entre dos o m√°s personas que lo firman.
        */
       !!@ ili2db.dispName = "Documento privado"
       Documento_Privado,
-      /** Cuando no se haya documento soporte pero puede ser una declaraciÛn verbal.
+      /** Cuando no se haya documento soporte pero puede ser una declaraci√≥n verbal.
        */
       !!@ ili2db.dispName = "Sin documento"
       Sin_Documento
@@ -960,9 +960,9 @@ VERSION "V2.3"  // 2019-07-31 // =
        */
       !!@ ili2db.dispName = "Persona natural"
       Persona_Natural,
-      /** Se llama persona jurÌdica, una persona ficticia, capaz de ejercer derechos y contraer obligaciones civiles, y de ser representada judicial y extrajudicialmente. Las personas jurÌdicas son de dos especies: corporaciones y fundaciones de beneficencia p˙blica.
+      /** Se llama persona jur√≠dica, una persona ficticia, capaz de ejercer derechos y contraer obligaciones civiles, y de ser representada judicial y extrajudicialmente. Las personas jur√≠dicas son de dos especies: corporaciones y fundaciones de beneficencia p√∫blica.
        */
-      !!@ ili2db.dispName = "Persona jurÌdica"
+      !!@ ili2db.dispName = "Persona jur√≠dica"
       Persona_Juridica
     );
 
@@ -975,36 +975,36 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Calidad de derecho en registro
        */
       !!@ ili2db.dispName = "Calidad derecho registro"
-      Calidad_Derecho_Registro : MANDATORY Datos_SNR_V2_11.SNR_CalidadDerechoTipo;
-      /** es el n˙mero asignado en el registro a cada acto sujeto a registro.
+      Calidad_Derecho_Registro : MANDATORY Datos_SNR_V3_0.SNR_CalidadDerechoTipo;
+      /** es el n√∫mero asignado en el registro a cada acto sujeto a registro.
        */
-      !!@ ili2db.dispName = "CÛdigo naturaleza jurÌdica"
+      !!@ ili2db.dispName = "C√≥digo naturaleza jur√≠dica"
       Codigo_Naturaleza_Juridica : TEXT*5;
     END SNR_Derecho;
 
-    !!@ ili2db.dispName = "(SNR) Estructura MatrÌcula Matriz"
+    !!@ ili2db.dispName = "(SNR) Estructura Matr√≠cula Matriz"
     STRUCTURE SNR_EstructuraMatriculaMatriz =
-      /** Es el n˘mero que se ha asignado a la Oficina de Registro de Instrumentos p˙blicos correspondiente.
+      /** Es el n√πmero que se ha asignado a la Oficina de Registro de Instrumentos p√∫blicos correspondiente.
        */
-      !!@ ili2db.dispName = "CÛdigo ORIP"
+      !!@ ili2db.dispName = "C√≥digo ORIP"
       Codigo_ORIP : TEXT*20;
-      /** Es el consecutivo que se asigna a cada predio jurÌdico abierto en la ORIP.
+      /** Es el consecutivo que se asigna a cada predio jur√≠dico abierto en la ORIP.
        */
-      !!@ ili2db.dispName = "MatrÌcula inmobiliaria"
+      !!@ ili2db.dispName = "Matr√≠cula inmobiliaria"
       Matricula_Inmobiliaria : TEXT*20;
     END SNR_EstructuraMatriculaMatriz;
 
-    /** Datos del documento que soporta la descripciÛn de cabida y linderos.
+    /** Datos del documento que soporta la descripci√≥n de cabida y linderos.
      */
     !!@ ili2db.dispName = "(SNR) Fuente Cabida Linderos"
     CLASS SNR_FuenteCabidaLinderos =
-      /** Tipo de documento que soporta la relaciÛn de tenencia entre el interesado con el predio.
+      /** Tipo de documento que soporta la relaci√≥n de tenencia entre el interesado con el predio.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : Datos_SNR_V2_11.SNR_FuenteTipo;
-      /** Identificador del documento, ejemplo: numero de la resoluciÛn
+      Tipo_Documento : Datos_SNR_V3_0.SNR_FuenteTipo;
+      /** Identificador del documento, ejemplo: numero de la resoluci√≥n
        */
-      !!@ ili2db.dispName = "N˙mero de documento"
+      !!@ ili2db.dispName = "N√∫mero de documento"
       Numero_Documento : TEXT*255;
       !!@ ili2db.dispName = "Fecha de documento"
       Fecha_Documento : INTERLIS.XMLDate;
@@ -1026,13 +1026,13 @@ VERSION "V2.3"  // 2019-07-31 // =
      */
     !!@ ili2db.dispName = "(SNR) Fuente Derecho"
     CLASS SNR_FuenteDerecho =
-      /** Tipo de documento que soporta la relaciÛn de tenencia entre el interesado con el predio.
+      /** Tipo de documento que soporta la relaci√≥n de tenencia entre el interesado con el predio.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : Datos_SNR_V2_11.SNR_FuenteTipo;
-      /** Identificador del documento, ejemplo: numero de la resoluciÛn
+      Tipo_Documento : Datos_SNR_V3_0.SNR_FuenteTipo;
+      /** Identificador del documento, ejemplo: numero de la resoluci√≥n
        */
-      !!@ ili2db.dispName = "N˙mero de documento"
+      !!@ ili2db.dispName = "N√∫mero de documento"
       Numero_Documento : TEXT*255;
       !!@ ili2db.dispName = "Fecha del documento"
       Fecha_Documento : INTERLIS.XMLDate;
@@ -1053,30 +1053,30 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Tipo de persona
        */
       !!@ ili2db.dispName = "Tipo de persona"
-      Tipo_Persona : Datos_SNR_V2_11.SNR_PersonaTitularTipo;
+      Tipo_Persona : Datos_SNR_V3_0.SNR_PersonaTitularTipo;
       /** Tipo de documento del que se trata.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : Datos_SNR_V2_11.SNR_DocumentoTitularTipo;
+      Tipo_Documento : Datos_SNR_V3_0.SNR_DocumentoTitularTipo;
       /** Documento de identidad del interesado.
        */
-      !!@ ili2db.dispName = "N˙mero de documento"
+      !!@ ili2db.dispName = "N√∫mero de documento"
       Numero_Documento : MANDATORY TEXT*50;
-      /** Nombres de la persona fÌsica.
+      /** Nombres de la persona f√≠sica.
        */
       !!@ ili2db.dispName = "Nombres"
       Nombres : TEXT*500;
-      /** Primer apellido de la persona fÌsica.
+      /** Primer apellido de la persona f√≠sica.
        */
       !!@ ili2db.dispName = "Primer apellido"
       Primer_Apellido : TEXT*255;
-      /** Segundo apellido de la persona fÌsica.
+      /** Segundo apellido de la persona f√≠sica.
        */
       !!@ ili2db.dispName = "Segundo apellido"
       Segundo_Apellido : TEXT*255;
-      /** Nombre con el que est· inscrita la persona jurÌdica
+      /** Nombre con el que est√° inscrita la persona jur√≠dica
        */
-      !!@ ili2db.dispName = "RazÛn social"
+      !!@ ili2db.dispName = "Raz√≥n social"
       Razon_Social : MTEXT*255;
     END SNR_Titular;
 
@@ -1084,39 +1084,39 @@ VERSION "V2.3"  // 2019-07-31 // =
      */
     !!@ ili2db.dispName = "(SNR) Predio Registro"
     CLASS SNR_PredioRegistro =
-      /** Es el n˘mero que se ha asignado a la Oficina de Registro de Instrumentos p˙blicos correspondiente.
+      /** Es el n√πmero que se ha asignado a la Oficina de Registro de Instrumentos p√∫blicos correspondiente.
        */
-      !!@ ili2db.dispName = "CÛdigo ORIP"
+      !!@ ili2db.dispName = "C√≥digo ORIP"
       Codigo_ORIP : TEXT*3;
-      /** Es el consecutivo que se asigna a cada predio jurÌdico abierto en la ORIP.
+      /** Es el consecutivo que se asigna a cada predio jur√≠dico abierto en la ORIP.
        */
-      !!@ ili2db.dispName = "MatrÌcula inmobiliaria"
+      !!@ ili2db.dispName = "Matr√≠cula inmobiliaria"
       Matricula_Inmobiliaria : TEXT*80;
-      /** Nuevo cÛdigo n˙merico de treinta (30) dÌgitos, que se le asigna a cada predio y busca localizarlo inequÌvocamente en los documentos catastrales, seg˙n el modelo determinado por el Instituto Geogr·fico Agustin Codazzi, registrado en SNR.
+      /** Nuevo c√≥digo n√∫merico de treinta (30) d√≠gitos, que se le asigna a cada predio y busca localizarlo inequ√≠vocamente en los documentos catastrales, seg√∫n el modelo determinado por el Instituto Geogr√°fico Agustin Codazzi, registrado en SNR.
        */
-      !!@ ili2db.dispName = "N˙mero predial nuevo en FMI"
+      !!@ ili2db.dispName = "N√∫mero predial nuevo en FMI"
       Numero_Predial_Nuevo_en_FMI : TEXT*100;
-      /** Anterior cÛdigo n˙merico de veinte (20) digitos, que se le asigna a cada predio y busca localizarlo inequÌvocamente en los documentos catastrales, seg˙n el modelo determinado por el Instituto Geogr·fico Agustin Codazzi, registrado en SNR.
+      /** Anterior c√≥digo n√∫merico de veinte (20) digitos, que se le asigna a cada predio y busca localizarlo inequ√≠vocamente en los documentos catastrales, seg√∫n el modelo determinado por el Instituto Geogr√°fico Agustin Codazzi, registrado en SNR.
        */
-      !!@ ili2db.dispName = "N˙mero predial anterior en FMI"
+      !!@ ili2db.dispName = "N√∫mero predial anterior en FMI"
       Numero_Predial_Anterior_en_FMI : TEXT*100;
-      /** Conjunto de sÌmbolos alfanumÈricos, los cuales designan vÌas y predios de la ciudad.
+      /** Conjunto de s√≠mbolos alfanum√©ricos, los cuales designan v√≠as y predios de la ciudad.
        */
-      !!@ ili2db.dispName = "Nomenclatura seg˙n registro"
+      !!@ ili2db.dispName = "Nomenclatura seg√∫n registro"
       Nomenclatura_Registro : TEXT*255;
-      /** El texto de cabida y linderosque est· consignado en el registro p˙blico de la propiedad sobre el cual se ejercen los derechos.
+      /** El texto de cabida y linderosque est√° consignado en el registro p√∫blico de la propiedad sobre el cual se ejercen los derechos.
        */
       !!@ ili2db.dispName = "Cabida y linderos"
       Cabida_Linderos : MTEXT;
       /** Corresponde al dato de tipo de predio incorporado en las bases de datos registrales
        */
-      !!@ ili2db.dispName = "Clase del suelo seg˙n registro"
-      Clase_Suelo_Registro : Datos_SNR_V2_11.SNR_ClasePredioRegistroTipo;
-      /** Es la matrÌcula por la cual se dio apertura al predio objeto de estudio (la madre).
+      !!@ ili2db.dispName = "Clase del suelo seg√∫n registro"
+      Clase_Suelo_Registro : Datos_SNR_V3_0.SNR_ClasePredioRegistroTipo;
+      /** Es la matr√≠cula por la cual se dio apertura al predio objeto de estudio (la madre).
        */
-      !!@ ili2db.dispName = "MatrÌcula inmobiliaria matriz"
-      Matricula_Inmobiliaria_Matriz : BAG {0..*} OF Datos_SNR_V2_11.Datos_SNR.SNR_EstructuraMatriculaMatriz;
-      /** Fecha de la generaciÛn de datos.
+      !!@ ili2db.dispName = "Matr√≠cula inmobiliaria matriz"
+      Matricula_Inmobiliaria_Matriz : BAG {0..*} OF Datos_SNR_V3_0.Datos_SNR.SNR_EstructuraMatriculaMatriz;
+      /** Fecha de la generaci√≥n de datos.
        */
       !!@ ili2db.dispName = "Fecha de datos"
       Fecha_Datos : MANDATORY INTERLIS.XMLDate;
@@ -1127,7 +1127,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       snr_fuente_derecho -- {1} SNR_FuenteDerecho;
     END snr_derecho_fuente_derecho;
 
-    /** Datos del titular del derecho con relaciÛn al porcentaje de participaciÛn en el derecho
+    /** Datos del titular del derecho con relaci√≥n al porcentaje de participaci√≥n en el derecho
      */
     ASSOCIATION snr_titular_derecho =
       snr_titular -- {1..*} SNR_Titular;
@@ -1147,53 +1147,53 @@ VERSION "V2.3"  // 2019-07-31 // =
 
   END Datos_SNR;
 
-END Datos_SNR_V2_11.
+END Datos_SNR_V3_0.
 
-MODEL Datos_Integracion_Insumos_V2_11 (es)
+MODEL Datos_Integracion_Insumos_V3_0 (es)
 AT "mailto:PC4@localhost"
 VERSION "2019-09-06"  =
-  IMPORTS Datos_Gestor_Catastral_V2_11,Datos_SNR_V2_11;
+  IMPORTS Datos_Gestor_Catastral_V3_0,Datos_SNR_V3_0;
 
   DOMAIN
 
     INI_EmparejamientoTipo = (
-      /** FMI SNR - Matricula Inmobiliaria IGAC ; N˙mero Predial IGAC - N˙mero predial SNR ; N˙mero predial Anterior IGAC - N˙mero predial Anterior SNR
+      /** FMI SNR - Matricula Inmobiliaria IGAC ; N√∫mero Predial IGAC - N√∫mero predial SNR ; N√∫mero predial Anterior IGAC - N√∫mero predial Anterior SNR
        */
       !!@ ili2db.dispName = "Tipo 1"
       Tipo_1,
-      /** FMI SNR - Matricula Inmobiliaria IGAC ; N˙mero Predial IGAC - N˙mero predial SNR
+      /** FMI SNR - Matricula Inmobiliaria IGAC ; N√∫mero Predial IGAC - N√∫mero predial SNR
        */
       !!@ ili2db.dispName = "Tipo 2"
       Tipo_2,
-      /** FMI SNR - Matricula Inmobiliaria IGAC ; N˙mero predial Anterior IGAC - N˙mero predial Anterior SNR
+      /** FMI SNR - Matricula Inmobiliaria IGAC ; N√∫mero predial Anterior IGAC - N√∫mero predial Anterior SNR
        */
       !!@ ili2db.dispName = "Tipo 3"
       Tipo_3,
-      /** FMI SNR - Matricula Inmobiliaria IGAC ; N˙mero Predial IGAC - N˙mero predial Anterior SNR
+      /** FMI SNR - Matricula Inmobiliaria IGAC ; N√∫mero Predial IGAC - N√∫mero predial Anterior SNR
        */
       !!@ ili2db.dispName = "Tipo 4"
       Tipo_4,
-      /** FMI SNR - Matricula Inmobiliaria IGAC ; N˙mero predial Anterior IGAC - N˙mero predial SNR
+      /** FMI SNR - Matricula Inmobiliaria IGAC ; N√∫mero predial Anterior IGAC - N√∫mero predial SNR
        */
       !!@ ili2db.dispName = "Tipo 5"
       Tipo_5,
-      /** N˙mero Predial IGAC - N˙mero predial SNR ; N˙mero predial Anterior IGAC - N˙mero predial Anterior SNR
+      /** N√∫mero Predial IGAC - N√∫mero predial SNR ; N√∫mero predial Anterior IGAC - N√∫mero predial Anterior SNR
        */
       !!@ ili2db.dispName = "Tipo 6"
       Tipo_6,
-      /** N˙mero Predial IGAC - N˙mero predial SNR
+      /** N√∫mero Predial IGAC - N√∫mero predial SNR
        */
       !!@ ili2db.dispName = "Tipo 7"
       Tipo_7,
-      /** N˙mero predial Anterior IGAC - N˙mero predial Anterior SNR
+      /** N√∫mero predial Anterior IGAC - N√∫mero predial Anterior SNR
        */
       !!@ ili2db.dispName = "Tipo 8"
       Tipo_8,
-      /** N˙mero Predial IGAC - N˙mero predial Anterior SNR
+      /** N√∫mero Predial IGAC - N√∫mero predial Anterior SNR
        */
       !!@ ili2db.dispName = "Tipo 9"
       Tipo_9,
-      /** N˙mero predial Anterior IGAC - N˙mero predial SNR
+      /** N√∫mero predial Anterior IGAC - N√∫mero predial SNR
        */
       !!@ ili2db.dispName = "Tipo 10"
       Tipo_10,
@@ -1204,32 +1204,32 @@ VERSION "2019-09-06"  =
     );
 
   TOPIC Datos_Integracion_Insumos =
-    DEPENDS ON Datos_SNR_V2_11.Datos_SNR,Datos_Gestor_Catastral_V2_11.Datos_Gestor_Catastral;
+    DEPENDS ON Datos_SNR_V3_0.Datos_SNR,Datos_Gestor_Catastral_V3_0.Datos_Gestor_Catastral;
 
     /** Clase que relaciona los predios en los modelos de insumos para el Gestor Catastral y la SNR.
      */
-    !!@ ili2db.dispName = "(IntegraciÛn Insumos) Predio Insumos"
+    !!@ ili2db.dispName = "(Integraci√≥n Insumos) Predio Insumos"
     CLASS INI_PredioInsumos =
       /** Tipo de emparejamiento de insumos Catastro-Registro
        */
       !!@ ili2db.dispName = "Tipo de emparejamiento"
-      Tipo_Emparejamiento : Datos_Integracion_Insumos_V2_11.INI_EmparejamientoTipo;
-      /** Observaciones de la relaciÛn.
+      Tipo_Emparejamiento : Datos_Integracion_Insumos_V3_0.INI_EmparejamientoTipo;
+      /** Observaciones de la relaci√≥n.
        */
       !!@ ili2db.dispName = "Observaciones"
       Observaciones : TEXT;
     END INI_PredioInsumos;
 
     ASSOCIATION ini_predio_integracion_gc =
-      gc_predio_catastro (EXTERNAL) -- {0..1} Datos_Gestor_Catastral_V2_11.Datos_Gestor_Catastral.GC_PredioCatastro;
+      gc_predio_catastro (EXTERNAL) -- {0..1} Datos_Gestor_Catastral_V3_0.Datos_Gestor_Catastral.GC_PredioCatastro;
       ini_predio_insumos -- {0..*} INI_PredioInsumos;
     END ini_predio_integracion_gc;
 
     ASSOCIATION ini_predio_integracion_snr =
-      snr_predio_juridico (EXTERNAL) -- {0..1} Datos_SNR_V2_11.Datos_SNR.SNR_PredioRegistro;
+      snr_predio_juridico (EXTERNAL) -- {0..1} Datos_SNR_V3_0.Datos_SNR.SNR_PredioRegistro;
       ini_predio -- {0..*} INI_PredioInsumos;
     END ini_predio_integracion_snr;
 
   END Datos_Integracion_Insumos;
 
-END Datos_Integracion_Insumos_V2_11.
+END Datos_Integracion_Insumos_V3_0.
