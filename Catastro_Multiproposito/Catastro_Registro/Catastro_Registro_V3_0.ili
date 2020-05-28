@@ -423,15 +423,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     );
 
     CR_ClaseCalificacionTipo = (
-      /** En construcción, es el nombre que recibe el conjunto de elementos, unidos, ensamblados o conectados entre sí, que tienen la función de recibir cargas, soportar esfuerzos y transmitir esas cargas al suelo, garantizando así la función estático - resistente de la construcción. Sus componentes son: armazon, muros y cubierta.
+      /** En construcción, es el nombre que recibe el conjunto de elementos, unidos, ensamblados o conectados entre sí, que tienen la función de recibir cargas, soportar esfuerzos y transmitir esas cargas al suelo, garantizando así la función estático - resistente de la construcción. Sus componentes son: armazón, muros y cubierta.
        */
       !!@ ili2db.dispName = "Estructura"
       Estructura,
-      /** Son los revestimientos  o recubrimientos a todos aquellos materiales que se colocan sobre una superficie de obra negra, para darle terminación a las obras, quedando ésta con un aspecto habitable. Sus componentes son: fachada, cubrimiento de muros y pisos
+      /** Son los revestimientos o recubrimientos a todos aquellos materiales que se colocan sobre una superficie de obra negra, para darle terminación a las obras, quedando ésta con un aspecto habitable. Sus componentes son: fachada, cubrimiento de muros y pisos.
        */
       !!@ ili2db.dispName = "Acabados principales"
       Acabados_Principales,
-      /** Son los revestimientos  o recubrimientos a todos aquellos materiales que se colocan sobre una superficie de obra negra, para darle terminación a las obras, quedando ésta con un aspecto habitable. Sus componentes son: fachada, cubrimiento de muros y pisosv
+      /** Espacio o lugar especialmente equipado para el aseo personal. Sus componentes son: tamaño, enchapes y mobiliario.
        */
       !!@ ili2db.dispName = "Baño"
       Banio,
@@ -439,7 +439,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Cocina"
       Cocina,
-      /** Espacio o lugar especialmente equipado para la preparación de alimentos. Sus componentes son: tamaño, enchapes y mobiliario.
+      /** Elemento adicional para la calificación de las Cerchas para las construcciones industriales.
        */
       !!@ ili2db.dispName = "Complemento industria"
       Complemento_Industria

@@ -429,15 +429,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     );
 
     LC_ClaseCalificacionTipo = (
-      /** En construcción, es el nombre que recibe el conjunto de elementos, unidos, ensamblados o conectados entre sí, que tienen la función de recibir cargas, soportar esfuerzos y transmitir esas cargas al suelo, garantizando así la función estático - resistente de la construcción. Sus componentes son: armazon, muros y cubierta.
+      /** En construcción, es el nombre que recibe el conjunto de elementos, unidos, ensamblados o conectados entre sí, que tienen la función de recibir cargas, soportar esfuerzos y transmitir esas cargas al suelo, garantizando así la función estático - resistente de la construcción. Sus componentes son: armazón, muros y cubierta.
        */
       !!@ ili2db.dispName = "Estructura"
       Estructura,
-      /** Son los revestimientos  o recubrimientos a todos aquellos materiales que se colocan sobre una superficie de obra negra, para darle terminación a las obras, quedando ésta con un aspecto habitable. Sus componentes son: fachada, cubrimiento de muros y pisos
+      /** Son los revestimientos o recubrimientos a todos aquellos materiales que se colocan sobre una superficie de obra negra, para darle terminación a las obras, quedando ésta con un aspecto habitable. Sus componentes son: fachada, cubrimiento de muros y pisos.
        */
       !!@ ili2db.dispName = "Acabados principales"
       Acabados_Principales,
-      /** Son los revestimientos  o recubrimientos a todos aquellos materiales que se colocan sobre una superficie de obra negra, para darle terminación a las obras, quedando ésta con un aspecto habitable. Sus componentes son: fachada, cubrimiento de muros y pisos
+      /** Espacio o lugar especialmente equipado para el aseo personal. Sus componentes son: tamaño, enchapes y mobiliario.
        */
       !!@ ili2db.dispName = "Baño"
       Banio,
@@ -445,7 +445,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Cocina"
       Cocina,
-      /** Espacio o lugar especialmente equipado para la preparación de alimentos. Sus componentes son: tamaño, enchapes y mobiliario.
+      /** Elemento adicional para la calificación de las Cerchas para las construcciones industriales.
        */
       !!@ ili2db.dispName = "Complemento industria"
       Complemento_Industria
@@ -578,143 +578,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     );
 
     LC_DerechoTipo = (
-      /** El dominio que se llama también propiedad es el derecho real en una cosa corporal, para gozar y disponer de ella arbitrariamente, no siendo contra ley o contra derecho ajeno. (Art. 669 CC):
-       * 
-       * 0100
-       * 0101
-       * 0102
-       * 0103
-       * 0106
-       * 0107
-       * 0108
-       * 0109
-       * 0110
-       * 0111
-       * 0112
-       * 0113
-       * 0114
-       * 0115
-       * 0116
-       * 0117
-       * 0118
-       * 0119
-       * 0120
-       * 0121
-       * 0122
-       * 0124
-       * 0125
-       * 0126
-       * 0127
-       * 0128
-       * 0129
-       * 0130
-       * 0131
-       * 0132
-       * 0133
-       * 0135
-       * 0137
-       * 0138
-       * 0139
-       * 0140
-       * 0141
-       * 0142
-       * 0143
-       * 0144
-       * 0145
-       * 0146
-       * 0147
-       * 0148
-       * 0150
-       * 0151
-       * 0152
-       * 0153
-       * 0154
-       * 0155
-       * 0156
-       * 0157
-       * 0158
-       * 0159
-       * 0160
-       * 0161
-       * 0163
-       * 0164
-       * 0165
-       * 0166
-       * 0167
-       * 0168
-       * 0169
-       * 0171
-       * 0172
-       * 0173
-       * 0175
-       * 0177
-       * 0178
-       * 0179
-       * 0180
-       * 0181
-       * 0182
-       * 0183
-       * 0184
-       * 0185
-       * 0186
-       * 0187
-       * 0188
-       * 0189
-       * 0190
-       * 0191
-       * 0192
-       * 0193
-       * 0194
-       * 0195
-       * 0196
-       * 0197
-       * 0198
-       * 0199
-       * 01003
-       * 01004
-       * 01005
-       * 01006
-       * 01007
-       * 01008
-       * 01009
-       * 01010
-       * 01012
-       * 01013
-       * 01014
-       * 0301
-       * 0307
-       * 0321
-       * 0332
-       * 0348
-       * 0356
-       * 0374
-       * 0375
-       * 0376
-       * 0377
-       * 0906
-       * 0907
-       * 0910
-       * 0911
-       * 0912
-       * 0913
-       * 0915
-       * 0917
-       * 0918
-       * 0919
-       * 0920
-       * 0924
-       * 0935
-       * 0959
-       * 0962
-       * 0963
+      /** El dominio que se llama también propiedad es el derecho real en una cosa corporal, para gozar y disponer de ella arbitrariamente, no siendo contra ley o contra derecho ajeno. (Art. 669 CC): 0100 0101 0102 0103 0106 0107 0108 0109 0110 0111 0112 0113 0114 0115 0116 0117 0118 0119 0120 0121 0122 0124 0125 0126 0127 0128 0129 0130 0131 0132 0133 0135 0137 0138 0139 0140 0141 0142 0143 0144 0145 0146 0147 0148 0150 0151 0152 0153 0154 0155 0156 0157 0158 0159 0160 0161 0163 0164 0165 0166 0167 0168 0169 0171 0172 0173 0175 0177 0178 0179 0180 0181 0182 0183 0184 0185 0186 0187 0188 0189 0190 0191 0192 0193 0194 0195 0196 0197 0198 0199 01003 01004 01005 01006 01007 01008 01009 01010 01012 01013 01014 0301 0307 0321 0332 0348 0356 0374 0375 0376 0377 0906 0907 0910 0911 0912 0913 0915 0917 0918 0919 0920 0924 0935 0959 0962 0963
        */
       !!@ ili2db.dispName = "Dominio"
       Dominio,
-      /** Por la ocupación se adquiere el dominio de las cosas que no pertenecen a nadie, y cuya adquisición no es prohibida por las leyes o por el derecho internacional.
+      /** En el ámbito de la gestión catastral, es el polígono que representa el asentamiento de personas naturales o jurídicas dentro de un terreno baldío, el cual puede contar o no con construcciones y/o edificaciones.
        */
       !!@ ili2db.dispName = "Ocupación"
       Ocupacion,
-      /** La posesión es la tenencia de una cosa determinada con ánimo de señor o dueño, sea que el dueño o el que se da por tal, tenga la cosa por sí mismo, o por otra persona que la tenga en lugar y a nombre de él. El poseedor es reputado dueño, mientras otra persona no justifique serlo.
+      /** En el ámbito de la gestión catastral, es el polígono que representa el asentamiento de personas naturales o jurídicas, con ánimo de señor y dueño sobre un predio privado, el cual puede contar o no con construcciones y/o edificaciones.
        */
       !!@ ili2db.dispName = "Posesión"
       Posesion
@@ -896,23 +768,23 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     );
 
     LC_GrupoEtnicoTipo = (
-      /** son el grupo humano que vive de acuerdo con las formas de relación con el medio natural en el que se asentaron los diferentes grupos aborígenes desde antes de la conquista y la han conservado y dinamizado a lo largo de la historia.
+      /** Son el grupo humano que vive de acuerdo con las formas de relación con el medio natural en el que se asentaron los diferentes grupos aborígenes desde antes de la conquista y la han conservado y dinamizado a lo largo de la historia.
        */
       !!@ ili2db.dispName = "Indígena"
       Indigena,
-      /** Es el conjunto de familias de ascendencia afrocolombiana que poseen una cultura propia, comparten una historia y tienen sus propias tradiciones y costumbres dentro de la relación campo-poblado, además revelan y conservan conciencia de identidad que las distinguen de otros grupos étnicos
+      /** El pueblo Rrom o gitano se consolida y fortalece como grupo étnico que hacer parte de la diversidad étnica y cultural de la nación colombiana. Su origen se remonta a más de 1000 años, proviene del norte de la India y conserva un alto bagaje cultural que lo diferencia de otros pueblos y de la sociedad mayoritaria. En este sentido, cuenta con unos elementos identitarios que los diferencian notablemente de los demás grupos étnicos de la sociedad. Sé es Rrom o gitano por derecho de nacimiento y se lleva la sangre gitana.
        */
       !!@ ili2db.dispName = "Rrom"
       Rrom,
-      /** tienen una identidad propia y mantienen una conciencia étnica particular. También que posee una forma de organización social específica y su propia lengua y ha definido históricamente sus propias instituciones políticas y sociales
+      /** Es la población nativa de las Islas de San Andrés, Providencia Y Santa Catalina descendientes de la unión entre europeos (principalmente ingleses, españoles y holandeses) y esclavos africanos. Se distinguen por su cultura, lengua (creole), creencias religiosas (iglesia bautista) y pasado histórico similar a los pueblos antillanos como Jamaica y Haití.
        */
       !!@ ili2db.dispName = "Raizal"
       Raizal,
-      /** Es la población nativa de las Islas de San Andrés, Providencia Y Santa Catalina descendientes de la unión entre europeos (principalmente ingleses, españoles y holandeses) y esclavos africanos. Se distinguen por su cultura, lengua (creole), creencias religiosas (iglesia bautista) y pasado histórico similar a los pueblos antillanos como Jamaica y Haití.
+      /** La comunidad palenquera está conformada por los descendientes de los esclavizados que mediante actos de resistencia y de libertad, se refugiaron en los territorios de la Costa Norte de Colombia desde el Siglo XV denominados palenques. Existen 4 Palenques reconocidos: San Basilio de Palenque (Mahates – Bolívar), San José de Uré (Córdoba), Jacobo Pérez escobar (Magdalena) y La Libertad (Sucre).
        */
       !!@ ili2db.dispName = "Palenquero"
       Palenquero,
-      /** La comunidad palenquera está conformada por los descendientes de los esclavizados que mediante actos de resistencia y de libertad, se refugiaron en los territorios de la Costa Norte de Colombia desde el Siglo XV denominados palenques. Existen 4 Palenques reconocidos: San Basilio de Palenque (Mahates – Bolívar), San José de Uré (Córdoba), Jacobo Pérez escobar (Magdalena) y La Libertad (Sucre).
+      /** Es el conjunto de familias de ascendencia afrocolombiana que poseen una cultura propia, comparten una historia y tienen sus propias tradiciones y costumbres dentro de la relación campo-poblado, además revelan y conservan conciencia de identidad que las distinguen de otros grupos étnicos. Se suele denominar a este grupo humano como negros, morenos, mulatos y afrodescendientes.
        */
       !!@ ili2db.dispName = "Negro o afrocolombiano"
       Negro_Afrocolombiano,
