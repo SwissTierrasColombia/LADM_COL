@@ -664,6 +664,54 @@ VERSION "V2.2.1"  // 2018-02-01 // =
            */
           !!@ ili2db.dispName = "(Anexo) (Plaza de toros) Tipo 20"
           Tipo_20
+        ),
+        !!@ ili2db.dispName = "Vía férrea"
+        Via_Ferrea(
+          /** Via férrea de trocha  normal o estándar (4 pies, 8 1/2 pulgadas o 1435 metros) con capacidad de transporte mayor a 50 toneladas, conformada por una capa de balasto, sobre la cual se disponen traviesas de madera que soportan los rieles, entiéndase como trocha a la distancia mínima entre los dos rieles.
+           */
+          !!@ ili2db.dispName = "(Anexo) (Vía férrea) Tipo 80"
+          Tipo_80,
+          /** Via férrea de trocha angosta o yardica de 0.915 metros con capacidad menor a 50 toneladas, conformada por una capa de balasto, sobre la cual se disponen traviesas de madera que soportan los rieles, entiéndase como trocha a la distancia mínima entre los dos rieles.
+           */
+          !!@ ili2db.dispName = "(Anexo) (Vía férrea) Tipo 60"
+          Tipo_60
+        ),
+        !!@ ili2db.dispName = "Carreteras"
+        Carreteras(
+          /** Carretera pavimentada. Compuesta de una subbase granular, base en suelo cemento y carpeta asfáltica, entiéndase por sub-base granular como la capa de material granular situada entre la base del firme y la explanada.
+           */
+          !!@ ili2db.dispName = "(Anexo) (Carreteras) Tipo 60"
+          Tipo_60,
+          /** Carretera sin pavimento. Compuesta de una sub-base granular, entiéndase por su-base granular como la capa de material granular situada entre la base del firme y la explanada.
+           */
+          !!@ ili2db.dispName = "(Anexo) (Carreteras) Tipo 40"
+          Tipo_40
+        ),
+        !!@ ili2db.dispName = "Cimientos estructura muros placabase"
+        Cimientos_Estructura_Muros_Placabase(
+          /** Cimientos y estructura soportes verticales (columnas) y horizontales (vigas) destinados a sostener la totalidad o parte de la futura construcción o edificación, acompañados de muros y placas base. Esta tipología se caracteriza por presentar de manera simultánea los 4 elementos (Cimientos, Estructura, Muro o Pared y Losa de Contra piso)
+           */
+          !!@ ili2db.dispName = "(Anexo) (Cimientos estructura muros placabase) Tipo 80"
+          Tipo_80,
+          /** Cimentación y estructura con soportes verticales (columnas) y horizontales (vigas) destinados a sostener la totalidad o parte de la futura construcción o edificación, acompañados de muros o placas base. Esta tipología se caracteriza por presentar de manera simultánea 3 elementos (Cimientos, Estructura, y alguno de estos dos elementos Muro Pared o Losa en Contra piso)
+           */
+          !!@ ili2db.dispName = "(Anexo) (Cimientos estructura muros placabase) Tipo 60"
+          Tipo_60,
+          /** Cimentación sin estructura destinada a sostener la totalidad o parte de una futura construcción o edificación, pueden estar acompañados de muros o placas base. Esta tipología se caracteriza por presentar de manera simultánea 2 elementos (Cimientos y alguno de estos dos elemetnos Muro - Pared o Losa de Contra piso)
+           */
+          !!@ ili2db.dispName = "(Anexo) (Cimientos estructura muros placabase) Tipo 40"
+          Tipo_40,
+          /** Cimentación sin estructura, destinada a sostener la totalidad o parte de una futura construcción o edificación. Esta tipología se caracteriza por presentar un solo elemento, la cimentación.
+           */
+          !!@ ili2db.dispName = "(Anexo) (Cimientos estructura muros placabase) Tipo 20"
+          Tipo_20
+        ),
+        !!@ ili2db.dispName = "Lagunas de oxidación"
+        Lagunas_de_Oxidacion(
+          /** Lagunas de oxidación que en su construcción requieren excavaciones en la estructura de la laguna, con o sin protección del área de la laguna con geotextil o geomembrana, construcción de diques, protección de los taludes con geotextil o geomembrana y enrocado de taludes.
+           */
+          !!@ ili2db.dispName = "(Anexo) (Lagunas de oxidación) Tipo 20"
+          Tipo_20
         )
       ),
       !!@ ili2db.dispName = "Otro"
@@ -810,6 +858,10 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Residencial) Garajes en PH"
         Garajes_En_PH,
+        /** Los salones comunales son dependencias que se construyen dentro de los edificios y conjuntos que sobrepasan un área determinada de construcción, y se clasifican de acuerdo a las normas urbanísticas como equipamiento comunal privado.
+         */
+        !!@ ili2db.dispName = "(Residencial) Salón comunal"
+        Salon_Comunal,
         /** Bien inmueble cubierto o descubierto ubicado en el último piso de algunos edificios utilizado para extender y secar la ropa y que está sometido a régimen de propiedad horizontal.
          */
         !!@ ili2db.dispName = "(Residencial) Secadero de ropa"
@@ -869,10 +921,6 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Comercial) Comercio en PH"
         Comercio_en_PH,
-        /** Son obras arquitectónicas  que se construyen con el objeto de elevar el nivel del agua de la fuente de riego a los sitios donde se desea utilizar.
-         */
-        !!@ ili2db.dispName = "(Comercial) Estacion de Bombeo"
-        Estacion_de_Bombeo,
         /** Establecimiento que ocupa un edificio total o parcialmente con uso exclusivo de sus servicios (entradas, ascensores, escaleras, etc.) y que ofrece alojamiento y posee características arquitectónicas coloniales.
          */
         !!@ ili2db.dispName = "(Comercial) Hotel Colonial"
@@ -997,8 +1045,8 @@ VERSION "V2.2.1"  // 2018-02-01 // =
         Entidad_Educativa_Colonial_Colegio_Colonial,
         /** Un estadio es una construcción cerrada con graderías para los espectadores, destinado a competiciones deportivas. Puede ser al aire libre o cubierto.
          */
-        !!@ ili2db.dispName = "(Institucional) Estadios, Plaza de toros"
-        Estadios_Plaza_de_Toros,
+        !!@ ili2db.dispName = "(Institucional) Estadios"
+        Estadios,
         /** Edificación en la que se reúnen y consagran a los fieles que le rinden culto a un ser superior
          */
         !!@ ili2db.dispName = "(Institucional) Iglesia"
@@ -1023,6 +1071,10 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Institucional) Planetario"
         Planetario,
+        /** Son recintos cerrados, generalmente circulares y descubiertos, donde se celebran las corridas de toros.
+         */
+        !!@ ili2db.dispName = "(Institucional) Plaza de toros"
+        Plaza_de_Toros,
         /** Edificio donde se atiende a la población en un primer nivel asistencial sanitario.
          */
         !!@ ili2db.dispName = "(Institucional) Puestos de salud"
@@ -1102,6 +1154,10 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Anexo) Establos - Pesebreras - Caballerizas"
         Establos_Pesebreras_Caballerizas,
+        /** Son obras arquitectónicas  que se construyen con el objeto de elevar el nivel del agua de la fuente de riego a los sitios donde se desea utilizar.
+         */
+        !!@ ili2db.dispName = "(Anexo) Estacion de Bombeo"
+        Estacion_Bombeo,
         /** Instalación que permite el tránsito de personas y la conexión con sistemas de transporte como buses, metro, tren, tranvía, terminales y estaciones, destinadas para la movilidad de las personas.
          */
         !!@ ili2db.dispName = "(Anexo) Estación de sistema de transporte"
