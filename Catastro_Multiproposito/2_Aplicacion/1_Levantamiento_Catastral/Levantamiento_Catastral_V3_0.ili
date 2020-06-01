@@ -2288,6 +2288,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Fracción de derecho"
       Fraccion_Derecho : MANDATORY 0.0000000000 .. 1.0000000000;
+      /** Fecha de inicio de tenencia del interesado con respecto al predio.
+       */
+      !!@ ili2db.dispName = "Fecha de inicio de tenencia"
+      Fecha_Inicio_Tenencia : INTERLIS.XMLDate;
     END LC_Derecho;
 
     !!@ ili2db.dispName = "(LC) Estructura Novedad FMI"
@@ -2710,10 +2714,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Categoría de suelo"
       Categoria_Suelo : Levantamiento_Catastral_V3_0.LC_CategoriaSueloTipo;
-      /** Fecha de inicio de tenencia del interesado con respecto al predio.
-       */
-      !!@ ili2db.dispName = "Fecha de inicio de tenencia"
-      Fecha_Inicio_Tenencia : INTERLIS.XMLDate;
       /** Relaciona los cambios del predio respecto de la información catastral vigente.
        */
       !!@ ili2db.dispName = "Novedad números prediales"
