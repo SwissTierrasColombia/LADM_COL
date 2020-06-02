@@ -1046,6 +1046,10 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Institucional) Estadios"
         Estadios,
+        /** Lugar construido  fuerte, cercado de murallas, baluartes, fosos y otras fortificaciones.
+         */
+        !!@ ili2db.dispName = "(Anexo) Fuertes y Castillos"
+        Fuertes_y_Castillos,
         /** Edificación en la que se reúnen y consagran a los fieles que le rinden culto a un ser superior
          */
         !!@ ili2db.dispName = "(Institucional) Iglesia"
@@ -1161,10 +1165,6 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Anexo) Estación de sistema de transporte"
         Estacion_Sistema_Transporte,
-        /** Lugar construido  fuerte, cercado de murallas, baluartes, fosos y otras fortificaciones.
-         */
-        !!@ ili2db.dispName = "(Anexo) Fuertes y Castillos"
-        Fuertes_y_Castillos,
         /** Unidad construida con destino a la cría y/o protección de aves principalmente para explotación avícola.  Conformada por estructura cubierta pisos y muros que son parcialmente elaborados en ladrillo y el resto descubierto o con algún material provisional (plásticos, alambres, etc.).
          */
         !!@ ili2db.dispName = "(Anexo) Galpones - Gallineros"
