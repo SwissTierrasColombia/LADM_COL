@@ -1,4 +1,4 @@
-<h1>AVISO IMPORTANTE: A partir del 23 de mayo se versionan los archivos del modelo a 3 que se encuentran en la rama ladmcol2_11, pero aún NO es oficial el modelo, aún NO se recomienda para ambientes de producción</h1>
+# Archivo readme en construcción
 
 # REPOSITORIO LADM_COL 
 
