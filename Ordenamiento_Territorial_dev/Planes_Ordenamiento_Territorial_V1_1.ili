@@ -1,0 +1,267 @@
+INTERLIS 2.3;
+
+MODEL Planes_Ordenamiento_Territorial_V1_1 (es)
+AT "mailto:PC4@localhost"
+VERSION "2019-10-10"  =
+  IMPORTS LADM_COL_V1_6,ISO19107_PLANAS_V1;
+
+  DOMAIN
+
+    POT_CausalPlusvaliaTipo = (
+      Cambio_Uso_Suelo,
+      Cambio_Norma_Edificabilidad,
+      Cambio_Clasificacion_Suelo,
+      Obra_Publica
+    );
+
+    POT_ClasificacionSueloTipo = (
+      Expansion,
+      Urbano,
+      Rural
+    );
+
+    POT_DesarrolloRestringidoTipo = (
+      Suburbano,
+      Suburbano_(
+        Zonas_Suburbanas,
+        Corredores_Viales_Suburbanos
+      ),
+      Centros_Poblados,
+      Vivienda_Campestre,
+      Equipamientos
+    );
+
+    POT_FuenteAdministrativaTipo = (
+      Documento_POT,
+      Validacion_CAR,
+      Validacion_Concejo
+    );
+
+    POT_ProduccionTipo = (
+      !!@ ili2db.dispName = "Áreas estratégicas de interés agropecuario"
+      Areas_Estrategias_Interes_Agropecuario,
+      Mineria_Hidrocarburos
+    );
+
+    POT_RiesgoTipo = (
+      !!@ ili2db.dispName = "Bajo"
+      Bajo,
+      !!@ ili2db.dispName = "Medio"
+      Medio,
+      !!@ ili2db.dispName = "Alto"
+      Alto,
+      !!@ ili2db.dispName = "Muy alto"
+      Muy_Alto
+    );
+
+    POT_SistemasGeneralesNivel = (
+      Departamental,
+      Municipal,
+      Nacional,
+      Regional
+    );
+
+    POT_SistemasGeneralesTipo = (
+      Equipamientos(
+        Existente,
+        Proyectado
+      ),
+      Espacio_Publico(
+        Existente,
+        Proyectado
+      ),
+      Modos_Transporte,
+      Servicios_Publicos(
+        Existente,
+        Proyectado
+      ),
+      Vias(
+        Existente,
+        Proyectado
+      )
+    );
+
+    POT_SueloProteccionTipo = (
+      !!@ ili2db.dispName = "Áreas de especial interés ambiental"
+      Areas_Especial_Interes_Ambiental,
+      !!@ ili2db.dispName = "Patrimonio histórico cultural y/o arquitectónico"
+      Patrimonio_Historico_Cultural_Arquitectonico,
+      !!@ ili2db.dispName = "Riesgo no mitigable"
+      Riesgo_No_Mitigable,
+      !!@ ili2db.dispName = "Servicios públicos e infraestructuras asociadas"
+      Servicios_Publicos_Infraestructuras_Asociadas
+    );
+
+    POT_TratamientoUrbanisticoTipo = (
+      !!@ ili2db.dispName = "Desarrollo"
+      Desarrollo,
+      !!@ ili2db.dispName = "Consolidacion"
+      Consolidacion,
+      !!@ ili2db.dispName = "Renovación urbana"
+      Renovacion_Urbana,
+      Renovacion_Urbana_(
+        !!@ ili2db.dispName = "Renovación urbana - reactivación"
+        Reactivacion,
+        !!@ ili2db.dispName = "Renovación urbana - Redesarrollo"
+        Redesarrollo
+      ),
+      !!@ ili2db.dispName = "Conservación"
+      Conservacion,
+      Conservacion_(
+        !!@ ili2db.dispName = "Bien de interés cultural ámbito nacional o departamental"
+        BIC_Nacional_Departamental,
+        !!@ ili2db.dispName = "Bien de interés cultural ámbito municipal o distrital"
+        BIC_Municipal,
+        !!@ ili2db.dispName = "Patrimonio cultural material ámbito municipal o distrital"
+        Patrimonio_Cultural_Municipal
+      ),
+      !!@ ili2db.dispName = "Mejoramiento integral"
+      Mejoramiento_Integral
+    );
+
+    POT_UsoSueloTipo = (
+      !!@ ili2db.dispName = "Comercio y/o servicios"
+      Comercio_Servicios,
+      !!@ ili2db.dispName = "Industrial"
+      Industrial,
+      !!@ ili2db.dispName = "Mixto"
+      Mixto,
+      !!@ ili2db.dispName = "Residencial"
+      Residencial
+    );
+
+    POT_ZonaPOTTipo = (
+      !!@ ili2db.dispName = "Clasificación del suelo"
+      Clasificacion_Suelo,
+      !!@ ili2db.dispName = "Suelo de protección"
+      Suelo_Proteccion,
+      !!@ ili2db.dispName = "Uso del suelo"
+      Uso_Suelo,
+      !!@ ili2db.dispName = "Riesgos"
+      Riesgos,
+      !!@ ili2db.dispName = "Edificabilidad"
+      Edificabilidad,
+      !!@ ili2db.dispName = "Tratamiento urbanistico"
+      Tratamiento_Urbanistico,
+      !!@ ili2db.dispName = "Desarrollo restringido"
+      Desarrollo_Restringido,
+      !!@ ili2db.dispName = "Sistemas generales"
+      Sistemas_Generales,
+      !!@ ili2db.dispName = "Zona de producción"
+      Zona_Produccion
+    );
+  STRUCTURE POT_UsoSueloTipo_ = value : MANDATORY POT_UsoSueloTipo; END POT_UsoSueloTipo_;
+
+  TOPIC Planes_Ordenamiento_Territorial =
+    DEPENDS ON LADM_COL_V1_6.LADM_Nucleo;
+
+    !!@ ili2db.dispName = "(POT) Clasificación del suelo"
+    CLASS POT_Clasificacion_Suelo
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadEspacial =
+      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_ClasificacionSueloTipo;
+    END POT_Clasificacion_Suelo;
+
+    !!@ ili2db.dispName = "(POT) Derecho"
+    CLASS POT_Derecho
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_DRR =
+      Nombre : TEXT*255;
+    END POT_Derecho;
+
+    !!@ ili2db.dispName = "(POT) Desarrollo restringido"
+    CLASS POT_Desarrollo_Restringido
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadEspacial =
+      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_DesarrolloRestringidoTipo;
+    END POT_Desarrollo_Restringido;
+
+    !!@ ili2db.dispName = "(POT) Edificabilidad"
+    CLASS POT_Edificabilidad
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadEspacial =
+      Altura : -50 .. 200;
+      Indice_Construccion : 0.00 .. 200.00;
+      Indice_Ocupacion : 0.00 .. 1.00;
+    END POT_Edificabilidad;
+
+    !!@ ili2db.dispName = "(POT) Fuente Administrativa"
+    CLASS POT_FuenteAdministrativa
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_FuenteAdministrativa =
+      Tipo (EXTENDED) : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_FuenteAdministrativaTipo;
+      Fecha : INTERLIS.XMLDate;
+    END POT_FuenteAdministrativa;
+
+    !!@ ili2db.dispName = "(POT) Municipio"
+    CLASS POT_Municipio
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_Interesado =
+      Departamento : TEXT*255;
+      Nombre (EXTENDED) : MANDATORY TEXT*255;
+      Categoria : 1 .. 6;
+      Codigo : TEXT*3;
+    END POT_Municipio;
+
+    !!@ ili2db.dispName = "(POT) Responsabilidad"
+    CLASS POT_Responsabilidad
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_DRR =
+      Nombre : TEXT*255;
+    END POT_Responsabilidad;
+
+    !!@ ili2db.dispName = "(POT) Restricción"
+    CLASS POT_Restriccion
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_DRR =
+      Nombre : TEXT*255;
+    END POT_Restriccion;
+
+    !!@ ili2db.dispName = "(POT) Riesgos"
+    CLASS POT_Riesgos
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadEspacial =
+      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_RiesgoTipo;
+    END POT_Riesgos;
+
+    !!@ ili2db.dispName = "(POT) Sistemas generales"
+    CLASS POT_Sistemas_Generales
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadEspacial =
+      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_SistemasGeneralesTipo;
+      Nivel : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_SistemasGeneralesNivel;
+      Nombre : TEXT*255;
+      Descripcion : TEXT*255;
+    END POT_Sistemas_Generales;
+
+    !!@ ili2db.dispName = "(POT) Suelo de protección"
+    CLASS POT_Suelo_Proteccion
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadEspacial =
+      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_SueloProteccionTipo;
+    END POT_Suelo_Proteccion;
+
+    !!@ ili2db.dispName = "(POT) Tratamiento urbanístico"
+    CLASS POT_Tratamiento_Urbanistico
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadEspacial =
+      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_TratamientoUrbanisticoTipo;
+    END POT_Tratamiento_Urbanistico;
+
+    !!@ ili2db.dispName = "(POT) Uso del suelo"
+    CLASS POT_Uso_Suelo
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadEspacial =
+      Uso_Principal : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_UsoSueloTipo;
+      Usos_Complementarios : BAG {0..*} OF Planes_Ordenamiento_Territorial_V1_1.POT_UsoSueloTipo_;
+      Usos_Restringidos : BAG {0..*} OF Planes_Ordenamiento_Territorial_V1_1.POT_UsoSueloTipo_;
+    END POT_Uso_Suelo;
+
+    !!@ ili2db.dispName = "(POT) Zona generadora de plusvalía"
+    CLASS POT_Zona_Generadora_Plusvalia
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadEspacial =
+      Causal_Posible_Plusvalia : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_CausalPlusvaliaTipo;
+    END POT_Zona_Generadora_Plusvalia;
+
+    !!@ ili2db.dispName = "(POT) Zona de producción"
+    CLASS POT_Zona_Produccion
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_UnidadEspacial =
+      Tipo : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_ProduccionTipo;
+    END POT_Zona_Produccion;
+
+    !!@ ili2db.dispName = "(POT) Zona POT"
+    CLASS POT_ZonaPOT
+    EXTENDS LADM_COL_V1_6.LADM_Nucleo.COL_BAUnit =
+      Tipo (EXTENDED) : MANDATORY Planes_Ordenamiento_Territorial_V1_1.POT_ZonaPOTTipo;
+    END POT_ZonaPOT;
+
+  END Planes_Ordenamiento_Territorial;
+
+END Planes_Ordenamiento_Territorial_V1_1.
