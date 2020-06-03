@@ -1,6 +1,6 @@
 INTERLIS 2.3;
 
-MODEL Datos_Gestor_Catastral_V3_0 (es)
+MODEL Submodelo_Insumos_Gestor_Catastral_V1_0 (es)
 AT "mailto:PC4@localhost"
 VERSION "2019-08-01"  =
   IMPORTS ISO19107_PLANAS_V3_0,LADM_COL_V3_0;
@@ -200,7 +200,7 @@ VERSION "2019-08-01"  =
       /** Indica si la construcción es de tipo convencional o no convencional.
        */
       !!@ ili2db.dispName = "Tipo de construcción"
-      Tipo_Construccion : Datos_Gestor_Catastral_V3_0.GC_UnidadConstruccionTipo;
+      Tipo_Construccion : Submodelo_Insumos_Gestor_Catastral_V1_0.GC_UnidadConstruccionTipo;
       /** Indica el tipo de dominio de la unidad de construcción: común y privado.
        */
       !!@ ili2db.dispName = "Tipo de dominio"
@@ -496,7 +496,7 @@ VERSION "2019-08-01"  =
       /** Indica si la construcción es de tipo convencional o no convencional.
        */
       !!@ ili2db.dispName = "Tipo de construcción"
-      Tipo_Construccion : Datos_Gestor_Catastral_V3_0.GC_UnidadConstruccionTipo;
+      Tipo_Construccion : Submodelo_Insumos_Gestor_Catastral_V1_0.GC_UnidadConstruccionTipo;
       /** Indica numéricamente la ubicación del predio de acuerdo al tipo de planta.
        */
       !!@ ili2db.dispName = "Planta"
@@ -604,7 +604,7 @@ VERSION "2019-08-01"  =
       /** Direcciones del predio inscritas en catastro.
        */
       !!@ ili2db.dispName = "Direcciones"
-      Direcciones : BAG {0..*} OF Datos_Gestor_Catastral_V3_0.Datos_Gestor_Catastral.GC_Direccion;
+      Direcciones : BAG {0..*} OF Submodelo_Insumos_Gestor_Catastral_V1_0.Datos_Gestor_Catastral.GC_Direccion;
       /** Tipo de predio inscrito en catastro: Nacional, Departamental, Municipal, Particular, Baldío, Ejido, Resguardo Indígena, Tierra de comunidades negras y Reservas Naturales.
        */
       !!@ ili2db.dispName = "Tipo de predio"
@@ -612,7 +612,7 @@ VERSION "2019-08-01"  =
       /** Caracterización temática del predio.
        */
       !!@ ili2db.dispName = "Condición del predio"
-      Condicion_Predio : Datos_Gestor_Catastral_V3_0.GC_CondicionPredioTipo;
+      Condicion_Predio : Submodelo_Insumos_Gestor_Catastral_V1_0.GC_CondicionPredioTipo;
       /** Es la clasificación para fines estadísticos que se da a cada inmueble en su conjunto–terreno, construcciones o edificaciones-, en el momento de la identificación predial de conformidad con la actividad predominante que en él se desarrolle.
        */
       !!@ ili2db.dispName = "Destinación económica"
@@ -620,11 +620,11 @@ VERSION "2019-08-01"  =
       /** Estado del predio en la base de datos catastral según los actos administrativos o judiciales que versan sobre el mismo.
        */
       !!@ ili2db.dispName = "Estado del predio"
-      Estado_Predio : BAG {0..*} OF Datos_Gestor_Catastral_V3_0.Datos_Gestor_Catastral.GC_EstadoPredio;
+      Estado_Predio : BAG {0..*} OF Submodelo_Insumos_Gestor_Catastral_V1_0.Datos_Gestor_Catastral.GC_EstadoPredio;
       /** Indica el sistema de gestión catastral de donde proceden los datos, en el caso del IGAC puede ser COBOL o SNC.
        */
       !!@ ili2db.dispName = "Sistema procedencia de los datos"
-      Sistema_Procedencia_Datos : Datos_Gestor_Catastral_V3_0.GC_SistemaProcedenciaDatosTipo;
+      Sistema_Procedencia_Datos : Submodelo_Insumos_Gestor_Catastral_V1_0.GC_SistemaProcedenciaDatosTipo;
       /** Fecha de la vigencia de los datos.
        */
       !!@ ili2db.dispName = "Fecha de los datos"
@@ -676,9 +676,9 @@ VERSION "2019-08-01"  =
 
   END Datos_Gestor_Catastral;
 
-END Datos_Gestor_Catastral_V3_0.
+END Submodelo_Insumos_Gestor_Catastral_V1_0.
 
-MODEL Datos_SNR_V3_0 (es)
+MODEL Submodelo_Insumos_SNR_V1_0 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.3"  // 2019-07-31 // =
   IMPORTS LADM_COL_V3_0;
@@ -975,7 +975,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Calidad de derecho en registro
        */
       !!@ ili2db.dispName = "Calidad derecho registro"
-      Calidad_Derecho_Registro : MANDATORY Datos_SNR_V3_0.SNR_CalidadDerechoTipo;
+      Calidad_Derecho_Registro : MANDATORY Submodelo_Insumos_SNR_V1_0.SNR_CalidadDerechoTipo;
       /** es el número asignado en el registro a cada acto sujeto a registro.
        */
       !!@ ili2db.dispName = "Código naturaleza jurídica"
@@ -1001,7 +1001,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Tipo de documento que soporta la relación de tenencia entre el interesado con el predio.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : Datos_SNR_V3_0.SNR_FuenteTipo;
+      Tipo_Documento : Submodelo_Insumos_SNR_V1_0.SNR_FuenteTipo;
       /** Identificador del documento, ejemplo: numero de la resolución
        */
       !!@ ili2db.dispName = "Número de documento"
@@ -1029,7 +1029,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Tipo de documento que soporta la relación de tenencia entre el interesado con el predio.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : Datos_SNR_V3_0.SNR_FuenteTipo;
+      Tipo_Documento : Submodelo_Insumos_SNR_V1_0.SNR_FuenteTipo;
       /** Identificador del documento, ejemplo: numero de la resolución
        */
       !!@ ili2db.dispName = "Número de documento"
@@ -1053,11 +1053,11 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Tipo de persona
        */
       !!@ ili2db.dispName = "Tipo de persona"
-      Tipo_Persona : Datos_SNR_V3_0.SNR_PersonaTitularTipo;
+      Tipo_Persona : Submodelo_Insumos_SNR_V1_0.SNR_PersonaTitularTipo;
       /** Tipo de documento del que se trata.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : Datos_SNR_V3_0.SNR_DocumentoTitularTipo;
+      Tipo_Documento : Submodelo_Insumos_SNR_V1_0.SNR_DocumentoTitularTipo;
       /** Documento de identidad del interesado.
        */
       !!@ ili2db.dispName = "Número de documento"
@@ -1111,11 +1111,11 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Corresponde al dato de tipo de predio incorporado en las bases de datos registrales
        */
       !!@ ili2db.dispName = "Clase del suelo según registro"
-      Clase_Suelo_Registro : Datos_SNR_V3_0.SNR_ClasePredioRegistroTipo;
+      Clase_Suelo_Registro : Submodelo_Insumos_SNR_V1_0.SNR_ClasePredioRegistroTipo;
       /** Es la matrícula por la cual se dio apertura al predio objeto de estudio (la madre).
        */
       !!@ ili2db.dispName = "Matrícula inmobiliaria matriz"
-      Matricula_Inmobiliaria_Matriz : BAG {0..*} OF Datos_SNR_V3_0.Datos_SNR.SNR_EstructuraMatriculaMatriz;
+      Matricula_Inmobiliaria_Matriz : BAG {0..*} OF Submodelo_Insumos_SNR_V1_0.Datos_SNR.SNR_EstructuraMatriculaMatriz;
       /** Fecha de la generación de datos.
        */
       !!@ ili2db.dispName = "Fecha de datos"
@@ -1147,12 +1147,12 @@ VERSION "V2.3"  // 2019-07-31 // =
 
   END Datos_SNR;
 
-END Datos_SNR_V3_0.
+END Submodelo_Insumos_SNR_V1_0.
 
-MODEL Datos_Integracion_Insumos_V3_0 (es)
+MODEL Submodelo_Integracion_Insumos_V1_0 (es)
 AT "mailto:PC4@localhost"
 VERSION "2019-09-06"  =
-  IMPORTS Datos_Gestor_Catastral_V3_0,Datos_SNR_V3_0;
+  IMPORTS Submodelo_Insumos_Gestor_Catastral_V1_0,Submodelo_Insumos_SNR_V1_0;
 
   DOMAIN
 
@@ -1204,7 +1204,7 @@ VERSION "2019-09-06"  =
     );
 
   TOPIC Datos_Integracion_Insumos =
-    DEPENDS ON Datos_SNR_V3_0.Datos_SNR,Datos_Gestor_Catastral_V3_0.Datos_Gestor_Catastral;
+    DEPENDS ON Submodelo_Insumos_SNR_V1_0.Datos_SNR,Submodelo_Insumos_Gestor_Catastral_V1_0.Datos_Gestor_Catastral;
 
     /** Clase que relaciona los predios en los modelos de insumos para el Gestor Catastral y la SNR.
      */
@@ -1213,7 +1213,7 @@ VERSION "2019-09-06"  =
       /** Tipo de emparejamiento de insumos Catastro-Registro
        */
       !!@ ili2db.dispName = "Tipo de emparejamiento"
-      Tipo_Emparejamiento : Datos_Integracion_Insumos_V3_0.INI_EmparejamientoTipo;
+      Tipo_Emparejamiento : Submodelo_Integracion_Insumos_V1_0.INI_EmparejamientoTipo;
       /** Observaciones de la relación.
        */
       !!@ ili2db.dispName = "Observaciones"
@@ -1221,15 +1221,15 @@ VERSION "2019-09-06"  =
     END INI_PredioInsumos;
 
     ASSOCIATION ini_predio_integracion_gc =
-      gc_predio_catastro (EXTERNAL) -- {0..1} Datos_Gestor_Catastral_V3_0.Datos_Gestor_Catastral.GC_PredioCatastro;
+      gc_predio_catastro (EXTERNAL) -- {0..1} Submodelo_Insumos_Gestor_Catastral_V1_0.Datos_Gestor_Catastral.GC_PredioCatastro;
       ini_predio_insumos -- {0..*} INI_PredioInsumos;
     END ini_predio_integracion_gc;
 
     ASSOCIATION ini_predio_integracion_snr =
-      snr_predio_juridico (EXTERNAL) -- {0..1} Datos_SNR_V3_0.Datos_SNR.SNR_PredioRegistro;
+      snr_predio_juridico (EXTERNAL) -- {0..1} Submodelo_Insumos_SNR_V1_0.Datos_SNR.SNR_PredioRegistro;
       ini_predio -- {0..*} INI_PredioInsumos;
     END ini_predio_integracion_snr;
 
   END Datos_Integracion_Insumos;
 
-END Datos_Integracion_Insumos_V3_0.
+END Submodelo_Integracion_Insumos_V1_0.
