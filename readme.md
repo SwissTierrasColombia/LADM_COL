@@ -4,9 +4,6 @@
 
 <p align="center">  <img src="https://raw.githubusercontent.com/SwissTierrasColombia/LADM_COL/master/docs/media/resources/1_Logo%20Modelo%20LADM-COL.png" width="500"/> </p>
 
-
-![Resolucion Adopción Modelo LADM_COL](https://raw.githubusercontent.com/SwissTierrasColombia/LADM_COL/master/docs/media/resources/2_Resolucion%20adopci%C3%B3n.png)
-
 # Resolución de adpoción del modelo extendido de Catastro Registro del modelo LADM_COL
 
 <p align="center">  <img src="https://raw.githubusercontent.com/SwissTierrasColombia/LADM_COL/master/docs/media/resources/3_Resoluci%C3%B3n%20conjunta.png" width="500"/> </p>
