@@ -1,0 +1,673 @@
+INTERLIS 2.3;
+
+/** Perfil Nacional colombiano de la ISO 19152 LADM COL generado con INTERLIS 2 - Extension de ANT
+ * 
+ * -----------------------------------------------------------
+ * 
+ * 04.07.2019/at: Creación de la primera versión del modelo 
+ * -----------------------------------------------------------
+ * 
+ *  (c) IGAC y SNR con apoyo de la Cooperacion Suiza
+ * 
+ * -----------------------------------------------------------
+ */
+MODEL Submodelo_FISO_V1_0 (es)
+AT "mailto:PC4@localhost"
+VERSION "2019-07-04"  =
+  IMPORTS Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0,LADM_COL_V3_0,ISO19107_PLANAS_V3_0;
+
+  DOMAIN
+
+    FISO_Afirmacion2Tipo = (
+      /** Esta de acuerdo con la pregunta
+       */
+      !!@ ili2db.dispName = "Si"
+      Si,
+      /** No esta de acuerdo con la pregunta
+       */
+      !!@ ili2db.dispName = "No"
+      No,
+      /** No sabe/No responde
+       */
+      !!@ ili2db.dispName = "No sabe/No responde"
+      No_Sabe_No_Responde
+    );
+
+    FISO_ClaseExplotacionTipo = (
+      /** Predio que se usa para vivienda, sirve para proporcionar alojamiento permanente a las personas.
+       */
+      !!@ ili2db.dispName = "Habitacional"
+      Habitacional,
+      /** El uso del predio se dedica a la crianza de animales con fines alimenticios para el ser humano en distintos tipos de explotación ganadera.
+       */
+      !!@ ili2db.dispName = "Ganadero"
+      Ganadero,
+      /** Entiendase como activiades de  plantación, renovación y tala de árboles maderables
+       */
+      !!@ ili2db.dispName = "Forestal"
+      Forestal,
+      /** En la agricultura, la ganadería o la silvicultura, es un conjunto de prácticas aplicadas para promover el uso sustentable del suelo.
+       */
+      !!@ ili2db.dispName = "Conservación"
+      Conservacion,
+      /** No esta dentro de las opciones brindadas
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+    FISO_ConflictosTipo = (
+      /** Oposición o conflicto entre los posibles herederos de un inmueble
+       */
+      !!@ ili2db.dispName = "Sucesión sin acuerdos de herederos"
+      Sucesion_Sin_Acuerdos,
+      /** Se refiere a las servidumbres que no se advierten en el levantamiento topográfico, o por métodos indirectos (ortofotografía), es decir conflictos que se presentan entre predios individuales relacionados con los pasos para acceder a los predios, ejemplo mangueras de agua.
+       */
+      !!@ ili2db.dispName = "De paso o servidumbres"
+      De_Paso_Servidumbres,
+      /** Oposición o conflicto derivado de las extensiones territoriales sobre las que se describe como propietario, poseedor u ocupante
+       */
+      !!@ ili2db.dispName = "Por linderos"
+      Por_Linderos,
+      /** Se refiere a los conflictos que no se identifican en una primera etapa de intervención por parte de la ANT
+       */
+      !!@ ili2db.dispName = "Predios con pretensiones territoriales"
+      Predios_Pretenciones_Territoriales,
+      /** Conflictos relacionados con aspectos de orden publico
+       */
+      !!@ ili2db.dispName = "Seguridad para acceso al predio"
+      Seguridad_Acceso_Predio,
+      /** Demás conflictos que no encajen en las opciones predeterminadas
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+    FISO_DocumentoTipo = (
+      !!@ ili2db.dispName = "Cédula de Ciudadanía"
+      Cedula_Ciudadania,
+      !!@ ili2db.dispName = "Tarjeta de Identidad"
+      Tarjeta_Identidad,
+      !!@ ili2db.dispName = "NUIP"
+      NUIP,
+      !!@ ili2db.dispName = "Cédula de Extranjería"
+      Cedula_Extranjeria
+    );
+
+    FISO_EnfermedadAccidenteTipo = (
+      /** Percibir algo material por medio del sentido de la vista
+       */
+      !!@ ili2db.dispName = "Ver"
+      Ver,
+      /** Término que refiere a la facultad sensorial para lograr la percepción de un sonido
+       */
+      !!@ ili2db.dispName = "Oir"
+      Oir,
+      /** Hablar es el acto en el que un individuo intenta comunicarse, usando una lengua o idioma, siendo esto, básicamente, la vocalización de sonidos.
+       */
+      !!@ ili2db.dispName = "Hablar"
+      Hablar,
+      /** Entiendase como la capacidad que tiene una persona para moverse o camniar una persona sin ayuda.
+       */
+      !!@ ili2db.dispName = "Moverse o caminar por si mismo"
+      Moverse_Caminar,
+      /** Entiendase como la capacidad que tiene una persona para bañarse, vestirse o alimentarse una persona sin ayuda.
+       */
+      !!@ ili2db.dispName = "Bañarse, vestirse o alimentarse por si mismo"
+      Baniarse_Vestirse_Alimentarse,
+      /** Persona que presenta problemas de moviemiento u otras carasteristicas que no permiten su salida a la calle sin ayuda de otra persona repsonsable.
+       */
+      !!@ ili2db.dispName = "Dificultad para salir a la calle sin ayuda o compañía"
+      Dificultad_Salir_Calle,
+      /** Acción de adquirir y retener conocimiento, habilidad o información sobre alguna materia o tema.
+       */
+      !!@ ili2db.dispName = "Entender o aprender"
+      Entender_Aprender,
+      /** No esta dentro de las opciones brindadas
+       */
+      !!@ ili2db.dispName = "Otra"
+      Otra
+    );
+
+    FISO_EntradaFISOTipo = (
+      /** Entiendase como inscripcion fisica en alguna de las sedes de la ANT
+       */
+      !!@ ili2db.dispName = "Inscripción en oficina ANT"
+      Inscripcion_Oficina_ANT,
+      /** Inscripcion que se hace durante un barrido predial de un municipio nacional
+       */
+      !!@ ili2db.dispName = "Barrido predial"
+      Barrido_Predial,
+      /** Casos que venian de procesos iniciados con el Incoder y se migraron al SIT
+       */
+      !!@ ili2db.dispName = "Registro administrativo (INCODER)"
+      Registro_Administrativo,
+      /** Caso en el cual el ciudadano deber ser includio al RESO de mandera inmediata por decision de un Juez de la Republica
+       */
+      !!@ ili2db.dispName = "Decisiones judiciales"
+      Decisiones_Judiciales
+    );
+
+    FISO_EstadoCivilTipo = (
+      /** Se considera casada aquella persona que ha establecido con otra del sexo opuesto una relación aprobada por la ley, que implica cooperación económica y cohabitación residencial y sexual.
+       */
+      !!@ ili2db.dispName = "Casado(a)"
+      Casado,
+      /** Persona que nunca ha contraído matrimonio y que no vive ni ha vivido en unión libre.
+       */
+      !!@ ili2db.dispName = "Soltero(a)"
+      Soltero,
+      /** Es la persona que habiendo fallecido su cónyuge o compañero (a), no ha vuelto a casarse ni vive en unión libre.
+       */
+      !!@ ili2db.dispName = "Viudo(a)"
+      Viudo,
+      /** Persona cuya unión ha sido disuelta por vía legal o de hecho y no se ha vuelto a casar, ni vive en unión libre.
+       */
+      !!@ ili2db.dispName = "Separado(a) o Divorciado(a)"
+      Separado_Divorciado,
+      /** No está casado(a) y vive en pareja hace dos años o más. Una persona está en esta situación cuando hace dos años o más estableció con otra persona del sexo opuesto una relación queimplica cooperación económica y cohabitación residencial y sexual, la cual se mantiene única y exclusivamente por voluntad propia sin que estén presentes, vínculos legales.
+       */
+      !!@ ili2db.dispName = "Unión libre"
+      Union_Libre
+    );
+
+    FISO_OcupacionTipo = (
+      /** Persona que trabaja para otra o para una institución/empresa a cambio de un salario.
+       */
+      !!@ ili2db.dispName = "Empleado"
+      Empleado,
+      /** Aquellas personas que no están vinculadas a una empresa mediante un contrato de trabajo, sino mediante un contrato de servicios y son remunerados bajo la figura de honorarios o comisiones.
+       */
+      !!@ ili2db.dispName = "Independiente"
+      Independiente,
+      /** Persona que realiza las actividades de limpiar, barrer, hacer reparaciones menores en la vivienda, cuidar animales domésticos o el jardín.
+       */
+      !!@ ili2db.dispName = "Oficios del hogar"
+      Oficios_Hogar,
+      /** Persona productora que vive de la producción para el autoconsumo y que, en caso de tener excedentes, los puede comercializar, sin ser esta su finalidad.
+       */
+      !!@ ili2db.dispName = "Campesino"
+      Campesino,
+      /** Es toda persona que tiene tradición en labores rurales y que obtiene principalmente ingresos provenientes de actividades agrícolas, pecuarias, acuícolas, piscícolas o forestales. Puede o no ser propietaria de la tierra.
+       */
+      !!@ ili2db.dispName = "Trabajador agrario"
+      Trabajador_Agrario,
+      /** Persona que no puede ejercer ninguna actividad incapacidad total o parcial
+       */
+      !!@ ili2db.dispName = "Incapacitado permanente para trabajar"
+      Incapacitado_Permanente_Trabajar,
+      /** No esta dentro de las opciones brindadas
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+    FISO_OrientacionSexualTipo = (
+      /** Persona cuya atracción afectiva, erótica o
+       * sexual se dirige hacia personas de sexo distinto al suyo.
+       */
+      !!@ ili2db.dispName = "Heterosexual"
+      Heterosexual,
+      /** Mujeres que experimentan amor romántico o atracción sexual exclusivamente por otras mujeres.
+       */
+      !!@ ili2db.dispName = "Lesbiana"
+      Lesbiana,
+      /** Manera de designar a las personas homosexuales? masculinas, es decir, a aquellos hombres a los que les atraen sexual y emocionalmente otros hombres.
+       */
+      !!@ ili2db.dispName = "Gay"
+      Gay,
+      /** Hace referencia a las personas cuyas identidades de género son diferentes del sexo? que se les asignó al nacer.
+       */
+      !!@ ili2db.dispName = "Transgénero"
+      Transgenero,
+      /** Se define como la atracción romántica, la atracción sexual o la conducta sexual dirigida tanto hacia hombres como hacia mujeres.
+       */
+      !!@ ili2db.dispName = "Bisexual"
+      Bisexual,
+      /** Presencia en un mismo individuo de características sexuales de macho y de hembra en proporción variable.
+       */
+      !!@ ili2db.dispName = "Intersexual"
+      Intersexual,
+      /** No se identifica con las opciones dadas o no desea responder
+       */
+      !!@ ili2db.dispName = "No sabe / No responde"
+      No_Sabe_No_Responde
+    );
+
+    FISO_OtorgaDerechoTipo = (
+      /** Contrato escrito por el cual uno de los contratantes se obliga a entregar una cosa determinada y el otro a pagar por ella un precio cierto.
+       */
+      !!@ ili2db.dispName = "Lo compró mediante algún documento"
+      Mediante_Documento,
+      /** Contrato por el cual uno de los contratantes se obliga a entregar una cosa determinada y el otro a pagar por ella un precio cierto, sin que medie documento alguno.
+       */
+      !!@ ili2db.dispName = "Lo compró de forma verbal"
+      Forma_Verbal,
+      /** Masa patrimonial (bienes, derechos y obligaciones) que adquiere una persona con derecho para ello, debido a la muerte de su anterior propietario.
+       */
+      !!@ ili2db.dispName = "Es una herencia"
+      Herencia,
+      /** Negocio jurídico en virtud del cual una persona (donante) dispone de una cosa de su patrimonio a favor de otra (donatario) a título gratuito
+       */
+      !!@ ili2db.dispName = "Es una donación"
+      Donacion,
+      /** Demás relaciones de derechos sobre los predios que una persona pueda ostentar y  no se encuentren predeterminadas en las opciones de respuesta
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+    FISO_ParentescoTipo = (
+      /** Persona casada con vinculo matrimonial civil o religioso  vigente, con relación a su cónyuge.
+       */
+      !!@ ili2db.dispName = "Esposo/Esposa"
+      Esposo_Esposa,
+      /** Persona que sin estar casada, hizo una comunidad de vida permanente y singular con otra, sea de su mismo sexo o diferente
+       */
+      !!@ ili2db.dispName = "Compañero/Compañera permanente"
+      Companiero_Companiera_Permanente,
+      /** Relación por consanguinidad o legal que una persona tiene con respecto a sus padres
+       */
+      !!@ ili2db.dispName = "Hijo/Hija"
+      Hijo_Hija,
+      /** Hijo aportado al nuevo matrimonio por el cónyuge o compañero(a) permanente de una persona
+       */
+      !!@ ili2db.dispName = "Hijastro/Hijastra"
+      Hijastro_Hijastra,
+      /** Persona que con respecto a otra llamada padre o madre de crianza, ocupa el lugar de un hijo con motivo de un lazo afectivo que los une, sin que medie vínculo de consanguinidad o civil que genere derechos u obligaciones.
+       */
+      !!@ ili2db.dispName = "Hijo/Hija de crianza"
+      Hijo_Hija_Crianza,
+      /** Relación por consanguinidad o legal que una persona tiene con respecto a sus hijos
+       */
+      !!@ ili2db.dispName = "Padre/Madre"
+      Padre_Madre,
+      /** Relación que una persona tiene con respecto al Padre o madre del padre o de la madre.
+       */
+      !!@ ili2db.dispName = "Abuelo/Abuela"
+      Abuelo_Abuela,
+      /** Vinculo que tiene un hijo con los hijos de los mismos padres, o del mismo padre o madre.
+       */
+      !!@ ili2db.dispName = "Hermano/Hermana"
+      Hermano_Hermana,
+      /** Padre o madre de uno de los esposos o compañero permanente respecto del otro.
+       */
+      !!@ ili2db.dispName = "Suegro/Suegra"
+      Suegro_Suegra,
+      /** Relación que tiene un padre con el esposo de su hija.
+       */
+      !!@ ili2db.dispName = "Yerno/Nuera"
+      Yerno_Nuera,
+      /** Relación que tiene un(a) hermano(a) con el esposo de su hermano(a).
+       */
+      !!@ ili2db.dispName = "Cuñado/Cuñada"
+      Cuniado_Cuniada,
+      /** Padre o madre de uno de los abuelos de una persona.
+       */
+      !!@ ili2db.dispName = "Bisabuelo/Bisabuela"
+      Bisabuelo_Bisabuela,
+      /** Relación que tiene el hijo de una persona con el o los Hermanos de uno de los padres.
+       */
+      !!@ ili2db.dispName = "Tío/Tía"
+      Tio_Tia,
+      /** Relación que tiene una persona con los hijos de sus hermanos
+       */
+      !!@ ili2db.dispName = "Sobrino/Sobrina"
+      Sobrino_Sobrina,
+      /** Relación que tiene una persona respecto de los hijos de sus hijos
+       */
+      !!@ ili2db.dispName = "Nieto/Nieta"
+      Nieto_Nieta,
+      /** Hijo del nieto de una persona
+       */
+      !!@ ili2db.dispName = "Biznieto/Biznieta"
+      Biznieto_Biznieta,
+      /** Persona que se halla en el cuarto grado de parentesco colateral, con respecto a otro, donde uno de sus padres es hermano de uno de los padres del otro, que son a su vez tíos de cada uno de ellos.
+       */
+      !!@ ili2db.dispName = "Primo/Prima"
+      Primo_Prima,
+      /** Parentesco o relación de afinidad distinta a las predeterminadas en la opciones de respuesta
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+    FISO_PermExplOtrosPredRuralesSI = (
+      /** Predio que se usa para vivienda, sirve para proporcionar alojamiento permanente a las personas.
+       */
+      !!@ ili2db.dispName = "Habitacional"
+      Habitacional,
+      /** El uso del predio se dedica a la crianza de animales con fines alimenticios para el ser humano en distintos tipos de explotación ganadera.
+       */
+      !!@ ili2db.dispName = "Ganadero"
+      Ganadero,
+      /** Entiendase como actividades de  plantación, renovación y tala de árboles maderables
+       */
+      !!@ ili2db.dispName = "Forestal"
+      Forestal,
+      /** En la agricultura, la ganadería o la silvicultura, es un conjunto de prácticas aplicadas para promover el uso sustentable del suelo.
+       */
+      !!@ ili2db.dispName = "Conservación"
+      Conservacion,
+      /** No esta dentro de las opciones brindadas
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+  TOPIC Fiso =
+    OID AS INTERLIS.UUIDOID;
+    DEPENDS ON Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral;
+
+    !!@ ili2db.dispName = "(FISO) Beneficios del programa de tierras"
+    CLASS FISO_BeneficiosProgramaTierras =
+      /** El solicitante informa si en el pasado a recibido beneficios de las entidades Incora, Incoder
+       */
+      !!@ ili2db.dispName = "26. ¿Ha sido beneficiario(a) de tierras por parte del INCORA, INCODER, ANT?"
+      Beneficiario_Tierra : BOOLEAN;
+      /** El solicitante que fue beneficiario en el pasado informa si tiene documento que compruebe el beneficio
+       */
+      !!@ ili2db.dispName = "27. Cuenta con algún documento que acredita el beneficio?"
+      Documento_Acredita_Beneficio : BOOLEAN;
+      /** Numero del acto administrativo con el cual se otorgo el beneficio del programa de tierras
+       */
+      !!@ ili2db.dispName = "Número de resolución"
+      Numero_Resolucion : TEXT*50;
+      !!@ ili2db.dispName = "Fecha de resolución"
+      Fecha_Resolucion : INTERLIS.XMLDate;
+    END FISO_BeneficiosProgramaTierras;
+
+    !!@ ili2db.dispName = "(FISO) Caracterización del solicitante"
+    CLASS FISO_CaracterizacionSolicitante =
+      /** Indaga si el predio objeto de la solicitud se encuentra en una zona de reserva o resguardos indígenas en el que se esta adelantando procesos de resolución amistosa de conflictos
+       */
+      !!@ ili2db.dispName = "51. El predio que actualmente ocupa se encuentra en una reserva o resguardos indígenas en el que se esta adelantando procesos de resolución amistosa de conflictos"
+      Predio_Ocupa_Encuentra_Reserva_Resguardo : Submodelo_FISO_V1_0.FISO_Afirmacion2Tipo;
+      /** Nombre del departamento donde el solicitante tiene la expectativa de acceder a tierra
+       */
+      !!@ ili2db.dispName = "Departamento"
+      Departamento_Acceder_Tierra : TEXT*100;
+      /** Nombre del municipio donde el solicitante tiene la expectativa de acceder a tierra
+       */
+      !!@ ili2db.dispName = "Municipio"
+      Municipio_Acceder_Tierra : TEXT*100;
+      /** Indaga sobre el vinculo o relación de permanencia que el solicitante ha tenido o tiene con el municipio donde pretende acceder a tierra
+       */
+      !!@ ili2db.dispName = "Si reside o residió en el municipio o región, indique cuál es el tiempo de residencia (meses)"
+      Tiempo_Residencia_Meses : 0 .. 10000;
+      /** Pretende identificar si el solicitante esta interesado en participar en los programas dispuestos por la ANT en caso de definirse que el predio objeto de la solicitud no se puede adjudicar (únicamente para ocupantes de baldíos)
+       */
+      !!@ ili2db.dispName = "63. En caso de encontrarse explotando u ocupando un baldío inadjudicable desea ser incluido en los programas de acceso a tierras de la ANT"
+      Incluirse_Programa_Acceso_Tierra : BOOLEAN;
+      /** Indaga si el solicitante tiene una sentencia que ordene a la ANT la adjudicación del predio o reubicación en uno distinto al ocupado
+       */
+      !!@ ili2db.dispName = "64. ¿Ha sido favorecido con sentencias judiciales que ordenen a la ANT la adjudicación o la reubicación?"
+      Sentencia_Judiciales_Adjudicacion_Reubicacion : BOOLEAN;
+    END FISO_CaracterizacionSolicitante;
+
+    !!@ ili2db.dispName = "(FISO) Identificación general del predio"
+    CLASS FISO_IdentificacionGeneralPredio =
+      /** Nombre de la vereda de ubicación del predio objeto de la solicitud
+       */
+      !!@ ili2db.dispName = "Vereda"
+      Vereda : TEXT*255;
+      /** Nombre del corregimiento de ubicación del predio objeto de la solicitud
+       */
+      !!@ ili2db.dispName = "Corregimiento"
+      Corregimiento : TEXT*255;
+      /** Nombre del centro poblado de ubicación del predio objeto de la solicitud
+       */
+      !!@ ili2db.dispName = "Centro poblado"
+      Centro_Poblado : TEXT*255;
+      /** Indaga si el predio objeto de la solicitud hace parte de un terreno mas grande
+       */
+      !!@ ili2db.dispName = "¿El predio pertenece a uno de mayor extensión?"
+      Pertenece_Mayor_Extension : BOOLEAN;
+      /** Identificación del predio de mayor extensión
+       */
+      !!@ ili2db.dispName = "En caso afirmativo indique el nombre del predio"
+      Nombre_Predio_Mayor_Extension : TEXT*255;
+      /** Refiere la extensión en hectáreas del predio objeto de la solicitud
+       */
+      !!@ ili2db.dispName = "39. Área del predio objeto de la solicitud (hectáreas)"
+      Area_Predio_Solicitud : 0.0 .. 99999999999999.9 [LADM_COL_V3_0.m2];
+      /** Indaga por la existencia de conflictos de algún tipo que puedan interferir en la legalización del predio objeto de la solicitud
+       */
+      !!@ ili2db.dispName = "40. ¿Existen conflictos?"
+      Existen_Conflictos : BOOLEAN;
+      /** Especifica el tipo de conflicto que existe sobre el predio objeto de la solicitud
+       */
+      !!@ ili2db.dispName = "Seleccione el tipo conflicto identificado"
+      Tipo_Conflicto : Submodelo_FISO_V1_0.FISO_ConflictosTipo;
+      /** Indaga sobre otro tipo de conflicto que no existe sobre el predio objeto de la solicitud
+       */
+      !!@ ili2db.dispName = "¿Cuál?"
+      Otro_Tipo_Conflicto : TEXT;
+    END FISO_IdentificacionGeneralPredio;
+
+    !!@ ili2db.dispName = "(FISO) Identificación solicitud"
+    CLASS FISO_IdentificacionSolicitud =
+      /** Fecha en que se realiza la inscripción
+       */
+      !!@ ili2db.dispName = "Fecha de diligenciamiento de la solicitud"
+      Fecha_Diligenciamiento : INTERLIS.XMLDate;
+      /** Departamento donde se realiza la inscripción
+       */
+      !!@ ili2db.dispName = "Departamento"
+      Departamento_Solicitud : TEXT*255;
+      /** Municipio donde se realiza la inscripción
+       */
+      !!@ ili2db.dispName = "Municipio"
+      Municipio_Solicitud : TEXT*255;
+      /** Numero de identificación del FISO para tramites internos en la ANT
+       */
+      !!@ ili2db.dispName = "Número formulario"
+      Numero_Formulario : TEXT*30;
+      /** Vía por la cual se realiza el diligenciamiento del FISO
+       */
+      !!@ ili2db.dispName = "Tipo de entrada a FISO"
+      Tipo_Entrada : Submodelo_FISO_V1_0.FISO_EntradaFISOTipo;
+      !!@ ili2db.dispName = "ID Barrido ANT(QR)"
+      ID_Barrido_ANT_QR : TEXT*30;
+      !!@ ili2db.dispName = "Geometría"
+      Geometria : ISO19107_PLANAS_V3_0.GM_Point3D;
+    END FISO_IdentificacionSolicitud;
+
+    !!@ ili2db.dispName = "(FISO) Información general del aspirante"
+    CLASS FISO_InformacionGeneralAspirante =
+      /** Fecha de expedición que aparece en el documento de identificación del usuario que hace la inscripción
+       */
+      !!@ ili2db.dispName = "Fecha de expedición"
+      Fecha_Expedicion_Documento : INTERLIS.XMLDate;
+      /** Fecha de nacimiento que aparece en el documento de identificación del usuario que hace la inscripción
+       */
+      !!@ ili2db.dispName = "Fecha de nacimiento"
+      Fecha_Nacimiento : INTERLIS.XMLDate;
+      /** Únicamente para mujeres cuya jefatura y direccionamiento de Hogar este en cabeza de ellas
+       */
+      !!@ ili2db.dispName = "¿Se considera mujer campesina jefe de hogar?"
+      Mujer_Campesina_Jefe_Hogar : BOOLEAN;
+      /** Orientación sexual del solicitante, según las 7 opciones dadas
+       */
+      !!@ ili2db.dispName = "5. Orientación sexual"
+      Orientacion_Sexual : Submodelo_FISO_V1_0.FISO_OrientacionSexualTipo;
+      /** Solo para personas que se identifican como étnicas responden a que pueblo pertenecen
+       */
+      !!@ ili2db.dispName = "7. ¿A qué pueblo indígena pertenece? (Aplica solo para Indígena)"
+      Pueblo_Indigena : TEXT*100;
+      /** Solo para personas que se identifican como gitanas o Rrom responden a que Vitsa pertenecen
+       */
+      !!@ ili2db.dispName = "8. ¿A cuál Vitsa pertenece? (Gitano(a) o Rrom)"
+      Rrom_Vitsa : TEXT*100;
+      /** Limitaciones físicas, psíquicas o cognoscitivas que impidan el desarrollo normal de sus actividades diarias
+       */
+      !!@ ili2db.dispName = "9. ¿Por enfermedad, accidente o de nacimiento tiene limitantes permanentes?"
+      Limitantes_Permanentes : BOOLEAN;
+      /** Relaciona el tipo de limitación que impide a la persona desarrollar sus actividades normales
+       */
+      !!@ ili2db.dispName = "Limitantes"
+      Limitantes : Submodelo_FISO_V1_0.FISO_EnfermedadAccidenteTipo;
+      /** Nombre de la limitación que no esta dentro de las opciones dadas
+       */
+      !!@ ili2db.dispName = "¿Cuál?"
+      Otra_Limitante : TEXT*100;
+      /** Oficio o labor desarrollada por el solicitante entre las opciones dadas
+       */
+      !!@ ili2db.dispName = "10. Cuál es su ocupación?"
+      Ocupacion : Submodelo_FISO_V1_0.FISO_OcupacionTipo;
+      /** Estado civil del solicitante según las opciones dadas
+       */
+      !!@ ili2db.dispName = "12. Estado civil actual"
+      Estado_Civil : Submodelo_FISO_V1_0.FISO_EstadoCivilTipo;
+      /** Persona que tiene a cargo responsabilidad económica, social y emocional del Hogar
+       */
+      !!@ ili2db.dispName = "13. ¿Es cabeza de hogar?"
+      Cabeza_Hogar : BOOLEAN;
+      /** Refiere los efectos patrimoniales que surgen del matrimonio civil/católico o la unión marital
+       */
+      !!@ ili2db.dispName = "17. ¿Cuenta con sociedad patrimonial o sociedad conyugal vigente?"
+      Sociedad_Patrimonial : Submodelo_FISO_V1_0.FISO_Afirmacion2Tipo;
+    END FISO_InformacionGeneralAspirante;
+
+    !!@ ili2db.dispName = "(FISO) Nucleo familiar"
+    CLASS FISO_NucleoFamiliar =
+      !!@ ili2db.dispName = "18. Tipo de documento de identidad"
+      Tipo_Documento : Submodelo_FISO_V1_0.FISO_DocumentoTipo;
+      !!@ ili2db.dispName = "Número de documento de identidad"
+      Documento_Identidad : TEXT*20;
+      !!@ ili2db.dispName = "19. Primer nombre"
+      Primer_Nombre : TEXT*100;
+      !!@ ili2db.dispName = "Demás nombres"
+      Segundo_Nombre : TEXT*100;
+      !!@ ili2db.dispName = "Primer apellido"
+      Primer_Apellido : TEXT*100;
+      !!@ ili2db.dispName = "Segundo apellido"
+      Segundo_Apellido : TEXT*100;
+      !!@ ili2db.dispName = "20. Fecha  de nacimiento"
+      Fecha_Nacimiento : INTERLIS.XMLDate;
+      !!@ ili2db.dispName = "21. Parentesco con el aspirante o solicitante"
+      Parentesco : Submodelo_FISO_V1_0.FISO_ParentescoTipo;
+      !!@ ili2db.dispName = "22. Sexo"
+      Sexo : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.LC_SexoTipo;
+      !!@ ili2db.dispName = "23. ¿Por enfermedad, accidente o de nacimiento tiene limitantes permanentes?"
+      Limitantes_Permanentes : BOOLEAN;
+      !!@ ili2db.dispName = "Limitantes"
+      Limitantes : Submodelo_FISO_V1_0.FISO_EnfermedadAccidenteTipo;
+      !!@ ili2db.dispName = "¿Cuál?"
+      Otra_Limitante : TEXT*150;
+      !!@ ili2db.dispName = "24. ¿Cuál es la ocupación actual?"
+      Ocupacion : Submodelo_FISO_V1_0.FISO_OcupacionTipo;
+      !!@ ili2db.dispName = "25. ¿Depende económicamente del aspirante?"
+      Depende_Economicamente : BOOLEAN;
+    END FISO_NucleoFamiliar;
+
+    !!@ ili2db.dispName = "(FISO) Relación jurídica del solicitante del predio"
+    CLASS FISO_RelacionJuridicaSolicitantePredio =
+      /** Refiere si la pretensión principal de la solicitud es lograr la formalización o adjudicación de un predio según el caso
+       */
+      !!@ ili2db.dispName = "29. ¿Su solicitud esta dirigida a legalizar la situación jurídica que tiene con un predio? (Adjudicación o Formalización del Predio)"
+      Solicitud_Legalizar_Situacion_Juridica : BOOLEAN;
+      /** Refiere si existe solicitud previa ante la ANT u otra entidad frente a la legalización del predio objeto de la solicitud
+       */
+      !!@ ili2db.dispName = "30. Indique si ya inició el trámite de legalizar la situación del predio"
+      Inicio_Tramite : BOOLEAN;
+      /** Nombre de la entidad ante la cual inicio tramite de legalización de predio objeto de la solicitud
+       */
+      !!@ ili2db.dispName = "31. ¿Ante qué entidad?"
+      Entidad : TEXT*100;
+      /** Relaciona la fecha de radicación del tramite adelantado sobre el predio objeto de la solicitud
+       */
+      !!@ ili2db.dispName = "32. Fecha de la solicitud"
+      Fecha_Solicitud : INTERLIS.XMLDate;
+      /** Relaciona el numero de identificación asignado para el  tramite adelantado sobre el predio objeto de la solicitud
+       */
+      !!@ ili2db.dispName = "33. Número de la solicitud o radicado"
+      Numero_Solicitud : TEXT*30;
+      !!@ ili2db.dispName = "34. ¿Habita y/o explota  el predio?"
+      Habita_Explota_Predio : BOOLEAN;
+      /** Fecha desde cuando el solicitante tiene relación de hecho con el predio objeto de la solicitud
+       */
+      !!@ ili2db.dispName = "¿Desde qué fecha?"
+      Fecha_Explota_Predio : INTERLIS.XMLDate;
+      /** Uso o destinación que el solicitante le da al predio objeto de la solicitud
+       */
+      !!@ ili2db.dispName = "35. Clase de Explotación"
+      Clase_Explotacion : Submodelo_FISO_V1_0.FISO_ClaseExplotacionTipo;
+      /** Uso o destinación que el solicitante le da al predio objeto de la solicitud que no esta dentro de las opciones predeterminadas en el formulario
+       */
+      !!@ ili2db.dispName = "¿Cuál?"
+      Otra_Clase_Explotacion : TEXT*255;
+      /** Pretende identificar la relación de hecho o derecho que el solicitante, su conyugue o su compañero (a) permanente tiene con otro predio distinto al que se relaciona como objeto de la solicitud
+       */
+      !!@ ili2db.dispName = "36. ¿Usted, su cónyuge, compañero (a) permanente explotan otros predios rurales?"
+      Explotan_Otros_Predios_Rurales : BOOLEAN;
+      /** Especifica la relación que hay sobre la existencia de otro predio
+       */
+      !!@ ili2db.dispName = "En caso afirmativo ¿Cuál es el tipo de derecho que tiene sobre el (los) predios(s)?"
+      Tipo_Relacion_Otros_Predios : Submodelo_FISO_V1_0.FISO_PermExplOtrosPredRuralesSI;
+      /** Especifica la relación que hay sobre la existencia de otro predio diferente a las opciones dadas
+       */
+      !!@ ili2db.dispName = "¿Cuál?"
+      Otro_Tipo_Relacion : TEXT*255;
+    END FISO_RelacionJuridicaSolicitantePredio;
+
+    !!@ ili2db.dispName = "(FISO) Tradición del predio"
+    CLASS FISO_TradicionPredio =
+      /** Indaga por la relación que el solicitante tiene con el predio objeto de la solicitud
+       */
+      !!@ ili2db.dispName = "41. ¿Cuál de las siguientes opciones es la que usted considera que le otorga algún tipo de derecho?"
+      Opcion_Otorga_Derecho : Submodelo_FISO_V1_0.FISO_OtorgaDerechoTipo;
+      /** Indaga por el tipo de relación diferente a las opciones predeterminadas dentro del formulario
+       */
+      !!@ ili2db.dispName = "¿Cuál?"
+      Otra_Opcion_Otorga_Derecho : TEXT;
+    END FISO_TradicionPredio;
+
+    ASSOCIATION fiso_identificaciongeneralpredio_identificacionsolicitud =
+      fiso_identificaciongeneralpredio -- {0..1} FISO_IdentificacionGeneralPredio;
+      fiso_identificacionsolicitud -- {1..*} FISO_IdentificacionSolicitud;
+    END fiso_identificaciongeneralpredio_identificacionsolicitud;
+
+    ASSOCIATION fiso_identificacionsolicitud_informaciongeneralaspirante =
+      fiso_identificacionsolicitud -- {1..*} FISO_IdentificacionSolicitud;
+      fiso_informaciongeneralaspirante -- {1} FISO_InformacionGeneralAspirante;
+    END fiso_identificacionsolicitud_informaciongeneralaspirante;
+
+    ASSOCIATION fiso_identificacionsolicitud_relacionjuridicasolicitantepredio =
+      fiso_identificacionsolicitud -- {1} FISO_IdentificacionSolicitud;
+      fiso_relacionjuridicasolicitantepredio -- {0..1} FISO_RelacionJuridicaSolicitantePredio;
+    END fiso_identificacionsolicitud_relacionjuridicasolicitantepredio;
+
+    ASSOCIATION fiso_informaciongeneralaspirante_beneficiosprogramatierras =
+      fiso_informaciongeneralaspirante -- {1} FISO_InformacionGeneralAspirante;
+      fiso_beneficiosprogramatierras -- {0..*} FISO_BeneficiosProgramaTierras;
+    END fiso_informaciongeneralaspirante_beneficiosprogramatierras;
+
+    ASSOCIATION fiso_informaciongeneralaspirante_caracterizacionsolicitante =
+      fiso_informaciongeneralaspirante -- {1} FISO_InformacionGeneralAspirante;
+      fiso_caracterizacionsolicitante -- {1} FISO_CaracterizacionSolicitante;
+    END fiso_informaciongeneralaspirante_caracterizacionsolicitante;
+
+    ASSOCIATION fiso_informaciongeneralaspirante_nucleofamiliar =
+      fiso_informaciongeneralaspirante -- {1} FISO_InformacionGeneralAspirante;
+      fiso_nucleofamiliar -- {0..*} FISO_NucleoFamiliar;
+    END fiso_informaciongeneralaspirante_nucleofamiliar;
+
+    ASSOCIATION fiso_relacionjuridicasolicitantepredio_tradicionpredio =
+      fiso_relacionjuridicasolicitantepredio -- {1} FISO_RelacionJuridicaSolicitantePredio;
+      fiso_tradicionpredio -- {0..1} FISO_TradicionPredio;
+    END fiso_relacionjuridicasolicitantepredio_tradicionpredio;
+
+    ASSOCIATION lc_interesado_fiso_informaciongeneralaspirante =
+      lc_interesado (EXTERNAL) -- {1} Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral.LC_Interesado;
+      fiso_informaciongeneralaspirante -- {0..1} FISO_InformacionGeneralAspirante;
+    END lc_interesado_fiso_informaciongeneralaspirante;
+
+    ASSOCIATION lc_predio_fiso_identificaciongeneralpredio =
+      fiso_identificaciongeneralpredio -- {0..1} FISO_IdentificacionGeneralPredio;
+      lc_predio (EXTERNAL) -- {1} Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral.LC_Predio;
+    END lc_predio_fiso_identificaciongeneralpredio;
+
+  END Fiso;
+
+END Submodelo_FISO_V1_0.
