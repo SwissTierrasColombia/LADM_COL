@@ -439,7 +439,7 @@ VERSION "2019-07-04"  =
       /** Fecha en que se realiza la inscripción
        */
       !!@ ili2db.dispName = "Fecha de diligenciamiento de la solicitud"
-      Fecha_Diligenciamiento : INTERLIS.XMLDate;
+      Fecha_Diligenciamiento_Solicitud : INTERLIS.XMLDate;
       /** Departamento donde se realiza la inscripción
        */
       !!@ ili2db.dispName = "Departamento"
@@ -455,7 +455,7 @@ VERSION "2019-07-04"  =
       /** Vía por la cual se realiza el diligenciamiento del FISO
        */
       !!@ ili2db.dispName = "Tipo de entrada a FISO"
-      Tipo_Entrada : Submodelo_FISO_V1_0.FISO_EntradaFISOTipo;
+      Tipo_Entrada_FISO : Submodelo_FISO_V1_0.FISO_EntradaFISOTipo;
       !!@ ili2db.dispName = "ID Barrido ANT(QR)"
       ID_Barrido_ANT_QR : TEXT*30;
       !!@ ili2db.dispName = "Geometría"
@@ -509,7 +509,7 @@ VERSION "2019-07-04"  =
       /** Estado civil del solicitante según las opciones dadas
        */
       !!@ ili2db.dispName = "12. Estado civil actual"
-      Estado_Civil : Submodelo_FISO_V1_0.FISO_EstadoCivilTipo;
+      Estado_Civil_Actual : Submodelo_FISO_V1_0.FISO_EstadoCivilTipo;
       /** Persona que tiene a cargo responsabilidad económica, social y emocional del Hogar
        */
       !!@ ili2db.dispName = "13. ¿Es cabeza de hogar?"
@@ -517,7 +517,7 @@ VERSION "2019-07-04"  =
       /** Refiere los efectos patrimoniales que surgen del matrimonio civil/católico o la unión marital
        */
       !!@ ili2db.dispName = "17. ¿Cuenta con sociedad patrimonial o sociedad conyugal vigente?"
-      Sociedad_Patrimonial : Submodelo_FISO_V1_0.FISO_Afirmacion2Tipo;
+      Sociedad_Patrimonial_Conyugal_Vigente : Submodelo_FISO_V1_0.FISO_Afirmacion2Tipo;
     END FISO_InformacionGeneralAspirante;
 
     /** Define los atributos de identificación de los familiares que componen el núcleo familiar del aspirante o solicitante en FISO
