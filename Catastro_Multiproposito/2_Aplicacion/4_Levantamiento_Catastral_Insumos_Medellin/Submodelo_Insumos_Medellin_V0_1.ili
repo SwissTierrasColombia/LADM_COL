@@ -1,0 +1,131 @@
+INTERLIS 2.3;
+
+MODEL Sumbodelo_Insumos_Medellin_V_0_1 (es)
+AT "mailto:PC-1@localhost"
+VERSION "2020-07-02"  =
+  IMPORTS Submodelo_Insumos_Gestor_Catastral_V1_0,LADM_COL_V3_0,ISO19107_PLANAS_V3_0;
+
+  DOMAIN
+
+    GC_ClaseSueloTipo = (
+      !!@ ili2db.dispName = "Urbano"
+      Urbano,
+      !!@ ili2db.dispName = "Rural"
+      Rural,
+      !!@ ili2db.dispName = "Suburbano"
+      Suburbano,
+      !!@ ili2db.dispName = "Expansión urbana"
+      Expansion_Urbana
+    );
+
+    GC_SoporteLegalTipo = (
+      !!@ ili2db.dispName = "Escritura pública"
+      Escritura_Publica,
+      !!@ ili2db.dispName = "Sentencia judicial"
+      Sentencia_Judicial,
+      !!@ ili2db.dispName = "Acto administrativo"
+      Acto_Administrativo,
+      !!@ ili2db.dispName = "Documento privado"
+      Documento_Privado,
+      !!@ ili2db.dispName = "Sin documento"
+      Sin_Documento
+    );
+
+  TOPIC Datos_Gestor_Catastral_Medellin =
+    DEPENDS ON Submodelo_Insumos_Gestor_Catastral_V1_0.Datos_Gestor_Catastral;
+
+    !!@ ili2db.dispName = "(GC) Comuna"
+    CLASS GC_Comuna =
+      !!@ ili2db.dispName = "Código"
+      Codigo : TEXT*17;
+      !!@ ili2db.dispName = "Nombre"
+      Nombre : TEXT*100;
+      !!@ ili2db.dispName = "Geometría"
+      Geometria : ISO19107_PLANAS_V3_0.GM_MultiSurface2D;
+    END GC_Comuna;
+
+    !!@ ili2db.dispName = "(GC) Corregimiento"
+    CLASS GC_Corregimiento =
+      !!@ ili2db.dispName = "Código"
+      Codigo : TEXT*17;
+      !!@ ili2db.dispName = "Nombre"
+      Nombre : TEXT*100;
+      !!@ ili2db.dispName = "Geometría"
+      Geometria : ISO19107_PLANAS_V3_0.GM_MultiSurface2D;
+    END GC_Corregimiento;
+
+    !!@ ili2db.dispName = "(GC) Datos PH condominio Medellín"
+    CLASS GC_DatosPHCondominioMedellin =
+      !!@ ili2db.dispName = "Área común construida predio"
+      Area_Comun_Construida_Predio : 0.0 .. 99999999999999.9 [LADM_COL_V3_0.m2];
+      !!@ ili2db.dispName = "Descripción urbanización"
+      Descripcion_Urbanizacion : TEXT*255;
+    END GC_DatosPHCondominioMedellin;
+
+    !!@ ili2db.dispName = "(GC) Predio catastro Medellín"
+    CLASS GC_PredioCatastroMedellin =
+      !!@ ili2db.dispName = "¿Está vigente?"
+      Esta_Vigente : BOOLEAN;
+      !!@ ili2db.dispName = "Clase del suelo"
+      Clase_Suelo : Sumbodelo_Insumos_Medellin_V_0_1.GC_ClaseSueloTipo;
+    END GC_PredioCatastroMedellin;
+
+    !!@ ili2db.dispName = "(GC) Propietario Medellín"
+    CLASS GC_PropietarioMedellin =
+      !!@ ili2db.dispName = "Teléfono"
+      Telefono : TEXT*10;
+      !!@ ili2db.dispName = "Porcentaje de derecho"
+      Porcentaje_Derecho : 0.0000000000 .. 100.0000000000;
+    END GC_PropietarioMedellin;
+
+    !!@ ili2db.dispName = "(GC) Soporte legal"
+    CLASS GC_SoporteLegal =
+      !!@ ili2db.dispName = "Documento"
+      Documento : TEXT*255;
+      !!@ ili2db.dispName = "Tipo de documento"
+      Tipo_Documento : Sumbodelo_Insumos_Medellin_V_0_1.GC_SoporteLegalTipo;
+      !!@ ili2db.dispName = "Notaría"
+      Notaria : TEXT*100;
+      !!@ ili2db.dispName = "Juzgado"
+      Juzgado : TEXT*255;
+    END GC_SoporteLegal;
+
+    !!@ ili2db.dispName = "(GC) Terreno Medellín"
+    CLASS GC_TerrenoMedellin =
+      !!@ ili2db.dispName = "Número de terreno"
+      Numero_Terreno : TEXT*30;
+    END GC_TerrenoMedellin;
+
+    ASSOCIATION gc_datosphcondominio_medellin =
+      gc_datosphcondominio (EXTERNAL) -- {1} Submodelo_Insumos_Gestor_Catastral_V1_0.Datos_Gestor_Catastral.GC_DatosPHCondominio;
+      gc_datosphcondominiomedellin -- {0..1} GC_DatosPHCondominioMedellin;
+    END gc_datosphcondominio_medellin;
+
+    ASSOCIATION gc_prediocatastro_medellin =
+      gc_prediocatastro (EXTERNAL) -- {1} Submodelo_Insumos_Gestor_Catastral_V1_0.Datos_Gestor_Catastral.GC_PredioCatastro;
+      gc_prediocatastromedellin -- {0..1} GC_PredioCatastroMedellin;
+    END gc_prediocatastro_medellin;
+
+    ASSOCIATION gc_prediocatastro_soportelegal =
+      gc_prediocatastro (EXTERNAL) -- {1} Submodelo_Insumos_Gestor_Catastral_V1_0.Datos_Gestor_Catastral.GC_PredioCatastro;
+      gc_soportelegal -- {0..*} GC_SoporteLegal;
+    END gc_prediocatastro_soportelegal;
+
+    ASSOCIATION gc_propietario_medellin =
+      gc_propietario (EXTERNAL) -- {1} Submodelo_Insumos_Gestor_Catastral_V1_0.Datos_Gestor_Catastral.GC_Propietario;
+      gc_propietariomedellin -- {0..1} GC_PropietarioMedellin;
+    END gc_propietario_medellin;
+
+    ASSOCIATION gc_soportelegal_propietario =
+      gc_soportelegal -- {0..*} GC_SoporteLegal;
+      gc_propietario (EXTERNAL) -- {0..*} Submodelo_Insumos_Gestor_Catastral_V1_0.Datos_Gestor_Catastral.GC_Propietario;
+    END gc_soportelegal_propietario;
+
+    ASSOCIATION gc_terreno_medellin =
+      gc_terreno (EXTERNAL) -- {1} Submodelo_Insumos_Gestor_Catastral_V1_0.Datos_Gestor_Catastral.GC_Terreno;
+      gc_terrenomedellin -- {0..1} GC_TerrenoMedellin;
+    END gc_terreno_medellin;
+
+  END Datos_Gestor_Catastral_Medellin;
+
+END Sumbodelo_Insumos_Medellin_V_0_1.
