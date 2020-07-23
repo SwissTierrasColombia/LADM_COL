@@ -8,25 +8,47 @@ VERSION "2020-07-02"  =
   DOMAIN
 
     GC_ClaseSueloTipo = (
+      /** Constituyen el suelo urbano, las áreas del territorio distrital o municipal destinadas a usos urbanos por el plan de ordenamiento, que cuenten con infraestructura vial y redes primarias de energía, acueducto y alcantarillado, posibilitándose su urbanización y edificación, según sea el caso. Podrán pertenecer a esta categoría aquellas zonas con procesos de urbanización incompletos, comprendidos en áreas consolidadas con edificación, que se definan como áreas de mejoramiento integral en los planes de ordenamiento territorial.
+       * 
+       * Las áreas que conforman el suelo urbano serán delimitadas por perímetros y podrán incluir los centros poblados de los corregimientos. En ningún caso el perímetro urbano podrá ser mayor que el denominado perímetro de servicios públicos o sanitario. (Artículo 31, Ley 388 de 1997)
+       */
       !!@ ili2db.dispName = "Urbano"
       Urbano,
+      /** Constituyen esta categoría los terrenos no aptos para el uso urbano, por razones de oportunidad, o por su destinación a usos agrícolas, ganaderos, forestales, de explotación de recursos naturales y actividades análogas. (Artículo 33, Ley 388 de 1997)
+       */
       !!@ ili2db.dispName = "Rural"
       Rural,
       !!@ ili2db.dispName = "Suburbano"
       Suburbano,
+      /** Constituido por la porción del territorio municipal destinada a la expansión urbana, que se habilitará para el uso urbano durante la vigencia del plan de ordenamiento, según lo determinen los Programas de Ejecución.
+       * 
+       * La determinación de este suelo se ajustará a las previsiones de crecimiento de la ciudad y a la posibilidad de dotación con infraestructura para el sistema vial, de transporte, de servicios públicos domiciliarios, áreas libres, y parques y equipamiento colectivo de interés público o social.
+       * 
+       * Dentro de la categoría de suelo de expansión podrán incluirse áreas de desarrollo concertado, a través de procesos que definan la conveniencia y las condiciones para su desarrollo mediante su adecuación y habilitación urbanística a cargo de sus propietarios, pero cuyo desarrollo estará condicionado a la adecuación previa de las áreas programadas. (Artículo 32, Ley 388 de 1997)
+       */
       !!@ ili2db.dispName = "Expansión urbana"
       Expansion_Urbana
     );
 
     GC_SoporteLegalTipo = (
+      /** Una escritura pública es un documento público en el que se realiza ante un notario público un determinado hecho o un derecho autorizado por dicho fedatario público, que firma con el otorgante u otorgantes,mostrando sobre la capacidad jurídica del contenido y de la fecha en que se realizó
+       */
       !!@ ili2db.dispName = "Escritura pública"
       Escritura_Publica,
+      /** La sentencia es la resolución judicial definitiva dictada por un juez o tribunal que pone fin a la litis o caso sometido a su conocimiento y cierra definitivamente su actuación en el mismo
+       */
       !!@ ili2db.dispName = "Sentencia judicial"
       Sentencia_Judicial,
+      /** Un acto administrativo es toda manifestación o declaración emanada de la administración pública en el ejercicio de potestades administrativas, mediante el que impone su voluntad sobre los derechos, libertades o intereses de otros sujetos públicos o privados y que queda bajo el del comienzo.
+       */
       !!@ ili2db.dispName = "Acto administrativo"
       Acto_Administrativo,
+      /** Documento que contiene un compromiso entre dos o más personas que lo firman.
+       */
       !!@ ili2db.dispName = "Documento privado"
       Documento_Privado,
+      /** Cuando no se haya documento soporte pero puede ser una declaración verbal.
+       */
       !!@ ili2db.dispName = "Sin documento"
       Sin_Documento
     );
@@ -36,62 +58,96 @@ VERSION "2020-07-02"  =
 
     !!@ ili2db.dispName = "(GC) Comuna"
     CLASS GC_Comuna =
+      /** Código catastral de 17 dígitos de la comuna.
+       */
       !!@ ili2db.dispName = "Código"
       Codigo : TEXT*17;
+      /** Nombre de la comuna.
+       */
       !!@ ili2db.dispName = "Nombre"
       Nombre : TEXT*100;
+      /** Geometría de la comuna
+       */
       !!@ ili2db.dispName = "Geometría"
       Geometria : ISO19107_PLANAS_V3_0.GM_MultiSurface2D;
     END GC_Comuna;
 
     !!@ ili2db.dispName = "(GC) Corregimiento"
     CLASS GC_Corregimiento =
+      /** Código catastral de 17 dígitos del corregimiento.
+       */
       !!@ ili2db.dispName = "Código"
       Codigo : TEXT*17;
+      /** Nombre del corregimiento.
+       */
       !!@ ili2db.dispName = "Nombre"
       Nombre : TEXT*100;
+      /** Geometría del corregimiento.
+       */
       !!@ ili2db.dispName = "Geometría"
       Geometria : ISO19107_PLANAS_V3_0.GM_MultiSurface2D;
     END GC_Corregimiento;
 
     !!@ ili2db.dispName = "(GC) Datos PH condominio Medellín"
     CLASS GC_DatosPHCondominioMedellin =
+      /** Área comun construida del predio PH o Condominio Matriz.
+       */
       !!@ ili2db.dispName = "Área común construida predio"
       Area_Comun_Construida_Predio : 0.0 .. 99999999999999.9 [LADM_COL_V3_0.m2];
+      /** Descripción de la urbanización
+       */
       !!@ ili2db.dispName = "Descripción urbanización"
       Descripcion_Urbanizacion : TEXT*255;
     END GC_DatosPHCondominioMedellin;
 
     !!@ ili2db.dispName = "(GC) Predio catastro Medellín"
     CLASS GC_PredioCatastroMedellin =
+      /** Indicador de si el predio se encuentra vigente
+       */
       !!@ ili2db.dispName = "¿Está vigente?"
       Esta_Vigente : BOOLEAN;
+      /** Clasificación del suelo según el instrumento de planeación vigente.
+       */
       !!@ ili2db.dispName = "Clase del suelo"
       Clase_Suelo : Submodelo_Insumos_Medellin_V0_1.GC_ClaseSueloTipo;
     END GC_PredioCatastroMedellin;
 
     !!@ ili2db.dispName = "(GC) Propietario Medellín"
     CLASS GC_PropietarioMedellin =
+      /** Teléfono del propietario
+       */
       !!@ ili2db.dispName = "Teléfono"
       Telefono : TEXT*10;
+      /** Indica la fracción del derecho en relación a la forma de tenencia y el área que esta ocupa dentro de la extensión del predio. Ejemplo: un predio informal que se encuentra sobre un predio baldío y un predio privado tendrá un porcentaje de derecho de ocupación y posesión expresado en porcentaje (0.0000000000 a 100.0000000000).
+       */
       !!@ ili2db.dispName = "Porcentaje de derecho"
       Porcentaje_Derecho : 0.0000000000 .. 100.0000000000;
     END GC_PropietarioMedellin;
 
     !!@ ili2db.dispName = "(GC) Soporte legal"
     CLASS GC_SoporteLegal =
+      /** Identificador del documento, ejemplo: número de la resolución, número de la escritura pública o número de radicado de una sentencia.
+       */
       !!@ ili2db.dispName = "Documento"
       Documento : TEXT*255;
+      /** Tipo de documento que soporta la relación de tenencia entre el interesado con el predio.
+       */
       !!@ ili2db.dispName = "Tipo de documento"
       Tipo_Documento : Submodelo_Insumos_Medellin_V0_1.GC_SoporteLegalTipo;
+      /** Es el número con el cual se identifica la oficina que origina el documento.
+       */
       !!@ ili2db.dispName = "Notaría"
       Notaria : TEXT*100;
+      /** Es el número con el cual se identifica el juzgado que origina el documento.
+       */
       !!@ ili2db.dispName = "Juzgado"
       Juzgado : TEXT*255;
     END GC_SoporteLegal;
 
     !!@ ili2db.dispName = "(GC) Terreno Medellín"
     CLASS GC_TerrenoMedellin =
+      /** Corresponde la identificación del número predial hasta la posición 21, permite identificar la relación espacial en sus componentes: departamento, municipio, zona, sector, comuna, barrio, manzana o vereda y terreno de acuerdo a su codificación en el número predial.
+       */
       !!@ ili2db.dispName = "Número de terreno"
       Numero_Terreno : TEXT*30;
     END GC_TerrenoMedellin;
