@@ -615,6 +615,33 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Sin_Documento
     );
 
+    CR_FuenteEspacialTipo = (
+      /** Ilustración análoga del levantamiento catastral de un predio.
+       */
+      !!@ ili2db.dispName = "Cróquis de campo"
+      Croquis_Campo,
+      /** Datos tomados por un equipo GNSS sin ningún tipo de postprocesamiento.
+       */
+      !!@ ili2db.dispName = "Datos crudos"
+      Datos_Crudos,
+      /** Representación gráfica del terreno debidamente amojonado, referido al sistema de referencia oficial Magna Sirgas y con la proyección cartográfica corrrespondiente.
+       */
+      !!@ ili2db.dispName = "Plano"
+      Plano,
+      /** Imagen producto de la toma de fotografías aéreas o satélites, en la cual han sido corregidos los desplazamientos causados por la inclinación de la cámara o sensor y la curvatura de la superficie del terreno. Está referida a un sistema de proyección cartográfica, por lo que posee las características geométricas de un mapa con el factor adicional de que los objetos se encuentran representados de forma real en la imagen de la fotográfica.
+       */
+      !!@ ili2db.dispName = "Ortofoto"
+      Ortofoto,
+      /** Informe técnico de levantamiento catastral de un predio.
+       */
+      !!@ ili2db.dispName = "Informe técnico"
+      Informe_Tecnico,
+      /** Registro fotográfico del levantamiento catastral de un predio.
+       */
+      !!@ ili2db.dispName = "Registro fotográfico"
+      Registro_Fotografico
+    );
+
     CR_InformalidadTipo = (
       /** La posesión es la tenencia de una cosa determinada con ánimo de señor o dueño, sea que el dueño o el que se da por tal, tenga la cosa por sí mismo, o por otra persona que la tenga en lugar y a nombre de él. El poseedor es reputado dueño, mientras otra persona no justifique serlo.
        */
@@ -713,6 +740,12 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Rectificación de linderos por acuerdo entre las partes con efectos registrales"
       Rectificacion_Linderos,
+      !!@ ili2db.dispName = "Actualización masiva de linderos con efectos regístrales"
+      Actualizacion_Masiva_Linderos,
+      !!@ ili2db.dispName = "Rectificación masiva de área por imprecisa determinación con efectos regístrales"
+      Rectificacion_Masiva_Area,
+      !!@ ili2db.dispName = "Corrección y/o inclusión de cabida en procesos de ordenamiento social de la propiedad"
+      Correccion_Inclusion_Procesos_OSPR,
       /** n los casos donde los folios de matrícula inmobiliaria no hayan contado con información de área y/o linderos, desde el inicio del ciclo traslaticio del bien
        * inmueble que identifican; la Oficina de Registro de Instrumentos Públicos procederá la inclusión del dato de área y/o linderos en las respectivas matrículas inmobiliarias, que se tomará de la base catastral administrada por el gestor catastral competente.
        */
@@ -1806,6 +1839,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "Fuente Espacial"
     CLASS CR_FuenteEspacial
     EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_FuenteEspacial =
+      /** Tipo de fuente espacial.
+       */
+      !!@ ili2db.dispName = "Tipo"
+      Tipo (EXTENDED) : MANDATORY Modelo_Aplicacion_Intercambio_Cat_Reg_V0_1.CR_FuenteEspacialTipo;
     END CR_FuenteEspacial;
 
     /** Es la relación de tenencia que no corresponde a la propiedad, se presenta en los casos en los que la persona que ejerce la tenencia no es la misma que se encuentra en el registro de propiedad consignado en el folio de matrícula inmobiliaria correspondiente.
@@ -1980,6 +2017,33 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Geometria (EXTENDED) : MANDATORY ISO19107_PLANAS_V3_0.GM_MultiSurface3D;
     END CR_Terreno;
 
+    CLASS CR_Tramite =
+      /** Consecutivo del acto administrativo emitido por cada gestor o del certificado plano predial especial
+       */
+      !!@ ili2db.dispName = "Número de instrumento"
+      Numero_Instrumento : TEXT*10;
+      /** Fecha de emisión del acto administrativo o del certificado plano predial especial.
+       */
+      !!@ ili2db.dispName = "Fecha de instrumento"
+      Fecha_Instrumento : INTERLIS.XMLDate;
+      /** Nombre del gestor catastral
+       */
+      !!@ ili2db.dispName = "Entidad emisora"
+      Entidad_Emisora : TEXT*100;
+      /** Hace referencia a las oficinas territoriales o regionales de las entidades emisoras que emiten los actos administrativos. En los casos en los que el gestor catastral esté habilitado en una única oficina de origen, el dato debe ser el mismo de la entidad emisora.
+       */
+      !!@ ili2db.dispName = "Oficina origen"
+      Oficina_Origen : TEXT*100;
+      /** Ciudad correspondiente al instrumento
+       */
+      !!@ ili2db.dispName = "Ciudad origen"
+      Ciudad_Origen : TEXT*60;
+      /** Hace referencia al tipo de procedimiento aplicable. Debe ser coherente con el contenido del acto administrativo.
+       */
+      !!@ ili2db.dispName = "Tipo de procedimiento aplicable"
+      Tipo_Procedimiento_Aplicable : Modelo_Aplicacion_Intercambio_Cat_Reg_V0_1.CR_ProcedimientoCatastralRegistralTipo;
+    END CR_Tramite;
+
     !!@ ili2db.dispName = "(CR) Transacción"
     CLASS CR_Transaccion =
       /** Corresponde al año de entrega de información.
@@ -2124,10 +2188,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Avalúo Catastral"
       Avaluo_Catastral : BAG {0..*} OF Modelo_Aplicacion_Intercambio_Cat_Reg_V0_1.Intercambio_Catastro_Registro.CR_EstructuraAvaluoCatastral;
-      /** Se considerará como procedimientos catastrales con efectos registrales los siguientes: actualización de linderos, rectificación de área por imprecisa determinación, actualización masiva y puntual de linderos y áreas, rectificación de linderos por acuerdo entre las partes, e inclusión de área y/o linderos.
+      /** Identificación de la línea de división que separa un bien inmueble de otro.
        */
-      !!@ ili2db.dispName = "Procedimientos catastrales con efectos registrales"
-      Procedimiento_Catastral_Registral : MANDATORY Modelo_Aplicacion_Intercambio_Cat_Reg_V0_1.CR_ProcedimientoCatastralRegistralTipo;
+      !!@ ili2db.dispName = "Linderos"
+      Linderos : TEXT;
       /** Indica si dentro del proceso de formación o actualización catastral se suscribe acta de colindancia para el predio objeto de levantamiento catastral.
        */
       !!@ ili2db.dispName = "¿Se suscribe acta de colindancia?"
@@ -2204,11 +2268,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     END cr_publicidadInteresado;
 
     ASSOCIATION cr_transaccion_a =
+      /** Identifica si el registro pertenece a la información de comprador (A)
+       */
       col_interesado_a -- {1} LADM_COL_V3_0.LADM_Nucleo.COL_Interesado;
       cr_transaccion -- {0..1} CR_Transaccion;
     END cr_transaccion_a;
 
     ASSOCIATION cr_transaccion_de =
+      /** Identifica si el registro pertenece a la información del vendedor (DE)
+       */
       col_interesado_de -- {1} LADM_COL_V3_0.LADM_Nucleo.COL_Interesado;
       cr_transaccion -- {0..1} CR_Transaccion;
     END cr_transaccion_de;
@@ -2246,6 +2314,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       copropiedad -<> {0..1} CR_Predio;
       coeficiente : LADM_COL_V3_0.LADM_Nucleo.Fraccion;
     END cr_predio_copropiedad;
+
+    ASSOCIATION cr_predio_tramite =
+      cr_predio -- {1} CR_Predio;
+      cr_tramite -- {0..1} CR_Tramite;
+    END cr_predio_tramite;
 
     /** Es cada conjunto de materiales consolidados dentro de un predio que tiene unas características específicas en cuanto a elementos constitutivos físicos y usos de la misma.
      */
