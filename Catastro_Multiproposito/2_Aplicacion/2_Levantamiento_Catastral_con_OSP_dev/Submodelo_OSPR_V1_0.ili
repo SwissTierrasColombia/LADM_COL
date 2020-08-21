@@ -696,3 +696,599 @@ VERSION "2019-07-04"  =
   END Fiso;
 
 END Submodelo_FISO_V1_0.
+
+MODEL Submodelo_FADC_V1_0 (es)
+AT "mailto:JONNY@localhost"
+VERSION "2020-08-11"  =
+  IMPORTS LADM_COL_V3_0,Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0,ISO19107_PLANAS_V3_0,Submodelo_FISO_V1_0;
+
+  DOMAIN
+
+    FADC_ConflictosTipo = (
+      /** Alude a conflictos entre vecinos que pueden afectar la tenencia. En el FADC se contemplan tres tipos: servidumbres, linderos o acceso a fuentes de agua.
+       */
+      !!@ ili2db.dispName = "Conflictos de vecindad asociadas a la tenencia de la tierra"
+      Vecindad(
+        /** Alude a los caminos, senderos y en general, a medios a través de los cuales los habitantes de una vereda acceden a fuentes de agua. Pueden ser fuentes naturales como aguas subterráneas o superficiales como lagos y ríos. Pueden ser también artificiales y su disponibilidad puede ser de carácter permanente o temporal.
+         */
+        !!@ ili2db.dispName = "(Vecindad) Acceso a fuentes de agua"
+        Acceso_Fuentes_Agua,
+        /** Servidumbre predial o simple servidumbre, es un gravamen impuesto sobre un predio, en utilidad de otro predio de distinto dueño. (Art 879 Cód. Civil).
+         */
+        !!@ ili2db.dispName = "(Vecindad) Servidumbres"
+        Servidumbres,
+        /** Línea que representa el límite de un predio.
+         */
+        !!@ ili2db.dispName = "(Vecindad) Linderos"
+        Linderos
+      ),
+      /** Alude a conflictos que se presentan al interior de las familias y que pueden afectar los derechos de las personas sobre la tenencia de la tierra. En el FADC se contemplan cuatro tipos: sucesiones, liquidaciones de sociedad patrimonial, de sociedad conyugal y uniones maritales de hecho. Estos se marcan cuando existe un conflicto asociado, no cuando se encuentra la situación jurídica.
+       */
+      !!@ ili2db.dispName = "Asuntos de familia que afectan la tenencia de la tierra"
+      Asuntos_Familia(
+        /** La sucesión es la trasmisión de los bienes, en este caso predios de naturaleza privada, de una persona fallecida.
+         */
+        !!@ ili2db.dispName = "(Asuntos de familia) Sucesiones"
+        Sucesiones,
+        /** Formada entre un hombre y una mujer, que sin estar casados, hacen una comunidad de vida permanente y singular. Igualmente, y para todos los efectos civiles, se denominan compañero y compañera permanente, al hombre y la mujer que forman parte de la unión marital de hecho. (Art. 1 Ley 54 de 1990)
+         */
+        !!@ ili2db.dispName = "(Asuntos de familia) Uniones maritales de hecho sin declarar"
+        Uniones_Maritales_De_Hecho,
+        /** Actuación a través de la  cual dos personas casadas por matrimonio civil o religioso inician el trámite de dividir por la mitad los bienes comunes que existen en el matrimonio. Dicha liquidación puede ser  de común acuerdo, la cual se surtirá ante un notario o de manera contenciosa ante el juez competente y podrá adelantarse cuando esté ante alguna de las causales dispuestas en  el artículo 1820 del Código Civil.
+         */
+        !!@ ili2db.dispName = "(Asuntos de familia) Liquidación de sociedad conyugal"
+        Liquidacion_Sociedad_Conyugal,
+        /** Los procesos de liquidación son aquellos que tienen por objeto la división, distribución, adjudicación y entrega de un determinado patrimonio formado gracias a la voluntad de dos o más personas —orientada principalmente hacia ese fin— (sociedades civiles o comerciales), o, por ministerio de la ley (sucesiones, y sociedad conyugal), independientemente de que ese factor (la voluntad) haya sido o no la causa determinante de su constitución.  En este caso es la liquidación de la sociedad constituida por medio de la unión marital de hecho.
+         */
+        !!@ ili2db.dispName = "(Asuntos de familia) Liquidación de sociedad patrimonial"
+        Liquidacion_Sociedad_Patrimonial
+      ),
+      /** Alude a la expectativa que tienen los parientes de una persona de heredar el predio que habita, ante el desconocimiento de que, si se trata de la ocupación de un predio baldío o predio fiscal patrimonial,  no puede ser heredado.  No tiene subcategorías.
+       */
+      !!@ ili2db.dispName = "Expectativa de heredar un baldío"
+      Expectativa_Heredar_Baldio,
+      /** Alude a la situación en la que se perturba, altera, interrumpe la posesión o mera tenencia de un bien inmueble ocupándolo ilegalmente, causando daños materiales o hechos que la alteren, o por no reparar las averías o daños en el propio inmueble que pongan en peligro, perjudiquen o molesten a los vecinos. Puede ser también a la instalación de servicios públicos en inmuebles ocupados ilegalmente, omitir el cerramiento y mantenimiento de lotes y fachadas de edificiaciones, impredir el ingreso, uso y disfrute de la posesión o tenencia de inmueble al titular de este derecho. (Art. 77 del Código Nacional de Policía de Colombia). No tiene subcategorías.
+       */
+      !!@ ili2db.dispName = "Presunta perturbación de la tenencia"
+      Presunta_Peturbacion_Tenencia,
+      /** Alude a conflictos relacionados con contratos que pueden afectar los derechos de las personas en relación con la tenencia. Contiene cuatro subcategorías: donaciones, compraventas, contratos de arrendamiento y contratos de comodato.
+       */
+      !!@ ili2db.dispName = "Conflictos por contratos que afectan la tenencia de la tierra"
+      Contratos_Afectan_Tenencia(
+        /** Es un acto por el cual una persona dispone gratuitamente de una cosa en favor de otra, que la acepta;  es un contrato que genera obligaciones para una sola de las partes – el donante - y, por ello, es un negocio jurídico bilateral (exige dos partes: donante y donatario que acepte) pero se encuadra dentro de los contratos unilaterales porque genera sólo obligaciones para el donante. Se registra en el FADC cuando hay conflictos entre las personas relacionadas con irregularidades en la donación de inmuebles (por ejemplo, cuando se quiere reglar la casa a otra persona y eso no se eleva a escritura pública) o en las donaciones a título universal (cuando se quieren reglar todos los bienes propios a otra persona y no se eleva a escritura pública).
+         */
+        !!@ ili2db.dispName = "(Contratos) Donaciones"
+        Donaciones,
+        /** El contrato de compraventa, de acuerdo con el Artículo 1851 del C.C. "es un contrato en que una de las partes se obliga a dar una cosa y la otra a pagarla en dinero. Aquélla se dice vender y ésta comprar. El dinero que el comprador da por la cosa vendida se llama precio. Se registra en el FADC cuando existe una situación conflictiva latente o manifiesta relacionada con al menos situaciones como a) existe una promesa de compraventa, pero posteriormente no se ejecuta la entrega física del inmueble; b) cuando un contrato esté basado en medidas costumbristas que no permitan la correcta definición entre la parte que se vendió y el área remanente c) cuando el vendedor de un bien inmueble no quiera protocolizar la escritura pública de la compraventa del predio, d) cuando se hace la venta de un derecho herencial y no se quiera protocolizar la escritura pública, una vez se ha entregado parte del dinero o la totalidad.
+         */
+        !!@ ili2db.dispName = "(Contratos) Compraventas (promesas de compraventa)"
+        Compraventas,
+        /** El contrato de arrendamiento, según el artículo 1973 del C.C. es:  "un contrato en que las dos partes se obligan recíprocamente, la una a conceder el goce de una cosa, o a ejecutar una obra o prestar un servicio, y la otra a pagar por este goce, obra o servicio un precio determinado." Se registra en el FADC cuando existe una situación conflictiva latente o manifiesta relacionada con al menos situaciones como a) exista un contrato de arrendamiento pero fallezca el arrendador y se presenten conflictos entre arrendatarios y herederos, b) por el incumplimiento de los canones de arrendamiento, c) por irregularidad en el alza del valor del arrendamiento por parte del arrendador, d) porque el arrendatario quiera apropirase del predio
+         */
+        !!@ ili2db.dispName = "(Contratos) Contratos de arrendamiento"
+        Arrendamiento,
+        /** De acuerdo con el Artículo 2200 del C.C. el contrato de comodato es el préstamo de uso en que la una de las partes entrega a la otra gratuitamente una especie mueble o raíz, para que haga uso de ella, con cargo de restituir la misma especie después de terminar el uso. En otras palabras es un contrato de arrendemiento pero a título gratuito. Puede haber conflicto cuando a) la persona a quién le prestan el predio de manera gratuita, considere que este predio fue regalado o donado b) el comodatario crea que es dueño del predio porque no paga dinero por su explotación c) el comodatario esté dando otro uso al acordado con el dueño.
+         */
+        !!@ ili2db.dispName = "(Contratos) Contratos de comodato"
+        Comodato
+      ),
+      /** Alude a aquellos conflictos donde está involucrado un territorio colectivo constituido. Vincula cuatro subcategorías: 6.1. Por terceros propietarios dentro del territorio colectivo, 6.2. Por terceros informales dentro del territorio colectivo, 6.3. Colindancias entre territorio colectivo y propiedad privada (consolidada o por regularizar), 6.4. Colindancias entre territorios colectivos.
+       */
+      !!@ ili2db.dispName = "Conflictos asociados a territorios colectivos constituidos"
+      Territorios_Colectivos_Constituidos(
+        /** Alude a situaciones de conflicto latentes o manifiestas cuando una persona habita un predio, sobre el que tiene derecho de propiedad, ubicado dentro de un territorio colectivo constituido. Si la propiedad sobre el predio (del tercero) se configuro antes de la constitución del territorio colectivo, esa propiedad debe ser respetada o ser objeto de saneamiento por parte de la ANT, previa solicitud de la comunidad.
+         */
+        !!@ ili2db.dispName = "(Territorios Colectivos Constituidos) Por terceros propietarios dentro del territorio colectivo"
+        Terceros_Propietarios,
+        /** Alude a situaciones de conflicto latentes o manifiestas cuando una persona habita un predio, sobre el que no tiene derecho de propiedad, ubicado dentro de un territorio colectivo constituido, es decir, un territorio sobre el que tiene el derecho de propiedad colectiva una comunidad étnica.
+         */
+        !!@ ili2db.dispName = "(Territorios Colectivos Constituidos) Por terceros informales dentro del territorio colectivo"
+        Terceros_Informales,
+        /** Alude a situaciones de conflicto latentes o manifiestas, por falta de claridad en los límites entre un territorio colectivo y una propiedad privada que puede estar o no consolidada.
+         */
+        !!@ ili2db.dispName = "(Territorios Colectivos Constituidos) Colindancias entre territorio colectivo y propiedad privada (consolidada o por regularizar)"
+        Colindancias_Territorio_Colectivo_Y_Propiedad_Privada,
+        /** Alude a situaciones de conflicto latentes o manifiestas por falta de claridad en los límites entre territorios colectivos colindantes.
+         */
+        !!@ ili2db.dispName = "(Territorios Colectivos Constituidos) Colindancias entre territorios colectivos"
+        Colindancias_Territorios_Colectivos
+      ),
+      /** Alude a aquellas situaciones de conflicto latentes o manifiestas cuando hay cruces de pretensiones entre personas o colectividades. Contiene cuatro subcategorías: 7.1. Pretensiones campesinas de carácter individual, 7.2. Pretensiones campesinas de carácter colectivo, 7.3. Pretensiones étnicas de carácter colectivo, 7.4. Pretensión indivual de persona de grupo étnico, 7.5. Conflictos al interior de la comunidad asociados a la pretensión.
+       */
+      !!@ ili2db.dispName = "Pretensiones étnicas (de carácter colectivo)"
+      Pretensiones_Etnicas(
+        /** Alude a una situación de conflicto latente o manifiesto porque existe sobre un mismo predio una pretensión de carácter colectivo de una comunidad étnica y una pretensión de caracter individual de campesinos.
+         */
+        !!@ ili2db.dispName = "(Pretensiones étnicas) Pretensiones campesinas de carácter individual"
+        Campesina_Individual,
+        /** Alude a una situación de conflicto latente o manifiesto porque existe sobre un mismo predio una pretensión de carácter colectivo de una comunidad étnica y una pretensión de caracter colectivo de campesinos.
+         */
+        !!@ ili2db.dispName = "(Pretensiones étnicas) Pretensiones campesinas de carácter colectivo"
+        Campesinas_Colectivas,
+        /** Alude a una situación de conflicto latente o manifiesto porque existe sobre un mismo predio pretensiones de carácter colectivo de dos o más comunidades étnicas.
+         */
+        !!@ ili2db.dispName = "(Pretensiones étnicas) Pretensiones étnicas de carácter colectivo"
+        Etnicas_Colectivas,
+        /** Alude a una situación de conflicto latente o manifiesto porque existe pretensión sobre un mismo predio por parte de una comunidad étnica de carácter colectivo y, a su vez, una pretensión de carácter individual de un sujeto étnico.
+         */
+        !!@ ili2db.dispName = "(Pretensiones étnicas) Pretensión individual de persona de grupo étnico"
+        Persona_Grupo_Etnico_Individual,
+        /** En este caso el interés de lograr el derecho sobre un predio por parte de una comunidad, genera tensiones al interior de la misma comunidad. Aunque le corresponde al derecho propio dirimir la situación, es necesario analizar si hay factores externos que inciden en dicha situación.
+         */
+        !!@ ili2db.dispName = "(Pretensiones étnicas) Conflictos al interior de la comunidad asociados a la pretensión"
+        Conflictos_Interior_Comunidad
+      ),
+      /** Alude a posibles situaciones de conflicto entre comunidades que ocupan un predio. Contiene tres subcategorías: entre comunidades étnicas, entre comundidades étnicas y campesinas y entre comunidades campesinas.
+       */
+      !!@ ili2db.dispName = "Conflictos por ocupación"
+      Ocupacion(
+        /** Alude a situaciones de conflicto entre varias comunidades étnicas que están ocupando un predio.
+         */
+        !!@ ili2db.dispName = "(Ocupación) Entre comunidades étnicas"
+        Comunidades_Etnicas,
+        /** Alude a situaciones conflictivas entre comunidades étnicas y campesinas que están ocupando un predio.
+         */
+        !!@ ili2db.dispName = "(Ocupación) Entre comunidades étnicas y campesinas"
+        Comunidades_Etnicas_Y_Campesinas,
+        /** Alude a situaciones conflictivas entre varias comunidades campesinas que están ocupando un mismo predio.
+         */
+        !!@ ili2db.dispName = "(Ocupación) Entre comunidades campesinas"
+        Comunidades_Campesinas
+      )
+    );
+
+    FADC_EnfoqueDiferencialTipo = (
+      /** Refiere al proceso de desarrollo de los seres humanos en función del avance del tiempo, de los cambios físicos, psicológicos y relacionales que este implica, en el marco de un contexto socio cultural y una época específica. Esta categoría complejiza la visión lineal de la vida, teniendo en cuenta la multiplicidad de factores que inciden en las experiencias y vivencias individuales y colectivas de la edad.
+       */
+      !!@ ili2db.dispName = "Ciclo vital"
+      Ciclo_Vital(
+        /** Corresponde a personas que se encuentran en la etapa de adultez mayor, que inicia aproximadamente a los 60 años. La adultez mayor está relacionada con los conceptos de envejecimientocomo un proceso que se caracteriza por ser diferente y variable para cada persona mediado por factores físicos,  sociales, económicos, políticas, culturales etc; y de la vejez como una construcción sociocultural de una etapa de la vida a través del establecimiento de significados y concepciones sobre los cambios, oportunidades y necesidades resultado del paso del tiempo en el ser humano.
+         */
+        !!@ ili2db.dispName = "(Ciclo vital) Persona mayor (+60 años)"
+        Persona_Mayor,
+        /** Corresponde a  personas que se encuentren en un rango de edad  entre 16 y 17 años, que aún no son mayores de edad, de acuerdo con lo establecido en el artículo 1 de la Ley 160 de 1994.
+         */
+        !!@ ili2db.dispName = "(Ciclo vital) Persona (16-17 años)"
+        Persona,
+        /** De acuerdo con la normatividad colombiana  son titulares de derechos todas las personas menores de 18 años (…) y se entiende por niño o niña las personas entre los 0 y los 12 años, y por adolescente las personas entre 12 y 18 años de edad
+         */
+        !!@ ili2db.dispName = "(Ciclo vital) NNA (menores 16 años)"
+        NNA
+      ),
+      /** De acuerdo con la Ley 731 de 2002 mujer rural es toda aquella que sin distingo de ninguna naturaleza e independientemente del lugar donde viva, su actividad productiva está relacionada directamente con lo rural, incluso si dicha actividad no es reconocida por los sistemas de información y medición del Estado o no es remunerada.
+       */
+      !!@ ili2db.dispName = "Mujer rural"
+      Mujer_Rural,
+      /** Son categorías que no refieren al ámbito biológico. La orientación sexual refiere a la atracción sexual por personas del otro, del mismo o de ambos géneros. Por su parte, la identidad de género refiere a la experiencia individual de cada persona para asumir el género, es decir, la vivencia interna de identificarse dentro del conjunto de normas y roles establecidos para  hombres y mujeres independientemente sus características biológicas.
+       */
+      !!@ ili2db.dispName = "Orientación e identidad sexual diversa"
+      Orientacion_Identidad_Sexual,
+      /** Esta categoría describe describe una realidad en la que una persona funciona de manera diferente o diversa de la mayoría de la sociedad, a partir de los cuales las personas desarrollan diferentes formas y estilos de vida posibles.
+       */
+      !!@ ili2db.dispName = "Discapacidad"
+      Discapacidad,
+      /** Son poblaciones cuyas condiciones y prácticas sociales, culturales y económicas, los distinguen del resto de la sociedad y que han mantenido su identidad a lo largo de la historia, como sujetos colectivos que aducen un origen, una historia y unas características culturales propias, que están dadas en sus cosmovisiones, costumbres y tradiciones.
+       */
+      !!@ ili2db.dispName = "Étnico"
+      Etnico(
+        /** Es un conjunto de familias de ascendencia amerindia que comparten sentimientos de identificación con su p?asado aborigen, manteniendo rasgos y valores propios de su cultura tradicional, así como formas de organización y control social propios que los distinguen de otros grupos étnicos. (Minsalud)
+         */
+        !!@ ili2db.dispName = "(Étnico) Indígena"
+        Indigena,
+        /** Son los grupos humanos que hacen presencia en todo el territorio nacional (urbano-rural), de raíces y descendencia histórica, étnica y cultural africana nacidos en Colombia, con su diversidad racial, lingüística y folclórica (Mininterior)
+         */
+        !!@ ili2db.dispName = "(Étnico) Negro - Afrocolombiano"
+        Negro_Afrocolombiano,
+        /** Es la población nativa de las Islas de San Andrés, Providencia Y Santa Catalina descendientes de la unión entre europeos (principalmente ingleses, españoles y holandeses) y esclavos africanos. Se distinguen por su cultura, lengua (creole), creencias religiosas (iglesia bautista) y pasado histórico similar a los pueblos antillanos como Jamaica y Haití. Dada su especificidad cultural ha sido sujeto de políticas, planes y programas socio-culturales diferenciados de otras comunidades negras del continente colombiano. (UARIV)
+         */
+        !!@ ili2db.dispName = "(Étnico) Raizal"
+        Raizal,
+        /** "Es la población afrocolombiana que tiene su origen en los esclavos que se autoliberaron de los españoles entre los siglos XVII y XVIII, estableciendo poblados o palenques. Conserva una
+         * lengua de origen africano y formas culturales de producción en ganadería y agricultura basadas en prácticas ancestrales de organización social. El pueblo Palenquero destaca su identidad como
+         * “particular y especial, distinta de la identidad general afro. (Miniterior y ONU)"
+         */
+        !!@ ili2db.dispName = "(Étnico) Palenquero"
+        Palenquero,
+        /** El pueblo rrom o gitano tienen una identidad propia y mantiene una conciencia étnica particular. También que posee una forma de organización social específica y su propia lengua y ha definido históricamente sus propias instituciones políticas y sociales. (Mincultura)
+         */
+        !!@ ili2db.dispName = "(Étnico) Rrom"
+        Rrom
+      ),
+      /** Esta categoría está vinculada al conflicto armado interno en Colombia, se enmarca en el derecho de las víctimas de violaciones de derechos humanos a obtener reparación y en el reconocimiento de las víctimas como personas ciudadanas titulares de derechos.  Adicionalmente, tiene en cuenta el autoreconocimiento de la condición de víctima del conflicto armado, independientemente de que se encuentre o no en el Regístro Único de Víctimas.
+       */
+      !!@ ili2db.dispName = "Reparador (Víctima del conflicto armado)"
+      Reparador
+    );
+
+    FADC_GestionTipo = (
+      /** La mediación es un mecanismo autocompositivo, es decir, son las partes quienes encuentran alternativas al conflicto a través de los acuerdos. El papel del mediador es facilitar dicho consenso y quizás, sugerir soluciones desde una perspectiva ecuánime. La intención es garantizar la convivencia pacífica a través de los acuerdos.
+       */
+      !!@ ili2db.dispName = "Mediación"
+      Mediacion,
+      /** Es un mecanismo de solución de conflictos a través del cual, dos o más personas naturales o jurídicas, de carácter privado o público, nacional o extranjeras gestionan por sí mismas la solución de sus diferencias, con la ayuda de un tercero neutral y calificado, denominado conciliador.
+       */
+      !!@ ili2db.dispName = "Conciliación"
+      Conciliacion,
+      /** Refiere a la acción de informar mediante oficio el hallazgo de una situación de conflicto que requiere la atención de otra entidad.
+       */
+      !!@ ili2db.dispName = "Remisión a otras entidades"
+      Remision_Entidades,
+      /** Esta opción se marca cuando por las características del conflicto el socio no puede adelantar gestiones. Por ejemplo fase del conflicto.
+       */
+      !!@ ili2db.dispName = "No se realiza gestión"
+      No_Realiza_Gestion
+    );
+
+    FADC_MediadorTipo = (
+      /** Es un líder propuesto por una organización cívica comunitaria de su comunidad en razón de sus capacidades y cualidades para que actúe como facilitador en la solución de conflictos particulares y comunitarios una vez es avalado por el Ministerio de Justicia y del Derecho y nombrado por la primera autoridad judicial de su municipio. El conciliador en equidad no decide la solución del problema, actúa de manera independiente y neutral motivando a las partes para que solucionen sus conflictos ellas mismas, con base en los sentidos de igualdad, justicia y beneficio común.
+       */
+      !!@ ili2db.dispName = "Conciliador en equidad"
+      Conciliador_En_Equidad,
+      /** El conciliador que actúe en derecho es un abogado titulado, salvo cuando se trate de conciliadores de centros de conciliación de consultorios jurídicos de las facultades de derecho, de los personeros municipales y de los notarios que no sean abogados titulados (Ley 640 de 2001, artículo 5).
+       */
+      !!@ ili2db.dispName = "Conciliador en derecho"
+      Conciliador_En_Derecho,
+      /** Persona que ha desarrollado habilidades para ser escuchado por su comunidad. Suele tener poder de influencia en las decisiones que impactan el rumbo de un colectivo.  En este caso
+       */
+      !!@ ili2db.dispName = "Líder comunitario"
+      Lider_Comunitario,
+      /** Persona que está certificada para ejercer una profesión por parte de una institución de educación superior del campo de las ciencias humanas y sociales y cuyo rol en un escenario laboral es adelantar el trabajo directo con las comunidades, en este caso en el marco de la implementación de los POSPR.
+       */
+      !!@ ili2db.dispName = "Profesional social"
+      Profesional_Social,
+      /** Persona que está certificada para ejercer el derecho y cuyo rol en un escenario laboral es adelantar las actividades que son su competencia.
+       */
+      !!@ ili2db.dispName = "Profesional jurídico"
+      Profesional_Juridico,
+      /** El Personero Municipal es un servidor público que hace parte del Ministerio Público, a quien le corresponde la guarda y promoción de los derechos humanos, la protección del interés público, la vigilancia de la conducta oficial de quienes desempeñan funciones públicas y el control administrativo en el municipio; es elegido por el Concejo para el período que fije la ley. Aunque no posea el título de abogado, esta habilitado para adelantar conciliaciones en derecho (Página web función pública)
+       */
+      !!@ ili2db.dispName = "Personero"
+      Personero,
+      /** En la persona que tiene como función avocar, instruir y fallar los procesos por contravenciones de competencia de la Inspección de Policía consagradas en el Código de Policía Nacional, Código Departamental de Policía, Manual de Policía, Cultura y Convivencia Ciudadana, y demás leyes especiales que rigen cada materia o asunto.
+       */
+      !!@ ili2db.dispName = "Inspector de policía"
+      Inspector_Policia,
+      /** "Es la persona encargada de dirigir, organizar, formular políticas y adoptar los planes, programas y proyectos, relacionados con la prevención, ejercicio, protección, garantía y respeto de los Derechos
+       * Humanos, en la especialidad que se le asigne, conforme a la observancia del Derecho
+       * Internacional Humanitario, así como coordinar, supervisar y controlar el desarrollo de las
+       * actividades correspondientes a la Delegada en el cumplimiento de la misión, visión y
+       * objetivos institucionales, legales y constitucionales."
+       */
+      !!@ ili2db.dispName = "Delegados defensoría del pueblo"
+      Delegados_Defensoria_Pueblo,
+      /** Los procuradores delegados ejercen las siguientes funciones de intervención judicial en procesos civiles y agrarios: 1. Como Ministerio Público ante la Sala de Casación Civil y Agraria de la Corte Suprema de Justicia, cuando sea necesario para defender el orden jurídico, el patrimonio público, las garantías y los derechos fundamentales, sociales, económicos, culturales, colectivos y del ambiente, así como los derechos de las minorías étnicas. 2. Ante la Corte Suprema de Justicia en el trámite del exequátur. 3. Presentar recursos de casación y revisión ante la Sala de Casación Civil y Agraria de la Corte Suprema de Justicia e intervenir en su trámite, cuando lo consideren procedente. 4. Las demás que les asigne o delegue el Procurador General. (Decreto 262 del 2000)
+       */
+      !!@ ili2db.dispName = "Procurador agrario"
+      Procurador_Agrario,
+      /** "Un defensor agrario es un delegado de la Defensoría para los asuntos agrarios y de tierras que tiene entre sus funciones hacer seguimiento y valoración de los distintos temas que afectan el normal desarrollo del sector agrario en el país, en especial lo relacionado con los Derechos Humanos de los campesinos y sectores menos favorecidos, mediante la atención directa a la población, el análisis de la política pública y haciendo uso de la magistratura moral para garantizar y hacer efectivos los derechos a la tierra y el territorio y la seguridad alimentaria de esos grupos de población en cumplimiento de la misión, las
+       * metas, políticas y objetivos de la Entidad. Tienen competencia para conciliar los delegados regionales y seccionales de la Defensoría del Pueblo. "
+       */
+      !!@ ili2db.dispName = "Defensor agrario"
+      Defensor_Agrario,
+      /** En todas las juntas de acción comunal existirá una comisión de convivencia y conciliación, que se integrará por las personas que designe la asamblea general. En todos los organismos de acción comunal de segundo, tercer y cuarto grado, habrá una comisión de convivencia y conciliación integrada por el número de miembros que se determine en sus estatutos. (Art. 743 del 2002)
+       */
+      !!@ ili2db.dispName = "Comité convivencia JAC"
+      Comite_Convivencia_JAC,
+      /** Opción que debe ser usada cuando la persona que concilia no está contemplada dentro de las opciones anteriores.
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+    FADC_MomentoRutaTipo = (
+      /** La avanzada social es un componente de la ruta metodológica de la fase de implementación de los POSPR que tiene como objetivo socializar a la comunidad el barrido predial masivo, los mecanismos de participación y así contribuir a la eficacia de la operación. Tiene dos momentos: la socialización municipal y las jornadas veredales (recorridos veredales y jornadas masivas).
+       */
+      !!@ ili2db.dispName = "Avanzada social"
+      Avanzada_Social,
+      /** La visita al predio es un componente de la ruta metodolológica de la fase de implementación de los POSPR cuyo objetivo es recolectar información física y jurídica de la totalidad de los predios rurales del municipio con valor probatorio, para desplegar las rutas misionales de la ANT en el marco del ordenamiento social de la propiedad, señaladas en el artículo 58 del Decreto 902 de 2017. Esta visita se realiza conforme a las especificaciones técnicas y los acuerdos alcanzados interinstitucionalmente en el marco del catastro multipropósito.
+       */
+      !!@ ili2db.dispName = "Visita al predio"
+      Visita_Predio,
+      /** La Jornada FISO es un componente de la ruta metodológica de la fase de implementación que tiene como objetivo la identificación de los sujetos de ordenamiento social de la propiedad. A diferencia de la visita predial, esta actividad de campo no hace parte del catastro multipropósito, y solo se ejecuta cuando se está realizando barrido predial masivo para el OSPR.
+       */
+      !!@ ili2db.dispName = "Jornada FISO"
+      Jornada_FISO
+    );
+
+    FADC_ResponsableTipo = (
+      /** Persona que ha desarrollado habilidades para ser escuchado por su comunidad. Suele tener poder de influencia en las decisiones que impactan el rumbo de un colectivo.
+       */
+      !!@ ili2db.dispName = "Líder comunitario"
+      Lider_Comunitario,
+      /** Refieren a los lazos que se forman entre personas con vínculos familiares para brindarse apoyo cuando alguno de sus miembros lo requiera. Corresponde a una fuente de recursos económicos, afectivos, psicológicos etc., que pueden activarse en diferentes momentos donde se requiera acompañamiento, apoyo, auxilio o sustento para enfrentar alguna situación.
+       */
+      !!@ ili2db.dispName = "Redes familiares"
+      Redes_Familiares,
+      /** Persona que está certificada para ejercer una profesión por parte de una institución de educación superior del campo de las ciencias humanas y sociales y cuyo rol en un escenario laboral es adelantar el trabajo directo con las comunidades, en este caso en el marco de la implementación de los POSPR.
+       */
+      !!@ ili2db.dispName = "Profesional Social"
+      Profesional_Social,
+      /** Persona que está certificada para ejercer el derecho y cuyo rol en un escenario laboral es adelantar las actividades que son su competencia.
+       */
+      !!@ ili2db.dispName = "Profesional Jurídico"
+      Profesional_Juridico,
+      /** Persona que participe en el acompañamiento y que no está incluida en las opciones.
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+    FADC_SituacionParticularTipo = (
+      /** Alude a la presencia de grupos de personas con una estructura de poder organizada que portan armas y participan en hostilidades como actor no estatal sujeto al DIH (Fuente: Comisión Interamericana de Derechos Humanos)
+       */
+      !!@ ili2db.dispName = "Presencia de grupos armados"
+      Presencia_Grupos_Armados,
+      /** Un cultivo de uso ilícito es un cultivo que se cultiva con el ánimo de hacer un uso prohibido y contra las leyes de él. Se utiliza en Colombia entre otros paises para hacer referencia a una serie de cultivos bajo el argumento que el cultivo como tal no es ilícito, si no su uso posterior a ser cultivado. (OCHA)
+       */
+      !!@ ili2db.dispName = "Presencia de cultivos ilícitos"
+      Presencia_Cultivos_Ilicitos,
+      /** Predio en el que no viven personas, puede o no tener una construcción o mejora.
+       */
+      !!@ ili2db.dispName = "Predio deshabitado"
+      Predio_Deshabitado,
+      /** Condición o situación que se constituye como un obstáculo para el acceso del personal de la operación de la Fase de Implementación o rendimiento de los equipos tecnológicos, debido a condiciones climáticas como: temperatura, precipitación, humedad, nubosidad, viento, etc. Estas pueden variar durante el avance de la intervención.
+       */
+      !!@ ili2db.dispName = "Imposibilidad de acceso por condición climática"
+      Imposibilidad_Acceso_Condicion_Climatica,
+      /** Condición o situación que se constituye como un obstáculo para el acceso del personal de la operación de la Fase de Implementación o que inicide en el rendimiento de los equipos tecnológicos, debido a características físicas del terreno
+       */
+      !!@ ili2db.dispName = "Imposibilidad de acceso por condiciones topográficas o de terreno"
+      Imposibilidad_Acceso_Condiciones_Topograficas,
+      /** Opción que debe ser usada cuando se encuentra una situación particular que no responde a la tipología dispuesta.
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+  STRUCTURE FADC_EnfoqueDiferencialTipo_ = value : MANDATORY FADC_EnfoqueDiferencialTipo; END FADC_EnfoqueDiferencialTipo_;
+  STRUCTURE FADC_ResponsableTipo_ = value : MANDATORY FADC_ResponsableTipo; END FADC_ResponsableTipo_;
+  STRUCTURE FADC_SituacionParticularTipo_ = value : MANDATORY FADC_SituacionParticularTipo; END FADC_SituacionParticularTipo_;
+
+  TOPIC FADC =
+    DEPENDS ON Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral;
+
+    /** Define las acciones diferenciadas de una persona
+     */
+    !!@ ili2db.dispName = "(FADC) Acción diferenciada"
+    CLASS FADC_AccionDiferenciada =
+      /** Corresponde a las categorías y subcategorías del enfoque diferencial encontradas en un predio en el que se requiere el  desarrollo de acciones diferenciadas (acompañamientos) durante la visita predial. Pueden seleccionarse varias para un mismo predio.
+       */
+      !!@ ili2db.dispName = "Tipo de enfoque diferencial"
+      Tipo_Enfoque_Diferencial : BAG {1..*} OF Submodelo_FADC_V1_0.FADC_EnfoqueDiferencialTipo_;
+      /** Refiere a los elementos y detalles de la situación(es) encontrada(s) en el predio que requiere(n) acompañamiento durante la visita predial. Si se identifican varias situaciones hay que dar cuenta de ello. Esta es la base para el desarrollo de la acción diferenciada.
+       */
+      !!@ ili2db.dispName = "Descripción de la situación"
+      Descripcion_Situacion : MANDATORY TEXT*500;
+      /** Corresponde a los elementos y detalles necesarios para comprender en qué consistió y como se llevó a cabo la acción diferenciada. Es importante que se describa cómo se realizó, el papel de los responsables y en general del desarrollo de la acción diferenciada.
+       */
+      !!@ ili2db.dispName = "Descripción de la acción diferenciada"
+      Descripcion_Accion_Diferenciada : MANDATORY TEXT*500;
+      /** Alude a la(s) persona(s) que acompañan o apoyan el desarrollo de la acción diferenciada. Si bien la responsabilidad de la acción diferenciada recae en el socio, bajo orientaciones de la SPO, siempre será necesario acudir a distintos actores del municipio para llevar a cabo dichas acciones. Estos son los actores que se relacionan en este campo.
+       */
+      !!@ ili2db.dispName = "Responsable de implementar la acción"
+      Responsable_Implementar_Accion : BAG {1..*} OF Submodelo_FADC_V1_0.FADC_ResponsableTipo_;
+      /** Corresponde a la identificación de otros actores vinculados al desarrollo de la acción diferenciada, diferentes a los registrados en el campo "Responsable(s) de implementar la acción". Allí se debe especificar qué actor es, es decir, su rol.
+       */
+      !!@ ili2db.dispName = "Otro responsable"
+      Otro_Responsable : TEXT*50;
+      /** Corresponde a la fecha en la cual se llevó a cabo la acción diferenciada.
+       */
+      !!@ ili2db.dispName = "Fecha de implementación"
+      Fecha_Implementacion : INTERLIS.XMLDate;
+      /** Corresponde a la descripción del resultado de la acción diferenciada. Es importante que se incluya cómo  dicha acción contribuyó con el logro de los objetivos de la actividad (visita al predio, jornada FISO-jurídica), así como con el acceso a la oferta institucional de la ANT.
+       */
+      !!@ ili2db.dispName = "Resultado de la acción diferenciada"
+      Resultado_Accion_Diferenciada : TEXT*500;
+      /** En este campo se registran consideraciones adicionales sobre la acción diferenciada implementada.
+       */
+      !!@ ili2db.dispName = "Observaciones"
+      Observaciones : TEXT*500;
+    END FADC_AccionDiferenciada;
+
+    /** Define los conflictos asociados a la tenencia de la tierra
+     */
+    !!@ ili2db.dispName = "(FADC) Conflictos"
+    CLASS FADC_Conflictos =
+      /** En este campo se eligen las categorías y subcategorías de conflictos que se quieren asociar a un predio
+       */
+      !!@ ili2db.dispName = "Tipo de conflicto"
+      Tipo_Conflicto : MANDATORY Submodelo_FADC_V1_0.FADC_ConflictosTipo;
+      /** En este campo debe describirse la situación de conflicto teniendo en cuenta los aspectos que caracterizan un conflicto y que están dispuestos en el documento Guía para el manejo de conflictos: situación de los actores frente al conflicto, relación entre los actores, contexto del conflicto, nivel del conflicto, fase del conflicto. Es importante lograr descripciones que resulten útiles para las decisiones que sea necesario tomar en relación al conflicto.
+       */
+      !!@ ili2db.dispName = "Describa el conflicto identificado"
+      Descripcion_Conflicto : MANDATORY TEXT*1000;
+      /** En este campo deben marcarse si en efecto hubo gestiones previas a la fase de implementación que desarrolla la Agencia. Ofrece las opciones de marcar si o no.
+       */
+      !!@ ili2db.dispName = "¿Se ha realizado alguna gestión previa al BPM del conflicto o denuncia ante alguna autoridad?"
+      Gestion_Previa_BMP : MANDATORY BOOLEAN;
+      /** Si se marcó previamente que existieron gestiones previas en relación con el conflicto, en este campo deben registrarse teniendo en cuenta en lo posible los datos que solicita el campo. Por ejemplo si existen denuncias o actas de mediación o conciliación previas que permitan ver el proceso del conflicto.
+       */
+      !!@ ili2db.dispName = "Indique con qué autoridad, en qué consistió la gestión, la fecha y el resultado"
+      Indique_Autoridad : TEXT*500;
+      /** En este campo se debe seleccionar una de las cuatro opciones que están a criterio del socio y en relación con las caracteristicas del conflicto. Es de anotar que se vincula a este campo la opción "No se realiza gestión". Si esta última opción se marca, deberá describirse las razones en el siguiente campo.
+       */
+      !!@ ili2db.dispName = "Tipo de gestión"
+      Tipo_Gestion : MANDATORY Submodelo_FADC_V1_0.FADC_GestionTipo;
+      /** En este campo deben registrarse las razones por las cuales no se realiza gestión frente a la situación de conflicto.
+       */
+      !!@ ili2db.dispName = "¿Motivo por el cual no realizó la gestión?"
+      Motivo_No_Realizo_Gestion : TEXT*250;
+      /** Alude a la(s) persona(s) que acompañan o apoyan la gestión del conflicto. Siempre será necesario acudir a distintos actores del municipio para llevar a cabo dichas acciones. Estos son los actores que se relacionan en este campo.
+       */
+      !!@ ili2db.dispName = "Señale quién realizará la mediación o conciliación"
+      Quien_Realizara_Mediacion : Submodelo_FADC_V1_0.FADC_MediadorTipo;
+      /** En este campo debe especificarse quién acompañó la gestión del conflicto cuando previamente se marco la opción otro.
+       */
+      !!@ ili2db.dispName = "Si su respuesta fue otro, mencione ¿cuál?"
+      Otro_Realizara_Mediacion : TEXT*255;
+      /** Corresponde a los elementos y detalles necesarios para comprender en qué consistió y como se llevó a cabo la acción diferenciada. Es importante que se describa cómo se realizó, el papel de los responsables y en general del desarrollo de la acción diferenciada.
+       */
+      !!@ ili2db.dispName = "Descripción de la estrategia de gestión del conflicto"
+      Estrategia_Gestion_Conflicto : TEXT*500;
+      /** Debe indicarse si el conflicto impidio realizar el levantamiento planimetrico
+       */
+      !!@ ili2db.dispName = "¿El conflicto impidió hacer el levantamiento planimétrico predial o el diligenciamiento del FLCM ?"
+      Conflicto_Impidio_LPP_FLCM : MANDATORY BOOLEAN;
+      /** Corresponde a la fecha en la cual se llevaron a cabo las acciones para atender un conflicto.
+       */
+      !!@ ili2db.dispName = "Fecha en la que se realizó la gestión"
+      Fecha_Gestion : INTERLIS.XMLDate;
+      /** Corresponde a los resultados de las acciones implementadas para manejar un conflicto. Es fundamental señalar si se pudo cumplir con el objetivo de la actividad.
+       */
+      !!@ ili2db.dispName = "Resultado de la gestión del conflicto"
+      Resultado_Gestion : TEXT*1000;
+      /** En este campo se registran consideraciones adicionales sobre el conflicto.
+       */
+      !!@ ili2db.dispName = "Observación"
+      Observacion : TEXT*1000;
+    END FADC_Conflictos;
+
+    /** Define los atributos iniciales del formulario de acciones diferenciadas y conflictos.
+     */
+    !!@ ili2db.dispName = "(FADC) Datos iniciales"
+    CLASS FADC_DatosIniciales =
+      /** Alude a la Unidad de Intervención en el cual se ubica el predio al que está asociada la acción diferenciada, el conflicto o la situación particular.  La Unidad de Intervención es una unidad geográfica de análisis y actuación territorial que ha definido la ANT para organizar su proceso de intervención en el marco del barrido predial al interior de cada uno de los municipios. Su aplicación busca la agrupación de veredas o corregimientos que permitan priorizar la actuación en campo, y se hace mediante la valoración técnica del comportamiento de variables físicas, sociales, jurídicas y de condiciones de seguridad, al mismo tiempo que la concertación comunitaria. (ANT).
+       */
+      !!@ ili2db.dispName = "Unidad de intervención"
+      Unidad_Intervencion : MANDATORY TEXT*100;
+      /** Alude a la Vereda según en el cual se ubica el predio al que está asociada la acción diferenciada, el conflicto o la situación particular. En este caso la vereda corresponde a las reportadas por el DANE. De acuerdo con el DANE (2018) la vereda es una división territorial de carácter administrativo en el área rural de los municipios, establecida mediante acuerdo municipal. Se concibe como una agrupación comunitaria de base territorial y principal espacio de sociabilidad, caracterizada por la proximidad de residencia de sus miembros, el sentido de pertenencia e identidad común y el predominio de las relaciones vecinales. Se conforma principalmente por la agrupación de predios delimitados por accidentes geográficos y vías principales. Para el caso de los productos cartográficos censales rurales, la vereda se identifica con un texto dentro de las respectivas áreas operativas y facilita la ubicación del grupo operativo en campo.
+       */
+      !!@ ili2db.dispName = "Vereda"
+      Vereda : TEXT*255;
+      /** Alude a las veredas reportadas por la comunidad durante la Fase de Formulación de los POSPR. Una vereda comunitaria corresponde a la división geopolítica que las personas que habitan en los municipios definen para ordenar su territorio. Esta organización territorial  está basada en aspectos físicos, sociales, económicos y ambientales de las zonas y no siempre coinicide con las veredas de fuentes como el POT, el SISBEN, el DANE, etc.
+       */
+      !!@ ili2db.dispName = "Vereda comunitaria"
+      Vereda_Comunitaria : TEXT*255;
+      /** Fecha en la que se realiza el registro en el FADC.
+       */
+      !!@ ili2db.dispName = "Fecha de diligenciamiento del formulario"
+      Fecha_Diligenciamiento_Formulario : MANDATORY INTERLIS.XMLDate;
+      /** Corresponde al componente de la etapa de operativo en campo y análisis (Fase de Implementación) en el cual se realiza el registro de la acción diferenciada, el conflicto o la situación particular. Es importante señalar que este campo no contempla todos los componentes de dicha etapa, sino aquellos donde es fundamental la realización de los registros porque hay interacción con las personas que habitan los municipios intervenidos.
+       */
+      !!@ ili2db.dispName = "Momento de la ruta en el cual se identifica la necesidad"
+      Momento_Ruta : MANDATORY Submodelo_FADC_V1_0.FADC_MomentoRutaTipo;
+    END FADC_DatosIniciales;
+
+    /** Persona de contacto alterno de la persona interesada o que tiene relación de tenencia con el predio.
+     */
+    !!@ ili2db.dispName = "(FADC) Otra persona de contacto"
+    CLASS FADC_OtraPersonaContacto =
+      /** Primer nombre de la persona que se registra como otro dato de contacto.
+       */
+      !!@ ili2db.dispName = "Primer nombre"
+      Primer_Nombre : MANDATORY TEXT*100;
+      /** Demas nombres de la persona que se registra como otro dato de contacto.
+       */
+      !!@ ili2db.dispName = "Demás nombres"
+      Segundo_Nombre : TEXT*100;
+      /** Primer apellido de la persona que se registra como otro dato de contacto.
+       */
+      !!@ ili2db.dispName = "Primer apellido"
+      Primer_Apellido : MANDATORY TEXT*100;
+      /** Segundo apellido de la persona que se registra como otro dato de contacto.
+       */
+      !!@ ili2db.dispName = "Segundo apellido"
+      Segundo_Apellido : TEXT*100;
+      /** Numero de teléfono celular de la persona que se registra como otro dato de contacto.
+       */
+      !!@ ili2db.dispName = "Teléfono 1"
+      Telefono1 : MANDATORY TEXT*20;
+      /** Numero de teléfono fijo de la persona que se registra como otro dato de contacto. (Si cuenta con este dato)
+       */
+      !!@ ili2db.dispName = "Teléfono 2"
+      Telefono2 : TEXT*20;
+      /** Indique el parentesco o relación que tiene el otro dato de contacto con la persona que se registró como una de las partes del conflicto.
+       */
+      !!@ ili2db.dispName = "Parentesco"
+      Parentesco : Submodelo_FISO_V1_0.FISO_ParentescoTipo;
+    END FADC_OtraPersonaContacto;
+
+    /** Persona activa con la cual existe un conflicto en la tenencia de la tierra, este sujeto no tiene relación de tenencia con el predio.
+     */
+    !!@ ili2db.dispName = "(FADC) Persona externa conflicto"
+    CLASS FADC_PersonaExternaConflicto =
+      /** Corresponde al tipo de documento de identidad que presenta la persona registrada.
+       */
+      !!@ ili2db.dispName = "Tipo de documento"
+      Tipo_Documento : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.LC_InteresadoDocumentoTipo;
+      /** Corresponde al numero de cédula de ciudadania de la persona registrada.
+       */
+      !!@ ili2db.dispName = "Documento de identidad"
+      Documento_Identidad : TEXT*50;
+      /** Primer nombre de la persona involucrada en el conflicto (siempre deben vincularse al menos dos personas cuando hay conflicto).
+       */
+      !!@ ili2db.dispName = "Primer nombre"
+      Primer_Nombre : MANDATORY TEXT*100;
+      /** Demas nombres de la persona involucrada en el conflicto.
+       */
+      !!@ ili2db.dispName = "Demás nombres"
+      Segundo_Nombre : TEXT*100;
+      /** Primer apellido de la persona involucrada en el conflicto.
+       */
+      !!@ ili2db.dispName = "Primer apellido"
+      Primer_Apellido : MANDATORY TEXT*100;
+      /** Segundo apellido de la persona involucrada en el conflicto.
+       */
+      !!@ ili2db.dispName = "Segundo apellido"
+      Segundo_Apellido : TEXT*100;
+      /** Corresponde al número de telefono celular de la persona registrada.
+       */
+      !!@ ili2db.dispName = "Teléfono 1"
+      Telefono1 : TEXT*20;
+      /** Corresponde al número de telefono fijo de la persona registrada.
+       */
+      !!@ ili2db.dispName = "Teléfono 2"
+      Telefono2 : TEXT*20;
+    END FADC_PersonaExternaConflicto;
+
+    /** Define las situaciones particulares que imposibilitan el acceso al predio.
+     */
+    !!@ ili2db.dispName = "(FADC) Situación particular"
+    CLASS FADC_SituacionParticular =
+      /** En este campo se eligen el tipo de situaciones particulares que se encontraron para un predio. Pueden seleccionarse varias para un mismo predio.
+       */
+      !!@ ili2db.dispName = "Tipo de situación particular"
+      Situacion_Particular : BAG {1..*} OF Submodelo_FADC_V1_0.FADC_SituacionParticularTipo_;
+      /** Esta opción se marca cuando hay sitauciones particulares distintas a las opciones que establece el campo "Tipo de situación".
+       */
+      !!@ ili2db.dispName = "¿Cuál?"
+      Otra_Situacion : TEXT*50;
+    END FADC_SituacionParticular;
+
+    ASSOCIATION fadc_datosiniciales_fadc_conflictos =
+      fadc_datosiniciales -- {1} FADC_DatosIniciales;
+      fadc_conflictos -- {1..*} FADC_Conflictos;
+    END fadc_datosiniciales_fadc_conflictos;
+
+    ASSOCIATION fadc_datosiniciales_fadc_situacionparticular =
+      fadc_datosiniciales -- {1} FADC_DatosIniciales;
+      fadc_situacionparticular -- {0..1} FADC_SituacionParticular;
+    END fadc_datosiniciales_fadc_situacionparticular;
+
+    ASSOCIATION lc_interesado_fadc_acciondiferenciada =
+      lc_interesado (EXTERNAL) -- {1} Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral.LC_Interesado;
+      fadc_acciondiferenciada -- {0..1} FADC_AccionDiferenciada;
+    END lc_interesado_fadc_acciondiferenciada;
+
+    ASSOCIATION lc_interesado_fadc_conflictos =
+      lc_interesado (EXTERNAL) -- {1..*} Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral.LC_Interesado;
+      fadc_conflictos -- {1..*} FADC_Conflictos;
+    END lc_interesado_fadc_conflictos;
+
+    ASSOCIATION lc_interesado_fadc_otrapersonacontacto =
+      lc_interesado (EXTERNAL) -- {1..*} Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral.LC_Interesado;
+      fadc_otrapersonacontacto -- {0..*} FADC_OtraPersonaContacto;
+    END lc_interesado_fadc_otrapersonacontacto;
+
+    ASSOCIATION lc_interesado_fadc_personaexternaconflicto =
+      lc_interesado (EXTERNAL) -- {1..*} Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral.LC_Interesado;
+      fadc_personaexternaconflicto -- {0..*} FADC_PersonaExternaConflicto;
+    END lc_interesado_fadc_personaexternaconflicto;
+
+    ASSOCIATION lc_predio_fadc_datosiniciales =
+      lc_predio (EXTERNAL) -- {1} Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral.LC_Predio;
+      fadc_datosiniciales -- {0..1} FADC_DatosIniciales;
+    END lc_predio_fadc_datosiniciales;
+
+  END FADC;
+
+END Submodelo_FADC_V1_0.
