@@ -60,16 +60,16 @@ VERSION "V2.2.1"  // 2018-02-19 // =
   DOMAIN
 
     CR_ClasePredioRegistroTipo = (
-      /** !POR HACER!
+      /** Constituyen esta categoría los terrenos no aptos para el uso urbano, por razones de oportunidad, o por su destinación a usos agrícolas, ganaderos, forestales, de explotación de recursos naturales y actividades análogas. (Artículo 33, Ley 388 de 1997)
        */
       !!@ ili2db.dispName = "Rural"
       Rural,
-      /** !POR HACER!
+      /** Constituyen el suelo urbano, las áreas del territorio distrital o municipal destinadas a usos urbanos por el plan de ordenamiento, que cuenten con infraestructura vial y redes primarias de energía, acueducto y alcantarillado, posibilitándose su urbanización y edificación, según sea el caso. Podrán pertenecer a esta categoría aquellas zonas con procesos de urbanización incompletos, comprendidos en áreas consolidadas con edificación, que se definan como áreas de mejoramiento integral en los planes de ordenamiento territorial.
+       * 
+       * Las áreas que conforman el suelo urbano serán delimitadas por perímetros y podrán incluir los centros poblados de los corregimientos. En ningún caso el perímetro urbano podrá ser mayor que el denominado perímetro de servicios públicos o sanitario. (Artículo 31, Ley 388 de 1997)
        */
       !!@ ili2db.dispName = "Urbano"
       Urbano,
-      /** !POR HACER!
-       */
       !!@ ili2db.dispName = "Sin información"
       Sin_Informacion
     );
@@ -298,7 +298,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Cerrado"
       Cerrado,
-      /** !POR HACER!
+      /** Corresponden a todos los folios que se encuentran trasladados
        */
       !!@ ili2db.dispName = "Trasladado"
       Trasladado
@@ -799,6 +799,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Linderos_Actualizados : TEXT;
     END CR_Procedimiento_Catastral_Registral;
 
+    /** Define el cambio de la titularidad del derecho en registro entre las partes interesadas que hacen parte de la transacción inmobiliaria
+     */
     !!@ ili2db.dispName = "(CR) Transacción"
     CLASS CR_Transaccion =
       /** Corresponde al año de entrega de información.
