@@ -792,27 +792,32 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Estimado
     );
 
-    LC_FuenteAdministrativaTipo = (
-      /** Una escritura pública es un documento público en el que se realiza ante un notario público un determinado hecho o un derecho autorizado por dicho fedatario público, que firma con el otorgante u otorgantes,mostrando sobre la capacidad jurídica del contenido y de la fecha en que se realizó
-       */
-      !!@ ili2db.dispName = "Escritura pública"
-      Escritura_Publica,
-      /** La sentencia es la resolución judicial definitiva dictada por un juez o tribunal que pone fin a la litis o caso sometido a su conocimiento y cierra definitivamente su actuación en el mismo
-       */
-      !!@ ili2db.dispName = "Sentencia judicial"
-      Sentencia_Judicial,
-      /** Un acto administrativo es toda manifestación o declaración emanada de la administración pública en el ejercicio de potestades administrativas, mediante el que impone su voluntad sobre los derechos, libertades o intereses de otros sujetos públicos o privados y que queda bajo el del comienzo.
-       */
-      !!@ ili2db.dispName = "Acto administrativo"
-      Acto_Administrativo,
-      /** Documento que contiene un compromiso entre dos o más personas que lo firman.
-       */
-      !!@ ili2db.dispName = "Documento privado"
-      Documento_Privado,
-      /** Cuando no se haya documento soporte pero puede ser una declaración verbal.
-       */
-      !!@ ili2db.dispName = "Sin documento"
-      Sin_Documento
+    LC_FuenteAdministrativaTipo
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_FuenteAdministrativaTipo = (
+      Documento_Publico(
+        /** Una escritura pública es un documento público en el que se realiza ante un notario público un determinado hecho o un derecho autorizado por dicho fedatario público, que firma con el otorgante u otorgantes,mostrando sobre la capacidad jurídica del contenido y de la fecha en que se realizó
+         */
+        !!@ ili2db.dispName = "Escritura pública"
+        Escritura_Publica,
+        /** La sentencia es la resolución judicial definitiva dictada por un juez o tribunal que pone fin a la litis o caso sometido a su conocimiento y cierra definitivamente su actuación en el mismo
+         */
+        !!@ ili2db.dispName = "Sentencia judicial"
+        Sentencia_Judicial,
+        /** Un acto administrativo es toda manifestación o declaración emanada de la administración pública en el ejercicio de potestades administrativas, mediante el que impone su voluntad sobre los derechos, libertades o intereses de otros sujetos públicos o privados y que queda bajo el del comienzo.
+         */
+        !!@ ili2db.dispName = "Acto administrativo"
+        Acto_Administrativo
+      ),
+      Documento_Privado(
+        /** Documento que contiene un compromiso entre dos o más personas que lo firman.
+         */
+        !!@ ili2db.dispName = "Documento privado"
+        Documento_Privado,
+        /** Cuando no se haya documento soporte pero puede ser una declaración verbal.
+         */
+        !!@ ili2db.dispName = "Sin documento"
+        Sin_Documento
+      )
     );
 
     LC_GrupoEtnicoTipo = (
@@ -1141,40 +1146,43 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Arriendo
     );
 
-    LC_PredioTipo = (
-      /** Es el predio que pertenece al estado y/o cuyo propietario es una entidad de derecho público
-       */
-      !!@ ili2db.dispName = "Público"
-      Publico(
-        /** Es un bien inmueble de propiedad de la Nación y ubicado en zonas rurales
+    LC_PredioTipo
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_UnidadAdministrativaBasicaTipo = (
+      Predio(
+        /** Es el predio que pertenece al estado y/o cuyo propietario es una entidad de derecho público
          */
-        !!@ ili2db.dispName = "(Público) Baldío"
-        Baldio,
-        /** Los bienes de la Unión cuyo uso no pertenece generalmente a los habitantes, se llaman bienes de la Unión o bienes fiscales
+        !!@ ili2db.dispName = "Público"
+        Publico(
+          /** Es un bien inmueble de propiedad de la Nación y ubicado en zonas rurales
+           */
+          !!@ ili2db.dispName = "(Público) Baldío"
+          Baldio,
+          /** Los bienes de la Unión cuyo uso no pertenece generalmente a los habitantes, se llaman bienes de la Unión o bienes fiscales
+           */
+          !!@ ili2db.dispName = "(Público) Fiscal"
+          Fiscal,
+          /** Son bienes patrimoniales los de titularidad de las administraciones públicas que no tengan el carácter de bienes de dominio público, es decir, que no estén destinados directamente al uso público o afectados a un servicio público. Si no consta la afectación de un bien se presume su carácter patrimonial.
+           */
+          !!@ ili2db.dispName = "(Público) Patrimonial"
+          Patrimonial,
+          /** Son aquellos inmuebles de dominio público cuyo uso pertenece a todos los habitantes del territorio nacional, destinados al uso o disfrute colectivo.
+           */
+          !!@ ili2db.dispName = "(Público) Uso público"
+          Uso_Publico
+        ),
+        /** Es aquel que ha salido del patrimonio del estado, cuenta con un propietario inscrito en el folio de matrícula y se considera propiedad privada en los términos del artículo 48 de la Ley 160 de 1993.
          */
-        !!@ ili2db.dispName = "(Público) Fiscal"
-        Fiscal,
-        /** Son bienes patrimoniales los de titularidad de las administraciones públicas que no tengan el carácter de bienes de dominio público, es decir, que no estén destinados directamente al uso público o afectados a un servicio público. Si no consta la afectación de un bien se presume su carácter patrimonial.
+        !!@ ili2db.dispName = "(Privado)"
+        Privado,
+        /** Son los predios adjudicados a comunidades pertenecientes a grupos étnicos en el marco del reconocimiento de los resguardos legalmente constituidos según el Decreto 2164 de 1995 o de las propiedades colectivas de comunidades negras conforme Ley 70 de 1993.
          */
-        !!@ ili2db.dispName = "(Público) Patrimonial"
-        Patrimonial,
-        /** Son aquellos inmuebles de dominio público cuyo uso pertenece a todos los habitantes del territorio nacional, destinados al uso o disfrute colectivo.
+        !!@ ili2db.dispName = "(Territorio colectivo)"
+        Territorio_Colectivo,
+        /** Son bienes inmuebles que se encuentran dentro de territorio respectivo a cargo de la Nación, sin dueño aparente o conocido
          */
-        !!@ ili2db.dispName = "(Público) Uso público"
-        Uso_Publico
-      ),
-      /** Es aquel que ha salido del patrimonio del estado, cuenta con un propietario inscrito en el folio de matrícula y se considera propiedad privada en los términos del artículo 48 de la Ley 160 de 1993.
-       */
-      !!@ ili2db.dispName = "(Privado)"
-      Privado,
-      /** Son los predios adjudicados a comunidades pertenecientes a grupos étnicos en el marco del reconocimiento de los resguardos legalmente constituidos según el Decreto 2164 de 1995 o de las propiedades colectivas de comunidades negras conforme Ley 70 de 1993.
-       */
-      !!@ ili2db.dispName = "(Territorio colectivo)"
-      Territorio_Colectivo,
-      /** Son bienes inmuebles que se encuentran dentro de territorio respectivo a cargo de la Nación, sin dueño aparente o conocido
-       */
-      !!@ ili2db.dispName = "Vacante"
-      Vacante
+        !!@ ili2db.dispName = "(Vacante)"
+        Vacante
+      )
     );
 
     LC_ProcedimientoCatastralRegistralTipo = (
@@ -1227,43 +1235,46 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Servidumbre
     );
 
-    LC_PuntoTipo = (
-      /** Punto referido a los soportes verticales que sirven de apoyo,utilizados en la construcción de alambradas, tendidos eléctricos y telefónicos, televisión por cable, para iluminar calles, plazas o estadios y en las actividades agrícolas.
-       */
-      !!@ ili2db.dispName = "Poste"
-      Poste,
-      /** Punto referido a las esquina o sección de los paramentos de las construcción y unidades de construcción.
-       */
-      !!@ ili2db.dispName = "Construcción"
-      Construccion,
-      /** Punto referido a los puntos limitantes con elementos hidrográficos que por su condición pueden variar su límite con el tiempo.
-       */
-      !!@ ili2db.dispName = "Punto dinámico"
-      Punto_Dinamico,
-      /** Punto referido a los elementos naturales de la vegetación  como los árboles, arbustos o cualquier otra especie de la fauna.
-       */
-      !!@ ili2db.dispName = "elemento natural"
-      Elemento_Natural,
-      /** Punto referido a los elementos piedra o rocas.
-       */
-      !!@ ili2db.dispName = "Piedra"
-      Piedra,
-      /** Puntos referido a las áreas de campos abiertos, zonas boscosas, desérticas o cualquier otro tipo de espacio donde no se aprecia una clara delimitación.
-       */
-      !!@ ili2db.dispName = "Sin materialización"
-      Sin_Materializacion,
-      /** Puntos referidos a los mojones utilizados en topografía que tienen datos de coordenadas espaciales.
-       */
-      !!@ ili2db.dispName = "Mojón"
-      Mojon,
-      /** Puntos referidos a las incrustaciones realizadas en el suelo.
-       */
-      !!@ ili2db.dispName = "Incrustación"
-      Incrustacion,
-      /** Puntos referidos a las columnas verticales donde se encuentra materializado un punto con coordenadas espaciales.
-       */
-      !!@ ili2db.dispName = "Pilastra"
-      Pilastra
+    LC_PuntoTipo
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_PuntoTipo = (
+      Catastro(
+        /** Punto referido a los soportes verticales que sirven de apoyo,utilizados en la construcción de alambradas, tendidos eléctricos y telefónicos, televisión por cable, para iluminar calles, plazas o estadios y en las actividades agrícolas.
+         */
+        !!@ ili2db.dispName = "Poste"
+        Poste,
+        /** Punto referido a las esquina o sección de los paramentos de las construcción y unidades de construcción.
+         */
+        !!@ ili2db.dispName = "Construcción"
+        Construccion,
+        /** Punto referido a los puntos limitantes con elementos hidrográficos que por su condición pueden variar su límite con el tiempo.
+         */
+        !!@ ili2db.dispName = "Punto dinámico"
+        Punto_Dinamico,
+        /** Punto referido a los elementos naturales de la vegetación  como los árboles, arbustos o cualquier otra especie de la fauna.
+         */
+        !!@ ili2db.dispName = "Elemento natural"
+        Elemento_Natural,
+        /** Punto referido a los elementos piedra o rocas.
+         */
+        !!@ ili2db.dispName = "Piedra"
+        Piedra,
+        /** Puntos referido a las áreas de campos abiertos, zonas boscosas, desérticas o cualquier otro tipo de espacio donde no se aprecia una clara delimitación.
+         */
+        !!@ ili2db.dispName = "Sin materialización"
+        Sin_Materializacion,
+        /** Puntos referidos a los mojones utilizados en topografía que tienen datos de coordenadas espaciales.
+         */
+        !!@ ili2db.dispName = "Mojón"
+        Mojon,
+        /** Puntos referidos a las incrustaciones realizadas en el suelo.
+         */
+        !!@ ili2db.dispName = "Incrustación"
+        Incrustacion,
+        /** Puntos referidos a las columnas verticales donde se encuentra materializado un punto con coordenadas espaciales.
+         */
+        !!@ ili2db.dispName = "Pilastra"
+        Pilastra
+      )
     );
 
     LC_RelacionPredioTipo = (
@@ -2464,6 +2475,34 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Longitud"
       Longitud : MANDATORY 0.0 .. 10000.0 [INTERLIS.m];
     END LC_Lindero;
+
+    CLASS LC_NU_AgrupacionUnidadesEspaciales
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_AgrupacionUnidadesEspaciales =
+    END LC_NU_AgrupacionUnidadesEspaciales;
+
+    CLASS LC_NU_CarasLindero
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_CarasLindero =
+    END LC_NU_CarasLindero;
+
+    CLASS LC_NU_EspacioJuridicoRedServicios
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_EspacioJuridicoRedServicios =
+    END LC_NU_EspacioJuridicoRedServicios;
+
+    CLASS LC_NU_EspacioJuridicoUnidadEdificacion
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_EspacioJuridicoUnidadEdificacion =
+    END LC_NU_EspacioJuridicoUnidadEdificacion;
+
+    CLASS LC_NU_Nivel
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_Nivel =
+    END LC_NU_Nivel;
+
+    CLASS LC_NU_RelacionNecesariaBAUnits
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_RelacionNecesariaBAUnits =
+    END LC_NU_RelacionNecesariaBAUnits;
+
+    CLASS LC_NU_RelacionNecesariaUnidadesEspaciales
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_RelacionNecesariaUnidadesEspaciales =
+    END LC_NU_RelacionNecesariaUnidadesEspaciales;
 
     /** Puntaje de cada item de la calificación de construcción.
      */
