@@ -304,42 +304,40 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Trasladado
     );
 
-    CR_FuenteAdministrativaTipo = (
-      /** Una escritura pública es un documento público en el que se realiza ante un notario público un determinado hecho o un derecho autorizado por dicho fedatario público, que firma con el otorgante u otorgantes,mostrando sobre la capacidad jurídica del contenido y de la fecha en que se realizó
-       */
-      !!@ ili2db.dispName = "Escritura pública"
-      Escritura_Publica,
-      /** La sentencia es la resolución judicial definitiva dictada por un juez o tribunal que pone fin a la litis o caso sometido a su conocimiento y cierra definitivamente su actuación en el mismo
-       */
-      !!@ ili2db.dispName = "Sentencia judicial"
-      Sentencia_Judicial,
-      /** Un acto administrativo es toda manifestación o declaración emanada de la administración pública en el ejercicio de potestades administrativas, mediante el que impone su voluntad sobre los derechos, libertades o intereses de otros sujetos públicos o privados y que queda bajo el del comienzo.
-       */
-      !!@ ili2db.dispName = "Acto administrativo"
-      Acto_Administrativo,
-      /** Documento que contiene un compromiso entre dos o más personas que lo firman.
-       */
-      !!@ ili2db.dispName = "Documento privado"
-      Documento_Privado,
-      /** Cuando no se haya documento soporte pero puede ser una declaración verbal.
-       */
-      !!@ ili2db.dispName = "Sin documento"
-      Sin_Documento
+    CR_FuenteAdministrativaTipo
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_FuenteAdministrativaTipo = (
+      Documento_Publico(
+        /** Una escritura pública es un documento público en el que se realiza ante un notario público un determinado hecho o un derecho autorizado por dicho fedatario público, que firma con el otorgante u otorgantes,mostrando sobre la capacidad jurídica del contenido y de la fecha en que se realizó
+         */
+        !!@ ili2db.dispName = "Escritura pública"
+        Escritura_Publica,
+        /** La sentencia es la resolución judicial definitiva dictada por un juez o tribunal que pone fin a la litis o caso sometido a su conocimiento y cierra definitivamente su actuación en el mismo
+         */
+        !!@ ili2db.dispName = "Sentencia judicial"
+        Sentencia_Judicial,
+        /** Un acto administrativo es toda manifestación o declaración emanada de la administración pública en el ejercicio de potestades administrativas, mediante el que impone su voluntad sobre los derechos, libertades o intereses de otros sujetos públicos o privados y que queda bajo el del comienzo.
+         */
+        !!@ ili2db.dispName = "Acto administrativo"
+        Acto_Administrativo
+      ),
+      Documento_Privado(
+        /** Documento que contiene un compromiso entre dos o más personas que lo firman.
+         */
+        !!@ ili2db.dispName = "Documento privado"
+        Documento_Privado,
+        /** Cuando no se haya documento soporte pero puede ser una declaración verbal.
+         */
+        !!@ ili2db.dispName = "Sin documento"
+        Sin_Documento
+      )
     );
 
-    CR_FuenteEspacialTipo = (
-      /** Ilustración análoga del levantamiento catastral de un predio.
-       */
-      !!@ ili2db.dispName = "Cróquis de campo"
-      Croquis_Campo,
+    CR_FuenteEspacialTipo
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_FuenteEspacialTipo = (
       /** Es el documento mediante el cual los propietarios, en virtud del principio de autonomía de la voluntad y de conformidad con el procedimiento de rectificación de linderos por acuerdo entre las partes, definen la línea de división entre sus inmuebles en los casos en que su colindancia presente diferencias entre la información levantada en terreno y la que reposa en los títulos registrales. El Acta que se suscriba debe ser firmada por las partes.
        */
       !!@ ili2db.dispName = "Acta de colindacia"
       Acta_Colindacia,
-      /** Datos tomados por un equipo GNSS sin ningún tipo de postprocesamiento.
-       */
-      !!@ ili2db.dispName = "Datos crudos"
-      Datos_Crudos,
       /** Acto administrativo que soporta el procedimiento catastral con efecto registral.
        */
       !!@ ili2db.dispName = "Acta administrativo"
@@ -347,19 +345,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Representación gráfica del terreno debidamente amojonado, referido al sistema de referencia oficial Magna Sirgas y con la proyección cartográfica corrrespondiente.
        */
       !!@ ili2db.dispName = "Plano"
-      Plano,
-      /** Imagen producto de la toma de fotografías aéreas o satélites, en la cual han sido corregidos los desplazamientos causados por la inclinación de la cámara o sensor y la curvatura de la superficie del terreno. Está referida a un sistema de proyección cartográfica, por lo que posee las características geométricas de un mapa con el factor adicional de que los objetos se encuentran representados de forma real en la imagen de la fotográfica.
-       */
-      !!@ ili2db.dispName = "Ortofoto"
-      Ortofoto,
-      /** Informe técnico de levantamiento catastral de un predio.
-       */
-      !!@ ili2db.dispName = "Informe técnico"
-      Informe_Tecnico,
-      /** Registro fotográfico del levantamiento catastral de un predio.
-       */
-      !!@ ili2db.dispName = "Registro fotográfico"
-      Registro_Fotografico
+      Plano
     );
 
     CR_InteresadoDocumentoTipo = (
@@ -734,6 +720,46 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Razón social"
       Razon_Social : TEXT*255;
     END CR_Interesado;
+
+    CLASS CR_NU_AgrupacionUnidadesEspaciales
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_AgrupacionUnidadesEspaciales =
+    END CR_NU_AgrupacionUnidadesEspaciales;
+
+    CLASS CR_NU_CadenaCarasLimite
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_CadenaCarasLimite =
+    END CR_NU_CadenaCarasLimite;
+
+    CLASS CR_NU_CarasLindero
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_CarasLindero =
+    END CR_NU_CarasLindero;
+
+    CLASS CR_NU_EspacioJuridicoRedServicios
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_EspacioJuridicoRedServicios =
+    END CR_NU_EspacioJuridicoRedServicios;
+
+    CLASS CR_NU_EspacioJuridicoUnidadEdificacion
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_EspacioJuridicoUnidadEdificacion =
+    END CR_NU_EspacioJuridicoUnidadEdificacion;
+
+    CLASS CR_NU_Nivel
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_Nivel =
+    END CR_NU_Nivel;
+
+    CLASS CR_NU_Punto
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_Punto =
+    END CR_NU_Punto;
+
+    CLASS CR_NU_RelacionNecesariaBAUnits
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_RelacionNecesariaBAUnits =
+    END CR_NU_RelacionNecesariaBAUnits;
+
+    CLASS CR_NU_RelacionNecesariaUnidadesEspaciales
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_RelacionNecesariaUnidadesEspaciales =
+    END CR_NU_RelacionNecesariaUnidadesEspaciales;
+
+    CLASS CR_NU_UnidadEspacial
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_UnidadEspacial =
+    END CR_NU_UnidadEspacial;
 
     /** Se considerará como procedimientos catastrales con efectos registrales los siguientes: actualización de linderos, rectificación de área por imprecisa determinación, actualización masiva y puntual de linderos y áreas y/o linderos. Estos procedimientos serán acatados por los gestores catastrales, las notarías, las oficinas de registro de instrumentos públicos del país y podrán ser aplicados durante los procesos de formación, actualización y conservación catastral. (Decreto 148 de 2020)
      */
