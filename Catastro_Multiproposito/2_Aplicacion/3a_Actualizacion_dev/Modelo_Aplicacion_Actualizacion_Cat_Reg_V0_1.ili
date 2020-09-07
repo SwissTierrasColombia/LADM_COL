@@ -540,31 +540,13 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        * 0318
        * 0327
        * 0362
-       * 0372
        * 0384
        * 0300
-       * 0401
        * 0402
-       * 0405
-       * 0454
-       * 0455
-       * 0456
-       * 0458
-       * 0459
-       * 0460
-       * 0461
-       * 0462
        * 0463
-       * 0464
-       * 0466
        * 0479
-       * 0486
-       * 0488
        * 0494
        * 04005
-       * 0400
-       * 0942
-       * 0943
        */
       !!@ ili2db.dispName = "Prohibiciones expresas en sentencias, actos administrativos o contratos"
       Prohibiciones_Expresas,
