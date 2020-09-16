@@ -52,7 +52,7 @@ INTERLIS 2.3;
  * 
  * -----------------------------------------------------------
  */
-CONTRACTED MODEL Modelo_Aplicacion_Actualizacion_Cat_Reg_V0_1 (es)
+CONTRACTED MODEL Modelo_Aplicacion_Intercambio_Cat_Reg_V1_0 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-02-19 // =
   IMPORTS ISO19107_PLANAS_V3_0,LADM_COL_V3_0;
@@ -570,7 +570,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Femenino
     );
 
-  TOPIC Actualizacion_Catastro_Registro
+  TOPIC Intercambio_Catastro_Registro
   EXTENDS LADM_COL_V3_0.LADM_Nucleo =
     OID AS INTERLIS.UUIDOID;
     DEPENDS ON LADM_COL_V3_0.LADM_Nucleo;
@@ -604,15 +604,21 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Fecha_Anotacion : INTERLIS.XMLDate;
     END CR_DRR;
 
+    /** Estructura que permite almacenar los avaluos catastrales historicos de los predios.
+     */
     !!@ ili2db.dispName = "(CR) Estructura Avalúo Catastral"
     STRUCTURE CR_EstructuraAvaluoCatastral =
+      /** Año de la vigencia del avalúo catastral.
+       */
       !!@ ili2db.dispName = "Vigencia avalúo"
       Vigencia_Avaluo : INTERLIS.XMLDate;
+      /** Valor en pesos del total del avalúo catastral.
+       */
       !!@ ili2db.dispName = "Valor avalúo"
       Valor_Avaluo : LADM_COL_V3_0.LADM_Nucleo.Peso;
     END CR_EstructuraAvaluoCatastral;
 
-    /** Corresponde a la información del código de la ORIP y el número de matrícula inmobiliaria de los predios por los cuales nació el predio objeto de estudio.
+    /** Corresponde a la información de la matrícula inmobiliaria y NUPRE de los predios por los cuales nació el predio objeto de estudio.
      */
     !!@ ili2db.dispName = "Estructura Matrícula Matriz"
     STRUCTURE CR_EstructuraPredioMatrizRegistro =
@@ -630,7 +636,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       NUPRE : TEXT*11;
     END CR_EstructuraPredioMatrizRegistro;
 
-    /** Corresponde a la información del código de la ORIP y el número de matrícula inmobiliaria de los predios que se han aperturado con base en el predio objeto de estudio.
+    /** Corresponde a la información de la matrícula inmobiliaria y NUPRE de los predios que se han aperturado con base en el predio objeto de estudio.
      */
     !!@ ili2db.dispName = "Estructura Matrícula Segregados"
     STRUCTURE CR_EstructuraPrediosSegregadosRegistro =
@@ -656,7 +662,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Tipo de documento que soporta la relación de tenencia entre el interesado con el predio.
        */
       !!@ ili2db.dispName = "Tipo"
-      Tipo (EXTENDED) : MANDATORY Modelo_Aplicacion_Actualizacion_Cat_Reg_V0_1.CR_FuenteAdministrativaTipo;
+      Tipo (EXTENDED) : MANDATORY Modelo_Aplicacion_Intercambio_Cat_Reg_V1_0.CR_FuenteAdministrativaTipo;
       /** Es tipo de oficina que emite el documento (notaria, juzgado)
        */
       !!@ ili2db.dispName = "Ente emisor"
@@ -679,7 +685,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Tipo de fuente espacial.
        */
       !!@ ili2db.dispName = "Tipo"
-      Tipo (EXTENDED) : MANDATORY Modelo_Aplicacion_Actualizacion_Cat_Reg_V0_1.CR_FuenteEspacialTipo;
+      Tipo (EXTENDED) : MANDATORY Modelo_Aplicacion_Intercambio_Cat_Reg_V1_0.CR_FuenteEspacialTipo;
     END CR_FuenteEspacial;
 
     /** Es la parte que tiene una relación con el predio por algún tipo de derecho, restricción o responsabilidad
@@ -690,11 +696,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Tipo de interesado (Natural o Jurídico).
        */
       !!@ ili2db.dispName = "Tipo de interesado"
-      Tipo : MANDATORY Modelo_Aplicacion_Actualizacion_Cat_Reg_V0_1.CR_InteresadoTipo;
+      Tipo : MANDATORY Modelo_Aplicacion_Intercambio_Cat_Reg_V1_0.CR_InteresadoTipo;
       /** Tipo de documento del interesado.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : MANDATORY Modelo_Aplicacion_Actualizacion_Cat_Reg_V0_1.CR_InteresadoDocumentoTipo;
+      Tipo_Documento : MANDATORY Modelo_Aplicacion_Intercambio_Cat_Reg_V1_0.CR_InteresadoDocumentoTipo;
       /** Documento de identidad del interesado.
        */
       !!@ ili2db.dispName = "Documento de identidad"
@@ -714,7 +720,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Tipo de sexo del interesado (Masculino o Femenino)
        */
       !!@ ili2db.dispName = "Sexo"
-      Sexo : Modelo_Aplicacion_Actualizacion_Cat_Reg_V0_1.CR_SexoTipo;
+      Sexo : Modelo_Aplicacion_Intercambio_Cat_Reg_V1_0.CR_SexoTipo;
       /** Nombre con el que está inscrita la persona jurídica
        */
       !!@ ili2db.dispName = "Razón social"
@@ -788,7 +794,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Hace referencia al tipo de procedimiento aplicable. Debe ser coherente con el contenido del acto administrativo.
        */
       !!@ ili2db.dispName = "Tipo de procedimiento aplicable"
-      Tipo_Procedimiento_Aplicable : MANDATORY Modelo_Aplicacion_Actualizacion_Cat_Reg_V0_1.CR_ProcedimientoCatastralRegistralTipo;
+      Tipo_Procedimiento_Aplicable : MANDATORY Modelo_Aplicacion_Intercambio_Cat_Reg_V1_0.CR_ProcedimientoCatastralRegistralTipo;
       /** Indica si se suscribió acta de colindancia sobre el predio objeto del procedimiento.
        */
       !!@ ili2db.dispName = "¿Suscribe acta de colindancia?"
@@ -845,7 +851,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Corresponde al estado de la anotación, ver dominios.
        */
       !!@ ili2db.dispName = "Estado de la anotación"
-      Estado_Anotacion : Modelo_Aplicacion_Actualizacion_Cat_Reg_V0_1.CR_EstadoAnotacionTipo;
+      Estado_Anotacion : Modelo_Aplicacion_Intercambio_Cat_Reg_V1_0.CR_EstadoAnotacionTipo;
       /** Es el valor de la transacción del predio
        */
       !!@ ili2db.dispName = "Valor de la transacción"
@@ -860,8 +866,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Derecho que se ejerce.
        */
       !!@ ili2db.dispName = "Tipo"
-      Tipo : MANDATORY Modelo_Aplicacion_Actualizacion_Cat_Reg_V0_1.CR_DerechoTipo;
-      /** Indica la fracción del derecho en relación a la forma de tenencia y el área que esta ocupa dentro de la extensión del predio. Ejemplo: un predio informal que se encuentra sobre un predio baldío y un predio privado tendrá un porcentaje de derecho de ocupación y posesión expresado en tanto por uno (0.0000000000 a 1.0000000000).
+      Tipo : MANDATORY Modelo_Aplicacion_Intercambio_Cat_Reg_V1_0.CR_DerechoTipo;
+      /** Indica la fracción del derecho en relación al tipo de derecho del predio.
        */
       !!@ ili2db.dispName = "Fracción de derecho"
       Fraccion_Derecho : MANDATORY TEXT*255;
@@ -881,9 +887,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Municipio"
       Municipio : MANDATORY TEXT*3;
-      /** Es un código único para identificar los inmuebles tanto en los sistemas de información catastral como registral. El NUPRE no implicará supresión de la numeración catastral ni registral asociada a la cédula catastral ni a la matrícula inmobiliaria actual.
+      /** Es un código homologado para identificar los inmuebles tanto en los sistemas de información catastral como registral.
        */
-      !!@ ili2db.dispName = "Número único predial"
+      !!@ ili2db.dispName = "NUPRE"
       NUPRE : MANDATORY TEXT*11;
       /** Circulo registral
        */
@@ -893,10 +899,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Matrícula inmobiliaria"
       Matricula_Inmobiliaria : TEXT*80;
-      /** Se refiere a la situación actual en la que se encuentra una matricula inmobiliaria.
+      /** Se refiere a la situación actual en la que se encuentra una matrícula inmobiliaria.
        */
       !!@ ili2db.dispName = "Estado del FMI"
-      Estado_FMI : Modelo_Aplicacion_Actualizacion_Cat_Reg_V0_1.CR_EstadoFMITipo;
+      Estado_FMI : Modelo_Aplicacion_Intercambio_Cat_Reg_V1_0.CR_EstadoFMITipo;
       /** Es la fecha en la cual se abrió el Folio de matricula inmobiliaria.
        */
       !!@ ili2db.dispName = "Fecha de apertura FMI"
@@ -905,18 +911,18 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Cabida y linderos en registro"
       Cabida_Linderos_Registro : TEXT;
-      /** Corresponde al dato de tipo de predio incorporado en las bases de datos registrales
+      /** Corresponde al dato de tipo de predio incorporado en las bases de datos registrales.
        */
       !!@ ili2db.dispName = "Tipo de predio en registro"
-      Clase_Suelo_Registro : Modelo_Aplicacion_Actualizacion_Cat_Reg_V0_1.CR_ClasePredioRegistroTipo;
-      /** Es la matrícula por la cual se dio apertura al predio objeto de estudio (la madre).
+      Clase_Suelo_Registro : Modelo_Aplicacion_Intercambio_Cat_Reg_V1_0.CR_ClasePredioRegistroTipo;
+      /** Es la matrícula y NUPRE por la cual se dio apertura al predio objeto de estudio (la madre).
        */
       !!@ ili2db.dispName = "Predios matriz en registro"
-      Predios_Matriz_Registro : BAG {0..*} OF Modelo_Aplicacion_Actualizacion_Cat_Reg_V0_1.Actualizacion_Catastro_Registro.CR_EstructuraPredioMatrizRegistro;
-      /** Las matriculas aperturadas con base en el folio objeto de estudio (los hijos).
+      Predios_Matriz_Registro : BAG {0..*} OF Modelo_Aplicacion_Intercambio_Cat_Reg_V1_0.Intercambio_Catastro_Registro.CR_EstructuraPredioMatrizRegistro;
+      /** Las matrículas y NUPRES aperturados con base en el folio objeto de estudio (los hijos).
        */
       !!@ ili2db.dispName = "Predios segregados en registro"
-      Predios_Segregados_Registro : BAG {0..*} OF Modelo_Aplicacion_Actualizacion_Cat_Reg_V0_1.Actualizacion_Catastro_Registro.CR_EstructuraPrediosSegregadosRegistro;
+      Predios_Segregados_Registro : BAG {0..*} OF Modelo_Aplicacion_Intercambio_Cat_Reg_V1_0.Intercambio_Catastro_Registro.CR_EstructuraPrediosSegregadosRegistro;
       /** Nuevo código númerico de treinta (30) dígitos, que se le asigna a cada predio y busca localizarlo inequívocamente en los documentos catastrales, según el modelo determinado por el Instituto Geográfico Agustin Codazzi.
        */
       !!@ ili2db.dispName = "Número predial"
@@ -932,7 +938,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Valor catastral del predio, obtenido mediante investigación y análisis estadístico del mercado inmobiliario y la metodología de aplicación correspondiente.
        */
       !!@ ili2db.dispName = "Avalúo Catastral"
-      Avaluo_Catastral : BAG {0..*} OF Modelo_Aplicacion_Actualizacion_Cat_Reg_V0_1.Actualizacion_Catastro_Registro.CR_EstructuraAvaluoCatastral;
+      Avaluo_Catastral : BAG {0..*} OF Modelo_Aplicacion_Intercambio_Cat_Reg_V1_0.Intercambio_Catastro_Registro.CR_EstructuraAvaluoCatastral;
       /** Puntaje de cero (0) a cien (100) que se obtiene a partir de la suma de los datos que se interrelacionan: 
        * 
        * Número predial. ---> 30
@@ -954,7 +960,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** los tipos se desarrollan por el origen de la responsabilidad.
        */
       !!@ ili2db.dispName = "Tipo"
-      Tipo : MANDATORY Modelo_Aplicacion_Actualizacion_Cat_Reg_V0_1.CR_ResponsabilidadTipo;
+      Tipo : MANDATORY Modelo_Aplicacion_Intercambio_Cat_Reg_V1_0.CR_ResponsabilidadTipo;
     END CR_Responsabilidad;
 
     /** Es una prohibición específica relacionada con un predio.
@@ -965,7 +971,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** son los tipos de restricciones de acuerdo con la naturaleza del registro colombiano.c
        */
       !!@ ili2db.dispName = "Tipo"
-      Tipo : MANDATORY Modelo_Aplicacion_Actualizacion_Cat_Reg_V0_1.CR_RestriccionTipo;
+      Tipo : MANDATORY Modelo_Aplicacion_Intercambio_Cat_Reg_V1_0.CR_RestriccionTipo;
     END CR_Restriccion;
 
     ASSOCIATION cr_transaccion_a =
@@ -1011,6 +1017,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       cr_derecho -- {0..*} CR_Derecho;
     END cr_hipotecaDerecho;
 
-  END Actualizacion_Catastro_Registro;
+  END Intercambio_Catastro_Registro;
 
-END Modelo_Aplicacion_Actualizacion_Cat_Reg_V0_1.
+END Modelo_Aplicacion_Intercambio_Cat_Reg_V1_0.
