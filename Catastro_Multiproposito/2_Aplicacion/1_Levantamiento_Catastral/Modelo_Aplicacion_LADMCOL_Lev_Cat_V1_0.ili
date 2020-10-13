@@ -2605,6 +2605,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       !!@ ili2db.dispName = "Dirección"
       Direccion : BAG {1..*} OF LADM_COL_V3_0.LADM_Nucleo.ExtDireccion;
       UNIQUE Id_Operacion; 
+      !!@ name = "ValidacionValoresPredioTipo"
+      MANDATORY CONSTRAINT Tipo <> #Ordenamiento_Territorial ;
+      MANDATORY CONSTRAINT Tipo <> #Servicios_Publicos ;
+      MANDATORY CONSTRAINT Tipo <> #Reservas_Naturales ;
+      MANDATORY CONSTRAINT Tipo <> #Parques_Naturales ;
+      MANDATORY CONSTRAINT Tipo <> #Amenazas_Riesgos ;
+      MANDATORY CONSTRAINT Tipo <> #Servidumbre ;
+      MANDATORY CONSTRAINT Tipo <> #Superficies_Agua ;
+      MANDATORY CONSTRAINT Tipo <> #Transporte ;
     END LC_Predio;
 
     /** Puntos topograficos o geodesicos utilizados como amarre para la ejecución del levantamiento catastral.
@@ -2632,6 +2641,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Exactitud vertical"
       Exactitud_Vertical : MANDATORY 0.000 .. 10.000 [INTERLIS.m];
+      !!@ name = "ValidacionValoresPuntoTipo"
+      MANDATORY CONSTRAINT PuntoTipo <> #Control ;
+      MANDATORY CONSTRAINT PuntoTipo <> #Otro ;
     END LC_PuntoControl;
 
     /** Puntos que definen los lindero de un terreno. La sucesión de estos puntos forman una línea que representa el límite entre dos terrenos.
@@ -2663,6 +2675,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Exactitud vertical"
       Exactitud_Vertical : 0.000 .. 10.000 [INTERLIS.m];
+      !!@ name = "ValidacionValoresPuntoTipo"
+      MANDATORY CONSTRAINT PuntoTipo <> #Control ;
+      MANDATORY CONSTRAINT PuntoTipo <> #Otro ;
     END LC_PuntoLindero;
 
     /** Restricción legalmente constituida y registrada que afecta el derecho de un persona en relación con el predio.
@@ -2832,6 +2847,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Exactitud vertical"
       Exactitud_Vertical : 0.000 .. 10.000 [INTERLIS.m];
+      !!@ name = "ValidacionValoresPuntoTipo"
+      MANDATORY CONSTRAINT PuntoTipo <> #Control ;
+      MANDATORY CONSTRAINT PuntoTipo <> #Otro ;
     END LC_PuntoLevantamiento;
 
     /** Son las características de diseño y constructivas especiales de las construcciones y/o edificaciones.
