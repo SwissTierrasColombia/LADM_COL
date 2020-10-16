@@ -29,7 +29,7 @@ INTERLIS 2.3;
 MODEL Submodelo_Avaluos_V1_0 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-02-01 // =
-  IMPORTS ISO19107_PLANAS_V3_0,Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0,LADM_COL_V3_0;
+  IMPORTS ISO19107_PLANAS_V3_0,Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1,LADM_COL_V3_0;
 
   DOMAIN
 
@@ -1255,7 +1255,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
    */
   TOPIC Avaluos =
     OID AS INTERLIS.UUIDOID;
-    DEPENDS ON Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral;
+    DEPENDS ON Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.Levantamiento_Catastral;
 
     /** Clase los valores por M2 de construcción según el uso y puntaje de calificación de construcción.
      */

@@ -8,7 +8,7 @@ INTERLIS 2.3;
 MODEL Submodelo_Cartografia_Catastral_V1_0 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-04-19 // =
-  IMPORTS ISO19107_PLANAS_V3_0,Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0,LADM_COL_V3_0;
+  IMPORTS ISO19107_PLANAS_V3_0,Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1,LADM_COL_V3_0;
 
   /** Este tema almacena específicamente las clases que definen la división administrativa desde el punto de vista operativo de catastro.
    */
