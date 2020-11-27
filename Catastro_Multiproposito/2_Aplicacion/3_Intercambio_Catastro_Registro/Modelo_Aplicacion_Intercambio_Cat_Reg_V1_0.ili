@@ -304,32 +304,26 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Trasladado
     );
 
-    CR_FuenteAdministrativaTipo
+    CR_FuenteAdministrativaTipo (FINAL)
     EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_FuenteAdministrativaTipo = (
       Documento_Publico(
         /** Una escritura pública es un documento público en el que se realiza ante un notario público un determinado hecho o un derecho autorizado por dicho fedatario público, que firma con el otorgante u otorgantes,mostrando sobre la capacidad jurídica del contenido y de la fecha en que se realizó
          */
-        !!@ ili2db.dispName = "Escritura pública"
+        !!@ ili2db.dispName = "(Documento público) Escritura pública"
         Escritura_Publica,
         /** La sentencia es la resolución judicial definitiva dictada por un juez o tribunal que pone fin a la litis o caso sometido a su conocimiento y cierra definitivamente su actuación en el mismo
          */
-        !!@ ili2db.dispName = "Sentencia judicial"
+        !!@ ili2db.dispName = "(Documento público) Sentencia judicial"
         Sentencia_Judicial,
         /** Un acto administrativo es toda manifestación o declaración emanada de la administración pública en el ejercicio de potestades administrativas, mediante el que impone su voluntad sobre los derechos, libertades o intereses de otros sujetos públicos o privados y que queda bajo el del comienzo.
          */
-        !!@ ili2db.dispName = "Acto administrativo"
+        !!@ ili2db.dispName = "(Documento público) Acto administrativo"
         Acto_Administrativo
       ),
-      Documento_Privado(
-        /** Documento que contiene un compromiso entre dos o más personas que lo firman.
-         */
-        !!@ ili2db.dispName = "Documento privado"
-        Documento_Privado,
-        /** Cuando no se haya documento soporte pero puede ser una declaración verbal.
-         */
-        !!@ ili2db.dispName = "Sin documento"
-        Sin_Documento
-      )
+      /** Cuando no se haya documento soporte pero puede ser una declaración verbal.
+       */
+      !!@ ili2db.dispName = "Sin documento"
+      Sin_Documento
     );
 
     CR_FuenteEspacialTipo
@@ -372,7 +366,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Es un consecutivo asignado automáticamente en registro en lugar del número de la identificación de la persona que hace el trámite, se usa especialmente en trámites de construcción cuando el proyecto está a nombre de una Fiducia el cual tiene el mismo número del banco.
        */
       !!@ ili2db.dispName = "Secuencial"
-      Secuencial
+      Secuencial,
+      /** Documento que acredita la identidad y la nacionalidad de una persona y que es necesario para viajar a determinados países.
+       */
+      !!@ ili2db.dispName = "Pasaporte"
+      Pasaporte
     );
 
     CR_InteresadoTipo = (
@@ -670,7 +668,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Es el número con el cual se identifica la oficina que origina el documento.
        */
       !!@ ili2db.dispName = "Oficina de origen"
-      Oficina_Origen : 0 .. 100;
+      Oficina_Origen : TEXT*255;
       /** Es la ciudad donde se encuentra ubicada la oficina que expide el documento.
        */
       !!@ ili2db.dispName = "Ciudad de origen"
@@ -771,26 +769,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
      */
     !!@ ili2db.dispName = "Procedimiento catastral con efecto registral"
     CLASS CR_Procedimiento_Catastral_Registral =
-      /** Consecutivo del acto administrativo emitido por cada gestor o del certificado plano predial especial
-       */
-      !!@ ili2db.dispName = "Número de instrumento"
-      Numero_Instrumento : MANDATORY TEXT*10;
-      /** Fecha de emisión del acto administrativo o del certificado plano predial especial.
-       */
-      !!@ ili2db.dispName = "Fecha de instrumento"
-      Fecha_Instrumento : MANDATORY INTERLIS.XMLDate;
-      /** Nombre del gestor catastral
-       */
-      !!@ ili2db.dispName = "Entidad emisora"
-      Entidad_Emisora : MANDATORY TEXT*100;
-      /** Hace referencia a las oficinas territoriales o regionales de las entidades emisoras que emiten los actos administrativos. En los casos en los que el gestor catastral esté habilitado en una única oficina de origen, el dato debe ser el mismo de la entidad emisora.
-       */
-      !!@ ili2db.dispName = "Oficina origen"
-      Oficina_Origen : MANDATORY TEXT*100;
-      /** Ciudad de origen donde se emite el instrumento correspondiente
-       */
-      !!@ ili2db.dispName = "Ciudad de origen"
-      Ciudad_Origen : MANDATORY TEXT*60;
       /** Hace referencia al tipo de procedimiento aplicable. Debe ser coherente con el contenido del acto administrativo.
        */
       !!@ ili2db.dispName = "Tipo de procedimiento aplicable"
@@ -949,7 +927,16 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Puntaje de interrelación"
       Puntaje_Interrelacion : 0 .. 100;
+      !!@ name = "ValidacionValoresPredioTipo"
       UNIQUE NUPRE; 
+      MANDATORY CONSTRAINT Tipo <> #Ordenamiento_Territorial ;
+      MANDATORY CONSTRAINT Tipo <> #Servicios_Publicos ;
+      MANDATORY CONSTRAINT Tipo <> #Reservas_Naturales ;
+      MANDATORY CONSTRAINT Tipo <> #Parques_Naturales ;
+      MANDATORY CONSTRAINT Tipo <> #Amenazas_Riesgos ;
+      MANDATORY CONSTRAINT Tipo <> #Servidumbre ;
+      MANDATORY CONSTRAINT Tipo <> #Superficies_Agua ;
+      MANDATORY CONSTRAINT Tipo <> #Transporte ;
     END CR_Predio;
 
     /** es la obligación de hacer algo relacionado con el predio.
