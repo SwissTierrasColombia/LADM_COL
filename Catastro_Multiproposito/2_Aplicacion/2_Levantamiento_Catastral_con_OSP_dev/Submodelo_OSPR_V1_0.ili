@@ -1,89 +1,28 @@
 INTERLIS 2.3;
 
-/** Perfil Nacional colombiano de la ISO 19152 LADM COL generado con INTERLIS 2 - Extension de ANT
- * 
- * -----------------------------------------------------------
- * 
- * 04.07.2019/at: Creación de la primera versión del modelo 
- * -----------------------------------------------------------
- * 
- *  (c) IGAC y SNR con apoyo de la Cooperacion Suiza
- * 
- * -----------------------------------------------------------
- */
-MODEL Submodelo_FISO_V1_0 (es)
-AT "mailto:PC4@localhost"
-VERSION "2019-07-04"  =
-  IMPORTS Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0,LADM_COL_V3_0,ISO19107_PLANAS_V3_0;
+MODEL Submodelo_ANT_V1_0 (es)
+AT "mailto:JONNY@localhost"
+VERSION "2020-10-20"  =
+  IMPORTS LADM_COL_V3_0,Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0;
 
   DOMAIN
 
-    FISO_Afirmacion2Tipo = (
-      /** Esta de acuerdo con la pregunta
+    ANT_EstadoFMITipo = (
+      /** Corresponden a todos los folios que se encuentran activos y no han sido cerrados.
        */
-      !!@ ili2db.dispName = "Si"
-      Si,
-      /** No esta de acuerdo con la pregunta
+      !!@ ili2db.dispName = "Activo"
+      Activo,
+      /** Siempre que se engloben varios predios o la venta de la parte restante de ellos o se cancelen por orden judicial o administrativa los títulos o documentos que la sustentan jurídicamente y no existan anotaciones vigentes, las matrículas inmobiliarias se cerrarán para el efecto o se hará una anotación que diga "Folio Cerrado".
        */
-      !!@ ili2db.dispName = "No"
-      No,
-      /** No sabe/No responde
+      !!@ ili2db.dispName = "Cerrado"
+      Cerrado,
+      /** Corresponden a todos los folios que se encuentran trasladados.
        */
-      !!@ ili2db.dispName = "No sabe/No responde"
-      No_Sabe_No_Responde
+      !!@ ili2db.dispName = "Trasladado"
+      Trasladado
     );
 
-    FISO_ClaseExplotacionTipo = (
-      /** Predio que se usa para vivienda, sirve para proporcionar alojamiento permanente a las personas.
-       */
-      !!@ ili2db.dispName = "Habitacional"
-      Habitacional,
-      /** El uso del predio se dedica a la crianza de animales con fines alimenticios para el ser humano en distintos tipos de explotación ganadera.
-       */
-      !!@ ili2db.dispName = "Ganadero"
-      Ganadero,
-      /** Entiendase como activiades de  plantación, renovación y tala de árboles maderables
-       */
-      !!@ ili2db.dispName = "Forestal"
-      Forestal,
-      /** En la agricultura, la ganadería o la silvicultura, es un conjunto de prácticas aplicadas para promover el uso sustentable del suelo.
-       */
-      !!@ ili2db.dispName = "Conservación"
-      Conservacion,
-      /** No esta dentro de las opciones brindadas
-       */
-      !!@ ili2db.dispName = "Otro"
-      Otro
-    );
-
-    FISO_ConflictosTipo = (
-      /** Oposición o conflicto entre los posibles herederos de un inmueble
-       */
-      !!@ ili2db.dispName = "Sucesión sin acuerdos de herederos"
-      Sucesion_Sin_Acuerdos,
-      /** Se refiere a las servidumbres que no se advierten en el levantamiento topográfico, o por métodos indirectos (ortofotografía), es decir conflictos que se presentan entre predios individuales relacionados con los pasos para acceder a los predios, ejemplo mangueras de agua.
-       */
-      !!@ ili2db.dispName = "De paso o servidumbres"
-      De_Paso_Servidumbres,
-      /** Oposición o conflicto derivado de las extensiones territoriales sobre las que se describe como propietario, poseedor u ocupante
-       */
-      !!@ ili2db.dispName = "Por linderos"
-      Por_Linderos,
-      /** Se refiere a los conflictos que no se identifican en una primera etapa de intervención por parte de la ANT
-       */
-      !!@ ili2db.dispName = "Predios con pretensiones territoriales"
-      Predios_Pretenciones_Territoriales,
-      /** Conflictos relacionados con aspectos de orden publico
-       */
-      !!@ ili2db.dispName = "Seguridad para acceso al predio"
-      Seguridad_Acceso_Predio,
-      /** Demás conflictos que no encajen en las opciones predeterminadas
-       */
-      !!@ ili2db.dispName = "Otro"
-      Otro
-    );
-
-    FISO_EnfermedadAccidenteTipo = (
+    ANT_LimitantePermanenteTipo = (
       /** Percibir algo material por medio del sentido de la vista
        */
       !!@ ili2db.dispName = "Ver"
@@ -114,53 +53,11 @@ VERSION "2019-07-04"  =
       Entender_Aprender,
       /** No esta dentro de las opciones brindadas
        */
-      !!@ ili2db.dispName = "Otra"
+      !!@ ili2db.dispName = "Otro"
       Otra
     );
 
-    FISO_EntradaFISOTipo = (
-      /** Entiendase como inscripcion fisica en alguna de las sedes de la ANT
-       */
-      !!@ ili2db.dispName = "Inscripción en oficina ANT"
-      Inscripcion_Oficina_ANT,
-      /** Inscripcion que se hace durante un barrido predial de un municipio nacional
-       */
-      !!@ ili2db.dispName = "Barrido predial"
-      Barrido_Predial,
-      /** Casos que venian de procesos iniciados con el Incoder y se migraron al SIT
-       */
-      !!@ ili2db.dispName = "Registro administrativo (INCODER)"
-      Registro_Administrativo,
-      /** Caso en el cual el ciudadano deber ser includio al RESO de mandera inmediata por decision de un Juez de la Republica
-       */
-      !!@ ili2db.dispName = "Decisiones judiciales"
-      Decisiones_Judiciales
-    );
-
-    FISO_EstadoCivilTipo = (
-      /** Se considera casada aquella persona que ha establecido con otra del sexo opuesto una relación aprobada por la ley, que implica cooperación económica y cohabitación residencial y sexual.
-       */
-      !!@ ili2db.dispName = "Casado(a)"
-      Casado,
-      /** Persona que nunca ha contraído matrimonio y que no vive ni ha vivido en unión libre.
-       */
-      !!@ ili2db.dispName = "Soltero(a)"
-      Soltero,
-      /** Es la persona que habiendo fallecido su cónyuge o compañero (a), no ha vuelto a casarse ni vive en unión libre.
-       */
-      !!@ ili2db.dispName = "Viudo(a)"
-      Viudo,
-      /** Persona cuya unión ha sido disuelta por vía legal o de hecho y no se ha vuelto a casar, ni vive en unión libre.
-       */
-      !!@ ili2db.dispName = "Separado(a) o Divorciado(a)"
-      Separado_Divorciado,
-      /** No está casado(a) y vive en pareja hace dos años o más. Una persona está en esta situación cuando hace dos años o más estableció con otra persona del sexo opuesto una relación queimplica cooperación económica y cohabitación residencial y sexual, la cual se mantiene única y exclusivamente por voluntad propia sin que estén presentes, vínculos legales.
-       */
-      !!@ ili2db.dispName = "Unión libre"
-      Union_Libre
-    );
-
-    FISO_OcupacionTipo = (
+    ANT_OcupacionTipo = (
       /** Persona que trabaja para otra o para una institución/empresa a cambio de un salario.
        */
       !!@ ili2db.dispName = "Empleado"
@@ -191,62 +88,7 @@ VERSION "2019-07-04"  =
       Otro
     );
 
-    FISO_OrientacionSexualTipo = (
-      /** Persona cuya atracción afectiva, erótica o
-       * sexual se dirige hacia personas de sexo distinto al suyo.
-       */
-      !!@ ili2db.dispName = "Heterosexual"
-      Heterosexual,
-      /** Mujeres que experimentan amor romántico o atracción sexual exclusivamente por otras mujeres.
-       */
-      !!@ ili2db.dispName = "Lesbiana"
-      Lesbiana,
-      /** Manera de designar a las personas homosexuales? masculinas, es decir, a aquellos hombres a los que les atraen sexual y emocionalmente otros hombres.
-       */
-      !!@ ili2db.dispName = "Gay"
-      Gay,
-      /** Hace referencia a las personas cuyas identidades de género son diferentes del sexo? que se les asignó al nacer.
-       */
-      !!@ ili2db.dispName = "Transgénero"
-      Transgenero,
-      /** Se define como la atracción romántica, la atracción sexual o la conducta sexual dirigida tanto hacia hombres como hacia mujeres.
-       */
-      !!@ ili2db.dispName = "Bisexual"
-      Bisexual,
-      /** Presencia en un mismo individuo de características sexuales de macho y de hembra en proporción variable.
-       */
-      !!@ ili2db.dispName = "Intersexual"
-      Intersexual,
-      /** No se identifica con las opciones dadas o no desea responder
-       */
-      !!@ ili2db.dispName = "No sabe / No responde"
-      No_Sabe_No_Responde
-    );
-
-    FISO_OtorgaDerechoTipo = (
-      /** Contrato escrito por el cual uno de los contratantes se obliga a entregar una cosa determinada y el otro a pagar por ella un precio cierto.
-       */
-      !!@ ili2db.dispName = "Lo compró mediante algún documento"
-      Mediante_Documento,
-      /** Contrato por el cual uno de los contratantes se obliga a entregar una cosa determinada y el otro a pagar por ella un precio cierto, sin que medie documento alguno.
-       */
-      !!@ ili2db.dispName = "Lo compró de forma verbal"
-      Forma_Verbal,
-      /** Masa patrimonial (bienes, derechos y obligaciones) que adquiere una persona con derecho para ello, debido a la muerte de su anterior propietario.
-       */
-      !!@ ili2db.dispName = "Es una herencia"
-      Herencia,
-      /** Negocio jurídico en virtud del cual una persona (donante) dispone de una cosa de su patrimonio a favor de otra (donatario) a título gratuito
-       */
-      !!@ ili2db.dispName = "Es una donación"
-      Donacion,
-      /** Demás relaciones de derechos sobre los predios que una persona pueda ostentar y  no se encuentren predeterminadas en las opciones de respuesta
-       */
-      !!@ ili2db.dispName = "Otro"
-      Otro
-    );
-
-    FISO_ParentescoTipo = (
+    ANT_ParentescoTipo = (
       /** Persona casada con vinculo matrimonial civil o religioso  vigente, con relación a su cónyuge.
        */
       !!@ ili2db.dispName = "Esposo/Esposa"
@@ -321,7 +163,1576 @@ VERSION "2019-07-04"  =
       Otro
     );
 
-    FISO_PermExplOtrosPredRuralesSI = (
+    ANT_RespuestaTipo = (
+      /** Está de acuerdo con la pregunta
+       */
+      !!@ ili2db.dispName = "Si"
+      Si,
+      /** No está de acuerdo con la pregunta
+       */
+      !!@ ili2db.dispName = "No"
+      No,
+      /** No sabe o no responde
+       */
+      !!@ ili2db.dispName = "No sabe / No responde"
+      No_Sabe_No_Responde
+    );
+
+  TOPIC ANT =
+    DEPENDS ON Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral;
+
+    /** Estructura que permite el almacenamiento de las matrículas inmobiliarias matrices de un predio en específico.
+     */
+    !!@ ili2db.dispName = "(ANT) Estructura FMI Matriz"
+    STRUCTURE ANT_EstructuraFMIMatriz =
+      /** Círculo registral del folio de matrícula inmobiliaria del predio matriz.
+       */
+      !!@ ili2db.dispName = "FMI Matriz: Círculo Registral"
+      Codigo_ORIP : TEXT*3;
+      /** Número de matrícula inmobiliaria del folio de matrícula inmobiliaria del predio matriz.
+       */
+      !!@ ili2db.dispName = "FMI Matriz: Matrícula inmobiliaria"
+      Matricula_Inmobiliaria : MANDATORY TEXT*80;
+      /** Responde a la situación registral de un Folio de Matrícula Inmobiliaria que ha tenido mutaciones históricas, principalmente desenglobes. Debe tener al menos un FMI derivado y se presenta como ACTIVO o CERRADO, éste último si de las mutaciones históricas o desenglobes presentados, ya no existe área remanente que lo mantenga vivo jurídicamente.
+       */
+      !!@ ili2db.dispName = "Estado FMI Matriz"
+      Estado_FMI : Submodelo_ANT_V1_0.ANT_EstadoFMITipo;
+    END ANT_EstructuraFMIMatriz;
+
+    /** Estructura que me permite almacenar los registros de los QR históricos para un predio.
+     */
+    !!@ ili2db.dispName = "(ANT) Estructura QR Anterior"
+    STRUCTURE ANT_EstructuraQRAnterior =
+      /** QR anterior(es) relacionados con el predio.
+       */
+      !!@ ili2db.dispName = "QR Anterior"
+      QR_Anterior : MANDATORY TEXT*10;
+    END ANT_EstructuraQRAnterior;
+
+    /** Datos de personas diferentes a los que tienen relación de derecho directa con el predio.
+     */
+    !!@ ili2db.dispName = "(ANT) Persona"
+    CLASS ANT_Persona
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      /** Tipo de persona natural o jurídica.
+       */
+      !!@ ili2db.dispName = "Tipo"
+      Tipo : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.LC_InteresadoTipo;
+      /** Tipo de documento de identificación de interesado.
+       */
+      !!@ ili2db.dispName = "Tipo de documento"
+      Tipo_Documento : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.LC_InteresadoDocumentoTipo;
+      /** Número de documento de identidad del interesado.
+       */
+      !!@ ili2db.dispName = "Documento de identidad"
+      Documento_Identidad : TEXT*50;
+      /** Primer nombre de la persona física.
+       */
+      !!@ ili2db.dispName = "Primer nombre"
+      Primer_Nombre : TEXT*100;
+      /** Segundo nombre de la persona física.
+       */
+      !!@ ili2db.dispName = "Segundo nombre"
+      Segundo_Nombre : TEXT*100;
+      /** Primer apellido de la persona física.
+       */
+      !!@ ili2db.dispName = "Primer apellido"
+      Primer_Apellido : TEXT*100;
+      /** Segundo apellido de la persona física.
+       */
+      !!@ ili2db.dispName = "Segundo apellido"
+      Segundo_Apellido : TEXT*100;
+      /** Sexo del interesado persona natural.
+       */
+      !!@ ili2db.dispName = "Sexo"
+      Sexo : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.LC_SexoTipo;
+      /** Grupo étnico del interesado persona natural.
+       */
+      !!@ ili2db.dispName = "Grupo étnico"
+      Grupo_Etnico : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.LC_GrupoEtnicoTipo;
+      /** Nombre con que una entidad (pública o privada) o sociedad mercantil está registrada legalmente
+       */
+      !!@ ili2db.dispName = "Razón social"
+      Razon_Social : TEXT*255;
+      /** Otros datos de la persona entre ellos: huella dactilar, firma, fotografía.
+       */
+      !!@ ili2db.dispName = "Otros datos"
+      Otros_Datos : LADM_COL_V3_0.LADM_Nucleo.ExtInteresado;
+    END ANT_Persona;
+
+    /** Datos de caracterización de la persona que se registra.
+     */
+    !!@ ili2db.dispName = "(ANT) Persona caracterización"
+    CLASS ANT_PersonaCaracterizacion
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      Fecha_Nacimiento : TEXT*20;
+      /** Parentesco del familiar con el aspirante o solicitante.
+       */
+      !!@ ili2db.dispName = "Parentesco"
+      Parentesco : Submodelo_ANT_V1_0.ANT_ParentescoTipo;
+      /** Identificación de las limitantes permanentes del familiar del aspirante o solicitante.
+       */
+      !!@ ili2db.dispName = "¿Tiene limitantes permanentes?"
+      Limitantes_Permanentes : Submodelo_ANT_V1_0.ANT_LimitantePermanenteTipo;
+      /** Otro tipo de limitantes del familiar del aspirante o solicitante.
+       */
+      !!@ ili2db.dispName = "Otra limitante permanente"
+      Otra_Limitante_Permanente : TEXT*150;
+      /** Ocupación actual del familiar del aspirante o solicitante.
+       */
+      !!@ ili2db.dispName = "Ocupación actual"
+      Ocupacion : Submodelo_ANT_V1_0.ANT_OcupacionTipo;
+      /** Existe dependencia económica del familiar del aspirante o solicitante
+       */
+      !!@ ili2db.dispName = "¿Depende económicamente?"
+      Depende_Economicamente : BOOLEAN;
+    END ANT_PersonaCaracterizacion;
+
+    /** Datos de contacto de la persona.
+     */
+    !!@ ili2db.dispName = "(ANT) Persona contacto"
+    CLASS ANT_PersonaContacto
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      /** Numero de telefono 1 de contacto de la persona.
+       */
+      !!@ ili2db.dispName = "Teléfono 1"
+      Telefono1 : MANDATORY TEXT*20;
+      /** Numero de telefono 2 de contacto de la persona.
+       */
+      !!@ ili2db.dispName = "Teléfono 2"
+      Telefono2 : TEXT*20;
+      /** Correo electrónico de la persona.
+       */
+      !!@ ili2db.dispName = "Correo electrónico"
+      Correo_Electronico : TEXT*100;
+      /** Dirección de donde vive la persona.
+       */
+      !!@ ili2db.dispName = "Dirección"
+      Direccion : TEXT*255;
+    END ANT_PersonaContacto;
+
+    /** Datos de adicionales de la ubicación del predio.
+     */
+    !!@ ili2db.dispName = "(ANT) Ubicación del predio"
+    CLASS ANT_UbicacionPredio
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      /** Nombre del corregimiento según el instrumento de planeación (POT, PBOT, EOT) donde se encuentra ubicado el predio objeto de intervención.
+       */
+      !!@ ili2db.dispName = "Corregimiento"
+      Corregimiento : TEXT*255;
+      /** Nombre de la vereda según el instrumento de planeación (POT, PBOT, EOT) donde se encuentra ubicado el predio objeto de intervención. En caso de no contar nombre en el instrumento de planeación tomar los nombres de acuerdo a la clasificación del DANE.
+       */
+      !!@ ili2db.dispName = "Vereda"
+      Vereda : TEXT*255;
+      /** Nombre de la vereda donde se encuentra ubicado el predio objeto de intervención según la comunidad.
+       */
+      !!@ ili2db.dispName = "Vereda comunitaria"
+      Vereda_Comunitaria : TEXT*255;
+      /** Nombre del centro poblado donde se encuentra ubicado el predio objeto de intervención.
+       */
+      !!@ ili2db.dispName = "Centro poblado"
+      Centro_Poblado : TEXT*255;
+      /** Nombre de la Unidad de Intervención según el POSPR. En caso de haber acordado con la SPO otra UI colocar ese nombre.
+       */
+      !!@ ili2db.dispName = "Unidad de intervención"
+      Unidad_Intervencion : TEXT*255;
+    END ANT_UbicacionPredio;
+
+    ASSOCIATION ant_contactoInteresado =
+      ant_persona -- {0..*} ANT_Persona;
+      lc_interesado (EXTERNAL) -- {0..1} Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral.LC_Interesado;
+    END ant_contactoInteresado;
+
+    ASSOCIATION ant_otrapersonacontacto =
+      ant_personaprincipal -- {0..1} ANT_Persona;
+      ant_persona -- {0..*} ANT_Persona;
+    END ant_otrapersonacontacto;
+
+    ASSOCIATION ant_persona_ant_personacaracterizacion =
+      ant_persona -- {1} ANT_Persona;
+      ant_personacaracterizacion -- {0..1} ANT_PersonaCaracterizacion;
+    END ant_persona_ant_personacaracterizacion;
+
+    ASSOCIATION ant_persona_ant_personacontacto =
+      ant_persona -- {1} ANT_Persona;
+      ant_personacontacto -- {0..1} ANT_PersonaContacto;
+    END ant_persona_ant_personacontacto;
+
+    ASSOCIATION lc_predio_ant_ubicacionpredio =
+      lc_predio (EXTERNAL) -- {1} Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral.LC_Predio;
+      ant_ubicacionpredio -- {0..1} ANT_UbicacionPredio;
+    END lc_predio_ant_ubicacionpredio;
+
+  END ANT;
+
+END Submodelo_ANT_V1_0.
+
+MODEL Submodelo_DTJ_V1_0 (es)
+AT "mailto:JONNY@localhost"
+VERSION "2020-10-16"  =
+  IMPORTS LADM_COL_V3_0,Submodelo_ANT_V1_0;
+
+  DOMAIN
+
+    DTJ_CambiosConcentracionPredialTipo = (
+      /** Se debe marcar esta opción cuando se evidencie que el centro poblado sea diferente al que esté determinado en el plan de ordenamiento territorial.
+       */
+      !!@ ili2db.dispName = "Transformación del centro poblado"
+      Transformacion_Centro_Poblado,
+      /** Se debe marcar cuando se encuentra un nuevo centro poblado en territorio que no esté determinado ni delimitado en plan de ordenamiento territorial.
+       */
+      !!@ ili2db.dispName = "Nuevo nucleo o concentracion predial"
+      Nuevo_Nucleo_O_Concentracion_Predial,
+      /** Se marca esta opción cuando no aplica ninguna de las anteriores.
+       */
+      !!@ ili2db.dispName = "No aplica"
+      No_Aplica
+    );
+
+    DTJ_CategoriaSueloRuralTipo = (
+      /** Se debe marcar esta opción cuando el suelo rural su uso esté destinado para el desarrollo de actividades agropecuarias, forestales y mineras. Así mismo, se marcara esta opción cuando no se encuentre en el plan de ordenamiento territorial las categorías de protección o desarrollo restringido de manera específica.
+       */
+      !!@ ili2db.dispName = "Rural"
+      Rural,
+      /** Esta categoría puede existir en cualquiera de los tipos de suelo (urbano, expansión urbana y rural). Son áreas que se protegen en razón a las características geográficas, paisajísticas o ambientales. En esta subclase de suelo puede encontrarse:
+       * 
+       * 1. Conservación y protección del medio ambiente y recursos naturales
+       * 2. Producción agrícola, ganadera, explotación recursos naturales (clases agrológicas I,II,III)
+       * 3. Patrimonio Cultural
+       * 4. Sistema Servicios Públicos domiciliarios.
+       * 5. Amenazas y Riesgos
+       */
+      !!@ ili2db.dispName = "Protección"
+      Proteccion,
+      /** Son áreas que  no se encuartan demarcadas como suelo de protección y permiten el desarrollo de núcleos de población rural para el desarrollo de actividades económicas o dotación de equipamientos. Esta opción se deberá seleccionar cuando en el Plan de Ordenamiento Territorial Correspondientes se encuentre las siguientes categorías: 
+       * 1. Suburbano
+       * 2. Áreas de Vivienda Campestre
+       * 3. Centros poblados 
+       * 4. Equipamientos
+       */
+      !!@ ili2db.dispName = "Desarrollo restringido"
+      Desarrollo_Restringido
+    );
+
+    DTJ_CuentaPlanParcialTipo = (
+      /** Existe un plan parcial aprobado por el alcalde municipal o distrital a través de un decreto, en los términos previstos en el artículo 27 de la Ley 388 de 1997.
+       */
+      !!@ ili2db.dispName = "Si"
+      Si,
+      /** No existe aprobado ni en trámite un plan parcial.
+       */
+      !!@ ili2db.dispName = "No"
+      No,
+      /** Se encuentra en curso un plan parcial.
+       */
+      !!@ ili2db.dispName = "En proceso de aprobación"
+      En_Proceso_Aprobacion
+    );
+
+    DTJ_DesarrolloRestringidoTipo = (
+      /** Son áreas que se encuentran ubicadas dentro del suelo rural, e las cuales puede haber mezcla de usos del suelo y las formas de vida del campo y la ciudad. (Art. 34 L. 388/97).
+       */
+      !!@ ili2db.dispName = "Suburbano"
+      Suburbano,
+      /** Áreas destinadas para vivienda campestre cuyo desarrollo estará definido por las normas urbanísticas de parcelación, de acuerdo con lo previsto en Decreto 3600 de 2007, compilado en el Decreto 1077 de 2015.
+       */
+      !!@ ili2db.dispName = "Área de vivienda campestre"
+      Area_Vivienda_Campestre,
+      /** Cuando en el componente del suelo rural de los POT se incluya la delimitación de los centros poblados rurales se deberá elegir esta variable. Consultar los artículos 2.2.2.2.3.1 y 2.2.2.2.3.2 del Decreto 1077 de 2015.
+       */
+      !!@ ili2db.dispName = "Centro poblado rural"
+      Centro_Poblado_Rural,
+      /** Se debe marcar esta opción cuando se encuentre edificaciones o instalaciones que pueden ser de uso público o privado, destinadas al uso de los ciudadanos, servicios colectivos como educación, cultural, salud, recreación, deporte, religioso entre otros.
+       */
+      !!@ ili2db.dispName = "Equipamientos"
+      Equipamientos
+    );
+
+    DTJ_EstadoSolicitudRTDAFTipo = (
+      /** Marcar en caso de encontrar una solicitud de RTDAF con el predio estudiado.
+       */
+      !!@ ili2db.dispName = "Solicitud"
+      Solicitud,
+      /** Marca si se evidencia que la solicitud está siendo valorada por la URT.
+       */
+      !!@ ili2db.dispName = "Inicio de estudio"
+      Inicio_Estudio,
+      /** Marcar si se evidencia que el predio objeto de estudio está inscrito en el RTDAF.
+       */
+      !!@ ili2db.dispName = "Inscripción"
+      Inscripcion,
+      /** Marcar si en el predio si sobre el predio si se evidencia la existencia de una demanda de restitución de tierras.
+       */
+      !!@ ili2db.dispName = "Demanda"
+      Demanda,
+      /** Marcar esta opción si se evidencia la existencia de una sentencia, proferida en el marco del proceso de restitución de tierras.
+       */
+      !!@ ili2db.dispName = "Sentencia"
+      Sentencia
+    );
+
+    DTJ_FormalidadTipo = (
+      /** De acuerdo con lo expresado por la Resolución 388 de 2020 se entiende por formalidad como el "derecho real de dominio completo; es decir, que goza de un título debidamente concebido y registrado ante la Oficina de Registro de Instrumentos Públicos."
+       */
+      !!@ ili2db.dispName = "Formal"
+      Formal,
+      /** De acuerdo con lo expresado por la Resolución 388 de 2020 se entiende por informalidad el "derecho de dominio incompletos en razón a que pueden tener o no título y estar o no registrado ante la Oficina de Registro de Instrumentos Públicos."
+       */
+      !!@ ili2db.dispName = "Informal"
+      Informal
+    );
+
+    DTJ_HallazgosErroresRegistralesTipo = (
+      /** Cuando el predio en estudio aún tiene vigente su vida jurídica.
+       */
+      !!@ ili2db.dispName = "FMI debería estar abierto"
+      FMI_Deberia_Estar_Abierto,
+      /** Cuando del predio en estudio se engloben varios predios o la venta de la parte restante de ellos o se cancelen por orden judicial o administrativa los títulos o documentos que la sustentan jurídicamente y no existan anotaciones vigentes.
+       */
+      !!@ ili2db.dispName = "FMI debería estar cerrado"
+      FMI_Deberia_Estar_Cerrado,
+      /** Cuando no exista relación entre el predio segregado y el que se enuncia.
+       */
+      !!@ ili2db.dispName = "FMI no es segregado del que se enuncia"
+      FMI_No_Segregado_Del_Enunciado,
+      /** Cuando el FMI reporta un área diferente al área estipulada en el titulo.
+       */
+      !!@ ili2db.dispName = "FMI evidencia un error de área"
+      FMI_Evidencia_Error_Area,
+      /** El circulo registral es diferente al del predio en estudio.
+       */
+      !!@ ili2db.dispName = "FMI inscrito en un circulo registral diferente"
+      FMI_Inscrito_Circulo_Registral_Diferente,
+      /** Cuando dos predios obedecen al mismo FMI.
+       */
+      !!@ ili2db.dispName = "FMI duplicado"
+      FMI_Duplicado,
+      /** Cuando se presente una inconsistencia en el código registral que aparece en las anotaciones.
+       */
+      !!@ ili2db.dispName = "FMI con anotaciones con error en los códigos registrales"
+      FMI_Anotaciones_Con_Error_Codigos_Registrales,
+      /** Cuando el propietario registrado en FMI esté incompleto o sea diferente al que se tiene conocimiento y esta relacionado con el predio.
+       */
+      !!@ ili2db.dispName = "FMI con identificación del propietario incompleto o erróneo"
+      FMI_Identificacion_Propietario_Incompleto_Erroneo,
+      /** Cuando los linderos estipulados en el FMI difieren de los registrados en el titulo.
+       */
+      !!@ ili2db.dispName = "Se evidencia error en los linderos del FMI"
+      FMI_Error_Linderos,
+      /** Cuando el titulo inscrito no corresponde al predio en estudio.
+       */
+      !!@ ili2db.dispName = "Titulo mal inscrito"
+      Titulo_Mal_Inscrito,
+      /** Otro tipo de hallazgo o error registral.
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+    DTJ_MedidaProteccionColectivaTipo = (
+      /** Se deberá marcar esta opción cuando se trate de medidas administrativas de protección de derechos territoriales de una población étnica.
+       */
+      !!@ ili2db.dispName = "Étnico"
+      Etnico,
+      /** Se debe seleccionar esta opción cuando se trate de medidas administrativas de protección de derechos territoriales decretadas por los Comités Departamentales para la atención integral a la población desplazada por la violencia.
+       */
+      !!@ ili2db.dispName = "Departamental"
+      Departamental,
+      /** Se debe seleccionar esta opción cuando se trate de medidas administrativas de protección de derechos territoriales decretadas por los Comités Municipales para la atención integral a la población desplazada por la violencia.
+       */
+      !!@ ili2db.dispName = "Municipal"
+      Municipal
+    );
+
+    DTJ_OtraSituacionHechoTipo = (
+      /** Predios que se encuentran dentro de la vigencia de regímenes de adjudicación u otra naturaleza que impiden su libre disposición por parte del titular del derecho.
+       */
+      !!@ ili2db.dispName = "Solicitud autorización limitaciones al derecho de dominio"
+      Solicitud_Autorizacion_Limitaciones_Derecho_Dominio,
+      /** Predio en los cuales se identifica la existencia de una orden judicial de adjudicación, emanada por Juez competente, que impone términos de cumplimiento para su formalización a la ANT.
+       */
+      !!@ ili2db.dispName = "Predios con orden judicial de adjudicación:"
+      Predio_Con_Orden_Judicial_Adjudicacion,
+      /** Predios que se identifican que tienen pendiente para su formalización una decisión de fondo sobre trámites administrativos iniciados en el marco de las competencias del INCORA o INCODER.
+       */
+      !!@ ili2db.dispName = "Con proceso misional ANT en curso (rezago)"
+      Con_Proceso_Misional_ANT_En_Curso,
+      /** Se debe marcar esta opción cuando un predio de naturaleza privada y que requiera de formalización no cumple con requisitos legales exigidos.
+       */
+      !!@ ili2db.dispName = "Predio privado que no cumple con requisitos dados por la Ley"
+      Predio_Privado_No_Cumple_Requisitos_Ley
+    );
+
+    DTJ_PosibleRutaAtencionTipo = (
+      /** Dentro de esta ruta de atención se encuentran aquellos predios que pertenecen al FNA y que tiene una ocupación licita y regular, es decir, tiene una autorización para estar ejerciendo ocupación en el predio del FNA por parte del INCORA - INCODER - ANT, no obstante, lo anterior, no se ha tramitado el acto administrativo de adjudicación e inscripción en la ORIP correspondiente. Así mismo, a través de esta ruta de atención, se tramitarán las ocupaciones irregulares o de hechos.
+       */
+      !!@ ili2db.dispName = "Adjudicación de predios FNA ocupados - Regularización"
+      Adjudicacion_De_Predios_FNA_Ocupados,
+      /** Adjudicación de predios de la Nación en atención a las órdenes judiciales proferida por Jueces y Magistrados de restitución de tierras en el marco de la Ley 1448 de 2014.
+       */
+      !!@ ili2db.dispName = "Adjudicación de predios por orden judicial - Ley 1448 de 2011"
+      Adjudicacion_De_Predios_Orden_Judicial,
+      /** Predios baldíos que no se encuentren siendo explotados por nadie que pueden tener la condición de adjudicables o no y que cuentan con un Folio de Matrícula abierto.
+       */
+      !!@ ili2db.dispName = "Administración de predios baldíos"
+      Administracion_De_Predios_Baldios,
+      /** Dentro de los bienes fiscales patrimoniales se encuentran los del Fondo Nacional Agrario, los cuales se encuentran señalados en Artículo 16 de la Ley 160 de 1994. Los bienes del FNA son el conjunto de bienes y recursos destinados a realizar la inversión social del Estado colombiano en materia de reforma agraria. Dentro de dicho patrimonio se encuentran bienes inmuebles rurales que provienen de múltiples fuentes y que, mediando su vocación agropecuaria, podrán ser utilizados para cumplir los fines descritos en el Artículo 64 de la Constitución Política de Colombia.
+       * 
+       * Pueden entrar al FNA cuando haya operado la caducidad administrativa (15 años para predios del FNA adjudicados) o cuando haya operado la condición resolutoria (12 años), cuando los predios hayan sido adquiridos a través de subsidio.
+       */
+      !!@ ili2db.dispName = "Administración de bienes fiscales patrimoniales"
+      Administracion_De_Predios_Fiscales_Patrimoniales,
+      /** Identificar predios desocupados, en los cuales de levantará la información topográfica del mismo teniendo en cuenta que este tipo de predios preliminarmente entrarían a ser parte del inventario del Fondo de Tierras para la Reforma Rural Integral.
+       */
+      !!@ ili2db.dispName = "Apertura de FMI"
+      Apertura_De_FMI,
+      /** Gestionar las solicitudes relacionadas con las limitaciones de la propiedad para los predios rurales adquiridos por los programas de acceso a tierras del Estado, de conformidad con la legislación aplicable.
+       */
+      !!@ ili2db.dispName = "Aplicación de causales de limitación al derecho de dominio"
+      Aplicacion_De_Causales_De_Limitacion_Derecho_Dominio,
+      /** Derecho de uso enmarcado dentro de los usos permitidos de acuerdo con la normatividad vigente en cuanto a usos permitidos, regímenes de restricción y de prohibiciones.
+       */
+      !!@ ili2db.dispName = "Asignación derechos de uso"
+      Asignacion_Derechos_De_Uso,
+      /** Son aquellos predios de naturaleza privada cuyo dominio se revierte a la Nación a través de la declaratoria de extinción del derecho de dominio, ingresando como baldíos reservados. Esta ruta de atención se fundamenta en los artículos 52, 54, 55 al 63 de la Ley 160 de 1994. (artículos e incisos que se encuentren vigentes). Acuerdo 203 de 2009, por el cual se reglamenta la adjudicación de las tierras aptas para la explotación económica, revertidas a la Nación en virtud de declaratoria administrativa de extinción del dominio.
+       */
+      !!@ ili2db.dispName = "Baldíos reservados"
+      Baldios_Reservados,
+      /** Los bienes fiscales patrimoniales se recibe por: a) Transferencia del INCODER - ANT b) Transferencia de SAE, c) Donaciones, d) adquisición directa de predios, e) Integración al patrimonio de predios afectos al servicio a nombre de INCORA, INCODEr y UNAT f) aplicación de caducidad administrativa y g) las señaladas en el artículo 16 de la Ley 160 de 1994, que sean bienes afectos al servicio. Capítulo VI del Acuerdo 349 de 2014, referente a la caducidad administrativa.
+       */
+      !!@ ili2db.dispName = "Bienes fiscales patrimoniales"
+      Bienes_Fiscales_Patrimoniales,
+      /** Predios en los cuales habitan personas que no logran acreditar la titularidad del derecho real de dominio. Predios sobre los cuales versa un presunto titular de derechos, no obstante, no se logra acreditar el derecho real de dominio.
+       */
+      !!@ ili2db.dispName = "Clarificación de la propiedad rural"
+      Clarificacion_De_Propiedad_Rural,
+      /** Cuando hay conflictos entre los límites de bienes de uso público y privados y el uso o manejo que se le está dando a estos.
+       */
+      !!@ ili2db.dispName = "Deslinde de tierras de la Nación"
+      Deslinde_De_Tierras_De_La_Nacion,
+      /** Predios no explotados, abandonados y que no cuenten con poseedores. Estos casos, en su mayoría, serán conocidos por la información suministrada por la comunidad, por el Ministerio Público o por la autoridad ambiental.
+       */
+      !!@ ili2db.dispName = "Extinción del derecho de dominio"
+      Extincion_Derecho_De_Dominio,
+      /** Predio no cumple con los requisitos legales: sólo aplica para aquellos predios de naturaleza privada y que requieran formalización que no cumplan con los requisitos exigidos por la Ley, por tanto no puede implementarse ninguna de las rutas de OSPR.
+       */
+      !!@ ili2db.dispName = "Predio no cumple con los requisitos legales"
+      Predio_No_Cumple_Con_Requisitos_Legales,
+      /** Predios de naturaleza pública o privada que se encuentren en los límites del suelo urbano, de acuerdo con el plan de ordenamiento territorial vigente para cada ente territorial.
+       * 
+       * Predios de naturaleza pública o privada que se encuentre registrado en el Registro de Tierras Despojadas y abandonadas Forzosamente.
+       * 
+       * Predios de naturaleza pública o privada sobre los cuales se haya solicitado su restitución.
+       */
+      !!@ ili2db.dispName = "No objeto de OSPR"
+      No_Objeto_De_OSPR,
+      /** Predios cuya naturaleza sea privada y que, de acuerdo con la información catastral, registral y la verificación realizada en campo coincide plenamente.
+       * 
+       * Predios de presunta naturaleza privada que sólo requieran actualización de linderos, rectificación de área por imprecisa determinación, actualización masiva y puntual de linderos y áreas, rectificación de linderos por acuerdo entre las partes, e inclusión de área y/o linderos.
+       * 
+       * Esta ruta aplica, sólo sí al analizar catastral y jurídicamente el predio no es objeto de atención por otra ruta de atención, es decir, que para este caso solo se haría la actualización masiva y puntual de linderos y áreas y/o inclusión de área y/o linderos.
+       */
+      !!@ ili2db.dispName = "Procedimientos catastrales con efectos registrales"
+      Procedimientos_Catastrales_Con_Efectos_Registrales,
+      /** Predios en los cuales el titular del derecho real de dominio realizó una venta informal del inmueble y existe un acuerdo con el comprador para ratificar la venta a través de escritura pública e inscripción en la ORIP. Se debe tener en cuenta que, si se cumple el tiempo para la ruta de titulación de la posesión, se prefiere ésta sobre la ratificación de venta.
+       */
+      !!@ ili2db.dispName = "Ratificación de venta"
+      Ratificacion_De_Venta,
+      /** Ocupación predios baldíos inadjudicables, reservados o con expresa prohibición legal (salvo acuerdos, convenios o contratos de uso adelantados por la Subdirección de Administración de Tierras de la Nación).
+       * 
+       * Ocupación de Predios baldíos negados en titulación de baldíos por la Subdirección de Acceso a Tierras (salvo acuerdos, convenios o contratos de uso adelantados por la Subdirección de Administración de Tierras de la Nación).
+       * 
+       * Baldíos ocupados en exceso de UAF (predial o zona homogénea).
+       */
+      !!@ ili2db.dispName = "Recuperación de baldío indebidamente ocupado"
+      Recuperacion_De_Baldio_Indebidamente_Ocupado,
+      /** La revocatoria del acto administrativo por medio del cual se adjudica un predio baldío ya sea en el marco de lo establecido la Ley 160 de 1994 o en el Decreto Ley 902 de 2017, se dará cuando exista violación de las normas agrarias que estén establecidas en el momento de la adjudicación. De acuerdo con lo establecido en los incisos 6° y 7° del artículo 72 de la Ley 160 de 1994, podrá revocar directamente, en cualquier tiempo, las resoluciones de adjudicación de tierras baldías proferidas con violación a lo establecido en las normas legales o reglamentarias vigentes sobre baldíos, sin consentimiento expreso de su
+       * 
+       * titular cuando: existe violación de las normas Constitucionales, legales o reglamentarias vigentes.
+       */
+      !!@ ili2db.dispName = "Revocatoria de titulación de baldíos"
+      Revocatoria_De_Titulacion_De_Baldios,
+      /** Son aquellas solicitudes que se encuentren en terreno y mediante las cuales se estén adelantando o tramitando algún procedimiento, a través de alguna de las Subdirecciones por oferta de la ANT.
+       * 
+       * En este caso se deberá informar a la Subdirección de Planeación Operativa, con el fin de establecer el nivel de avance de tramite gestionado ante alguna de las Subdirecciones y si es necesario la consecución de algún documento o trámite requerido, dependiendo del procedimiento que se esté adelantando.
+       */
+      !!@ ili2db.dispName = "Solicitud encontrada en terreno - posible rezago"
+      Solicitud_Encontrada_En_Terreno_Posible_Rezago,
+      /** Predios frente a los cuales el titular del derecho real de dominio falleció y entre sus herederos existe acuerdo para adelantar sucesión por vía notarial.
+       * 
+       * Se debe tener en cuenta que, si se cumple el tiempo para la ruta de titulación de la posesión, se prefiere ésta sobre la sucesión por vía notarial, siempre y cuando se tenga certeza sobre la no afectación de derechos a terceros.
+       */
+      !!@ ili2db.dispName = "Sucesión por vía notarial"
+      Sucesion_Por_Via_Notarial,
+      /** Predios en los cuales quienes ejerzan la posesión de los mismos, no se compadezcan con el titular del derecho real de dominio, entendiendo la posesión como la tenencia del predio con ánimo de señor y dueño (art. 762 del CC), esto es, abonarlo, sembrarlo, pagar impuestos y servicios públicos, entre otros, considerándose dueño del bien; y quienes ejercen esa posesión solo cumplirán con el tiempo legal exigido si se suma la posesión sucesiva e ininterrumpida de su o sus antecesores.
+       */
+      !!@ ili2db.dispName = "Suma de posesiones"
+      Suma_De_Posesiones,
+      /** Procedimiento a través del cual la ANT, previo estudio y lleno de requisitos legales, adjudica a solicitud a Entidades de Derecho Público interesadas, ya sea por oficio o por orden judicial, de un terreno baldío en el cual existe o se planea construir obras de infraestructura para la instalación o dotación de servicios públicos, o aquellas cuyas actividades u objeto social hayan sido aclarados por la ley como de utilidad pública e interés social, podrán solicitar y obtener la adjudicación en propiedad de terrenos baldíos bajo la condición resolutoria de cumplir con el fin previsto, dentro del término que para tal efecto señale el Instituto colombiano de Desarrollo Rural en la respectiva resolución de adjudicación." (Artículo 2.14.10.6.1. del Decreto 1071 de 2015)” (Artículo 2.14.10.6.1. del Decreto 1071 de 2015).
+       */
+      !!@ ili2db.dispName = "Titulación baldío EDP"
+      Titulacion_Baldio_EDP,
+      /** Terrenos situados dentro de los límites del territorio Nacional que carecen de otro dueño, y los que habiendo sido adjudicados con ese carácter deben volver al dominio del Estado conforme a la que dispone la Ley. (Tomado de la ficha ACCTI-P-003).
+       */
+      !!@ ili2db.dispName = "Titulación de baldío persona natural"
+      Titulacion_De_Baldio_Persona_Natural,
+      /** Terrenos situados dentro de los límites del territorio Nacional que carecen de otro dueño, y los que habiendo sido adjudicados con ese carácter deben volver al dominio del Estado conforme a la que dispone la Ley. (Tomado de la ficha ACCTI-P-003).
+       */
+      !!@ ili2db.dispName = "Titulación a persona jurídica"
+      Titulacion_Persona_Juridica,
+      /** Predios en los cuales quienes ejerzan la posesión de estos, no se compadezcan con el titular del derecho real de dominio, entendiendo la posesión como la tenencia del predio con ánimo de señor y dueño (art. 762 del CC), esto es, abonarlo, sembrarlo, pagar impuestos y servicios públicos, entre otros, considerándose dueño del bien.
+       */
+      !!@ ili2db.dispName = "Titulación de la posesión y saneamiento falsa tradición"
+      Titulacion_De_Posesion_Y_Saneamiento_Falsa_Tradicion,
+      /** Se adjudicó a una persona el derecho de dominio y que no se registró en una ORIP correspondiente. Para esta ruta de atención se debe identificarse un acto administrativo que no se haya registrado en una ORIP. La persona beneficiaria de la adjudicación del derecho de dominio de predios baldíos o FNA debe ser la misma, así como, se debe verificar la explotación del predio sea concordante con la adjudicación. En caso que la persona que ocupa el predio no sea la misma adjudicataria del acto administrativo, se deberá analizar, de acuerdo a las situaciones de hecho que se presenten.
+       */
+      !!@ ili2db.dispName = "Verificación de auto 040 de corte constitucional"
+      Verificacion_De_Auto_040_De_Corte_Constitucional
+    );
+
+    DTJ_PredioBaldioTipo = (
+      /** Son aquellos predios que cuentan con equipamientos en uso (centros de salud, cementerios, escuelas, etc.)
+       */
+      !!@ ili2db.dispName = "Baldío de entidades de derecho público"
+      Baldio_EDP,
+      /** Son aquellos que son susceptibles de titulación a un particular que cumpla con los requisitos establecidos en la Ley
+       */
+      !!@ ili2db.dispName = "Baldío adjudicable"
+      Baldio_Adjudicable,
+      /** Son aquellos predios que por sus características físicas o jurídicas y normativas (Restricciones y Condicionantes) no son susceptibles de ser adjudicados, sin embargo, en algunas ocasiones se permite su uso condicionado a través de contratos con la Agencia Nacional de Tierras.
+       */
+      !!@ ili2db.dispName = "Baldío inadjudicable"
+      Baldio_Inadjudicable
+    );
+
+    DTJ_PredioFiscalPatrimonialTipo = (
+      /** Conjunto de bienes y recursos destinados a realizar la inversión social del Estado colombiano en materia de Reforma Agraria, su conformación se encuentra dispuesta en el artículo 16 de la ley 160 de 1994.
+       */
+      !!@ ili2db.dispName = "Fondo Nacional Agrario"
+      FNA,
+      /** Fondo especial que opera como una cuenta, sin personería jurídica, para facilitar el acceso a la población campesina, familias y asociaciones rurales, comunidades étnicas, entre otros,  administrado por la Agencia nacional de Tierra.  (Ver artículo 18 del decreto ley 902 de 2017)
+       */
+      !!@ ili2db.dispName = "Fondo de Tierras de la Reforma Rural Integral"
+      FTRRI,
+      /** El literal b del artículo 4 de la Ley 397 de 1997, modificado por el artículo 1 de la Ley 1185 de 2008,  establece que “…se consideran como bienes de interés cultural de los ámbitos nacional, departamental, distrital, municipal, o de los territorios indígenas o de las comunidades negras de que trata la Ley 70 de 1993 y, en consecuencia, quedan sujetos al respectivo régimen de tales, los bienes materiales declarados como monumentos, áreas de conservación histórica, arqueológica o arquitectónica, conjuntos históricos, u otras denominaciones que, con anterioridad a la promulgación de esta ley, hayan sido objeto de tal declaratoria por las autoridades competentes, o hayan sido incorporados a los planes de ordenamiento territorial…”
+       */
+      !!@ ili2db.dispName = "Bienes de interés cultural – BIC"
+      Bienes_Interes_Cultural,
+      /** Centros educativos o de enseñanza ubicados en las zonas rurales de los municipios, debidamente reconocidos por la autoridad competente, Ministerio de Educación.
+       */
+      !!@ ili2db.dispName = "Escuelas o colegios"
+      Escuelas_Colegios,
+      /** Sistema de irrigación que permite transportar el suministro de agua, a los municipios y sus comunidades.
+       */
+      !!@ ili2db.dispName = "Acueductos"
+      Acueductos,
+      /** Terrenos destinados por los municipios para la disposición final de las basuras  generadas por sus habitantes.
+       */
+      !!@ ili2db.dispName = "Relleno sanitario"
+      Relleno_Sanitario,
+      /** Otro tipo de predio fiscal patrimonial
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+    DTJ_PredioUsoPublicoTipo = (
+      /** Aquellas que permiten la comunicación a nivel Nacional, conectando capitales de departamento, fronteras, puertos y zonas de producción.  (Ley 1228 de 2008)
+       */
+      !!@ ili2db.dispName = "Vía primaria"
+      Via_Primaria,
+      /** Aquellas cuya función permita la comunicación entre dos o más municipios o con una vía de primer orden. (Ley 1228 de 2008)
+       */
+      !!@ ili2db.dispName = "Vía secundaría"
+      Via_Secundaria,
+      /** Aquellas cuya función es permitir la comunicación entre dos o más veredas de un municipio o con una vía de segundo orden. (Ley 1228 de 2008)
+       */
+      !!@ ili2db.dispName = "Vía terciaria"
+      Via_Terciaria,
+      /** Zona de reserva o de exclusión para carreteras. (web invias)
+       */
+      !!@ ili2db.dispName = "Fajas viales"
+      Fajas_Viales,
+      /** Espacio de dominio del estado, con afectación a servicio público cuyo uso y goce pertenece a los habitantes de un territorio.
+       */
+      !!@ ili2db.dispName = "Plaza"
+      Plaza,
+      /** Lugar natural y/o artificial, de dominio de la Nación, cuyo uso y goce pertenece a todos los habitantes.
+       */
+      !!@ ili2db.dispName = "Parque"
+      Parque,
+      /** Cualquier extensión de marisma, pantano o turbera, o superficie cubierta de aguas, sean estas de régimen natural o artificial, permanentes o temporales, estancadas o corrientes, dulces, salobres o saladas, incluidas las extensiones de aguas marinas cuya profundidad en marea baja no exceda de seis metros. (Ramsar, 1971)
+       */
+      !!@ ili2db.dispName = "Humedal"
+      Humedal,
+      /** Zonas o franjas de terreno aledañas a los cuerpos de agua que tienen como fin permitir el normal funcionamiento de las dinámicas hidrológicas, geomorfológicas y ecosistémicas propias de dichos cuerpos de agua.
+       */
+      !!@ ili2db.dispName = "Ronda hídrica"
+      Ronda_Hidrica,
+      /** Espacios abiertos cubiertos por vegetación de dominio de la nación, destinado al uso y goce de los habitantes del territorio.
+       */
+      !!@ ili2db.dispName = "Zona verde"
+      Zona_Verde,
+      /** Otros bienes determinados por la ley de entidades de derecho publico.
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+    DTJ_RegimenEscogenciaOSPRTipo = (
+      /** Escogencia de régimen en vigencia de la lay 160 de 1994 y sus normas reglamentarias.
+       */
+      !!@ ili2db.dispName = "Ley 160 de 1994"
+      Ley_160_De_1994,
+      /** Escogencia de régimen para aplicación del Decreto 902 y sus decretos reglamentarios.
+       */
+      !!@ ili2db.dispName = "Decreto 902 de 2017"
+      Decreto_902_De_2017,
+      /** No aplica.
+       */
+      !!@ ili2db.dispName = "No aplica"
+      No_Aplica
+    );
+
+    DTJ_RUPTATipo = (
+      /** Se marca esta opción cuando se evidencie que una persona solicita a la entidad administradora del RUPTA para que se brinde la protección a su derecho de propiedad, posesión u ocupación.
+       */
+      !!@ ili2db.dispName = "Individual"
+      Individual,
+      /** Se marca esta opción cuando los Comités Departamentales, Distritales o Municipales para la Atención Integral, hoy Comités Territoriales de Justicia Transicional, determinan que una zona podía ser objeto de abandono de manera masiva por las situaciones de violencia que se presenten en determinado territorio.
+       */
+      !!@ ili2db.dispName = "Colectiva"
+      Colectiva,
+      /** Cuando convergen las dos opciones anteriores al mismo tiempo.
+       */
+      !!@ ili2db.dispName = "Individual y colectiva"
+      Individual_Y_Colectiva
+    );
+
+    DTJ_SituacionHechoBaldioTipo = (
+      /** Predios que conforme a la Constitución y al Código Civil, pertenecen a la Nación por carecer de otro propietario y encontrarse situados dentro de sus límites territoriales sobre los cuales se profirió un acto administrativo, por medio del cual se adjudicó a una persona el derecho de dominio y que no se registró en la Oficina de registro de instrumentos públicos del respectivo municipio donde el bien inmueble esté involucrado.
+       */
+      !!@ ili2db.dispName = "Predio baldío adjudicado a través de acto administrativo, pero sin registro en ORIP"
+      Baldio_Adjudicado_Sin_Registro,
+      /** Terrenos situados dentro de los límites del territorio Nacional que carecen de otro dueño, y los que habiendo sido adjudicados con ese carácter deben volver al
+       * dominio del Estado conforme a la que dispone la Ley, que en ambos eventos cuentan con identificación jurídica de la ORIP (FMI).
+       */
+      !!@ ili2db.dispName = "Baldío por estudio de FMI y ocupado"
+      Baldio_Por_Estudio_FMI_Y_Ocupado,
+      /** Predios que conforme a la Constitución y al Código
+       * Civil, pertenecen a la Nación por carecer de otro propietario y encontrarse situados dentro de sus
+       * límites territoriales, que no se encuentran inmersos en situaciones que restrinjan la titulación del bien y que a partir de la valoración  de la información técnica y jurídica recabada durante el barrido predial masivo da cuenta que el predio esta siendo ocupado y/o explotado.
+       */
+      !!@ ili2db.dispName = "Baldío adjudicable con ocupación"
+      Baldio_Adjudicable_Con_Ocupacion,
+      /** Aquellos predios que de acuerdo a la clasificación del territorio, son rurales, que conforme a la Constitución y al Código Civil, pertenecen a la Nación por carecer de otro propietario y encontrarse situados dentro de sus límites territoriales, no se encuentran inmersos en situaciones que restrinjan la titulación del bien y  sean solicitados por entidades de derecho publico cuando cuenten con construcciones o deban construir obras de infraestructura para la instalación o dotación de servicios públicos, o para la operación de actividades que hayan sido declaradas por la ley como de utilidad pública e interés social.
+       */
+      !!@ ili2db.dispName = "Baldío con ocupación y con equipamientos o solicitud por una entidad territorial"
+      Baldio_Con_Ocupacion_Y_Equipamientos,
+      /** Predios baldíos que no se encuentren siendo explotados por nadie que pueden tener la condición de adjudicables o no y no cuentan con un Folio de Matrícula abierto.
+       */
+      !!@ ili2db.dispName = "Baldío desocupado sin FMI"
+      Baldio_Desocupado_Sin_FMI,
+      /** Predios baldíos que no se encuentren siendo explotados por nadie que pueden tener la condición de adjudicables o no y que cuentan con un Folio de Matricula abierto.
+       */
+      !!@ ili2db.dispName = "Baldío desocupado con FMI"
+      Baldio_Desocupado_Con_FMI,
+      /** Cuando exista  violación de las normas agrarias que estén establecidas en el momento de la adjudicación.
+       */
+      !!@ ili2db.dispName = "Predio baldío adjudicado con causal de revocatoria directa"
+      Baldio_Adjudicado_Con_Causal_Revocatoria_Directa,
+      /** Predios que pertenecen a la Nación, cuya ocupación es ejercida por sujetos que le ha sido negada la titulación, o que  no reúnen la calidad  de beneficiarios de reforma agraria, o hay exceso de UAF (predial o zona homogénea) (inf tomada de la guía de rutas).
+       */
+      !!@ ili2db.dispName = "Baldío indebidamente ocupado"
+      Baldio_Indebidamente_Ocupado,
+      /** Predios sobre los cuales versa un presunto titular de derechos, pero no se logra acreditar el derecho real de dominio.
+       */
+      !!@ ili2db.dispName = "Predio habitado por personas que no logran acreditar la titularidad del derecho real de dominio"
+      Predio_Habilitado,
+      /** Cuando hay conflictos entre los límites de bienes de uso público y privados y el uso o manejo que se le está dando a estos.
+       */
+      !!@ ili2db.dispName = "Colindancia baldío y predio privado sin delimitación clara de linderos"
+      Colindancia_Baldio_Y_Predio_Privado_Sin_Delimitacion,
+      /** Predios que pertenecen a la Nación, que no son susceptibles de adjudicación por encontrarse inmersos dentro de las restricciones de ley, pero que pueden ser susceptibles de asignación de derechos de uso, enmarcado dentro de los usos permitidos de acuerdo con la normatividad vigente.
+       */
+      !!@ ili2db.dispName = "Explotación u ocupación de baldío no adjudicable"
+      Explotacion_Ocupacion_De_Baldio_No_Adjudicable,
+      /** En el evento que la información evidenciada en territorio no se enmarque dentro de las situaciones antes indicadas, corresponde escoger otra situación de hecho.
+       */
+      !!@ ili2db.dispName = "Otra situación de hecho"
+      Otra_Situacion_Hecho
+    );
+
+    DTJ_SituacionHechoFiscalesTipo = (
+      /** Predios que de acuerdo con el análisis jurídico pertenezca al Fondo Nacional Agrario y se encuentre desocupado. (Ver Art. 16 de la Ley 160 de 1994 y Guía de Rutas de Atención de la Agencia Nacional de Tierras).
+       */
+      !!@ ili2db.dispName = "Predio FNA desocupado"
+      Predio_FNA_Desocupado,
+      /** Predios que de acuerdo con el análisis jurídico pertenezca al Fondo Nacional Agrario y se haya proferido un acto administrativo en el que se haya adjudicado. (Ver Art. 16 de la Ley 160 de 1994 y Guía de Rutas de Atención de la Agencia Nacional de Tierras).
+       */
+      !!@ ili2db.dispName = "Predio FNA adjudicado a través de acto administrativo sin registro en ORIP"
+      Predio_FNA_Adjudicado_Sin_Registro,
+      /** Predios que de acuerdo con el análisis jurídico pertenezca al Fondo Nacional Agrario y que el ocupante del predio no cuente con autorización por parte de la ANT o del INCODER, en este caso requiere de ocupación previa al 27 de mayo de 2017. (Ver Capítulo V Acuerdo 349 De 2014).
+       */
+      !!@ ili2db.dispName = "Predio FNA ocupado sin previa autorización"
+      Predio_FNA_Ocupado_Sin_Autorizacion,
+      /** Pedios que de acuerdo con el análisis jurídico pertenezca al Fondo Nacional Agrario y el ocupante del predio cuente con autorización para estar dentro del predio. (Ver Capítulo III Acuerdo 349 DE 2014 y Guía de Rutas de Atención de la Agencia Nacional de Tierras).
+       */
+      !!@ ili2db.dispName = "Predio FNA ocupado con previa autorización"
+      Predio_FNA_Ocupado_Con_Autorizacion,
+      /** Los predios del FNA que hayan sido entregados, a través de un subsidio, deben cumplir con condición resolutoria de 12 años, sino cumplen con dicha condición se aplicará la condición resolutoria que establecía el Capítulo IV de la Ley 160 de 1994 (téngase en cuenta que este capítulo fue derogado por el artículo 82 del Decreto 902 de 2017). La caducidad se aplica para aquellos predios que fueron adjudicados con la condición de que el adjudicatario estuviera ocupando por 15 años el porcentaje de un predio o un predio del FNA. Si el ocupante abandona o vende sin haber cumplido los 15 años, que tenía como condición, se aplicará la caducidad sobre dicha adjudicación. (Ver Capítulo VI Acuerdo 349 de 2014 y Guía de Rutas de Atención de la Agencia Nacional de Tierras)
+       */
+      !!@ ili2db.dispName = "Adjudicaciones FNA registradas en el FMI con causal de condición resolutoria o caducidad administrativa"
+      Adjudicaciones_FNA_Registradas_FMI_Con_Caducidad,
+      /** Se establece mesas de trabajo entre las Subdirección de Planeación operativa y las Subdirecciones por oferta de la ANT para el estudio de predios del Fondo Nacional Agrario que sean complejo o de difícil identificación de la naturaleza jurídica.
+       */
+      !!@ ili2db.dispName = "Casos complejos FNA"
+      Casos_Complejos_FNA,
+      /** Aquellos predios que un principio su naturaleza era privada, pero por no cumplir con la función social ecológica el derecho de dominio se extingue a favor de la Nación, convirtiéndose en un baldío reservado.
+       */
+      !!@ ili2db.dispName = "Predio privado sobre el cual se profirió resolución de extinción de dominio a favor de la Nación (baldío reservado)"
+      Predio_Privado_Resolucion_Extincion_Dominio,
+      /** Se ingresan en este campo aquellas situaciones, que estén relacionadas con predios fiscales patrimoniales, y que no estén contemplados en las anteriores opciones.
+       */
+      !!@ ili2db.dispName = "Otra situación de hecho"
+      Otra_Situacion_Hecho
+    );
+
+    DTJ_SituacionHechoPropiedadTipo = (
+      /** Discordancia lógica en la cadena traslaticia de dominio, reflejada en el certificado de Libertad y Tradición.
+       */
+      !!@ ili2db.dispName = "Falsa tradición"
+      Falsa_Tradicion,
+      /** Ánimo de señor y dueño en un predio de dominio privado por el tiempo exigido por la normativa agraria.
+       */
+      !!@ ili2db.dispName = "Posesión en predio privado"
+      Posesion_Predio_Privado,
+      /** Dos o más personas que, con ánimo de señor y dueño, acumulan posesiones de manera continua e ininterrumpida.
+       */
+      !!@ ili2db.dispName = "Suma de posesiones"
+      Suma_Posesiones,
+      /** Negocio jurídico no perfeccionado por la falta de registro.
+       */
+      !!@ ili2db.dispName = "Escritura pública o documento privado sin registro"
+      Escritura_Publica_Documento_Privado_Sin_Registro,
+      /** Herederos de un difunto con pretensiones sobre un bien.
+       */
+      !!@ ili2db.dispName = "Sucesión ilíquida"
+      Sucesion_Iliquida,
+      /** Predio privado que requiere de una acción de extinción de dominio.
+       */
+      !!@ ili2db.dispName = "Predio no explotado o abandonado o con incumplimiento de las normas ambientales"
+      Predio_No_Explotado_Y_Abandonado,
+      /** Otra situación de hecho.
+       */
+      !!@ ili2db.dispName = "Otra situación de hecho"
+      Otra_Situacion_Hecho
+    );
+
+    DTJ_SubRelacionTenenciaTipo = (
+      /** Es la forma de tenencia sobre predios baldíos que, pese a no constituir propiedad, genera en quien la ejerce a partir de actos de explotación y aprovechamiento económico, la expectativa de adquirirla mediante título expedido por la ANT.
+       */
+      !!@ ili2db.dispName = "Ocupación"
+      Ocupacion(
+        /** Es la relación de tenencia que se da en predios del Fondo Nacional Agrario -FNA, ahora Fondo de Tierras para Reforma Rural Integral.
+         */
+        !!@ ili2db.dispName = "Ocupación de FNA-FTRRI"
+        Ocupacion_FNA_FTRRI,
+        /** Es la relación de tenencia que se da en los predios que han sido objeto de los procesos de extinción del derecho de dominio.
+         */
+        !!@ ili2db.dispName = "Ocupación baldío reservado"
+        Ocupacion_Baldio_Reservado
+      ),
+      /** Es la forma de tenencia en la que la persona que se encuentra actualmente en el predio reconoce a otro como dueño.
+       */
+      !!@ ili2db.dispName = "Tenedor"
+      Tenedor,
+      /** Predio que actualmente no esta siendo ocupado ni explotado por alguna persona.
+       */
+      !!@ ili2db.dispName = "Sin ocupación"
+      Sin_Ocupacion
+    );
+
+    DTJ_TematicaDeterminanteTipo = (
+      /** Determinantes del orden ambiental. Términos y condiciones fijados por las autoridades ambientales para garantizar la sostenibilidad ambiental de los procesos de ordenamiento territorial (Minambiente, 2016).
+       */
+      !!@ ili2db.dispName = "Ambiental"
+      Ambiental(
+        /** Esta opción se debe marcar cuando se encuentre un predio que cruce con esta capa. Esta capa se refiere aquellos terrenos que se eligen para realizar las compensaciones ambientales mejoramiento o restauración de ecosistemas para compensar impactos negativos sobre la biodiversidad.
+         */
+        !!@ ili2db.dispName = "(Ambiental) Bancos de hábitat"
+        Bancos_De_Habitat,
+        /** Se debe elegir esta opción cuando se encuentre que el predio cruce con esta capa. El bosque seco tropical es la formación vegetal que presenta una cobertura boscosa continua y que se distribuye entre los 0-1000 m de altitud; presenta temperaturas superiores a los 24°C (piso térmico cálido) y precipitaciones entre los 700 y 2000 mm anuales, con uno o dos periodos marcados de sequía al año. Esta formación corresponde a los llamados bosques higrotropofíticos, bosque tropical caducifolio de diversos autores, bosque seco Tropical de Holdridge, y al bosque tropical de baja altitud deciduo por sequía de la clasificación propuesta por la UNESCO.
+         */
+        !!@ ili2db.dispName = "(Ambiental) Bosque seco tropical"
+        Bosque_Seco_Tropical,
+        /** Esta opción se puede marcar cuando el predio objeto de intervención cruce con este cuerpo de agua.
+         */
+        !!@ ili2db.dispName = "(Ambiental) Ciénaga"
+        Cienaga,
+        /** Esta opción se debe marcar cuando se encuentre un predio que cruce con esta capa. Por páramos se puede entender que son ecosistema de alta montaña, ubicado entre el límite superior del bosque andino y, si se da el caso, con el límite inferior de los glaciares o nieves perpetuas, en el cual domina una vegetación herbácea y de pajonales, frecuentemente frailejones y puede haber formaciones de bosques bajos y arbustivos y presentar humedales como los ríos, quebradas, arroyos, turberas, pantanos, lagos y lagunas.
+         */
+        !!@ ili2db.dispName = "(Ambiental) Complejo de páramos"
+        Complejo_De_Paramos,
+        /** Esta opción se debe marcar cuando se encuentre un predio que cruce con esta capa. Por embalse se entiende aquella acumulación de agua producida por la construcción de una presa sobre el lecho de un río o arroyo, la cual cierra parcial o totalmente su cauce.
+         */
+        !!@ ili2db.dispName = "(Ambiental) Embalse"
+        Embalse,
+        /** "Zona húmeda o humedal como cualquier extensión de marisma, pantano o turbera, o superficie cubierta de aguas, sean estas de régimen natural o artificial, permanentes o temporales, estancadas o corrientes, dulces, salobres o saladas, incluidas las extensiones de aguas marinas cuya profundidad en marea baja no exceda de seis metros" (Ramsar, 1971). En Colombia se ha establecido como humedales RAMSAR los siguientes: Sistema Delta estuarino del río Magdalena, Ciénaga grande de Santa Marta, Laguna de la Cocha, Delta río Baudó, Delta río Baudó, Sistema Lacustre Chingaza.
+         */
+        !!@ ili2db.dispName = "(Ambiental) Humedales RAMSAR"
+        Humedales_RAMSAR,
+        /** Marca esta opción cuando cruce con alguna capa o cuando se encuentre un cuerpo de agua con estas estas especificaciones: depresión de la zona costera, ubicada por debajo del promedio mayor de las mareas más altas, que tiene una comunicación permanente o efímera pero protegida de las fuerzas del mar por algún tipo de barrera, la cual puede ser arenosa o formada por islas de origen marino que, en general, son paralelas a la línea de costa. Son cuerpos de aguas someras y de salinidad variable. (Art. 2.2.4.1.1.2 del Decreto 1077 de 2015.)
+         */
+        !!@ ili2db.dispName = "(Ambiental) Laguna"
+        Laguna,
+        /** Marca esta opción cuando se encuentre entre los limites establecidos por la Ley 2° y sus resoluciones reglamentarias. Entendiendo que la Ley 2 de 1959 protege aquellos espacios geográficos que está destinado para el desarrollo de la economía forestal y protección de los suelos, las aguas y la vida silvestre. Existen 7 Reservas Forestales que ocupan un área aproximada de 48.345.845 hectáreas (De acuerdo a cifras extraídas de resoluciones de zonificación). - Del Pacífico, - Central, - Magdalena, - Sierra Nevada de Santa Marta, - Serranía de los Motilones,  - Del Cocuy  - Amazonía.
+         */
+        !!@ ili2db.dispName = "(Ambiental) Limite actual reserva forestal Ley 2a"
+        Limite_Actual_Reserva_Forestal_Ley2a,
+        /** Marca esta opción cuando cruce con alguna capa que identifique que un predio está en un relictos de antiguos cauces del río (paleocauces), como antiguos brazos ya cerrados y sin conexión, tramos o curvas del cauce aislados como producto de su estrangulamiento en meandros, así como por el aislamiento progresivo y cierre de tramos de caños o bahías de ciénagas por colmatación.
+         */
+        !!@ ili2db.dispName = "(Ambiental) Madrevieja"
+        Madrevieja,
+        /** Se marca esta opción cuando se encuentre que se encuentre debidamente delimitados por la autoridad ambiental competente.
+         */
+        !!@ ili2db.dispName = "(Ambiental) Páramos delimitados"
+        Paramos_Delimitados,
+        /** Se debe marcar depósitos costeros de material particulado de diferentes tamaños, los cuales son modelados y acondicionados dependiendo de las condiciones climáticas y la fuerza del oleaje.
+         */
+        !!@ ili2db.dispName = "(Ambiental) Playas"
+        Playas,
+        /** La sustracción es un proceso en el que valora la Autoridad Ambiental, con el fin de determinar si un área específica puede ser sustraída o no para desarrollo de un proyecto, obra o actividad.
+         */
+        !!@ ili2db.dispName = "(Ambiental) Reserva forestal Ley 2a - Sustracciones"
+        Reserva_Forestal_Ley2a_Sustracciones,
+        /** Comprende la faja paralela a la línea de mareas máximas o a la del cauce permanente de ríos y lagos, hasta de treinta metros de ancho.  (Art. 2.2.2.6.1.6 decreto 1076 de 2015).
+         */
+        !!@ ili2db.dispName = "(Ambiental) Ronda hídrica drenajes"
+        Ronda_Hidrica_Drenajes,
+        /** Es el conjunto de áreas protegidas, actores sociales y estrategias e instrumentos de gestión que las articulan, para contribuir como un todo al cumplimiento de los objetivos de conservación del país. Incluye todas las áreas protegidas de gobernanza pública, privada o comunitaria, y del ámbito de gestión nacional, regional o local. (ver Art. 2.2.2.1.2.1 del Decreto 1076 de 2015).
+         */
+        !!@ ili2db.dispName = "(Ambiental) Sistema Nacional de Áreas Protegidas"
+        Sistema_Nacional_De_Areas_Protegidas,
+        /** Cuando en el cruce de capa o se verifique en campo se logre identificar áreas de la zona costera definida geográficamente para su ordenación y manejo, que contiene ecosistemas con características propias y distintivas, con condiciones similares y de conectividad en cuanto a sus aspectos estructurales y funcionales.  (Art. 1° Decreto 1120 de 2013).
+         */
+        !!@ ili2db.dispName = "(Ambiental) Unidades ambientales costeras"
+        Unidades_Ambientales_Costeras,
+        /** Ley 70 de 1993 Art. 1 dispone que: "...reconocer a las comunidades negras que han venido ocupando tierras baldías en las zonas rurales ribereñas de los ríos de la Cuenca del Pacífico, de acuerdo con sus prácticas tradicionales de producción, el derecho a la propiedad colectiva,..." (ver Art. 2 de la Ley 70 de 1993).
+         */
+        !!@ ili2db.dispName = "(Ambiental) Zonas rurales ribereñas de los ríos de la Cuenca del Pacífico"
+        Zonas_Rurales_Riberenas_Rios_Cuenca_Del_Pacifico,
+        /** Se debe marcar esta opción cuando en cruce de capas o verificación en campo se logre identificar que el predio se encuentra identificada en la Ley 2 de 1959 y las resoluciones que delimitan estas zonas.
+         */
+        !!@ ili2db.dispName = "(Ambiental) Zonificación de la Reserva Forestal Ley 2a"
+        Zonificacion_De_Reserva_Forestal_Ley2a
+      ),
+      /** Determinante debida a aquelllos territorios tradicionalmente usados por comunidades étnicas, resguardos y territorios colectivos.
+       */
+      !!@ ili2db.dispName = "Comunidades Étnicas"
+      Comunidades_Etnicas(
+        /** Procedimiento por medio del cual un resguardo constituido a comunidades indígenas es ampliado cuando las tierras fueren insuficientes para su desarrollo económico y cultural o para el cumplimiento de la función social o ecológica de la propiedad, o cuando en el resguardo no fueron incluidas la totalidad de las tierras que ocupan tradicionalmente o que constituyen su hábitat.
+         */
+        !!@ ili2db.dispName = "(Comunidades Étnicas) Ampliación de Resguardos Indígenas"
+        Ampliacion_De_Resguardos_Indigenas,
+        /** Los resguardos coloniales son una institución legal y sociopolítica de carácter especial, conformada por una o más comunidades indígenas, que poseen títulos de las tierras poseídas por los miembros de la parcialidad a título individual o colectivo desde la época de la colonia, poseen su territorio y se rigen para el manejo de éste y su vida interna por una organización autónoma amparada por el fuero indígena y su sistema normativo propio. (Tomado de: procedimiento para el registro y certificación de la autoridad o cabildo de una comunidad y/o resguardo indígena Código: AN-AI-P1 – Ministerio del Interior).
+         */
+        !!@ ili2db.dispName = "(Comunidades Étnicas) Resguardos de Origen Colonial o Republicano"
+        Resguardos_De_Origen_Colonial_O_Republicano,
+        /** Se debe marcar esta opción cuando se evidencia la existencia de propiedad colectiva de las comunidades indígenas. Estos terrenos se caracterizan por ser inalienables, imprescriptibles e inembargables.
+         */
+        !!@ ili2db.dispName = "(Comunidades Étnicas) Resguardos Indígenas Constituidos"
+        Resguardos_Indigenas_Constituidos,
+        /** Es un procedimiento por medio del cual se adquiere o expropia las mejoras que quedaron incluidas dentro de un resguardo indígena constituido.
+         */
+        !!@ ili2db.dispName = "(Comunidades Étnicas) Saneamiento de Resguardos Indígenas"
+        Saneamiento_De_Resguardos_Indigenas,
+        /** Se debe elegir esta opción cuando se evidencia la existencia de una solicitud por parte de comunidades negras (NARP - negros, afros, raizales y palenqueros).
+         */
+        !!@ ili2db.dispName = "(Comunidades Étnicas) Solicitudes de Comunidades Negras"
+        Solicitudes_De_Comunidades_Negas,
+        /** El procedimiento para adelantar la medida de protección de la posesión de territorios ancestrales y/o tradicionales. (Art. 2.14.20.3.1 Decreto 1071 de 2015).
+         */
+        !!@ ili2db.dispName = "(Comunidades Étnicas) Solicitudes de Protección Territorial - Ancestrales"
+        Solicitudes_De_Proteccion_Territorial_Ancestrales,
+        /** Se debe marcar esta opción cuando se encuentre una pretensión por parte de una comunidad indígena para la constitución de un resguardo indígena.
+         */
+        !!@ ili2db.dispName = "(Comunidades Étnicas) Solicitudes de Resguardos Indígenas"
+        Solicitudes_De_Resguardos_Indigenas,
+        /** Procedimiento por medio del cual se reconoce la propiedad colectiva de unas tierras baldías a varias familias de una comunidad negras.
+         */
+        !!@ ili2db.dispName = "(Comunidades Étnicas) Títulos Colectivos"
+        Titulos_Colectivos
+      ),
+      /** Determinante en predios con extinción de dominio o de fondos sin personería jurídica tales como el Fondo de víctimas y Fondo de predios de la Unidad de Restitución de Tierras - RTDAF.
+       */
+      !!@ ili2db.dispName = "Extinción de dominio y fondos sin personería jurídica"
+      Extincion_Dominio_Y_Fondos_Sin_Personeria_Juridica(
+        /** Este fondo fue creado por el artículo 111 de la Ley 14148 de 2011,  como un fondo sin personería jurídica, adscrito a la Unidad Administrativa Especial de Gestión de Restitución de Tierras Despojadas.  en el cual se recopila toda la información física y jurídica sobre los predios que fueron abandonados o que les fueron despojados a las víctimas del conflicto. En este Registro también se incluyen los datos del solicitante de la restitución, su núcleo familiar y el contexto de despojo o abandono.
+         */
+        !!@ ili2db.dispName = "(Extinción de dominio y fondos sin personería jurídica) Fondo de predios de la Unidad de Restitución de Tierras - RTDAF"
+        Fondo_De_Predios_URT_RTDAF,
+        /** Se debe marcar cuando se evidencia el registro de un acta o documento que el propietario del predio entregue de manera voluntaria para la reparación de las víctimas del conflicto armado o se encuentre en las bases de datos que tenga la Sociedad de Activos Especiales, dado que es esa entidad la que administra estos bienes. Ver Decreto Ley 903 de 2017, Decreto 1407 de 2017 y Decreto 205 de  2020).
+         */
+        !!@ ili2db.dispName = "(Extinción de dominio y fondos sin personería jurídica) Fondo de Víctimas - Predios FARC EP"
+        Fondo_De_Victimas_Predios_FARC_EP,
+        /** Se debe marcar cuando en cruce de bases de datos o por estudio del Folio de Matrícula Inmobiliaria se logre evidenciar la existencia de un proceso de extinción de dominio, ya sea medidas cautelares interpuestas por la Fiscalía con funciones de extinción de dominio o sentencia judicial que extinga el dominio de un predio a favor de la Nación. Estos predios entrar a conformar el Fondo para la Rehabilitación, Inversión Social y Lucha contra el Crimen Organizado (Frisco). (Ver Ley 1708 de 2014).
+         */
+        !!@ ili2db.dispName = "(Extinción de dominio y fondos sin personería jurídica) Predios de extinción (S.A.E. S.A.S)"
+        Predios_De_Extincion,
+        /** Se debe marcar estos predios cuando en cruce de bases de datos o por el estudio del FMI se logra evidenciar predios sobre los cuales se encuentre en curso el proceso de justicia y paz, evidenciado medidas cautelares impuestas por la Fiscalía delegada para Justicia y Paz o existe extinción de dominio que extinga el derecho de dominio del predio a favor de la Nación. Estos predios conforman el Fondo para Reparación de la Víctimas. (Ver Ley 975 de 2012).
+         */
+        !!@ ili2db.dispName = "(Extinción de dominio y fondos sin personería jurídica) Predios Unidad de Víctimas - Fondo para la Reparación de las Víctimas - FRV"
+        Predios_Unidad_De_Victimas_FRV
+      ),
+      /** Determinantes sectoriales relacionados con el sector infraestructura.
+       */
+      !!@ ili2db.dispName = "Infraestructura"
+      Infraestructura(
+        /** Elegir esta opción cuando se encuentre en territorio una vía de primer orden, segundo orden, tercer orden. Ver Ley  1228 de 2008.
+         */
+        !!@ ili2db.dispName = "(Infraestructura) Vías"
+        Vias(
+          /** Las vías que comunican las principales zonas de producción y consumo del país; también las que comuniquen con los puertos, aeropuertos de nivel nacional e internacional y que su construcción y/o mejoramiento se haya realizado por compromiso del Gobierno a través de convenios o pactos internacionales. El volumen de tránsito será de 700 vehículos diarios, estén construidas en doble calzada.  (60m)
+           */
+          !!@ ili2db.dispName = "(Infraestructura) (Vías) Primer orden"
+          Primer_Orden,
+          /** Permita la comunicación entre dos o más municipios o con una vía de primer orden, su volumen de tránsito sea igual o superior a 150 vehículos por día y menor de 700 vehículos por día, que estén construidas en calzada sencilla cuyo ancho sea menor de 7,30 m y la población servida en cabecera municipal corresponda a una cantidad superior a 15.000 habitantes. (45m)
+           */
+          !!@ ili2db.dispName = "(Infraestructura) (Vías) Segundo orden"
+          Segundo_Orden,
+          /** Son aquellas vías que permiten  la comunicación entre dos o más veredas de un municipio o con una vía de segundo orden, su volumen de tránsito sea inferior a 150 vehículos por día, cuando las mismas estén construidas en calzada sencilla con ancho menor o igual a seis metros y la población servida en cabecera municipal sea inferior a 15.000 habitantes. (30)
+           */
+          !!@ ili2db.dispName = "(Infraestructura) (Vías) Tercer orden"
+          Tercer_Orden
+        ),
+        /** Elegir esta opción cuando se evidencia que existe un proyecto en curso; por ejemplo si se evidencia en FMI una anotación de compra directa o un proceso de expropiación. El proyecto debe contar con una licencia ambiental.
+         */
+        !!@ ili2db.dispName = "(Infraestructura) Polígono de proyectos viales"
+        Poligono_De_Proyectos_Viales,
+        /** Son las redes ferroviarias las cuales constan de carriles apoyados sobre traviesas que se disponen dentro de una capa de balasto.
+         */
+        !!@ ili2db.dispName = "(Infraestructura) Vías férreas"
+        Vias_Ferreas
+      ),
+      /** Determinantes sectoriales relacionados con el sector minero energético.
+       */
+      !!@ ili2db.dispName = "Minero energético"
+      Minero_Energetico(
+        /** Se consulta de las capas la explotación de una boca minera. Se debe marcar esta opción cuando se logre identificar la superficie por donde se accede a un yacimiento mineral.
+         */
+        !!@ ili2db.dispName = "(Minero energético) Bocamina en etapa de explotación"
+        Bocamina_En_Etapa_De_Explotacion,
+        /** Se entiende por Explotador Minero Autorizado las siguientes personas: (i) Titular Minero en Etapa de Explotación; (ii) Solicitantes de programas de legalización o de formalización minera siempre y cuando cuenten con autorización legal para su resolución (iii) Beneficiarios de áreas de reserva especial mientras se resuelvan dichas solicitudes; (iv) Subcontratista de formalización minera; (v) Mineros de Subsistencia. Se obtiene a través de Registro Único de Comercialización de minerales  - RUCOM: Herramienta tecnológica, que permite certificar a las personas naturales y jurídicas que comercializan de los minerales en el territorio nacional con el propósito de darle mayor transparencia a la actividad comercializadora de minerales en Colombia.
+         */
+        !!@ ili2db.dispName = "(Minero energético) Explotador minero"
+        Explotador_Minero,
+        /** Se escoge esta opción cuando se  consulte este portal para se muestre ?las áreas asignadas con contratos de hidrocarburos, las áreas que la ANH ofrece dentro del Procedimiento Permean?ente de Asignación de Áreas (PPAA) al igual que las áreas reservadas y las áreas disponibles; sobre estas últimas las compañías interesadas podrán realizar solicitudes de incorporación de áreas dentro del PPAA.
+         */
+        !!@ ili2db.dispName = "(Minero energético) Mapa de tierras de la Agencia Nacional de Hidrocarburos - ANH"
+        Mapa_De_Tierras_De_ANH(
+          /** Corresponde a un área contratada en la cual se realiza un descubrimiento y  se lleva  a cabo un programa de evaluación para establecer o no, su comercialización.
+           */
+          !!@ ili2db.dispName = "(Minero energético) (Mapa de tierras de la Agencia Nacional de Hidrocarburos - ANH) Área de evaluación técnica o área en exploración"
+          Area_De_Evaluacion_Tecnica_O_Area_En_Exploracion,
+          /** Es un área contratada en la cual el contratista o ECOPETROL S.A.,( en los contratos de asociación), decide explotar comercialmente uno o más yacimientos de hidrocarburos.
+           */
+          !!@ ili2db.dispName = "(Minero energético) (Mapa de tierras de la Agencia Nacional de Hidrocarburos - ANH) Área de explotación"
+          Area_De_Explotacion,
+          /** Áreas que no han sido objeto de asignación, de manera que sobre ellas no existe contrato vigente ni se ha adjudicado propuesta. También corresponde a las áreas devueltas parcial o totalmente que pueden ser objeto de asignación para la celebración de contratos de hidrocarburos.
+           */
+          !!@ ili2db.dispName = "(Minero energético) (Mapa de tierras de la Agencia Nacional de Hidrocarburos - ANH) Áreas disponibles"
+          Areas_Disponibles,
+          /** Aquellas donde no se puede adelantar un contrato de hidrocarburos por razones de política energética, de seguridad nacional o de orden público; por sus características geológicas, ambientales, sociales o por haber realizado estudios en ellas y tener proyectado o disponer de información exploratoria valiosa.
+           */
+          !!@ ili2db.dispName = "(Minero energético) (Mapa de tierras de la Agencia Nacional de Hidrocarburos - ANH) Áreas reservadas"
+          Areas_Reservadas
+        ),
+        /** Conformada por un conjunto continuo de celdas de tres coma seis por tres coma seis segundos de arco (3,6” x 3,6”), aproximadamente, 1,24 hectáreas, lo que equivale al área mínima a otorgar para un título minero.
+         */
+        !!@ ili2db.dispName = "(Minero energético) Minería - Cuadricula minera"
+        Mineria_Cuadricula_Minera(
+          /** Es un documento que entrega el Estado para otorgar un derecho a una persona natural o jurídica para explotar, por su propia cuenta y riesgo, un área de terreno en donde yacen recursos minerales no renovables.
+           */
+          !!@ ili2db.dispName = "(Minero energético) (Minería - Cuadricula minera) Títulos mineros"
+          Titulos_Mineros,
+          /** Son aquellos tramites que se deben surtir antes las autoridades competentes como el ANLA o la corporación ambiental correspondientes, así como el derecho a explotar el recurso el cual puede ser a través de los siguientes instrumentos: licencias de exploración y explotación, aportes mineros y contratos mineros.
+           */
+          !!@ ili2db.dispName = "(Minero energético) (Minería - Cuadricula minera) Solicitudes de otorgamiento derechos mineros"
+          Solicitudes_De_Otorgamiento_Derechos_Mineros
+        ),
+        /** La localización especifica corresponde a un shape a partir de información de la Agencia Nacional de Hidrocarburos (ANH).
+         */
+        !!@ ili2db.dispName = "(Minero energético) Ubicación pozos hidrocarburos"
+        Ubicacion_Pozos_Hidrocarburos(
+          /** Es una zona desconocida, con el fin de identificar si existe potencial de depósitos de crudo y/o gas.
+           */
+          !!@ ili2db.dispName = "(Minero energético) (Ubicación pozos hidrocarburos) Pozos perforados"
+          Pozos_Perforados,
+          /** Se debe elegir esta opción cuando se esté explotando un yacimiento ya conocido.
+           */
+          !!@ ili2db.dispName = "(Minero energético) (Ubicación pozos hidrocarburos) Pozos productores"
+          Pozos_Productores
+        )
+      ),
+      /** Determinantes relacionados con patrimonio arqueológico de la Nación que dada su naturaleza jurídica son inembargables, imprescriptible e inalienables.
+       */
+      !!@ ili2db.dispName = "Patrimonio arqueológico"
+      Patrimonio_Arqueologico(
+        /** Esta opción se debe marcar cuando se encuentre con un polígono o zona que delimite un territorio en el cual se encuentra particularidades y características únicas de evidencias arqueológicas y que requieran de una especial protección para su conservación.
+         */
+        !!@ ili2db.dispName = "(Patrimonio arqueológico) Áreas Arqueológicas Protegidas"
+        Areas_Arqueologicas_Protegidas
+      ),
+      /** Determinantes por riesgo para la localización de asentamientos humanos, por amenazas o riesgos naturales o por condiciones de insalubridad, zonas de alto riesgo no mitigable.
+       */
+      !!@ ili2db.dispName = "Riesgo"
+      Riesgo(
+        /** Son un tipo de movimiento en masa que se desplazan generalmente por los cauces de las quebradas, llegando a transportar volúmenes importantes de sedimentos y escombros, con velocidades peligrosas para los habitantes e infraestructura ubicados en las zonas de acumulación, de cuencas de montaña. (Tomado la Revista Gestión ambiente, volumen 14 – No 3, diciembre de 2011, Medellín ISSN 0124.177X. pp 45-50)
+         */
+        !!@ ili2db.dispName = "(Riesgo) Avenidas torrenciales"
+        Avenidas_Torrenciales,
+        /** Es un desplazamiento o movimiento en la masa de la tierra, provocado por la inestabilidad de un talud. Se produce cuando una gran masa de terreno se convierte en zona inestable y se desliza con respecto a una zona estable, a través de una superficie o franja de terreno de pequeño espeso. (Tomado de: https://www.ecured.cu/Deslizamientos_de_tierra)
+         */
+        !!@ ili2db.dispName = "(Riesgo) Deslizamientos"
+        Deslizamientos,
+        /** Es la amenaza, riesgo o vulnerabilidad que tiene una determinada zona a que se inunde ya sea provocado por desbordamiento de ríos, torrentes o ramblas, por lluvias torrenciales, deshielo, por subida de las mareas por encima del nivel habitual, por maremotos, huracanes, entre otros.
+         */
+        !!@ ili2db.dispName = "(Riesgo) Susceptibilidad de inundación"
+        Susceptibilidad_De_Inundacion,
+        /** Son aquellos territorios que tienen riesgo por amenaza volcánica al tener cercano y los cuales se encuentra activos, es decir, que pueden entrar en actividad eruptiva en cualquier momento y permanecen en estado de latencia.
+         */
+        !!@ ili2db.dispName = "(Riesgo) Zona de amenaza volcánica"
+        Zonas_De_Amenaza_Volcanica,
+        /** Las áreas identificadas por los estudios detallados como de riesgo alto no mitigable que constituyen suelo de protección en el POT.
+         */
+        !!@ ili2db.dispName = "(Riesgo) Zonas de riesgos no mitigable"
+        Zonas_De_Riesgos_No_Mitigable,
+        /** Se marcara esta opción cuando se logre identificar la pérdida físico-mecánica del suelo, con afectación en sus funciones y servicios ecosistémicos, que produce, entre otras, la reducción de la capacidad productiva de los mismos.
+         */
+        !!@ ili2db.dispName = "(Riesgo) Zonificación de degradación de suelos por erosión"
+        Zonificacion_De_Degradacion_De_Suelos_Por_Erosion
+      ),
+      /** Los predios baldíos son bienes que hacen parte del patrimonio público de la Nación y se caracterizan por ser imprescriptibles e inalienables, y la únicamente pueden ser adquiridos por medio de un título traslaticio de dominio otorgado por la entidad competente que pudo haber sido el INCORA, INCODER y actualmente la Agencia Nacional de Tierras.
+       */
+      !!@ ili2db.dispName = "Sentencia T488"
+      Sentencia_T488(
+        /** Base de datos que proviene de la Superintendencia de Notariado y Registro, a través de la cual, reporta aquellos predios que según esta entidad pudieron haberse  apropiado de manera ilegal, tendiendo en cuenta que los predios baldíos son bienes que hacen parte del patrimonio público de la Nación y se caracterizan por ser imprescriptibles e inalienables, y la únicamente pueden ser adquiridos por medio de un título traslaticio de dominio otorgado por la entidad competente que pudo haber sido el INCORA, INCODER y actualmente la Agencia Nacional de Tierras.
+         */
+        !!@ ili2db.dispName = "(Sentencia T488) Listado de folios Sentencia T488"
+        Listado_De_Folios_Sentencia_T488
+      ),
+      /** Determinantes del sector agrícola y rural.
+       */
+      !!@ ili2db.dispName = "Sector agricultura y rural"
+      Sector_Agricultura_Rural(
+        /** Resolución MADR 261 de 2018, Artículo 1: “Se define Frontera agrícola nacional como el límite del suelo rural que separa las áreas donde se desarrollan las actividades agropecuarias, las áreas condicionadas y las áreas protegidas, las de especial importancia ecológica, y las demás áreas en las que las actividades agropecuarias están excluidas por mandato de la ley”.
+         */
+        !!@ ili2db.dispName = "(Sector agricultura y rural) Frontera agrícola"
+        Frontera_Agricola
+      )
+    );
+
+  TOPIC DTJ =
+    DEPENDS ON Submodelo_ANT_V1_0.ANT;
+
+    /** Datos del análisis para determinar la actuación para el diagnóstico técnico jurídico.
+     */
+    !!@ ili2db.dispName = "(DTJ) Análisis para determinar la actuación"
+    CLASS DTJ_AnalisisDeterminarActuacion
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      /** Corresponde a la clasificación del predio según la cual, catastralmente se tiene que el predio es formal (tiene derecho de dominio completo) o informal (derecho de dominio incompleto).
+       */
+      !!@ ili2db.dispName = "Formalidad"
+      Formalidad : MANDATORY Submodelo_DTJ_V1_0.DTJ_FormalidadTipo;
+      /** Es la relación, definida en forma jurídica o consuetudinaria, entre personas, en cuanto individuo o grupos, con respecto a la tierra (por razones de comodidad, «tierra» se utiliza aquí para englobar otros recursos naturales, como el agua y los árboles). La tenencia de la tierra es una institución, es decir, un conjunto de normas inventadas por las sociedades para regular el comportamiento. (POSPR–G-001  Guía de Rutas Misionales de la Agencia Nacional de Tierras).
+       */
+      !!@ ili2db.dispName = "Subrelación de tenencia"
+      Subrelacion_Tenencia : Submodelo_DTJ_V1_0.DTJ_SubRelacionTenenciaTipo;
+      /** OSPR (Ordenamiento Social de la Propiedad Rural): El conjunto de instituciones, normal y procedimientos encaminados a la administración de tierras de la Nación y del Estado, a la distribución equitativa de la tierra rural su uso y aprovechamiento ; a través del reconocimiento físico, jurídico, administrativo, económico y fiscal del alcance del derecho de propiedad y de otras formas de acceso a la tierra; con el objeto de lograr el uso eficiente del suelo, la cohesión social y territorial; y el desarrollo socioeconómico convergente del territorio, a fin de mejorar la calidad de vida de la población rural. (Ver Guía de Rutas Misionales de la Agencia Nacional de Tierras, fechada de Abril 2020).
+       */
+      !!@ ili2db.dispName = "Predio requiere de OSPR"
+      Predio_Requiere_OSPR : MANDATORY BOOLEAN;
+      /** Mutación de los bienes del Estado a través de un acto administrativo legalmente realizado y traducido en un documento autentico por medio del cual el Estado se haya desprendido del dominio de determinado extensión territorial realizando la entrega real y material de un bien inmueble a un particular, es decir dejo de ser del Estado para pertenecer a una persona – particular.
+       */
+      !!@ ili2db.dispName = "Predio privado con título originario de actuación administrativa INCORA, INCODER, UNAT, ANT?"
+      Titulo_Actuacion_Administrativa : MANDATORY BOOLEAN;
+      /** Responde a las circunstancias fácticas que se generan de la propiedad o posesión que se ejerce sobre un bien inmueble de dominio privado y pueden ser atendidas por la Agencia Nacional de Tierras a través de una ruta de atención o procedimiento de derecho agrario. Son la entrada al análisis de intervención de la ANT dentro del Ordenamiento Social de la Propiedad y el Procedimiento ÚNICO, en predios de naturaleza privada.
+       */
+      !!@ ili2db.dispName = "Situación de hecho propiedad privada"
+      Situacion_Hecho_Propiedad : Submodelo_DTJ_V1_0.DTJ_SituacionHechoPropiedadTipo;
+      /** Corresponde a la situación de tenencia relacionada con un predio de carácter baldío.
+       */
+      !!@ ili2db.dispName = "Situación de hecho predio baldío"
+      Situacion_Hecho_Baldio : Submodelo_DTJ_V1_0.DTJ_SituacionHechoBaldioTipo;
+      /** Responde a las circunstancias fácticas que se generan de los predios que hacen parte del Fondo Nacional Agrario -FNA, hoy Fondo de Tierras para la reforma Rural Integral, Son la entrada al análisis de intervención de la ANT dentro del Ordenamiento Social de la Propiedad y el Procedimiento ÚNICO, en predios de esta naturaleza.
+       */
+      !!@ ili2db.dispName = "Situación de hecho fiscales patrimoniales"
+      Situacion_Hecho_Fiscales : Submodelo_DTJ_V1_0.DTJ_SituacionHechoFiscalesTipo;
+      /** Situaciones de hecho, son el conjunto de problemáticas fundamentales de la tenencia de la tierra rural que impiden a quienes ocupan o poseen predios rurales configurar el derecho de dominio a su favor; tales situaciones han sido acogidas por la Agencia como rutas jurídicas de atención con el propósito de organizar y consolidar su actuar misional. (Ver Guía de Rutas Misionales de la Agencia Nacional de Tierras, fechada de Abril 2020).
+       */
+      !!@ ili2db.dispName = "Otras situaciones de hecho"
+      Otra_Situacion_Hecho : Submodelo_DTJ_V1_0.DTJ_OtraSituacionHechoTipo;
+    END DTJ_AnalisisDeterminarActuacion;
+
+    /** Datos del análisis jurídico para el diagnóstico técnico jurídico.
+     */
+    !!@ ili2db.dispName = "(DTJ) Análisis Jurídico"
+    CLASS DTJ_AnalisisJuridico
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      /** Es un razonamiento descriptivo que surge de la valoración de la situación de hecho y de derecho, por medio del cual se plantea y justifica la teoría del caso la cual contiene: la información técnica del predio, naturaleza jurídica del predio / relación de tenencia/ situación de hecho/ ruta de atención y régimen de escogencia.
+       */
+      !!@ ili2db.dispName = "Análisis jurídico"
+      Analisis_Juridico : MANDATORY TEXT;
+      /** Las rutas de atención se entienden como el resultado del procesamiento de información y análisis jurídico, realizado a cada uno de los predios, objeto de intervención de la ANT; categorizados por la naturaleza jurídica asignada.  Las rutas de atención los cuales en el modelo de oferta se atienden a través del Procedimiento Único y de igual manera a los procedimientos catastrales con efectos registrales del Decreto 148 de 2020. Todos estos son atendidos por las subdirecciones de atención por oferta de la Agencia Nacional de Tierras y el reparto de funciones entregado por El Decreto-Ley 2363 de 2015.
+       */
+      !!@ ili2db.dispName = "Posible ruta de atención"
+      Posible_Ruta_Atencion : MANDATORY Submodelo_DTJ_V1_0.DTJ_PosibleRutaAtencionTipo;
+      /** Predios que se encuentran inmersos en ZRC delimitada por el Consejo Directivo de la Agencia Nacional de Tierras.
+       */
+      !!@ ili2db.dispName = "Predio en reserva campesina"
+      Predio_Reserva_Campesina : MANDATORY BOOLEAN;
+      /** Son aquellos predios  identificados en  barrido predial masivo con solicitudes de constitución, titulación, saneamiento y/o  restructuración  de comunidades étnicas o territorios colectivos, dicha información será debidamente organizada y remitida a la Subdirección de Asuntos Étnicos en el marco de su competencia.
+       */
+      !!@ ili2db.dispName = "Predio cruza con pretensión (DAE)"
+      Predio_Cruza_Pretension_DAE : MANDATORY BOOLEAN;
+      /** Se entiende que un predio se encuentra habilitado para FISO cuando se define que se debe aplicar una de las rutas de atención diseñadas por la ANT y la necesidad de la inscripción del posible beneficiario en el Registro de Sujetos de Ordenamiento. 
+       * 
+       * El predio no está habilitado para FISO cuando la ruta de atención identificada expresamente indica que este no requiere el diligenciamiento del FISO; o cuando se identifica que el predio no es objeto de OSPR.
+       */
+      !!@ ili2db.dispName = "Predio habilitado para FISO"
+      Predio_Habilitado_Para_FISO : MANDATORY BOOLEAN;
+      /** Si le exige la opción SI se da cuando en la titulación de un predio baldío o un predio fiscal patrimonial se evidencie la existencia de una unidad marital de hecho o matrimonio, con el fin que el predio quede titulado a ambos.
+       */
+      !!@ ili2db.dispName = "Titulación conjunta"
+      Titulacion_Conjunta : MANDATORY BOOLEAN;
+      /** Si se trato de un predio baldío se debe elegir cual es el régimen de escogencia que aplica.
+       */
+      !!@ ili2db.dispName = "Régimen de Escogencia OSPR"
+      Regimen_De_Escogencia_OSPR : MANDATORY Submodelo_DTJ_V1_0.DTJ_RegimenEscogenciaOSPRTipo;
+      /** Explicar por qué se cambió la ruta de atención, el análisis que soporta el cambio, así como la documentación en la que sustenta la justificación de cambio de ruta.
+       */
+      !!@ ili2db.dispName = "Existió cambio de ruta indique la justificación"
+      Existio_Cambio_Ruta_Justificacion : TEXT;
+      /** Descripción de las posibles oposiciones que se identificaron durante la jornada de FISO.
+       */
+      !!@ ili2db.dispName = "Descripción posibles oposiciones"
+      Descripcion_Posibles_Oposiciones : TEXT;
+      /** Son los productos o instrumentos que se recolectan y adjuntan para demostrar y dar certeza de la información contenida en un expediente para la declaración o reconocimiento de un derecho.
+       */
+      !!@ ili2db.dispName = "Material Probatorio"
+      Material_Probatorio : BAG {0..*} OF LADM_COL_V3_0.LADM_Nucleo.ExtArchivo;
+    END DTJ_AnalisisJuridico;
+
+    /** Estructura que permite relacionar los tipos de determinantes de ordenamiento social de la propiedad rural con las cuales se ve afectado un predio.
+     */
+    !!@ ili2db.dispName = "(DTJ) Estructura Determinantes"
+    STRUCTURE DTJ_EstructuraDeterminantes =
+      /** Se desglosan las diferentes determinantes del OSPR, ya sea por protección a medio ambiente, sectorial o riesgo.
+       */
+      !!@ ili2db.dispName = "Temática determinante"
+      Tematica_Determinante : MANDATORY Submodelo_DTJ_V1_0.DTJ_TematicaDeterminanteTipo;
+    END DTJ_EstructuraDeterminantes;
+
+    /** Estructura que permite relacionar los hallazgos o errores registrales para los predios con antecedente registral.
+     */
+    !!@ ili2db.dispName = "(DTJ) Estructura hallazgos registrales"
+    STRUCTURE DTJ_EstructuraHallazgosRegistrales =
+      !!@ ili2db.dispName = "Hallazgos o errores registrales"
+      Hallazgos_Errores_Registrales : MANDATORY Submodelo_DTJ_V1_0.DTJ_HallazgosErroresRegistralesTipo;
+      /** Descripción de otros posibles hallazgos registrales que se encuentren, diferentes a los enlistados en la pregunta anterior.
+       */
+      !!@ ili2db.dispName = "Otros hallazgos o errores registrales"
+      Otros_Hallazgos_Errores_Registrales : TEXT*150;
+    END DTJ_EstructuraHallazgosRegistrales;
+
+    /** Datos de identificación del predio adicionales para el diagnóstico técnico jurídico.
+     */
+    !!@ ili2db.dispName = "(DTJ) Identificación del predio"
+    CLASS DTJ_IdentificacionPredio
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      /** De acuerdo con la norma en el suelo rural en este componente los planes de ordenamiento territorial deben delimitar y establecer las categorías de protección y de desarrollo restringido. (Ver artículo 2.2.2.2.1.2 del Decreto 1077 de 2015).
+       */
+      !!@ ili2db.dispName = "Categoría del suelo rural"
+      Categoria_Suelo_Rural : MANDATORY Submodelo_DTJ_V1_0.DTJ_CategoriaSueloRuralTipo;
+      /** Esta opción debe marcarse cuando el predio en estudio esté dentro de alguna de estas áreas: Suburbano, área de vivienda campestre, centro poblado rural, equipamientos. Estas áreas son deben estar delimitadas en el plan de ordenamiento territorial del municipio intervenido.
+       */
+      !!@ ili2db.dispName = "Desarrollo restringido"
+      Desarrollo_Restringido : Submodelo_DTJ_V1_0.DTJ_DesarrolloRestringidoTipo;
+      /** Esta variable debe seleccionarse cuando se identifiquen predios que cuenten con disposiciones normativas que complementen el instrumento de normativa territorial que aplique. (POT, BBOT, EOT)
+       * 
+       * En zona rural sucede cuando limita con zonas urbanas o suelo de expansión.
+       */
+      !!@ ili2db.dispName = "¿El predio a intervenir se encuentra en una zona que cuenta con plan parcial?"
+      Cuenta_Plan_Parcial : Submodelo_DTJ_V1_0.DTJ_CuentaPlanParcialTipo;
+      /** Esta opción debe marcarse cuando se evidencien cambio  en la dinámica predial  del territorio que aún no se encuentren actualizados en los planes de ordenamiento territorial (POT/BBOT/EOT).
+       */
+      !!@ ili2db.dispName = "Cambios en la concentración predial"
+      Cambios_Concentracion_Predial : Submodelo_DTJ_V1_0.DTJ_CambiosConcentracionPredialTipo;
+      /** Número de formulario FISO.
+       */
+      !!@ ili2db.dispName = "Número de formulario FISO"
+      Numero_Formulario_FISO : TEXT*7;
+      /** Ingresar el número del Formulario de Ingreso de Sujetos de Ordenamiento - FISO para predios de Ordenamiento Social de la Propiedad Rural - OSPR.
+       */
+      !!@ ili2db.dispName = "Numero de solicitud"
+      Numero_Solicitud : TEXT*20;
+      /** Número de memorando.
+       */
+      !!@ ili2db.dispName = "Número de memorando"
+      Numero_Memorando : TEXT*20;
+    END DTJ_IdentificacionPredio;
+
+    /** Clase abstracta que permite relacionar: a) RUPTA ó b)RTDAF.
+     */
+    !!@ ili2db.dispName = "(DTJ) Información URT"
+    CLASS DTJ_InformacionURT (ABSTRACT)
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+    END DTJ_InformacionURT;
+
+    /** Datos de la naturaleza del predio para el diagnóstico técnico jurídico.
+     */
+    !!@ ili2db.dispName = "(DTJ) Naturaleza del predio"
+    CLASS DTJ_NaturalezaPredio
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      /** Los baldíos son bienes públicos de la Nación catalogados dentro de la categoría de bienes fiscales adjudicables, en razón de que la Nación los conserva para adjudicarlos a quienes reúnan la totalidad de las exigencias establecidas en la ley (Sentencia Corte Constitucional C-595/95).
+       */
+      !!@ ili2db.dispName = "Predio baldío"
+      Predio_Baldio : Submodelo_DTJ_V1_0.DTJ_PredioBaldioTipo;
+      /** Son aquellos cuya titularidad pertenece al Estado, destinados al uso, goce y disfrute de todos los habitantes del territorio, son inalienables, imprescriptibles e inembargables. (Ver Ley 1228 de 2012 - Sistema Nacional Vial -
+       * Ver guía de rutas de atención de la ANT)
+       */
+      !!@ ili2db.dispName = "Predio de uso público"
+      Predio_Uso_Publico : Submodelo_DTJ_V1_0.DTJ_PredioUsoPublicoTipo;
+      /** Son aquellos inmuebles que están en cabeza de la Nación o de otros Entes estatales y cuyo uso pertenece a todos los habitantes (Articulo 674 Código Civil)
+       */
+      !!@ ili2db.dispName = "Otro tipo de predio de uso público"
+      Otro_Predio_Uso_Publico : TEXT*255;
+      /** Los bienes fiscales o patrimoniales, son bienes del Estado; los cuales a su vez se dividen en dos clases: (i) Bienes fiscales propiamente dichos: son aquellos que se encuentran en dominio de Entidades de Derecho Público (Nación, Departamento, Municipio, Distrito) y la propiedad que se tiene sobre estos bienes es ordinaria y se rige por el derecho común.  (ii) Bienes fiscales adjudicables: son predios de la Nación que pueden ser adjudicados a las personas naturales o jurídicas que reúnan las condiciones y requisitos establecidos en la legislación colombiana (ver Guía de rutas misionales de la ANT, fechada de abril de 2020). En la naturaleza  de bienes fiscales adjudicables   se enmarcan los predios que hacen parte del FNA ( Fondo Nacional Agrario ) y del FTRRI ( Fondo de Tierras de la Reforma Rural Integral) , en cabeza y Administrados por la Agencia Nacional de Tierras.
+       */
+      !!@ ili2db.dispName = "Predio fiscal patrimonial"
+      Predio_Fiscal_Patrimonial : Submodelo_DTJ_V1_0.DTJ_PredioFiscalPatrimonialTipo;
+      /** Es una categoría de los bienes públicos cuyo dominio y uso no pertenecen a los habitantes (persona – individual – particular); son bienes que hacen parte del dominio patrimonial del Estado o de sus entes territoriales destinados a las prestación de servicios públicos o el cumplimiento de sus fines esenciales (misión institucional).
+       */
+      !!@ ili2db.dispName = "Otro tipo de predio fiscal patrimonial"
+      Otro_Predio_Fiscal_Patrimonial : TEXT*255;
+    END DTJ_NaturalezaPredio;
+
+    /** Datos del análisis catastral para el diagnóstico técnico jurídico.
+     */
+    !!@ ili2db.dispName = "(DTJ) Análisis catastral"
+    CLASS DTJ_AnalisisCatastral
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      /** Es un razonamiento descriptivo que surge de la valoración de la información física asociada al predio, por medio del cual se plantea y justifica desde la parte técnica la teoría del caso.
+       */
+      !!@ ili2db.dispName = "Análisis catastral"
+      Analisis_Catastral : MANDATORY TEXT;
+      /** Se debe marcar esta opción cuando el predio estudiado tiene parte del área de este en otro municipio diferente al intervenido.
+       */
+      !!@ ili2db.dispName = "¿La extensión del predio excede el límite de la entidad territorial?"
+      Excede_Limite_Entidad_Territorial : MANDATORY BOOLEAN;
+      /** Especificar el área que el predio estudiado excede el límite de la Entidad Territorial.
+       */
+      !!@ ili2db.dispName = "Área en m2 que excede el limite de la Entidad Territorial"
+      Area_Excede_Limite_ET : 0.0 .. 99999999999999.9 [LADM_COL_V3_0.m2];
+      /** ID Barrido ANT del predio en el Municipio colindante.
+       */
+      !!@ ili2db.dispName = "ID Barrido ANT del predio en el Municipio colindante"
+      Id_ANT_Predio_Municipio_Colindante : TEXT*10;
+      /** Esta variable se extrae de la  base de datos puesta en vigencia de la última actualización y/o formación predial. Determinar si el predio analizado está en otra unidad geográfica Catastral o municipio
+       */
+      !!@ ili2db.dispName = "¿El predio está inscrito en otra Unidad Orgánica Catastral?"
+      Predio_Inscrito_Otra_UOC : MANDATORY BOOLEAN;
+      /** Escoger el Departamento del municipio en donde se encuentra ubicado el predio.
+       */
+      !!@ ili2db.dispName = "¿En cuál Departamento esta inscrito el predio?"
+      Departamento_Inscrito_Predio : TEXT*2;
+      /** Escoger el municipio, que es diferente al intervenido, en donde aparece el predio que se analiza.
+       */
+      !!@ ili2db.dispName = "¿En cuál Municipio esta inscrito el predio?"
+      Municipio_Inscrito_Predio : TEXT*3;
+      /** Establecer si el predio analizado cruza con alguna determinante del Ordenamiento Social de la Propiedad Rural.
+       */
+      !!@ ili2db.dispName = "¿El predio cruza con determinante al OSPR?"
+      Cruza_Determinante_OSPR : MANDATORY BOOLEAN;
+      /** Se desglosan las diferentes determinantes del OSPR, ya sea por protección a medio ambiente, sectorial o riesgo.
+       */
+      !!@ ili2db.dispName = "Temática determinante"
+      Tematica_Determinante : BAG {0..*} OF Submodelo_DTJ_V1_0.DTJ.DTJ_EstructuraDeterminantes;
+      /** Establecer el área (m2) de un predio que es afectada por alguno de los determinantes del OSPR.
+       */
+      !!@ ili2db.dispName = "Área total afectada por determinantes OSPR"
+      Area_Afectada_OSPR : 0.0 .. 99999999999999.9 [LADM_COL_V3_0.m2];
+      /** Indicar el área (m2) del predio sobre la cual se puede realizar OSPR, restando áreas afectadas por alguno de los determinantes de OSPR.
+       */
+      !!@ ili2db.dispName = "Área habilitada para OSPR"
+      Area_Habilitada_OSPR : 0.0 .. 99999999999999.9 [LADM_COL_V3_0.m2];
+      /** Es el área remanente o el área que conserva el predio formal de mayor extensión, descontando las áreas de las posesiones y/o ocupaciones que existan sobre él.
+       */
+      !!@ ili2db.dispName = "Área remanente predio formal"
+      Area_Remanente : 0.0 .. 99999999999999.9 [LADM_COL_V3_0.m2];
+    END DTJ_AnalisisCatastral;
+
+    /** Datos del análisis de la información registral para el diagnóstico técnico jurídico.
+     */
+    !!@ ili2db.dispName = "(DTJ) Analisis de informacion registral"
+    CLASS DTJ_AnalisisInformacionRegistral
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      /** Esta variable tiende a identificar el estado de vigencia del Certificado de Tradición y Libertad. Se verifica del estado del Certificado de Tradición.
+       * 
+       * Si está Activo o Cerrado, el folio puede estar cerrado cuando el área que identifica pasa a formar parte de un predio identificado con un folio diferente, ya sea por un englobe (la unión de éste con otros predios) o por su total división (segregación, ventas parciales o mutación total del área), o por decisión administrativa o judicial. (SEJUT-G-001 Revisión de antecedentes registrales de dominio o propiedad para la definición de la naturaleza jurídica de los bienes inmuebles rurales)
+       */
+      !!@ ili2db.dispName = "Estado FMI"
+      Estado_FMI : MANDATORY Submodelo_ANT_V1_0.ANT_EstadoFMITipo;
+      /** Número de matrícula inmobiliaria del folio de matrícula inmobiliaria del predio matriz.
+       */
+      !!@ ili2db.dispName = "Folio de Matrícula Inmobiliaria Matriz"
+      FMI_Matriz : BAG {0..*} OF Submodelo_ANT_V1_0.ANT.ANT_EstructuraFMIMatriz;
+      /** Historial traditicio de folios segregados del folio matriz que dieron apertura al FMI objeto de estudio.
+       */
+      !!@ ili2db.dispName = "Familia predial"
+      Familia_Predial : TEXT*500;
+      /** Son aquellos folios de matricula inmobiliaria a los cuales es posible asociar una cedula catastral , en este sentido, es posible identificar el predio en un espacio geográfico.
+       */
+      !!@ ili2db.dispName = "FMI espacializado o georreferenciado"
+      FMI_Georreferenciado : BOOLEAN;
+      /** El QR es el número interno  de identificación del predio generado en el levantamiento de información en campo del municipio intervenido, sus primeros 5 dígitos son el código DIVIPOLA del municipio y los siguientes  5 números  aleatorios que  se generan automáticamente cuando se genera el API.
+       */
+      !!@ ili2db.dispName = "Indicar QR anterior"
+      QR_Anterior : BAG {0..*} OF Submodelo_ANT_V1_0.ANT.ANT_EstructuraQRAnterior;
+      /** Corresponde a todas aquellas diferencias e inexactitudes relativas al registro (Certificado de Libertad y tradición - Títulos inscritos en este documento).
+       */
+      !!@ ili2db.dispName = "Hallazgos o errores registrales"
+      Hallazgos_Errores_Registrales : BAG {0..*} OF Submodelo_DTJ_V1_0.DTJ.DTJ_EstructuraHallazgosRegistrales;
+    END DTJ_AnalisisInformacionRegistral;
+
+    /** Datos del Registro de Tierras Despojadas y Abandonadas Forzosamente -RTDAF-
+     */
+    !!@ ili2db.dispName = "(DTJ) Registro de Tierras Despojadas y Abandonadas Forzosamente"
+    CLASS DTJ_RTDAF
+    EXTENDS DTJ_InformacionURT =
+      /** Se debe marcar alguna de estas opciones cuando se evidencie en las bases de datos de la Unidad de Restitución de Tierras - URT.
+       */
+      !!@ ili2db.dispName = "Estado de solicitud RTDAF"
+      Estado_Solicitud_RTDAF : MANDATORY Submodelo_DTJ_V1_0.DTJ_EstadoSolicitudRTDAFTipo;
+    END DTJ_RTDAF;
+
+    /** Datos del Registro Único de Predios y Territorios Abandonados -RUPTA-.
+     */
+    !!@ ili2db.dispName = "(DTJ) Registro Único de Predios y Territorios Abandonados"
+    CLASS DTJ_RUPTA
+    EXTENDS DTJ_InformacionURT =
+      /** Si se marcó la anterior opción como SI escoger que tipo de RUPTA es la medida de protección individual
+       */
+      !!@ ili2db.dispName = "Tipo de RUPTA"
+      Tipo_RUPTA : MANDATORY Submodelo_DTJ_V1_0.DTJ_RUPTATipo;
+      /** Si se marcó la opción de RUPTA colectiva se debe escoger alguna de las tres opciones que permite el campo.
+       */
+      !!@ ili2db.dispName = "Medida protección colectiva"
+      Medida_Proteccion_Colectiva : Submodelo_DTJ_V1_0.DTJ_MedidaProteccionColectivaTipo;
+    END DTJ_RUPTA;
+
+    ASSOCIATION ant_persona_dtj_informacionurt =
+      ant_persona (EXTERNAL) -- {0..1} Submodelo_ANT_V1_0.ANT.ANT_Persona;
+      dtj_informacionurt -- {0..*} DTJ_InformacionURT;
+    END ant_persona_dtj_informacionurt;
+
+    ASSOCIATION ant_ubicacionpredio_dtj_identificacionpredio =
+      ant_ubicacionpredio (EXTERNAL) -- {1} Submodelo_ANT_V1_0.ANT.ANT_UbicacionPredio;
+      dtj_identificacionpredio -- {0..1} DTJ_IdentificacionPredio;
+    END ant_ubicacionpredio_dtj_identificacionpredio;
+
+    ASSOCIATION dtj_identificacionpredio_dtj_analisisdeterminaractuacion =
+      dtj_identificacionpredio -- {1} DTJ_IdentificacionPredio;
+      dtj_analisisdeterminaractuacion -- {0..1} DTJ_AnalisisDeterminarActuacion;
+    END dtj_identificacionpredio_dtj_analisisdeterminaractuacion;
+
+    ASSOCIATION dtj_identificacionpredio_dtj_analisisjuridico =
+      dtj_identificacionpredio -- {1} DTJ_IdentificacionPredio;
+      dtj_analisisjuridico -- {0..1} DTJ_AnalisisJuridico;
+    END dtj_identificacionpredio_dtj_analisisjuridico;
+
+    ASSOCIATION dtj_identificacionpredio_dtj_informacionurt =
+      dtj_identificacionpredio -- {1} DTJ_IdentificacionPredio;
+      dtj_informacionurt -- {0..*} DTJ_InformacionURT;
+    END dtj_identificacionpredio_dtj_informacionurt;
+
+    ASSOCIATION dtj_identificacionpredio_dtj_naturalezapredio =
+      dtj_identificacionpredio -- {1} DTJ_IdentificacionPredio;
+      dtj_naturalezapredio -- {0..1} DTJ_NaturalezaPredio;
+    END dtj_identificacionpredio_dtj_naturalezapredio;
+
+    ASSOCIATION dtj_identificacionpredio_dtj_analisiscatastral =
+      dtj_identificacionpredio -- {1} DTJ_IdentificacionPredio;
+      dtj_analisiscatastral -- {0..1} DTJ_AnalisisCatastral;
+    END dtj_identificacionpredio_dtj_analisiscatastral;
+
+    ASSOCIATION dtj_identificacionpredio_dtj_analisisinformacionregistral =
+      dtj_identificacionpredio -- {1} DTJ_IdentificacionPredio;
+      dtj_analisisinformacionregistral -- {0..1} DTJ_AnalisisInformacionRegistral;
+    END dtj_identificacionpredio_dtj_analisisinformacionregistral;
+
+  END DTJ;
+
+END Submodelo_DTJ_V1_0.
+
+/** Perfil Nacional colombiano de la ISO 19152 LADM COL generado con INTERLIS 2 - Extension de ANT
+ * 
+ * -----------------------------------------------------------
+ * 
+ * 04.07.2019/at: Creación de la primera versión del modelo 
+ * -----------------------------------------------------------
+ * 
+ *  (c) IGAC y SNR con apoyo de la Cooperacion Suiza
+ * 
+ * -----------------------------------------------------------
+ */
+MODEL Submodelo_FISO_V1_0 (es)
+AT "mailto:PC4@localhost"
+VERSION "2019-07-04"  =
+  IMPORTS Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0,ISO19107_PLANAS_V3_0,Submodelo_ANT_V1_0,LADM_COL_V3_0;
+
+  DOMAIN
+
+    FISO_ActividadTipo = (
+      /** Experiencia en actividades agropecuarias.
+       */
+      !!@ ili2db.dispName = "Agropecuarias"
+      Agropecuarias,
+      /** Experiencia en actividades pecuarias.
+       */
+      !!@ ili2db.dispName = "Pecuarias"
+      Pecuarias,
+      /** Experiencia en actividades acuícolas.
+       */
+      !!@ ili2db.dispName = "Acuícolas"
+      Acuicolas,
+      /** Experiencia en actividades forestales.
+       */
+      !!@ ili2db.dispName = "Forestales"
+      Forestales,
+      /** Experiencia en actividades servicios ecosistémicos que permiten la preservación y/o restauración de áreas y ecosistemas estratégicos
+       */
+      !!@ ili2db.dispName = "Servicios ecosistémicos"
+      Servicios_Ecosistemicos,
+      /** Experiencia en actividades economía del cuidado.
+       */
+      !!@ ili2db.dispName = "Economía del cuidado"
+      Economia_Cuidado,
+      /** Experiencia en otras actividades.
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+    FISO_ClaseExplotacionTipo = (
+      /** Predio que se usa para vivienda, sirve para proporcionar alojamiento permanente a las personas.
+       */
+      !!@ ili2db.dispName = "Habitacional"
+      Habitacional,
+      /** El uso del predio se dedica a la crianza de animales con fines alimenticios para el ser humano en distintos tipos de explotación ganadera.
+       */
+      !!@ ili2db.dispName = "Ganadero"
+      Ganadero,
+      /** Entiéndase como actividades de plantación, renovación y tala de árboles maderables.
+       */
+      !!@ ili2db.dispName = "Forestal"
+      Forestal,
+      /** En la agricultura, la ganadería o la silvicultura, es un conjunto de prácticas aplicadas para promover el uso sustentable del suelo.
+       */
+      !!@ ili2db.dispName = "Conservación"
+      Conservacion,
+      /** No esta dentro de las opciones brindadas.
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+    FISO_ConflictosTipo = (
+      /** Oposición o conflicto entre los posibles herederos de un inmueble
+       */
+      !!@ ili2db.dispName = "Sucesión sin acuerdos de herederos"
+      Sucesion_Sin_Acuerdos,
+      /** Se refiere a las servidumbres que no se advierten en el levantamiento topográfico, o por métodos indirectos (ortofotografía), es decir conflictos que se presentan entre predios individuales relacionados con los pasos para acceder a los predios, ejemplo mangueras de agua.
+       */
+      !!@ ili2db.dispName = "De paso o servidumbres"
+      De_Paso_Servidumbres,
+      /** Oposición o conflicto derivado de las extensiones territoriales sobre las que se describe como propietario, poseedor u ocupante
+       */
+      !!@ ili2db.dispName = "Por linderos"
+      Por_Linderos,
+      /** Se refiere a los conflictos que no se identifican en una primera etapa de intervención por parte de la ANT
+       */
+      !!@ ili2db.dispName = "Predios con pretensiones territoriales"
+      Predios_Pretensiones_Territoriales,
+      /** Conflictos relacionados con aspectos de orden publico
+       */
+      !!@ ili2db.dispName = "Seguridad para acceso al predio"
+      Seguridad_Acceso_Predio,
+      /** Demás conflictos que no encajen en las opciones predeterminadas
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+    FISO_DestinacionPredioTipo = (
+      /** Predio que se usa para vivienda, sirve para proporcionar alojamiento permanente a las personas.
+       */
+      !!@ ili2db.dispName = "Exclusivamente para vivienda"
+      Exclusivamente_Vivienda,
+      /** Refiere el conjunto de objetivos, metas y actividades que la unidad familiar se propone adelantar en cierta extensión territorial, con el fin de sustentar las necesidades propias y las de su grupo familiar.
+       */
+      !!@ ili2db.dispName = "Implementación de un proyecto productivo"
+      Implementacion_Proyecto_Productivo,
+      /** No esta dentro de las opciones brindadas
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+    FISO_EntradaFISOTipo = (
+      /** Entiéndase como inscripción física en alguna de las sedes de la ANT.
+       */
+      !!@ ili2db.dispName = "Inscripción en oficina ANT"
+      Inscripcion_Oficina_ANT,
+      /** Inscripción que se hace durante un barrido predial de un municipio nacional.
+       */
+      !!@ ili2db.dispName = "Barrido predial masivo"
+      Barrido_Predial,
+      /** Casos que venían de procesos iniciados con el INCODER y se migraron al SIT.
+       */
+      !!@ ili2db.dispName = "Registro administrativo (INCODER)"
+      Registro_Administrativo,
+      /** Caso en el cual el ciudadano deber ser incluido al RESO de manera inmediata por decisión de un Juez de la Republica.
+       */
+      !!@ ili2db.dispName = "Decisiones judiciales"
+      Decisiones_Judiciales
+    );
+
+    FISO_EstadoCivilTipo = (
+      /** Se considera casada aquella persona que ha establecido con otra del sexo opuesto una relación aprobada por la ley, que implica cooperación económica y cohabitación residencial y sexual.
+       */
+      !!@ ili2db.dispName = "Casado(a)"
+      Casado,
+      /** Persona que nunca ha contraído matrimonio y que no vive ni ha vivido en unión libre.
+       */
+      !!@ ili2db.dispName = "Soltero(a)"
+      Soltero,
+      /** Es la persona que habiendo fallecido su cónyuge o compañero (a), no ha vuelto a casarse ni vive en unión libre.
+       */
+      !!@ ili2db.dispName = "Viudo(a)"
+      Viudo,
+      /** Persona cuya unión ha sido disuelta por vía legal o de hecho y no se ha vuelto a casar, ni vive en unión libre.
+       */
+      !!@ ili2db.dispName = "Separado(a) o Divorciado(a)"
+      Separado_Divorciado,
+      /** No está casado(a) y vive en pareja hace dos años o más. Una persona está en esta situación cuando hace dos años o más estableció con otra persona del sexo opuesto una relación queimplica cooperación económica y cohabitación residencial y sexual, la cual se mantiene única y exclusivamente por voluntad propia sin que estén presentes, vínculos legales.
+       */
+      !!@ ili2db.dispName = "Unión libre"
+      Union_Libre
+    );
+
+    FISO_ExplotaOtroPredio = (
       /** Predio que se usa para vivienda, sirve para proporcionar alojamiento permanente a las personas.
        */
       !!@ ili2db.dispName = "Es trabajador(a) del predio"
@@ -336,326 +1747,632 @@ VERSION "2019-07-04"  =
       Otro
     );
 
-  TOPIC Fiso =
+    FISO_NivelEducativoTipo = (
+      /** La educación y formación técnica y profesional (EFTP) es aquella parte de la educación que se ocupa de impartir conocimientos y destrezas o capacidades para el mundo del trabajo.
+       */
+      !!@ ili2db.dispName = "Técnica"
+      Tecnica,
+      /** Se refiere a un conjunto de contenidos para trabajar en el sistema educativo destinados a la compresión de las tecnologías en su contexto social y ambiental.
+       */
+      !!@ ili2db.dispName = "Tecnólogo"
+      Tecnologo,
+      /** Se entiende por educación universitaria a aquel tipo de educación superior que se lleva a cabo cuando la persona ha terminado la educación básica y secundaria y finaliza con un titulo universitario.
+       */
+      !!@ ili2db.dispName = "Universitario"
+      Universitario,
+      /** Corresponde al ciclo de estudios de especialización que se cursa tras el título de grado universitario. Comprende los estudios de especialización profesional, el de maestría  y programas de doctorado.
+       */
+      !!@ ili2db.dispName = "Posgrado"
+      Posgrado,
+      /** No esta dentro de las opciones brindadas
+       */
+      !!@ ili2db.dispName = "Ninguno"
+      Ninguno
+    );
+
+    FISO_OrientacionSexualTipo = (
+      /** Persona cuya atracción afectiva, erótica o sexual se dirige hacia personas de sexo distinto al suyo.
+       */
+      !!@ ili2db.dispName = "Heterosexual"
+      Heterosexual,
+      /** Mujeres que experimentan amor romántico o atracción sexual exclusivamente por otras mujeres.
+       */
+      !!@ ili2db.dispName = "Lesbiana"
+      Lesbiana,
+      /** Manera de designar a las personas homosexuales masculinas, es decir, a aquellos hombres a los que les atraen sexual y emocionalmente otros hombres.
+       */
+      !!@ ili2db.dispName = "Gay"
+      Gay,
+      /** Hace referencia a las personas cuyas identidades de género son diferentes del sexo que se les asignó al nacer.
+       */
+      !!@ ili2db.dispName = "Transgénero"
+      Transgenero,
+      /** Se define como la atracción romántica, la atracción sexual o la conducta sexual dirigida tanto hacia hombres como hacia mujeres.
+       */
+      !!@ ili2db.dispName = "Bisexual"
+      Bisexual,
+      /** Presencia en un mismo individuo de características sexuales de macho y de hembra en proporción variable.
+       */
+      !!@ ili2db.dispName = "Intersexual"
+      Intersexual,
+      /** No se identifica con las opciones dadas o no desea responder.
+       */
+      !!@ ili2db.dispName = "No sabe / No responde"
+      No_Sabe_No_Responde
+    );
+
+    FISO_OtorgaDerechoTipo = (
+      /** Contrato escrito por el cual uno de los contratantes se obliga a entregar una cosa determinada y el otro a pagar por ella un precio cierto.
+       */
+      !!@ ili2db.dispName = "Lo compró mediante algún documento"
+      Mediante_Documento,
+      /** Contrato por el cual uno de los contratantes se obliga a entregar una cosa determinada y el otro a pagar por ella un precio cierto, sin que medie documento alguno.
+       */
+      !!@ ili2db.dispName = "Lo compró de forma verbal"
+      Forma_Verbal,
+      /** Masa patrimonial (bienes, derechos y obligaciones) que adquiere una persona con derecho para ello, debido a la muerte de su anterior propietario.
+       */
+      !!@ ili2db.dispName = "Es una herencia"
+      Herencia,
+      /** Negocio jurídico en virtud del cual una persona (donante) dispone de una cosa de su patrimonio a favor de otra (donatario) a título gratuito
+       */
+      !!@ ili2db.dispName = "Es una donación"
+      Donacion,
+      /** Demás relaciones de derechos sobre los predios que una persona pueda ostentar y  no se encuentren predeterminadas en las opciones de respuesta
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+    FISO_PresentaSolicitudTipo = (
+      /** Titular de la solicitud
+       */
+      !!@ ili2db.dispName = "Solicitante"
+      Solicitante,
+      /** Refiere a la persona que con poder del titular actúa en su nombre y representación
+       */
+      !!@ ili2db.dispName = "Apoderado"
+      Apoderado
+    );
+
+    FISO_ResponsableSolicitudTipo = (
+      /** Unidad de gestión territorial que cubre los departamentos de Amazonas, Boyacá, Caquetá, Tolima, Huila y Bogotá.
+       */
+      !!@ ili2db.dispName = "UGT Sur Amazonía"
+      UGT_Sur_Amazonia,
+      /** Unidad de gestión territorial que cubre los departamentos de Cauca y Valle del Cauca.
+       */
+      !!@ ili2db.dispName = "UGT Centro Oriente"
+      UGT_Centro_Oriente,
+      /** Unidad de gestión territorial que cubre los departamentos de Antioquia, Choco, Risaralda, Caldas y Quindío.
+       */
+      !!@ ili2db.dispName = "UGT Antioquia, Eje Cafetero y Chocó"
+      UGT_Antioquia_Eje_Cafetero_Choco,
+      /** Unidad de gestión territorial que cubre los departamentos de Santander y Norte de Santander.
+       */
+      !!@ ili2db.dispName = "UGT Noroccidente"
+      UGT_Noroccidente,
+      /** Unidad de gestión territorial que cubre los departamentos de Nariño y Putumayo.
+       */
+      !!@ ili2db.dispName = "UGT Suroccidente"
+      UGT_Suroccidente,
+      /** Unidad de gestión territorial que cubre los departamentos de Córdoba y Sucre.
+       */
+      !!@ ili2db.dispName = "UGT Occidente"
+      UGT_Occidente,
+      /** Unidad de gestión territorial que cubre los departamentos de La Guajira, Magdalena, Bolívar, Atlántico y Cesar.
+       */
+      !!@ ili2db.dispName = "UGT Caribe"
+      UGT_Caribe,
+      /** Unidad de gestión territorial que cubre los departamentos de Meta, Casanare, Arauca, Vaupés y Guaviare.
+       */
+      !!@ ili2db.dispName = "UGT Oriente"
+      UGT_Oriente,
+      /** Nombre del operador o socio estratégico que realiza la inscripción.
+       */
+      !!@ ili2db.dispName = "Operador"
+      Operador
+    );
+
+    FISO_RolPersonaTipo = (
+      /** Persona delegada como apoderado del solicitante.
+       */
+      !!@ ili2db.dispName = "Apoderado"
+      Apoderado,
+      /** Persona encargada del diligenciamiento de la solicitud FISO.
+       */
+      !!@ ili2db.dispName = "Encargado del diligenciamiento de la solicitud FISO"
+      Encargado_Diligenciar_Solicitud
+    );
+
+    FISO_SolicitudTipo = (
+      /** Programas de dotación de tierras que adelanta o promueva la ANT, cualquiera que sea su categoría.
+       */
+      !!@ ili2db.dispName = "Acceso a tierra"
+      Acceso_Tierra,
+      /** Programas que adelanta o promueve la ANT para la titulación de la posesión y saneamiento de la falsa tradición en favor de quienes ejerzan posesión sobre inmuebles rurales de naturaleza privada.
+       */
+      !!@ ili2db.dispName = "Formalización de la propiedad"
+      Formalizacion_Propiedad,
+      /** Tramites adelantados por la ANT relacionados con clarificación de propiedad, recuperación de baldíos indebidamente ocupados, extinción del derecho de dominio y deslinde de tierras de la Nación.
+       */
+      !!@ ili2db.dispName = "Procesos o pretensiones agrarias"
+      Procesos_Pretensiones_Agrarias,
+      /** Programa de administración de tierras de la Nación que adelanta o promueva la ANT.
+       */
+      !!@ ili2db.dispName = "Administración"
+      Administracion,
+      /** Demás programas a cargo de la ANT que no se encajen en las opciones predeterminadas.
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
+    );
+
+  TOPIC FISO =
     OID AS INTERLIS.UUIDOID;
-    DEPENDS ON Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral;
+    DEPENDS ON Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral,Submodelo_ANT_V1_0.ANT;
 
     /** Define los atributos que identifican si el aspirante o solicitante de FISO ha recibido beneficios de programa de tierras
      */
     !!@ ili2db.dispName = "(FISO) Beneficios del programa de tierras"
-    CLASS FISO_BeneficiosProgramaTierras =
-      /** El solicitante informa si en el pasado a recibido beneficios de las entidades Incora, Incoder
+    CLASS FISO_BeneficiosProgramaTierras
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      /** El solicitante informa si en el pasado ha recibido beneficios de las entidades INCORA, INCODER.
        */
-      !!@ ili2db.dispName = "26. ¿Ha sido beneficiario(a) de tierras por parte del INCORA, INCODER, ANT?"
-      Beneficiario_Tierra : BOOLEAN;
+      !!@ ili2db.dispName = "¿Ha sido beneficiario(a) de tierras por parte del INCORA, INCODER, ANT?"
+      Beneficiario_Tierra : MANDATORY BOOLEAN;
       /** El solicitante que fue beneficiario en el pasado informa si tiene documento que compruebe el beneficio
        */
-      !!@ ili2db.dispName = "27. Cuenta con algún documento que acredita el beneficio?"
+      !!@ ili2db.dispName = "¿Cuenta con algún documento que acredita el beneficio?"
       Documento_Acredita_Beneficio : BOOLEAN;
-      /** Numero del acto administrativo con el cual se otorgo el beneficio del programa de tierras
+      /** Número del acto administrativo con el cual se otorgó el beneficio del programa de tierras.
        */
       !!@ ili2db.dispName = "Número de resolución"
       Numero_Resolucion : TEXT*50;
+      /** Fecha de la resolución del acto administrativo.
+       */
       !!@ ili2db.dispName = "Fecha de resolución"
       Fecha_Resolucion : INTERLIS.XMLDate;
     END FISO_BeneficiosProgramaTierras;
 
+    !!@ ili2db.dispName = "(FISO) Estructura actividades"
+    STRUCTURE FISO_EstructuraActividades =
+      /** Tipo de actividad en la cual tiene experiencia
+       */
+      !!@ ili2db.dispName = "Tipo de actividad"
+      Tipo_Actividad : MANDATORY Submodelo_FISO_V1_0.FISO_ActividadTipo;
+      /** Tipo de actividad en la cual tiene experiencia
+       */
+      !!@ ili2db.dispName = "Otro tipo de actividad"
+      Otro_Tipo_Actividad : TEXT*100;
+      /** Meses de experiencia en la actividad
+       */
+      !!@ ili2db.dispName = "Meses de experiencia"
+      Meses_Experiencia : MANDATORY 0 .. 999999999;
+    END FISO_EstructuraActividades;
+
+    /** Estructura que permite almacenar el tipo de explotación del predio de acuerdo al formulario de FISO.
+     */
+    !!@ ili2db.dispName = "(FISO) Estructura clase de explotación del predio"
+    STRUCTURE FISO_EstructuraClaseExplotacion =
+      /** Uso o destinación que el solicitante le da al predio objeto de la solicitud.
+       */
+      !!@ ili2db.dispName = "Clase de explotación"
+      Clase_Explotacion : MANDATORY Submodelo_FISO_V1_0.FISO_ClaseExplotacionTipo;
+      /** Uso o destinación que el solicitante le da al predio objeto de la solicitud que no esta dentro de las opciones predeterminadas en el formulario.
+       */
+      !!@ ili2db.dispName = "Otra clase de explotación"
+      Otra_Clase_Explotacion : TEXT;
+    END FISO_EstructuraClaseExplotacion;
+
+    /** Estructura para el almacenamiento de conflictos existentes en el predio para el formulario de FISO.
+     */
+    !!@ ili2db.dispName = "(FISO) Estructura diligenciamiento de conflictos"
+    STRUCTURE FISO_EstructuraConflictos =
+      /** Indaga por la existencia de conflictos de algún tipo que puedan interferir en la legalización del predio objeto de la solicitud.
+       */
+      !!@ ili2db.dispName = "Tipo de conflicto"
+      Tipo_Conflicto : MANDATORY Submodelo_FISO_V1_0.FISO_ConflictosTipo;
+      /** Indaga sobre otro tipo de conflicto que no existe sobre el predio objeto de la solicitud.
+       */
+      !!@ ili2db.dispName = "Otro tipo de conflictos"
+      Otro_Tipo_Conflicto : TEXT;
+    END FISO_EstructuraConflictos;
+
+    /** Estructura que permite almacenar las limitantes de una persona según el formulario de FISO.
+     */
+    !!@ ili2db.dispName = "(FISO) Estructura limitantes"
+    STRUCTURE FISO_EstructuraLimitantes =
+      /** Relaciona el tipo de limitación que impide a la persona desarrollar sus actividades normales.
+       */
+      !!@ ili2db.dispName = "Tipo de limitantes"
+      Tipo_Limitantes : MANDATORY Submodelo_ANT_V1_0.ANT_LimitantePermanenteTipo;
+      /** Nombre de la limitación que no esta dentro de las opciones dadas.
+       */
+      !!@ ili2db.dispName = "Otro tipo de limitantes"
+      Otro_Tipo_Limitantes : TEXT*100;
+    END FISO_EstructuraLimitantes;
+
+    /** Estructura que permite almacenar las ocupaciones de una actividad laboral para una persona según el formulario de FISO.
+     */
+    !!@ ili2db.dispName = "(FISO) Estructura ocupación"
+    STRUCTURE FISO_EstructuraOcupacion =
+      /** Oficio o labor desarrollada por el solicitante entre las opciones dadas.
+       */
+      !!@ ili2db.dispName = "Tipo de ocupación"
+      Tipo_Ocupacion : MANDATORY Submodelo_ANT_V1_0.ANT_OcupacionTipo;
+      /** Otro tipo de ocupación laboral de la persona.
+       */
+      !!@ ili2db.dispName = "Otro tipo de ocupación"
+      Otro_Tipo_Ocupacion : TEXT*100;
+    END FISO_EstructuraOcupacion;
+
+    /** Define los atributos de la identificación de la solicitud en FISO
+     */
+    !!@ ili2db.dispName = "(FISO) Identificación solicitud"
+    CLASS FISO_IdentificacionSolicitud
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      /** Fecha en que se realiza la inscripción.
+       */
+      !!@ ili2db.dispName = "Fecha de diligenciamiento de la solicitud"
+      Fecha_Diligenciamiento_Solicitud : MANDATORY INTERLIS.XMLDate;
+      /** Departamento donde se realiza la inscripción.
+       */
+      !!@ ili2db.dispName = "Departamento de la solicitud"
+      Departamento_Solicitud : MANDATORY TEXT*255;
+      /** Municipio donde se realiza la inscripción.
+       */
+      !!@ ili2db.dispName = "Municipio de la solicitud"
+      Municipio_Solicitud : MANDATORY TEXT*255;
+      /** Número de identificación del FISO para tramites internos en la ANT.
+       */
+      !!@ ili2db.dispName = "Número formulario FISO"
+      Numero_Formulario_FISO : MANDATORY TEXT*7;
+      /** Vía por la cual se realiza el diligenciamiento del FISO.
+       */
+      !!@ ili2db.dispName = "Tipo de entrada a FISO"
+      Tipo_Entrada_FISO : MANDATORY Submodelo_FISO_V1_0.FISO_EntradaFISOTipo;
+      /** ID barrido ANT o QR del predio.
+       */
+      !!@ ili2db.dispName = "ID Barrido ANT(QR)"
+      ID_Barrido_ANT_QR : TEXT*10;
+      /** UGT u Operador que realiza el diligenciamiento del FISO.
+       */
+      !!@ ili2db.dispName = "Responsable de diligenciamiento de la solicitud"
+      Responsable_Solicitud : MANDATORY Submodelo_FISO_V1_0.FISO_ResponsableSolicitudTipo;
+      /** Nombre del operador que hace el diligenciamiento del FISO.
+       */
+      !!@ ili2db.dispName = "Otro responsable de diligenciamiento de la solicitud"
+      Otro_Responsable : TEXT*100;
+      /** Refiere la ruta jurídica que debe seguir la solicitud.
+       */
+      !!@ ili2db.dispName = "Tipo de solicitud"
+      Tipo_Solicitud : MANDATORY Submodelo_FISO_V1_0.FISO_SolicitudTipo;
+      /** Refiere si la solicitud la presenta directamente el ciudadano o su apoderado.
+       */
+      !!@ ili2db.dispName = "¿La solicitud la presenta directamente el solicitante o por medio de apoderado?"
+      Quien_Presenta_Solicitud : MANDATORY Submodelo_FISO_V1_0.FISO_PresentaSolicitudTipo;
+      /** Por favor registre si la persona que diligencia el FISO sabe firmar.
+       */
+      !!@ ili2db.dispName = "Registre si la persona que diligencia el FISO sabe firmar"
+      Persona_Diligencia_Sabe_Firmar : MANDATORY BOOLEAN;
+      /** Autorización para que el solicitante permita consultar las bases de datos de la DIAN bajo el artículo 584 del estatuto tributario Decreto 624 de 1989.
+       */
+      !!@ ili2db.dispName = "Bajo la gravedad de juramento declaro que la información personal suministrada es verdadera y autorizo que sea verificada con otras fuentes de información y que se actualice de forma automática a través del cruce de registros administrativos y consultas de información a la DIAN, de acuerdo con lo dispuesto en el artículo 584 del estatuto tributario Decreto 624 de 1989: ''Examen de la declaración con autorización del declarante'', u otrás fuentes que la ANT defina. Cualquier presunta falsedad identificada a través de cruces de bases de datos generará la exclusión del RESO y no podrá ingresar en un período de 10 años , independiente de las acciones legales que haya lugar. (Artículo 15 del Decreto 902 de 2017)"
+      Juramento_Declaracion_Informacion : MANDATORY BOOLEAN;
+      /** Autorización del solicitante para recibir mensajes de texto con información del proceso.
+       */
+      !!@ ili2db.dispName = "Acepta recibir mensajes a través del correo electrónico del estado y/o avance de su proceso y ser notificado por dicho medio electrónico de las actuaciones que adelanta la ANT"
+      Acepta_Recibir_Mensajes : MANDATORY BOOLEAN;
+      /** Autorización para que el conyugue del  solicitante permita consultar las bases de datos de la DIAN bajo el articulo 584 del estatuto tributario Decreto 624 de 1989.
+       */
+      !!@ ili2db.dispName = "En virtud de los principios de planeación y eficiencia se precisa que en caso de que el (la) cónyuge no pueda ser valorado(a) al momento de analizar la presente solicitud – FISO, conforme al artículo 25 del Decreto Ley 902 de 2017 la titulación se realizará de manera conjunta, para ello se entenderá que con el solo diligenciamiento de este documento por parte suya o de su cónyuge o compañero(a) permanente será posible aplicar un esquema de arrastre tanto de puntajes como de información reportada en el formulario, el cual no requerirá de un nuevo FISO. Ello sin perjuicio de la obligación de laANT de verificar en VUR, DIAN y demás bases de datos la existencia de alguna prohibición que impida la adjudicación."
+      Autorizacion_Conyuge : BOOLEAN;
+      /** Se consigna la ampliación de la información que no se puede registrar con las preguntas predeterminadas del formulario.
+       */
+      !!@ ili2db.dispName = "Observaciones"
+      Observaciones : TEXT;
+      /** Ubicación geográfica donde se captura el formulario FISO.
+       */
+      !!@ ili2db.dispName = "Geometría"
+      Geometria : ISO19107_PLANAS_V3_0.GM_Point3D;
+      /** Versión del Formulario FISO.
+       */
+      !!@ ili2db.dispName = "Versión FISO"
+      Version_FISO : TEXT*20;
+    END FISO_IdentificacionSolicitud;
+
     /** Define los atributos de caracterización del solicitante o aspirante en FISO
      */
     !!@ ili2db.dispName = "(FISO) Caracterización del solicitante"
-    CLASS FISO_CaracterizacionSolicitante =
-      /** Indaga si el predio objeto de la solicitud se encuentra en una zona de reserva o resguardos indígenas en el que se esta adelantando procesos de resolución amistosa de conflictos
+    CLASS FISO_CaracterizacionSolicitante
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      /** Indaga por el patrimonio neto en pesos del solicitante, entendiéndose este como el resultado de la resta de activos (bienes) menos pasivos(deudas).
        */
-      !!@ ili2db.dispName = "51. El predio que actualmente ocupa se encuentra en una reserva o resguardos indígenas en el que se esta adelantando procesos de resolución amistosa de conflictos"
-      Predio_Ocupa_Encuentra_Reserva_Resguardo : Submodelo_FISO_V1_0.FISO_Afirmacion2Tipo;
-      /** Nombre del departamento donde el solicitante tiene la expectativa de acceder a tierra
+      !!@ ili2db.dispName = "Patrimonio neto en pesos"
+      Patrimonio : MANDATORY LADM_COL_V3_0.LADM_Nucleo.Peso;
+      /** Indaga si el solicitante tiene un predio diferente al de la solicitud.
+       */
+      !!@ ili2db.dispName = "¿Es propietario(a) de algún predio rural y/o urbano?"
+      Propietario_Algun_Predio : MANDATORY BOOLEAN;
+      /** Indaga por la extensión en hectáreas del predio diferente al del objeto de la  solicitud.
+       */
+      !!@ ili2db.dispName = "Área del predio"
+      Area_Predio : 0.0 .. 99999999999999.9 [LADM_COL_V3_0.m2];
+      /** Indaga por la destinación (vivienda-proyecto productivo-otro) del predio diferente al del objeto de la  solicitud.
+       */
+      !!@ ili2db.dispName = "Tipo de destinación del predio"
+      Destinacion_Predio : Submodelo_FISO_V1_0.FISO_DestinacionPredioTipo;
+      /** Indaga por una destinación que no esta en las opciones predeterminadas en el formulario para el predio diferente al del objeto de la  solicitud.
+       */
+      !!@ ili2db.dispName = "otra destinación del predio"
+      Otra_Destinacion_Predio : TEXT*255;
+      /** Indaga si el solicitante pertenece a una asociación campesina, de economía solidaria o cualquier otro instrumento de asociación cuyo objeto esté dirigido a la producción agropecuaria, forestal, acuícola o de servicios ambientales con fines productivos o de la economía campesina.
+       */
+      !!@ ili2db.dispName = "¿Hace parte de alguna asociación campesina, de economía solidaria o cualquier otro instrumento de asociación cuyo objeto esté dirigido a la producción agropecuaria, forestal, acuícola o de servicios ambientales con fines productivos o de la economía campesina?"
+      Hace_Parte_Alguna_Asociacion : MANDATORY BOOLEAN;
+      /** La pregunta se formula únicamente a las mujeres solicitantes, y pretende identificar si la totalidad de personas que pertenecen a la asociación son del género femenino.
+       */
+      !!@ ili2db.dispName = "¿La organización está compuesta sólo por mujeres?"
+      Organizacion_Compuesta_Mujeres : BOOLEAN;
+      /** La pregunta se formula únicamente a las mujeres solicitantes, y pretende identificar si la solicitante hace parte de la estructura directiva de la asociación.
+       */
+      !!@ ili2db.dispName = "¿La solicitante pertenece a la parte directiva de la asociación?"
+      Pertenece_Directiva_Asociacion : BOOLEAN;
+      /** Indaga si el predio objeto de la solicitud se encuentra en una zona de reserva o resguardos indígenas en el que se esta adelantando procesos de resolución amistosa de conflictos.
+       */
+      !!@ ili2db.dispName = "El predio que actualmente ocupa se encuentra en una reserva o resguardos indígenas en el que se esta adelantando procesos de resolución amistosa de conflictos"
+      Predio_Ocupa_Encuentra_Reserva_Resguardo : MANDATORY Submodelo_ANT_V1_0.ANT_RespuestaTipo;
+      /** Indaga si el solicitante tiene experiencia relacionada con actividades del campo.
+       */
+      !!@ ili2db.dispName = "Experiencia en actividades de campo"
+      Experiencia_Actividades_Campo : BAG {0..*} OF Submodelo_FISO_V1_0.FISO.FISO_EstructuraActividades;
+      /** Indaga si el solicitante entrego voluntariamente predios a la ANT o ha suscrito  acuerdos de aprovechamiento y/o reconversión del suelo con la ANT o CAR.
+       */
+      !!@ ili2db.dispName = "Voluntariamente ha entregado un predio a la ANT o ha suscrito acuerdos de aprovechamiento y/o reconversión del suelo con la ANT o CAR?"
+      Voluntariamente_Ha_Entregado_Predio : MANDATORY Submodelo_ANT_V1_0.ANT_RespuestaTipo;
+      /** Indaga por la formación educativa en temas agropecuarios del aspirante.
+       */
+      !!@ ili2db.dispName = "¿Ha tomado y terminado algún curso(s), seminario(s) y/o diplomado(s) en ciencias agropecuarias, forestales, ambientales o afines a las mismas?"
+      Cursos_Temas_Agropecuarios : MANDATORY Submodelo_ANT_V1_0.ANT_RespuestaTipo;
+      /** Indaga por el nivel educativo del solicitante en formación educativa agropecuaria.
+       */
+      !!@ ili2db.dispName = "¿Cuál es el nivel educativo mas alto en ciencias agropecuarias, ambientales o afines a las misma alcanzado?"
+      Nivel_Educativo : MANDATORY Submodelo_FISO_V1_0.FISO_NivelEducativoTipo;
+      /** Cantidad de semestres o niveles aprobados por el solicitante en estudios agropecuarios.
+       */
+      !!@ ili2db.dispName = "Número de periodos aprobados"
+      Numero_Periodos_Aprobados : 0 .. 99;
+      /** Indaga si el solicitante hace parte del programa nacional integral de sustitución de cultivos ilícitos.
+       */
+      !!@ ili2db.dispName = "¿Hace parte de programas de reubicación y reasentamiento con el fin de proteger el medio ambiente y fortalecer la producción alimentaria a través de la erradicación de cultivos ilícitos?"
+      Programas_Reubicacion_Reasentamiento : MANDATORY BOOLEAN;
+      /** Indaga  por la posible existencia de una ocupación indebida del solicitante sobre tierras baldías o fiscales patrimoniales.
+       */
+      !!@ ili2db.dispName = "¿Ha sido declarado o está en curso en algún procedimiento de declaratoria de ocupación indebida de tierras baldías o fiscales patrimoniales?"
+      Ocupacion_Indebida_Tierras : BOOLEAN;
+      /** Nombre del departamento donde el solicitante tiene la expectativa de acceder a tierra.
        */
       !!@ ili2db.dispName = "Departamento"
       Departamento_Acceder_Tierra : TEXT*100;
-      /** Nombre del municipio donde el solicitante tiene la expectativa de acceder a tierra
+      /** Nombre del municipio donde el solicitante tiene la expectativa de acceder a tierra.
        */
       !!@ ili2db.dispName = "Municipio"
       Municipio_Acceder_Tierra : TEXT*100;
-      /** Indaga sobre el vinculo o relación de permanencia que el solicitante ha tenido o tiene con el municipio donde pretende acceder a tierra
+      /** Indaga sobre el vínculo o relación de permanencia que el solicitante ha tenido o tiene con el municipio donde pretende acceder a tierra.
        */
       !!@ ili2db.dispName = "Si reside o residió en el municipio o región, indique cuál es el tiempo de residencia (meses)"
       Tiempo_Residencia_Meses : 0 .. 10000;
-      /** Pretende identificar si el solicitante esta interesado en participar en los programas dispuestos por la ANT en caso de definirse que el predio objeto de la solicitud no se puede adjudicar (únicamente para ocupantes de baldíos)
+      /** Indaga si el solicitante ha tenido beneficios dentro de los programas de restitución de tierras.
        */
-      !!@ ili2db.dispName = "63. En caso de encontrarse explotando u ocupando un baldío inadjudicable desea ser incluido en los programas de acceso a tierras de la ANT"
+      !!@ ili2db.dispName = "¿Ha sido beneficiario del proceso de restitución de tierras?"
+      Beneficiario_Proceso_RT : BOOLEAN;
+      /** Indaga si el solicitante ha sido reconocido como segundo ocupante dentro de los programas de restitución de tierras.
+       */
+      !!@ ili2db.dispName = "¿Ha sido reconocido como segundo ocupante dentro del proceso de restitución de tierras?"
+      Segundo_Ocupante_Proceso_RT : BOOLEAN;
+      /** Indaga si dentro de los beneficios otorgados en los procesos de restitución alguno tiene relación con la entrega, adjudicación o reconocimiento de derechos de la propiedad.
+       */
+      !!@ ili2db.dispName = "¿Ha sido usted beneficiario de la entrega, adjudicación o reconocimiento de derechos de la propiedad?"
+      Beneficiario_Adjudicacion_Reconocimiento : BOOLEAN;
+      /** Pretende identificar si el solicitante está interesado en participar en los programas dispuestos por la ANT en caso de definirse que el predio objeto de la solicitud no se puede adjudicar (únicamente para ocupantes de baldíos).
+       */
+      !!@ ili2db.dispName = "En caso de encontrarse explotando u ocupando un baldío inadjudicable desea ser incluido en los programas de acceso a tierras de la ANT"
       Incluirse_Programa_Acceso_Tierra : BOOLEAN;
-      /** Indaga si el solicitante tiene una sentencia que ordene a la ANT la adjudicación del predio o reubicación en uno distinto al ocupado
+      /** Indaga si el solicitante tiene una sentencia que ordene a la ANT la adjudicación del predio o reubicación en uno distinto al ocupado.
        */
-      !!@ ili2db.dispName = "64. ¿Ha sido favorecido con sentencias judiciales que ordenen a la ANT la adjudicación o la reubicación?"
+      !!@ ili2db.dispName = "¿Ha sido favorecido con sentencias judiciales que ordenen a la ANT la adjudicación o la reubicación?"
       Sentencia_Judiciales_Adjudicacion_Reubicacion : BOOLEAN;
     END FISO_CaracterizacionSolicitante;
 
     /** Define los atributos de identificación general del predio en FISO
      */
-    !!@ ili2db.dispName = "(FISO) Identificación general del predio"
-    CLASS FISO_IdentificacionGeneralPredio =
-      /** Nombre de la vereda de ubicación del predio objeto de la solicitud
-       */
-      !!@ ili2db.dispName = "Vereda"
-      Vereda : TEXT*255;
-      /** Nombre del corregimiento de ubicación del predio objeto de la solicitud
-       */
-      !!@ ili2db.dispName = "Corregimiento"
-      Corregimiento : TEXT*255;
-      /** Nombre del centro poblado de ubicación del predio objeto de la solicitud
-       */
-      !!@ ili2db.dispName = "Centro poblado"
-      Centro_Poblado : TEXT*255;
+    !!@ ili2db.dispName = "(FISO) Identificación del predio"
+    CLASS FISO_IdentificacionPredio
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
       /** Indaga si el predio objeto de la solicitud hace parte de un terreno mas grande
        */
       !!@ ili2db.dispName = "¿El predio pertenece a uno de mayor extensión?"
-      Pertenece_Mayor_Extension : BOOLEAN;
-      /** Identificación del predio de mayor extensión
+      Pertenece_Mayor_Extension : MANDATORY BOOLEAN;
+      /** Identificación del predio de mayor extensión.
        */
-      !!@ ili2db.dispName = "En caso afirmativo indique el nombre del predio"
+      !!@ ili2db.dispName = "Nombre del predio de mayor extensión"
       Nombre_Predio_Mayor_Extension : TEXT*255;
-      /** Refiere la extensión en hectáreas del predio objeto de la solicitud
+      /** Refiere la extensión en hectáreas del predio objeto de la solicitud.
        */
-      !!@ ili2db.dispName = "39. Área del predio objeto de la solicitud (hectáreas)"
+      !!@ ili2db.dispName = "Área del predio objeto de la solicitud (hectáreas)"
       Area_Predio_Solicitud_Ha : 0.0 .. 99999999999999.9;
-      /** Indaga por la existencia de conflictos de algún tipo que puedan interferir en la legalización del predio objeto de la solicitud
+      /** Especifica el tipo de conflicto que existe sobre el predio objeto de la solicitud.
        */
-      !!@ ili2db.dispName = "40. ¿Existen conflictos?"
-      Existen_Conflictos : BOOLEAN;
-      /** Especifica el tipo de conflicto que existe sobre el predio objeto de la solicitud
-       */
-      !!@ ili2db.dispName = "Seleccione el tipo conflicto identificado"
-      Tipo_Conflicto : Submodelo_FISO_V1_0.FISO_ConflictosTipo;
-      /** Indaga sobre otro tipo de conflicto que no existe sobre el predio objeto de la solicitud
-       */
-      !!@ ili2db.dispName = "¿Cuál?"
-      Otro_Tipo_Conflicto : TEXT;
-    END FISO_IdentificacionGeneralPredio;
-
-    /** Define los atributos de la identificación de la solicitud en FISO
-     */
-    !!@ ili2db.dispName = "(FISO) Identificación solicitud"
-    CLASS FISO_IdentificacionSolicitud =
-      /** Fecha en que se realiza la inscripción
-       */
-      !!@ ili2db.dispName = "Fecha de diligenciamiento de la solicitud"
-      Fecha_Diligenciamiento_Solicitud : INTERLIS.XMLDate;
-      /** Departamento donde se realiza la inscripción
-       */
-      !!@ ili2db.dispName = "Departamento"
-      Departamento_Solicitud : TEXT*255;
-      /** Municipio donde se realiza la inscripción
-       */
-      !!@ ili2db.dispName = "Municipio"
-      Municipio_Solicitud : TEXT*255;
-      /** Numero de identificación del FISO para tramites internos en la ANT
-       */
-      !!@ ili2db.dispName = "Número formulario"
-      Numero_Formulario : TEXT*30;
-      /** Vía por la cual se realiza el diligenciamiento del FISO
-       */
-      !!@ ili2db.dispName = "Tipo de entrada a FISO"
-      Tipo_Entrada_FISO : Submodelo_FISO_V1_0.FISO_EntradaFISOTipo;
-      !!@ ili2db.dispName = "ID Barrido ANT(QR)"
-      ID_Barrido_ANT_QR : TEXT*30;
-      !!@ ili2db.dispName = "Geometría"
-      Geometria : ISO19107_PLANAS_V3_0.GM_Point3D;
-    END FISO_IdentificacionSolicitud;
+      !!@ ili2db.dispName = "Conflicto generales identificados para FISO"
+      Conflictos_Generales : BAG {0..*} OF Submodelo_FISO_V1_0.FISO.FISO_EstructuraConflictos;
+    END FISO_IdentificacionPredio;
 
     /** Define los atributos de información general del aspirante o solicitante en FISO
      */
     !!@ ili2db.dispName = "(FISO) Información general del aspirante"
-    CLASS FISO_InformacionGeneralAspirante =
-      /** Fecha de expedición que aparece en el documento de identificación del usuario que hace la inscripción
+    CLASS FISO_InformacionGeneralAspirante
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      /** Fecha de expedición que aparece en el documento de identificación del usuario que hace la inscripción.
        */
-      !!@ ili2db.dispName = "Fecha de expedición"
+      !!@ ili2db.dispName = "Fecha de expedición documento"
       Fecha_Expedicion_Documento : INTERLIS.XMLDate;
-      /** Fecha de nacimiento que aparece en el documento de identificación del usuario que hace la inscripción
+      /** Fecha de nacimiento que aparece en el documento de identificación del usuario que hace la inscripción.
        */
       !!@ ili2db.dispName = "Fecha de nacimiento"
-      Fecha_Nacimiento : INTERLIS.XMLDate;
-      /** Únicamente para mujeres cuya jefatura y direccionamiento de Hogar este en cabeza de ellas
+      Fecha_Nacimiento : MANDATORY INTERLIS.XMLDate;
+      /** Departamento donde nació el solicitante.
+       */
+      !!@ ili2db.dispName = "Departamento nacimiento"
+      Departamento_Nacimiento : TEXT*255;
+      /** Municipio donde nació el solicitante.
+       */
+      !!@ ili2db.dispName = "Municipio nacimiento"
+      Municipio_Nacimiento : TEXT*255;
+      /** Únicamente para mujeres cuya jefatura y direccionamiento de hogar este en cabeza de ellas.
        */
       !!@ ili2db.dispName = "¿Se considera mujer campesina jefe de hogar?"
       Mujer_Campesina_Jefe_Hogar : BOOLEAN;
-      /** Orientación sexual del solicitante, según las 7 opciones dadas
+      /** Orientación sexual del solicitante, según las 7 opciones dadas.
        */
-      !!@ ili2db.dispName = "5. Orientación sexual"
+      !!@ ili2db.dispName = "Orientación sexual"
       Orientacion_Sexual : Submodelo_FISO_V1_0.FISO_OrientacionSexualTipo;
-      /** Solo para personas que se identifican como étnicas responden a que pueblo pertenecen
+      /** Solo para personas que se identifican como étnicas responden a que pueblo pertenecen.
        */
-      !!@ ili2db.dispName = "7. ¿A qué pueblo indígena pertenece? (Aplica solo para Indígena)"
-      Pueblo_Indigena : TEXT*100;
-      /** Solo para personas que se identifican como gitanas o Rrom responden a que Vitsa pertenecen
+      !!@ ili2db.dispName = "¿A qué pueblo indígena pertenece?"
+      Pueblo_Indigena : TEXT*150;
+      /** Solo para personas que se identifican como gitanas o Rrom responden a que Vitsa pertenecen.
        */
-      !!@ ili2db.dispName = "8. ¿A cuál Vitsa pertenece? (Gitano(a) o Rrom)"
-      Rrom_Vitsa : TEXT*100;
-      /** Limitaciones físicas, psíquicas o cognoscitivas que impidan el desarrollo normal de sus actividades diarias
-       */
-      !!@ ili2db.dispName = "9. ¿Por enfermedad, accidente o de nacimiento tiene limitantes permanentes?"
-      Limitantes_Permanentes : BOOLEAN;
-      /** Relaciona el tipo de limitación que impide a la persona desarrollar sus actividades normales
+      !!@ ili2db.dispName = "¿A cuál Vitsa pertenece?"
+      Rrom_Vitsa : TEXT*150;
+      /** Relaciona el tipo de limitación que impide a la persona desarrollar sus actividades normales.
        */
       !!@ ili2db.dispName = "Limitantes"
-      Limitantes : Submodelo_FISO_V1_0.FISO_EnfermedadAccidenteTipo;
-      /** Nombre de la limitación que no esta dentro de las opciones dadas
-       */
-      !!@ ili2db.dispName = "¿Cuál?"
-      Otra_Limitante : TEXT*100;
+      Limitantes : BAG {0..*} OF Submodelo_FISO_V1_0.FISO.FISO_EstructuraLimitantes;
       /** Oficio o labor desarrollada por el solicitante entre las opciones dadas
        */
-      !!@ ili2db.dispName = "10. Cuál es su ocupación?"
-      Ocupacion : Submodelo_FISO_V1_0.FISO_OcupacionTipo;
+      !!@ ili2db.dispName = "¿Cuál es su ocupación?"
+      Ocupacion : BAG {0..*} OF Submodelo_FISO_V1_0.FISO.FISO_EstructuraOcupacion;
       /** Estado civil del solicitante según las opciones dadas
        */
-      !!@ ili2db.dispName = "12. Estado civil actual"
-      Estado_Civil_Actual : Submodelo_FISO_V1_0.FISO_EstadoCivilTipo;
-      /** Persona que tiene a cargo responsabilidad económica, social y emocional del Hogar
+      !!@ ili2db.dispName = "Estado civil actual"
+      Estado_Civil_Actual : MANDATORY Submodelo_FISO_V1_0.FISO_EstadoCivilTipo;
+      /** Persona que tiene a cargo responsabilidad económica, social y emocional del Hogar.
        */
-      !!@ ili2db.dispName = "13. ¿Es cabeza de hogar?"
-      Cabeza_Hogar : BOOLEAN;
-      /** Refiere los efectos patrimoniales que surgen del matrimonio civil/católico o la unión marital
+      !!@ ili2db.dispName = "¿Es cabeza de hogar?"
+      Cabeza_Hogar : MANDATORY BOOLEAN;
+      /** Si el solicitante es casado se pregunta por esta situación.
        */
-      !!@ ili2db.dispName = "17. ¿Cuenta con sociedad patrimonial o sociedad conyugal vigente?"
-      Sociedad_Patrimonial_Conyugal_Vigente : Submodelo_FISO_V1_0.FISO_Afirmacion2Tipo;
+      !!@ ili2db.dispName = "¿La persona con la que se casó aún vive?"
+      Persona_Caso_Vive : BOOLEAN;
+      /** Si el solicitante es casado se pregunta por esta situación.
+       */
+      !!@ ili2db.dispName = "¿La persona con la que se casó, es con la que actualmente vive?"
+      Persona_Caso_Convive : BOOLEAN;
+      /** Si el solicitante es divorciado se pregunta por esta situación.
+       */
+      !!@ ili2db.dispName = "¿Se separó legalmente (divorcio) de la persona con la que se casó?"
+      Se_Separo_Legalmente : BOOLEAN;
+      /** Refiere los efectos patrimoniales que surgen del matrimonio civil/católico o la unión marital.
+       */
+      !!@ ili2db.dispName = "¿Cuenta con sociedad patrimonial o sociedad conyugal vigente?"
+      Sociedad_Patrimonial_Conyugal_Vigente : Submodelo_ANT_V1_0.ANT_RespuestaTipo;
     END FISO_InformacionGeneralAspirante;
-
-    /** Define los atributos de identificación de los familiares que componen el núcleo familiar del aspirante o solicitante en FISO
-     */
-    !!@ ili2db.dispName = "(FISO) Nucleo familiar"
-    CLASS FISO_NucleoFamiliar =
-      /** Tipo de documento de identidad del familiar del aspirante o solicitante
-       */
-      !!@ ili2db.dispName = "18. Tipo de documento de identidad"
-      Tipo_Documento : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.LC_InteresadoDocumentoTipo;
-      /** Numero de documento de identidad del familiar del aspirante o solicitante
-       */
-      !!@ ili2db.dispName = "Número de documento de identidad"
-      Documento_Identidad : TEXT*20;
-      /** Primer nombre del familiar del aspirante o solicitante
-       */
-      !!@ ili2db.dispName = "19. Primer nombre"
-      Primer_Nombre : TEXT*100;
-      /** Segundo nombre del familiar del aspirante o solicitante
-       */
-      !!@ ili2db.dispName = "Demás nombres"
-      Segundo_Nombre : TEXT*100;
-      /** Primer apellido del familiar del aspirante o solicitante
-       */
-      !!@ ili2db.dispName = "Primer apellido"
-      Primer_Apellido : TEXT*100;
-      /** Segundo apellido del familiar del aspirante o solicitante
-       */
-      !!@ ili2db.dispName = "Segundo apellido"
-      Segundo_Apellido : TEXT*100;
-      /** Fecha de nacimiento del familiar del aspirante o solicitante
-       */
-      !!@ ili2db.dispName = "20. Fecha  de nacimiento"
-      Fecha_Nacimiento : INTERLIS.XMLDate;
-      /** Parentesco del familiar con el aspirante o solicitante
-       */
-      !!@ ili2db.dispName = "21. Parentesco con el aspirante o solicitante"
-      Parentesco : Submodelo_FISO_V1_0.FISO_ParentescoTipo;
-      /** Sexo del familiar del aspirante o solicitante
-       */
-      !!@ ili2db.dispName = "22. Sexo"
-      Sexo : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.LC_SexoTipo;
-      /** Tiene limitantes permanentes el familiar del aspirante o solicitante
-       */
-      !!@ ili2db.dispName = "23. ¿Por enfermedad, accidente o de nacimiento tiene limitantes permanentes?"
-      Limitantes_Permanentes : BOOLEAN;
-      /** Identificación de las limitantes permanentes del familiar del aspirante o solicitante
-       */
-      !!@ ili2db.dispName = "Limitantes"
-      Limitantes : Submodelo_FISO_V1_0.FISO_EnfermedadAccidenteTipo;
-      /** Otro tipo de limitantes del familiar del aspirante o solicitante
-       */
-      !!@ ili2db.dispName = "¿Cuál?"
-      Otra_Limitante : TEXT*150;
-      /** Ocupación actual del familiar del aspirante o solicitante
-       */
-      !!@ ili2db.dispName = "24. ¿Cuál es la ocupación actual?"
-      Ocupacion : Submodelo_FISO_V1_0.FISO_OcupacionTipo;
-      /** Existe dependencia económica del familiar del aspirante o solicitante
-       */
-      !!@ ili2db.dispName = "25. ¿Depende económicamente del aspirante?"
-      Depende_Economicamente : BOOLEAN;
-    END FISO_NucleoFamiliar;
 
     /** Define los atributos que permiten establecer la relación jurídica o de hecho del solicitante o aspirante con el predio en FISO
      */
     !!@ ili2db.dispName = "(FISO) Relación jurídica del solicitante del predio"
-    CLASS FISO_RelacionJuridicaSolicitantePredio =
-      /** Refiere si la pretensión principal de la solicitud es lograr la formalización o adjudicación de un predio según el caso
+    CLASS FISO_RelacionJuridicaSolicitantePredio
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      /** Refiere si la pretensión principal de la solicitud es lograr la formalización o adjudicación de un predio según el caso.
        */
-      !!@ ili2db.dispName = "29. ¿Su solicitud esta dirigida a legalizar la situación jurídica que tiene con un predio? (Adjudicación o Formalización del Predio)"
-      Solicitud_Legalizar_Situacion_Juridica : BOOLEAN;
-      /** Refiere si existe solicitud previa ante la ANT u otra entidad frente a la legalización del predio objeto de la solicitud
+      !!@ ili2db.dispName = "¿Su solicitud esta dirigida a legalizar la situación jurídica que tiene con un predio? (Adjudicación o Formalización del Predio)"
+      Solicitud_Legalizar_Situacion_Juridica : MANDATORY BOOLEAN;
+      /** Refiere si existe solicitud previa ante la ANT u otra entidad frente a la legalización del predio objeto de la solicitud.
        */
-      !!@ ili2db.dispName = "30. Indique si ya inició el trámite de legalizar la situación del predio"
+      !!@ ili2db.dispName = "Indique si ya inició el trámite de legalizar la situación del predio"
       Inicio_Tramite : BOOLEAN;
-      /** Nombre de la entidad ante la cual inicio tramite de legalización de predio objeto de la solicitud
+      /** Nombre de la entidad ante la cual inicio tramite de legalización de predio objeto de la solicitud.
        */
-      !!@ ili2db.dispName = "31. ¿Ante qué entidad?"
-      Entidad : TEXT*100;
-      /** Relaciona la fecha de radicación del tramite adelantado sobre el predio objeto de la solicitud
+      !!@ ili2db.dispName = "¿Ante qué entidad?"
+      Entidad : TEXT*150;
+      /** Relaciona la fecha de radicación del trámite adelantado sobre el predio objeto de la solicitud.
        */
-      !!@ ili2db.dispName = "32. Fecha de la solicitud"
+      !!@ ili2db.dispName = "Fecha de la solicitud"
       Fecha_Solicitud : INTERLIS.XMLDate;
-      /** Relaciona el numero de identificación asignado para el  tramite adelantado sobre el predio objeto de la solicitud
+      /** Relaciona el número de identificación asignado para el trámite adelantado sobre el predio objeto de la solicitud.
        */
-      !!@ ili2db.dispName = "33. Número de la solicitud o radicado"
-      Numero_Solicitud : TEXT*30;
-      !!@ ili2db.dispName = "34. ¿Habita y/o explota  el predio?"
-      Habita_Explota_Predio : BOOLEAN;
-      /** Fecha desde cuando el solicitante tiene relación de hecho con el predio objeto de la solicitud
+      !!@ ili2db.dispName = "Número de la solicitud o radicado"
+      Numero_Solicitud : TEXT*50;
+      /** Relación de la acción de hecho que el solicitante ejerce sobre el predio objeto de la solicitud.
+       */
+      !!@ ili2db.dispName = "¿Habita y/o explota  el predio?"
+      Habita_Explota_Predio : MANDATORY BOOLEAN;
+      /** Fecha desde cuando el solicitante tiene relación de hecho con el predio objeto de la solicitud.
        */
       !!@ ili2db.dispName = "¿Desde qué fecha?"
       Fecha_Explota_Predio : INTERLIS.XMLDate;
-      /** Uso o destinación que el solicitante le da al predio objeto de la solicitud
+      /** Uso o destinación que el solicitante le da al predio objeto de la solicitud.
        */
-      !!@ ili2db.dispName = "35. Clase de Explotación"
-      Clase_Explotacion : Submodelo_FISO_V1_0.FISO_ClaseExplotacionTipo;
-      /** Uso o destinación que el solicitante le da al predio objeto de la solicitud que no esta dentro de las opciones predeterminadas en el formulario
+      !!@ ili2db.dispName = "Clase de explotación"
+      Clase_Explotacion : MANDATORY Submodelo_FISO_V1_0.FISO.FISO_EstructuraClaseExplotacion;
+      /** Pretende identificar la relación de hecho o derecho que el solicitante, su conyugue o su compañero (a) permanente tiene con otro predio distinto al que se relaciona como objeto de la solicitud.
        */
-      !!@ ili2db.dispName = "¿Cuál?"
-      Otra_Clase_Explotacion : TEXT*255;
-      /** Pretende identificar la relación de hecho o derecho que el solicitante, su conyugue o su compañero (a) permanente tiene con otro predio distinto al que se relaciona como objeto de la solicitud
+      !!@ ili2db.dispName = "¿Usted, su cónyuge, compañero (a) permanente explotan otros predios rurales?"
+      Explotan_Otros_Predios_Rurales : MANDATORY BOOLEAN;
+      /** Especifica la relación que hay sobre la existencia de otro predio.
        */
-      !!@ ili2db.dispName = "36. ¿Usted, su cónyuge, compañero (a) permanente explotan otros predios rurales?"
-      Explotan_Otros_Predios_Rurales : BOOLEAN;
-      /** Especifica la relación que hay sobre la existencia de otro predio
+      !!@ ili2db.dispName = "¿Cuál es el tipo de derecho que tiene sobre el (los) predios(s)?"
+      Relacion_Otros_Predios : Submodelo_FISO_V1_0.FISO_ExplotaOtroPredio;
+      /** Especifica la relación que hay sobre la existencia de otro predio diferente a las opciones dadas.
        */
-      !!@ ili2db.dispName = "En caso afirmativo ¿Cuál es el tipo de derecho que tiene sobre el (los) predios(s)?"
-      Tipo_Relacion_Otros_Predios : Submodelo_FISO_V1_0.FISO_PermExplOtrosPredRuralesSI;
-      /** Especifica la relación que hay sobre la existencia de otro predio diferente a las opciones dadas
-       */
-      !!@ ili2db.dispName = "¿Cuál?"
+      !!@ ili2db.dispName = "Otro tipo de relación con otros predios"
       Otro_Tipo_Relacion : TEXT*255;
+      /** Define los atributos de tradición del predio respecto de la relación jurídica con el solicitante o aspirante en FISO.
+       */
+      !!@ ili2db.dispName = "¿Cuál de las siguientes opciones es la que usted considera que le otorga algún tipo de derecho?"
+      Opcion_Otorga_Derecho : Submodelo_FISO_V1_0.FISO_OtorgaDerechoTipo;
+      /** Indaga por el tipo de relación diferente a las opciones predeterminadas dentro del formulario.
+       */
+      !!@ ili2db.dispName = "¿Cúal otra opción le otorga el derecho?"
+      Otra_Opcion_Otorga_Derecho : TEXT*100;
+      /** Documentos que soportan su relación con el predio.
+       */
+      !!@ ili2db.dispName = "Documentos de soporte"
+      Documentos_Soporte : BAG {0..*} OF LADM_COL_V3_0.LADM_Nucleo.ExtArchivo;
+      /** Indaga por los datos de contacto de la persona de la cual obtuvo el predio objeto de la solicitud.
+       */
+      !!@ ili2db.dispName = "¿Tiene los datos de contacto de la persona de la cual obtuvo el predio?"
+      Tiene_Datos_Persona_Obtuvo_Predio : MANDATORY BOOLEAN;
     END FISO_RelacionJuridicaSolicitantePredio;
 
-    /** Define los atributos de tradición del predio respecto de la relación jurídica con el solicitante o aspirante en FISO
-     */
-    !!@ ili2db.dispName = "(FISO) Tradición del predio"
-    CLASS FISO_TradicionPredio =
-      /** Indaga por la relación que el solicitante tiene con el predio objeto de la solicitud
+    ASSOCIATION fiso_diligenciasolicitud_apoderado =
+      ant_persona (EXTERNAL) -- {0..*} Submodelo_ANT_V1_0.ANT.ANT_Persona;
+      fiso_identificacionsolicitud -- {0..1} FISO_IdentificacionSolicitud;
+      /** Tipo de persona: apoderado o encargado de diligenciar la solicitud
        */
-      !!@ ili2db.dispName = "41. ¿Cuál de las siguientes opciones es la que usted considera que le otorga algún tipo de derecho?"
-      Opcion_Otorga_Derecho : Submodelo_FISO_V1_0.FISO_OtorgaDerechoTipo;
-      /** Indaga por el tipo de relación diferente a las opciones predeterminadas dentro del formulario
-       */
-      !!@ ili2db.dispName = "¿Cuál?"
-      Otra_Opcion_Otorga_Derecho : TEXT;
-    END FISO_TradicionPredio;
+      !!@ ili2db.dispName = "Rol"
+      Rol : Submodelo_FISO_V1_0.FISO_RolPersonaTipo;
+    END fiso_diligenciasolicitud_apoderado;
 
-    ASSOCIATION fiso_identificaciongeneralpredio_identificacionsolicitud =
-      fiso_identificaciongeneralpredio -- {0..1} FISO_IdentificacionGeneralPredio;
+    ASSOCIATION ant_ubicacionpredio_fiso_identificacionpredio =
+      ant_ubicacionpredio (EXTERNAL) -- {1} Submodelo_ANT_V1_0.ANT.ANT_UbicacionPredio;
+      fiso_identificacionpredio -- {0..1} FISO_IdentificacionPredio;
+    END ant_ubicacionpredio_fiso_identificacionpredio;
+
+    ASSOCIATION fiso_agremiacion =
+      fiso_caracterizacionsolicitante -- {0..1} FISO_CaracterizacionSolicitante;
+      ant_persona (EXTERNAL) -- {0..*} Submodelo_ANT_V1_0.ANT.ANT_Persona;
+    END fiso_agremiacion;
+
+    ASSOCIATION fiso_identificacionpredio_identificacionsolicitud =
+      fiso_identificacionpredio -- {0..1} FISO_IdentificacionPredio;
       fiso_identificacionsolicitud -- {1..*} FISO_IdentificacionSolicitud;
-    END fiso_identificaciongeneralpredio_identificacionsolicitud;
+    END fiso_identificacionpredio_identificacionsolicitud;
 
     ASSOCIATION fiso_identificacionsolicitud_informaciongeneralaspirante =
       fiso_identificacionsolicitud -- {1..*} FISO_IdentificacionSolicitud;
-      fiso_informaciongeneralaspirante -- {1} FISO_InformacionGeneralAspirante;
+      fiso_informaciongeneralaspirante -- {0..1} FISO_InformacionGeneralAspirante;
     END fiso_identificacionsolicitud_informaciongeneralaspirante;
 
     ASSOCIATION fiso_identificacionsolicitud_relacionjuridicasolicitantepredio =
@@ -670,37 +2387,32 @@ VERSION "2019-07-04"  =
 
     ASSOCIATION fiso_informaciongeneralaspirante_caracterizacionsolicitante =
       fiso_informaciongeneralaspirante -- {1} FISO_InformacionGeneralAspirante;
-      fiso_caracterizacionsolicitante -- {1} FISO_CaracterizacionSolicitante;
+      fiso_caracterizacionsolicitante -- {0..1} FISO_CaracterizacionSolicitante;
     END fiso_informaciongeneralaspirante_caracterizacionsolicitante;
 
-    ASSOCIATION fiso_informaciongeneralaspirante_nucleofamiliar =
-      fiso_informaciongeneralaspirante -- {1} FISO_InformacionGeneralAspirante;
-      fiso_nucleofamiliar -- {0..*} FISO_NucleoFamiliar;
-    END fiso_informaciongeneralaspirante_nucleofamiliar;
+    ASSOCIATION fiso_nucleofamiliar =
+      fiso_informaciongeneralaspirante -- {0..1} FISO_InformacionGeneralAspirante;
+      nucleofamiliar (EXTERNAL) -- {0..*} Submodelo_ANT_V1_0.ANT.ANT_Persona;
+    END fiso_nucleofamiliar;
 
-    ASSOCIATION fiso_relacionjuridicasolicitantepredio_tradicionpredio =
-      fiso_relacionjuridicasolicitantepredio -- {1} FISO_RelacionJuridicaSolicitantePredio;
-      fiso_tradicionpredio -- {0..1} FISO_TradicionPredio;
-    END fiso_relacionjuridicasolicitantepredio_tradicionpredio;
+    ASSOCIATION fiso_personaobtuvopredio =
+      fiso_relacionjuridicasolicitantepredio -- {0..1} FISO_RelacionJuridicaSolicitantePredio;
+      ant_persona (EXTERNAL) -- {0..*} Submodelo_ANT_V1_0.ANT.ANT_Persona;
+    END fiso_personaobtuvopredio;
 
     ASSOCIATION lc_interesado_fiso_informaciongeneralaspirante =
       lc_interesado (EXTERNAL) -- {1} Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral.LC_Interesado;
       fiso_informaciongeneralaspirante -- {0..1} FISO_InformacionGeneralAspirante;
     END lc_interesado_fiso_informaciongeneralaspirante;
 
-    ASSOCIATION lc_predio_fiso_identificaciongeneralpredio =
-      fiso_identificaciongeneralpredio -- {0..1} FISO_IdentificacionGeneralPredio;
-      lc_predio (EXTERNAL) -- {1} Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral.LC_Predio;
-    END lc_predio_fiso_identificaciongeneralpredio;
-
-  END Fiso;
+  END FISO;
 
 END Submodelo_FISO_V1_0.
 
 MODEL Submodelo_FADC_V1_0 (es)
 AT "mailto:JONNY@localhost"
 VERSION "2020-08-11"  =
-  IMPORTS LADM_COL_V3_0,Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0,ISO19107_PLANAS_V3_0,Submodelo_FISO_V1_0;
+  IMPORTS Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0,LADM_COL_V3_0,Submodelo_FISO_V1_0,Submodelo_ANT_V1_0;
 
   DOMAIN
 
@@ -1039,63 +2751,23 @@ VERSION "2020-08-11"  =
       !!@ ili2db.dispName = "Otro"
       Otro
     );
-  STRUCTURE FADC_EnfoqueDiferencialTipo_ = value : MANDATORY FADC_EnfoqueDiferencialTipo; END FADC_EnfoqueDiferencialTipo_;
-  STRUCTURE FADC_ResponsableTipo_ = value : MANDATORY FADC_ResponsableTipo; END FADC_ResponsableTipo_;
-  STRUCTURE FADC_SituacionParticularTipo_ = value : MANDATORY FADC_SituacionParticularTipo; END FADC_SituacionParticularTipo_;
 
   TOPIC FADC =
-    DEPENDS ON Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral;
-
-    /** Define las acciones diferenciadas de una persona
-     */
-    !!@ ili2db.dispName = "(FADC) Acción diferenciada"
-    CLASS FADC_AccionDiferenciada =
-      /** Corresponde a las categorías y subcategorías del enfoque diferencial encontradas en un predio en el que se requiere el  desarrollo de acciones diferenciadas (acompañamientos) durante la visita predial. Pueden seleccionarse varias para un mismo predio.
-       */
-      !!@ ili2db.dispName = "Tipo de enfoque diferencial"
-      Tipo_Enfoque_Diferencial : BAG {1..*} OF Submodelo_FADC_V1_0.FADC_EnfoqueDiferencialTipo_;
-      /** Refiere a los elementos y detalles de la situación(es) encontrada(s) en el predio que requiere(n) acompañamiento durante la visita predial. Si se identifican varias situaciones hay que dar cuenta de ello. Esta es la base para el desarrollo de la acción diferenciada.
-       */
-      !!@ ili2db.dispName = "Descripción de la situación"
-      Descripcion_Situacion : MANDATORY TEXT*500;
-      /** Corresponde a los elementos y detalles necesarios para comprender en qué consistió y como se llevó a cabo la acción diferenciada. Es importante que se describa cómo se realizó, el papel de los responsables y en general del desarrollo de la acción diferenciada.
-       */
-      !!@ ili2db.dispName = "Descripción de la acción diferenciada"
-      Descripcion_Accion_Diferenciada : MANDATORY TEXT*500;
-      /** Alude a la(s) persona(s) que acompañan o apoyan el desarrollo de la acción diferenciada. Si bien la responsabilidad de la acción diferenciada recae en el socio, bajo orientaciones de la SPO, siempre será necesario acudir a distintos actores del municipio para llevar a cabo dichas acciones. Estos son los actores que se relacionan en este campo.
-       */
-      !!@ ili2db.dispName = "Responsable de implementar la acción"
-      Responsable_Implementar_Accion : BAG {1..*} OF Submodelo_FADC_V1_0.FADC_ResponsableTipo_;
-      /** Corresponde a la identificación de otros actores vinculados al desarrollo de la acción diferenciada, diferentes a los registrados en el campo "Responsable(s) de implementar la acción". Allí se debe especificar qué actor es, es decir, su rol.
-       */
-      !!@ ili2db.dispName = "Otro responsable"
-      Otro_Responsable : TEXT*50;
-      /** Corresponde a la fecha en la cual se llevó a cabo la acción diferenciada.
-       */
-      !!@ ili2db.dispName = "Fecha de implementación"
-      Fecha_Implementacion : INTERLIS.XMLDate;
-      /** Corresponde a la descripción del resultado de la acción diferenciada. Es importante que se incluya cómo  dicha acción contribuyó con el logro de los objetivos de la actividad (visita al predio, jornada FISO-jurídica), así como con el acceso a la oferta institucional de la ANT.
-       */
-      !!@ ili2db.dispName = "Resultado de la acción diferenciada"
-      Resultado_Accion_Diferenciada : TEXT*500;
-      /** En este campo se registran consideraciones adicionales sobre la acción diferenciada implementada.
-       */
-      !!@ ili2db.dispName = "Observaciones"
-      Observaciones : TEXT*500;
-    END FADC_AccionDiferenciada;
+    DEPENDS ON Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral,Submodelo_ANT_V1_0.ANT;
 
     /** Define los conflictos asociados a la tenencia de la tierra
      */
     !!@ ili2db.dispName = "(FADC) Conflictos"
-    CLASS FADC_Conflictos =
-      /** En este campo se eligen las categorías y subcategorías de conflictos que se quieren asociar a un predio
+    CLASS FADC_Conflictos
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      /** En este campo se eligen las categorías y subcategorías de conflictos que se quieren asociar a un predio.
        */
       !!@ ili2db.dispName = "Tipo de conflicto"
       Tipo_Conflicto : MANDATORY Submodelo_FADC_V1_0.FADC_ConflictosTipo;
       /** En este campo debe describirse la situación de conflicto teniendo en cuenta los aspectos que caracterizan un conflicto y que están dispuestos en el documento Guía para el manejo de conflictos: situación de los actores frente al conflicto, relación entre los actores, contexto del conflicto, nivel del conflicto, fase del conflicto. Es importante lograr descripciones que resulten útiles para las decisiones que sea necesario tomar en relación al conflicto.
        */
-      !!@ ili2db.dispName = "Describa el conflicto identificado"
-      Descripcion_Conflicto : MANDATORY TEXT*1000;
+      !!@ ili2db.dispName = "Descripción del conflicto"
+      Descripcion_Conflicto : MANDATORY TEXT;
       /** En este campo deben marcarse si en efecto hubo gestiones previas a la fase de implementación que desarrolla la Agencia. Ofrece las opciones de marcar si o no.
        */
       !!@ ili2db.dispName = "¿Se ha realizado alguna gestión previa al BPM del conflicto o denuncia ante alguna autoridad?"
@@ -1140,24 +2812,90 @@ VERSION "2020-08-11"  =
        */
       !!@ ili2db.dispName = "Observación"
       Observacion : TEXT*1000;
+      /** Documentos soporte de la situación de conflicto.
+       */
+      !!@ ili2db.dispName = "Documento soporte"
+      Documento_Soporte : LADM_COL_V3_0.LADM_Nucleo.ExtArchivo;
     END FADC_Conflictos;
 
-    /** Define los atributos iniciales del formulario de acciones diferenciadas y conflictos.
+    /** Estructura que permite almacenar los enfoques diferenciales para el formulario FADC.
      */
-    !!@ ili2db.dispName = "(FADC) Datos iniciales"
-    CLASS FADC_DatosIniciales =
-      /** Alude a la Unidad de Intervención en el cual se ubica el predio al que está asociada la acción diferenciada, el conflicto o la situación particular.  La Unidad de Intervención es una unidad geográfica de análisis y actuación territorial que ha definido la ANT para organizar su proceso de intervención en el marco del barrido predial al interior de cada uno de los municipios. Su aplicación busca la agrupación de veredas o corregimientos que permitan priorizar la actuación en campo, y se hace mediante la valoración técnica del comportamiento de variables físicas, sociales, jurídicas y de condiciones de seguridad, al mismo tiempo que la concertación comunitaria. (ANT).
+    !!@ ili2db.dispName = "(FADC) Estructura enfoque diferencial"
+    STRUCTURE FADC_EstructuraEnfoqueDiferencial =
+      /** Corresponde a las categorías y subcategorías del enfoque diferencial encontradas en un predio en el que se requiere el  desarrollo de acciones diferenciadas (acompañamientos) durante la visita predial. Pueden seleccionarse varias para un mismo predio.
        */
-      !!@ ili2db.dispName = "Unidad de intervención"
-      Unidad_Intervencion : MANDATORY TEXT*100;
-      /** Alude a la Vereda según en el cual se ubica el predio al que está asociada la acción diferenciada, el conflicto o la situación particular. En este caso la vereda corresponde a las reportadas por el DANE. De acuerdo con el DANE (2018) la vereda es una división territorial de carácter administrativo en el área rural de los municipios, establecida mediante acuerdo municipal. Se concibe como una agrupación comunitaria de base territorial y principal espacio de sociabilidad, caracterizada por la proximidad de residencia de sus miembros, el sentido de pertenencia e identidad común y el predominio de las relaciones vecinales. Se conforma principalmente por la agrupación de predios delimitados por accidentes geográficos y vías principales. Para el caso de los productos cartográficos censales rurales, la vereda se identifica con un texto dentro de las respectivas áreas operativas y facilita la ubicación del grupo operativo en campo.
+      !!@ ili2db.dispName = "Enfoque_Diferencial"
+      Enfoque_Diferencial : MANDATORY Submodelo_FADC_V1_0.FADC_EnfoqueDiferencialTipo;
+    END FADC_EstructuraEnfoqueDiferencial;
+
+    /** Estructura que permite almacenar el responsable de implementar la acción diferenciada de acuerdo a lo definido en el formulario FADC.
+     */
+    !!@ ili2db.dispName = "(FADC) Estructura responsable de implementar la acción diferenciada"
+    STRUCTURE FADC_EstructuraResponsableAccion =
+      /** Alude a la(s) persona(s) que acompañan o apoyan el desarrollo de la acción diferenciada. Si bien la responsabilidad de la acción diferenciada recae en el socio, bajo orientaciones de la SPO, siempre será necesario acudir a distintos actores del municipio para llevar a cabo dichas acciones. Estos son los actores que se relacionan en este campo.
        */
-      !!@ ili2db.dispName = "Vereda"
-      Vereda : TEXT*255;
-      /** Alude a las veredas reportadas por la comunidad durante la Fase de Formulación de los POSPR. Una vereda comunitaria corresponde a la división geopolítica que las personas que habitan en los municipios definen para ordenar su territorio. Esta organización territorial  está basada en aspectos físicos, sociales, económicos y ambientales de las zonas y no siempre coinicide con las veredas de fuentes como el POT, el SISBEN, el DANE, etc.
+      !!@ ili2db.dispName = "Responsable"
+      Responsable : MANDATORY Submodelo_FADC_V1_0.FADC_ResponsableTipo;
+      /** Corresponde a la identificación de otros actores vinculados al desarrollo de la acción diferenciada, diferentes a los registrados en el campo "Responsable(s) de implementar la acción". Allí se debe especificar qué actor es, es decir, su rol.
        */
-      !!@ ili2db.dispName = "Vereda comunitaria"
-      Vereda_Comunitaria : TEXT*255;
+      !!@ ili2db.dispName = "Otro responsable"
+      Otro_Responsable : TEXT*150;
+    END FADC_EstructuraResponsableAccion;
+
+    /** Estructura que permite almacenar las situaciones particulares de acuerdo al formulario FADC.
+     */
+    !!@ ili2db.dispName = "(FADC) Estructura situación particular"
+    STRUCTURE FADC_EstructuraSituacionParticular =
+      /** En este campo se eligen el tipo de situaciones particulares que se encontraron para un predio. Pueden seleccionarse varias para un mismo predio.
+       */
+      !!@ ili2db.dispName = "Tipo de situación particular"
+      Situacion_Particular : MANDATORY Submodelo_FADC_V1_0.FADC_SituacionParticularTipo;
+      /** Esta opción se marca cuando hay situaciones particulares distintas a las opciones que establece el campo "Tipo de situación".
+       */
+      !!@ ili2db.dispName = "Otra situación particular"
+      Otra_Situacion_Particular : TEXT*150;
+    END FADC_EstructuraSituacionParticular;
+
+    /** Define las acciones diferenciadas de una persona
+     */
+    !!@ ili2db.dispName = "(FADC) Acción diferenciada"
+    CLASS FADC_AccionDiferenciada
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      /** Corresponde a las categorías y subcategorías del enfoque diferencial encontradas en un predio en el que se requiere el  desarrollo de acciones diferenciadas (acompañamientos) durante la visita predial. Pueden seleccionarse varias para un mismo predio.
+       */
+      !!@ ili2db.dispName = "Enfoque diferencial"
+      Enfoque_Diferencial : BAG {1..*} OF Submodelo_FADC_V1_0.FADC.FADC_EstructuraEnfoqueDiferencial;
+      /** Refiere a los elementos y detalles de la situación(es) encontrada(s) en el predio que requiere(n) acompañamiento durante la visita predial. Si se identifican varias situaciones hay que dar cuenta de ello. Esta es la base para el desarrollo de la acción diferenciada.
+       */
+      !!@ ili2db.dispName = "Descripción de la situación"
+      Descripcion_Situacion : MANDATORY TEXT*500;
+      /** Corresponde a los elementos y detalles necesarios para comprender en qué consistió y como se llevó a cabo la acción diferenciada. Es importante que se describa cómo se realizó, el papel de los responsables y en general del desarrollo de la acción diferenciada.
+       */
+      !!@ ili2db.dispName = "Descripción de la acción diferenciada"
+      Descripcion_Accion_Diferenciada : MANDATORY TEXT*500;
+      /** Alude a la(s) persona(s) que acompañan o apoyan el desarrollo de la acción diferenciada. Si bien la responsabilidad de la acción diferenciada recae en el socio, bajo orientaciones de la SPO, siempre será necesario acudir a distintos actores del municipio para llevar a cabo dichas acciones. Estos son los actores que se relacionan en este campo.
+       */
+      !!@ ili2db.dispName = "Responsable de implementar la acción"
+      Responsable : BAG {1..*} OF Submodelo_FADC_V1_0.FADC.FADC_EstructuraResponsableAccion;
+      /** Corresponde a la fecha en la cual se llevó a cabo la acción diferenciada.
+       */
+      !!@ ili2db.dispName = "Fecha de implementación"
+      Fecha_Implementacion : INTERLIS.XMLDate;
+      /** Corresponde a la descripción del resultado de la acción diferenciada. Es importante que se incluya cómo  dicha acción contribuyó con el logro de los objetivos de la actividad (visita al predio, jornada FISO-jurídica), así como con el acceso a la oferta institucional de la ANT.
+       */
+      !!@ ili2db.dispName = "Resultado de la acción diferenciada"
+      Resultado_Accion_Diferenciada : TEXT*500;
+      /** En este campo se registran consideraciones adicionales sobre la acción diferenciada implementada.
+       */
+      !!@ ili2db.dispName = "Observaciones"
+      Observaciones : TEXT*500;
+    END FADC_AccionDiferenciada;
+
+    /** Clase que almacena los datos iniciales del formulario de acciones diferenciadas y conflictividades.
+     */
+    !!@ ili2db.dispName = "(FADC) Identificación"
+    CLASS FADC_Identificacion
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
       /** Fecha en la que se realiza el registro en el FADC.
        */
       !!@ ili2db.dispName = "Fecha de diligenciamiento del formulario"
@@ -1165,129 +2903,49 @@ VERSION "2020-08-11"  =
       /** Corresponde al componente de la etapa de operativo en campo y análisis (Fase de Implementación) en el cual se realiza el registro de la acción diferenciada, el conflicto o la situación particular. Es importante señalar que este campo no contempla todos los componentes de dicha etapa, sino aquellos donde es fundamental la realización de los registros porque hay interacción con las personas que habitan los municipios intervenidos.
        */
       !!@ ili2db.dispName = "Momento de la ruta en el cual se identifica la necesidad"
-      Momento_Ruta : MANDATORY Submodelo_FADC_V1_0.FADC_MomentoRutaTipo;
-    END FADC_DatosIniciales;
-
-    /** Persona de contacto alterno de la persona interesada o que tiene relación de tenencia con el predio.
-     */
-    !!@ ili2db.dispName = "(FADC) Otra persona de contacto"
-    CLASS FADC_OtraPersonaContacto =
-      /** Primer nombre de la persona que se registra como otro dato de contacto.
+      Momento_Ruta : Submodelo_FADC_V1_0.FADC_MomentoRutaTipo;
+      /** Alude a la necesidad de ajustar un QR porque el registro del conflicto, la situación particular o la acción diferenciada se realizó durante el componente Avanzada Social. Puede suceder que, una vez se realiza la visita al predio, se verifica que existe una segregación o un englobe y que implique ajustar el QR al que estaba asociado el registro.
        */
-      !!@ ili2db.dispName = "Primer nombre"
-      Primer_Nombre : MANDATORY TEXT*100;
-      /** Demas nombres de la persona que se registra como otro dato de contacto.
+      !!@ ili2db.dispName = "¿Desea actualizar el Id Barrido ANT (QR)?"
+      Actualizar_ID_Barrido_ANT : BOOLEAN;
+      /** Alude al QR nuevo que se asigna a un registro previamente realizado. Se deriva de encontrar englobes o desenglobes que implican precisar el dato del QR.
        */
-      !!@ ili2db.dispName = "Demás nombres"
-      Segundo_Nombre : TEXT*100;
-      /** Primer apellido de la persona que se registra como otro dato de contacto.
+      !!@ ili2db.dispName = "Nuevo Id Barrido ANT (QR)"
+      Nuevo_ID_Barrido_ANT : TEXT*10;
+      /** En este campo debe registrarse la razón por la cual se realizó un ajuste en el QR al cual estaba asociado el registro de conflicto, acción diferenciada o situación particular.
        */
-      !!@ ili2db.dispName = "Primer apellido"
-      Primer_Apellido : MANDATORY TEXT*100;
-      /** Segundo apellido de la persona que se registra como otro dato de contacto.
-       */
-      !!@ ili2db.dispName = "Segundo apellido"
-      Segundo_Apellido : TEXT*100;
-      /** Numero de teléfono celular de la persona que se registra como otro dato de contacto.
-       */
-      !!@ ili2db.dispName = "Teléfono 1"
-      Telefono1 : MANDATORY TEXT*20;
-      /** Numero de teléfono fijo de la persona que se registra como otro dato de contacto. (Si cuenta con este dato)
-       */
-      !!@ ili2db.dispName = "Teléfono 2"
-      Telefono2 : TEXT*20;
-      /** Indique el parentesco o relación que tiene el otro dato de contacto con la persona que se registró como una de las partes del conflicto.
-       */
-      !!@ ili2db.dispName = "Parentesco"
-      Parentesco : Submodelo_FISO_V1_0.FISO_ParentescoTipo;
-    END FADC_OtraPersonaContacto;
-
-    /** Persona activa con la cual existe un conflicto en la tenencia de la tierra, este sujeto no tiene relación de tenencia con el predio.
-     */
-    !!@ ili2db.dispName = "(FADC) Persona externa conflicto"
-    CLASS FADC_PersonaExternaConflicto =
-      /** Corresponde al tipo de documento de identidad que presenta la persona registrada.
-       */
-      !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.LC_InteresadoDocumentoTipo;
-      /** Corresponde al numero de cédula de ciudadania de la persona registrada.
-       */
-      !!@ ili2db.dispName = "Documento de identidad"
-      Documento_Identidad : TEXT*50;
-      /** Primer nombre de la persona involucrada en el conflicto (siempre deben vincularse al menos dos personas cuando hay conflicto).
-       */
-      !!@ ili2db.dispName = "Primer nombre"
-      Primer_Nombre : MANDATORY TEXT*100;
-      /** Demas nombres de la persona involucrada en el conflicto.
-       */
-      !!@ ili2db.dispName = "Demás nombres"
-      Segundo_Nombre : TEXT*100;
-      /** Primer apellido de la persona involucrada en el conflicto.
-       */
-      !!@ ili2db.dispName = "Primer apellido"
-      Primer_Apellido : MANDATORY TEXT*100;
-      /** Segundo apellido de la persona involucrada en el conflicto.
-       */
-      !!@ ili2db.dispName = "Segundo apellido"
-      Segundo_Apellido : TEXT*100;
-      /** Corresponde al número de telefono celular de la persona registrada.
-       */
-      !!@ ili2db.dispName = "Teléfono 1"
-      Telefono1 : TEXT*20;
-      /** Corresponde al número de telefono fijo de la persona registrada.
-       */
-      !!@ ili2db.dispName = "Teléfono 2"
-      Telefono2 : TEXT*20;
-    END FADC_PersonaExternaConflicto;
-
-    /** Define las situaciones particulares que imposibilitan el acceso al predio.
-     */
-    !!@ ili2db.dispName = "(FADC) Situación particular"
-    CLASS FADC_SituacionParticular =
+      !!@ ili2db.dispName = "Describa la situación por la cual se genera el Id Barrido ANT (QR) nuevo"
+      Describa_Genera_ID_Barrido_ANT : TEXT*150;
       /** En este campo se eligen el tipo de situaciones particulares que se encontraron para un predio. Pueden seleccionarse varias para un mismo predio.
        */
-      !!@ ili2db.dispName = "Tipo de situación particular"
-      Situacion_Particular : BAG {1..*} OF Submodelo_FADC_V1_0.FADC_SituacionParticularTipo_;
-      /** Esta opción se marca cuando hay sitauciones particulares distintas a las opciones que establece el campo "Tipo de situación".
-       */
-      !!@ ili2db.dispName = "¿Cuál?"
-      Otra_Situacion : TEXT*50;
-    END FADC_SituacionParticular;
+      !!@ ili2db.dispName = "Situación particular"
+      Situacion_Particular : BAG {0..*} OF Submodelo_FADC_V1_0.FADC.FADC_EstructuraSituacionParticular;
+    END FADC_Identificacion;
 
-    ASSOCIATION fadc_datosiniciales_fadc_conflictos =
-      fadc_datosiniciales -- {1} FADC_DatosIniciales;
-      fadc_conflictos -- {1..*} FADC_Conflictos;
-    END fadc_datosiniciales_fadc_conflictos;
+    ASSOCIATION fadc_conflictos_ant_persona =
+      ant_persona (EXTERNAL) -- {0..*} Submodelo_ANT_V1_0.ANT.ANT_Persona;
+      fadc_conflictos -- {0..1} FADC_Conflictos;
+    END fadc_conflictos_ant_persona;
 
-    ASSOCIATION fadc_datosiniciales_fadc_situacionparticular =
-      fadc_datosiniciales -- {1} FADC_DatosIniciales;
-      fadc_situacionparticular -- {0..1} FADC_SituacionParticular;
-    END fadc_datosiniciales_fadc_situacionparticular;
+    ASSOCIATION fadc_conflictos_lc_interesado =
+      lc_interesado (EXTERNAL) -- {0..*} Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral.LC_Interesado;
+      fadc_conflictos -- {0..1} FADC_Conflictos;
+    END fadc_conflictos_lc_interesado;
 
-    ASSOCIATION lc_interesado_fadc_acciondiferenciada =
-      lc_interesado (EXTERNAL) -- {1} Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral.LC_Interesado;
+    ASSOCIATION ant_ubicacionpredio_fadc_identificacion =
+      ant_ubicacionpredio (EXTERNAL) -- {1} Submodelo_ANT_V1_0.ANT.ANT_UbicacionPredio;
+      fadc_identificacion -- {0..1} FADC_Identificacion;
+    END ant_ubicacionpredio_fadc_identificacion;
+
+    ASSOCIATION fadc_identificacion_fadc_acciondiferenciada =
+      fadc_identificacion -- {1} FADC_Identificacion;
       fadc_acciondiferenciada -- {0..1} FADC_AccionDiferenciada;
-    END lc_interesado_fadc_acciondiferenciada;
+    END fadc_identificacion_fadc_acciondiferenciada;
 
-    ASSOCIATION lc_interesado_fadc_conflictos =
-      lc_interesado (EXTERNAL) -- {1..*} Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral.LC_Interesado;
-      fadc_conflictos -- {1..*} FADC_Conflictos;
-    END lc_interesado_fadc_conflictos;
-
-    ASSOCIATION lc_interesado_fadc_otrapersonacontacto =
-      lc_interesado (EXTERNAL) -- {1..*} Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral.LC_Interesado;
-      fadc_otrapersonacontacto -- {0..*} FADC_OtraPersonaContacto;
-    END lc_interesado_fadc_otrapersonacontacto;
-
-    ASSOCIATION lc_interesado_fadc_personaexternaconflicto =
-      lc_interesado (EXTERNAL) -- {1..*} Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral.LC_Interesado;
-      fadc_personaexternaconflicto -- {0..*} FADC_PersonaExternaConflicto;
-    END lc_interesado_fadc_personaexternaconflicto;
-
-    ASSOCIATION lc_predio_fadc_datosiniciales =
-      lc_predio (EXTERNAL) -- {1} Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_0.Levantamiento_Catastral.LC_Predio;
-      fadc_datosiniciales -- {0..1} FADC_DatosIniciales;
-    END lc_predio_fadc_datosiniciales;
+    ASSOCIATION fadc_identificacion_fadc_conflictos =
+      fadc_identificacion -- {1} FADC_Identificacion;
+      fadc_conflictos -- {0..*} FADC_Conflictos;
+    END fadc_identificacion_fadc_conflictos;
 
   END FADC;
 
