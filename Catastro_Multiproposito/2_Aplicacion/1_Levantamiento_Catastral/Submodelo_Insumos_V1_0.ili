@@ -932,6 +932,15 @@ VERSION "V2.3"  // 2019-07-31 // =
       Secuencial_SNR
     );
 
+    SNR_EstadoPredioTipo = (
+      !!@ ili2db.dispName = "Activo"
+      Activo,
+      !!@ ili2db.dispName = "Cerrado"
+      Cerrado,
+      !!@ ili2db.dispName = "Trasladado"
+      Trasladado
+    );
+
     SNR_FuenteTipo = (
       /** Un acto administrativo es toda manifestación o declaración emanada de la administración pública en el ejercicio de potestades administrativas, mediante el que impone su voluntad sobre los derechos, libertades o intereses de otros sujetos públicos o privados y que queda bajo el del comienzo.
        */
@@ -964,6 +973,333 @@ VERSION "V2.3"  // 2019-07-31 // =
        */
       !!@ ili2db.dispName = "Persona jurídica"
       Persona_Juridica
+    );
+
+    SNR_PublicidadTipo = (
+      /** Se refiere a la agrupación de códigos de naturaleza jurídica de demanda: 
+       * 
+       * 0406
+       * 0407
+       * 0408
+       * 0409
+       * 0410
+       * 0411
+       * 0412
+       * 0413
+       * 0414
+       * 0415
+       * 0416
+       * 0417
+       * 0418
+       * 0419
+       * 0420
+       * 0453
+       * 0467
+       * 0468
+       * 0469
+       * 0473
+       * 0477
+       * 0490
+       * 0492
+       * 0499
+       * 04001
+       */
+      !!@ ili2db.dispName = "Demanda"
+      Demanda,
+      /** Se refiere a la agrupación de códigos de iniciación de procesos administrativos: 
+       * 
+       * 0403
+       * 0404
+       * 0446
+       * 0447
+       * 0448
+       * 0449
+       * 0450
+       * 0451
+       * 0452
+       * 0481
+       * 04004
+       * 0916
+       * 0936
+       * 0937
+       * 0938
+       * 0939
+       * 0952
+       * 0965
+       * 0969
+       */
+      !!@ ili2db.dispName = "Inicio de proceso administrativo"
+      Inicio_Proceso_Administrativo,
+      /** Se refiere a la agrupación de códigos de cancelaciones: 
+       * 
+       * 0841
+       * 0842
+       * 0843
+       * 0844
+       * 0845
+       * 0846
+       * 0847
+       * 0848
+       * 0849
+       * 0850
+       * 0851
+       * 0852
+       * 0853
+       * 0854
+       * 0855
+       * 0856
+       */
+      !!@ ili2db.dispName = "Cancelación"
+      Cancelacion,
+      /** Es la agrupación de códigos que publicitan asuntos relacionados con desplazamiento, ley de víctimas o restitución: 
+       * 
+       * 0928
+       * 0930
+       * 0931
+       * 0932
+       * 0933
+       * 0934
+       * 0480
+       * 0482
+       * 04006
+       * 0483
+       */
+      !!@ ili2db.dispName = "Desplazamiento forzado, victimas o restitución"
+      Victima_Restitucion,
+      /** Es la agrupación de codigos que publicitan actos jurídicos en los FMI:
+       * 
+       * 0900
+       * 0901
+       * 0902
+       * 0903
+       * 0904
+       * 0905
+       * 0908
+       * 0921
+       * 0922
+       * 0925
+       * 0926
+       * 0944
+       * 0951
+       * 0958
+       * 0960
+       * 0964
+       * 0967
+       * 0966
+       * 0970
+       * 0972
+       * 0465
+       * 04003
+       */
+      !!@ ili2db.dispName = "Publicidad de acto jurídico"
+      Publicidad_Acto_Juridico
+    );
+
+    SNR_RestriccionTipo = (
+      /** Es la agrupación de códigos registrales que hacen referencia a servidumbres:
+       * 
+       * 0325
+       * 0334
+       * 0335
+       * 0336
+       * 0337
+       * 0338
+       * 0339
+       * 0340
+       * 0341
+       * 0342
+       * 0343
+       * 0344
+       * 0350
+       * 0351
+       * 0354
+       * 0358
+       * 0373
+       * 0381
+       */
+      !!@ ili2db.dispName = "Servidumbre de paso"
+      Servidumbre,
+      /** Es la agrupación de códigos registrales que hacen referencia a afectaciones de interes general:
+       * 
+       * 0973
+       * 0305
+       * 0359
+       * 0360
+       */
+      !!@ ili2db.dispName = "Afectaciones de interés general"
+      Afectaciones_Interes_General,
+      /** Es la agrupación de códigos registrales que hacen referencia a restricciones de tipo ambiental:
+       * 
+       * 0363
+       * 0364
+       * 0368
+       * 0357
+       * 0945
+       * 0946
+       * 0947
+       * 0948
+       * 0949
+       * 0953
+       * 0954
+       * 0955
+       * 0956
+       * 0968
+       * 0974
+       * 0961
+       */
+      !!@ ili2db.dispName = "Ambientales"
+      Ambientales,
+      /** Es la agrupación de códigos registrales que hacen referencia a restricciones u obligaciones de abstenerse frente a la propiedad por asuntos relacionados con desplazamiento, ley de víctimas o restitución de tierras: 
+       * 
+       * 0470
+       * 0474
+       * 484
+       * 0361
+       * 0352
+       * 0929
+       * 0940
+       * 0941
+       */
+      !!@ ili2db.dispName = "Desplazamiento forzado restitución"
+      Desplazamiento_Forzado_Restitucion,
+      /** Es la agrupación de códigos registrales que hacen referencia a embargos:
+       * 
+       * 0423
+       * 0424
+       * 0425
+       * 0426
+       * 0427
+       * 0428
+       * 0429
+       * 0430
+       * 0431
+       * 0432
+       * 0433
+       * 0434
+       * 0435
+       * 0436
+       * 0437
+       * 0438
+       * 0439
+       * 0440
+       * 0443
+       * 0444
+       * 0445
+       * 0471
+       * 0472
+       * 0475
+       * 0476
+       * 0478
+       * 0485
+       * 0487
+       * 0489
+       * 0491
+       * 0493
+       * 0495
+       * 0496
+       * 0497
+       * 0498
+       */
+      !!@ ili2db.dispName = "Embargo"
+      Embargo,
+      /** Es la agrupación de códigos registrales que hacen referencia a propiedad horizontal, uso del suelo, urbanismo:
+       * 
+       * 0306
+       * 0316
+       * 0317
+       * 0330
+       * 0331
+       * 0346
+       * 0347
+       * 0909
+       * 0914
+       * 0923
+       * 0950
+       * 0971
+       * 0975
+       * 0976
+       */
+      !!@ ili2db.dispName = "Propiedad horizontal y urbanismo"
+      Propiedad_Horizontal_Urbanismo,
+      /** Es la agrupación de códigos registrales que hacen referencia a prohibiciones expresas de origen administrativo, contractual o judicial:
+       * 
+       * 0306
+       * 0316
+       * 0317
+       * 0330
+       * 0331
+       * 0346
+       * 0347
+       * 0909
+       * 0914
+       * 0923
+       * 0950
+       * 0971
+       * 0975
+       * 0976
+       *  
+       * 0318
+       * 0327
+       * 0362
+       * 0372
+       * 0384
+       * 0300
+       * 0401
+       * 0402
+       * 0405
+       * 0454
+       * 0455
+       * 0456
+       * 0458
+       * 0459
+       * 0460
+       * 0461
+       * 0462
+       * 0463
+       * 0464
+       * 0466
+       * 0479
+       * 0486
+       * 0488
+       * 0494
+       * 04005
+       * 0400
+       * 0942
+       * 0943
+       */
+      !!@ ili2db.dispName = "Prohibiciones expresas"
+      Prohibiciones_Expresas,
+      /** Es la agrupación de códigos registrales que hacen referencia a hipotecas:
+       * 
+       * 0200
+       * 0201
+       * 0203
+       * 0204
+       * 0205
+       * 0206
+       * 0207
+       * 0208
+       * 0209
+       * 0210
+       * 0211
+       * 0213
+       * 0215
+       * 0217
+       * 0218
+       * 0219
+       */
+      !!@ ili2db.dispName = "Hipoteca"
+      Hipoteca,
+      /** Es la agrupación de códigos registrales que hacen referencia a restricciones en la propiedad relacionadas con la proteccion a la familia: 
+       * 
+       * 0304
+       * 0315
+       * 04007
+       * 0603
+       * 0612
+       */
+      !!@ ili2db.dispName = "Proteccion familia"
+      EnumElement2575
     );
 
   TOPIC Datos_SNR =
@@ -1046,6 +1382,41 @@ VERSION "V2.3"  // 2019-07-31 // =
       Ciudad_Emisora : TEXT*255;
     END SNR_FuenteDerecho;
 
+    !!@ ili2db.dispName = "(SNR) Publicidad"
+    CLASS SNR_Publicidad =
+      !!@ ili2db.dispName = "Tipo de publicidad"
+      Tipo_Publicidad : Submodelo_Insumos_SNR_V1_0.SNR_PublicidadTipo;
+      /** Es el tipo de descripciòn por la cual se hacen las incripciones en registro de acuerdo con lo contemplado en el art. 8 de la ley 1579 de 2012.
+       */
+      !!@ ili2db.dispName = "Naturaleza jurídica"
+      Naturaleza_Juridica : TEXT*100;
+      /** es el número asignado en el registro a cada acto sujeto a registro.
+       */
+      !!@ ili2db.dispName = "Código de naturaleza jurídica"
+      Codigo_Naturaleza_Juridica : TEXT*4;
+      /** Es el comentario que puede hacer cada calificador para dar claridad a cada inscripción registral.
+       */
+      !!@ ili2db.dispName = "Naturaleza complemento"
+      Naturaleza_Complemento : TEXT*200;
+      /** Es la fecha en la cual se culmina el tramite registral y queda centado el documento en la matricula inmobiliaria.
+       */
+      !!@ ili2db.dispName = "Fecha de anotación"
+      Fecha_Anotacion : INTERLIS.XMLDate;
+    END SNR_Publicidad;
+
+    /** Es una prohibición específica relacionada con un predio.
+     */
+    !!@ ili2db.dispName = "(SNR) Restricción"
+    CLASS SNR_Restriccion =
+      /** son los tipos de restricciones de acuerdo con la naturaleza del registro colombiano.c
+       */
+      Tipo_Restriccion : TEXT*20;
+      /** es el número asignado en el registro a cada acto sujeto a registro.
+       */
+      !!@ ili2db.dispName = "Código de la naturaleza jurídica"
+      Codigo_Naturaleza_Juridica : TEXT*4;
+    END SNR_Restriccion;
+
     /** Datos de titulares de derecho inscritos en la SNR.
      */
     !!@ ili2db.dispName = "(SNR) Titular"
@@ -1120,12 +1491,31 @@ VERSION "V2.3"  // 2019-07-31 // =
        */
       !!@ ili2db.dispName = "Fecha de datos"
       Fecha_Datos : MANDATORY INTERLIS.XMLDate;
+      Estado : TEXT*20;
+      /** Es un código único para identificar los inmuebles tanto en los sistemas de información catastral como registral. El NUPRE no implicará supresión de la numeración catastral ni registral asociada a la cédula catastral ni a la matrícula inmobiliaria actual.
+       */
+      !!@ ili2db.dispName = "Número único predial"
+      NUPRE : TEXT*11;
+      !!@ ili2db.dispName = "Matrícula origen"
+      Matricula_Origen : TEXT*50;
+      !!@ ili2db.dispName = "Matrícula destino"
+      Matricula_Destino : TEXT*50;
     END SNR_PredioRegistro;
 
     ASSOCIATION snr_derecho_fuente_derecho =
       snr_derecho -- {1..*} SNR_Derecho;
       snr_fuente_derecho -- {1} SNR_FuenteDerecho;
     END snr_derecho_fuente_derecho;
+
+    ASSOCIATION snr_publicidad_titular =
+      snr_publicidad -- {0..*} SNR_Publicidad;
+      snr_titular -- {0..*} SNR_Titular;
+    END snr_publicidad_titular;
+
+    ASSOCIATION snr_restriccion_titular =
+      snr_restriccion -- {0..*} SNR_Restriccion;
+      snr_titular -- {0..*} SNR_Titular;
+    END snr_restriccion_titular;
 
     /** Datos del titular del derecho con relación al porcentaje de participación en el derecho
      */
@@ -1144,6 +1534,16 @@ VERSION "V2.3"  // 2019-07-31 // =
       snr_predio_registro -- {0..*} SNR_PredioRegistro;
       snr_fuente_cabidalinderos -- {0..1} SNR_FuenteCabidaLinderos;
     END snr_predio_registro_fuente_cabidalinderos;
+
+    ASSOCIATION snr_publicidad_predio =
+      snr_predio -- {0..1} SNR_PredioRegistro;
+      snr_publicidad -- {0..*} SNR_Publicidad;
+    END snr_publicidad_predio;
+
+    ASSOCIATION snr_restriccion_predio =
+      snr_predio -- {0..1} SNR_PredioRegistro;
+      snr_restriccion -- {0..*} SNR_Restriccion;
+    END snr_restriccion_predio;
 
   END Datos_SNR;
 

@@ -451,10 +451,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Industrial"
       Industrial,
-      /** Calificación para predios de uso Institucional.
-       */
-      !!@ ili2db.dispName = "Institucional"
-      Institucional,
       /** Calificación para predios de uso comercial.
        */
       !!@ ili2db.dispName = "Comercial"
@@ -554,19 +550,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Condominio) Unidad predial"
         Unidad_Predial
-      ),
-      /** Es la construcción o edificación instalada por una persona natural o jurídica sobre un predio que no le pertenece.
-       */
-      !!@ ili2db.dispName = "Mejora"
-      Mejora(
-        /** Mejora sobre un predio sometido a régimen de propiedad horizontal
-         */
-        !!@ ili2db.dispName = "(Mejora) Propiedad horizontal"
-        PH,
-        /** Mejora sobre un predio no sometido a régimen de propiedad horizontal.
-         */
-        !!@ ili2db.dispName = "(Mejora) No propiedad horizontal"
-        NPH
       ),
       /** Predios sobre los cuales las áreas de terreno y construcciones son dedicadas a la cremación, inhumación o enterramiento de personas fallecidas.
        */
@@ -808,16 +791,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Documento público) Acto administrativo"
         Acto_Administrativo
       ),
-      Documento_Privado(
-        /** Documento que contiene un compromiso entre dos o más personas que lo firman.
-         */
-        !!@ ili2db.dispName = "(Documento privado) Documento privado"
-        Documento_Privado,
-        /** Cuando no se haya documento soporte pero puede ser una declaración verbal.
-         */
-        !!@ ili2db.dispName = "(Documento privado) Sin documento"
-        Sin_Documento
-      )
+      /** Cuando no se haya documento soporte pero puede ser una declaración verbal.
+       */
+      !!@ ili2db.dispName = "(Sin documento)"
+      Sin_Documento
     );
 
     LC_GrupoEtnicoTipo = (
@@ -871,7 +848,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Es un consecutivo asignado automáticamente en registro en lugar del número de la identificación de la persona que hace el trámite, se usa especialmente en trámites de construcción cuando el proyecto está a nombre de una Fiducia el cual tiene el mismo número del banco.
        */
       !!@ ili2db.dispName = "Secuencial"
-      Secuencial
+      Secuencial,
+      /** Documento que acredita la identidad y la nacionalidad de una persona y que es necesario para viajar a determinados países.
+       */
+      !!@ ili2db.dispName = "Pasaporte"
+      Pasaporte
     );
 
     LC_InteresadoTipo = (
@@ -1203,6 +1184,22 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Inclusión en el campo de cabida y linderos del dato del área y/o linderos en los folios de matrícula inmobiliaria"
       Inclusion_Cabida_Linderos,
+      /** En el marco de los trámites de ordenamiento social de la propiedad que adelante la Agencia Nacional de Tierra (ANT), conforme a las competencias establecidas en el artículo 58 del Decreto Ley 902 de 2017 y atendiendo a la función de gestor catastral consignada en el artículo 80 de la Ley 1955 de 2019, cuando se identifique la existencia de una inconsistencia entre el levantamiento predial realizado por dicha entidad con la información registral, los actos administrativos que resuelven de fondo los asuntos sometidos a estudio ordenarán la aclaración, actualización masiva, rectificación de área por imprecisa determinación o inclusión del área del predio intervenido, siempre que los linderos estén debida y técnicamente descritos, sean verificables por métodos directos o indirectos y no exista variación en los mismos, sin necesidad de adelantar un proceso de  rectificación o inclusión de área. Artículo 2.2.2.2.22. Decreto 148 de 2020.
+       */
+      !!@ ili2db.dispName = "Corrección y/o inclusión de cabida en procesos de ordenamiento social de la propiedad"
+      Correccion_Inclusion_Procesos_OSPR,
+      /** En el marco de los procesos de actualización catastral, y como resultado del levantamiento de la información física y jurídica en terreno, el gestor catastral podrá remitir para inscripción a la Oficina de Registro de Instrumentos Públicos respectiva, el acto administrativo de actualización masiva de linderos o rectificación de área, según corresponda.
+       * 
+       * Cuando la diferencia en las magnitudes de cabida y/o linderos supere el rango de tolerancia establecido, deberá surtirse el trámite de rectificación de linderos o por imprecisa determinación, según corresponda. Artículo 2.2.2.2.23. Decreto 148 de 2020.
+       */
+      !!@ ili2db.dispName = "Actualización masiva de linderos con efectos regístrales"
+      Actualizacion_Masiva_Linderos,
+      /** En el marco de los procesos de actualización catastral, y como resultado del levantamiento de la información física y jurídica en terreno, el gestor catastral podrá remitir para inscripción a la Oficina de Registro de Instrumentos Públicos respectiva, el acto administrativo de actualización masiva de linderos o rectificación de área, según corresponda.
+       * 
+       * Cuando la diferencia en las magnitudes de cabida y/o linderos supere el rango de tolerancia establecido, deberá surtirse el trámite de rectificación de linderos o por imprecisa determinación, según corresponda. Artículo 2.2.2.2.23. Decreto 148 de 2020.
+       */
+      !!@ ili2db.dispName = "Rectificación masiva de área por imprecisa determinación con efectos regístrales"
+      Rectificacion_Masiva_Area,
       /** No requiere procedimiento catastral con efecto registral.
        */
       !!@ ili2db.dispName = "No requiere procedimiento"
@@ -2153,7 +2150,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Identificado de la unidad de construcción, su codificación puede ser por letras del abecedario.
        */
       !!@ ili2db.dispName = "Identificador"
-      Identificador : MANDATORY TEXT*2;
+      Identificador : MANDATORY TEXT*20;
+      /** Código de identificación de la construcción.
+       */
+      !!@ ili2db.dispName = "Código de la construcción"
+      Codigo_Construccion : TEXT*30;
       /** Indica si la construcción es de tipo convencional o no convencional.
        */
       !!@ ili2db.dispName = "Tipo de construcción"
@@ -2193,7 +2194,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Altura total de la construcción.
        */
       !!@ ili2db.dispName = "Altura"
-      Altura : 1 .. 1000 [INTERLIS.m];
+      Altura : 1.00 .. 1000.00 [INTERLIS.m];
       /** Observaciones generales de la construcción.
        */
       !!@ ili2db.dispName = "Observaciones"
@@ -2473,7 +2474,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Longitud en metros del lindero.
        */
       !!@ ili2db.dispName = "Longitud"
-      Longitud : MANDATORY 0.0 .. 10000.0 [INTERLIS.m];
+      Longitud : MANDATORY 0.0 .. 100000000000.0 [INTERLIS.m];
     END LC_Lindero;
 
     CLASS LC_NU_AgrupacionUnidadesEspaciales
@@ -2515,7 +2516,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Puntaje del ítem calificado.
        */
       !!@ ili2db.dispName = "Puntos"
-      Puntos : MANDATORY 0 .. 16;
+      Puntos : MANDATORY 0 .. 34;
     END LC_ObjetoConstruccion;
 
     !!@ ili2db.dispName = "Ofertas mercado inmobiliario"
@@ -2586,6 +2587,18 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Número predial anterior"
       Numero_Predial_Anterior : TEXT*20;
+      /** Es un código único para identificar los inmuebles tanto en los sistemas de información catastral como registral.
+       */
+      !!@ ili2db.dispName = "Código homologado"
+      Codigo_Homologado : TEXT*11;
+      /** Indica si existe interrelación entre la información de catastro y registro para el predio en específico.
+       */
+      !!@ ili2db.dispName = "Interrelacionado"
+      Interrelacionado : MANDATORY BOOLEAN;
+      /** Indica si el Código Homologado se encuentra inscrito en folio de matrícula inmobiliaria. Cuando el Código Homologado se encuentra inscrito en folio de matrícula inmobiliaria pasa a denominarse NUPRE.
+       */
+      !!@ ili2db.dispName = "Código homologado en FMI"
+      Codigo_Homologado_FMI : MANDATORY BOOLEAN;
       /** Es un código único para identificar los inmuebles tanto en los sistemas de información catastral como registral. El NUPRE no implicará supresión de la numeración catastral ni registral asociada a la cédula catastral ni a la matrícula inmobiliaria actual.
        */
       !!@ ili2db.dispName = "Número único predial"
@@ -2707,7 +2720,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Corresponde la identificación del número predial hasta la posición 21, permite identificar la relación espacial en sus componentes: departamento, municipio, zona, sector, comuna, barrio, manzana o vereda y terreno de acuerdo a su codificación en el número predial.
        */
       !!@ ili2db.dispName = "Numero predial hasta la posición 21"
-      Manzana_Vereda_Codigo : TEXT*21;
+      Terreno_Codigo : TEXT*21;
       /** Corresponde a la figura geométrica vectorial poligonal, generada a partir de los linderos del predio.
        */
       !!@ ili2db.dispName = "Geometría"
@@ -2930,15 +2943,19 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Identificado de la unidad de construcción, su codificación puede ser por letras del abecedario.
        */
       !!@ ili2db.dispName = "Identificador"
-      Identificador : MANDATORY TEXT*3;
-      /** Indica el tipo de dominio de la unidad de construcción: común y privado.
+      Identificador : MANDATORY TEXT*20;
+      /** Código de identificación de la unidad de construcción.
        */
-      !!@ ili2db.dispName = "Tipo de dominio"
-      Tipo_Dominio : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_DominioConstruccionTipo;
+      !!@ ili2db.dispName = "Código de la unidad de construcción"
+      Codigo_Unidad_Construccion : TEXT*30;
       /** Indica si la construcción es de tipo convencional o no convencional.
        */
       !!@ ili2db.dispName = "Tipo de construcción"
       Tipo_Construccion : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_ConstruccionTipo;
+      /** Indica el tipo de dominio de la unidad de construcción: común y privado.
+       */
+      !!@ ili2db.dispName = "Tipo de dominio"
+      Tipo_Dominio : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_DominioConstruccionTipo;
       /** Indica si la unidad de construcción es residencial, comercial, industrial o anexo.
        */
       !!@ ili2db.dispName = "Tipo de unidad de construcción"
@@ -2990,7 +3007,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Altura total de la unidad de construcción.
        */
       !!@ ili2db.dispName = "Altura"
-      Altura : 1 .. 1000 [INTERLIS.m];
+      Altura : 1.00 .. 1000.00 [INTERLIS.m];
       /** Observaciones generales respecto de la unidad de construcción.
        */
       !!@ ili2db.dispName = "Observaciones"
@@ -3000,7 +3017,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     /** Relación entre la clase Unidad_Construccion del modelo de Avalúos y Calificacion_Unidad_Construccion de modelo de Avalúos
      */
     ASSOCIATION lc_calificacion_unidadconstruccion =
-      lc_unidad_construccion (EXTERNAL) -- {1} LC_UnidadConstruccion;
+      lc_unidad_construccion (EXTERNAL) -- {1..*} LC_UnidadConstruccion;
       lc_calificacion_unidad_construccion -- {0..1} LC_CalificacionUnidadConstruccion;
     END lc_calificacion_unidadconstruccion;
 
