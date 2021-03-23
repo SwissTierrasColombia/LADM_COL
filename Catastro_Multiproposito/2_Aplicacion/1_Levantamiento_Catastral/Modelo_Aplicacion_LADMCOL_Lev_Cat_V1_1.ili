@@ -808,16 +808,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Documento público) Acto administrativo"
         Acto_Administrativo
       ),
-      Documento_Privado(
-        /** Documento que contiene un compromiso entre dos o más personas que lo firman.
-         */
-        !!@ ili2db.dispName = "(Documento privado) Documento privado"
-        Documento_Privado,
-        /** Cuando no se haya documento soporte pero puede ser una declaración verbal.
-         */
-        !!@ ili2db.dispName = "(Documento privado) Sin documento"
-        Sin_Documento
-      )
+      /** Cuando no se haya documento soporte pero puede ser una declaración verbal.
+       */
+      !!@ ili2db.dispName = "Sin documento"
+      Sin_Documento
     );
 
     LC_GrupoEtnicoTipo = (
