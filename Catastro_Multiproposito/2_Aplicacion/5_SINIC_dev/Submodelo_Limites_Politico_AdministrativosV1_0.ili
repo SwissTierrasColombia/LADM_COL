@@ -1,0 +1,70 @@
+INTERLIS 2.3;
+
+MODEL Submodelo_Limites_Politico_AdministrativosV1_0 (es)
+AT "mailto:PC-1@localhost"
+VERSION "2020-10-27"  =
+  IMPORTS ISO19107_PLANAS_V3_0;
+
+  TOPIC LimitesPoliticoAdministrativos =
+
+    /** Límites geográficos fijados entre departamentos que determinan su jurisdicción territorial.
+     */
+    !!@ ili2db.dispName = "(LPA) Límite departamento"
+    CLASS LPA_LimiteDepartamento =
+      /** Código de 2 dígitos correspondiente al departamento según la clasificación del Divipola.
+       */
+      !!@ ili2db.dispName = "Código del departamento"
+      Codigo_Departamento : MANDATORY TEXT*2;
+      /** Nombre del departamento según la clasificación del Divipola.
+       */
+      !!@ ili2db.dispName = "Nombre del departamento"
+      Nombre_Departamento : MANDATORY TEXT*100;
+      /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por limite del departamento.
+       */
+      !!@ ili2db.dispName = "Geometría"
+      Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_MultiSurface3D;
+    END LPA_LimiteDepartamento;
+
+    /** Límites geográficos fijados entre municipios que determinan su jurisdicción territorial.
+     */
+    !!@ ili2db.dispName = "(LPA) Límite municipio"
+    CLASS LPA_LimiteMunicipio =
+      /** Código de 2 dígitos correspondiente al departamento donde se encuentra el municipio según la clasificación del Divipola.
+       */
+      !!@ ili2db.dispName = "Código del departamento"
+      Codigo_Departamento : MANDATORY TEXT*2;
+      /** Código de 3 dígitos correspondiente al municipio según la clasificación del Divipola.
+       */
+      !!@ ili2db.dispName = "Código del municipio"
+      Codigo_Municipio : MANDATORY TEXT*5;
+      /** Nombre del municipio según la clasificación del Divipola.
+       */
+      !!@ ili2db.dispName = "Nombre del municipio"
+      Nombre_Municipio : MANDATORY TEXT*255;
+      /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por limite del municipio.
+       */
+      !!@ ili2db.dispName = "Geometría"
+      Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_MultiCurve3D;
+    END LPA_LimiteMunicipio;
+
+    /** Límites geográficos fijados entre naciones que determinan su jurisdicción territorial.
+     */
+    !!@ ili2db.dispName = "(LPA) Límite nacional"
+    CLASS LPA_LimiteNacional =
+      /** Código del país.
+       */
+      !!@ ili2db.dispName = "Código del país"
+      Codigo_Pais : MANDATORY TEXT*5;
+      /** Nombre del país.
+       */
+      !!@ ili2db.dispName = "Nombre del país"
+      Nombre_Pais : MANDATORY TEXT*100;
+      /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por limite del país.
+       */
+      !!@ ili2db.dispName = "Geometría"
+      Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_MultiSurface3D;
+    END LPA_LimiteNacional;
+
+  END LimitesPoliticoAdministrativos;
+
+END Submodelo_Limites_Politico_AdministrativosV1_0.

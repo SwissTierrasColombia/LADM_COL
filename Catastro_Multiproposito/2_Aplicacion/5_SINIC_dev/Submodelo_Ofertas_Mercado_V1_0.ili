@@ -1,0 +1,72 @@
+INTERLIS 2.3;
+
+MODEL Submodelo_Ofertas_Mercado_V1_0 (es)
+AT "mailto:PC-1@localhost"
+VERSION "2020-12-03"  =
+  IMPORTS Modelo_Aplicacion_LADMCOL_SINIC_V1_0,LADM_COL_V3_0;
+
+  DOMAIN
+
+    OM_OfertaTipo = (
+      /** Es una operación que se realiza a través del mercado inmobiliario, mediante la cual un ofertante pone a la venta algún un inmueble.
+       */
+      !!@ ili2db.dispName = "Venta"
+      !!@ ili2db.dispName="Venta"
+      Venta,
+      /** Es una operación que se realiza a través del mercado inmobiliario, mediante la cual un ofertante pone en alquiler o arriendo un bien inmueble.
+       */
+      !!@ ili2db.dispName = "Arriendo"
+      !!@ ili2db.dispName="Arriendo"
+      Arriendo
+    );
+
+  TOPIC Ofertas_Mercado =
+    DEPENDS ON Modelo_Aplicacion_LADMCOL_SINIC_V1_0.Sistema_Nacional_Informacion_Catastral;
+
+    !!@ ili2db.dispName = "Ofertas mercado inmobiliario"
+    !!@ ili2db.dispName="Ofertas mercado inmobiliario"
+    CLASS OM_OfertasMercadoInmobiliario
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      /** La clase de oferta corresponde a una oferta de venta o a una oferta de arriendo del predio.
+       */
+      !!@ ili2db.dispName = "Tipo de oferta"
+      !!@ ili2db.dispName="Tipo de oferta"
+      Tipo_Oferta : MANDATORY Submodelo_Ofertas_Mercado_V1_0.OM_OfertaTipo;
+      /** Dato del valor en pesos de la oferta
+       */
+      !!@ ili2db.dispName = "Valor pedido"
+      !!@ ili2db.dispName="Valor pedido"
+      Valor_Pedido : MANDATORY LADM_COL_V3_0.LADM_Nucleo.Peso;
+      /** Dato del valor en pesos negociado entre el vendedor y el posible comprador
+       */
+      !!@ ili2db.dispName = "Valor negociado"
+      !!@ ili2db.dispName="Valor negociado"
+      Valor_Negociado : MANDATORY LADM_COL_V3_0.LADM_Nucleo.Peso;
+      /** Año, mes y día de captura de la oferta en campo.
+       */
+      !!@ ili2db.dispName = "Fecha de captura de la oferta"
+      !!@ ili2db.dispName="Fecha de captura de la oferta"
+      Fecha_Captura_Oferta : MANDATORY INTERLIS.XMLDate;
+      /** Número de meses de la publicitación de la oferta en el mercado inmobiliario.
+       */
+      !!@ ili2db.dispName = "Tiempo de la oferta en el mercado inmobiliario en meses"
+      !!@ ili2db.dispName="Tiempo de la oferta en el mercado inmobiliario en meses"
+      Tiempo_Oferta_Mercado : 0 .. 1000;
+      /** Número de teléfono fijo o número celular de la persona que está publicitando el bien inmueble.
+       */
+      !!@ ili2db.dispName = "Número de contacto del oferente"
+      !!@ ili2db.dispName="Número de contacto del oferente"
+      Numero_Contacto_Oferente : MANDATORY TEXT*20;
+      !!@ ili2db.dispName = "Nombre del oferente"
+      !!@ ili2db.dispName="Nombre del oferente"
+      Nombre_Oferente : MANDATORY TEXT*255;
+    END OM_OfertasMercadoInmobiliario;
+
+    ASSOCIATION om_predio_ofertas_mercado_inmobiliario =
+      sinic_predio (EXTERNAL) -- {0..1} Modelo_Aplicacion_LADMCOL_SINIC_V1_0.Sistema_Nacional_Informacion_Catastral.SINIC_Predio;
+      om_ofertas_mercado_inmobiliario -- {0..*} OM_OfertasMercadoInmobiliario;
+    END om_predio_ofertas_mercado_inmobiliario;
+
+  END Ofertas_Mercado;
+
+END Submodelo_Ofertas_Mercado_V1_0.

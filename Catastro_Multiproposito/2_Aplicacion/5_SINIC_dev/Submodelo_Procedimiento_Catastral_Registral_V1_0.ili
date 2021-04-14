@@ -1,0 +1,100 @@
+INTERLIS 2.3;
+
+MODEL Submodelo_Procedimiento_Catastral_Registral_V1_0 (es)
+AT "mailto:PC-1@localhost"
+VERSION "2020-12-03"  =
+  IMPORTS Modelo_Aplicacion_LADMCOL_SINIC_V1_0,LADM_COL_V3_0;
+
+  DOMAIN
+
+    PCR_ProcedimientoCatastralRegistralTipo = (
+      /** El gestor catastral competente, de oficio o a solicitud de parte del titular del derecho de dominio, o de las entidades públicas que con ocasión de sus funciones legales administran inmuebles propios o ajenos, podrán efectuar la actualización mediante la descripción técnica de linderos de bienes inmuebles, cuando sean verificables mediante métodos directos y/o indirectos sin variación, o cuando la variación o diferencia se encuentre dentro de los márgenes de tolerancia establecidos por la máxima autoridad catastral. La descripción de los linderos llevará a la certeza del área. Articulo 2.2.2.2.17. Decreto 148 de 2020.
+       */
+      !!@ ili2db.dispName = "Actualización linderos con efectos registrales"
+      !!@ ili2db.dispName="Actualización linderos con efectos registrales"
+      Actualizacion_Linderos,
+      /** La rectificación de área en el sistema catastral y/o registral procederá ante el gestor catastral, de oficio o a solicitud de parte del titular  del derecho de dominio, o de las entidades públicas que con ocasión de sus funciones legales administran inmuebles propios o ajenos, cuando los linderos estén debida y técnicamente descritos, sean verificables mediante métodos directos y/o indirectos sin variación, pero que a lo largo de la tradición del bien inmueble el área de éste no haya sido determinada adecuadamente, o cuando la variación o diferencia se encuentre dentro de los márgenes de tolerancia establecidos por la máxima autoridad catastral. Artículo 2.2.2.2.18. Decreto 148 de 2020.
+       */
+      !!@ ili2db.dispName = "Rectificación de área por imprecisa determinación con efectos registrales"
+      !!@ ili2db.dispName="Rectificación de área por imprecisa determinación con efectos registrales"
+      Rectificacion_Area,
+      /** La rectificación de linderos en el sistema catastral y registral procederá de oficio o a solicitud de parte, ante el gestor catastral, siempre y cuando se haya suscrito acta de colindancia con pleno acuerdo entre los propietarios que compartan uno o varios linderos, pero se adviertan diferencias de linderos y áreas, entre la verificación mediante métodos directos y/o indirectos y la información del folio de matricula inmobiliaria. La rectificación de todos los linderos puede llevar a la certeza del área del inmueble. Artículo 2.2.2.2.19. Decreto 148 de 2020.
+       */
+      !!@ ili2db.dispName = "Rectificación de linderos por acuerdo entre las partes con efectos registrales"
+      !!@ ili2db.dispName="Rectificación de linderos por acuerdo entre las partes con efectos registrales"
+      Rectificacion_Linderos,
+      /** En los casos donde los folios de matrícula inmobiliaria no hayan contado con información de área y/o linderos, desde el inicio del ciclo traslaticio del bien inmueble que identifican; la Oficina de Registro de Instrumentos Públicos procederá la inclusión del dato de área y/o linderos en las respectivas matrículas inmobiliarias, que se tomará de la base catastral administrada por el gestor catastral competente. Artículo 2.2.2.2.21. Decreto 148 de 2020.
+       */
+      !!@ ili2db.dispName = "Inclusión en el campo de cabida y linderos del dato del área y/o linderos en los folios de matrícula inmobiliaria que carezcan de esta información"
+      !!@ ili2db.dispName="Inclusión en el campo de cabida y linderos del dato del área y/o linderos en los folios de matrícula inmobiliaria que carezcan de esta información"
+      Inclusion_Cabida_Linderos,
+      /** En el marco de los trámites de ordenamiento social de la propiedad que adelante la Agencia Nacional de Tierra (ANT), conforme a las competencias establecidas en el artículo 58 del Decreto Ley 902 de 2017 y atendiendo a la función de gestor catastral consignada en el artículo 80 de la Ley 1955 de 2019, cuando se identifique la existencia de una inconsistencia entre el levantamiento predial realizado por dicha entidad con la información registral, los actos administrativos que resuelven de fondo los asuntos sometidos a estudio ordenarán la aclaración, actualización masiva, rectificación de área por imprecisa determinación o inclusión del área del predio intervenido, siempre que los linderos estén debida y técnicamente descritos, sean verificables por métodos directos o indirectos y no exista variación en los mismos, sin necesidad de adelantar un proceso de  rectificación o inclusión de área. Artículo 2.2.2.2.22. Decreto 148 de 2020.
+       */
+      !!@ ili2db.dispName = "Corrección y/o inclusión de cabida en procesos de ordenamiento social de la propiedad"
+      !!@ ili2db.dispName="Corrección y/o inclusión de cabida en procesos de ordenamiento social de la propiedad"
+      Correccion_Inclusion_Procesos_OSPR,
+      /** En el marco de los procesos de actualización catastral, y como resultado del levantamiento de la información física y jurídica en terreno, el gestor catastral podrá remitir para inscripción a la Oficina de Registro de Instrumentos Públicos respectiva, el acto administrativo de actualización masiva de linderos o rectificación de área, según corresponda.
+       * 
+       * Cuando la diferencia en las magnitudes de cabida y/o linderos supere el rango de tolerancia establecido, deberá surtirse el trámite de rectificación de linderos o por imprecisa determinación, según corresponda. Artículo 2.2.2.2.23. Decreto 148 de 2020.
+       */
+      !!@ ili2db.dispName = "Actualización masiva de linderos con efectos regístrales"
+      !!@ ili2db.dispName="Actualización masiva de linderos con efectos regístrales"
+      Actualizacion_Masiva_Linderos,
+      /** En el marco de los procesos de actualización catastral, y como resultado del levantamiento de la información física y jurídica en terreno, el gestor catastral podrá remitir para inscripción a la Oficina de Registro de Instrumentos Públicos respectiva, el acto administrativo de actualización masiva de linderos o rectificación de área, según corresponda.
+       * 
+       * Cuando la diferencia en las magnitudes de cabida y/o linderos supere el rango de tolerancia establecido, deberá surtirse el trámite de rectificación de linderos o por imprecisa determinación, según corresponda. Artículo 2.2.2.2.23. Decreto 148 de 2020.
+       */
+      !!@ ili2db.dispName = "Rectificación masiva de área por imprecisa determinación con efectos regístrales"
+      !!@ ili2db.dispName="Rectificación masiva de área por imprecisa determinación con efectos regístrales"
+      Rectificacion_Masiva_Area,
+      /** No requiere procedimiento catastral con efecto registral.
+       */
+      !!@ ili2db.dispName = "No requiere procedimiento"
+      !!@ ili2db.dispName="No requiere procedimiento"
+      No_Requiere
+    );
+
+  TOPIC Procedimiento_Catastral_Registral =
+    DEPENDS ON Modelo_Aplicacion_LADMCOL_SINIC_V1_0.Sistema_Nacional_Informacion_Catastral;
+
+    /** Se considerará como procedimientos catastrales con efectos registrales los siguientes: actualización de linderos, rectificación de área por imprecisa determinación, actualización masiva y puntual de linderos y áreas y/o linderos. Estos procedimientos serán acatados por los gestores catastrales, las notarías, las oficinas de registro de instrumentos públicos del país y podrán ser aplicados durante los procesos de formación, actualización y conservación catastral. (Decreto 148 de 2020)
+     */
+    !!@ ili2db.dispName = "Procedimiento catastral con efecto registral"
+    !!@ ili2db.dispName="Procedimiento catastral con efecto registral"
+    CLASS PCR_ProcedimientoCatastralRegistral
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+      /** Hace referencia al tipo de procedimiento aplicable. Debe ser coherente con el contenido del acto administrativo.
+       */
+      !!@ ili2db.dispName = "Tipo de procedimiento aplicable"
+      !!@ ili2db.dispName="Tipo de procedimiento aplicable"
+      Tipo_Procedimiento_Aplicable : MANDATORY Submodelo_Procedimiento_Catastral_Registral_V1_0.PCR_ProcedimientoCatastralRegistralTipo;
+      /** Indica si se suscribió acta de colindancia sobre el predio objeto del procedimiento.
+       */
+      !!@ ili2db.dispName = "¿Suscribe acta de colindancia?"
+      !!@ ili2db.dispName="¿Suscribe acta de colindancia?"
+      Suscribe_Acta_Colindancia : MANDATORY BOOLEAN;
+      /** Área total del terreno del predio objeto del procedimiento.
+       */
+      !!@ ili2db.dispName = "Área de terreno"
+      !!@ ili2db.dispName="Área de terreno"
+      Area_Terreno : 0.0 .. 99999999999999.9;
+      /** Área total construida del predio objeto del procedimiento.
+       */
+      !!@ ili2db.dispName = "Área de construcción"
+      !!@ ili2db.dispName="Área de construcción"
+      Area_Construccion : 0.0 .. 99999999999999.9;
+      /** Linderos actualizados conforme a la especificación técnica o normativa vigente para el predio objeto del procedimiento.
+       */
+      !!@ ili2db.dispName = "Linderos actualizados"
+      !!@ ili2db.dispName="Linderos actualizados"
+      Linderos_Actualizados : TEXT;
+    END PCR_ProcedimientoCatastralRegistral;
+
+    ASSOCIATION pcr_predio_tramite =
+      sinic_predio (EXTERNAL) -- {1} Modelo_Aplicacion_LADMCOL_SINIC_V1_0.Sistema_Nacional_Informacion_Catastral.SINIC_Predio;
+      pcr_procedimientocatastralregistral -- {0..*} PCR_ProcedimientoCatastralRegistral;
+    END pcr_predio_tramite;
+
+  END Procedimiento_Catastral_Registral;
+
+END Submodelo_Procedimiento_Catastral_Registral_V1_0.

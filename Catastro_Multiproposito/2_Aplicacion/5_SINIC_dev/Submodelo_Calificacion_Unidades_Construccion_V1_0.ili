@@ -1,0 +1,1261 @@
+INTERLIS 2.3;
+
+MODEL Submodelo_Calificacion_Unidades_Construccion_V1_0 (es)
+AT "mailto:PC-1@localhost"
+VERSION "2020-12-03"  =
+  IMPORTS Modelo_Aplicacion_LADMCOL_SINIC_V1_0,LADM_COL_V3_0;
+
+  DOMAIN
+
+    CUC_AnexoTipo = (
+      !!@ ili2db.dispName = "Enramadas o cobertizos o caneyes"
+      !!@ ili2db.dispName="Enramadas o cobertizos o caneyes"
+      Enramadas_Cobertizos_Caneyes(
+        /** Locales de venta de vehículos: Estructura concreto, cubierta cercha metálica y teja canaleta; fachada vidrio y polarizado, piso baldosín conservación general buena.
+         */
+        !!@ ili2db.dispName = "(Enramadas o cobertizos o caneyes) Tipo 90"
+        !!@ ili2db.dispName="(Enramadas o cobertizos o caneyes) Tipo 90"
+        Tipo_90,
+        /** Estructura metálica; cubierta de zinc, eternit o teja de barro, pisos de cemento, conservación general buena.
+         */
+        !!@ ili2db.dispName = "(Enramadas o cobertizos o caneyes) Tipo 80"
+        !!@ ili2db.dispName="(Enramadas o cobertizos o caneyes) Tipo 80"
+        Tipo_80,
+        /** Estructura en madera fina; cubierta de zinc, eternit o teja de barro pisos de cemento; conservación general buena a regular.
+         */
+        !!@ ili2db.dispName = "(Enramadas o cobertizos o caneyes) Tipo 60"
+        !!@ ili2db.dispName="(Enramadas o cobertizos o caneyes) Tipo 60"
+        Tipo_60,
+        /** Estructura en madera común; cubierta de zinc, eternit o teja de barro; pisos en tierra; conservación regular a mala.
+         */
+        !!@ ili2db.dispName = "(Enramadas o cobertizos o caneyes) Tipo 40"
+        !!@ ili2db.dispName="(Enramadas o cobertizos o caneyes) Tipo 40"
+        Tipo_40
+      ),
+      !!@ ili2db.dispName = "Galpones o gallineros"
+      !!@ ili2db.dispName="Galpones o gallineros"
+      Galpones_Gallineros(
+        /** Estructura metálica o madera fina, cubierta de zinc, eternit o teja de barro; muros a mediana altura en bloque o ladrillo; pisos de cemento; conservación general buena.
+         */
+        !!@ ili2db.dispName = "(Galpones o gallineros) Tipo 80"
+        !!@ ili2db.dispName="(Galpones o gallineros) Tipo 80"
+        Tipo_80,
+        /** Estructura ladrillo o bloque; cubierta de zinc, eternit o teja de barro semi muros en bloque o ladrillo; pisos de cemento; conservación general buena a regular.
+         */
+        !!@ ili2db.dispName = "(Galpones o gallineros) Tipo 60"
+        !!@ ili2db.dispName="(Galpones o gallineros) Tipo 60"
+        Tipo_60,
+        /** Estructura en ladrillo, bloque o madera sencilla; cubierta de zinc, eternit o teja de barro; con o sin muros; pisos en tierra; conservación regular a mala.
+         */
+        !!@ ili2db.dispName = "(Galpones o gallineros) Tipo 40"
+        !!@ ili2db.dispName="(Galpones o gallineros) Tipo 40"
+        Tipo_40,
+        /** Estructura en madera; cubierta de zinc, eternit, teja de barro, paja o material de desecho; con o sin muros; pisos en tierra; conservación regular o mala.
+         */
+        !!@ ili2db.dispName = "(Galpones o gallineros) Tipo 20"
+        !!@ ili2db.dispName="(Galpones o gallineros) Tipo 20"
+        Tipo_20
+      ),
+      !!@ ili2db.dispName = "Establos o pesebreras"
+      !!@ ili2db.dispName="Establos o pesebreras"
+      Establos_Pesebreras(
+        /** Estructura metálica o de concreto; cubierta de zinc, eternit a teja de barro muros en bloque o ladrillo, pisos de cemento, conservación en general buena.
+         */
+        !!@ ili2db.dispName = "(Establos o pesebreras) Tipo 80"
+        !!@ ili2db.dispName="(Establos o pesebreras) Tipo 80"
+        Tipo_80,
+        /** Estructura en bloque, ladrillo o madera fina; cubierta de zinc, eternit o teja de barro muros en bloque o ladrillo, pisos de cemento, conservación en general buena o regular
+         */
+        !!@ ili2db.dispName = "(Establos o pesebreras) Tipo 60"
+        !!@ ili2db.dispName="(Establos o pesebreras) Tipo 60"
+        Tipo_60,
+        /** Estructura en ladrillo cubierta  de  zinc,  eternit  o  teja  de  barro  muros de ladrillo, pisos en tierra, conservación regular a mala.
+         */
+        !!@ ili2db.dispName = "(Establos o pesebreras) Tipo 40"
+        !!@ ili2db.dispName="(Establos o pesebreras) Tipo 40"
+        Tipo_40,
+        /** Estructura en madera cubierta de  zinc,  eternit  o  teja  de  barro  muros en madera, pisos en tierra, conservación regular a mala.
+         */
+        !!@ ili2db.dispName = "(Establos o pesebreras) Tipo 20"
+        !!@ ili2db.dispName="(Establos o pesebreras) Tipo 20"
+        Tipo_20
+      ),
+      !!@ ili2db.dispName = "Cocheras o marraneras o porquerizas"
+      !!@ ili2db.dispName="Cocheras o marraneras o porquerizas"
+      Cocheras_Marraneras_Porquerizas(
+        /** Estructura concreto; cubierta de zinc, eternit o teja de barro, muros en bloque o ladrillo, pisos en cemento o baldosa, conservación general buena.
+         */
+        !!@ ili2db.dispName = "(Cocheras o marraneras o porquerizas) Tipo 80"
+        !!@ ili2db.dispName="(Cocheras o marraneras o porquerizas) Tipo 80"
+        Tipo_80,
+        /** Estructura en ladrillo o bloque, cubierta de zinc, eternit o teja de barro, semi muros en bloque o ladrillo, pisos en cemento o baldosa conservación general buena a regular.
+         */
+        !!@ ili2db.dispName = "(Cocheras o marraneras o porquerizas) Tipo 60"
+        !!@ ili2db.dispName="(Cocheras o marraneras o porquerizas) Tipo 60"
+        Tipo_60,
+        /** Estructura en ladrillo; cubierta de zinc, eternit o teja de barro; con muros o sin muros; pisos en tierra; conservación regular a mala.
+         */
+        !!@ ili2db.dispName = "(Cocheras o marraneras o porquerizas) Tipo 40"
+        !!@ ili2db.dispName="(Cocheras o marraneras o porquerizas) Tipo 40"
+        Tipo_40,
+        /** Estructura en madera; cubierta de zinc, eternit o teja de barro con o sin muros, pisos en tierra, conservación regular a mala.
+         */
+        !!@ ili2db.dispName = "(Cocheras o marraneras o porquerizas) Tipo 20"
+        !!@ ili2db.dispName="(Cocheras o marraneras o porquerizas) Tipo 20"
+        Tipo_20
+      ),
+      !!@ ili2db.dispName = "Silos"
+      !!@ ili2db.dispName="Silos"
+      Silos(
+        /** Estructura en ferroconcreto metálica
+         */
+        !!@ ili2db.dispName = "(Silos) Tipo 80"
+        !!@ ili2db.dispName="(Silos) Tipo 80"
+        Tipo_80,
+        /** Estructura en concreto
+         */
+        !!@ ili2db.dispName = "(Silos) Tipo 60"
+        !!@ ili2db.dispName="(Silos) Tipo 60"
+        Tipo_60
+      ),
+      !!@ ili2db.dispName = "Piscina"
+      !!@ ili2db.dispName="Piscina"
+      Piscinas(
+        /** Piscinas olímpicas, con sistemas de purificación e iluminación; enchape en azulejo fino, trampolín a diferentes alturas. Se encuentra comúnmente en clubes y coliseos.
+         */
+        !!@ ili2db.dispName = "(Piscina) Tipo 80"
+        !!@ ili2db.dispName="(Piscina) Tipo 80"
+        Tipo_80,
+        /** Piscinas semi olímpicas, con sistemas de purificación; enchape en azulejo fino, comunes en clubes y centros de recreación.
+         */
+        !!@ ili2db.dispName = "(Piscina) Tipo 60"
+        !!@ ili2db.dispName="(Piscina) Tipo 60"
+        Tipo_60,
+        /** Piscinas de tamaño mediano, enchape en azulejo, sistemas de purificación rudimentaria, comunes en fincas de recreo o centros de recreación.
+         */
+        !!@ ili2db.dispName = "(Piscina) Tipo 50"
+        !!@ ili2db.dispName="(Piscina) Tipo 50"
+        Tipo_50,
+        /** Piscinas pequeña, cubierta en baldosín o cemento. Comunes en fincas o casas de campo
+         */
+        !!@ ili2db.dispName = "(Piscina) Tipo 40"
+        !!@ ili2db.dispName="(Piscina) Tipo 40"
+        Tipo_40
+      ),
+      !!@ ili2db.dispName = "Tanques"
+      !!@ ili2db.dispName="Tanques"
+      Tanques(
+        /** Tanques que por su capacidad y/b altura requieren estructura en ferroconcreto con revestimiento, encontrándose en buen estado de conservación.
+         */
+        !!@ ili2db.dispName = "(Tanques) Tipo 80"
+        !!@ ili2db.dispName="(Tanques) Tipo 80"
+        Tipo_80,
+        /** Tanques de mediana capacidad con estructura metálica con altura o profundidad no superior a 10 metros; en buen estado de conservación.
+         */
+        !!@ ili2db.dispName = "(Tanques) Tipo 60"
+        !!@ ili2db.dispName="(Tanques) Tipo 60"
+        Tipo_60,
+        /** Tanques pequeños con estructura en ladrillo o bloque revestido en cemento con altura no mayor a 3 metros o poca profundidad; conservación buena a regular
+         */
+        !!@ ili2db.dispName = "(Tanques) Tipo 40"
+        !!@ ili2db.dispName="(Tanques) Tipo 40"
+        Tipo_40,
+        /** Tanques con altura menor a 3 metros o poca profundidad; estructura en ladrillo conservación regular a mala.
+         */
+        !!@ ili2db.dispName = "(Tanques) Tipo 20"
+        !!@ ili2db.dispName="(Tanques) Tipo 20"
+        Tipo_20
+      ),
+      !!@ ili2db.dispName = "Beneficiaderos"
+      !!@ ili2db.dispName="Beneficiaderos"
+      Beneficiaderos(
+        /** Estructura en ladrillo o bloque; cubierta en zinc, teja de barro o eternit rustico; pisos en cemento, con tanques lavadores y serpentina o canal de carreteo y silo o patio quindiano incorporado estado de conservación bueno a regular.
+         */
+        !!@ ili2db.dispName = "(Beneficiaderos) Tipo 80"
+        !!@ ili2db.dispName="(Beneficiaderos) Tipo 80"
+        Tipo_80,
+        /** Estructura en madera; muros en ladrillos o bloque; cubierta en zinc, teja de barro o eternit; existencia de tanques y/o silos; pisos en cemento estado de conservación bueno a regular.
+         */
+        !!@ ili2db.dispName = "(Beneficiaderos) Tipo 60"
+        !!@ ili2db.dispName="(Beneficiaderos) Tipo 60"
+        Tipo_60,
+        /** Beneficiaderos construidos en materiales económicos (bareque, tapia) pisos en tierra conservación regular a mala; se encuentran en este tipo los elementos apenas necesarios: tanques, despulpaderos, canales, etc. en condiciones rudimentarias, comunes en fincas minifundistas.
+         */
+        !!@ ili2db.dispName = "(Beneficiaderos) Tipo 40"
+        !!@ ili2db.dispName="(Beneficiaderos) Tipo 40"
+        Tipo_40
+      ),
+      !!@ ili2db.dispName = "Secaderos"
+      !!@ ili2db.dispName="Secaderos"
+      Secaderos(
+        /** Estructura metálica y cercha de madera o metálica muros medianos o totales en ladrillo marquesina de vidrio; pisos en cemento; estado de conservación buena.
+         */
+        !!@ ili2db.dispName = "(Secaderos) Tipo 80"
+        !!@ ili2db.dispName="(Secaderos) Tipo 80"
+        Tipo_80,
+        /** Estructura en ladrillo; pisos en cemento; oreador en madera con sistema de rodamiento; buen estado de conservación.
+         */
+        !!@ ili2db.dispName = "(Secaderos) Tipo 60"
+        !!@ ili2db.dispName="(Secaderos) Tipo 60"
+        Tipo_60,
+        /** Estructura en madera pisos en tierra oreador con especificaciones mínimas; estado de conservación regular a mala. Dentro de este tipo se consideran as condiciones de los tipos anteriores, que se encuentran en regular a mal estado de conservación
+         */
+        !!@ ili2db.dispName = "(Secaderos) Tipo 40"
+        !!@ ili2db.dispName="(Secaderos) Tipo 40"
+        Tipo_40
+      ),
+      !!@ ili2db.dispName = "Kioskos"
+      !!@ ili2db.dispName="Kioskos"
+      Kioscos(
+        /** Estructura en bloque o ladrillo cubierta en zinc, teja de barro o paja; estado de conservación general bueno.
+         */
+        !!@ ili2db.dispName = "(Kioskos) Tipo 80"
+        !!@ ili2db.dispName="(Kioskos) Tipo 80"
+        Tipo_80,
+        /** Estructura metálica; todo tipo de cubiertas; piso en cemento; estado de conservación bueno a regular
+         */
+        !!@ ili2db.dispName = "(Kioskos) Tipo 60"
+        !!@ ili2db.dispName="(Kioskos) Tipo 60"
+        Tipo_60,
+        /** Estructura en madera fina; todo tipo de cubiertas; piso en cemento; estado de conservación bueno a regular.
+         */
+        !!@ ili2db.dispName = "(Kioskos) Tipo 40"
+        !!@ ili2db.dispName="(Kioskos) Tipo 40"
+        Tipo_40,
+        /** Estructura en madera común; cubierta en zinc, paja o teja de barro piso en tierra estado de conservación regular a mala.
+         */
+        !!@ ili2db.dispName = "(Kioskos) Tipo 20"
+        !!@ ili2db.dispName="(Kioskos) Tipo 20"
+        Tipo_20
+      ),
+      !!@ ili2db.dispName = "Albercas o bañaderas"
+      !!@ ili2db.dispName="Albercas o bañaderas"
+      Albercas_Baniaderas(
+        /** Estructura en concreto; cubierta en zinc, eternit o teja de barro; piso en cemento; conservación buena a regular.
+         */
+        !!@ ili2db.dispName = "(Albercas o bañaderas) Tipo 80"
+        !!@ ili2db.dispName="(Albercas o bañaderas) Tipo 80"
+        Tipo_80,
+        /** Estructura en ladrillo; cubierta en zinc, eternit o teja de barro; piso  en cemento; conservación buena a regular.
+         */
+        !!@ ili2db.dispName = "(Albercas o bañaderas) Tipo 60"
+        !!@ ili2db.dispName="(Albercas o bañaderas) Tipo 60"
+        Tipo_60,
+        /** Estructura en madera; cubierta en zinc, eternit o teja de barro; piso en cemento; conservación regular a mala. Se incluyen en este tipo las condiciones dadas en los anteriores en mal estado de conservación.
+         */
+        !!@ ili2db.dispName = "(Albercas o bañaderas) Tipo 40"
+        !!@ ili2db.dispName="(Albercas o bañaderas) Tipo 40"
+        Tipo_40
+      ),
+      !!@ ili2db.dispName = "Corrales"
+      !!@ ili2db.dispName="Corrales"
+      Corrales(
+        /** Estructura metálica o de madera aserrada, formado por cuatro varales, pisos en cemento y conservación buena.
+         */
+        !!@ ili2db.dispName = "(Corrales) Tipo 80"
+        !!@ ili2db.dispName="(Corrales) Tipo 80"
+        Tipo_80,
+        /** Estructura en madera aserrada, formado por tres varales, pisos en cemento y conservación general buena.
+         */
+        !!@ ili2db.dispName = "(Corrales) Tipo 60"
+        !!@ ili2db.dispName="(Corrales) Tipo 60"
+        Tipo_60,
+        /** Estructura en madera aserrada, formado por tres varales, pisos en tierra y conservación general regular a mala.
+         */
+        !!@ ili2db.dispName = "(Corrales) Tipo 40"
+        !!@ ili2db.dispName="(Corrales) Tipo 40"
+        Tipo_40,
+        /** Estructura en madera burda, pisos en tierra y conservación general regular a mala
+         */
+        !!@ ili2db.dispName = "(Corrales) Tipo 20"
+        !!@ ili2db.dispName="(Corrales) Tipo 20"
+        Tipo_20
+      ),
+      !!@ ili2db.dispName = "Pozos"
+      !!@ ili2db.dispName="Pozos"
+      Pozos(
+        /** Pozo de profundidad aproximada a 40 m, revestido en concreto, con tubería, anillado 100% , diámetro pozo de 2m
+         */
+        !!@ ili2db.dispName = "(Pozos) Tipo 80"
+        !!@ ili2db.dispName="(Pozos) Tipo 80"
+        Tipo_80,
+        /** Pozo de profundidad aproximada 20 m, revestido en concreto, con tubería, anillado 100 % , diámetro pozo < 2m
+         */
+        !!@ ili2db.dispName = "(Pozos) Tipo 60"
+        !!@ ili2db.dispName="(Pozos) Tipo 60"
+        Tipo_60,
+        /** Pozo profundidad < a 10m, sin revestimiento ni anillar, diámetro pozo de 2m
+         */
+        !!@ ili2db.dispName = "(Pozos) Tipo 40"
+        !!@ ili2db.dispName="(Pozos) Tipo 40"
+        Tipo_40
+      ),
+      /** Estructura en concreto y tanque en concreto, fibrocemento o metálico con recubrimiento interior en resinas de poliéster reforzadas con fibra de vidrio, partes metálicas en acero inoxidable o galvanizadas buen estado de conservación
+       */
+      !!@ ili2db.dispName = "(Torres de enfriamiento)"
+      !!@ ili2db.dispName="(Torres de enfriamiento)"
+      TorresEnfriamiento,
+      !!@ ili2db.dispName = "Muelles"
+      !!@ ili2db.dispName="Muelles"
+      Muelles(
+        /** Muelle, estructura en concreto, piso en madera deck para exteriores
+         */
+        !!@ ili2db.dispName = "(Muelles) Tipo 80"
+        !!@ ili2db.dispName="(Muelles) Tipo 80"
+        Tipo_80,
+        /** Muelle, estructura y piso en concreto
+         */
+        !!@ ili2db.dispName = "(Muelles) Tipo 60"
+        !!@ ili2db.dispName="(Muelles) Tipo 60"
+        Tipo_60,
+        /** Muelle, estructura y, piso en madera.
+         */
+        !!@ ili2db.dispName = "(Muelles) Tipo 40"
+        !!@ ili2db.dispName="(Muelles) Tipo 40"
+        Tipo_40
+      ),
+      !!@ ili2db.dispName = "Canchas de tenis"
+      !!@ ili2db.dispName="Canchas de tenis"
+      CanchasTenis(
+        /** En polvo de ladrillo
+         */
+        !!@ ili2db.dispName = "(Canchas de tenis) Tipo 20"
+        !!@ ili2db.dispName="(Canchas de tenis) Tipo 20"
+        Tipo_20,
+        /** Cemento y/o asfalto.
+         */
+        !!@ ili2db.dispName = "(Canchas de tenis) Tipo 10"
+        !!@ ili2db.dispName="(Canchas de tenis) Tipo 10"
+        Tipo_10
+      ),
+      !!@ ili2db.dispName = "Toboganes"
+      !!@ ili2db.dispName="Toboganes"
+      Toboganes(
+        /** Altura entre 9 y 15 Mts., longitud de canal entre 75 y 120 Mts. Fibra de vidrio. Estructura de concreto o metálica. Incluye piscina de Llegada. Sistema de bombeo, purificación.
+         */
+        !!@ ili2db.dispName = "(Toboganes) Tipo 80"
+        !!@ ili2db.dispName="(Toboganes) Tipo 80"
+        Tipo_80,
+        /** Altura entre 3 y 9 Mts., longitud 25 a 75 Mts. Estructura y soportes en concreto o metálica. Incluye piscina de acceso y sistema de bombeo y purificación.
+         */
+        !!@ ili2db.dispName = "(Toboganes) Tipo 60"
+        !!@ ili2db.dispName="(Toboganes) Tipo 60"
+        Tipo_60,
+        /** Altura de 6 a 9 Mts. Únicamente deslizadero de velocidad de longitud de 20 a 40 Mts. Equipo de bombeo y purificación. Estructura metálica o concreto; piscina de acceso.
+         */
+        !!@ ili2db.dispName = "(Toboganes) Tipo 50"
+        !!@ ili2db.dispName="(Toboganes) Tipo 50"
+        Tipo_50,
+        /** Altura de 3 a 5 Mts. Únicamente deslizadero; longitud de 10 a 20 Mts. No tienen planta de tratamiento ni de bombeo.
+         */
+        !!@ ili2db.dispName = "(Toboganes) Tipo 40"
+        !!@ ili2db.dispName="(Toboganes) Tipo 40"
+        Tipo_40
+      ),
+      !!@ ili2db.dispName = "Marquesinas"
+      !!@ ili2db.dispName="Marquesinas"
+      Marquesinas(
+        /** Estructura metálica; cubierta cristalita o vidrio; piso en baldosa fina.
+         */
+        !!@ ili2db.dispName = "(Marquesinas) Tipo 80"
+        !!@ ili2db.dispName="(Marquesinas) Tipo 80"
+        Tipo_80,
+        /** Estructura metálica; cubierta en cristalita o vidrio; piso en baldosa común.
+         */
+        !!@ ili2db.dispName = "(Marquesinas) Tipo 60"
+        !!@ ili2db.dispName="(Marquesinas) Tipo 60"
+        Tipo_60,
+        /** Estructura metálica; cubierta de eternit y piso en cemento.
+         */
+        !!@ ili2db.dispName = "(Marquesinas) Tipo 40"
+        !!@ ili2db.dispName="(Marquesinas) Tipo 40"
+        Tipo_40,
+        /** Estructura en madera; cubierta de zinc o eternit; Piso en baldosín o cemento.
+         */
+        !!@ ili2db.dispName = "(Marquesinas) Tipo 20"
+        !!@ ili2db.dispName="(Marquesinas) Tipo 20"
+        Tipo_20
+      ),
+      !!@ ili2db.dispName = "Estadios o coliseos"
+      !!@ ili2db.dispName="Estadios o coliseos"
+      Estadios_Coliseos(
+        /** Estadio, estructura en concreto reforzado, graderías, con o sin cubierta parcial, capacidad mayor a 8.000 personas
+         */
+        !!@ ili2db.dispName = "(Estadios o coliseos) Tipo 80"
+        !!@ ili2db.dispName="(Estadios o coliseos) Tipo 80"
+        Tipo_80,
+        /** Estadio, estructura en concreto reforzado, graderías, con o sin cubierta parcial, capacidad mayor a 8.000 personas
+         */
+        !!@ ili2db.dispName = "(Estadios o coliseos) Tipo 60"
+        !!@ ili2db.dispName="(Estadios o coliseos) Tipo 60"
+        Tipo_60,
+        /** Coliseo, incluye cerramiento en malla, o en bloque pañetado cancha multifuncional, cubierta en teja termo acústica
+         */
+        !!@ ili2db.dispName = "(Estadios o coliseos) Tipo 40"
+        !!@ ili2db.dispName="(Estadios o coliseos) Tipo 40"
+        Tipo_40
+      ),
+      !!@ ili2db.dispName = "Plaza de toros"
+      !!@ ili2db.dispName="Plaza de toros"
+      Plazas_de_Toros(
+        /** Plaza de toros con estructura en concreto y madera capacidad de más de 10000 espectadores
+         */
+        !!@ ili2db.dispName = "(Plaza de toros) Tipo 80"
+        !!@ ili2db.dispName="(Plaza de toros) Tipo 80"
+        Tipo_80,
+        /** Plaza de toros para corralejas, estructura en madera capacidad menor a 4000 estructura en concreto y madera capacidad
+         */
+        !!@ ili2db.dispName = "(Plaza de toros) Tipo 20"
+        !!@ ili2db.dispName="(Plaza de toros) Tipo 20"
+        Tipo_20
+      ),
+      !!@ ili2db.dispName = "Vía férrea"
+      !!@ ili2db.dispName="Vía férrea"
+      Via_Ferrea(
+        /** Via férrea de trocha  normal o estándar (4 pies, 8 1/2 pulgadas o 1435 metros) con capacidad de transporte mayor a 50 toneladas, conformada por una capa de balasto, sobre la cual se disponen traviesas de madera que soportan los rieles, entiéndase como trocha a la distancia mínima entre los dos rieles.
+         */
+        !!@ ili2db.dispName = "(Anexo) (Vía férrea) Tipo 80"
+        !!@ ili2db.dispName="(Anexo) (Vía férrea) Tipo 80"
+        Tipo_80,
+        /** Via férrea de trocha angosta o yardica de 0.915 metros con capacidad menor a 50 toneladas, conformada por una capa de balasto, sobre la cual se disponen traviesas de madera que soportan los rieles, entiéndase como trocha a la distancia mínima entre los dos rieles.
+         */
+        !!@ ili2db.dispName = "(Anexo) (Vía férrea) Tipo 60"
+        !!@ ili2db.dispName="(Anexo) (Vía férrea) Tipo 60"
+        Tipo_60
+      ),
+      !!@ ili2db.dispName = "Carreteras"
+      !!@ ili2db.dispName="Carreteras"
+      Carreteras(
+        /** Carretera pavimentada. Compuesta de una subbase granular, base en suelo cemento y carpeta asfáltica, entiéndase por sub-base granular como la capa de material granular situada entre la base del firme y la explanada.
+         */
+        !!@ ili2db.dispName = "(Anexo) (Carreteras) Tipo 60"
+        !!@ ili2db.dispName="(Anexo) (Carreteras) Tipo 60"
+        Tipo_60,
+        /** Carretera sin pavimento. Compuesta de una sub-base granular, entiéndase por su-base granular como la capa de material granular situada entre la base del firme y la explanada.
+         */
+        !!@ ili2db.dispName = "(Anexo) (Carreteras) Tipo 40"
+        !!@ ili2db.dispName="(Anexo) (Carreteras) Tipo 40"
+        Tipo_40
+      ),
+      !!@ ili2db.dispName = "Cimientos estructura muros placabase"
+      !!@ ili2db.dispName="Cimientos estructura muros placabase"
+      Cimientos_Estructura_Muros_Placabase(
+        /** Cimientos y estructura soportes verticales (columnas) y horizontales (vigas) destinados a sostener la totalidad o parte de la futura construcción o edificación, acompañados de muros y placas base. Esta tipología se caracteriza por presentar de manera simultánea los 4 elementos (Cimientos, Estructura, Muro o Pared y Losa de Contra piso)
+         */
+        !!@ ili2db.dispName = "(Anexo) (Cimientos estructura muros placabase) Tipo 80"
+        !!@ ili2db.dispName="(Anexo) (Cimientos estructura muros placabase) Tipo 80"
+        Tipo_80,
+        /** Cimentación y estructura con soportes verticales (columnas) y horizontales (vigas) destinados a sostener la totalidad o parte de la futura construcción o edificación, acompañados de muros o placas base. Esta tipología se caracteriza por presentar de manera simultánea 3 elementos (Cimientos, Estructura, y alguno de estos dos elementos Muro Pared o Losa en Contra piso)
+         */
+        !!@ ili2db.dispName = "(Anexo) (Cimientos estructura muros placabase) Tipo 60"
+        !!@ ili2db.dispName="(Anexo) (Cimientos estructura muros placabase) Tipo 60"
+        Tipo_60,
+        /** Cimentación sin estructura destinada a sostener la totalidad o parte de una futura construcción o edificación, pueden estar acompañados de muros o placas base. Esta tipología se caracteriza por presentar de manera simultánea 2 elementos (Cimientos y alguno de estos dos elemetnos Muro - Pared o Losa de Contra piso)
+         */
+        !!@ ili2db.dispName = "(Anexo) (Cimientos estructura muros placabase) Tipo 40"
+        !!@ ili2db.dispName="(Anexo) (Cimientos estructura muros placabase) Tipo 40"
+        Tipo_40,
+        /** Cimentación sin estructura, destinada a sostener la totalidad o parte de una futura construcción o edificación. Esta tipología se caracteriza por presentar un solo elemento, la cimentación.
+         */
+        !!@ ili2db.dispName = "(Anexo) (Cimientos estructura muros placabase) Tipo 20"
+        !!@ ili2db.dispName="(Anexo) (Cimientos estructura muros placabase) Tipo 20"
+        Tipo_20
+      ),
+      !!@ ili2db.dispName = "Lagunas de oxidación"
+      !!@ ili2db.dispName="Lagunas de oxidación"
+      Lagunas_de_Oxidacion(
+        /** Lagunas de oxidación que en su construcción requieren excavaciones en la estructura de la laguna, con o sin protección del área de la laguna con geotextil o geomembrana, construcción de diques, protección de los taludes con geotextil o geomembrana y enrocado de taludes.
+         */
+        !!@ ili2db.dispName = "(Anexo) (Lagunas de oxidación) Tipo 20"
+        !!@ ili2db.dispName="(Anexo) (Lagunas de oxidación) Tipo 20"
+        Tipo_20
+      )
+    );
+
+    CUC_ClaseCalificacionTipo = (
+      /** En construcción, es el nombre que recibe el conjunto de elementos, unidos, ensamblados o conectados entre sí, que tienen la función de recibir cargas, soportar esfuerzos y transmitir esas cargas al suelo, garantizando así la función estático - resistente de la construcción. Sus componentes son: armazón, muros y cubierta.
+       */
+      !!@ ili2db.dispName = "Estructura"
+      !!@ ili2db.dispName="Estructura"
+      Estructura,
+      /** Son los revestimientos o recubrimientos a todos aquellos materiales que se colocan sobre una superficie de obra negra, para darle terminación a las obras, quedando ésta con un aspecto habitable. Sus componentes son: fachada, cubrimiento de muros y pisos.
+       */
+      !!@ ili2db.dispName = "Acabados principales"
+      !!@ ili2db.dispName="Acabados principales"
+      Acabados_Principales,
+      /** Espacio o lugar especialmente equipado para el aseo personal. Sus componentes son: tamaño, enchapes y mobiliario.
+       */
+      !!@ ili2db.dispName = "Baño"
+      !!@ ili2db.dispName="Baño"
+      Banio,
+      /** Espacio o lugar especialmente equipado para la preparación de alimentos. Sus componentes son: tamaño, enchapes y mobiliario.
+       */
+      !!@ ili2db.dispName = "Cocina"
+      !!@ ili2db.dispName="Cocina"
+      Cocina,
+      /** Elemento adicional para la calificación de las Cerchas para las construcciones industriales.
+       */
+      !!@ ili2db.dispName = "Complemento industria"
+      !!@ ili2db.dispName="Complemento industria"
+      Complemento_Industria
+    );
+
+    CUC_EstadoConservacionTipo = (
+      /** Se agrupan en este concepto, aquellas estructuras con el mayor grado de deterioro que se puedan encontrar, en condiciones precarias lo cual las hace prácticamente inhabitables.  Generalmente se presenta en construcciones antiguas o con material de muy mala calidad.
+       */
+      !!@ ili2db.dispName = "Malo"
+      !!@ ili2db.dispName="Malo"
+      Malo,
+      /** En esta categoría, se clasifican aquellas estructuras que tienen algunos daños menores, (agrietamiento de paredes, hundimiento de pisos, etc.) pero que todavía se encuentran en condiciones aceptables, sin peligros eminentes o exigencias imperativa de reparaciones inmediatas.  Se presenta con frecuencia en construcciones más o menos antiguas o materiales de regular calidad.
+       */
+      !!@ ili2db.dispName = "Regular"
+      !!@ ili2db.dispName="Regular"
+      Regular,
+      /** Se calificarán como tales, aquellas estructuras, no necesariamente nuevas, que se hallan cumpliendo a cabalidad con la función para las que fueron construidas, no demuestran deterioro, al menos visibles, y por efectos de uso se encuentran solamente un tanto deslucidas y sus materiales son de buena calidad.
+       */
+      !!@ ili2db.dispName = "Bueno"
+      !!@ ili2db.dispName="Bueno"
+      Bueno,
+      /** Se define en este grado, el estado de conservación de una estructura nueva en la que no se vislumbra deterioro, no se observa daño y en la cual los materiales y los acabados son de óptima calidad.
+       */
+      !!@ ili2db.dispName = "Excelente"
+      !!@ ili2db.dispName="Excelente"
+      Excelente
+    );
+
+    CUC_ObjetoConstruccionTipo = (
+      /** Se refiere al conjunto compuesto por los cimientos, columnas, vigas, entrepisos y demás componentes del esqueleto o armadura que soportan las cargas y sostienen la edificación.  El adobe, bahareque, tapia, califíquelos con el puntaje correspondiente a madera.  En el caso de tener muros de carga en ladrillo, califíquelos como armazón de ladrillo.  En aquellas viviendas de hasta tres pisos y en donde se observe, vigas, columnas y planchas se colocan en la opción ?concreto hasta tres pisos?.  La máxima calificación será para edificaciones de concreto de 4 o más pisos.
+       */
+      !!@ ili2db.dispName = "Armazón"
+      Armazon(
+        /** El adobe, bahareque, tapia, califíquelos con el puntaje correspondiente a madera.
+         */
+        !!@ ili2db.dispName = "(Armazón) Madera"
+        Madera,
+        /** Materiales prefabricados.
+         */
+        !!@ ili2db.dispName = "(Armazón) Prefabricado"
+        Prefabricado,
+        /** En el caso de tener muros de carga en ladrillo, califíquelos como armazón de ladrillo.
+         */
+        !!@ ili2db.dispName = "(Armazón) Ladrillo, bloque"
+        Ladrillo_Bloque,
+        /** En el caso de tener muros de carga en ladrillo, califíquelos como armazón de ladrillo.  En aquellas viviendas de hasta tres pisos y en donde se observe, vigas, columnas y planchas se colocan en la opción “concreto hasta tres pisos”.
+         */
+        !!@ ili2db.dispName = "(Armazón) Concreto hasta tres pisos"
+        Concreto_Hasta_Tres_Pisos,
+        /** La máxima calificación será para edificaciones de concreto de 4 o más pisos.
+         */
+        !!@ ili2db.dispName = "(Armazón) Concreto cuatro o más pisos"
+        Concreto_Cuatro_O_Mas_Pisos
+      ),
+      /** Se refiere a los muros divisorios no considerados como parte del armazón.
+       */
+      !!@ ili2db.dispName = "Muros"
+      Muros(
+        /** Muros de materiales de desecho o esterilla.
+         */
+        !!@ ili2db.dispName = "(Muros) Materiales de desecho, esterilla"
+        Materiales_Desecho_Esterilla,
+        /** Muros de bahareque o adobe o tapia.
+         */
+        !!@ ili2db.dispName = "(Muros) Bahareque, adobe, tapia"
+        Bahareque_Adobe_Tapia,
+        /** Muros de madera.
+         */
+        !!@ ili2db.dispName = "(Muros) Madera"
+        Madera,
+        /** Muros de concreto prefabricado.
+         */
+        !!@ ili2db.dispName = "(Muros) Concreto prefabricado"
+        Concreto_Prefabricado,
+        /** Muros de bloque o ladrillo.
+         */
+        !!@ ili2db.dispName = "(Muros) Bloque, ladrillo"
+        Bloque_Ladrillo
+      ),
+      /** Techo exterior o tejado de la edificación
+       */
+      !!@ ili2db.dispName = "Cubierta"
+      Cubierta(
+        /** Cubierta características del estrado bajo-bajo, conformadas o construidas con elementos cuya función no es propiamente la de cubierta pero en casos extremos pueden servir como tales,  similarmente son utilizadas las tejas o telas asfálticas, que son los materiales más económicos del mercado y se ajustan a condiciones de vivienda humilde (ranchos) o construcciones provisionales (ramadas, caedizos, etc.).
+         */
+        !!@ ili2db.dispName = "(Cubierta) Materiales de desecho, telas asfálticas"
+        Materiales_Desecho_Telas_Asfalticas,
+        /** Materiales normalmente utilizados en la construcción de vivienda de estrato bajo, o provenientes de estratos más altos en decadencia.
+         * 
+         *  a-  Zinc.
+         * 
+         *  Teja metálica económica colocada sobre infraestructura normalmente rústica y sencilla generalmente de madera.
+         * 
+         * b- Teja de barro.
+         * 
+         *  Se clasifica en este aparte, la cubierta en teja de barro antigua caracterizada por su evidente deterioro; se le encuentra en la mayoría de los casos recubierta de musgo o lama, colocada sobre infraestructura también antigua de esterilla de guadua o caña brava, sistema evidentemente obsoleto.
+         * 
+         * c- Eternit rústico.
+         * 
+         *  Se clasifica así no la calidad del Eternit, sino la infraestructura sobre la cual se colocan las láminas que generalmente son de madera basta, sin canales ni bajantes y en la mayoría de los casos sin cielo raso.
+         */
+        !!@ ili2db.dispName = "(Cubierta) Zinc, teja de barro, eternit rústico"
+        Zinc_Teja_De_Barro_Eternit_Rustico,
+        /** Son planchas de concreto construidas como piso, de nivel superior no construido y utilizadas por período más o menos largo como cubierta provisional, algunas veces con adecuaciones sencillas, como pequeños muros que ejercen la función de barda, normalmente se aprecian las salientes de las varillas que reforzarán las construcciones del siguiente piso.  Además se encuentran cubiertas prefabricadas que se deben calificar con el mismo puntaje.
+         */
+        !!@ ili2db.dispName = "(Cubierta) Entrepiso (cubierta provisional) prefabricado"
+        Entrepiso_Cubierta_Provisional_Prefabricado,
+        /** Este tipo de cubiertas se caracterizan por ser relativamente nuevas, homogéneas en toda su extensión y con muestras de acabados más o menos buenos.  Se encuentran normalmente en programas masivos de vivienda pertenecientes a estratos medio-bajo y medio (nunca en estrato bajo); su estructura se diferencia de la clasificación en el punto dos por las siguientes condiciones:
+         * 
+         * - Mayor solidez en su infraestructura que aún siendo en madera demuestra ser construida con cierta técnica.
+         * 
+         * - Condiciones satisfactorias de acabado, con adecuados revocados e instalación de canales y bajantes.
+         * 
+         * - Se encuentra cielo raso.
+         */
+        !!@ ili2db.dispName = "(Cubierta) Eternit o teja de barro (cubierta sencilla)"
+        Eternit_O_Teja_De_Barro_Cubierta_Sencilla,
+        /** En este aparte se agrupan los tipos de cubiertas característicos de estratos medio-bajo, medio-alto y medio-medio.
+         * 
+         * a- Azotea: Tipo de cubierta, con acceso definido, pisos, muros y barandas como parte del acabado y construido con ese fin específico.  Si no posee estas condiciones se tomará como entrepiso cubierta provisional.
+         * 
+         * b- Placa sencilla con Eternit o con teja de barro nueva.  De común aplicación en construcciones nuevas o medianamente nuevas, es una placa delgada de concreto y algunas veces aligerada e impermeabilizada y otras recubierta en Eternit o teja de barro nueva.
+         */
+        !!@ ili2db.dispName = "(Cubierta) Azotea, aluminio, placa sencilla con eternit o teja de barro"
+        Azotea_Aluminio_Placa_Sencilla_Con_Eternit,
+        /** En este grupo se consideran los tipos de cubierta que caracterizan las viviendas del estrato alto y algunas del medio alto.
+         * 
+         * a- Placa impermeabilizada.  Es una plancha de concreto evidentemente sólida, la condición especial de esta placa es el de estar impermeabilizada lo cual conjuntamente con su solidez, la diferencia ampliamente de la placa sencilla anunciada en el grupo anterior.
+         * 
+         * b- Cubierta lujosa.  En algunos casos, la placa de concreto en vez de ser impermeabilizada es recubierta con teja de barro nueva o con algún material costoso como la paja.
+         * 
+         * c- Cubierta ornamental.  Se presentan cubiertas en materiales bastantes costosos, buscando adornar la construcción dándole matices de elegancia y atractivo.  Pueden encontrarse con o sin placa de concreto pero su valor permite clasificarlos en ese grupo.
+         */
+        !!@ ili2db.dispName = "(Cubierta) Placa imperbeabilizada cubierta lujosa u ornamental"
+        Placa_Impermeabilizada_Cubierta_Lujosa_U_Ornamental
+      ),
+      /** Nombrase como tal al conjunto de elementos que constituyen el frente o parte exterior de una construcción, que da cara a la vía o camino, que incluye la puerta de acceso.  Tomada dentro de la variable, acabados principales constituyen un concepto bastante representativo de la calidad de la vivienda.
+       */
+      !!@ ili2db.dispName = "Fachada"
+      Fachada(
+        /** -Puerta:  Fabricada con materiales como: Maderas burdas, lámina de zinc, lata o latones carecen por completo de lujos.
+         * 
+         * -Ventanas:  En la gran mayoría de casos son pequeñas, en madera burda o ángulo de hierro sencillo.
+         * 
+         * -Cubrimiento del muro:  Generalmente los muros no tienen cubrimiento, se presentan con ladrillo corrientes o bloque a la vista y en algunos casos pintura de cal o carburo directamente sobre el ladrillo, y en ocasiones pañete sin pintar o con pinturas muy económicas.
+         */
+        !!@ ili2db.dispName = "(Fachada) Pobre"
+        Pobre,
+        /** -Puerta:  En maderas sin trabajar o láminas metálicas sin ornamentación
+         * 
+         * -Ventanas:  Pequeñas o de regular tamaño, en madera sin trabajo ornamental o metal con pintura de aceite.
+         * 
+         * -Cubrimiento de muros:  En la mayoría de los casos se encuentran pañetes con pinturas económicas, o ladrillo prensado a la vista, generalmente un solo plano en el frente.
+         */
+        !!@ ili2db.dispName = "(Fachada) Sencilla"
+        Sencilla,
+        /** -Puerta de distintos tamaños, construidas en madera elaborada, o metal en lámina doblada, con rejas en ornamentación metálica en la mayoría de los casos.
+         * 
+         * -Cubrimiento:  Se encuentran frecuentemente pañetados y enlucidos con pintura de regular calidad; en urbanizaciones se utiliza bastante el pañete rústico pintado con cal o carburo.  Otras opciones son: En ladrillo prensado a la vista, el granito y la chapa de piedra de presentación sencilla.  Hasta dos planos enfrente y con una longitud entre 7 y 8 mts, con antejardín, donde la puerta de garaje forma parte integral de esta fachada.
+         */
+        !!@ ili2db.dispName = "(Fachada) Regular"
+        Regular,
+        /** -Puertas en maderas con cierto trabajo manual; en algunos casos en lámina prensada (pintada en aceite o en muy pocos casos al duco) con metal ornamentado y vidrio martillado.
+         * 
+         * -Ventanas:  Amplias, en lámina prensada o madera trabajada, pintura de aceite.  Las ventanas ocupan buena parte del frente y la fachada.
+         * 
+         * -Cubrimiento:  Pañete en cemento, pintura en vinilo, ladrillo prensado a la vista pintado en aceite, granito rústico fino pintado en vinilo, piedra pulida.
+         * 
+         * -La fachada presenta varios planos y tiene una longitud entre 10 y 14 mts, en el cual la puerta del garaje, en ocasiones doble, participa en forma importante.
+         */
+        !!@ ili2db.dispName = "(Fachada) Buena"
+        Buena,
+        /** -Puertas en maderas con cierto trabajo manual; en algunos casos en lámina prensada (pintada en aceite o en muy pocos casos al duco) con metal ornamentado y vidrio martillado.
+         * 
+         * -Ventanas:  Amplias, en lámina prensada o madera trabajada, pintura de aceite.  Las ventanas ocupan buena parte del frente y la fachada.
+         * 
+         * -Cubrimiento:  Pañete en cemento, pintura en vinilo, ladrillo prensado a la vista pintado en aceite, granito rústico fino pintado en vinilo, piedra pulida.
+         * 
+         * -La fachada presenta varios planos y tiene una longitud entre 10 y 14 mts, en el cual la puerta del garaje, en ocasiones doble, participa en forma importante.
+         */
+        !!@ ili2db.dispName = "(Fachada) Lujosa"
+        Lujosa
+      ),
+      /** Se califica de acuerdo al material y según las opciones que se presentan en el formulario, se tendrá en cuenta que si aparece por lo menos el 80% en pañete, se marcará este material y si aparece por lo menos un 20% de otro material de los más costosos (granito, madera, mármol), se marcará este en el formulario.  Si se encuentra por lo menos el 50% sin cubrimiento, se calificará como tal.  En caso de encontrarse un cubrimiento no completado en el formulario se asimilará, según el factor, más cercano de los referidos.  El pañete se refiere al cubrimiento en el cual se emplea solamente arena y cemento; el estuco es el cubrimiento fino sobre pañete.
+       * 
+       * Es necesario aclarar que en el caso del papel de colgadura, se debe tener en cuenta que éste se encuentra en dos categorías:
+       * 
+       * Papel común:  Características de las construcciones de estratos medio bajo y medio medio, se presenta en la mayoría de los casos textura gruesa y superficie corrugada.
+       * 
+       * Papel fino: Contrario al anterior, se encuentra normalmente en construcciones lujosas y se caracteriza por su textura fina, visible en los orillos y superficie lisa.  Sus acabados siempre son finos.
+       * 
+       * Además de los muros, el papel se encuentra en enchapes de baños y cocinas.
+       */
+      !!@ ili2db.dispName = "Cubrimiento de muros"
+      Cubrimiento_Muros(
+        /** Muros sin cubrimiento.
+         */
+        !!@ ili2db.dispName = "(Cubrimiento de muros) Sin cubrimiento"
+        Sin_Cubrimiento,
+        /** Muros con pañete o papel común o ladrillo prensado.
+         */
+        !!@ ili2db.dispName = "(Cubrimiento de muros) Pañete, papel común, ladrillo prensado"
+        Paniete_Papel_Comun_Ladrillo_Prensado,
+        /** Muros estucados con cerámica o papel fino.
+         */
+        !!@ ili2db.dispName = "(Cubrimiento de muros) Estuco, cerámica, papel fino"
+        Estuco_Ceramica_Papel_Fino,
+        /** Muros con madera o piedra ornamental.
+         */
+        !!@ ili2db.dispName = "(Cubrimiento de muros) Madera, piedra ornamental"
+        Madera_Piedra_Ornamental,
+        /** Muros con mármol o lujosos.
+         */
+        !!@ ili2db.dispName = "(Cubrimiento de muros) Mármol, lujosos otros"
+        Marmol_Lujosos_Otros
+      ),
+      /** En esta componente, se inscribirá lo referente al material predominante en el piso de la construcción según las opciones indicadas en el formulario y el más costoso si se encuentra en partes iguales.  Se marcará también con una X según la unidad de avalúo reconocida.
+       */
+      !!@ ili2db.dispName = "Piso"
+      Piso(
+        /** Piso en tierra pisada.
+         */
+        !!@ ili2db.dispName = "(Piso) Tierra pisada"
+        Tierra_Pisada,
+        /** Piso de cemento o madera burda.
+         */
+        !!@ ili2db.dispName = "(Piso) Cemento, madera burda"
+        Cemento_Madera_Burda,
+        /** Piso en baldosa común de cemento o tablón de ladrillo.
+         */
+        !!@ ili2db.dispName = "(Piso) Baldosa común de cemento, tablón de ladrillo"
+        Baldosa_Comun_De_Cemento_Tablon_Ladrillo,
+        /** Piso en listón machihembrado.
+         */
+        !!@ ili2db.dispName = "(Piso) Listón machihembrado"
+        Liston_Machihembrado,
+        /** Piso en tableta, caucho, acrílico, granito, baldosa fina.
+         */
+        !!@ ili2db.dispName = "(Piso) Tableta, caucho, acrílico, granito, baldosa fina"
+        Tableta_Caucho_Acrilico_Granito_Baldosa_Fina,
+        /** Piso en parquet, alfombra, retal de mármol.
+         */
+        !!@ ili2db.dispName = "(Piso) Parquet, alfombra, retal de marmol (grano pequeño)"
+        Parquet_Alfombra_Retal_De_Marmol,
+        /** Piso en retal de mármol, mármol u otros lujosos.
+         */
+        !!@ ili2db.dispName = "(Piso) Retal de mármol, mármol, otros lujosos"
+        Retal_De_Marmol_Marmol_Otros_Lujosos
+      ),
+      !!@ ili2db.dispName = "Tamaño de baño"
+      Tamanio_Banio(
+        /** Sin baño
+         */
+        !!@ ili2db.dispName = "(Tamaño de baño) Sin baño"
+        Sin_Banio,
+        /** Si mide menos de 4 mts cuadrados.
+         */
+        !!@ ili2db.dispName = "(Tamaño de baño) Pequeño"
+        Pequenio,
+        /** Si su área aproximada se encuentra entre 4 y 6 mts.
+         */
+        !!@ ili2db.dispName = "(Tamaño de baño) Mediano"
+        Mediano,
+        /** Si su área es mayor a 6 mts cuadrados.
+         */
+        !!@ ili2db.dispName = "(Tamaño de baño) Grande"
+        Grande
+      ),
+      /** Se refiere al cubrimiento de los muros del baño principal, se calificará según las opciones establecidas en el formulario de reconocimiento, teniendo en cuenta que los materiales y condiciones no contemplados se deben asimilar al más parecido de ellos de acuerdo con el costo.  Marque el material que corresponda al mayor porcentaje o al más costoso si se encuentran por partes iguales.
+       */
+      !!@ ili2db.dispName = "Enchape de baño"
+      Enchape_Banio(
+        /** Baño sin enchape.
+         */
+        !!@ ili2db.dispName = "(Enchape de baño) Sin cubrimiento"
+        Sin_Cubrimiento,
+        /** Baño con enchape en baldosa común y cemento.
+         */
+        !!@ ili2db.dispName = "(Enchape de baño) Pañete, baldosa común de cemento"
+        Paniete_Baldosa_Comun_De_Cemento,
+        /** Baño con enchape en baldosín de un solo color o papel común.
+         */
+        !!@ ili2db.dispName = "(Enchape de baño) Baldosín unicolor, papel común"
+        Baldosin_Unicolor_Papel_Comun,
+        /** Baño con enchape en baldosín decorado o papel fino.
+         */
+        !!@ ili2db.dispName = "(Enchape de baño) Baldosín decorado, papel fino"
+        Baldosin_Decorado_Papel_Fino,
+        /** Baño con enchape en cerámica crinstanac o granito.
+         */
+        !!@ ili2db.dispName = "(Enchape de baño) Cerámica cristanac, granito"
+        Ceramica_Cristanac_Granito,
+        /** Baño con enchape en mármol o lujoso.
+         */
+        !!@ ili2db.dispName = "(Enchape de baño) Mármol, enchape lujoso"
+        Marmol_Enchape_Lujoso
+      ),
+      /** Tipo de mobiliario del baño principal
+       */
+      !!@ ili2db.dispName = "Mobiliario de baño"
+      Mobiliario_Banio(
+        /** Cuenta con uno o máximo dos servicios entre lavamanos retrete y ducha; los porcelanizados, en caso de tenerlos, son muy económicos; exceptuando los gabinetes pequeños de latón, no tiene ningún otro mobiliario ni divisiones.
+         */
+        !!@ ili2db.dispName = "(Mobiliario de baño) Pobre"
+        Pobre,
+        /** Esta categoría de baños cuenta con tres servicios.  Los porcenalizados de esta categoría son del tipo standard, se encuentran gabinetes muy sencillos y en latón y ocasionalmente pequeños armarios en madera burda o metal.
+         */
+        !!@ ili2db.dispName = "(Mobiliario de baño) Sencillo"
+        Sencillo,
+        /** Tiene mínimo tres servicios pero de tipo económico.  Tienen gabinetes de regular tamaño, algunas veces empotrados, lavamanos con mueble o pedestal y división de la ducha.
+         */
+        !!@ ili2db.dispName = "(Mobiliario de baño) Regular"
+        Regular,
+        /** Cuenta como mínimo con cuatro servicios, los porcenalizados son finos, en colores, con pedestales, adornos y grifería fina, tina, planchas de lavamanos generalmente en mármol con muebles en madera trabajada de tamaños regulares a grandes, con espejos más o menos grandes con luz integrada, la tina forma parte de la ducha, en el mismo espacio.
+         * 
+         * También se encuentran pequeños armarios y gabinetes auxiliares en madera o acrílico, empotrados o sobrepuestos.  Normalmente presentan división de la ducha, construida en aluminio y cristalita.
+         */
+        !!@ ili2db.dispName = "(Mobiliario de baño) Bueno"
+        Bueno,
+        !!@ ili2db.dispName = "(Mobiliario de baño) Lujoso"
+        Lujoso
+      ),
+      /** Tipo de tamaño de cocina.
+       */
+      !!@ ili2db.dispName = "Tamaño de cocina"
+      Tamanio_Cocina(
+        /** No cuenta con cocina.
+         */
+        !!@ ili2db.dispName = "(Tamaño de cocina) Sin cocina"
+        Sin_Cocina,
+        /** Si el área general es menor de 5 Mts2.
+         */
+        !!@ ili2db.dispName = "(Tamaño de cocina) Pequeña"
+        Pequenia,
+        /** Si tiene un área aproximada entre 5 y 10 Mts2.
+         */
+        !!@ ili2db.dispName = "(Tamaño de cocina) Mediana"
+        Mediana,
+        /** Para un área mayor de los 10 Mts 2.
+         */
+        !!@ ili2db.dispName = "(Tamaño de cocina) Grande"
+        Grande
+      ),
+      /** Tipo de enchape de la cocina.
+       */
+      !!@ ili2db.dispName = "Enchape de cocina"
+      Enchape_Cocina(
+        /** Cocina sin enchape.
+         */
+        !!@ ili2db.dispName = "(Enchape de cocina) Sin cubrimiento"
+        Sin_Cubrimiento,
+        /** Cocina enchapada con cemento y baldosa.
+         */
+        !!@ ili2db.dispName = "(Enchape de cocina) Pañete, baldosa de cemento"
+        Paniete_Baldosa_De_Cemento,
+        /** Cocina con enchape de baldosín de un solo color o papel común.
+         */
+        !!@ ili2db.dispName = "(Enchape de cocina) Baldosín unicolor, papel común"
+        Baldosin_Unicolor_Papel_Comun,
+        /** Cocina con enchape de baldosín decorado o papel fino.
+         */
+        !!@ ili2db.dispName = "(Enchape de cocina) Baldosín decorado, papel fino"
+        Baldosin_Decorado_Papel_Fino,
+        /** Cocina con enchape de cerámica o cristanac o granito.
+         */
+        !!@ ili2db.dispName = "(Enchape de cocina) Cerámica cristanac, granito"
+        Ceramica_Cristanac_Granito,
+        /** Cocina con enchape de mármol o lujoso.
+         */
+        !!@ ili2db.dispName = "(Enchape de cocina) Mármol, enchape lujoso"
+        Marmol_Enchape_Lujoso
+      ),
+      /** Tipo de mobiliario de la cocina.
+       */
+      !!@ ili2db.dispName = "Mobiliario de cocina"
+      Mobiliario_Cocina(
+        /** Se caracteriza por la escasez de mobiliario, se encuentran mesas y alacenas en madera burda o de materiales muy baratos.  En el mejor de los casos se encuentra un tablón o un planchón de cemento rústico que en oportunidades lleva empotrado un lavaplatos de latón con grifería barata y entrepisos en madera burda para guardar los elementos de cocina.
+         */
+        !!@ ili2db.dispName = "(Mobiliario de cocina) Pobre"
+        Pobre,
+        /** El mobiliario de una cocina es sencillo cuando cuenta con los elementos mínimos necesarios para hacerla funcional, con un cierto grado de comodidad.  Tiene por ejemplo un planchón de cemento o su equivalente, que complementa el fregadero o lavaplatos y casi siempre va enchapado en baldosín económico y con entrepaños de la misma estructura y material; a veces tienen puertas; la grifería es de tipo standard.  En ocasiones se encuentran muebles secundarios como mesas o alacenas en maderas burdas.
+         */
+        !!@ ili2db.dispName = "(Mobiliario de cocina) Sencillo"
+        Sencillo,
+        /** Cuenta con gabinetes inferiores o superiores construidos en metal o madera; la grifería es standard, mesón en acero inoxidable.
+         */
+        !!@ ili2db.dispName = "(Mobiliario de cocina) Regular"
+        Regular,
+        /** Lo encontramos en aquellas cocinas dotadas de gabinetes completos, inferiores y de pared en madera trabajada, planchan en metal inoxidable, normalmente con cocina integral; sistemas auxiliares de extracción y aireación.
+         */
+        !!@ ili2db.dispName = "(Mobiliario de cocina) Bueno"
+        Bueno,
+        /** Además de lo descrito en el anterior tipo, se encuentran trabajos en maderas finas y compactadores o trituradores de basura, muebles totalmente integrales cubriendo buena parte de los muros, donde el comedor auxiliar es parte de este mobiliario.  Su tamaño siempre es grande.
+         */
+        !!@ ili2db.dispName = "(Mobiliario de cocina) Lujoso"
+        Lujoso
+      ),
+      !!@ ili2db.dispName = "Cerchas complemento industria"
+      Cerchas_Complemento_Industria(
+        /** Se encuentran en construcciones antiguas y algunas nuevas pero con pequeñas luces donde el ancho de la bodega permita su utilización.
+         */
+        !!@ ili2db.dispName = "(Cerchas complemento industria) Madera"
+        Madera,
+        /** Estas cerchas, se encuentran en dos especificaciones: toda en varilla hasta de ½ ó en perfil hasta de 2 cms de ancho de o 1” por 2mm de espesor con refuerzo en varilla, estas zonas las cerchas más comunes, con una luz hasta de 10 mts.
+         */
+        !!@ ili2db.dispName = "(Cerchas complemento industria) Metálica liviana"
+        Metalica_Liviana,
+        /** Este tipo de cercha corresponde a industrias cuyas bodegas o galpones tienen una luz considerable y las cuberitas que tienen que soportar las cerchas poseen un peso de alguna magnitud.  Estas cerchas vienen en perfiles hasta de 5.6 cms de ancho o 2 ½” y con un espesor hasta de 8 mm y varilla de refuerzo de ½” y ¾”, con una luz entre 10 y 20 metros.
+         */
+        !!@ ili2db.dispName = "(Cerchas complemento industria) Metálica mediana"
+        Metalica_Mediana,
+        /** Estas cerchas son exigidas fundamentalmente por la luz que permitan (de acuerdo al ancho de la bodega) y por lo tanto por el gran peso de cubierta que tendrán que soportar.  Estas vienen en perfilería de mas de 6.5 cms o 2 ½” y con un espesor de mas de 8 mm.  Con varilla de refuerzo con diámetro no menor de 1” o con perfiles de refuerzo con una luz de más de 20 mts, estas cerchas generalmente vienen con cerchas mas livianas encima, sosteniendo las cubiertas.
+         */
+        !!@ ili2db.dispName = "(Cerchas complemento industria) Metálica pesada"
+        Metalica_Pesada,
+        /** En ciertas industrias se han encontrado bodegas de bastante altura o pisos de ferroconcreto con altas especificaciones por este motivo ha sido necesario complementar la calificación correspondiente a “pisos” agregando en estos casos la opción que aparece en “industria” (complemento). Los mejores indicadores para definir esa condición son:
+         * -Cuando la altura de la bodega sea mayor de 7mts en sus columnas
+         * -Cuando existan puentes grúas.
+         */
+        !!@ ili2db.dispName = "(Cerchas complemento industria) Altura"
+        Altura
+      )
+    );
+
+    CUC_TipologiaTipo = (
+      Residencial(
+        /** Armazón: Madera; Muro: Material de desecho, esterilla; Cubierta material desecho, telas asfálticas; Pisos tierra pisada.
+         */
+        !!@ ili2db.dispName = "(Residencial) Tipo 1A"
+        !!@ ili2db.dispName="(Residencial) Tipo 1A"
+        Tipo_1A,
+        /** Armazón: Madera; Muro: Material de bahareque, adobe, tapia; Cubierta: Zinc, teja de barro, Eternit rustico; Pisos: Cemento, madera burda
+         */
+        !!@ ili2db.dispName = "(Residencial) Tipo 1B"
+        !!@ ili2db.dispName="(Residencial) Tipo 1B"
+        Tipo_1B,
+        /** Armazón: Madera; Muros en madera; Cubierta: Zinc, teja de barro, Eternit rustico; Cubrimiento de Muros: Pañete, papel común, ladrillo presado; Pisos: Cemento, madera burda.
+         */
+        !!@ ili2db.dispName = "(Residencial) Tipo 2A"
+        !!@ ili2db.dispName="(Residencial) Tipo 2A"
+        Tipo_2A,
+        /** Armazón: Prefabricado; Muros: Concreto prefabricado; Cubierta: Zinc, teja de barro, Eternit rustico; cubrimiento de Muros: Pañete, papel común,  ladrillo  presado;  Pisos:  Baldosa común de cemento, Tablón ladrillo.
+         */
+        !!@ ili2db.dispName = "(Residencial) Tipo 2B"
+        !!@ ili2db.dispName="(Residencial) Tipo 2B"
+        Tipo_2B,
+        /** Armazón: Ladrillo, bloque; Muro: ladrillo, Bloque; Cubierta: Eternit o teja de barro; Cubrimiento de muros: Pañete, papel común, ladrillo prensado; Piso: Baldosa común de cemento, tablón ladrillo.
+         */
+        !!@ ili2db.dispName = "(Residencial) Tipo 3A"
+        !!@ ili2db.dispName="(Residencial) Tipo 3A"
+        Tipo_3A,
+        /** Armazón: Ladrillo, bloque; Muro: ladrillo, Bloque; Cubierta: Azotea, aluminio, placa sencilla con eternit o teja de barro; Cubrimiento muros: Estuco, cerámica, papel fino; Piso: Baldosa común de cemento, tablón ladrillo.
+         */
+        !!@ ili2db.dispName = "(Residencial) Tipo 3B"
+        !!@ ili2db.dispName="(Residencial) Tipo 3B"
+        Tipo_3B,
+        /** Armazón: Concreto hasta tres pisos, Muro: Bloque, ladrillo; Cubierta: Azotea, aluminio,
+         * placa sencilla con etnernit o teja de barro; Cubrimiento muro: estuco, cerámica, papel fino; Piso: Listón machi-embredo.
+         */
+        !!@ ili2db.dispName = "(Residencial) Tipo 4A"
+        !!@ ili2db.dispName="(Residencial) Tipo 4A"
+        Tipo_4A,
+        /** Armazón: Concreto hasta tres pisos, Muro: Bloque, Ladrillo; Cubierta: Azotea, aluminio,
+         * placa sencilla con etnernit o teja de barro; Cubrimiento muro: estuco, cerámica, papel fino; Piso: Tableta, caucho, acrilico, granito, baldosa fina.
+         */
+        !!@ ili2db.dispName = "(Residencial) Tipo 4B"
+        !!@ ili2db.dispName="(Residencial) Tipo 4B"
+        Tipo_4B,
+        /** Armazón: Concreto hasta tres pisos; Muro: Bloque, Ladrillo; Cubierta: Azote, Aluminio, placa sencilla con eternit o teja de barro; Cubrimiento muro: Medra, Piedra ornamental; Piso: Tableta, caucho, acrilico, granito, baldosa fina
+         */
+        !!@ ili2db.dispName = "(Residencial) Tipo 5A"
+        !!@ ili2db.dispName="(Residencial) Tipo 5A"
+        Tipo_5A,
+        /** Armazón: Concreto cuadro y más pisos; Muro: Bloque, Ladrillo; Cubierta: Placa impermeabilizada cubierta lujosa u ornamental; Cubrimiento muro: Mármol, lujoso, otros; Piso: Parquet, alfombra, retal de mármol ( grano pequeño).
+         */
+        !!@ ili2db.dispName = "(Residencial) Tipo 5B"
+        !!@ ili2db.dispName="(Residencial) Tipo 5B"
+        Tipo_5B,
+        /** Armazón: Concreto hasta tres pisos; Muro: Bloque, ladrillo; Cubierta: Placa impermeabilizada cubierta lujosa u ornamental; Cubrimientos muros: Mármol, lujosos otros; Piso: Parquet, alfombra, Retal de mármol ( grano pequeño).
+         */
+        !!@ ili2db.dispName = "(Residencial) Tipo 6A"
+        !!@ ili2db.dispName="(Residencial) Tipo 6A"
+        Tipo_6A,
+        /** Armazón: Concreto cuatro o más pisos; Muro: Bloque, ladrillo; Cubierta: Placa impermeabilizada cubierta lujosa u ornamental; Cubrimientos muros: Mármol, lujosos otros; Piso: Retal de mármol, mármol, otros.
+         */
+        !!@ ili2db.dispName = "(Residencial) Tipo 6B"
+        !!@ ili2db.dispName="(Residencial) Tipo 6B"
+        Tipo_6B
+      ),
+      Comercial(
+        /** Armazón: Madera, prefabricado
+         * Muros: adobe, bahareque, tapia
+         * Cubierta: Zinc, material de desecho, telas asfálticas
+         * Fachada: Pobre
+         * Cubrimiento de Muros: Sin cubrimiento
+         * Pisos: tierra, cemento o madera burda.
+         */
+        !!@ ili2db.dispName = "(Comercial) Barrial 1"
+        !!@ ili2db.dispName="(Comercial) Barrial 1"
+        Barrial_1,
+        /** Armazón: Ladrillo, bloque.
+         * Muros: Ladrillo y Bloque
+         * Cubierta: Zinc, Eternit o teja de barro
+         * Fachada: pobre o sencilla.
+         * Cubrimiento de Muros: Pañete, papel común, ladrillo prensado, estuco, cerámica
+         * Pisos: cemento Baldosa común de cemento, Tablón Ladrillo
+         */
+        !!@ ili2db.dispName = "(Comercial) Barrial 2"
+        !!@ ili2db.dispName="(Comercial) Barrial 2"
+        Barrial_2,
+        /** Armazón: Madera, Ladrilló, Bloque
+         * Muros: Madera, Bloque, concreto prefabricado
+         * Cubierta: Eternit o teja de barro, Entrepiso, (cubierta provisional) Prefabricado
+         * 
+         * Fachada: Regular.
+         * Cubrimiento de Muros: Pañete, papel común, pañete, ladrillo prensado
+         * Pisos: Concreto, Listón machi-ambrado, baldosa común.
+         */
+        !!@ ili2db.dispName = "(Comercial) Sectorial 1"
+        !!@ ili2db.dispName="(Comercial) Sectorial 1"
+        Sectorial_1,
+        /** Armazón: Concreto hasta 3 pisos.
+         * Muros: Bloque, ladrillo
+         * Cubierta: Eternit, teja de barro placa concreto
+         * Fachada: Buena.
+         * Cubrimiento de Muros: Ladrillo a la vista, Estuco, cerámica, papel fino
+         * 
+         * Pisos: Tableta, caucho, acrílico, granito, baldosa fina
+         */
+        !!@ ili2db.dispName = "(Comercial) Sectorial 2"
+        !!@ ili2db.dispName="(Comercial) Sectorial 2"
+        Sectorial_2,
+        /** Armazón: Concreto hasta 3 pisos
+         * Muros: Concreto prefabricado, bloque o ladrillo
+         * Cubierta: Azotea, aluminio, placa sencilla con eternit o teja de barro
+         * Fachada: Buena.
+         * 
+         * Cubrimiento de Muros: Ladrillo a la vista, Estuco, Madera, piedra ornamental
+         * Pisos: Parquet, alfombra, retal de mármol ( grano pequeño); Cerámica fina
+         */
+        !!@ ili2db.dispName = "(Comercial) Especializado 1"
+        !!@ ili2db.dispName="(Comercial) Especializado 1"
+        Especializado_1,
+        /** Armazón: Concreto 4 o más pisos
+         * Muros: Bloque ladrillo
+         * Cubierta: Placa Impermeabilizada cubierta lujosa u ornamental
+         * Fachada: Lujosa.
+         * Cubrimiento de Muros: Mármol, piedra ornamental Estucos especiales, otros lujosos
+         * Pisos: Parquet, alfombra, retal de mármol ( grano pequeño); Cerámica fina
+         */
+        !!@ ili2db.dispName = "(Comercial) Especializado 2"
+        !!@ ili2db.dispName="(Comercial) Especializado 2"
+        Especializado_2
+      ),
+      Industrial(
+        /** Armazón: Madera, prefabricado
+         * Muros: adobe, bahareque, tapia
+         * Cerchas: Madera
+         * Cubierta: Material de desecho, telas asfálticas
+         * 
+         * Fachada: Pobre
+         * Cubrimiento de Muros:
+         * Sin cubrimiento
+         * Pisos: tierra, cemento o madera burda.
+         */
+        !!@ ili2db.dispName = "(Industrial) Liviana 1"
+        !!@ ili2db.dispName="(Industrial) Liviana 1"
+        Liviana_1,
+        /** Armazón: Prefabricado, Ladrillo, bloque.
+         * Muros: Prefabricado, Ladrillo, bloque
+         * Cubierta: Zinc, Eternit o teja de barro
+         * Fachada: pobre o sencilla.
+         * 
+         * Cubrimiento de Muros: Sin, Pañete, papel común, ladrillo prensado, estuco, cerámica
+         * Pisos: Cemento Baldosa común de cemento, Tablón Ladrillo.
+         */
+        !!@ ili2db.dispName = "(Industrial) Liviana 2"
+        !!@ ili2db.dispName="(Industrial) Liviana 2"
+        Liviana_2,
+        /** Armazón: Muros confinados Ladrillo o bloque
+         * Muros: Ladrillo, bloque o concreto prefabricado
+         * Cubierta: Entrepiso
+         * (cubierta provisional ) Prefabricado, teja eternit
+         * Fachada: Regular.
+         * 
+         * Cubrimiento de Muros: Pañete, papel común, pañete, ladrillo prensado
+         * Pisos: Concreto, Listón machi-ambrado, baldosa común.
+         */
+        !!@ ili2db.dispName = "(Industrial) Mediana 1"
+        !!@ ili2db.dispName="(Industrial) Mediana 1"
+        Mediana_1,
+        /** Armazón: Concreto hasta 3 pisos.
+         * Muros: Bloque, ladrillo
+         * Cubierta: teja eternit, termo acústica o teja de barro
+         * Fachada: Buena.
+         * Cubrimiento de Muros: Ladrillo a la vista, Estuco, cerámica, papel fino
+         * Pisos: Tableta, caucho, acrílico, granito, baldosa fina
+         */
+        !!@ ili2db.dispName = "(Industrial) Mediana 2"
+        !!@ ili2db.dispName="(Industrial) Mediana 2"
+        Mediana_2,
+        /** Armazón: Concreto hasta 3 pisos
+         * Muros: Concreto prefabricado, bloque o ladrillo
+         * Cubierta: Azotea, aluminio, placa sencilla con eternit o teja de barro
+         * Fachada: Buena.
+         * Cubrimiento de Muros: Ladrillo a la vista, Estuco, Madera, piedra ornamental
+         * Pisos: Parquet, alfombra, retal de mármol ( grano pequeño); Cerámica fina
+         */
+        !!@ ili2db.dispName = "(Industrial) Pesada 1"
+        !!@ ili2db.dispName="(Industrial) Pesada 1"
+        Pesada_1,
+        /** Armazón: Concreto 4 o más pisos
+         * Muros: Bloque ladrillo
+         * Cubierta: Placa Impermeabilizada cubierta lujosa u ornamental
+         * Fachada: Lujosa.
+         * Cubrimiento de Muros: Mármol, piedra ornamental Estucos especiales, otros lujosos
+         * Pisos: Parquet, alfombra, retal de mármol ( grano pequeño); Cerámica fina
+         */
+        !!@ ili2db.dispName = "(Industrial) Pesada 2"
+        !!@ ili2db.dispName="(Industrial) Pesada 2"
+        Pesada_2
+      ),
+      !!@ ili2db.dispName = "Otro"
+      !!@ ili2db.dispName="Otro"
+      Otro
+    );
+
+    /** Calificación del suelo.
+     */
+    CUC_CalificarTipo = (
+      /** Calificación para predios de uso residencial.
+       */
+      !!@ ili2db.dispName = "Residencial"
+      !!@ ili2db.dispName="Residencial"
+      Residencial,
+      /** Calificación para predios de uso industrial.
+       */
+      !!@ ili2db.dispName = "Industrial"
+      !!@ ili2db.dispName="Industrial"
+      Industrial,
+      /** Calificación para predios de uso Institucional.
+       */
+      !!@ ili2db.dispName = "Institucional"
+      !!@ ili2db.dispName="Institucional"
+      Institucional,
+      /** Calificación para predios de uso comercial.
+       */
+      !!@ ili2db.dispName = "Comercial"
+      !!@ ili2db.dispName="Comercial"
+      Comercial
+    );
+
+  TOPIC Calificacion_Unidad_Construccion =
+    DEPENDS ON Modelo_Aplicacion_LADMCOL_SINIC_V1_0.Sistema_Nacional_Informacion_Catastral;
+
+    /** Clase para determinar el tipo de calificación para las unidades de construcción, permite 3 opciones: a) calificación por tipologias constructivas, b)calificación total de la ficha de calificación de construcción y c) calificación parcial de la ficha de calificación de construcción como lo puede ser fachada y estructura.
+     */
+    CLASS CUC_CalificacionUnidadConstruccion (ABSTRACT)
+    EXTENDS LADM_COL_V3_0.LADM_Nucleo.ObjetoVersionado =
+    END CUC_CalificacionUnidadConstruccion;
+
+    /** Calificación de la construccion según los item determinados para calificar.
+     */
+    !!@ ili2db.dispName = "Grupo Calificación"
+    !!@ ili2db.dispName="Grupo Calificación"
+    CLASS CUC_GrupoCalificacion =
+      /** Indica los elementos generales de la calificación de la construcción de acuerdo al método vigente.
+       */
+      !!@ ili2db.dispName = "Clase de calificación"
+      !!@ ili2db.dispName="Clase de calificación"
+      Clase_Calificacion : MANDATORY Submodelo_Calificacion_Unidades_Construccion_V1_0.CUC_ClaseCalificacionTipo;
+      /** Estado de conservación del grupo calificado.
+       */
+      !!@ ili2db.dispName = "Conservación"
+      !!@ ili2db.dispName="Conservación"
+      Conservacion : MANDATORY Submodelo_Calificacion_Unidades_Construccion_V1_0.CUC_EstadoConservacionTipo;
+      /** Subtotal del grupo calificado.
+       */
+      !!@ ili2db.dispName = "Subtotal"
+      !!@ ili2db.dispName="Subtotal"
+      Subtotal : MANDATORY 0 .. 9999999;
+    END CUC_GrupoCalificacion;
+
+    /** Puntaje de cada item de la calificación de construcción.
+     */
+    !!@ ili2db.dispName = "Objeto Construcción"
+    !!@ ili2db.dispName="Objeto Construcción"
+    CLASS CUC_ObjetoConstruccion =
+      /** Item de la calificación de construcción según la método de calificación vigente.
+       */
+      !!@ ili2db.dispName = "Tipo de objeto de construcción"
+      !!@ ili2db.dispName="Tipo de objeto de construcción"
+      Tipo_Objeto_Construccion : MANDATORY Submodelo_Calificacion_Unidades_Construccion_V1_0.CUC_ObjetoConstruccionTipo;
+      /** Puntaje del ítem calificado.
+       */
+      !!@ ili2db.dispName = "Puntos"
+      !!@ ili2db.dispName="Puntos"
+      Puntos : MANDATORY 0 .. 16;
+    END CUC_ObjetoConstruccion;
+
+    /** Proceso mediante el cual se le asigna un puntaje a las edificaciones de acuerdo a sus características constructivas
+     */
+    !!@ ili2db.dispName = "Calificación Convencional"
+    !!@ ili2db.dispName="Calificación Convencional"
+    CLASS CUC_CalificacionConvencional
+    EXTENDS CUC_CalificacionUnidadConstruccion =
+      /** Indica si la calificación de construcción corresponde a residencial, comercial o industrial.
+       */
+      !!@ ili2db.dispName = "Tipo a calificar"
+      !!@ ili2db.dispName="Tipo a calificar"
+      Tipo_Calificar : MANDATORY Submodelo_Calificacion_Unidades_Construccion_V1_0.CUC_CalificarTipo;
+      /** Puntaje total de la calificación de la unidad de construcción.
+       */
+      !!@ ili2db.dispName = "Total calificación"
+      !!@ ili2db.dispName="Total calificación"
+      Total_Calificacion : MANDATORY LADM_COL_V3_0.LADM_Nucleo.Integer;
+    END CUC_CalificacionConvencional;
+
+    /** Son las características de diseño y constructivas especiales de las construcciones y/o edificaciones.
+     */
+    !!@ ili2db.dispName = "Tipología de la construcción"
+    !!@ ili2db.dispName="Tipología de la construcción"
+    CLASS CUC_TipologiaConstruccion
+    EXTENDS CUC_CalificacionUnidadConstruccion =
+      /** Son las características de diseño y constructivas especiales de las construcciones y/o edificaciones.
+       */
+      !!@ ili2db.dispName = "Tipo de tipología"
+      !!@ ili2db.dispName="Tipo de tipología"
+      Tipo_Tipologia : MANDATORY Submodelo_Calificacion_Unidades_Construccion_V1_0.CUC_TipologiaTipo;
+    END CUC_TipologiaConstruccion;
+
+    /** Relación entre la clase Unidad_Construccion del modelo de Avalúos y Calificacion_Unidad_Construccion de modelo de Avalúos
+     */
+    ASSOCIATION cuc_calificacion_unidadconstruccion =
+      sinic_unidad_construccion (EXTERNAL) -- {1..*} Modelo_Aplicacion_LADMCOL_SINIC_V1_0.Sistema_Nacional_Informacion_Catastral.SINIC_UnidadConstruccion;
+      cuc_calificacion_unidad_construccion -- {0..1} CUC_CalificacionUnidadConstruccion;
+    END cuc_calificacion_unidadconstruccion;
+
+    ASSOCIATION cuc_objetoconstruccion_grupocalificacion =
+      cuc_grupo_calificacion -- {1} CUC_GrupoCalificacion;
+      cuc_objeto_construccion -- {0..*} CUC_ObjetoConstruccion;
+    END cuc_objetoconstruccion_grupocalificacion;
+
+    /** Relaciona el tipo de construcción consideradas como anexo para el catastro.
+     */
+    !!@ ili2db.dispName = "Calificación No Convencional"
+    !!@ ili2db.dispName="Calificación No Convencional"
+    CLASS CUC_CalificacionNoConvencional
+    EXTENDS CUC_CalificacionUnidadConstruccion =
+      /** Relaciona el tipo de construcción consideradas como anexo para el catastro.
+       */
+      !!@ ili2db.dispName = "Tipo de anexo"
+      !!@ ili2db.dispName="Tipo de anexo"
+      Tipo_Anexo : MANDATORY Submodelo_Calificacion_Unidades_Construccion_V1_0.CUC_AnexoTipo;
+    END CUC_CalificacionNoConvencional;
+
+    ASSOCIATION cuc_grupo_calificacionconvencional =
+      cuc_calificacion_convencional -- {1} CUC_CalificacionConvencional;
+      cuc_grupo_calificacion -- {1..*} CUC_GrupoCalificacion;
+    END cuc_grupo_calificacionconvencional;
+
+  END Calificacion_Unidad_Construccion;
+
+END Submodelo_Calificacion_Unidades_Construccion_V1_0.
