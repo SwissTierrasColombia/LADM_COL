@@ -678,7 +678,7 @@ VERSION "2019-08-01"  =
 
 END Submodelo_Insumos_Gestor_Catastral_V1_0.
 
-MODEL Submodelo_Insumos_SNR_V1_0 (es)
+MODEL Submodelo_Insumos_SNR_V1_1 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.3"  // 2019-07-31 // =
   IMPORTS LADM_COL_V3_0;
@@ -1311,7 +1311,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Calidad de derecho en registro
        */
       !!@ ili2db.dispName = "Calidad derecho registro"
-      Calidad_Derecho_Registro : MANDATORY Submodelo_Insumos_SNR_V1_0.SNR_CalidadDerechoTipo;
+      Calidad_Derecho_Registro : MANDATORY Submodelo_Insumos_SNR_V1_1.SNR_CalidadDerechoTipo;
       /** es el número asignado en el registro a cada acto sujeto a registro.
        */
       !!@ ili2db.dispName = "Código naturaleza jurídica"
@@ -1337,7 +1337,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Tipo de documento que soporta la relación de tenencia entre el interesado con el predio.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : Submodelo_Insumos_SNR_V1_0.SNR_FuenteTipo;
+      Tipo_Documento : Submodelo_Insumos_SNR_V1_1.SNR_FuenteTipo;
       /** Identificador del documento, ejemplo: numero de la resolución
        */
       !!@ ili2db.dispName = "Número de documento"
@@ -1365,7 +1365,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Tipo de documento que soporta la relación de tenencia entre el interesado con el predio.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : Submodelo_Insumos_SNR_V1_0.SNR_FuenteTipo;
+      Tipo_Documento : Submodelo_Insumos_SNR_V1_1.SNR_FuenteTipo;
       /** Identificador del documento, ejemplo: numero de la resolución
        */
       !!@ ili2db.dispName = "Número de documento"
@@ -1385,7 +1385,7 @@ VERSION "V2.3"  // 2019-07-31 // =
     !!@ ili2db.dispName = "(SNR) Publicidad"
     CLASS SNR_Publicidad =
       !!@ ili2db.dispName = "Tipo de publicidad"
-      Tipo_Publicidad : Submodelo_Insumos_SNR_V1_0.SNR_PublicidadTipo;
+      Tipo_Publicidad : Submodelo_Insumos_SNR_V1_1.SNR_PublicidadTipo;
       /** Es el tipo de descripciòn por la cual se hacen las incripciones en registro de acuerdo con lo contemplado en el art. 8 de la ley 1579 de 2012.
        */
       !!@ ili2db.dispName = "Naturaleza jurídica"
@@ -1424,11 +1424,11 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Tipo de persona
        */
       !!@ ili2db.dispName = "Tipo de persona"
-      Tipo_Persona : Submodelo_Insumos_SNR_V1_0.SNR_PersonaTitularTipo;
+      Tipo_Persona : Submodelo_Insumos_SNR_V1_1.SNR_PersonaTitularTipo;
       /** Tipo de documento del que se trata.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : Submodelo_Insumos_SNR_V1_0.SNR_DocumentoTitularTipo;
+      Tipo_Documento : Submodelo_Insumos_SNR_V1_1.SNR_DocumentoTitularTipo;
       /** Documento de identidad del interesado.
        */
       !!@ ili2db.dispName = "Número de documento"
@@ -1482,11 +1482,11 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Corresponde al dato de tipo de predio incorporado en las bases de datos registrales
        */
       !!@ ili2db.dispName = "Clase del suelo según registro"
-      Clase_Suelo_Registro : Submodelo_Insumos_SNR_V1_0.SNR_ClasePredioRegistroTipo;
+      Clase_Suelo_Registro : Submodelo_Insumos_SNR_V1_1.SNR_ClasePredioRegistroTipo;
       /** Es la matrícula por la cual se dio apertura al predio objeto de estudio (la madre).
        */
       !!@ ili2db.dispName = "Matrícula inmobiliaria matriz"
-      Matricula_Inmobiliaria_Matriz : BAG {0..*} OF Submodelo_Insumos_SNR_V1_0.Datos_SNR.SNR_EstructuraMatriculaMatriz;
+      Matricula_Inmobiliaria_Matriz : BAG {0..*} OF Submodelo_Insumos_SNR_V1_1.Datos_SNR.SNR_EstructuraMatriculaMatriz;
       /** Fecha de la generación de datos.
        */
       !!@ ili2db.dispName = "Fecha de datos"
@@ -1547,12 +1547,12 @@ VERSION "V2.3"  // 2019-07-31 // =
 
   END Datos_SNR;
 
-END Submodelo_Insumos_SNR_V1_0.
+END Submodelo_Insumos_SNR_V1_1.
 
 MODEL Submodelo_Integracion_Insumos_V1_0 (es)
 AT "mailto:PC4@localhost"
 VERSION "2019-09-06"  =
-  IMPORTS Submodelo_Insumos_Gestor_Catastral_V1_0,Submodelo_Insumos_SNR_V1_0;
+  IMPORTS Submodelo_Insumos_Gestor_Catastral_V1_0,Submodelo_Insumos_SNR_V1_1;
 
   DOMAIN
 
@@ -1604,7 +1604,7 @@ VERSION "2019-09-06"  =
     );
 
   TOPIC Datos_Integracion_Insumos =
-    DEPENDS ON Submodelo_Insumos_SNR_V1_0.Datos_SNR,Submodelo_Insumos_Gestor_Catastral_V1_0.Datos_Gestor_Catastral;
+    DEPENDS ON Submodelo_Insumos_SNR_V1_1.Datos_SNR,Submodelo_Insumos_Gestor_Catastral_V1_0.Datos_Gestor_Catastral;
 
     /** Clase que relaciona los predios en los modelos de insumos para el Gestor Catastral y la SNR.
      */
@@ -1626,7 +1626,7 @@ VERSION "2019-09-06"  =
     END ini_predio_integracion_gc;
 
     ASSOCIATION ini_predio_integracion_snr =
-      snr_predio_juridico (EXTERNAL) -- {0..1} Submodelo_Insumos_SNR_V1_0.Datos_SNR.SNR_PredioRegistro;
+      snr_predio_juridico (EXTERNAL) -- {0..1} Submodelo_Insumos_SNR_V1_1.Datos_SNR.SNR_PredioRegistro;
       ini_predio -- {0..*} INI_PredioInsumos;
     END ini_predio_integracion_snr;
 

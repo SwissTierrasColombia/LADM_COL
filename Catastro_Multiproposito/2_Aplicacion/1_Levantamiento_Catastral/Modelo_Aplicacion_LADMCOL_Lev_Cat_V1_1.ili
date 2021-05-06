@@ -2292,11 +2292,13 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "Derecho"
     CLASS LC_Derecho
     EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_DRR =
-      /** Derecho que se ejerce.
+      /** Forma de relación del interesado con respecto al predio según su forma de tenencia (posesión, ocupación o dominio).
        */
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_DerechoTipo;
-      /** Indica la fracción del derecho en relación a la forma de tenencia y el área que esta ocupa dentro de la extensión del predio. Ejemplo: un predio informal que se encuentra sobre un predio baldío y un predio privado tendrá un porcentaje de derecho de ocupación y posesión expresado en tanto por uno (0.0000000000 a 1.0000000000).
+      /** Indica la fracción del derecho en relación a la forma de tenencia y el área que esta ocupa dentro de la extensión del predio. ?
+       * 
+       * Expresado en tanto por uno (0.0000000000 a 1.0000000000).
        */
       !!@ ili2db.dispName = "Fracción de derecho"
       Fraccion_Derecho : MANDATORY 0.0000000000 .. 1.0000000000;
@@ -2340,11 +2342,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "Fuente Administrativa"
     CLASS LC_FuenteAdministrativa
     EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_FuenteAdministrativa =
-      /** Tipo de documento que soporta la relación de tenencia entre el interesado con el predio.
+      /** Documentos como escritura pública, sentencia judicial, acto administrativo, documento privado o sin documento (puede ser una declaración verbal), que acredita la adquisición de derechos de dominio sobre un bien inmueble y la relación que existe entre el interesado y el predio.
        */
       !!@ ili2db.dispName = "Tipo"
       Tipo (EXTENDED) : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_FuenteAdministrativaTipo;
-      /** Es tipo de oficina que emite el documento (notaria, juzgado)
+      /** Entidades encargadas de emitir el título de dominio, posesión u ocupación.
        */
       !!@ ili2db.dispName = "Ente emisor"
       Ente_Emisor : TEXT*255;
@@ -2355,6 +2357,14 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "Fuente Espacial"
     CLASS LC_FuenteEspacial
     EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_FuenteEspacial =
+      /** Insumos utilizados para la obtención de información espacial en la definición en los linderos para cada predio.
+       */
+      !!@ ili2db.dispName = "Tipo"
+      Tipo (EXTENDED) : MANDATORY LADM_COL_V3_0.LADM_Nucleo.COL_FuenteEspacialTipo;
+      /** Corresponde a la ficha técnica y especificaciones del insumo utilizado para el levantamiento catastral.
+       */
+      !!@ ili2db.dispName = "Metadato"
+      Metadato (EXTENDED) : MTEXT;
     END LC_FuenteEspacial;
 
     /** Calificación de la construccion según los item determinados para calificar.
@@ -2380,41 +2390,43 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "Interesado"
     CLASS LC_Interesado
     EXTENDS LADM_COL_V3_0.LADM_Nucleo.COL_Interesado =
-      /** Tipo de persona del que se trata
+      /** Son considerados dos tipos de interesados, persona natural que actúa a nombre propio y se ocupa de algunas actividades que la ley considera mercantiles y persona jurídica que actúa como institución creada por una o más personas para cumplir un objetivo social que puede ser con o sin fines de lucro.
        */
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_InteresadoTipo;
-      /** Tipo de documento del que se trata.
+      /** Clase de documentos públicos que permite la identificación del interesado.
        */
       !!@ ili2db.dispName = "Tipo de documento"
       Tipo_Documento : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_InteresadoDocumentoTipo;
-      /** Documento de identidad del interesado.
+      /** Documento público que contiene datos de identificación personal y que caracteriza al interesado como ciudadano, relacionado mediante un numero de identificación.
        */
       !!@ ili2db.dispName = "Documento de identidad"
       Documento_Identidad : MANDATORY TEXT*50;
-      /** Primer nombre de la persona física.
+      /** Primer nombre de la persona interesada en trámite o proceso.
        */
       !!@ ili2db.dispName = "Primer nombre"
       Primer_Nombre : TEXT*100;
-      /** Segundo nombre de la persona física.
+      /** Segundo nombre de la persona interesada en trámite o proceso.
        */
       !!@ ili2db.dispName = "Segundo nombre"
       Segundo_Nombre : TEXT*100;
-      /** Primer apellido de la persona física.
+      /** Primer apellido de la persona interesada en trámite o proceso.
        */
       !!@ ili2db.dispName = "Primer apellido"
       Primer_Apellido : TEXT*100;
-      /** Segundo apellido de la persona física.
+      /** Segundo apellido de la persona interesada en trámite o proceso.
        */
       !!@ ili2db.dispName = "Segundo apellido"
       Segundo_Apellido : TEXT*100;
-      /** Condición orgánica que distingue a los machos de las hembras.
+      /** Hace referencia a los componentes fisiológicos del interesado, que pueden determinar la diferencia entre quien es mujer y quien es hombre.
        */
       !!@ ili2db.dispName = "Sexo"
       Sexo : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_SexoTipo;
+      /** Grupo de personas a la cual pertenece el interesado, quienes comparten una misma ideología cultural.
+       */
       !!@ ili2db.dispName = "Grupo étnico"
       Grupo_Etnico : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_GrupoEtnicoTipo;
-      /** Nombre con el que está inscrito.
+      /** Nombre jurídico que recibe un sociedad colectiva o empresa constituida legalmente, con el cual se encuentra inscrito.
        */
       !!@ ili2db.dispName = "Razón social"
       Razon_Social : TEXT*255;
