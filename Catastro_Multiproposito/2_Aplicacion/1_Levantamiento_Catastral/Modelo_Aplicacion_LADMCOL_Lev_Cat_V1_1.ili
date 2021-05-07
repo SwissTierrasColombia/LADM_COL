@@ -745,6 +745,21 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Privado
     );
 
+    LC_EstadoCivilTipo = (
+      !!@ ili2db.dispName = "a. No está casado/a y vive en pareja hace menos de dos años"
+      No_Casado_Vive_En_Pareja_Menos_2_Anios,
+      !!@ ili2db.dispName = "b. No está casado/a y vive en pareja hace dos años o más"
+      No_Casado_Vive_En_Pareja_2_Anios_O_Mas,
+      !!@ ili2db.dispName = "c. Está casado/a"
+      Casado,
+      !!@ ili2db.dispName = "d. Está separado/a ó divorciado/a?"
+      Separado_Divorciado,
+      !!@ ili2db.dispName = "e. Está viudo/a"
+      Viudo,
+      !!@ ili2db.dispName = "f. Está soltero/a?"
+      Soltero
+    );
+
     LC_EstadoConservacionTipo = (
       /** Se agrupan en este concepto, aquellas estructuras con el mayor grado de deterioro que se puedan encontrar, en condiciones precarias lo cual las hace prácticamente inhabitables.  Generalmente se presenta en construcciones antiguas o con material de muy mala calidad.
        */
@@ -762,6 +777,21 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Excelente"
       Excelente
+    );
+
+    LC_EstratoTipo = (
+      !!@ ili2db.dispName = "1. Bajo-bajo?"
+      Bajo_Bajo_1,
+      !!@ ili2db.dispName = "2. Bajo"
+      Bajo_2,
+      !!@ ili2db.dispName = "3. Medio-bajo?"
+      Medio_Bajo_3,
+      !!@ ili2db.dispName = "4. Medio?"
+      Medio_4,
+      !!@ ili2db.dispName = "5. Medio-alto?"
+      Medio_Alto_5,
+      !!@ ili2db.dispName = "6. Alto"
+      Alto_6
     );
 
     LC_FotoidentificacionTipo = (
@@ -2199,6 +2229,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Observaciones"
       Observaciones : TEXT;
+      /** Corresponde a la relación de puntos, líneas, polígono y volumen que en su conjunto tienen propiedades de espacio y estructura.  que definen la construcción, es asignado por el sistema de captura.
+       */
+      !!@ ili2db.dispName = "Geometría"
+      Geometria (EXTENDED) : ISO19107_PLANAS_V3_0.GM_MultiSurface3D;
     END LC_Construccion;
 
     !!@ ili2db.dispName = "Contacto Visita"
@@ -2230,7 +2264,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Relación con el predio de la persona encargada de atender la visita, por ejemplo propietario, encargado, administrador, poseedor, etc.
        */
       !!@ ili2db.dispName = "Relación con el predio"
-      Relacion_Con_Predio : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_RelacionPredioTipo;
+      Relacion_Con_Predio : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_RelacionPredioTipo;
       /** Dirección de domicilio para notificaciones.
        */
       !!@ ili2db.dispName = "Domicilio notificaciones"
@@ -2430,6 +2464,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Razón social"
       Razon_Social : TEXT*255;
+      !!@ ili2db.dispName = "Estado civil"
+      Estado_Civil : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_EstadoCivilTipo;
     END LC_Interesado;
 
     /** Datos de contacto de la parte interesada.
@@ -2615,13 +2651,17 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Número único predial"
       NUPRE : TEXT*11;
-      /** Valor catastral del predio, obtenido mediante investigación y análisis estadístico del mercado inmobiliario y la metodología de aplicación correspondiente.
+      /** El avalúo catastral consiste en la determinación del valor de los predios, obtenido mediante investigación y análisis estadístico del mercado inmobiliario. ?
+       * El avalúo catastral de cada predio se determinará por la adición de los avalúos parciales practicados independientemente para los terrenos y para las unidades de construcción en él comprendidos.?
+       * El avalúo catastral corresponde a un porcentaje adoptado del avalúo comercial según el estudio económico, dichos avalúos se redondean a miles.
        */
       !!@ ili2db.dispName = "Avalúo catastral"
       Avaluo_Catastral : LADM_COL_V3_0.LADM_Nucleo.Peso;
+      !!@ ili2db.dispName = "Avalúo comercial"
+      Avaluo_Comercial : LADM_COL_V3_0.LADM_Nucleo.Peso;
       !!@ ili2db.dispName = "Tipo de predio"
       Tipo (EXTENDED) : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_PredioTipo;
-      /** Caracterización temática del predio.
+      /** Corresponde a una caracterización temática de las condiciones de predio que se está censando relacionada a aspectos físicos y jurídicos.
        */
       !!@ ili2db.dispName = "Condición del predio"
       Condicion_Predio : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_CondicionPredioTipo;
@@ -2654,15 +2694,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Tipo de punto"
       PuntoTipo (EXTENDED) : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_PuntoTipo;
-      /** Si se trata de un punto de control o de apoyo.
+      /** Es el método utilizado para definir puntos de terreno que son identificables dentro de una fotografía, a los cuales se les puede determinar las coordenadas terrestres de linderos y vértices una vez realizada su digitalización.
        */
       !!@ ili2db.dispName = "Tipo de punto de control"
       Tipo_Punto_Control : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_PuntoControlTipo;
-      /** Exactitud horizontal de la medición del punto.
+      /** Es la precisión con referencia a la posición horizontal de un punto o conjunto de puntos en términos de sus coordenadas de latitud y longitud o de sus coordenadas rectangulares expresada en metros.
        */
       !!@ ili2db.dispName = "Exactitud horizontal"
       Exactitud_Horizontal : MANDATORY 0.000 .. 10.000 [INTERLIS.m];
-      /** Exactitud vertical de la medición del punto.
+      /** Es la precisión con referencia a la posición vertical o altura de un punto o conjunto de puntos en términos de distancia a un cierto plano o nivel de referencia expresada en metros.
        */
       !!@ ili2db.dispName = "Exactitud vertical"
       Exactitud_Vertical : MANDATORY 0.000 .. 10.000 [INTERLIS.m];
@@ -2688,15 +2728,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Acuerdo"
       Acuerdo : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_AcuerdoTipo;
-      /** Indica si el punto es fotoidentificable.
+      /** Es el método utilizado para definir puntos de terreno que son identificables dentro de una fotografía, a los cuales se les puede determinar las coordenadas terrestres de linderos y vértices una vez realizada su digitalización.
        */
       !!@ ili2db.dispName = "Fotoidentificación"
       Fotoidentificacion : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_FotoidentificacionTipo;
-      /** Corresponde a la exactitud horizontal del punto lindero
+      /** Es la precisión con referencia a la posición horizontal de un punto o conjunto de puntos en términos de sus coordenadas de latitud y longitud o de sus coordenadas rectangulares expresada en metros.
        */
       !!@ ili2db.dispName = "Exactitud horizontal"
       Exactitud_Horizontal : MANDATORY 0.000 .. 10.000 [INTERLIS.m];
-      /** Corresponde a la exactitud vertical del punto lindero
+      /** Es la precisión con referencia a la posición vertical o altura de un punto o conjunto de puntos en términos de distancia a un cierto plano o nivel de referencia expresada en metros.
        */
       !!@ ili2db.dispName = "Exactitud vertical"
       Exactitud_Vertical : 0.000 .. 10.000 [INTERLIS.m];
@@ -2769,11 +2809,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
      */
     !!@ ili2db.dispName = "Datos adicionales levantamiento catastral"
     CLASS LC_DatosAdicionalesLevantamientoCatastral =
-      /** Indica si el predio según la información registral cuenta con el valor de área en la cabida y linderos.
+      /** Indica si el predio según la información registral cuenta con el valor de área en la sección  cabida y linderos del folio de matrícula inmobiliaria.
        */
       !!@ ili2db.dispName = "¿El predio tiene área registral?"
       Tiene_Area_Registral : MANDATORY BOOLEAN;
-      /** Indica el valor del área registral del predio en metros cuadrados.
+      /** Área consignada en el certificado de tradición y libertad, en la descripción de cabida y linderos, expresada en metros cuadrados.
        */
       !!@ ili2db.dispName = "Área registral en metros cuadrados"
       Area_Registral_M2 : 0.00 .. 10000000000000000000000.00 [LADM_COL_V3_0.m2];
@@ -2781,7 +2821,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Procedimientos catastrales con efectos registrales"
       Procedimiento_Catastral_Registral : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_ProcedimientoCatastralRegistralTipo;
-      /** Es la clasificación para fines estadísticos que se da a cada inmueble en su conjunto–terreno, construcciones o edificaciones-, en el momento de la identificación predial de conformidad con la actividad predominante que en él se desarrolle.
+      /** Es la clasificación que se da a los pedios según su destinación económica para fines estadísticos, teniendo en cuenta la actividad predominante existente que se desarrolla dentro del predio y que para su identificación se tomará la mayor área de terreno y/o construcción.
        */
       !!@ ili2db.dispName = "Destinación económica"
       Destinacion_Economica : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_DestinacionEconomicaTipo;
@@ -2841,6 +2881,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "¿Se suscribe acta de colindancia?"
       Suscribe_Acta_Colindancia : BOOLEAN;
+      /** Especifica si el propietario, poseedor u ocupante considera que el predio está involucrado en reclamaciones por presunto despojo o abandono forzado de tierras.
+       */
+      !!@ ili2db.dispName = "Despojo o abandono"
+      Despojo_Abandono : BOOLEAN;
+      /** Es una variable alfanumérica que clasifica los inmuebles residenciales que deben recibir servicios públicos, se asigna a nivel predial.?
+       * -Los dominios que toma la variable corresponden del carácter 1 al 6.
+       */
+      !!@ ili2db.dispName = "Estrato"
+      Estrato : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_EstratoTipo;
     END LC_DatosAdicionalesLevantamientoCatastral;
 
     /** Puntos que definen los limites de las construcciones, unidad de construcción y servidumbres de transito.
@@ -2860,15 +2909,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Tipo de punto de levantamiento"
       Tipo_Punto_Levantamiento : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_PuntoLevTipo;
-      /** Indica si el punto es fotoidentificable.
+      /** Es el método utilizado para definir puntos de terreno que son identificables dentro de una fotografía, a los cuales se les puede determinar las coordenadas terrestres de linderos y vértices una vez realizada su digitalización.
        */
       !!@ ili2db.dispName = "Fotoidentificación"
       Fotoidentificacion : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_FotoidentificacionTipo;
-      /** Corresponde a la exactitud horizontal del punto levantamiento.
+      /** Es la precisión con referencia a la posición horizontal de un punto o conjunto de puntos en términos de sus coordenadas de latitud y longitud o de sus coordenadas rectangulares expresada en metros.
        */
       !!@ ili2db.dispName = "Exactitud horizontal"
       Exactitud_Horizontal : MANDATORY 0.000 .. 10.000 [INTERLIS.m];
-      /** Corresponde a la exactitud vertical del punto levantamiento
+      /** Es la precisión con referencia a la posición vertical o altura de un punto o conjunto de puntos en términos de distancia a un cierto plano o nivel de referencia expresada en metros.
        */
       !!@ ili2db.dispName = "Exactitud vertical"
       Exactitud_Vertical : 0.000 .. 10.000 [INTERLIS.m];
@@ -2905,6 +2954,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
 
     ASSOCIATION lc_predio_copropiedad =
       predio -- {0..*} LC_Predio;
+      /** Unidades residenciales tales como edificios, conjuntos y tipos de urbanizaciones cerradas en las que se comparten áreas comunes y que tienen régimen de propiedad horizontal.
+       */
       copropiedad -<> {0..1} LC_Predio;
       coeficiente : LADM_COL_V3_0.LADM_Nucleo.Fraccion;
     END lc_predio_copropiedad;
@@ -2919,7 +2970,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       lc_ofertas_mercado_inmobiliario -- {0..*} LC_OfertasMercadoInmobiliario;
     END lc_predio_ofertas_mercado_inmobiliario;
 
-    /** Tipo de unidad espacial que permite la representación de una servidumbre de paso asociada a una COL_BAUnit.
+    /** La servidumbre predial o simple servidumbre, es un gravamen sobre un predio, en utilidad de otro predio de distinto dueño
      */
     !!@ ili2db.dispName = "Servidumbre de Tránsito"
     CLASS LC_ServidumbreTransito
@@ -2960,7 +3011,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Código de la unidad de construcción"
       Codigo_Unidad_Construccion : TEXT*30;
-      /** Indica si la construcción es de tipo convencional o no convencional.
+      /** Es el conjunto de elementos constructivos que conforman una edificación y que de acuerdo a sus características pueden ser consideradas convencionales cuando son de uso residencial, comercial e industrial o no convencionales cuando son anexos de la construcción.
        */
       !!@ ili2db.dispName = "Tipo de construcción"
       Tipo_Construccion : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_ConstruccionTipo;
@@ -2968,7 +3019,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Tipo de dominio"
       Tipo_Dominio : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_DominioConstruccionTipo;
-      /** Indica si la unidad de construcción es residencial, comercial, industrial o anexo.
+      /** Es la caracterización del conjunto de valores que describe a un atributo de la unidad de construcción para darle condición de dominio común o dominio privado.
        */
       !!@ ili2db.dispName = "Tipo de unidad de construcción"
       Tipo_Unidad_Construccion : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_UnidadConstruccionTipo;
@@ -2996,7 +3047,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Total de pisos"
       Total_Pisos : 0 .. 150;
-      /** Actividad que se desarrolla en una unidad de construcción.
+      /** Destinación de los materiales de una unidad constructiva con respecto a la actividad económica desarrollada en la edificación del predio.
        */
       !!@ ili2db.dispName = "Uso"
       Uso : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_UsoUConsTipo;
@@ -3004,7 +3055,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Año de construcción"
       Anio_Construccion : 1512 .. 2500;
-      /** Avalúo catastral de la unidad de construcción.
+      /** Para el avalúo de la unidad constructiva, en caso de modelos econométricos, se deben tener en cuenta el tipo de estructura, los acabados, el baño, la cocina, el estado de conservación, la edad de la edificación, el uso que se le da a dichas construcciones, entre otros, lo cual es valorado de acuerdo con las condiciones que presente el inmueble.?
+       * Para el caso de actualización de Zonas Homogéneas y tablas de construcción se utilizan variables de puntaje, uso de la construcción y área construida para la determinación del avalúo.?
+       * El avalúo catastral de la unidad corresponde a un porcentaje adoptado del avalúo comercial según el estudio económico.
        */
       !!@ ili2db.dispName = "Avalúo de la unidad de construcción"
       Avaluo_Unidad_Construccion : LADM_COL_V3_0.LADM_Nucleo.Peso;

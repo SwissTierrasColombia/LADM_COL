@@ -1408,9 +1408,10 @@ VERSION "V2.3"  // 2019-07-31 // =
      */
     !!@ ili2db.dispName = "(SNR) Restricción"
     CLASS SNR_Restriccion =
-      /** son los tipos de restricciones de acuerdo con la naturaleza del registro colombiano.c
+      /** son los tipos de restricciones de acuerdo con la naturaleza del registro colombiano
        */
-      Tipo_Restriccion : TEXT*20;
+      !!@ ili2db.dispName = "Tipo de restricción"
+      Tipo_Restriccion : Submodelo_Insumos_SNR_V1_1.SNR_RestriccionTipo;
       /** es el número asignado en el registro a cada acto sujeto a registro.
        */
       !!@ ili2db.dispName = "Código de la naturaleza jurídica"
