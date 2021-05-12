@@ -2437,6 +2437,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Razón social"
       Razon_Social : TEXT*255;
+      /** Identificación del estado civil de la parte interesada. En caso de que tenga un(a) cónyuge, recabar la información de esta persona para ser registrada como parte interesada del predio.
+       */
       !!@ ili2db.dispName = "Estado civil"
       Estado_Civil : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_EstadoCivilTipo;
     END LC_Interesado;
@@ -2928,10 +2930,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     END lc_ph_predio;
 
     ASSOCIATION lc_predio_copropiedad =
-      predio -- {0..*} LC_Predio;
+      unidad_predial -- {0..*} LC_Predio;
       /** Unidades residenciales tales como edificios, conjuntos y tipos de urbanizaciones cerradas en las que se comparten áreas comunes y que tienen régimen de propiedad horizontal.
        */
-      copropiedad -<> {0..1} LC_Predio;
+      matriz -<> {0..1} LC_Predio;
       !!@ ili2db.dispName = "Coeficiente"
       Coeficiente : 0.0000000000 .. 1.0000000000;
     END lc_predio_copropiedad;
