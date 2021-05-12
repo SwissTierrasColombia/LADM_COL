@@ -8,7 +8,7 @@ INTERLIS 2.3;
 MODEL Submodelo_Cartografia_Catastral_V1_1 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-04-19 // =
-  IMPORTS ISO19107_PLANAS_V3_0,LADM_COL_V3_0;
+  IMPORTS ISO19107_PLANAS_V3_0,LADM_COL_V3_1;
 
   /** Este tema almacena específicamente las clases que definen la división administrativa desde el punto de vista operativo de catastro.
    */
@@ -37,7 +37,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Código de identificación del corregimiento.
        */
       !!@ ili2db.dispName = "Código"
-      Codigo : MANDATORY TEXT*13;
+      Codigo : MANDATORY TEXT*7;
       /** Nombre del corregimiento.
        */
       !!@ ili2db.dispName = "Nombre"
@@ -211,7 +211,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Código de la localidad o comuna aprobada por el acuerdo municipal, su número corresponderá al que se haya determinado en la norma.
        */
       !!@ ili2db.dispName = "Código"
-      Codigo : MANDATORY TEXT*13;
+      Codigo : MANDATORY TEXT*11;
       /** Nombre de la localidad o comuna aprobada por el acuerdo municipal.
        */
       !!@ ili2db.dispName = "Nombre"

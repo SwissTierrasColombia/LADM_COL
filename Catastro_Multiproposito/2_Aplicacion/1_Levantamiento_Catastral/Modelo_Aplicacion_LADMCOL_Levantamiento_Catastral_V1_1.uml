@@ -12800,8 +12800,8 @@
 </ch.ehi.umleditor.umlpresentation.Color>
 <ch.ehi.umleditor.umlpresentation.PresentationAssocClass TID="2988">
 <Association>323</Association>
-<South>1125</South>
-<East>2090</East>
+<South>1124</South>
+<East>2092</East>
 <ClassAngle>0.0</ClassAngle>
 <ClassRadius>0.0</ClassRadius>
 <ShowOperationSignatures>false</ShowOperationSignatures>
@@ -32101,6 +32101,10 @@
 <Kind>2</Kind>
 <Multiline>false</Multiline>
 </ch.ehi.interlis.domainsandconstants.basetypes.Text>
+<ch.ehi.umleditor.umlpresentation.WayPoint TID="2995">
+<South>989</South>
+<East>2092</East>
+</ch.ehi.umleditor.umlpresentation.WayPoint>
 <ch.ehi.uml1_4.implementation.UmlMultiplicityRange TID="7199">
 <Multiplicity>7154</Multiplicity>
 <Lower>0</Lower>
@@ -35011,7 +35015,7 @@
 <Kind>1</Kind>
 <VersionComment>8284</VersionComment>
 <Documentation>8285</Documentation>
-<DefLangName>Submodelo_Insumos_SNR_V1_1</DefLangName>
+<DefLangName>Submodelo_Insumos_SNR_V2_0</DefLangName>
 <ClientDependency>37</ClientDependency>
 <SupplierDependency>8286</SupplierDependency>
 <OwnedElementLink>8287</OwnedElementLink>
@@ -35054,15 +35058,15 @@
 </ch.ehi.interlis.modeltopicclass.IliImport>
 <ch.ehi.basics.types.NlsString TID="8295">
 </ch.ehi.basics.types.NlsString>
-<ch.ehi.basics.types.NlsString TID="8281">
-<Entry TID="8297" language="es" translation="Submodelo_Insumos_SNR_V1_1"/>
-</ch.ehi.basics.types.NlsString>
 <ch.ehi.uml1_4.foundation.core.ElementOwnership TID="8290">
 <Visibility>0</Visibility>
 <Namespace>2553</Namespace>
 <Specification>false</Specification>
 <OwnedElement>3031</OwnedElement>
 </ch.ehi.uml1_4.foundation.core.ElementOwnership>
+<ch.ehi.basics.types.NlsString TID="8281">
+<Entry TID="8297" language="es" translation="Submodelo_Insumos_SNR_V2_0"/>
+</ch.ehi.basics.types.NlsString>
 <ch.ehi.basics.types.NlsString TID="8285">
 <Entry TID="8298" language="es" translation=""/>
 </ch.ehi.basics.types.NlsString>
@@ -53226,10 +53230,6 @@
 </ch.ehi.umleditor.umlpresentation.PresentationAssocClass>
 <ch.ehi.basics.types.NlsString TID="12461">
 </ch.ehi.basics.types.NlsString>
-<ch.ehi.umleditor.umlpresentation.WayPoint TID="2995">
-<South>990</South>
-<East>2090</East>
-</ch.ehi.umleditor.umlpresentation.WayPoint>
 <ch.ehi.basics.types.NlsString TID="3972">
 <Entry TID="12462" language="es" translation="Tipo de construcci&#243;n"/>
 </ch.ehi.basics.types.NlsString>

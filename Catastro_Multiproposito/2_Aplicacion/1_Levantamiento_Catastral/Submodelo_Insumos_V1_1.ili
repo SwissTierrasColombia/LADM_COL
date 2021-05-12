@@ -3,7 +3,7 @@ INTERLIS 2.3;
 MODEL Submodelo_Insumos_Gestor_Catastral_V1_0 (es)
 AT "mailto:PC4@localhost"
 VERSION "2019-08-01"  =
-  IMPORTS ISO19107_PLANAS_V3_0,LADM_COL_V3_0;
+  IMPORTS ISO19107_PLANAS_V3_0,LADM_COL_V3_1;
 
   DOMAIN
 
@@ -232,7 +232,7 @@ VERSION "2019-08-01"  =
       /** Área total construida.
        */
       !!@ ili2db.dispName = "Área construida"
-      Area_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V3_0.m2];
+      Area_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V3_1.m2];
       /** Polígono de la construcción existente en la base de datos catastral.
        */
       !!@ ili2db.dispName = "Geometría"
@@ -246,19 +246,19 @@ VERSION "2019-08-01"  =
       /** Área total privada del terreno del PH o Condominio Matriz.
        */
       !!@ ili2db.dispName = "Área total de terreno privada"
-      Area_Total_Terreno_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V3_0.m2];
+      Area_Total_Terreno_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V3_1.m2];
       /** Área total de terreno común del PH o Condominio Matriz.
        */
       !!@ ili2db.dispName = "Área total de terreno común"
-      Area_Total_Terreno_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V3_0.m2];
+      Area_Total_Terreno_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V3_1.m2];
       /** Área total construida privada del PH o Condominio Matriz.
        */
       !!@ ili2db.dispName = "Área total construida privada"
-      Area_Total_Construida_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V3_0.m2];
+      Area_Total_Construida_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V3_1.m2];
       /** Área total construida común del PH o Condominio Matriz.
        */
       !!@ ili2db.dispName = "Área total construida común"
-      Area_Total_Construida_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V3_0.m2];
+      Area_Total_Construida_Comun : 0.00 .. 99999999999999.98 [LADM_COL_V3_1.m2];
       /** Total de unidades privadas en el PH o Condominio.
        */
       !!@ ili2db.dispName = "Total de unidades privadas"
@@ -270,7 +270,7 @@ VERSION "2019-08-01"  =
       /** Avalúo catastral total de la propiedad horizontal o condominio.
        */
       !!@ ili2db.dispName = "Valor total avaúo catastral"
-      Valor_Total_Avaluo_Catastral : LADM_COL_V3_0.LADM_Nucleo.Peso;
+      Valor_Total_Avaluo_Catastral : LADM_COL_V3_1.LADM_Nucleo.Peso;
     END GC_DatosPHCondominio;
 
     /** Relaciona la información de las torres asociadas al PH o Condominio de los datos insumos del Gestor Catastral
@@ -458,11 +458,11 @@ VERSION "2019-08-01"  =
       /** Área de terreno alfanumérica registrada en la base de datos catastral.
        */
       !!@ ili2db.dispName = "Área terreno alfanumérica"
-      Area_Terreno_Alfanumerica : 0.00 .. 99999999999999.98 [LADM_COL_V3_0.m2];
+      Area_Terreno_Alfanumerica : 0.00 .. 99999999999999.98 [LADM_COL_V3_1.m2];
       /** Área de terreno digital registrada en la base de datos catastral.
        */
       !!@ ili2db.dispName = "Área terreno digital"
-      Area_Terreno_Digital : 0.00 .. 99999999999999.98 [LADM_COL_V3_0.m2];
+      Area_Terreno_Digital : 0.00 .. 99999999999999.98 [LADM_COL_V3_1.m2];
       /** Código de la manzana o vereda donde se localiza el terreno.
        */
       !!@ ili2db.dispName = "Código de manzana vereda"
@@ -532,11 +532,11 @@ VERSION "2019-08-01"  =
       /** Área total construida en la unidad de construcción.
        */
       !!@ ili2db.dispName = "Área construida"
-      Area_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V3_0.m2];
+      Area_Construida : 0.00 .. 99999999999999.98 [LADM_COL_V3_1.m2];
       /** Área total privada de la unidad de construcción para los predios en régimen de propiedad horizontal.
        */
       !!@ ili2db.dispName = "Área privada"
-      Area_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V3_0.m2];
+      Area_Privada : 0.00 .. 99999999999999.98 [LADM_COL_V3_1.m2];
       /** Código catastral del terreno donde se encuentra localizada la unidad de construcción.
        */
       !!@ ili2db.dispName = "Código terreno"
@@ -678,10 +678,10 @@ VERSION "2019-08-01"  =
 
 END Submodelo_Insumos_Gestor_Catastral_V1_0.
 
-MODEL Submodelo_Insumos_SNR_V1_1 (es)
+MODEL Submodelo_Insumos_SNR_V2_0 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.3"  // 2019-07-31 // =
-  IMPORTS LADM_COL_V3_0;
+  IMPORTS LADM_COL_V3_1;
 
   DOMAIN
 
@@ -938,7 +938,9 @@ VERSION "V2.3"  // 2019-07-31 // =
       !!@ ili2db.dispName = "Cerrado"
       Cerrado,
       !!@ ili2db.dispName = "Trasladado"
-      Trasladado
+      Trasladado,
+      !!@ ili2db.dispName = "Custodia"
+      Custodia
     );
 
     SNR_FuenteTipo = (
@@ -976,81 +978,6 @@ VERSION "V2.3"  // 2019-07-31 // =
     );
 
     SNR_PublicidadTipo = (
-      /** Se refiere a la agrupación de códigos de naturaleza jurídica de demanda: 
-       * 
-       * 0406
-       * 0407
-       * 0408
-       * 0409
-       * 0410
-       * 0411
-       * 0412
-       * 0413
-       * 0414
-       * 0415
-       * 0416
-       * 0417
-       * 0418
-       * 0419
-       * 0420
-       * 0453
-       * 0467
-       * 0468
-       * 0469
-       * 0473
-       * 0477
-       * 0490
-       * 0492
-       * 0499
-       * 04001
-       */
-      !!@ ili2db.dispName = "Demanda"
-      Demanda,
-      /** Se refiere a la agrupación de códigos de iniciación de procesos administrativos: 
-       * 
-       * 0403
-       * 0404
-       * 0446
-       * 0447
-       * 0448
-       * 0449
-       * 0450
-       * 0451
-       * 0452
-       * 0481
-       * 04004
-       * 0916
-       * 0936
-       * 0937
-       * 0938
-       * 0939
-       * 0952
-       * 0965
-       * 0969
-       */
-      !!@ ili2db.dispName = "Inicio de proceso administrativo"
-      Inicio_Proceso_Administrativo,
-      /** Se refiere a la agrupación de códigos de cancelaciones: 
-       * 
-       * 0841
-       * 0842
-       * 0843
-       * 0844
-       * 0845
-       * 0846
-       * 0847
-       * 0848
-       * 0849
-       * 0850
-       * 0851
-       * 0852
-       * 0853
-       * 0854
-       * 0855
-       * 0856
-       */
-      !!@ ili2db.dispName = "Cancelación"
-      Cancelacion,
       /** Es la agrupación de códigos que publicitan asuntos relacionados con desplazamiento, ley de víctimas o restitución: 
        * 
        * 0928
@@ -1065,34 +992,7 @@ VERSION "V2.3"  // 2019-07-31 // =
        * 0483
        */
       !!@ ili2db.dispName = "Desplazamiento forzado, victimas o restitución"
-      Victima_Restitucion,
-      /** Es la agrupación de codigos que publicitan actos jurídicos en los FMI:
-       * 
-       * 0900
-       * 0901
-       * 0902
-       * 0903
-       * 0904
-       * 0905
-       * 0908
-       * 0921
-       * 0922
-       * 0925
-       * 0926
-       * 0944
-       * 0951
-       * 0958
-       * 0960
-       * 0964
-       * 0967
-       * 0966
-       * 0970
-       * 0972
-       * 0465
-       * 04003
-       */
-      !!@ ili2db.dispName = "Publicidad de acto jurídico"
-      Publicidad_Acto_Juridico
+      Victima_Restitucion
     );
 
     SNR_RestriccionTipo = (
@@ -1119,41 +1019,11 @@ VERSION "V2.3"  // 2019-07-31 // =
        */
       !!@ ili2db.dispName = "Servidumbre de paso"
       Servidumbre,
-      /** Es la agrupación de códigos registrales que hacen referencia a afectaciones de interes general:
-       * 
-       * 0973
-       * 0305
-       * 0359
-       * 0360
-       */
-      !!@ ili2db.dispName = "Afectaciones de interés general"
-      Afectaciones_Interes_General,
-      /** Es la agrupación de códigos registrales que hacen referencia a restricciones de tipo ambiental:
-       * 
-       * 0363
-       * 0364
-       * 0368
-       * 0357
-       * 0945
-       * 0946
-       * 0947
-       * 0948
-       * 0949
-       * 0953
-       * 0954
-       * 0955
-       * 0956
-       * 0968
-       * 0974
-       * 0961
-       */
-      !!@ ili2db.dispName = "Ambientales"
-      Ambientales,
       /** Es la agrupación de códigos registrales que hacen referencia a restricciones u obligaciones de abstenerse frente a la propiedad por asuntos relacionados con desplazamiento, ley de víctimas o restitución de tierras: 
        * 
        * 0470
        * 0474
-       * 484
+       * 0484
        * 0361
        * 0352
        * 0929
@@ -1161,145 +1031,7 @@ VERSION "V2.3"  // 2019-07-31 // =
        * 0941
        */
       !!@ ili2db.dispName = "Desplazamiento forzado restitución"
-      Desplazamiento_Forzado_Restitucion,
-      /** Es la agrupación de códigos registrales que hacen referencia a embargos:
-       * 
-       * 0423
-       * 0424
-       * 0425
-       * 0426
-       * 0427
-       * 0428
-       * 0429
-       * 0430
-       * 0431
-       * 0432
-       * 0433
-       * 0434
-       * 0435
-       * 0436
-       * 0437
-       * 0438
-       * 0439
-       * 0440
-       * 0443
-       * 0444
-       * 0445
-       * 0471
-       * 0472
-       * 0475
-       * 0476
-       * 0478
-       * 0485
-       * 0487
-       * 0489
-       * 0491
-       * 0493
-       * 0495
-       * 0496
-       * 0497
-       * 0498
-       */
-      !!@ ili2db.dispName = "Embargo"
-      Embargo,
-      /** Es la agrupación de códigos registrales que hacen referencia a propiedad horizontal, uso del suelo, urbanismo:
-       * 
-       * 0306
-       * 0316
-       * 0317
-       * 0330
-       * 0331
-       * 0346
-       * 0347
-       * 0909
-       * 0914
-       * 0923
-       * 0950
-       * 0971
-       * 0975
-       * 0976
-       */
-      !!@ ili2db.dispName = "Propiedad horizontal y urbanismo"
-      Propiedad_Horizontal_Urbanismo,
-      /** Es la agrupación de códigos registrales que hacen referencia a prohibiciones expresas de origen administrativo, contractual o judicial:
-       * 
-       * 0306
-       * 0316
-       * 0317
-       * 0330
-       * 0331
-       * 0346
-       * 0347
-       * 0909
-       * 0914
-       * 0923
-       * 0950
-       * 0971
-       * 0975
-       * 0976
-       *  
-       * 0318
-       * 0327
-       * 0362
-       * 0372
-       * 0384
-       * 0300
-       * 0401
-       * 0402
-       * 0405
-       * 0454
-       * 0455
-       * 0456
-       * 0458
-       * 0459
-       * 0460
-       * 0461
-       * 0462
-       * 0463
-       * 0464
-       * 0466
-       * 0479
-       * 0486
-       * 0488
-       * 0494
-       * 04005
-       * 0400
-       * 0942
-       * 0943
-       */
-      !!@ ili2db.dispName = "Prohibiciones expresas"
-      Prohibiciones_Expresas,
-      /** Es la agrupación de códigos registrales que hacen referencia a hipotecas:
-       * 
-       * 0200
-       * 0201
-       * 0203
-       * 0204
-       * 0205
-       * 0206
-       * 0207
-       * 0208
-       * 0209
-       * 0210
-       * 0211
-       * 0213
-       * 0215
-       * 0217
-       * 0218
-       * 0219
-       */
-      !!@ ili2db.dispName = "Hipoteca"
-      Hipoteca,
-      /** Es la agrupación de códigos registrales que hacen referencia a restricciones en la propiedad relacionadas con la proteccion a la familia: 
-       * 
-       * 0304
-       * 0315
-       * 04007
-       * 0603
-       * 0612
-       */
-      !!@ ili2db.dispName = "Proteccion familia"
-      EnumElement2575
+      Desplazamiento_Forzado_Restitucion
     );
 
   TOPIC Datos_SNR =
@@ -1311,7 +1043,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Calidad de derecho en registro
        */
       !!@ ili2db.dispName = "Calidad derecho registro"
-      Calidad_Derecho_Registro : MANDATORY Submodelo_Insumos_SNR_V1_1.SNR_CalidadDerechoTipo;
+      Calidad_Derecho_Registro : MANDATORY Submodelo_Insumos_SNR_V2_0.SNR_CalidadDerechoTipo;
       /** es el número asignado en el registro a cada acto sujeto a registro.
        */
       !!@ ili2db.dispName = "Código naturaleza jurídica"
@@ -1337,7 +1069,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Tipo de documento que soporta la relación de tenencia entre el interesado con el predio.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : Submodelo_Insumos_SNR_V1_1.SNR_FuenteTipo;
+      Tipo_Documento : Submodelo_Insumos_SNR_V2_0.SNR_FuenteTipo;
       /** Identificador del documento, ejemplo: numero de la resolución
        */
       !!@ ili2db.dispName = "Número de documento"
@@ -1355,7 +1087,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Identificador del archivo fuente controlado por una clase externa.
        */
       !!@ ili2db.dispName = "Archivo"
-      Archivo : LADM_COL_V3_0.LADM_Nucleo.ExtArchivo;
+      Archivo : LADM_COL_V3_1.LADM_Nucleo.ExtArchivo;
     END SNR_FuenteCabidaLinderos;
 
     /** Datos del documento que soporta el derecho.
@@ -1365,7 +1097,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Tipo de documento que soporta la relación de tenencia entre el interesado con el predio.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : Submodelo_Insumos_SNR_V1_1.SNR_FuenteTipo;
+      Tipo_Documento : Submodelo_Insumos_SNR_V2_0.SNR_FuenteTipo;
       /** Identificador del documento, ejemplo: numero de la resolución
        */
       !!@ ili2db.dispName = "Número de documento"
@@ -1385,7 +1117,7 @@ VERSION "V2.3"  // 2019-07-31 // =
     !!@ ili2db.dispName = "(SNR) Publicidad"
     CLASS SNR_Publicidad =
       !!@ ili2db.dispName = "Tipo de publicidad"
-      Tipo_Publicidad : Submodelo_Insumos_SNR_V1_1.SNR_PublicidadTipo;
+      Tipo_Publicidad : Submodelo_Insumos_SNR_V2_0.SNR_PublicidadTipo;
       /** Es el tipo de descripciòn por la cual se hacen las incripciones en registro de acuerdo con lo contemplado en el art. 8 de la ley 1579 de 2012.
        */
       !!@ ili2db.dispName = "Naturaleza jurídica"
@@ -1411,7 +1143,7 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** son los tipos de restricciones de acuerdo con la naturaleza del registro colombiano
        */
       !!@ ili2db.dispName = "Tipo de restricción"
-      Tipo_Restriccion : Submodelo_Insumos_SNR_V1_1.SNR_RestriccionTipo;
+      Tipo_Restriccion : Submodelo_Insumos_SNR_V2_0.SNR_RestriccionTipo;
       /** es el número asignado en el registro a cada acto sujeto a registro.
        */
       !!@ ili2db.dispName = "Código de la naturaleza jurídica"
@@ -1425,11 +1157,11 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Tipo de persona
        */
       !!@ ili2db.dispName = "Tipo de persona"
-      Tipo_Persona : Submodelo_Insumos_SNR_V1_1.SNR_PersonaTitularTipo;
+      Tipo_Persona : Submodelo_Insumos_SNR_V2_0.SNR_PersonaTitularTipo;
       /** Tipo de documento del que se trata.
        */
       !!@ ili2db.dispName = "Tipo de documento"
-      Tipo_Documento : Submodelo_Insumos_SNR_V1_1.SNR_DocumentoTitularTipo;
+      Tipo_Documento : Submodelo_Insumos_SNR_V2_0.SNR_DocumentoTitularTipo;
       /** Documento de identidad del interesado.
        */
       !!@ ili2db.dispName = "Número de documento"
@@ -1483,16 +1215,17 @@ VERSION "V2.3"  // 2019-07-31 // =
       /** Corresponde al dato de tipo de predio incorporado en las bases de datos registrales
        */
       !!@ ili2db.dispName = "Clase del suelo según registro"
-      Clase_Suelo_Registro : Submodelo_Insumos_SNR_V1_1.SNR_ClasePredioRegistroTipo;
+      Clase_Suelo_Registro : Submodelo_Insumos_SNR_V2_0.SNR_ClasePredioRegistroTipo;
       /** Es la matrícula por la cual se dio apertura al predio objeto de estudio (la madre).
        */
       !!@ ili2db.dispName = "Matrícula inmobiliaria matriz"
-      Matricula_Inmobiliaria_Matriz : BAG {0..*} OF Submodelo_Insumos_SNR_V1_1.Datos_SNR.SNR_EstructuraMatriculaMatriz;
+      Matricula_Inmobiliaria_Matriz : BAG {0..*} OF Submodelo_Insumos_SNR_V2_0.Datos_SNR.SNR_EstructuraMatriculaMatriz;
       /** Fecha de la generación de datos.
        */
       !!@ ili2db.dispName = "Fecha de datos"
       Fecha_Datos : MANDATORY INTERLIS.XMLDate;
-      Estado : TEXT*20;
+      !!@ ili2db.dispName = "Estado"
+      Estado : Submodelo_Insumos_SNR_V2_0.SNR_EstadoPredioTipo;
       /** Es un código único para identificar los inmuebles tanto en los sistemas de información catastral como registral. El NUPRE no implicará supresión de la numeración catastral ni registral asociada a la cédula catastral ni a la matrícula inmobiliaria actual.
        */
       !!@ ili2db.dispName = "Número único predial"
@@ -1548,12 +1281,12 @@ VERSION "V2.3"  // 2019-07-31 // =
 
   END Datos_SNR;
 
-END Submodelo_Insumos_SNR_V1_1.
+END Submodelo_Insumos_SNR_V2_0.
 
 MODEL Submodelo_Integracion_Insumos_V1_0 (es)
 AT "mailto:PC4@localhost"
 VERSION "2019-09-06"  =
-  IMPORTS Submodelo_Insumos_Gestor_Catastral_V1_0,Submodelo_Insumos_SNR_V1_1;
+  IMPORTS Submodelo_Insumos_Gestor_Catastral_V1_0,Submodelo_Insumos_SNR_V2_0;
 
   DOMAIN
 
@@ -1605,7 +1338,7 @@ VERSION "2019-09-06"  =
     );
 
   TOPIC Datos_Integracion_Insumos =
-    DEPENDS ON Submodelo_Insumos_SNR_V1_1.Datos_SNR,Submodelo_Insumos_Gestor_Catastral_V1_0.Datos_Gestor_Catastral;
+    DEPENDS ON Submodelo_Insumos_SNR_V2_0.Datos_SNR,Submodelo_Insumos_Gestor_Catastral_V1_0.Datos_Gestor_Catastral;
 
     /** Clase que relaciona los predios en los modelos de insumos para el Gestor Catastral y la SNR.
      */
@@ -1627,7 +1360,7 @@ VERSION "2019-09-06"  =
     END ini_predio_integracion_gc;
 
     ASSOCIATION ini_predio_integracion_snr =
-      snr_predio_juridico (EXTERNAL) -- {0..1} Submodelo_Insumos_SNR_V1_1.Datos_SNR.SNR_PredioRegistro;
+      snr_predio_juridico (EXTERNAL) -- {0..1} Submodelo_Insumos_SNR_V2_0.Datos_SNR.SNR_PredioRegistro;
       ini_predio -- {0..*} INI_PredioInsumos;
     END ini_predio_integracion_snr;
 
