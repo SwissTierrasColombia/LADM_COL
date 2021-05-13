@@ -73,7 +73,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     );
 
     LC_AnexoTipo = (
-      !!@ ili2db.dispName = "Enramadas o cobertizos o caneyes"
+      /** Consiste en un sitio cubierto elaborado con el fin de resguardar de la intemperie. El nombre de enramadas, cobertizos o caney se utiliza según la forma de la cubierta y la región donde se ubique.
+       */
+      !!@ ili2db.dispName = "Enramadas o cobertizos o caneyes  - código 02"
       Enramadas_Cobertizos_Caneyes(
         /** Locales de venta de vehículos: Estructura concreto, cubierta cercha metálica y teja canaleta; fachada vidrio y polarizado, piso baldosín conservación general buena.
          */
@@ -92,7 +94,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Enramadas o cobertizos o caneyes) Tipo 40"
         Tipo_40
       ),
-      !!@ ili2db.dispName = "Galpones o gallineros"
+      /** Unidad construida con destino a la cría y/o protección de aves principalmente para explotación avícola. Conformada por estructura cubierta pisos y muros que son parcialmente elaborados en ladrillo y el resto descubierto o con algún material provisional (plásticos, alambres, etc.). Estos se clasifican según el estado de conservación en tipologías 80, 60, 40 y 20, donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Galpones o gallineros  - código 03"
       Galpones_Gallineros(
         /** Estructura metálica o madera fina, cubierta de zinc, eternit o teja de barro; muros a mediana altura en bloque o ladrillo; pisos de cemento; conservación general buena.
          */
@@ -111,7 +115,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Galpones o gallineros) Tipo 20"
         Tipo_20
       ),
-      !!@ ili2db.dispName = "Establos o pesebreras"
+      /** Lugar cubierto donde se encierra ganado o caballos y/o se realizan actividades propias de su explotación, constituidos por estructura, cubierta, muros y pisos. Según el estado de conservación se dividen en tipologías 80, 60, 40 y 20, donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Establos o pesebreras   - código 04"
       Establos_Pesebreras(
         /** Estructura metálica o de concreto; cubierta de zinc, eternit a teja de barro muros en bloque o ladrillo, pisos de cemento, conservación en general buena.
          */
@@ -130,7 +136,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Establos o pesebreras) Tipo 20"
         Tipo_20
       ),
-      !!@ ili2db.dispName = "Cocheras o marraneras o porquerizas"
+      /** Construcción destinada a la cría y albergue de cerdos. Se utiliza cualquiera de los tres nombres enunciados según la región donde se ubique; los elementos que la conforman son: estructura, cubierta, muros y pisos. Se clasifican de acuerdo a estado de conservación en tipologías 80,60, 40 y 20, donde en la 80 se presentan mejores características que en las demás.
+       */
+      !!@ ili2db.dispName = "Cocheras o marraneras o porquerizas  - código 05"
       Cocheras_Marraneras_Porquerizas(
         /** Estructura concreto; cubierta de zinc, eternit o teja de barro, muros en bloque o ladrillo, pisos en cemento o baldosa, conservación general buena.
          */
@@ -149,7 +157,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Cocheras o marraneras o porquerizas) Tipo 20"
         Tipo_20
       ),
-      !!@ ili2db.dispName = "Silos"
+      /** Construcción de grandes dimensiones que sirve para almacén o depósito, se exceptúan los silos cafeteros (ver beneficiaderos). Los elementos para clasificarlos son: su estructura y capacidad en toneladas o m3. Conforme a su estructura se dividen en tipologías 80 y 60.
+       */
+      !!@ ili2db.dispName = "Silos - código 08"
       Silos(
         /** Estructura en ferroconcreto metálica
          */
@@ -160,7 +170,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Silos) Tipo 60"
         Tipo_60
       ),
-      !!@ ili2db.dispName = "Piscina"
+      /** Estanque artificial con destino al deporte o a la recreación. Se diferencia por sus acabados y especificaciones técnicas para su mantenimiento y operación; sus dimensiones deben darse en unidades de área (m2). Según estas características de clasifican en tipologías 80,60, 50 y 40, donde en la 80 se presentan mejores características que en las demás.
+       */
+      !!@ ili2db.dispName = "Piscinas - código 09"
       Piscinas(
         /** Piscinas olímpicas, con sistemas de purificación e iluminación; enchape en azulejo fino, trampolín a diferentes alturas. Se encuentra comúnmente en clubes y coliseos.
          */
@@ -174,12 +186,14 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Piscina) Tipo 50"
         Tipo_50,
-        /** Piscinas pequeña, cubierta en baldosín o cemento. Comunes en fincas o casas de campo
+        /** Piscinas pequeñas, cubierta en baldosín o cemento. Comunes en fincas o casas de campo.
          */
         !!@ ili2db.dispName = "(Piscina) Tipo 40"
         Tipo_40
       ),
-      !!@ ili2db.dispName = "Tanques"
+      /** Depósitos subterráneos o de altura, construidos en zonas con deficiencias en abastecimiento de agua para el consumo de los habitantes o para el uso agrícola. El elemento a calificar es la estructura relacionada con la capacidad de almacenamiento medida en metros cúbicos. Se excluyen de este tipo de construcción los tanques de almacenamiento domiciliario, los cuales quedan integrados en el avaluó de las viviendas. Según su estado de conservación y capacidad se dividen en tipologías 80, 60, 40 y 20, donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Tanques - código 10"
       Tanques(
         /** Tanques que por su capacidad y/b altura requieren estructura en ferroconcreto con revestimiento, encontrándose en buen estado de conservación.
          */
@@ -189,16 +203,18 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Tanques) Tipo 60"
         Tipo_60,
-        /** Tanques pequeños con estructura en ladrillo o bloque revestido en cemento con altura no mayor a 3 metros o poca profundidad; conservación buena a regular
+        /** Tanques pequeños con estructura en ladrillo o bloque revestido en cemento con altura no mayor a 3 metros o poca profundidad; conservación buena a regular.
+         */
+        !!@ ili2db.dispName = "(Tanques) Tipo 50"
+        Tipo_50,
+        /** Tanques con altura menor a 3 metros a poca profundidad; estructura en ladrillo conservación regular a mala.
          */
         !!@ ili2db.dispName = "(Tanques) Tipo 40"
-        Tipo_40,
-        /** Tanques con altura menor a 3 metros o poca profundidad; estructura en ladrillo conservación regular a mala.
-         */
-        !!@ ili2db.dispName = "(Tanques) Tipo 20"
-        Tipo_20
+        Tipo_40
       ),
-      !!@ ili2db.dispName = "Beneficiaderos"
+      /** Nombre dado en zonas cafeteras a aquellas construcciones donde realizan el beneficio del café. Consisten en áreas cubiertas dentro de las cuales se encuentran los elementos destinados a la labor de seleccionar, lavar y despulpar el grano y su posterior empaque. Según su estado de conservación y capacidad se divide en tipologías 80, 60 y 40, donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Beneficiaderos - código 11"
       Beneficiaderos(
         /** Estructura en ladrillo o bloque; cubierta en zinc, teja de barro o eternit rustico; pisos en cemento, con tanques lavadores y serpentina o canal de carreteo y silo o patio quindiano incorporado estado de conservación bueno a regular.
          */
@@ -213,7 +229,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Beneficiaderos) Tipo 40"
         Tipo_40
       ),
-      !!@ ili2db.dispName = "Secaderos"
+      /** Construcciones elaboradas con el objeto de secar en condiciones naturales el café principalmente, aunque es común su uso en otros productos. Consta de estructura y pisos para su calificación. No se incluyen en esta tipificación, las casaelbas, las cuales deben asimilarse al destino de vivienda 01. Según su estado de conservación y capacidad se divide en tipologías 80, 60 y 40, donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Secaderos - código 18"
       Secaderos(
         /** Estructura metálica y cercha de madera o metálica muros medianos o totales en ladrillo marquesina de vidrio; pisos en cemento; estado de conservación buena.
          */
@@ -228,7 +246,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Secaderos) Tipo 40"
         Tipo_40
       ),
-      !!@ ili2db.dispName = "Kioskos"
+      /** Construcción consistente en una cubierta apoyada en columnas de materiales diferentes, elaborados con el fin de guarecer de la intemperie. Según su estado de conservación y capacidad se divide en tipologías 80, 60, 40 y 20 donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Kioskos - código 21"
       Kioscos(
         /** Estructura en bloque o ladrillo cubierta en zinc, teja de barro o paja; estado de conservación general bueno.
          */
@@ -247,7 +267,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Kioskos) Tipo 20"
         Tipo_20
       ),
-      !!@ ili2db.dispName = "Albercas o bañaderas"
+      /** Depósito de agua construido a nivel del terreno con el propósito de almacenar agua, o en el caso de las bañaderas con el fin de hacer limpieza al ganado, estas construcciones son cubiertas para guardar de la intemperie. Las albercas aquí consideradas son diferentes a los tanques en profundidad descritos en el código 10. Según su estado de conservación y capacidad se divide en tipologías 80, 60, y 40 donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Albercas o bañaderas - código 23"
       Albercas_Baniaderas(
         /** Estructura en concreto; cubierta en zinc, eternit o teja de barro; piso en cemento; conservación buena a regular.
          */
@@ -262,7 +284,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Albercas o bañaderas) Tipo 40"
         Tipo_40
       ),
-      !!@ ili2db.dispName = "Corrales"
+      /** Sitio cerrado y descubierto que se utiliza para la cría y albergue de ganado generalmente vacuno. Consta de los elementos estructura y pisos.
+       */
+      !!@ ili2db.dispName = "Corrales - código 26"
       Corrales(
         /** Estructura metálica o de madera aserrada, formado por cuatro varales, pisos en cemento y conservación buena.
          */
@@ -281,7 +305,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Corrales) Tipo 20"
         Tipo_20
       ),
-      !!@ ili2db.dispName = "Pozos"
+      /** Perforaciones profundas manuales para extraer agua subterránea. Medida en metros de profundidad. Según su estado de conservación y capacidad se divide en tipologías 80, 60 y 40 donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Pozos - código 20"
       Pozos(
         /** Pozo de profundidad aproximada a 40 m, revestido en concreto, con tubería, anillado 100% , diámetro pozo de 2m
          */
@@ -298,9 +324,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       ),
       /** Estructura en concreto y tanque en concreto, fibrocemento o metálico con recubrimiento interior en resinas de poliéster reforzadas con fibra de vidrio, partes metálicas en acero inoxidable o galvanizadas buen estado de conservación
        */
-      !!@ ili2db.dispName = "(Torres de enfriamiento)"
+      !!@ ili2db.dispName = "Torres de enfriamiento - código 47"
       TorresEnfriamiento,
-      !!@ ili2db.dispName = "Muelles"
+      /** Deberán diferenciarse de acuerdo a su estructura, longitud, capacidad, usos turísticos o de carga. Son casos muy puntuales, medidos en metros cuadrados. Según su estado de conservación y capacidad se divide en tipologías 80, 60 y 40 donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Muelles - código 48"
       Muelles(
         /** Muelle, estructura en concreto, piso en madera deck para exteriores
          */
@@ -315,18 +343,20 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Muelles) Tipo 40"
         Tipo_40
       ),
-      !!@ ili2db.dispName = "Canchas de tenis"
+      !!@ ili2db.dispName = "Canchas de tenis - código 60"
       CanchasTenis(
-        /** En polvo de ladrillo
+        /** Cancha de tenis en polvo de ladrillo, incluye cerramiento en malla eslabonada.
          */
         !!@ ili2db.dispName = "(Canchas de tenis) Tipo 20"
         Tipo_20,
-        /** Cemento y/o asfalto.
+        /** Cancha de tenis en Cemento y/o asfalto, incluye cerramiento en Malla eslabonada.
          */
         !!@ ili2db.dispName = "(Canchas de tenis) Tipo 10"
         Tipo_10
       ),
-      !!@ ili2db.dispName = "Toboganes"
+      /** Deslizadores construidos alrededor de piscinas, medidos en metros lineales. Se clasifican según su altura y materiales de construcción. Según su estado de conservación y capacidad se divide en tipologías 80, 60, 50 y 40 donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Toboganes - código 62"
       Toboganes(
         /** Altura entre 9 y 15 Mts., longitud de canal entre 75 y 120 Mts. Fibra de vidrio. Estructura de concreto o metálica. Incluye piscina de Llegada. Sistema de bombeo, purificación.
          */
@@ -345,8 +375,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Toboganes) Tipo 40"
         Tipo_40
       ),
-      !!@ ili2db.dispName = "Marquesinas"
-      Marquesinas(
+      /** Cobertizo dentro de una edificación de mayor extensión o patio cubierto, clasificados según su estructura, pisos y el material de la cubierta. Según su estado de conservación y capacidad se divide en tipologías 80, 60, 40 y 20 donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Marquesinas o Patios Cubiertos - código 82"
+      Marquesinas_Patios_Cubiertos(
         /** Estructura metálica; cubierta cristalita o vidrio; piso en baldosa fina.
          */
         !!@ ili2db.dispName = "(Marquesinas) Tipo 80"
@@ -364,22 +396,22 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Marquesinas) Tipo 20"
         Tipo_20
       ),
-      !!@ ili2db.dispName = "Estadios o coliseos"
+      !!@ ili2db.dispName = "Estadios o coliseos - código 43"
       Estadios_Coliseos(
-        /** Estadio, estructura en concreto reforzado, graderías, con o sin cubierta parcial, capacidad mayor a 8.000 personas
+        /** Estadio, estructura en concreto reforzado, graderías, con o sin cubierta parcial, capacidad mayor a 8.000 personas.
          */
         !!@ ili2db.dispName = "(Estadios o coliseos) Tipo 80"
         Tipo_80,
-        /** Estadio, estructura en concreto reforzado, graderías, con o sin cubierta parcial, capacidad mayor a 8.000 personas
+        /** Coliseo, incluye cerramiento en malla, cancha multifuncional, con camerino y gradería, cubierta en teja termo acústica y gradería.
          */
         !!@ ili2db.dispName = "(Estadios o coliseos) Tipo 60"
         Tipo_60,
-        /** Coliseo, incluye cerramiento en malla, o en bloque pañetado cancha multifuncional, cubierta en teja termo acústica
+        /** Coliseo, incluye cerramiento en malla, o en bloque pañetado cancha multifuncional, cubierta en teja termo acústica.
          */
         !!@ ili2db.dispName = "(Estadios o coliseos) Tipo 40"
         Tipo_40
       ),
-      !!@ ili2db.dispName = "Plaza de toros"
+      !!@ ili2db.dispName = "Plaza de toros - código 43"
       Plazas_de_Toros(
         /** Plaza de toros con estructura en concreto y madera capacidad de más de 10000 espectadores
          */
@@ -430,6 +462,22 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Anexo) (Cimientos estructura muros placabase) Tipo 20"
         Tipo_20
+      ),
+      !!@ ili2db.dispName = "Estructuras Aeroportuárias - código 43"
+      Estructuras_Aeroportuarias(
+        /** Radar tipo I, estructura en concreto, piso en mortero afinado
+         * Radar tipo II, estructura en concreto, piso en mortero afinado
+         */
+        !!@ ili2db.dispName = "(Anexo) (Estructuras aeroportuárias) Tipo 80"
+        Tipo_80,
+        /** Hangar, muros perimetrales en concreto, columnas y vigas de amarre con celosía para cubierta, cubierta en teja termo acústica, piso concreto E= 0.40m CTO. 3000PSI.
+         */
+        !!@ ili2db.dispName = "(Anexo) (Estructuras aeroportuárias) Tipo 60"
+        Tipo_60,
+        /** Hangar, Estructura metálica y cercha curva, cubierta en teja termo acústica, piso en concreto E=0.40m CTO 3000PSI.
+         */
+        !!@ ili2db.dispName = "(Anexo) (Estructuras aeroportuárias) Tipo 40"
+        Tipo_40
       ),
       !!@ ili2db.dispName = "Lagunas de oxidación"
       Lagunas_de_Oxidacion(
@@ -1444,11 +1492,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 1B"
         Tipo_1B,
-        /** Armazón: Madera; Muros en madera; Cubierta: Zinc, teja de barro, Eternit rustico; Cubrimiento de Muros: Pañete, papel común, ladrillo presado; Pisos: Cemento, madera burda.
+        /** Armazón: Madera Prefabricado, ladrillo o bloque; Muros en madera Prefabricado o Bloque; Cubierta: Zinc, teja de barro, Eternit rustico; Cubrimiento de Muros: Sin, Pañete, papel común; Pisos: Cemento, madera burda.Armazón: Madera Prefabricado, ladrillo o bloque; Muros en madera Prefabricado o Bloque; Cubierta: Zinc, teja de barro, Eternit rustico; Cubrimiento de Muros: Sin, Pañete, papel común; Pisos: Cemento, madera burda.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 2A"
         Tipo_2A,
-        /** Armazón: Prefabricado; Muros: Concreto prefabricado; Cubierta: Zinc, teja de barro, Eternit rustico; cubrimiento de Muros: Pañete, papel común,  ladrillo  presado;  Pisos:  Baldosa común de cemento, Tablón ladrillo.
+        /** Armazón: ladrillo o bloque; Muros: Concreto prefabricado; ladrillo o bloque, Cubierta: Zinc, teja de barro, Eternit rustico; Cubrimiento de Muros: Pañete, papel común; Pisos: Baldosa común de cemento, Tablón ladrillo.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 2B"
         Tipo_2B,
@@ -1456,25 +1504,23 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 3A"
         Tipo_3A,
-        /** Armazón: Ladrillo, bloque; Muro: ladrillo, Bloque; Cubierta: Azotea, aluminio, placa sencilla con eternit o teja de barro; Cubrimiento muros: Estuco, cerámica, papel fino; Piso: Baldosa común de cemento, tablón ladrillo.
+        /** Armazón:  Ladrillo, bloque, Concreto hasta tres (3) pisos; Muro: ladrillo, Bloque; Cubierta:  Azotea, aluminio, placa sencilla con Eternit o teja de barro; Cubrimiento muros: Pañete fino, Estuco, cerámica, papel fino, Drywall; Piso: Baldosa común de cemento, tablón ladrillo, cerámica.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 3B"
         Tipo_3B,
-        /** Armazón: Concreto hasta tres pisos, Muro: Bloque, ladrillo; Cubierta: Azotea, aluminio,
-         * placa sencilla con etnernit o teja de barro; Cubrimiento muro: estuco, cerámica, papel fino; Piso: Listón machi-embredo.
+        /** Armazón: Concreto hasta tres pisos, Muro: Ladrillo, Bloque Placa en concreto; Cubierta: Azotea, aluminio, placa sencilla con Eternit o teja de barro; Cubrimiento muro: estuco, cerámica, papel fino SIin (Ladrillo Rustico a la vista); Piso: Listón machihembrado, Tableta, caucho, acrílico, granito, cerámica fina, madera fina o laminada.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 4A"
         Tipo_4A,
-        /** Armazón: Concreto hasta tres pisos, Muro: Bloque, Ladrillo; Cubierta: Azotea, aluminio,
-         * placa sencilla con etnernit o teja de barro; Cubrimiento muro: estuco, cerámica, papel fino; Piso: Tableta, caucho, acrilico, granito, baldosa fina.
+        /** Armazón: Concreto hasta tres pisos, Muro:  Ladrillo, Bloque Placa en concreto; Cubierta:  Azotea, aluminio, placa sencilla, Eternit o teja de barro; Cubrimiento muro: estuco, cerámica, papel fino, sin (ladrillo rustico a la vista), piedra fina; Piso: Tableta, caucho, acrílico, granito, baldosa fina, madera fina o laminada.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 4B"
         Tipo_4B,
-        /** Armazón: Concreto hasta tres pisos; Muro: Bloque, Ladrillo; Cubierta: Azote, Aluminio, placa sencilla con eternit o teja de barro; Cubrimiento muro: Medra, Piedra ornamental; Piso: Tableta, caucho, acrilico, granito, baldosa fina
+        /** Armazón: Concreto hasta tres pisos; Muro: Bloque, ladrillo; Cubierta: Azotea, Aluminio, placa sencilla Eternit o teja de barro; Cubrimientomuro:  Estucos especiales, madera, piedra ornamental; Piso: Tableta, caucho, vinilo acrílico, granito, baldosa fina, madera fina o laminado.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 5A"
         Tipo_5A,
-        /** Armazón: Concreto cuadro y más pisos; Muro: Bloque, Ladrillo; Cubierta: Placa impermeabilizada cubierta lujosa u ornamental; Cubrimiento muro: Mármol, lujoso, otros; Piso: Parquet, alfombra, retal de mármol ( grano pequeño).
+        /** Armazón: Concreto; Muro: Bloque, ladrillo; Cubierta: Placa impermeabilizada, o con cerámica y aluminio, Eternit o teja de barro. cubierta lujosa u ornamental; Cubrimiento muro: Estucos especiales, madera, piedra ornamental de lujo, retal de mármol u otros; Piso: Tableta, caucho, acrílico, vinilo acrílico, granito, baldosa fina, madera fina o laminada, parquet, retal de mármol (grano pequeño).
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 5B"
         Tipo_5B,
@@ -1482,7 +1528,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 6A"
         Tipo_6A,
-        /** Armazón: Concreto cuatro o más pisos; Muro: Bloque, ladrillo; Cubierta: Placa impermeabilizada cubierta lujosa u ornamental; Cubrimientos muros: Mármol, lujosos otros; Piso: Retal de mármol, mármol, otros.
+        /** Armazón: Concreto cuatro o más pisos; Muro: Bloque, ladrillo; Cubierta: Placa impermeabilizada cubierta lujosa u ornamental cubiertas especiales o teja de barro.; Cubrimientos muros: Estuco fino, mármol, lujosos otros; Piso: Retal de mármol, mármol, otros de alta calidad.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 6B"
         Tipo_6B
@@ -1506,13 +1552,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Comercial) Barrial 2"
         Barrial_2,
-        /** Armazón: Madera, Ladrilló, Bloque
-         * Muros: Madera, Bloque, concreto prefabricado
-         * Cubierta: Eternit o teja de barro, Entrepiso, (cubierta provisional) Prefabricado
-         * 
-         * Fachada: Regular.
-         * Cubrimiento de Muros: Pañete, papel común, pañete, ladrillo prensado
-         * Pisos: Concreto, Listón machi-ambrado, baldosa común.
+        /** Armazón: Madera, ladrilló, bloque. Muros: Madera, bloque, concreto prefabricado. 
+         * Cubierta: Eternit o teja de barro, entrepiso, (cubierta provisional) prefabricado. 
+         * Fachada: Regular; Cubrimiento de Muros: Pañete, papel común, ladrillo prensado.
+         * Pisos:  Concreto, listón machihembrado, baldosa.
          */
         !!@ ili2db.dispName = "(Comercial) Sectorial 1"
         Sectorial_1,
@@ -1608,6 +1651,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Industrial) Pesada 2"
         Pesada_2
       ),
+      /** Caso especial de tipología encontrado.
+       */
       !!@ ili2db.dispName = "Otro"
       Otro
     );
@@ -2194,6 +2239,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Ávaluo de construcción"
       Avaluo_Construccion : LADM_COL_V3_1.LADM_Nucleo.Peso;
+      /** Es la estimación del valor de un inmueble a una fecha determinada conforme a las reglas del mercado inmobiliario y la normatividad vigente.
+       */
+      !!@ ili2db.dispName = "Avalúo comercial construccion"
+      Avaluo_Comercial_Construccion : LADM_COL_V3_1.LADM_Nucleo.Peso;
       /** Área total construida.
        */
       !!@ ili2db.dispName = "Área de construcción"
@@ -2746,6 +2795,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Avalúo de terreno"
       Avaluo_Terreno : LADM_COL_V3_1.LADM_Nucleo.Peso;
+      /** Es la estimación del valor de un inmueble a una fecha determinada conforme a las reglas del mercado inmobiliario y la normatividad vigente.
+       */
+      !!@ ili2db.dispName = "Avalúo comercial Terreno"
+      Avaluo_Comercial_Terreno : LADM_COL_V3_1.LADM_Nucleo.Peso;
       /** Corresponde la identificación del número predial hasta la posición 21, permite identificar la relación espacial en sus componentes: departamento, municipio, zona, sector, comuna, barrio, manzana o vereda y terreno de acuerdo a su codificación en el número predial.
        */
       !!@ ili2db.dispName = "Numero predial hasta la posición 21"
@@ -2912,6 +2965,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Tipo de tipología"
       Tipo_Tipologia : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_TipologiaTipo;
+      /** Si el tipo de tipología deseado no se encuentra en el dominio LC_CalificarTipo se puede usar este atributo para indicarlo.
+       */
+      !!@ ili2db.dispName = "¿Cuál?"
+      Cual : TEXT*20;
     END LC_TipologiaConstruccion;
 
     ASSOCIATION lc_interesado_interesadocontacto =
@@ -2930,6 +2987,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     END lc_ph_predio;
 
     ASSOCIATION lc_predio_copropiedad =
+      /** Area privada de terreno matriz, adicional a la participación en el terreno común, según el coeficiente allí determinado.
+       */
       unidad_predial -- {0..*} LC_Predio;
       /** Unidades residenciales tales como edificios, conjuntos y tipos de urbanizaciones cerradas en las que se comparten áreas comunes y que tienen régimen de propiedad horizontal.
        */
@@ -3035,6 +3094,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Avalúo de la unidad de construcción"
       Avaluo_Unidad_Construccion : LADM_COL_V3_1.LADM_Nucleo.Peso;
+      /** Es la estimación del valor de un inmueble a una fecha determinada conforme a las reglas del mercado inmobiliario y la normatividad vigente.
+       */
+      !!@ ili2db.dispName = "Avalúo comercial unidad construcción"
+      Avaluo_Comercial_Unidad_Construccion : LADM_COL_V3_1.LADM_Nucleo.Peso;
       /** Área total construida en la unidad de construcción.
        */
       !!@ ili2db.dispName = "Área construida"
