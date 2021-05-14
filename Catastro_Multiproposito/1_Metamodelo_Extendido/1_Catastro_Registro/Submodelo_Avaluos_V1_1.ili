@@ -29,7 +29,7 @@ INTERLIS 2.3;
 MODEL Submodelo_Avaluos_V1_1 (es)
 AT "http://www.proadmintierra.info/"
 VERSION "V2.2.1"  // 2018-02-01 // =
-  IMPORTS ISO19107_PLANAS_V3_0,Modelo_Extendido_LADMCOL_Cat_Reg_V3_1,LADM_COL_V3_1;
+  IMPORTS ISO19107_PLANAS_V3_0,LADM_COL_V3_1;
 
   DOMAIN
 
@@ -575,6 +575,7 @@ VERSION "V2.2.1"  // 2018-02-01 // =
          */
         !!@ ili2db.dispName = "(Anexo) (Torres de enfriamiento)"
         Torres_Enfriamiento,
+        !!@ ili2db.dispName = "Muelles"
         Muelles(
           /** Muelle, estructura en concreto, piso en madera deck para exteriores
            */
@@ -1254,7 +1255,6 @@ VERSION "V2.2.1"  // 2018-02-01 // =
    */
   TOPIC Avaluos =
     OID AS INTERLIS.UUIDOID;
-    DEPENDS ON Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.Catastro_Registro;
 
     /** Clase los valores por M2 de construcción según el uso y puntaje de calificación de construcción.
      */

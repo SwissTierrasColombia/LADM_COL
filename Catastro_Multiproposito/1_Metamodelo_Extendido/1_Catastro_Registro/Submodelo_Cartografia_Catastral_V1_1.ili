@@ -19,7 +19,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Código de identificación del centro poblado.
        */
       !!@ ili2db.dispName = "Código"
-      Codigo : MANDATORY TEXT*2;
+      Codigo : MANDATORY TEXT*7;
       /** Nombre del centro poblado.
        */
       !!@ ili2db.dispName = "Nombre"
@@ -37,7 +37,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Código de identificación del corregimiento.
        */
       !!@ ili2db.dispName = "Código"
-      Codigo : MANDATORY TEXT*2;
+      Codigo : MANDATORY TEXT*13;
       /** Nombre del corregimiento.
        */
       !!@ ili2db.dispName = "Nombre"
@@ -77,11 +77,11 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Código de identificación de la manzana.
        */
       !!@ ili2db.dispName = "Código"
-      Codigo : MANDATORY TEXT*4;
+      Codigo : MANDATORY TEXT*17;
       /** Código de identificación del barrio donde se encuentra la manzana.
        */
       !!@ ili2db.dispName = "Código del barrio"
-      Codigo_Barrio : TEXT*2;
+      Codigo_Barrio : TEXT*13;
       /** Nombre de la manzana.
        */
       !!@ ili2db.dispName = "Nombre"
@@ -135,12 +135,18 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       Codigo_Departamento : MANDATORY TEXT*2;
       /** Código de 3 dígitos correspondiente al municipio según la clasificación del Divipola.
        */
-      !!@ ili2db.dispName = "Código del municipio"
+      !!@ ili2db.dispName = "Código municipio"
       Codigo_Municipio : MANDATORY TEXT*5;
+      /** Tipo de avaluo del perimetro urbano que para efectos catastrales es 01.
+       */
       !!@ ili2db.dispName = "Tipo de avalúo"
       Tipo_Avaluo : TEXT*30;
+      /** Nombre geográfico del perimetro urbano, ejemplo, TABIO.
+       */
       !!@ ili2db.dispName = "Nombre geográfico"
       Nombre_Geografico : MANDATORY TEXT*50;
+      /** Código del nombre geográfico
+       */
       !!@ ili2db.dispName = "Código nombre"
       Codigo_Nombre : TEXT*255;
       /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por el perímetro urbano.
@@ -151,7 +157,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
 
     /** Es la delimitación física del suelo rual, determina su área y se representa gráficamente por una línea imaginaria continua que divide el suelo urbano del suelo rural y del suelo de expansión urbana.
      */
-    !!@ ili2db.dispName = "(CC) Sector Rural"
+    !!@ ili2db.dispName = "(CC) Sector rural"
     CLASS CC_SectorRural =
       /** Código de identificación del sector rural catastral.
        */
@@ -184,7 +190,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Código de identificación de la vereda.
        */
       !!@ ili2db.dispName = "Código"
-      Codigo : MANDATORY TEXT*4;
+      Codigo : MANDATORY TEXT*17;
       /** Nombre de la vereda.
        */
       !!@ ili2db.dispName = "Nombre"
@@ -206,7 +212,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Código de la localidad o comuna aprobada por el acuerdo municipal, su número corresponderá al que se haya determinado en la norma.
        */
       !!@ ili2db.dispName = "Código"
-      Codigo : MANDATORY TEXT*2;
+      Codigo : MANDATORY TEXT*11;
       /** Nombre de la localidad o comuna aprobada por el acuerdo municipal.
        */
       !!@ ili2db.dispName = "Nombre"
@@ -224,7 +230,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       /** Código del barrio aprobado por el acuerdo municipal, su número corresponderá al que se haya determinado en la norma.
        */
       !!@ ili2db.dispName = "Código"
-      Codigo : MANDATORY TEXT*2;
+      Codigo : MANDATORY TEXT*13;
       /** Nombre del barrio aprobado en el acuerdo municipal.
        */
       !!@ ili2db.dispName = "Nombre"
