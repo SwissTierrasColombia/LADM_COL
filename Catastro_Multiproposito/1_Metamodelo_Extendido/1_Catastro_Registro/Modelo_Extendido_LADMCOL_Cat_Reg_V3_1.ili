@@ -73,7 +73,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     );
 
     CR_AnexoTipo = (
-      !!@ ili2db.dispName = "Enramadas o cobertizos o caneyes"
+      /** Consiste en un sitio cubierto elaborado con el fin de resguardar de la intemperie. El nombre de enramadas, cobertizos o caney se utiliza según la forma de la cubierta y la región donde se ubique.
+       */
+      !!@ ili2db.dispName = "Enramadas o cobertizos o caneyes  - código 02"
       Enramadas_Cobertizos_Caneyes(
         /** Locales de venta de vehículos: Estructura concreto, cubierta cercha metálica y teja canaleta; fachada vidrio y polarizado, piso baldosín conservación general buena.
          */
@@ -92,7 +94,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Enramadas o cobertizos o caneyes) Tipo 40"
         Tipo_40
       ),
-      !!@ ili2db.dispName = "Galpones o gallineros"
+      /** Unidad construida con destino a la cría y/o protección de aves principalmente para explotación avícola. Conformada por estructura cubierta pisos y muros que son parcialmente elaborados en ladrillo y el resto descubierto o con algún material provisional (plásticos, alambres, etc.). Estos se clasifican según el estado de conservación en tipologías 80, 60, 40 y 20, donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Galpones o gallineros  - código 03"
       Galpones_Gallineros(
         /** Estructura metálica o madera fina, cubierta de zinc, eternit o teja de barro; muros a mediana altura en bloque o ladrillo; pisos de cemento; conservación general buena.
          */
@@ -111,7 +115,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Galpones o gallineros) Tipo 20"
         Tipo_20
       ),
-      !!@ ili2db.dispName = "Establos o pesebreras"
+      /** Lugar cubierto donde se encierra ganado o caballos y/o se realizan actividades propias de su explotación, constituidos por estructura, cubierta, muros y pisos. Según el estado de conservación se dividen en tipologías 80, 60, 40 y 20, donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Establos o pesebreras   - código 04"
       Establos_Pesebreras(
         /** Estructura metálica o de concreto; cubierta de zinc, eternit a teja de barro muros en bloque o ladrillo, pisos de cemento, conservación en general buena.
          */
@@ -130,7 +136,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Establos o pesebreras) Tipo 20"
         Tipo_20
       ),
-      !!@ ili2db.dispName = "Cocheras o marraneras o porquerizas"
+      /** Construcción destinada a la cría y albergue de cerdos. Se utiliza cualquiera de los tres nombres enunciados según la región donde se ubique; los elementos que la conforman son: estructura, cubierta, muros y pisos. Se clasifican de acuerdo a estado de conservación en tipologías 80,60, 40 y 20, donde en la 80 se presentan mejores características que en las demás.
+       */
+      !!@ ili2db.dispName = "Cocheras o marraneras o porquerizas  - código 05"
       Cocheras_Marraneras_Porquerizas(
         /** Estructura concreto; cubierta de zinc, eternit o teja de barro, muros en bloque o ladrillo, pisos en cemento o baldosa, conservación general buena.
          */
@@ -149,7 +157,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Cocheras o marraneras o porquerizas) Tipo 20"
         Tipo_20
       ),
-      !!@ ili2db.dispName = "Silos"
+      /** Construcción de grandes dimensiones que sirve para almacén o depósito, se exceptúan los silos cafeteros (ver beneficiaderos). Los elementos para clasificarlos son: su estructura y capacidad en toneladas o m3. Conforme a su estructura se dividen en tipologías 80 y 60.
+       */
+      !!@ ili2db.dispName = "Silos - código 08"
       Silos(
         /** Estructura en ferroconcreto metálica
          */
@@ -160,7 +170,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Silos) Tipo 60"
         Tipo_60
       ),
-      !!@ ili2db.dispName = "Piscina"
+      /** Estanque artificial con destino al deporte o a la recreación. Se diferencia por sus acabados y especificaciones técnicas para su mantenimiento y operación; sus dimensiones deben darse en unidades de área (m2). Según estas características de clasifican en tipologías 80,60, 50 y 40, donde en la 80 se presentan mejores características que en las demás.
+       */
+      !!@ ili2db.dispName = "Piscinas - código 09"
       Piscinas(
         /** Piscinas olímpicas, con sistemas de purificación e iluminación; enchape en azulejo fino, trampolín a diferentes alturas. Se encuentra comúnmente en clubes y coliseos.
          */
@@ -179,7 +191,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Piscina) Tipo 40"
         Tipo_40
       ),
-      !!@ ili2db.dispName = "Tanques"
+      /** Depósitos subterráneos o de altura, construidos en zonas con deficiencias en abastecimiento de agua para el consumo de los habitantes o para el uso agrícola. El elemento a calificar es la estructura relacionada con la capacidad de almacenamiento medida en metros cúbicos. Se excluyen de este tipo de construcción los tanques de almacenamiento domiciliario, los cuales quedan integrados en el avaluó de las viviendas. Según su estado de conservación y capacidad se dividen en tipologías 80, 60, 40 y 20, donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Tanques - código 10"
       Tanques(
         /** Tanques que por su capacidad y/b altura requieren estructura en ferroconcreto con revestimiento, encontrándose en buen estado de conservación.
          */
@@ -191,14 +205,16 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         Tipo_60,
         /** Tanques pequeños con estructura en ladrillo o bloque revestido en cemento con altura no mayor a 3 metros o poca profundidad; conservación buena a regular
          */
-        !!@ ili2db.dispName = "(Tanques) Tipo 40"
-        Tipo_40,
+        !!@ ili2db.dispName = "(Tanques) Tipo 50"
+        Tipo_50,
         /** Tanques con altura menor a 3 metros o poca profundidad; estructura en ladrillo conservación regular a mala.
          */
-        !!@ ili2db.dispName = "(Tanques) Tipo 20"
-        Tipo_20
+        !!@ ili2db.dispName = "(Tanques) Tipo 40"
+        Tipo_40
       ),
-      !!@ ili2db.dispName = "Beneficiaderos"
+      /** Nombre dado en zonas cafeteras a aquellas construcciones donde realizan el beneficio del café. Consisten en áreas cubiertas dentro de las cuales se encuentran los elementos destinados a la labor de seleccionar, lavar y despulpar el grano y su posterior empaque. Según su estado de conservación y capacidad se divide en tipologías 80, 60 y 40, donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Beneficiaderos - código 11"
       Beneficiaderos(
         /** Estructura en ladrillo o bloque; cubierta en zinc, teja de barro o eternit rustico; pisos en cemento, con tanques lavadores y serpentina o canal de carreteo y silo o patio quindiano incorporado estado de conservación bueno a regular.
          */
@@ -213,7 +229,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Beneficiaderos) Tipo 40"
         Tipo_40
       ),
-      !!@ ili2db.dispName = "Secaderos"
+      /** Construcciones elaboradas con el objeto de secar en condiciones naturales el café principalmente, aunque es común su uso en otros productos. Consta de estructura y pisos para su calificación. No se incluyen en esta tipificación, las casaelbas, las cuales deben asimilarse al destino de vivienda 01. Según su estado de conservación y capacidad se divide en tipologías 80, 60 y 40, donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Secaderos - código 18"
       Secaderos(
         /** Estructura metálica y cercha de madera o metálica muros medianos o totales en ladrillo marquesina de vidrio; pisos en cemento; estado de conservación buena.
          */
@@ -228,7 +246,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Secaderos) Tipo 40"
         Tipo_40
       ),
-      !!@ ili2db.dispName = "Kioskos"
+      /** Construcción consistente en una cubierta apoyada en columnas de materiales diferentes, elaborados con el fin de guarecer de la intemperie. Según su estado de conservación y capacidad se divide en tipologías 80, 60, 40 y 20 donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Kioskos - código 21"
       Kioscos(
         /** Estructura en bloque o ladrillo cubierta en zinc, teja de barro o paja; estado de conservación general bueno.
          */
@@ -247,7 +267,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Kioskos) Tipo 20"
         Tipo_20
       ),
-      !!@ ili2db.dispName = "Albercas o bañaderas"
+      /** Depósito de agua construido a nivel del terreno con el propósito de almacenar agua, o en el caso de las bañaderas con el fin de hacer limpieza al ganado, estas construcciones son cubiertas para guardar de la intemperie. Las albercas aquí consideradas son diferentes a los tanques en profundidad descritos en el código 10. Según su estado de conservación y capacidad se divide en tipologías 80, 60, y 40 donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Albercas o bañaderas - código 23"
       Albercas_Baniaderas(
         /** Estructura en concreto; cubierta en zinc, eternit o teja de barro; piso en cemento; conservación buena a regular.
          */
@@ -262,7 +284,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Albercas o bañaderas) Tipo 40"
         Tipo_40
       ),
-      !!@ ili2db.dispName = "Corrales"
+      /** Sitio cerrado y descubierto que se utiliza para la cría y albergue de ganado generalmente vacuno. Consta de los elementos estructura y pisos.
+       */
+      !!@ ili2db.dispName = "Corrales - código 26"
       Corrales(
         /** Estructura metálica o de madera aserrada, formado por cuatro varales, pisos en cemento y conservación buena.
          */
@@ -281,7 +305,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Corrales) Tipo 20"
         Tipo_20
       ),
-      !!@ ili2db.dispName = "Pozos"
+      /** Perforaciones profundas manuales para extraer agua subterránea. Medida en metros de profundidad. Según su estado de conservación y capacidad se divide en tipologías 80, 60 y 40 donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Pozos - código 20"
       Pozos(
         /** Pozo de profundidad aproximada a 40 m, revestido en concreto, con tubería, anillado 100% , diámetro pozo de 2m
          */
@@ -298,9 +324,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       ),
       /** Estructura en concreto y tanque en concreto, fibrocemento o metálico con recubrimiento interior en resinas de poliéster reforzadas con fibra de vidrio, partes metálicas en acero inoxidable o galvanizadas buen estado de conservación
        */
-      !!@ ili2db.dispName = "(Torres de enfriamiento)"
+      !!@ ili2db.dispName = "Torres de enfriamiento - código 47"
       TorresEnfriamiento,
-      !!@ ili2db.dispName = "Muelles"
+      /** Deberán diferenciarse de acuerdo a su estructura, longitud, capacidad, usos turísticos o de carga. Son casos muy puntuales, medidos en metros cuadrados. Según su estado de conservación y capacidad se divide en tipologías 80, 60 y 40 donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Muelles - código 48"
       Muelles(
         /** Muelle, estructura en concreto, piso en madera deck para exteriores
          */
@@ -315,18 +343,20 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Muelles) Tipo 40"
         Tipo_40
       ),
-      !!@ ili2db.dispName = "Canchas de tenis"
+      !!@ ili2db.dispName = "Canchas de tenis - código 60"
       CanchasTenis(
-        /** En polvo de ladrillo
+        /** Cancha de tenis en polvo de ladrillo, incluye cerramiento en malla eslabonada.
          */
         !!@ ili2db.dispName = "(Canchas de tenis) Tipo 20"
         Tipo_20,
-        /** Cemento y/o asfalto.
+        /** Cancha de tenis en Cemento y/o asfalto, incluye cerramiento en Malla eslabonada.
          */
         !!@ ili2db.dispName = "(Canchas de tenis) Tipo 10"
         Tipo_10
       ),
-      !!@ ili2db.dispName = "Toboganes"
+      /** Deslizadores construidos alrededor de piscinas, medidos en metros lineales. Se clasifican según su altura y materiales de construcción. Según su estado de conservación y capacidad se divide en tipologías 80, 60, 50 y 40 donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Toboganes - código 62"
       Toboganes(
         /** Altura entre 9 y 15 Mts., longitud de canal entre 75 y 120 Mts. Fibra de vidrio. Estructura de concreto o metálica. Incluye piscina de Llegada. Sistema de bombeo, purificación.
          */
@@ -345,8 +375,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Toboganes) Tipo 40"
         Tipo_40
       ),
-      !!@ ili2db.dispName = "Marquesinas"
-      Marquesinas(
+      /** Cobertizo dentro de una edificación de mayor extensión o patio cubierto, clasificados según su estructura, pisos y el material de la cubierta. Según su estado de conservación y capacidad se divide en tipologías 80, 60, 40 y 20 donde se presentan mejores características en la 80 que en las demás.
+       */
+      !!@ ili2db.dispName = "Marquesinas o Patios Cubiertos - código 82"
+      Marquesinas_Patios_Cubiertos(
         /** Estructura metálica; cubierta cristalita o vidrio; piso en baldosa fina.
          */
         !!@ ili2db.dispName = "(Marquesinas) Tipo 80"
@@ -364,22 +396,22 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Marquesinas) Tipo 20"
         Tipo_20
       ),
-      !!@ ili2db.dispName = "Estadios o coliseos"
+      !!@ ili2db.dispName = "Estadios o coliseos - código 43"
       Estadios_Coliseos(
         /** Estadio, estructura en concreto reforzado, graderías, con o sin cubierta parcial, capacidad mayor a 8.000 personas
          */
         !!@ ili2db.dispName = "(Estadios o coliseos) Tipo 80"
         Tipo_80,
-        /** Estadio, estructura en concreto reforzado, graderías, con o sin cubierta parcial, capacidad mayor a 8.000 personas
+        /** Coliseo, incluye cerramiento en malla, cancha multifuncional, con camerino y gradería, cubierta en teja termo acústica y gradería.
          */
         !!@ ili2db.dispName = "(Estadios o coliseos) Tipo 60"
         Tipo_60,
-        /** Coliseo, incluye cerramiento en malla, o en bloque pañetado cancha multifuncional, cubierta en teja termo acústica
+        /** Coliseo, incluye cerramiento en malla, o en bloque pañetado cancha multifuncional, cubierta en teja termo acústica.
          */
         !!@ ili2db.dispName = "(Estadios o coliseos) Tipo 40"
         Tipo_40
       ),
-      !!@ ili2db.dispName = "Plaza de toros"
+      !!@ ili2db.dispName = "Plaza de toros - código 43"
       Plazas_de_Toros(
         /** Plaza de toros con estructura en concreto y madera capacidad de más de 10000 espectadores
          */
@@ -430,6 +462,22 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Anexo) (Cimientos estructura muros placabase) Tipo 20"
         Tipo_20
+      ),
+      !!@ ili2db.dispName = "Estructuras Aeroportuárias - código 43"
+      Estructuras_Aeroportuarias(
+        /** Radar tipo I, estructura en concreto, piso en mortero afinado
+         * Radar tipo II, estructura en concreto, piso en mortero afinado
+         */
+        !!@ ili2db.dispName = "(Anexo) (Estructuras aeroportuárias) Tipo 80"
+        Tipo_80,
+        /** Hangar, muros perimetrales en concreto, columnas y vigas de amarre con celosía para cubierta, cubierta en teja termo acústica, piso concreto E= 0.40m CTO. 3000PSI.
+         */
+        !!@ ili2db.dispName = "(Anexo) (Estructuras aeroportuárias) Tipo 60"
+        Tipo_60,
+        /** Hangar, Estructura metálica y cercha curva, cubierta en teja termo acústica, piso en concreto E=0.40m CTO 3000PSI.
+         */
+        !!@ ili2db.dispName = "(Anexo) (Estructuras aeroportuárias) Tipo 40"
+        Tipo_40
       ),
       !!@ ili2db.dispName = "Lagunas de oxidación"
       Lagunas_de_Oxidacion(
@@ -546,19 +594,6 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Condominio) Unidad predial"
         Unidad_Predial
-      ),
-      /** Es la construcción o edificación instalada por una persona natural o jurídica sobre un predio que no le pertenece.
-       */
-      !!@ ili2db.dispName = "Mejora"
-      Mejora(
-        /** Mejora sobre un predio sometido a régimen de propiedad horizontal
-         */
-        !!@ ili2db.dispName = "(Mejora) Propiedad horizontal"
-        PH,
-        /** Mejora sobre un predio no sometido a régimen de propiedad horizontal.
-         */
-        !!@ ili2db.dispName = "(Mejora) No propiedad horizontal"
-        NPH
       ),
       /** Predios sobre los cuales las áreas de terreno y construcciones son dedicadas a la cremación, inhumación o enterramiento de personas fallecidas.
        */
@@ -1024,27 +1059,21 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Documento_Publico(
         /** Una escritura pública es un documento público en el que se realiza ante un notario público un determinado hecho o un derecho autorizado por dicho fedatario público, que firma con el otorgante u otorgantes,mostrando sobre la capacidad jurídica del contenido y de la fecha en que se realizó
          */
-        !!@ ili2db.dispName = "Escritura pública"
+        !!@ ili2db.dispName = "(Documento público) Escritura pública"
         Escritura_Publica,
         /** La sentencia es la resolución judicial definitiva dictada por un juez o tribunal que pone fin a la litis o caso sometido a su conocimiento y cierra definitivamente su actuación en el mismo
          */
-        !!@ ili2db.dispName = "Sentencia judicial"
+        !!@ ili2db.dispName = "(Documento público) Sentencia judicial"
         Sentencia_Judicial,
         /** Un acto administrativo es toda manifestación o declaración emanada de la administración pública en el ejercicio de potestades administrativas, mediante el que impone su voluntad sobre los derechos, libertades o intereses de otros sujetos públicos o privados y que queda bajo el del comienzo.
          */
-        !!@ ili2db.dispName = "Acto administrativo"
+        !!@ ili2db.dispName = "(Documento público) Acto administrativo"
         Acto_Administrativo
       ),
-      Documento_Privado(
-        /** Documento que contiene un compromiso entre dos o más personas que lo firman.
-         */
-        !!@ ili2db.dispName = "Documento privado"
-        Documento_Privado,
-        /** Cuando no se haya documento soporte pero puede ser una declaración verbal.
-         */
-        !!@ ili2db.dispName = "Sin documento"
-        Sin_Documento
-      )
+      /** Cuando no se haya documento soporte pero puede ser una declaración verbal.
+       */
+      !!@ ili2db.dispName = "(Sin documento)"
+      Sin_Documento
     );
 
     CR_InformalidadTipo = (
@@ -1082,7 +1111,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Es un consecutivo asignado automáticamente en registro en lugar del número de la identificación de la persona que hace el trámite, se usa especialmente en trámites de construcción cuando el proyecto está a nombre de una Fiducia el cual tiene el mismo número del banco.
        */
       !!@ ili2db.dispName = "Secuencial"
-      Secuencial
+      Secuencial,
+      /** Documento que acredita la identidad y la nacionalidad de una persona y que es necesario para viajar a determinados países.
+       */
+      !!@ ili2db.dispName = "Pasaporte"
+      Pasaporte
     );
 
     CR_InteresadoTipo = (
@@ -1341,28 +1374,28 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Predio(
         /** Es el predio que pertenece al estado y/o cuyo propietario es una entidad de derecho público
          */
-        !!@ ili2db.dispName = "Público"
+        !!@ ili2db.dispName = "(Predio) Público"
         Publico(
           /** Es un bien inmueble de propiedad de la Nación y ubicado en zonas rurales
            */
-          !!@ ili2db.dispName = "(Público) Baldío"
+          !!@ ili2db.dispName = "(Predio) (Público) Baldío"
           Baldio,
           /** Los bienes de la Unión cuyo uso no pertenece generalmente a los habitantes, se llaman bienes de la Unión o bienes fiscales
            */
-          !!@ ili2db.dispName = "(Público) Fiscal"
+          !!@ ili2db.dispName = "(Predio) (Público) Fiscal"
           Fiscal,
           /** Son bienes patrimoniales los de titularidad de las administraciones públicas que no tengan el carácter de bienes de dominio público, es decir, que no estén destinados directamente al uso público o afectados a un servicio público. Si no consta la afectación de un bien se presume su carácter patrimonial.
            */
-          !!@ ili2db.dispName = "(Público) Patrimonial"
+          !!@ ili2db.dispName = "(Predio) (Público) Patrimonial"
           Patrimonial,
           /** Son aquellos inmuebles de dominio público cuyo uso pertenece a todos los habitantes del territorio nacional, destinados al uso o disfrute colectivo.
            */
-          !!@ ili2db.dispName = "(Público) Uso público"
+          !!@ ili2db.dispName = "(Predio) (Público) Uso público"
           Uso_Publico
         ),
         /** Es aquel que ha salido del patrimonio del estado, cuenta con un propietario inscrito en el folio de matrícula y se considera propiedad privada en los términos del artículo 48 de la Ley 160 de 1993.
          */
-        !!@ ili2db.dispName = "(Privado)"
+        !!@ ili2db.dispName = "(Predio) (Territorio colectivo)"
         Privado,
         /** Son los predios adjudicados a comunidades pertenecientes a grupos étnicos en el marco del reconocimiento de los resguardos legalmente constituidos según el Decreto 2164 de 1995 o de las propiedades colectivas de comunidades negras conforme Ley 70 de 1993.
          */
@@ -1370,7 +1403,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         Territorio_Colectivo,
         /** Son bienes inmuebles que se encuentran dentro de territorio respectivo a cargo de la Nación, sin dueño aparente o conocido
          */
-        !!@ ili2db.dispName = "(Vacante)"
+        !!@ ili2db.dispName = "(Predio) (Vacante)"
         Vacante
       )
     );
@@ -1393,6 +1426,22 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Inclusión en el campo de cabida y linderos del dato del área y/o linderos en los folios de matrícula inmobiliaria"
       Inclusion_Cabida_Linderos,
+      /** En el marco de los trámites de ordenamiento social de la propiedad que adelante la Agencia Nacional de Tierra (ANT), conforme a las competencias establecidas en el artículo 58 del Decreto Ley 902 de 2017 y atendiendo a la función de gestor catastral consignada en el artículo 80 de la Ley 1955 de 2019, cuando se identifique la existencia de una inconsistencia entre el levantamiento predial realizado por dicha entidad con la información registral, los actos administrativos que resuelven de fondo los asuntos sometidos a estudio ordenarán la aclaración, actualización masiva, rectificación de área por imprecisa determinación o inclusión del área del predio intervenido, siempre que los linderos estén debida y técnicamente descritos, sean verificables por métodos directos o indirectos y no exista variación en los mismos, sin necesidad de adelantar un proceso de  rectificación o inclusión de área. Artículo 2.2.2.2.22. Decreto 148 de 2020.
+       */
+      !!@ ili2db.dispName = "Corrección y/o inclusión de cabida en procesos de ordenamiento social de la propiedad"
+      Correccion_Inclusion_Procesos_OSPR,
+      /** En el marco de los procesos de actualización catastral, y como resultado del levantamiento de la información física y jurídica en terreno, el gestor catastral podrá remitir para inscripción a la Oficina de Registro de Instrumentos Públicos respectiva, el acto administrativo de actualización masiva de linderos o rectificación de área, según corresponda.
+       * 
+       * Cuando la diferencia en las magnitudes de cabida y/o linderos supere el rango de tolerancia establecido, deberá surtirse el trámite de rectificación de linderos o por imprecisa determinación, según corresponda. Artículo 2.2.2.2.23. Decreto 148 de 2020.
+       */
+      !!@ ili2db.dispName = "Actualización masiva de linderos con efectos regístrales"
+      Actualizacion_Masiva_Linderos,
+      /** En el marco de los procesos de actualización catastral, y como resultado del levantamiento de la información física y jurídica en terreno, el gestor catastral podrá remitir para inscripción a la Oficina de Registro de Instrumentos Públicos respectiva, el acto administrativo de actualización masiva de linderos o rectificación de área, según corresponda.
+       * 
+       * Cuando la diferencia en las magnitudes de cabida y/o linderos supere el rango de tolerancia establecido, deberá surtirse el trámite de rectificación de linderos o por imprecisa determinación, según corresponda. Artículo 2.2.2.2.23. Decreto 148 de 2020.
+       */
+      !!@ ili2db.dispName = "Rectificación masiva de área por imprecisa determinación con efectos regístrales"
+      Rectificacion_Masiva_Area,
       /** No requiere procedimiento catastral con efecto registral.
        */
       !!@ ili2db.dispName = "No requiere procedimiento"
@@ -1550,39 +1599,39 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Catastro(
         /** Punto referido a los soportes verticales que sirven de apoyo,utilizados en la construcción de alambradas, tendidos eléctricos y telefónicos, televisión por cable, para iluminar calles, plazas o estadios y en las actividades agrícolas.
          */
-        !!@ ili2db.dispName = "Poste"
+        !!@ ili2db.dispName = "(Catastro) Poste"
         Poste,
         /** Punto referido a las esquina o sección de los paramentos de las construcción y unidades de construcción.
          */
-        !!@ ili2db.dispName = "Construcción"
+        !!@ ili2db.dispName = "(Catastro) Construcción"
         Construccion,
         /** Punto referido a los puntos limitantes con elementos hidrográficos que por su condición pueden variar su límite con el tiempo.
          */
-        !!@ ili2db.dispName = "Punto dinámico"
+        !!@ ili2db.dispName = "(Catastro) Punto dinámico"
         Punto_Dinamico,
         /** Punto referido a los elementos naturales de la vegetación  como los árboles, arbustos o cualquier otra especie de la fauna.
          */
-        !!@ ili2db.dispName = "Elemento natural"
+        !!@ ili2db.dispName = "(Catastro) Elemento natural"
         Elemento_Natural,
         /** Punto referido a los elementos piedra o rocas.
          */
-        !!@ ili2db.dispName = "Piedra"
+        !!@ ili2db.dispName = "(Catastro) Piedra"
         Piedra,
         /** Puntos referido a las áreas de campos abiertos, zonas boscosas, desérticas o cualquier otro tipo de espacio donde no se aprecia una clara delimitación.
          */
-        !!@ ili2db.dispName = "Sin materialización"
+        !!@ ili2db.dispName = "(Catastro) Sin materialización"
         Sin_Materializacion,
         /** Puntos referidos a los mojones utilizados en topografía que tienen datos de coordenadas espaciales.
          */
-        !!@ ili2db.dispName = "Mojón"
+        !!@ ili2db.dispName = "(Catastro) Mojón"
         Mojon,
         /** Puntos referidos a las incrustaciones realizadas en el suelo.
          */
-        !!@ ili2db.dispName = "Incrustación"
+        !!@ ili2db.dispName = "(Catastro) Incrustación"
         Incrustacion,
         /** Puntos referidos a las columnas verticales donde se encuentra materializado un punto con coordenadas espaciales.
          */
-        !!@ ili2db.dispName = "Pilastra"
+        !!@ ili2db.dispName = "(Catastro) Pilastra"
         Pilastra
       )
     );
@@ -1849,7 +1898,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 1B"
         Tipo_1B,
-        /** Armazón: Madera; Muros en madera; Cubierta: Zinc, teja de barro, Eternit rustico; Cubrimiento de Muros: Pañete, papel común, ladrillo presado; Pisos: Cemento, madera burda.
+        /** Armazón: Madera Prefabricado, ladrillo o bloque; Muros en madera Prefabricado o Bloque; Cubierta: Zinc, teja de barro, Eternit rustico; Cubrimiento de Muros: Sin, Pañete, papel común; Pisos: Cemento, madera burda.Armazón: Madera Prefabricado, ladrillo o bloque; Muros en madera Prefabricado o Bloque; Cubierta: Zinc, teja de barro, Eternit rustico; Cubrimiento de Muros: Sin, Pañete, papel común; Pisos: Cemento, madera burda.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 2A"
         Tipo_2A,
@@ -1861,25 +1910,23 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 3A"
         Tipo_3A,
-        /** Armazón: Ladrillo, bloque; Muro: ladrillo, Bloque; Cubierta: Azotea, aluminio, placa sencilla con eternit o teja de barro; Cubrimiento muros: Estuco, cerámica, papel fino; Piso: Baldosa común de cemento, tablón ladrillo.
+        /** Armazón:  Ladrillo, bloque, Concreto hasta tres (3) pisos; Muro: ladrillo, Bloque; Cubierta:  Azotea, aluminio, placa sencilla con Eternit o teja de barro; Cubrimiento muros: Pañete fino, Estuco, cerámica, papel fino, Drywall; Piso: Baldosa común de cemento, tablón ladrillo, cerámica.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 3B"
         Tipo_3B,
-        /** Armazón: Concreto hasta tres pisos, Muro: Bloque, ladrillo; Cubierta: Azotea, aluminio,
-         * placa sencilla con etnernit o teja de barro; Cubrimiento muro: estuco, cerámica, papel fino; Piso: Listón machi-embredo.
+        /** Armazón: Concreto hasta tres pisos, Muro: Ladrillo, Bloque Placa en concreto; Cubierta: Azotea, aluminio, placa sencilla con Eternit o teja de barro; Cubrimiento muro: estuco, cerámica, papel fino SIin (Ladrillo Rustico a la vista); Piso: Listón machihembrado, Tableta, caucho, acrílico, granito, cerámica fina, madera fina o laminada.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 4A"
         Tipo_4A,
-        /** Armazón: Concreto hasta tres pisos, Muro: Bloque, Ladrillo; Cubierta: Azotea, aluminio,
-         * placa sencilla con etnernit o teja de barro; Cubrimiento muro: estuco, cerámica, papel fino; Piso: Tableta, caucho, acrilico, granito, baldosa fina.
+        /** Armazón: Concreto hasta tres pisos, Muro:  Ladrillo, Bloque Placa en concreto; Cubierta:  Azotea, aluminio, placa sencilla, Eternit o teja de barro; Cubrimiento muro: estuco, cerámica, papel fino, sin (ladrillo rustico a la vista), piedra fina; Piso: Tableta, caucho, acrílico, granito, baldosa fina, madera fina o laminada.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 4B"
         Tipo_4B,
-        /** Armazón: Concreto hasta tres pisos; Muro: Bloque, Ladrillo; Cubierta: Azote, Aluminio, placa sencilla con eternit o teja de barro; Cubrimiento muro: Medra, Piedra ornamental; Piso: Tableta, caucho, acrilico, granito, baldosa fina
+        /** Armazón: Concreto hasta tres pisos; Muro: Bloque, ladrillo; Cubierta: Azotea, Aluminio, placa sencilla Eternit o teja de barro; Cubrimientomuro:  Estucos especiales, madera, piedra ornamental; Piso: Tableta, caucho, vinilo acrílico, granito, baldosa fina, madera fina o laminado.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 5A"
         Tipo_5A,
-        /** Armazón: Concreto cuadro y más pisos; Muro: Bloque, Ladrillo; Cubierta: Placa impermeabilizada cubierta lujosa u ornamental; Cubrimiento muro: Mármol, lujoso, otros; Piso: Parquet, alfombra, retal de mármol ( grano pequeño).
+        /** Armazón: Concreto; Muro: Bloque, ladrillo; Cubierta: Placa impermeabilizada, o con cerámica y aluminio, Eternit o teja de barro. cubierta lujosa u ornamental; Cubrimiento muro: Estucos especiales, madera, piedra ornamental de lujo, retal de mármol u otros; Piso: Tableta, caucho, acrílico, vinilo acrílico, granito, baldosa fina, madera fina o laminada, parquet, retal de mármol (grano pequeño).
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 5B"
         Tipo_5B,
@@ -1887,7 +1934,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 6A"
         Tipo_6A,
-        /** Armazón: Concreto cuatro o más pisos; Muro: Bloque, ladrillo; Cubierta: Placa impermeabilizada cubierta lujosa u ornamental; Cubrimientos muros: Mármol, lujosos otros; Piso: Retal de mármol, mármol, otros.
+        /** Armazón: Concreto cuatro o más pisos; Muro: Bloque, ladrillo; Cubierta: Placa impermeabilizada cubierta lujosa u ornamental cubiertas especiales o teja de barro.; Cubrimientos muros: Estuco fino, mármol, lujosos otros; Piso: Retal de mármol, mármol, otros de alta calidad.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 6B"
         Tipo_6B
@@ -1912,13 +1959,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Comercial) Barrial 2"
         Barrial_2,
-        /** Armazón: Madera, Ladrilló, Bloque
-         * Muros: Madera, Bloque, concreto prefabricado
-         * Cubierta: Eternit o teja de barro, Entrepiso, (cubierta provisional) Prefabricado
-         * 
-         * Fachada: Regular.
-         * Cubrimiento de Muros: Pañete, papel común, pañete, ladrillo prensado
-         * Pisos: Concreto, Listón machi-ambrado, baldosa común.
+        /** Armazón: Madera, ladrilló, bloque. Muros: Madera, bloque, concreto prefabricado. 
+         * Cubierta: Eternit o teja de barro, entrepiso, (cubierta provisional) prefabricado. 
+         * Fachada: Regular; Cubrimiento de Muros: Pañete, papel común, ladrillo prensado.
+         * Pisos:  Concreto, listón machihembrado, baldosa.
          */
         !!@ ili2db.dispName = "(Comercial) Sectorial 1"
         Sectorial_1,
@@ -2015,6 +2059,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Industrial) Pesada 2"
         Pesada_2
       ),
+      /** Caso especial de tipología encontrado
+       */
       Otro
     );
 
@@ -2497,8 +2543,14 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "Construcción"
     CLASS CR_Construccion
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
+      /** Identificado de la unidad de construcción, su codificación puede ser por letras del abecedario.
+       */
       !!@ ili2db.dispName = "Identificador"
-      Identificador : MANDATORY TEXT*2;
+      Identificador : MANDATORY TEXT*20;
+      /** Código de identificación de la construcción.
+       */
+      !!@ ili2db.dispName = "Código de la construcción"
+      Codigo_Construccion : TEXT*30;
       /** Indica si la construcción es de tipo convencional o no convencional.
        */
       !!@ ili2db.dispName = "Tipo de construcción"
@@ -2523,14 +2575,18 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Número de semisótanos"
       Numero_Semisotanos : 0 .. 99;
-      /** Año de edificación de la construcción.
+      /** Es el año de contrucción de la unidad de construcción. Cuando no existe evidencia documental del año construcción, éste es determinado con base en las características de la construcción durante la identificación predial.
        */
       !!@ ili2db.dispName = "Año de la construcción"
       Anio_Construccion : 1550 .. 2500;
-      /** Avalúo total catastral de la construcción.
+      /** Es el valor comercial de las edificaciones de un predio de acuerdo con: sus características de estructura, uso, acabados, conservación y edad de las mismas.
        */
       !!@ ili2db.dispName = "Ávaluo de construcción"
       Avaluo_Construccion : LADM_COL_V3_1.LADM_Nucleo.Peso;
+      /** Es la estimación del valor de un inmueble a una fecha determinada conforme a las reglas del mercado inmobiliario y la normatividad vigente.
+       */
+      !!@ ili2db.dispName = "Avalúo comercial construccion"
+      Avaluo_Comercial_Construccion : LADM_COL_V3_1.LADM_Nucleo.Peso;
       /** Área total construida.
        */
       !!@ ili2db.dispName = "Área de construcción"
@@ -2538,11 +2594,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Altura total de la construcción.
        */
       !!@ ili2db.dispName = "Altura"
-      Altura : 0 .. 1000 [INTERLIS.m];
+      Altura : 0.00 .. 1000.00 [INTERLIS.m];
       /** Observaciones generales de la construcción.
        */
       !!@ ili2db.dispName = "Observaciones"
       Observaciones : TEXT;
+      /** Corresponde a la relación de puntos, líneas, polígono y volumen que en su conjunto tienen propiedades de espacio y estructura.  que definen la construcción, es asignado por el sistema de captura.
+       */
+      !!@ ili2db.dispName = "Geometría"
+      Geometria (EXTENDED) : ISO19107_PLANAS_V3_0.GM_MultiSurface3D;
     END CR_Construccion;
 
     /** Clase que contiene los datos principales del predio matriz sometido al regimen de propiedad horizontal.
@@ -2646,7 +2706,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "Fuente Administrativa"
     CLASS CR_FuenteAdministrativa
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_FuenteAdministrativa =
-      /** Tipo de documento que soporta la relación de tenencia entre el interesado con el predio.
+      /** Documentos como escritura pública, sentencia judicial, acto administrativo, documento privado o sin documento (puede ser una declaración verbal), que acredita la adquisición de derechos de dominio sobre un bien inmueble y la relación que existe entre el interesado y el predio.
        */
       !!@ ili2db.dispName = "Tipo"
       Tipo (EXTENDED) : MANDATORY Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_FuenteAdministrativaTipo;
@@ -2669,6 +2729,14 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "Fuente Espacial"
     CLASS CR_FuenteEspacial
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_FuenteEspacial =
+      /** Insumos utilizados para la obtención de información espacial en la definición en los linderos para cada predio.
+       */
+      !!@ ili2db.dispName = "Tipo"
+      Tipo (EXTENDED) : MANDATORY LADM_COL_V3_1.LADM_Nucleo.COL_FuenteEspacialTipo;
+      /** Corresponde a la ficha técnica y especificaciones del insumo utilizado para el levantamiento catastral.
+       */
+      !!@ ili2db.dispName = "Metadato"
+      Metadato (EXTENDED) : MTEXT;
     END CR_FuenteEspacial;
 
     /** Calificación de la construccion según los item determinados para calificar.
@@ -2709,39 +2777,39 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "Interesado"
     CLASS CR_Interesado
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_Interesado =
-      /** Tipo de persona del que se trata
+      /** Son considerados dos tipos de interesados, persona natural que actúa a nombre propio y se ocupa de algunas actividades que la ley considera mercantiles y persona jurídica que actúa como institución creada por una o más personas para cumplir un objetivo social que puede ser con o sin fines de lucro.
        */
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_InteresadoTipo;
-      /** Tipo de documento del que se trata.
+      /** Clase de documentos públicos que permite la identificación del interesado.
        */
       !!@ ili2db.dispName = "Tipo de documento"
       Tipo_Documento : MANDATORY Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_InteresadoDocumentoTipo;
-      /** Documento de identidad del interesado.
+      /** Documento público que contiene datos de identificación personal y que caracteriza al interesado como ciudadano, relacionado mediante un numero de identificación.
        */
       !!@ ili2db.dispName = "Documento de identidad"
       Documento_Identidad : MANDATORY TEXT*50;
-      /** Primer nombre de la persona física.
+      /** Primer nombre de la persona interesada en trámite o proceso.
        */
       !!@ ili2db.dispName = "Primer nombre"
       Primer_Nombre : TEXT*100;
-      /** Segundo nombre de la persona física.
+      /** Segundo nombre de la persona interesada en trámite o proceso.
        */
       !!@ ili2db.dispName = "Segundo nombre"
       Segundo_Nombre : TEXT*100;
-      /** Primer apellido de la persona física.
+      /** Primer apellido de la persona interesada en trámite o proceso.
        */
       !!@ ili2db.dispName = "Primer apellido"
       Primer_Apellido : TEXT*100;
-      /** Segundo apellido de la persona física.
+      /** Segundo apellido de la persona interesada en trámite o proceso.
        */
       !!@ ili2db.dispName = "Segundo apellido"
       Segundo_Apellido : TEXT*100;
-      /** Condición orgánica que distingue a los machos de las hembras.
+      /** Hace referencia a los componentes fisiológicos del interesado, que pueden determinar la diferencia entre quien es mujer y quien es hombre.
        */
       !!@ ili2db.dispName = "Sexo"
       Sexo : Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_SexoTipo;
-      /** Nombre con el que está inscrita la persona jurídica
+      /** Nombre jurídico que recibe un sociedad colectiva o empresa constituida legalmente, con el cual se encuentra inscrito.
        */
       !!@ ili2db.dispName = "Razón social"
       Razon_Social : TEXT*255;
@@ -2755,7 +2823,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Longitud en metros del lindero.
        */
       !!@ ili2db.dispName = "Longitud"
-      Longitud : MANDATORY 0.0 .. 10000.0 [INTERLIS.m];
+      Longitud : MANDATORY 0.0 .. 100000000000.0 [INTERLIS.m];
     END CR_Lindero;
 
     CLASS CR_NU_CarasLindero
@@ -2793,7 +2861,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Puntaje del ítem calificado.
        */
       !!@ ili2db.dispName = "Puntos"
-      Puntos : MANDATORY 0 .. 16;
+      Puntos : MANDATORY 0 .. 34;
     END CR_ObjetoConstruccion;
 
     !!@ ili2db.dispName = "Publicidad"
@@ -2831,15 +2899,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Tipo de punto"
       PuntoTipo (EXTENDED) : MANDATORY Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_PuntoTipo;
-      /** Si se trata de un punto de control o de apoyo.
+      /** Es el método utilizado para definir puntos de terreno que son identificables dentro de una fotografía, a los cuales se les puede determinar las coordenadas terrestres de linderos y vértices una vez realizada su digitalización.
        */
       !!@ ili2db.dispName = "Tipo de punto de control"
       Tipo_Punto_Control : Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_PuntoControlTipo;
-      /** Exactitud horizontal de la medición del punto.
+      /** Es la precisión con referencia a la posición horizontal de un punto o conjunto de puntos en términos de sus coordenadas de latitud y longitud o de sus coordenadas rectangulares expresada en metros.
        */
       !!@ ili2db.dispName = "Exactitud horizontal"
       Exactitud_Horizontal : MANDATORY 0.000 .. 10.000 [INTERLIS.m];
-      /** Exactitud vertical de la medición del punto.
+      /** Es la precisión con referencia a la posición vertical o altura de un punto o conjunto de puntos en términos de distancia a un cierto plano o nivel de referencia expresada en metros.
        */
       !!@ ili2db.dispName = "Exactitud vertical"
       Exactitud_Vertical : MANDATORY 0.000 .. 10.000 [INTERLIS.m];
@@ -2853,7 +2921,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "Punto Lindero"
     CLASS CR_PuntoLindero
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_Punto =
-      /** Nombre o codigo del punto lindero
+      /** Nombre o código que identifica el punto lindero
        */
       !!@ ili2db.dispName = "ID del punto de lindero"
       ID_Punto_Lindero : MANDATORY TEXT*255;
@@ -2865,15 +2933,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Acuerdo"
       Acuerdo : MANDATORY Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_AcuerdoTipo;
-      /** Indica si el punto es fotoidentificable.
+      /** Es el método utilizado para definir puntos de terreno que son identificables dentro de una fotografía, a los cuales se les puede determinar las coordenadas terrestres de linderos y vértices una vez realizada su digitalización.
        */
       !!@ ili2db.dispName = "Fotoidentificación"
       Fotoidentificacion : Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_FotoidentificacionTipo;
-      /** Corresponde a la exactitud horizontal del punto lindero
+      /** Es la precisión con referencia a la posición horizontal de un punto o conjunto de puntos en términos de sus coordenadas de latitud y longitud o de sus coordenadas rectangulares expresada en metros.
        */
       !!@ ili2db.dispName = "Exactitud horizontal"
       Exactitud_Horizontal : MANDATORY 0.000 .. 10.000 [INTERLIS.m];
-      /** Corresponde a la exactitud vertical del punto lindero
+      /** Es la precisión con referencia a la posición vertical o altura de un punto o conjunto de puntos en términos de distancia a un cierto plano o nivel de referencia expresada en metros.
        */
       !!@ ili2db.dispName = "Exactitud vertical"
       Exactitud_Vertical : 0.000 .. 10.000 [INTERLIS.m];
@@ -2895,10 +2963,14 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Avalúo del terreno"
       Avaluo_Terreno : LADM_COL_V3_1.LADM_Nucleo.Peso;
+      /** Es la estimación del valor de un inmueble a una fecha determinada conforme a las reglas del mercado inmobiliario y la normatividad vigente.
+       */
+      !!@ ili2db.dispName = "Avalúo comercial Terreno"
+      Avaluo_Comercial_Terreno : LADM_COL_V3_1.LADM_Nucleo.Peso;
       /** Corresponde la identificación del número predial hasta la posición 21, permite identificar la relación espacial en sus componentes: departamento, municipio, zona, sector, comuna, barrio, manzana o vereda y terreno de acuerdo a su codificación en el número predial.
        */
       !!@ ili2db.dispName = "Numero predial hasta la posición 21"
-      Manzana_Vereda_Codigo : TEXT*21;
+      Terreno_Codigo : TEXT*21;
       /** Corresponde a la figura geométrica vectorial poligonal, generada a partir de los linderos del predio.
        */
       !!@ ili2db.dispName = "Geometría"
@@ -2963,11 +3035,13 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "Derecho"
     CLASS CR_Derecho
     EXTENDS CR_DRR =
-      /** Derecho que se ejerce.
+      /** Forma de relación del interesado con respecto al predio según su forma de tenencia.
        */
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_DerechoTipo;
-      /** Indica la fracción del derecho en relación a la forma de tenencia y el área que esta ocupa dentro de la extensión del predio. Ejemplo: un predio informal que se encuentra sobre un predio baldío y un predio privado tendrá un porcentaje de derecho de ocupación y posesión expresado en tanto por uno (0.0000000000 a 1.0000000000).
+      /** Indica la fracción del derecho en relación a la forma de tenencia y el área que esta ocupa dentro de la extensión del predio. ?
+       * 
+       * Expresado en tanto por uno (0.0000000000 a 1.0000000000).
        */
       !!@ ili2db.dispName = "Fracción de derecho"
       Fraccion_Derecho : MANDATORY TEXT*255;
@@ -3045,7 +3119,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Clase_Suelo : MANDATORY Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_ClaseSueloTipo;
       !!@ ili2db.dispName = "Categoría del suelo"
       Categoria_Suelo : Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_CategoriaSueloTipo;
-      /** Caracterización temática del predio.
+      /** Corresponde a una caracterización temática de las condiciones de predio que se está censando relacionada a aspectos físicos y jurídicos.
        */
       !!@ ili2db.dispName = "Condición del predio"
       Condicion_Predio : MANDATORY Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_CondicionPredioTipo;
@@ -3055,10 +3129,16 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Destinacion_Economica : Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_DestinacionEconomicaTipo;
       !!@ ili2db.dispName = "Tipo de predio"
       Tipo (EXTENDED) : MANDATORY Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_PredioTipo;
-      /** Valor catastral del predio, obtenido mediante investigación y análisis estadístico del mercado inmobiliario y la metodología de aplicación correspondiente.
+      /** El avalúo catastral consiste en la determinación del valor de los predios, obtenido mediante investigación y análisis estadístico del mercado inmobiliario. ?
+       * El avalúo catastral de cada predio se determinará por la adición de los avalúos parciales practicados independientemente para los terrenos y para las unidades de construcción en él comprendidos.?
+       * El avalúo catastral corresponde a un porcentaje adoptado del avalúo comercial según el estudio económico, dichos avalúos se redondean a miles.
        */
       !!@ ili2db.dispName = "Avalúo Catastral"
       Avaluo_Catastral : BAG {0..*} OF Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.Catastro_Registro.CR_EstructuraAvaluoCatastral;
+      /** Es la estimación del valor de un inmueble a una fecha determinada conforme a las reglas del mercado inmobiliario y la normatividad vigente.
+       */
+      !!@ ili2db.dispName = "Avalúo comercial"
+      Avaluo_Comercial : LADM_COL_V3_1.LADM_Nucleo.Peso;
       /** Se considerará como procedimientos catastrales con efectos registrales los siguientes: actualización de linderos, rectificación de área por imprecisa determinación, actualización masiva y puntual de linderos y áreas, rectificación de linderos por acuerdo entre las partes, e inclusión de área y/o linderos.
        */
       !!@ ili2db.dispName = "Procedimientos catastrales con efectos registrales"
@@ -3080,7 +3160,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "Punto Levantamiento"
     CLASS CR_PuntoLevantamiento
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_Punto =
-      /** Nombre o código del punto levantamiento.
+      /** Nombre o código que identifica el punto de levantamiento.
        */
       !!@ ili2db.dispName = "ID del punto de levantamiento"
       ID_Punto_Levantamiento : MANDATORY TEXT*255;
@@ -3092,11 +3172,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Tipo de punto de levantamiento"
       Tipo_Punto_Levantamiento : Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_PuntoLevTipo;
-      /** Indica si el punto es fotoidentificable.
+      /** Es el método utilizado para definir puntos de terreno que son identificables dentro de una fotografía, a los cuales se les puede determinar las coordenadas terrestres de linderos y vértices una vez realizada su digitalización.
        */
       !!@ ili2db.dispName = "Fotoidentificación"
       Fotoidentificacion : Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_FotoidentificacionTipo;
-      /** Corresponde a la exactitud horizontal del punto levantamiento
+      /** Es la precisión con referencia a la posición vertical o altura de un punto o conjunto de puntos en términos de distancia a un cierto plano o nivel de referencia expresada en metros.
        */
       !!@ ili2db.dispName = "Exactitud horizontal"
       Exactitud_Horizontal : MANDATORY 0.000 .. 10.000 [INTERLIS.m];
@@ -3140,6 +3220,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Tipo de tipología"
       Tipo_Tipologia : MANDATORY Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_TipologiaTipo;
+      !!@ ili2db.dispName = "¿Cuál?"
+      Cual : TEXT*255;
     END CR_TipologiaConstruccion;
 
     ASSOCIATION cr_objetoconstruccion_grupocalificacion =
@@ -3169,12 +3251,12 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     EXTENDS CR_Restriccion =
     END CR_Hipoteca;
 
-    /** Tipo de unidad espacial que permite la representación de una servidumbre de paso asociada a una COL_BAUnit.
+    /** La servidumbre predial o simple servidumbre, es un gravamen sobre un predio, en utilidad de otro predio de distinto dueño
      */
     !!@ ili2db.dispName = "Servidumbre de Paso"
     CLASS CR_ServidumbreTransito
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
-      /** Área total de la servidumbre.
+      /** Área total de la servidumbre metros cuadrados.
        */
       !!@ ili2db.dispName = "Área de la servidumbre"
       Area_Servidumbre : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V3_1.m2];
@@ -3191,9 +3273,14 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     END cr_ph_predio;
 
     ASSOCIATION cr_predio_copropiedad =
-      predio -- {0..*} CR_Predio;
-      copropiedad -<> {0..1} CR_Predio;
-      coeficiente : LADM_COL_V3_1.LADM_Nucleo.Fraccion;
+      /** Area privada de terreno matriz, adicional a la participación en el terreno común, según el coeficiente allí determinado.
+       */
+      unidad_predial -- {0..*} CR_Predio;
+      /** Unidades residenciales tales como edificios, conjuntos y tipos de urbanizaciones cerradas en las que se comparten áreas comunes y que tienen régimen de propiedad horizontal.
+       */
+      matriz -<> {0..1} CR_Predio;
+      !!@ ili2db.dispName = "Coeficiente"
+      Coeficiente : 0.0000000000 .. 1.0000000000;
     END cr_predio_copropiedad;
 
     /** Es cada conjunto de materiales consolidados dentro de un predio que tiene unas características específicas en cuanto a elementos constitutivos físicos y usos de la misma.
@@ -3204,16 +3291,20 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Identificado de la unidad de construcción, su codificación puede ser por letras del abecedario.
        */
       !!@ ili2db.dispName = "Identificador"
-      Identificador : MANDATORY TEXT*3;
+      Identificador : MANDATORY TEXT*20;
+      /** Código de identificación de la unidad de construcción.
+       */
+      !!@ ili2db.dispName = "Código de la unidad de construcción"
+      Codigo_Unidad_Construccion : TEXT*30;
+      /** Es el conjunto de elementos constructivos que conforman una edificación y que de acuerdo a sus características pueden ser consideradas convencionales cuando son de uso residencial, comercial e industrial o no convencionales cuando son anexos de la construcción.
+       */
+      !!@ ili2db.dispName = "Tipo de construcción"
+      Tipo_Construccion : Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_ConstruccionTipo;
       /** Indica el tipo de dominio de la unidad de construcción: común y privado.
        */
       !!@ ili2db.dispName = "Tipo de dominio"
       Tipo_Dominio : Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_DominioConstruccionTipo;
-      /** Indica si la construcción es de tipo convencional o no convencional.
-       */
-      !!@ ili2db.dispName = "Tipo de construcción"
-      Tipo_Construccion : Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_ConstruccionTipo;
-      /** Indica si la unidad de construcción es residencial, comercial, industrial o anexo.
+      /** Es la caracterización del conjunto de valores que describe a un atributo de la unidad de construcción para darle condición de dominio común o dominio privado.
        */
       !!@ ili2db.dispName = "Tipo de unidad de construcción"
       Tipo_Unidad_Construccion : MANDATORY Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_UnidadConstruccionTipo;
@@ -3237,11 +3328,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Total de locales"
       Total_Locales : 0 .. 999999;
-      /** Número total de pisos en la unidad de construcción.
-       */
-      !!@ ili2db.dispName = "Total de pisos"
-      Total_Pisos : 0 .. 150;
-      /** Actividad que se desarrolla en una unidad de construcción.
+      /** Destinación de los materiales de una unidad constructiva con respecto a la actividad económica desarrollada en la edificación del predio.
        */
       !!@ ili2db.dispName = "Uso"
       Uso : Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_UsoUConsTipo;
@@ -3249,10 +3336,14 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Año de construcción"
       Anio_Construccion : 1512 .. 2500;
-      /** Avalúo catastral de la unidad de construcción.
+      /** Para el avalúo de la unidad constructiva, en caso de modelos econométricos, se deben tener en cuenta el tipo de estructura, los acabados, el baño, la cocina, el estado de conservación, la edad de la edificación, el uso que se le da a dichas construcciones, entre otros, lo cual es valorado de acuerdo con las condiciones que presente el inmueble.?
+       * Para el caso de actualización de Zonas Homogéneas y tablas de construcción se utilizan variables de puntaje, uso de la construcción y área construida para la determinación del avalúo.?
+       * El avalúo catastral de la unidad corresponde a un porcentaje adoptado del avalúo comercial según el estudio económico.
        */
       !!@ ili2db.dispName = "Avalúo de la unidad de construcción"
       Avaluo_Unidad_Construccion : LADM_COL_V3_1.LADM_Nucleo.Peso;
+      !!@ ili2db.dispName = "Avalúo comercial unidad construcción"
+      Avaluo_Comercial_Unidad_Construccion : LADM_COL_V3_1.LADM_Nucleo.Peso;
       /** Área total construida en la unidad de construcción.
        */
       !!@ ili2db.dispName = "Área construida"
@@ -3264,7 +3355,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Altura total de la unidad de construcción.
        */
       !!@ ili2db.dispName = "Altura"
-      Altura : 0 .. 1000 [INTERLIS.m];
+      Altura : 0.00 .. 1000.00 [INTERLIS.m];
       /** Observaciones generales respecto de la unidad de construcción.
        */
       !!@ ili2db.dispName = "Observaciones"
@@ -3281,7 +3372,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     ASSOCIATION cr_calificacion_unidadconstruccion =
       /** Identificado de la unidad de construcción, su codificación puede ser por letras del abecedario.
        */
-      cr_unidad_construccion (EXTERNAL) -- {1} CR_UnidadConstruccion;
+      cr_unidad_construccion (EXTERNAL) -- {1..*} CR_UnidadConstruccion;
       cr_calificacion_unidad_construccion -- {0..1} CR_CalificacionUnidadConstruccion;
     END cr_calificacion_unidadconstruccion;
 
