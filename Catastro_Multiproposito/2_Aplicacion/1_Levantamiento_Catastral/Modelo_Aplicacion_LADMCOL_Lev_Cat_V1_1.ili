@@ -1479,7 +1479,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Que tiene órganos para ser fecundado.
        */
       !!@ ili2db.dispName = "Femenino"
-      Femenino
+      Femenino,
+      /** Corresponde a los datos sobre los cuales no se logró evidenciar el sexo, femenino o masculino, por no existir el soporte respectivo.
+       */
+      !!@ ili2db.dispName = "Sin determinar"
+      Sin_determinar
     );
 
     LC_TipologiaTipo = (
@@ -2182,7 +2186,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     OID AS INTERLIS.UUIDOID;
     DEPENDS ON LADM_COL_V3_1.LADM_Nucleo,Submodelo_Integracion_Insumos_V1_0.Datos_Integracion_Insumos;
 
-    /** Clase que hereda los atributos de la  Clase COL_Agrupación_Interesados.
+    /** Clase que hereda los atributos de la  Clase COL_AgrupacionInteresados.
      */
     !!@ ili2db.dispName = "Agrupación de Interesados"
     CLASS LC_AgrupacionInteresados
@@ -2305,7 +2309,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Autoriza_Notificaciones : BOOLEAN;
     END LC_ContactoVisita;
 
-    /** Clase que contiene los datos principales del predio matriz sometido al regimen de propiedad horizontal.
+    /** Clase que contiene los datos principales del predio matriz sometido al régimen de propiedad horizontal.
      */
     !!@ ili2db.dispName = "Datos PH Condominio"
     CLASS LC_DatosPHCondominio =
@@ -2441,7 +2445,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Subtotal : MANDATORY 0 .. 9999999;
     END LC_GrupoCalificacion;
 
-    /** Es la parte que tiene una relación con el predio por algún tipo de derecho, restricción, publicidad o responsabilidad
+    /** Es la parte que tiene una relación con el predio por algún tipo de derecho, restricción, publicidad o responsabilidad.
      */
     !!@ ili2db.dispName = "Interesado"
     CLASS LC_Interesado
@@ -2454,7 +2458,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Tipo de documento"
       Tipo_Documento : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_InteresadoDocumentoTipo;
-      /** Documento público que contiene datos de identificación personal y que caracteriza al interesado como ciudadano, relacionado mediante un numero de identificación.
+      /** Documento público que contiene datos de identificación personal y que caracteriza al interesado como ciudadano, relacionado mediante un número de identificación.
        */
       !!@ ili2db.dispName = "Documento de identidad"
       Documento_Identidad : MANDATORY TEXT*50;
@@ -2496,11 +2500,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
      */
     !!@ ili2db.dispName = "Interesado Contacto"
     CLASS LC_InteresadoContacto =
-      /** Numero de telefono de contacto del interesado.
+      /** Número de teléfono de contacto del interesado.
        */
       !!@ ili2db.dispName = "Teléfono 1"
       Telefono1 : TEXT*20;
-      /** Numero de telefono de contacto del interesado.
+      /** Número de teléfono de contacto del interesado.
        */
       !!@ ili2db.dispName = "Teléfono 2"
       Telefono2 : TEXT*20;
@@ -2516,7 +2520,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Correo electrónico"
       Correo_Electronico : TEXT*100;
-      /** Indica si el interesado autoriza notificación vía correo electrónico
+      /** Indica si el interesado autoriza notificación vía correo electrónico.
        */
       !!@ ili2db.dispName = "Autoriza notificación correo"
       Autoriza_Notificacion_Correo : BOOLEAN;
@@ -2597,7 +2601,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Tipo de oferta"
       Tipo_Oferta : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_OfertaTipo;
-      /** Dato del valor en pesos de la oferta
+      /** Dato del valor en pesos de la oferta.
        */
       !!@ ili2db.dispName = "Valor pedido"
       Valor_Pedido : MANDATORY LADM_COL_V3_1.LADM_Nucleo.Peso;
@@ -2617,6 +2621,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Número de contacto del oferente"
       Numero_Contacto_Oferente : MANDATORY TEXT*20;
+      /** Nombre completo de la persona que está vendiendo o arrendando el inmueble. Para las personas naturales se ingresa primeros los nombres y luego los apellidos, y para las personas jurídicas se ingresa la razón social.
+       */
       !!@ ili2db.dispName = "Nombre del oferente"
       Nombre_Oferente : MANDATORY TEXT*255;
     END LC_OfertasMercadoInmobiliario;
@@ -2635,7 +2641,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Municipio"
       Municipio : MANDATORY TEXT*3;
-      /** Identificador único temporal de cada predio que se asigna en el desarrollo del levantamiento catastral.
+      /** Identificador único temporal de cada predio que se asigna en el desarrollo del levantamiento catastral. Puede ser un atributo en el cual se almacene el NUPRE.
        */
       !!@ ili2db.dispName = "Identificador único de operación"
       Id_Operacion : MANDATORY TEXT*30;
@@ -2685,6 +2691,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Avalúo comercial"
       Avaluo_Comercial : LADM_COL_V3_1.LADM_Nucleo.Peso;
+      /** Indica el tipo predio para efectos catastrales.
+       */
       !!@ ili2db.dispName = "Tipo de predio"
       Tipo (EXTENDED) : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_PredioTipo;
       /** Corresponde a una caracterización temática de las condiciones de predio que se está censando relacionada a aspectos físicos y jurídicos.
@@ -2771,7 +2779,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       MANDATORY CONSTRAINT PuntoTipo <> #Otro ;
     END LC_PuntoLindero;
 
-    /** Restricción legalmente constituida y registrada que afecta el derecho de un persona en relación con el predio.
+    /** Restricción legalmente constituida y registrada que afecta el derecho de una persona en relación con el predio.
      */
     !!@ ili2db.dispName = "Restricción"
     CLASS LC_Restriccion
@@ -2835,7 +2843,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Tipo_Anexo : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_AnexoTipo;
     END LC_CalificacionNoConvencional;
 
-    /** Datos de adicionales del predio para catastro multipropósito
+    /** Datos de adicionales del predio para catastro multipropósito.
      */
     !!@ ili2db.dispName = "Datos adicionales levantamiento catastral"
     CLASS LC_DatosAdicionalesLevantamientoCatastral =
@@ -2986,6 +2994,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       lc_datos_ph -- {0..1} LC_DatosPHCondominio;
     END lc_ph_predio;
 
+    /** Clase que relaciona las unidades prediales a los predios matrices bajo el régimen de propiedad horizontal.
+     */
     ASSOCIATION lc_predio_copropiedad =
       /** Area privada de terreno matriz, adicional a la participación en el terreno común, según el coeficiente allí determinado.
        */
@@ -2993,6 +3003,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Unidades residenciales tales como edificios, conjuntos y tipos de urbanizaciones cerradas en las que se comparten áreas comunes y que tienen régimen de propiedad horizontal.
        */
       matriz -<> {0..1} LC_Predio;
+      /** Coeficiente de copropiedad de la unidad predial.
+       */
       !!@ ili2db.dispName = "Coeficiente"
       Coeficiente : 0.0000000000 .. 1.0000000000;
     END lc_predio_copropiedad;
