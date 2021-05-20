@@ -381,19 +381,19 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Marquesinas_Patios_Cubiertos(
         /** Estructura metálica; cubierta cristalita o vidrio; piso en baldosa fina.
          */
-        !!@ ili2db.dispName = "(Marquesinas) Tipo 80"
+        !!@ ili2db.dispName = "(Marquesinas o Patios Cubiertos) Tipo 80"
         Tipo_80,
         /** Estructura metálica; cubierta en cristalita o vidrio; piso en baldosa común.
          */
-        !!@ ili2db.dispName = "(Marquesinas) Tipo 60"
+        !!@ ili2db.dispName = "(Marquesinas o Patios Cubiertos) Tipo 60"
         Tipo_60,
         /** Estructura metálica; cubierta de eternit y piso en cemento.
          */
-        !!@ ili2db.dispName = "(Marquesinas) Tipo 40"
+        !!@ ili2db.dispName = "(Marquesinas o Patios Cubiertos) Tipo 40"
         Tipo_40,
         /** Estructura en madera; cubierta de zinc o eternit; Piso en baldosín o cemento.
          */
-        !!@ ili2db.dispName = "(Marquesinas) Tipo 20"
+        !!@ ili2db.dispName = "(Marquesinas o Patios Cubiertos) Tipo 20"
         Tipo_20
       ),
       !!@ ili2db.dispName = "Estadios o coliseos - código 43"
@@ -426,7 +426,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Via_Ferrea(
         /** Via férrea de trocha  normal o estándar (4 pies, 8 1/2 pulgadas o 1435 metros) con capacidad de transporte mayor a 50 toneladas, conformada por una capa de balasto, sobre la cual se disponen traviesas de madera que soportan los rieles, entiéndase como trocha a la distancia mínima entre los dos rieles.
          */
-        !!@ ili2db.dispName = "(Anexo) (Vía férrea) Tipo 80"
+        !!@ ili2db.dispName = "(Vía férrea) Tipo 60"
         Tipo_80,
         /** Via férrea de trocha angosta o yardica de 0.915 metros con capacidad menor a 50 toneladas, conformada por una capa de balasto, sobre la cual se disponen traviesas de madera que soportan los rieles, entiéndase como trocha a la distancia mínima entre los dos rieles.
          */
@@ -437,30 +437,30 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Carreteras(
         /** Carretera pavimentada. Compuesta de una subbase granular, base en suelo cemento y carpeta asfáltica, entiéndase por sub-base granular como la capa de material granular situada entre la base del firme y la explanada.
          */
-        !!@ ili2db.dispName = "(Anexo) (Carreteras) Tipo 60"
+        !!@ ili2db.dispName = "(Carreteras) Tipo 60"
         Tipo_60,
         /** Carretera sin pavimento. Compuesta de una sub-base granular, entiéndase por su-base granular como la capa de material granular situada entre la base del firme y la explanada.
          */
-        !!@ ili2db.dispName = "(Anexo) (Carreteras) Tipo 40"
+        !!@ ili2db.dispName = "(Carreteras) Tipo 40"
         Tipo_40
       ),
       !!@ ili2db.dispName = "Cimientos estructura muros placabase"
       Cimientos_Estructura_Muros_Placabase(
         /** Cimientos y estructura soportes verticales (columnas) y horizontales (vigas) destinados a sostener la totalidad o parte de la futura construcción o edificación, acompañados de muros y placas base. Esta tipología se caracteriza por presentar de manera simultánea los 4 elementos (Cimientos, Estructura, Muro o Pared y Losa de Contra piso)
          */
-        !!@ ili2db.dispName = "(Anexo) (Cimientos estructura muros placabase) Tipo 80"
+        !!@ ili2db.dispName = "(Cimientos estructura muros placabase) Tipo 80"
         Tipo_80,
         /** Cimentación y estructura con soportes verticales (columnas) y horizontales (vigas) destinados a sostener la totalidad o parte de la futura construcción o edificación, acompañados de muros o placas base. Esta tipología se caracteriza por presentar de manera simultánea 3 elementos (Cimientos, Estructura, y alguno de estos dos elementos Muro Pared o Losa en Contra piso)
          */
-        !!@ ili2db.dispName = "(Anexo) (Cimientos estructura muros placabase) Tipo 60"
+        !!@ ili2db.dispName = "(Cimientos estructura muros placabase) Tipo 60"
         Tipo_60,
         /** Cimentación sin estructura destinada a sostener la totalidad o parte de una futura construcción o edificación, pueden estar acompañados de muros o placas base. Esta tipología se caracteriza por presentar de manera simultánea 2 elementos (Cimientos y alguno de estos dos elemetnos Muro - Pared o Losa de Contra piso)
          */
-        !!@ ili2db.dispName = "(Anexo) (Cimientos estructura muros placabase) Tipo 40"
+        !!@ ili2db.dispName = "(Cimientos estructura muros placabase) Tipo 40"
         Tipo_40,
         /** Cimentación sin estructura, destinada a sostener la totalidad o parte de una futura construcción o edificación. Esta tipología se caracteriza por presentar un solo elemento, la cimentación.
          */
-        !!@ ili2db.dispName = "(Anexo) (Cimientos estructura muros placabase) Tipo 20"
+        !!@ ili2db.dispName = "(Cimientos estructura muros placabase) Tipo 20"
         Tipo_20
       ),
       !!@ ili2db.dispName = "Estructuras Aeroportuárias - código 43"
@@ -468,22 +468,22 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         /** Radar tipo I, estructura en concreto, piso en mortero afinado
          * Radar tipo II, estructura en concreto, piso en mortero afinado
          */
-        !!@ ili2db.dispName = "(Anexo) (Estructuras aeroportuárias) Tipo 80"
+        !!@ ili2db.dispName = "(Estructuras aeroportuarias) Tipo 80"
         Tipo_80,
         /** Hangar, muros perimetrales en concreto, columnas y vigas de amarre con celosía para cubierta, cubierta en teja termo acústica, piso concreto E= 0.40m CTO. 3000PSI.
          */
-        !!@ ili2db.dispName = "(Anexo) (Estructuras aeroportuárias) Tipo 60"
+        !!@ ili2db.dispName = "(Estructuras aeroportuarias) Tipo 60"
         Tipo_60,
         /** Hangar, Estructura metálica y cercha curva, cubierta en teja termo acústica, piso en concreto E=0.40m CTO 3000PSI.
          */
-        !!@ ili2db.dispName = "(Anexo) (Estructuras aeroportuárias) Tipo 40"
+        !!@ ili2db.dispName = "(Estructuras aeroportuarias) Tipo 40"
         Tipo_40
       ),
       !!@ ili2db.dispName = "Lagunas de oxidación"
       Lagunas_de_Oxidacion(
         /** Lagunas de oxidación que en su construcción requieren excavaciones en la estructura de la laguna, con o sin protección del área de la laguna con geotextil o geomembrana, construcción de diques, protección de los taludes con geotextil o geomembrana y enrocado de taludes.
          */
-        !!@ ili2db.dispName = "(Anexo) (Lagunas de oxidación) Tipo 20"
+        !!@ ili2db.dispName = "(Lagunas de oxidación) Tipo 20"
         Tipo_20
       )
     );
@@ -1884,7 +1884,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Que tiene órganos para ser fecundado.
        */
       !!@ ili2db.dispName = "Femenino"
-      Femenino
+      Femenino,
+      /** Corresponde a los datos sobre los cuales no se logró evidenciar el sexo, femenino o masculino, por no existir el soporte respectivo.
+       */
+      !!@ ili2db.dispName = "Sin determinar"
+      Sin_Determinar
     );
 
     CR_TipologiaTipo = (
@@ -2605,7 +2609,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Geometria (EXTENDED) : ISO19107_PLANAS_V3_0.GM_MultiSurface3D;
     END CR_Construccion;
 
-    /** Clase que contiene los datos principales del predio matriz sometido al regimen de propiedad horizontal.
+    /** Clase que contiene los datos principales del predio matriz sometido al régimen de propiedad horizontal.
      */
     !!@ ili2db.dispName = "Datos PH Condominio"
     CLASS CR_DatosPHCondominio =
@@ -2772,7 +2776,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Fraccion_Informalidad : MANDATORY 0.0000000000 .. 1.0000000000;
     END CR_Informalidad;
 
-    /** Es la parte que tiene una relación con el predio por algún tipo de derecho, restricción, publicidad o responsabilidad
+    /** Es la parte que tiene una relación con el predio por algún tipo de derecho, restricción, publicidad o responsabilidad.
      */
     !!@ ili2db.dispName = "Interesado"
     CLASS CR_Interesado
@@ -3200,7 +3204,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Tipo : MANDATORY Modelo_Extendido_LADMCOL_Cat_Reg_V3_1.CR_ResponsabilidadTipo;
     END CR_Responsabilidad;
 
-    /** Es una prohibición específica relacionada con un predio.
+    /** Restricción legalmente constituida y registrada que afecta el derecho de una persona en relación con el predio.
      */
     !!@ ili2db.dispName = "Restricción"
     CLASS CR_Restriccion
@@ -3272,6 +3276,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       cr_datos_ph -- {0..1} CR_DatosPHCondominio;
     END cr_ph_predio;
 
+    /** Relación entre unidades prediales y predios matrices bajo el régimen de propiedad horizontal y condominio.
+     */
     ASSOCIATION cr_predio_copropiedad =
       /** Area privada de terreno matriz, adicional a la participación en el terreno común, según el coeficiente allí determinado.
        */
@@ -3279,6 +3285,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Unidades residenciales tales como edificios, conjuntos y tipos de urbanizaciones cerradas en las que se comparten áreas comunes y que tienen régimen de propiedad horizontal.
        */
       matriz -<> {0..1} CR_Predio;
+      /** Coeficiente de copropiedad de la unidad predial.
+       */
       !!@ ili2db.dispName = "Coeficiente"
       Coeficiente : 0.0000000000 .. 1.0000000000;
     END cr_predio_copropiedad;

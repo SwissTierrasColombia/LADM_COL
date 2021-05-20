@@ -468,15 +468,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         /** Radar tipo I, estructura en concreto, piso en mortero afinado
          * Radar tipo II, estructura en concreto, piso en mortero afinado
          */
-        !!@ ili2db.dispName = "(Estructuras aeroportuárias) Tipo 80"
+        !!@ ili2db.dispName = "(Estructuras aeroportuarias) Tipo 80"
         Tipo_80,
         /** Hangar, muros perimetrales en concreto, columnas y vigas de amarre con celosía para cubierta, cubierta en teja termo acústica, piso concreto E= 0.40m CTO. 3000PSI.
          */
-        !!@ ili2db.dispName = "(Estructuras aeroportuárias) Tipo 60"
+        !!@ ili2db.dispName = "(Estructuras aeroportuarias) Tipo 60"
         Tipo_60,
         /** Hangar, Estructura metálica y cercha curva, cubierta en teja termo acústica, piso en concreto E=0.40m CTO 3000PSI.
          */
-        !!@ ili2db.dispName = "(Estructuras aeroportuárias) Tipo 40"
+        !!@ ili2db.dispName = "(Estructuras aeroportuarias) Tipo 40"
         Tipo_40
       ),
       !!@ ili2db.dispName = "Lagunas de oxidación"
@@ -1483,7 +1483,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Corresponde a los datos sobre los cuales no se logró evidenciar el sexo, femenino o masculino, por no existir el soporte respectivo.
        */
       !!@ ili2db.dispName = "Sin determinar"
-      Sin_determinar
+      Sin_Determinar
     );
 
     LC_TipologiaTipo = (
@@ -2994,7 +2994,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       lc_datos_ph -- {0..1} LC_DatosPHCondominio;
     END lc_ph_predio;
 
-    /** Clase que relaciona las unidades prediales a los predios matrices bajo el régimen de propiedad horizontal.
+    /** Relación entre unidades prediales y predios matrices bajo el régimen de propiedad horizontal y condominio.
      */
     ASSOCIATION lc_predio_copropiedad =
       /** Area privada de terreno matriz, adicional a la participación en el terreno común, según el coeficiente allí determinado.
