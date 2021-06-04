@@ -62,11 +62,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     /** Valores para indicar el nivel de acuerdo
      */
     LC_AcuerdoTipo = (
-      /** Existe un acuerdo sobre la posición del punto
+      /** Existe un acuerdo sobre la posición del punto.
        */
       !!@ ili2db.dispName = "Acuerdo"
       Acuerdo,
-      /** Existe un desacuerdo sobre la posición del punto
+      /** Existe un desacuerdo sobre la posición del punto.
        */
       !!@ ili2db.dispName = "Desacuerdo"
       Desacuerdo
@@ -123,15 +123,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Establos o pesebreras) Tipo 80"
         Tipo_80,
-        /** Estructura en bloque, ladrillo o madera fina; cubierta de zinc, eternit o teja de barro muros en bloque o ladrillo, pisos de cemento, conservación en general buena o regular
+        /** Estructura en bloque, ladrillo o madera fina; cubierta de zinc, eternit o teja de barro muros en bloque o ladrillo, pisos de cemento, conservación en general buena o regular.
          */
         !!@ ili2db.dispName = "(Establos o pesebreras) Tipo 60"
         Tipo_60,
-        /** Estructura en ladrillo cubierta  de  zinc,  eternit  o  teja  de  barro  muros de ladrillo, pisos en tierra, conservación regular a mala.
+        /** Estructura en ladrillo cubierta de zinc, eternit o teja de barro muros de ladrillo, pisos en tierra, conservación regular a mala.
          */
         !!@ ili2db.dispName = "(Establos o pesebreras) Tipo 40"
         Tipo_40,
-        /** Estructura en madera cubierta de  zinc,  eternit  o  teja  de  barro  muros en madera, pisos en tierra, conservación regular a mala.
+        /** Estructura en madera cubierta de zinc, eternit o teja de barro muros en madera, pisos en tierra, conservación regular a mala.
          */
         !!@ ili2db.dispName = "(Establos o pesebreras) Tipo 20"
         Tipo_20
@@ -161,11 +161,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Silos - código 08"
       Silos(
-        /** Estructura en ferroconcreto metálica
+        /** Estructura en ferroconcreto metálica.
          */
         !!@ ili2db.dispName = "(Silos) Tipo 80"
         Tipo_80,
-        /** Estructura en concreto
+        /** Estructura en concreto.
          */
         !!@ ili2db.dispName = "(Silos) Tipo 60"
         Tipo_60
@@ -241,7 +241,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Secaderos) Tipo 60"
         Tipo_60,
-        /** Estructura en madera pisos en tierra oreador con especificaciones mínimas; estado de conservación regular a mala. Dentro de este tipo se consideran as condiciones de los tipos anteriores, que se encuentran en regular a mal estado de conservación
+        /** Estructura en madera pisos en tierra oreador con especificaciones mínimas; estado de conservación regular a mala. Dentro de este tipo se consideran as condiciones de los tipos anteriores, que se encuentran en regular a mal estado de conservación.
          */
         !!@ ili2db.dispName = "(Secaderos) Tipo 40"
         Tipo_40
@@ -254,7 +254,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Kioskos) Tipo 80"
         Tipo_80,
-        /** Estructura metálica; todo tipo de cubiertas; piso en cemento; estado de conservación bueno a regular
+        /** Estructura metálica; todo tipo de cubiertas; piso en cemento; estado de conservación bueno a regular.
          */
         !!@ ili2db.dispName = "(Kioskos) Tipo 60"
         Tipo_60,
@@ -275,7 +275,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Albercas o bañaderas) Tipo 80"
         Tipo_80,
-        /** Estructura en ladrillo; cubierta en zinc, eternit o teja de barro; piso  en cemento; conservación buena a regular.
+        /** Estructura en ladrillo; cubierta en zinc, eternit o teja de barro; piso en cemento; conservación buena a regular.
          */
         !!@ ili2db.dispName = "(Albercas o bañaderas) Tipo 60"
         Tipo_60,
@@ -300,7 +300,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Corrales) Tipo 40"
         Tipo_40,
-        /** Estructura en madera burda, pisos en tierra y conservación general regular a mala
+        /** Estructura en madera burda, pisos en tierra y conservación general regular a mala.
          */
         !!@ ili2db.dispName = "(Corrales) Tipo 20"
         Tipo_20
@@ -309,15 +309,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Pozos - código 20"
       Pozos(
-        /** Pozo de profundidad aproximada a 40 m, revestido en concreto, con tubería, anillado 100% , diámetro pozo de 2m
+        /** Pozo de profundidad aproximada a 40 m, revestido en concreto, con tubería, anillado 100% , diámetro pozo de 2m.
          */
         !!@ ili2db.dispName = "(Pozos) Tipo 80"
         Tipo_80,
-        /** Pozo de profundidad aproximada 20 m, revestido en concreto, con tubería, anillado 100 % , diámetro pozo < 2m
+        /** Pozo de profundidad aproximada 20 m, revestido en concreto, con tubería, anillado 100 % , diámetro pozo < 2m.
          */
         !!@ ili2db.dispName = "(Pozos) Tipo 60"
         Tipo_60,
-        /** Pozo profundidad < a 10m, sin revestimiento ni anillar, diámetro pozo de 2m
+        /** Pozo profundidad < a 10m, sin revestimiento ni anillar, diámetro pozo de 2m.
          */
         !!@ ili2db.dispName = "(Pozos) Tipo 40"
         Tipo_40
@@ -330,11 +330,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Muelles - código 48"
       Muelles(
-        /** Muelle, estructura en concreto, piso en madera deck para exteriores
+        /** Muelle, estructura en concreto, piso en madera deck para exteriores.
          */
         !!@ ili2db.dispName = "(Muelles) Tipo 80"
         Tipo_80,
-        /** Muelle, estructura y piso en concreto
+        /** Muelle, estructura y piso en concreto.
          */
         !!@ ili2db.dispName = "(Muelles) Tipo 60"
         Tipo_60,
@@ -343,6 +343,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Muelles) Tipo 40"
         Tipo_40
       ),
+      /** Campo de juego donde se juega al tenis. Se trata de una superficie rectangular cruzada al medio por una red baja. La cancha suele estar preparada y marcada para practicar tanto individuales como dobles.
+       */
       !!@ ili2db.dispName = "Canchas de tenis - código 60"
       CanchasTenis(
         /** Cancha de tenis en polvo de ladrillo, incluye cerramiento en malla eslabonada.
@@ -396,6 +398,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Marquesinas o Patios Cubiertos) Tipo 20"
         Tipo_20
       ),
+      /** Teatro o edificio destinado a espectáculos con capacidad para un gran número de personas.
+       */
       !!@ ili2db.dispName = "Estadios o coliseos - código 43"
       Estadios_Coliseos(
         /** Estadio, estructura en concreto reforzado, graderías, con o sin cubierta parcial, capacidad mayor a 8.000 personas.
@@ -413,11 +417,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       ),
       !!@ ili2db.dispName = "Plaza de toros - código 43"
       Plazas_de_Toros(
-        /** Plaza de toros con estructura en concreto y madera capacidad de más de 10000 espectadores
+        /** Plaza de toros con estructura en concreto y madera capacidad de más de 10000 espectadores.
          */
         !!@ ili2db.dispName = "(Plaza de toros) Tipo 80"
         Tipo_80,
-        /** Plaza de toros para corralejas, estructura en madera capacidad menor a 4000 estructura en concreto y madera capacidad
+        /** Plaza de toros para corralejas, estructura en madera capacidad menor a 4000 estructura en concreto y madera capacidad.
          */
         !!@ ili2db.dispName = "(Plaza de toros) Tipo 20"
         Tipo_20
@@ -433,6 +437,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Vía férrea) Tipo 60"
         Tipo_60
       ),
+      /** Infraestructura del transporte cuya finalidad es permitir la circulación de vehículos en condiciones de continuidad en el espacio y el tiempo, con niveles adecuados de seguridad y de comodidad.
+       */
       !!@ ili2db.dispName = "Carreteras"
       Carreteras(
         /** Carretera pavimentada. Compuesta de una subbase granular, base en suelo cemento y carpeta asfáltica, entiéndase por sub-base granular como la capa de material granular situada entre la base del firme y la explanada.
@@ -446,15 +452,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       ),
       !!@ ili2db.dispName = "Cimientos estructura muros placabase"
       Cimientos_Estructura_Muros_Placabase(
-        /** Cimientos y estructura soportes verticales (columnas) y horizontales (vigas) destinados a sostener la totalidad o parte de la futura construcción o edificación, acompañados de muros y placas base. Esta tipología se caracteriza por presentar de manera simultánea los 4 elementos (Cimientos, Estructura, Muro o Pared y Losa de Contra piso)
+        /** Cimientos y estructura soportes verticales (columnas) y horizontales (vigas) destinados a sostener la totalidad o parte de la futura construcción o edificación, acompañados de muros y placas base. Esta tipología se caracteriza por presentar de manera simultánea los 4 elementos (Cimientos, Estructura, Muro o Pared y Losa de Contra piso).
          */
         !!@ ili2db.dispName = "(Cimientos estructura muros placabase) Tipo 80"
         Tipo_80,
-        /** Cimentación y estructura con soportes verticales (columnas) y horizontales (vigas) destinados a sostener la totalidad o parte de la futura construcción o edificación, acompañados de muros o placas base. Esta tipología se caracteriza por presentar de manera simultánea 3 elementos (Cimientos, Estructura, y alguno de estos dos elementos Muro Pared o Losa en Contra piso)
+        /** Cimentación y estructura con soportes verticales (columnas) y horizontales (vigas) destinados a sostener la totalidad o parte de la futura construcción o edificación, acompañados de muros o placas base. Esta tipología se caracteriza por presentar de manera simultánea 3 elementos (Cimientos, Estructura, y alguno de estos dos elementos Muro Pared o Losa en Contra piso).
          */
         !!@ ili2db.dispName = "(Cimientos estructura muros placabase) Tipo 60"
         Tipo_60,
-        /** Cimentación sin estructura destinada a sostener la totalidad o parte de una futura construcción o edificación, pueden estar acompañados de muros o placas base. Esta tipología se caracteriza por presentar de manera simultánea 2 elementos (Cimientos y alguno de estos dos elemetnos Muro - Pared o Losa de Contra piso)
+        /** Cimentación sin estructura destinada a sostener la totalidad o parte de una futura construcción o edificación, pueden estar acompañados de muros o placas base. Esta tipología se caracteriza por presentar de manera simultánea 2 elementos (Cimientos y alguno de estos dos elemetnos Muro - Pared o Losa de Contra piso).
          */
         !!@ ili2db.dispName = "(Cimientos estructura muros placabase) Tipo 40"
         Tipo_40,
@@ -463,22 +469,26 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Cimientos estructura muros placabase) Tipo 20"
         Tipo_20
       ),
+      /** La infraestructura básica aeroportuaria está formada por las pistas, las pistas de carreteo, la zona de aparcamiento de los aviones, los puentes de embarque, las terminales de pasajeros y de carga y los intercambios de transporte en tierra.
+       */
       !!@ ili2db.dispName = "Estructuras Aeroportuárias - código 43"
       Estructuras_Aeroportuarias(
         /** Radar tipo I, estructura en concreto, piso en mortero afinado
-         * Radar tipo II, estructura en concreto, piso en mortero afinado
+         * Radar tipo II, estructura en concreto, piso en mortero afinado.
          */
-        !!@ ili2db.dispName = "(Estructuras aeroportuarias) Tipo 80"
+        !!@ ili2db.dispName = "(Estructuras aeroportuárias) Tipo 80"
         Tipo_80,
         /** Hangar, muros perimetrales en concreto, columnas y vigas de amarre con celosía para cubierta, cubierta en teja termo acústica, piso concreto E= 0.40m CTO. 3000PSI.
          */
-        !!@ ili2db.dispName = "(Estructuras aeroportuarias) Tipo 60"
+        !!@ ili2db.dispName = "(Estructuras aeroportuárias) Tipo 60"
         Tipo_60,
         /** Hangar, Estructura metálica y cercha curva, cubierta en teja termo acústica, piso en concreto E=0.40m CTO 3000PSI.
          */
-        !!@ ili2db.dispName = "(Estructuras aeroportuarias) Tipo 40"
+        !!@ ili2db.dispName = "(Estructuras aeroportuárias) Tipo 40"
         Tipo_40
       ),
+      /** Sistema de contención y cobertura para el tratamiento de aguas residuales con geomembranas lisas y texturadas de polietileno de alta y baja densidad.
+       */
       !!@ ili2db.dispName = "Lagunas de oxidación"
       Lagunas_de_Oxidacion(
         /** Lagunas de oxidación que en su construcción requieren excavaciones en la estructura de la laguna, con o sin protección del área de la laguna con geotextil o geomembrana, construcción de diques, protección de los taludes con geotextil o geomembrana y enrocado de taludes.
@@ -573,7 +583,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "No propiedad horizontal"
       NPH,
-      /** Predio sometido al régimen de propiedad horizontal mediante escritura pública registrada
+      /** Predio sometido al régimen de propiedad horizontal mediante escritura pública registrada.
        */
       !!@ ili2db.dispName = "Propiedad horizontal"
       PH(
@@ -581,7 +591,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Propiedad horizontal) Matriz"
         Matriz,
-        /** Apartamento, garaje, depósito o cualquier otro tipo de unidad predial dentro del PH que se encuentra debidamente inscrito en el registro de instrumentos públicos
+        /** Apartamento, garaje, depósito o cualquier otro tipo de unidad predial dentro del PH que se encuentra debidamente inscrito en el registro de instrumentos públicos.
          */
         !!@ ili2db.dispName = "(Propiedad horizontal) Unidad Predial"
         Unidad_Predial
@@ -612,7 +622,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Parque Cementerio) Unidad predial"
         Unidad_Predial
       ),
-      /** Espacio (terreno y construcción) diseñado y destinado para el tránsito de vehículos, personas, entre otros
+      /** Espacio (terreno y construcción) diseñado y destinado para el tránsito de vehículos, personas, entre otros.
        */
       !!@ ili2db.dispName = "Vía"
       Via,
@@ -688,6 +698,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Agroindustrial"
       Agroindustrial,
+      /** Predios con destinación agrícola y pecuaria.
+       */
+      !!@ ili2db.dispName = "Agropecuario"
+      Agropecuario,
       /** Se califica con destino agroforestal, aquellos predios destinados al establecimiento y aprovechamiento combinado de especies forestales con actividades agrícolas o pecuarias con arreglos diferenciados. Incluye la actividad agrosilvícola, silvopastoril y agrosilvopastoril.
        */
       !!@ ili2db.dispName = "Agroforestal"
@@ -704,7 +718,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Educativo"
       Educativo,
-      /** Se califica con destino forestal, aquellos predios con áreas naturales o seminaturales, constituidas principalmente por elementos arbóreos de especies nativas, exóticas e introducidas.  Incluye las plantaciones forestales comerciales y los bosques naturales y seminaturales.
+      /** Se califica con destino forestal, aquellos predios con áreas naturales o seminaturales, constituidas principalmente por elementos arbóreos de especies nativas, exóticas e introducidas. Incluye las plantaciones forestales comerciales y los bosques naturales y seminaturales.
        */
       !!@ ili2db.dispName = "Forestal"
       Forestal,
@@ -726,7 +740,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Infraestructura_Hidraulica,
       /** Se califica con destino infraestructura de saneamiento básico, aquellos predios sobre los cuales se encuentra establecida la infraestructura para el saneamiento básico, con excepción del alcantarillado. Incluye los centros de acopio de basura y material reciclable, rellenos sanitarios e incineradoras.
        */
-      !!@ ili2db.dispName = "Infraestructura saneamiento"
+      !!@ ili2db.dispName = "Infraestructura de saneamiento básico"
       Infraestructura_Saneamiento_Basico,
       /** Se califica con destino infraestructura de seguridad, aquellos predios sobre los cuales se encuentra establecida infraestructura destina a salvaguardar el orden público. Incluye las estaciones de policía, batallones, cárceles, etc.
        */
@@ -768,7 +782,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Religioso"
       Religioso,
-      /** Se califica con destino salubridad, aquellos predios destinados al cuidado de la salud de los ciudadanos, incluye los hospitales, centros de salud, clínicas, laboratorios y consultorios que prestan el servicio de salud tanto carácter público o privado
+      /** Se califica con destino salubridad, aquellos predios destinados al cuidado de la salud de los ciudadanos, incluye los hospitales, centros de salud, clínicas, laboratorios y consultorios que prestan el servicio de salud tanto carácter público o privado.
        */
       !!@ ili2db.dispName = "Salubridad"
       Salubridad,
@@ -809,11 +823,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     );
 
     LC_EstadoConservacionTipo = (
-      /** Se agrupan en este concepto, aquellas estructuras con el mayor grado de deterioro que se puedan encontrar, en condiciones precarias lo cual las hace prácticamente inhabitables.  Generalmente se presenta en construcciones antiguas o con material de muy mala calidad.
+      /** Se agrupan en este concepto, aquellas estructuras con el mayor grado de deterioro que se puedan encontrar, en condiciones precarias lo cual las hace prácticamente inhabitables. Generalmente se presenta en construcciones antiguas o con material de muy mala calidad.
        */
       !!@ ili2db.dispName = "Malo"
       Malo,
-      /** En esta categoría, se clasifican aquellas estructuras que tienen algunos daños menores, (agrietamiento de paredes, hundimiento de pisos, etc.) pero que todavía se encuentran en condiciones aceptables, sin peligros eminentes o exigencias imperativa de reparaciones inmediatas.  Se presenta con frecuencia en construcciones más o menos antiguas o materiales de regular calidad.
+      /** En esta categoría, se clasifican aquellas estructuras que tienen algunos daños menores, (agrietamiento de paredes, hundimiento de pisos, etc.) pero que todavía se encuentran en condiciones aceptables, sin peligros eminentes o exigencias imperativa de reparaciones inmediatas. Se presenta con frecuencia en construcciones más o menos antiguas o materiales de regular calidad.
        */
       !!@ ili2db.dispName = "Regular"
       Regular,
@@ -847,7 +861,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Visible"
       Visible,
-      /** Demarcación estimada mediante la interpretación de coberturas  de un área con un punto en un proceso de fotoidentificación.
+      /** Demarcación estimada mediante la interpretación de coberturas de un área con un punto en un proceso de fotoidentificación.
        */
       !!@ ili2db.dispName = "Estimado"
       Estimado
@@ -949,14 +963,24 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Armazón"
       Armazon(
+        /** El adobe, bahareque, tapia, califíquelos con el puntaje correspondiente a madera.
+         */
         !!@ ili2db.dispName = "(Armazón) Madera"
         Madera,
+        /** Materiales prefabricados.
+         */
         !!@ ili2db.dispName = "(Armazón) Prefabricado"
         Prefabricado,
+        /** En el caso de tener muros de carga en ladrillo, califíquelos como armazón de ladrillo.
+         */
         !!@ ili2db.dispName = "(Armazón) Ladrillo, bloque"
         Ladrillo_Bloque,
+        /** En el caso de tener muros de carga en ladrillo, califíquelos como armazón de ladrillo.  En aquellas viviendas de hasta tres pisos y en donde se observe, vigas, columnas y planchas se colocan en la opción “concreto hasta tres pisos”.
+         */
         !!@ ili2db.dispName = "(Armazón) Concreto hasta tres pisos"
         Concreto_Hasta_Tres_Pisos,
+        /** La máxima calificación será para edificaciones de concreto de 4 o más pisos.
+         */
         !!@ ili2db.dispName = "(Armazón) Concreto cuatro o más pisos"
         Concreto_Cuatro_O_Mas_Pisos
       ),
@@ -964,31 +988,81 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Muros"
       Muros(
+        /** Muros de materiales de desecho o esterilla.
+         */
         !!@ ili2db.dispName = "(Muros) Materiales de desecho, esterilla"
         Materiales_Desecho_Esterilla,
+        /** Muros de bahareque o adobe o tapia.
+         */
         !!@ ili2db.dispName = "(Muros) Bahareque, adobe, tapia"
         Bahareque_Adobe_Tapia,
+        /** Muros de madera.
+         */
         !!@ ili2db.dispName = "(Muros) Madera"
         Madera,
+        /** Muros de concreto prefrabricado.
+         */
         !!@ ili2db.dispName = "(Muros) Concreto prefabricado"
         Concreto_Prefabricado,
+        /** Muros de bloque o ladrillo.
+         */
         !!@ ili2db.dispName = "(Muros) Bloque, ladrillo"
         Bloque_Ladrillo
       ),
-      /** Techo exterior o tejado de la edificación
+      /** Techo exterior o tejado de la edificación.
        */
       !!@ ili2db.dispName = "Cubierta"
       Cubierta(
+        /** Cubierta características del estrado bajo-bajo, conformadas o construidas con elementos cuya función no es propiamente la de cubierta pero en casos extremos pueden servir como tales,  similarmente son utilizadas las tejas o telas asfálticas, que son los materiales más económicos del mercado y se ajustan a condiciones de vivienda humilde (ranchos) o construcciones provisionales (ramadas, caedizos, etc.).
+         */
         !!@ ili2db.dispName = "(Cubierta) Materiales de desecho, telas asfalticas"
         Materiales_Desecho_Telas_Asfalticas,
+        /** Materiales normalmente utilizados en la construcción de vivienda de estrato bajo, o provenientes de estratos más altos en decadencia.
+         * 
+         *  a-  Zinc.
+         * 
+         * Teja metálica económica colocada sobre infraestructura normalmente rústica y sencilla generalmente de madera.
+         * 
+         * b- Teja de barro.
+         * 
+         * Se clasifica en este aparte, la cubierta en teja de barro antigua caracterizada por su evidente deterioro; se le encuentra en la mayoría de los casos recubierta de musgo o lama, colocada sobre infraestructura también antigua de esterilla de guadua o caña brava, sistema evidentemente obsoleto.
+         * 
+         * c- Eternit rústico.
+         * 
+         * Se clasifica así no la calidad del eternit, sino la infraestructura sobre la cual se colocan las láminas que generalmente son de madera basta, sin canales ni bajantes y en la mayoría de los casos sin cielo raso.
+         */
         !!@ ili2db.dispName = "(Cubierta) Zinc, teja de barro, eternit rústico"
         Zinc_Teja_De_Barro_Eternit_Rustico,
+        /** Son planchas de concreto construidas como piso, de nivel superior no construido y utilizadas por período más o menos largo como cubierta provisional, algunas veces con adecuaciones sencillas, como pequeños muros que ejercen la función de barda, normalmente se aprecian las salientes de las varillas que reforzarán las construcciones del siguiente piso.  Además se encuentran cubiertas prefabricadas que se deben calificar con el mismo puntaje.
+         */
         !!@ ili2db.dispName = "(Cubierta) Entrepiso (cubierta provisional) prefabricado"
         Entrepiso_Cubierta_Provisional_Prefabricado,
+        /** Este tipo de cubiertas se caracterizan por ser relativamente nuevas, homogéneas en toda su extensión y con muestras de acabados más o menos buenos.  Se encuentran normalmente en programas masivos de vivienda pertenecientes a estratos medio-bajo y medio (nunca en estrato bajo); su estructura se diferencia de la clasificación en el punto dos por las siguientes condiciones:
+         * 
+         * - Mayor solidez en su infraestructura que aún siendo en madera demuestra ser construida con cierta técnica.
+         * 
+         * - Condiciones satisfactorias de acabado, con adecuados revocados e instalación de canales y bajantes.
+         * 
+         * - Se encuentra cielo raso.
+         */
         !!@ ili2db.dispName = "(Cubierta) Eternit o teja de barro (cubierta sencilla)"
         Eternit_O_Teja_De_Barro_Cubierta_Sencilla,
+        /** En este aparte se agrupan los tipos de cubiertas característicos de estratos medio-bajo, medio-alto y medio-medio.
+         * 
+         * a- Azotea: Tipo de cubierta, con acceso definido, pisos, muros y barandas como parte del acabado y construido con ese fin específico.  Si no posee estas condiciones se tomará como entrepiso cubierta provisional.
+         * 
+         * b- Placa sencilla con eternit o con teja de barro nueva.  De común aplicación en construcciones nuevas o medianamente nuevas, es una placa delgada de concreto y algunas veces aligerada e impermeabilizada y otras recubierta en eternit o teja de barro nueva.
+         */
         !!@ ili2db.dispName = "(Cubierta) Azotea, aluminio, placa sencilla con eternit o teja de barro"
         Azotea_Aluminio_Placa_Sencilla_Con_Eternit,
+        /** En este grupo se consideran los tipos de cubierta que caracterizan las viviendas del estrato alto y algunas del medio alto.
+         * 
+         * a- Placa impermeabilizada.  Es una plancha de concreto evidentemente sólida, la condición especial de esta placa es el de estar impermeabilizada lo cual conjuntamente con su solidez, la diferencia ampliamente de la placa sencilla anunciada en el grupo anterior.
+         * 
+         * b- Cubierta lujosa.  En algunos casos, la placa de concreto en vez de ser impermeabilizada es recubierta con teja de barro nueva o con algún material costoso como la paja.
+         * 
+         * c- Cubierta ornamental.  Se presentan cubiertas en materiales bastantes costosos, buscando adornar la construcción dándole matices de elegancia y atractivo.  Pueden encontrarse con o sin placa de concreto pero su valor permite clasificarlos en ese grupo.
+         */
         !!@ ili2db.dispName = "(Cubierta) Placa imperbeabilizada cubierta lujosa u ornamental"
         Placa_Impermeabilizada_Cubierta_Lujosa_U_Ornamental
       ),
@@ -996,45 +1070,45 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Fachada"
       Fachada(
-        /** -Puerta:  Fabricada con materiales como: Maderas burdas, lámina de zinc, lata o latones carecen por completo de lujos.
+        /** Puerta: Fabricada con materiales como: Maderas burdas, lámina de zinc, lata o latones carecen por completo de lujos.
          * 
-         * -Ventanas:  En la gran mayoría de casos son pequeñas, en madera burda o ángulo de hierro sencillo.
+         * Ventanas: En la gran mayoría de casos son pequeñas, en madera burda o ángulo de hierro sencillo.
          * 
-         * -Cubrimiento del muro:  Generalmente los muros no tienen cubrimiento, se presentan con ladrillo corrientes o bloque a la vista y en algunos casos pintura de cal o carburo directamente sobre el ladrillo, y en ocasiones pañete sin pintar o con pinturas muy económicas.
+         * Cubrimiento del muro: Generalmente los muros no tienen cubrimiento, se presentan con ladrillo corrientes o bloque a la vista y en algunos casos pintura de cal o carburo directamente sobre el ladrillo, y en ocasiones pañete sin pintar o con pinturas muy económicas.
          */
         !!@ ili2db.dispName = "(Fachada) Pobre"
         Pobre,
-        /** -Puerta:  En maderas sin trabajar o láminas metálicas sin ornamentación
+        /** Puerta: En maderas sin trabajar o láminas metálicas sin ornamentación
          * 
-         * -Ventanas:  Pequeñas o de regular tamaño, en madera sin trabajo ornamental o metal con pintura de aceite.
+         * Ventanas: Pequeñas o de regular tamaño, en madera sin trabajo ornamental o metal con pintura de aceite.
          * 
-         * -Cubrimiento de muros:  En la mayoría de los casos se encuentran pañetes con pinturas económicas, o ladrillo prensado a la vista, generalmente un solo plano en el frente.
+         * Cubrimiento de muros: En la mayoría de los casos se encuentran pañetes con pinturas económicas, o ladrillo prensado a la vista, generalmente un solo plano en el frente.
          */
         !!@ ili2db.dispName = "(Fachada) Sencilla"
         Sencilla,
-        /** -Puerta de distintos tamaños, construidas en madera elaborada, o metal en lámina doblada, con rejas en ornamentación metálica en la mayoría de los casos.
+        /** Puerta de distintos tamaños, construidas en madera elaborada, o metal en lámina doblada, con rejas en ornamentación metálica en la mayoría de los casos.
          * 
-         * -Cubrimiento:  Se encuentran frecuentemente pañetados y enlucidos con pintura de regular calidad; en urbanizaciones se utiliza bastante el pañete rústico pintado con cal o carburo.  Otras opciones son: En ladrillo prensado a la vista, el granito y la chapa de piedra de presentación sencilla.  Hasta dos planos enfrente y con una longitud entre 7 y 8 mts, con antejardín, donde la puerta de garaje forma parte integral de esta fachada.
+         * Cubrimiento: Se encuentran frecuentemente pañetados y enlucidos con pintura de regular calidad; en urbanizaciones se utiliza bastante el pañete rústico pintado con cal o carburo. Otras opciones son: En ladrillo prensado a la vista, el granito y la chapa de piedra de presentación sencilla. Hasta dos planos enfrente y con una longitud entre 7 y 8 mts, con antejardín, donde la puerta de garaje forma parte integral de esta fachada.
          */
         !!@ ili2db.dispName = "(Fachada) Regular"
         Regular,
-        /** -Puertas en maderas con cierto trabajo manual; en algunos casos en lámina prensada (pintada en aceite o en muy pocos casos al duco) con metal ornamentado y vidrio martillado.
+        /** Puertas en maderas con cierto trabajo manual; en algunos casos en lámina prensada (pintada en aceite o en muy pocos casos al duco) con metal ornamentado y vidrio martillado.
          * 
-         * -Ventanas:  Amplias, en lámina prensada o madera trabajada, pintura de aceite.  Las ventanas ocupan buena parte del frente y la fachada.
+         * Ventanas: Amplias, en lámina prensada o madera trabajada, pintura de aceite.  Las ventanas ocupan buena parte del frente y la fachada.
          * 
-         * -Cubrimiento:  Pañete en cemento, pintura en vinilo, ladrillo prensado a la vista pintado en aceite, granito rústico fino pintado en vinilo, piedra pulida.
+         * Cubrimiento: Pañete en cemento, pintura en vinilo, ladrillo prensado a la vista pintado en aceite, granito rústico fino pintado en vinilo, piedra pulida.
          * 
-         * -La fachada presenta varios planos y tiene una longitud entre 10 y 14 mts, en el cual la puerta del garaje, en ocasiones doble, participa en forma importante.
+         * La fachada presenta varios planos y tiene una longitud entre 10 y 14 mts, en el cual la puerta del garaje, en ocasiones doble, participa en forma importante.
          */
         !!@ ili2db.dispName = "(Fachada) Buena"
         Buena,
-        /** -Puertas en maderas con cierto trabajo manual; en algunos casos en lámina prensada (pintada en aceite o en muy pocos casos al duco) con metal ornamentado y vidrio martillado.
+        /** Puertas en maderas con cierto trabajo manual; en algunos casos en lámina prensada (pintada en aceite o en muy pocos casos al duco) con metal ornamentado y vidrio martillado.
          * 
-         * -Ventanas:  Amplias, en lámina prensada o madera trabajada, pintura de aceite.  Las ventanas ocupan buena parte del frente y la fachada.
+         * Ventanas: Amplias, en lámina prensada o madera trabajada, pintura de aceite.  Las ventanas ocupan buena parte del frente y la fachada.
          * 
-         * -Cubrimiento:  Pañete en cemento, pintura en vinilo, ladrillo prensado a la vista pintado en aceite, granito rústico fino pintado en vinilo, piedra pulida.
+         * Cubrimiento: Pañete en cemento, pintura en vinilo, ladrillo prensado a la vista pintado en aceite, granito rústico fino pintado en vinilo, piedra pulida.
          * 
-         * -La fachada presenta varios planos y tiene una longitud entre 10 y 14 mts, en el cual la puerta del garaje, en ocasiones doble, participa en forma importante.
+         * La fachada presenta varios planos y tiene una longitud entre 10 y 14 mts, en el cual la puerta del garaje, en ocasiones doble, participa en forma importante.
          */
         !!@ ili2db.dispName = "(Fachada) Lujosa"
         Lujosa
@@ -1051,14 +1125,24 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Cubrimiento de muros"
       Cubrimiento_Muros(
+        /** Muros sin cubrimiento.
+         */
         !!@ ili2db.dispName = "(Cubrimiento de muros) Sin cubrimiento"
         Sin_Cubrimiento,
+        /** Muros con pañeteo papel comun o ladrillo prensado.
+         */
         !!@ ili2db.dispName = "(Cubrimiento de muros) Pañete, papel común, ladrillo prensado"
         Paniete_Papel_Comun_Ladrillo_Prensado,
+        /** Muros estucados con ceramica o papel fino.
+         */
         !!@ ili2db.dispName = "(Cubrimiento de muros) Estuco, cerámica, papel fino"
         Estuco_Ceramica_Papel_Fino,
+        /** Muros con madera o piedra ornamental.
+         */
         !!@ ili2db.dispName = "(Cubrimiento de muros) Madera, piedra ornamental"
         Madera_Piedra_Ornamental,
+        /** Muros con marmol o lujosos.
+         */
         !!@ ili2db.dispName = "(Cubrimiento de muros) Mármol, lujosos otros"
         Marmol_Lujosos_Otros
       ),
@@ -1066,24 +1150,40 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Piso"
       Piso(
+        /** Piso en tierra pisada.
+         */
         !!@ ili2db.dispName = "(Piso) Tierra pisada"
         Tierra_Pisada,
+        /** Piso de cemento o madera burda.
+         */
         !!@ ili2db.dispName = "(Piso) Cemento, madera burda"
         Cemento_Madera_Burda,
+        /** Piso en baldosa común de cemento o tablon de ladrillo.
+         */
         !!@ ili2db.dispName = "(Piso) Baldosa común de cemento, tablón de ladrillo"
         Baldosa_Comun_De_Cemento_Tablon_Ladrillo,
+        /** Piso en liston machihembrado.
+         */
         !!@ ili2db.dispName = "(Piso) Listón machihembrado"
         Liston_Machihembrado,
+        /** Piso en tableta, caucho, acrilico, granito o baldosa fina.
+         */
         !!@ ili2db.dispName = "(Piso) Tableta, caucho, acrílico, granito, baldosa fina"
         Tableta_Caucho_Acrilico_Granito_Baldosa_Fina,
+        /** Piso en parquet, alfombr, retal de marmol.
+         */
         !!@ ili2db.dispName = "(Piso) Parquet, alfombra, retal de marmol (grano pequeño)"
         Parquet_Alfombra_Retal_De_Marmol,
+        /** Piso en retal de marmól, mármol u otros lujosos.
+         */
         !!@ ili2db.dispName = "(Piso) Retal de mármol, mármol, otros lujosos"
         Retal_De_Marmol_Marmol_Otros_Lujosos
       ),
+      /** Corresponde al tamaño del baño de existente en la construcción.
+       */
       !!@ ili2db.dispName = "Tamaño de baño"
       Tamanio_Banio(
-        /** Sin baño
+        /** Sin baño.
          */
         !!@ ili2db.dispName = "(Tamaño de baño) Sin baño"
         Sin_Banio,
@@ -1104,91 +1204,151 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Enchape de baño"
       Enchape_Banio(
+        /** Baño sin enchape.
+         */
         !!@ ili2db.dispName = "(Enchape de baño) Sin cubrimiento"
         Sin_Cubrimiento,
+        /** Baño con enchape en baldosa común y cemento.
+         */
         !!@ ili2db.dispName = "(Enchape de baño) Pañete, baldosa común de cemento"
         Paniete_Baldosa_Comun_De_Cemento,
+        /** Baño con enchape en baldosin de un solo color o papel común.
+         */
         !!@ ili2db.dispName = "(Enchape de baño) Baldosín unicolor, papel común"
         Baldosin_Unicolor_Papel_Comun,
+        /** Baño con enchape en baldosín decorado o papel fino.
+         */
         !!@ ili2db.dispName = "(Enchape de baño) Baldosín decorado, papel fino"
         Baldosin_Decorado_Papel_Fino,
+        /** Baño con echape en ceramica crinstanac o granito.
+         */
         !!@ ili2db.dispName = "(Enchape de baño) Cerámica cristanac, granito"
         Ceramica_Cristanac_Granito,
+        /** Baño con echape en marmol o lujoso.
+         */
         !!@ ili2db.dispName = "(Enchape de baño) Mármol, enchape lujoso"
         Marmol_Enchape_Lujoso
       ),
+      /** Conjunto de muebles que hacen parte del baño.
+       */
       !!@ ili2db.dispName = "Mobiliario de baño"
       Mobiliario_Banio(
         /** Cuenta con uno o máximo dos servicios entre lavamanos retrete y ducha; los porcelanizados, en caso de tenerlos, son muy económicos; exceptuando los gabinetes pequeños de latón, no tiene ningún otro mobiliario ni divisiones.
          */
         !!@ ili2db.dispName = "(Mobiliario de baño) Pobre"
         Pobre,
-        /** Esta categoría de baños cuenta con tres servicios.  Los porcenalizados de esta categoría son del tipo standard, se encuentran gabinetes muy sencillos y en latón y ocasionalmente pequeños armarios en madera burda o metal.
+        /** Esta categoría de baños cuenta con tres servicios. Los porcenalizados de esta categoría son del tipo standard, se encuentran gabinetes muy sencillos y en latón y ocasionalmente pequeños armarios en madera burda o metal.
          */
         !!@ ili2db.dispName = "(Mobiliario de baño) Sencillo"
         Sencillo,
-        /** Tiene mínimo tres servicios pero de tipo económico.  Tienen gabinetes de regular tamaño, algunas veces empotrados, lavamanos con mueble o pedestal y división de la ducha.
+        /** Tiene mínimo tres servicios pero de tipo económico. Tienen gabinetes de regular tamaño, algunas veces empotrados, lavamanos con mueble o pedestal y división de la ducha.
          */
         !!@ ili2db.dispName = "(Mobiliario de baño) Regular"
         Regular,
         /** Cuenta como mínimo con cuatro servicios, los porcenalizados son finos, en colores, con pedestales, adornos y grifería fina, tina, planchas de lavamanos generalmente en mármol con muebles en madera trabajada de tamaños regulares a grandes, con espejos más o menos grandes con luz integrada, la tina forma parte de la ducha, en el mismo espacio.
          * 
-         * También se encuentran pequeños armarios y gabinetes auxiliares en madera o acrílico, empotrados o sobrepuestos.  Normalmente presentan división de la ducha, construida en aluminio y cristalita.
+         * También se encuentran pequeños armarios y gabinetes auxiliares en madera o acrílico, empotrados o sobrepuestos. Normalmente presentan división de la ducha, construida en aluminio y cristalita.
          */
         !!@ ili2db.dispName = "(Mobiliario de baño) Bueno"
         Bueno,
+        /** Presentan mínimo cuatro servicios básicos, a los cuales corresponde porcenalizados y grifería de los más finos; a veces presenta también servicios extras como saunas o turcos con acondicionamientos especiales; en general tienen gabinetes finos en madera, con auxiliares para el lavamanos especiales, donde todos los servicios tienen su propio espacio diseñado.  Poseen también closets grandes y vestiers, divisiones y puertas en materiales finos, todo debidamente alfombrado o con cerámica en el piso.
+         */
         !!@ ili2db.dispName = "(Mobiliario de baño) Lujoso"
         Lujoso
       ),
+      /** Corresponde al tamaño de la cocina existente en la construcción.
+       */
       !!@ ili2db.dispName = "Tamaño de cocina"
       Tamanio_Cocina(
+        /** No cuenta con cocina.
+         */
         !!@ ili2db.dispName = "(Tamaño de cocina) Sin cocina"
         Sin_Cocina,
+        /** Si el área general es menor de 5 Mts 2.
+         */
         !!@ ili2db.dispName = "(Tamaño de cocina) Pequeña"
         Pequenia,
+        /** Si tiene un área aproximada entre 5 y 10 Mts.
+         */
         !!@ ili2db.dispName = "(Tamaño de cocina) Mediana"
         Mediana,
+        /** Para un área mayor de los 10 Mts 2.
+         */
         !!@ ili2db.dispName = "(Tamaño de cocina) Grande"
         Grande
       ),
       !!@ ili2db.dispName = "Enchape de cocina"
       Enchape_Cocina(
+        /** Cocina sin enchape.
+         */
         !!@ ili2db.dispName = "(Enchape de cocina) Sin cubrimiento"
         Sin_Cubrimiento,
+        /** Cocina enchapada con cemento y baldosa.
+         */
         !!@ ili2db.dispName = "(Enchape de cocina) Pañete, baldosa de cemento"
         Paniete_Baldosa_De_Cemento,
+        /** Cocina con enchape de baldosin de un solo color o papel común.
+         */
         !!@ ili2db.dispName = "(Enchape de cocina) Baldosín unicolor, papel común"
         Baldosin_Unicolor_Papel_Comun,
+        /** Cocina con enchape de baldosin decorado o papel fino.
+         */
         !!@ ili2db.dispName = "(Enchape de cocina) Baldosín decorado, papel fino"
         Baldosin_Decorado_Papel_Fino,
+        /** Cocina con enchape de ceramica o cristanac o granito.
+         */
         !!@ ili2db.dispName = "(Enchape de cocina) Cerámica cristanac, granito"
         Ceramica_Cristanac_Granito,
+        /** Cocina con echape de marmol o lujoso.
+         */
         !!@ ili2db.dispName = "(Enchape de cocina) Mármol, enchape lujoso"
         Marmol_Enchape_Lujoso
       ),
       !!@ ili2db.dispName = "Mobiliario de cocina"
       Mobiliario_Cocina(
+        /** Se caracteriza por la escasez de mobiliario, se encuentran mesas y alacenas en madera burda o de materiales muy baratos.  En el mejor de los casos se encuentra un tablón o un planchon de cemento rústico que en oportunidades lleva empotrado un lavaplatos de latón con grifería barata y entrepisos en madera burda para guardar los elementos de cocina.
+         */
         !!@ ili2db.dispName = "(Mobiliario de cocina) Pobre"
         Pobre,
+        /** El mobiliario de una cocina es sencillo cuando cuenta con los elementos mínimos necesarios para hacerla funcional, con un cierto grado de comodidad.  Tiene por ejemplo un planchón de cemento o su equivalente, que complementa el fregadero o lavaplatos y casi siempre va enchapado en baldosín económico y con entrepaños de la misma estructura y material; a veces tienen puertas; la grifería es de tipo standard.  En ocasiones se encuentran muebles secundarios como mesas o alacenas en maderas burdas.
+         */
         !!@ ili2db.dispName = "(Mobiliario de cocina) Sencillo"
         Sencillo,
+        /** Cuenta con gabinetes inferiores o superiores construidos en metal o madera; la grifería es standard, mesón en acero inoxidable.
+         */
         !!@ ili2db.dispName = "(Mobiliario de cocina) Regular"
         Regular,
+        /** Lo encontramos en aquellas cocinas dotadas de gabinetes completos, inferiores y de pared en madera trabajada, planchan en metal inoxidable, normalmente con cocina integral; sistemas auxiliares de extracción y aireación.
+         */
         !!@ ili2db.dispName = "(Mobiliario de cocina) Bueno"
         Bueno,
+        /** Además de lo descrito en el anterior tipo, se encuentran trabajos en maderas finas y compactadores o trituradores de basura, muebles totalmente integrales cubriendo buena parte de los muros, donde el comedor auxiliar es parte de este mobiliario.  Su tamaño siempre es grande.
+         */
         !!@ ili2db.dispName = "(Mobiliario de cocina) Lujoso"
         Lujoso
       ),
+      /** Una cercha es un elemento estructural compuesto por barras de acero o madera que se interconectan entre sí para formas estructuras triangulares que forman un entramado rígido, estas estructuras están sometidas a fuerzas de tracción y supresión ya que por encima de ellas se suelen colocar cubiertas y tejados a los cuales sirven de apoyo, por debajo de ellas, para sujetarlas, se colocan pilares.
+       */
       !!@ ili2db.dispName = "Cerchas complemento industria"
       Cerchas_Complemento_Industria(
+        /** Se encuentran en construcciones antiguas y algunas nuevas pero con pequeñas luces donde el ancho de la bodega permita su utilización.
+         */
         !!@ ili2db.dispName = "(Cerchas complemento industria) Madera"
         Madera,
+        /** Son las que más se encuentran y se pueden dividir en tres grupos de acuerdo a la luz que permiten y los pesos que tienen que soportar.
+         */
         !!@ ili2db.dispName = "(Cerchas complemento industria) Metálica liviana"
         Metalica_Liviana,
+        /** Se encuentran en los talleres y pequeñas industrias cuyo ancho no tienen una gran luz y los pesos de las cubiertas son fáciles de soportar.
+         */
         !!@ ili2db.dispName = "(Cerchas complemento industria) Metálica mediana"
         Metalica_Mediana,
+        /** Este tipo de cercha corresponde a industrias cuyas bodegas o galpones tienen una luz considerable y las cubiertas que tienen que soportar las cerchas poseen un peso de alguna magnitud.
+         */
         !!@ ili2db.dispName = "(Cerchas complemento industria) Metálica pesada"
         Metalica_Pesada,
+        /** Es la altura de piso a techo de la cercha.
+         */
         !!@ ili2db.dispName = "(Cerchas complemento industria) Altura"
         Altura
       )
@@ -1208,15 +1368,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     LC_PredioTipo
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadAdministrativaBasicaTipo = (
       Predio(
-        /** Es el predio que pertenece al estado y/o cuyo propietario es una entidad de derecho público
+        /** Es el predio que pertenece al estado y/o cuyo propietario es una entidad de derecho público.
          */
         !!@ ili2db.dispName = "(Predio) Público"
         Publico(
-          /** Es un bien inmueble de propiedad de la Nación y ubicado en zonas rurales
+          /** Es un bien inmueble de propiedad de la Nación y ubicado en zonas rurales.
            */
           !!@ ili2db.dispName = "(Predio) (Público) Baldío"
           Baldio,
-          /** Los bienes de la Unión cuyo uso no pertenece generalmente a los habitantes, se llaman bienes de la Unión o bienes fiscales
+          /** Los bienes de la Unión cuyo uso no pertenece generalmente a los habitantes, se llaman bienes de la Unión o bienes fiscales.
            */
           !!@ ili2db.dispName = "(Predio) (Público) Fiscal"
           Fiscal,
@@ -1237,7 +1397,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Predio) (Territorio colectivo)"
         Territorio_Colectivo,
-        /** Son bienes inmuebles que se encuentran dentro de territorio respectivo a cargo de la Nación, sin dueño aparente o conocido
+        /** Son bienes inmuebles que se encuentran dentro de territorio respectivo a cargo de la Nación, sin dueño aparente o conocido.
          */
         !!@ ili2db.dispName = "(Predio) (Vacante)"
         Vacante
@@ -1249,7 +1409,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Actualización linderos con efectos registrales"
       Actualizacion_Linderos,
-      /** La rectificación de área en el sistema catastral y/o registral procederá ante el gestor catastral, de oficio o a solicitud de parte del titular  del derecho de dominio, o de las entidades públicas que con ocasión de sus funciones legales administran inmuebles propios o ajenos, cuando los linderos estén debida y técnicamente descritos, sean verificables mediante métodos directos y/o indirectos sin variación, pero que a lo largo de la tradición del bien inmueble el área de éste no haya sido determinada adecuadamente, o cuando la variación o diferencia se encuentre dentro de los márgenes de tolerancia establecidos por la máxima autoridad catastral. Artículo 2.2.2.2.17. Decreto 148 de 2020.
+      /** La rectificación de área en el sistema catastral y/o registral procederá ante el gestor catastral, de oficio o a solicitud de parte del titular del derecho de dominio, o de las entidades públicas que con ocasión de sus funciones legales administran inmuebles propios o ajenos, cuando los linderos estén debida y técnicamente descritos, sean verificables mediante métodos directos y/o indirectos sin variación, pero que a lo largo de la tradición del bien inmueble el área de éste no haya sido determinada adecuadamente, o cuando la variación o diferencia se encuentre dentro de los márgenes de tolerancia establecidos por la máxima autoridad catastral. Artículo 2.2.2.2.17. Decreto 148 de 2020.
        */
       !!@ ili2db.dispName = "Rectificación de área por imprecisa determinación con efectos registrales"
       Rectificacion_Area,
@@ -1257,8 +1417,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Rectificación de linderos por acuerdo entre las partes con efectos registrales"
       Rectificacion_Linderos,
-      /** n los casos donde los folios de matrícula inmobiliaria no hayan contado con información de área y/o linderos, desde el inicio del ciclo traslaticio del bien
-       * inmueble que identifican; la Oficina de Registro de Instrumentos Públicos procederá la inclusión del dato de área y/o linderos en las respectivas matrículas inmobiliarias, que se tomará de la base catastral administrada por el gestor catastral competente.
+      /** En los casos donde los folios de matrícula inmobiliaria no hayan contado con información de área y/o linderos, desde el inicio del ciclo traslaticio del bien inmueble que identifican; la Oficina de Registro de Instrumentos Públicos procederá la inclusión del dato de área y/o linderos en las respectivas matrículas inmobiliarias, que se tomará de la base catastral administrada por el gestor catastral competente.
        */
       !!@ ili2db.dispName = "Inclusión en el campo de cabida y linderos del dato del área y/o linderos en los folios de matrícula inmobiliaria"
       Inclusion_Cabida_Linderos,
@@ -1300,7 +1459,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     /** Punto de leventamiento planimetrico que se identifican en el marco de la identificación de las construcciones, los linderos o puntos auxiliares levantado para el apoyo en la mediciión
      */
     LC_PuntoLevTipo = (
-      /** Puntos de levantamiento para delimitar las construcción y unidades de construcción.
+      /** Puntos de levantamiento para delimitar las construcciones y unidades de construcción.
        */
       !!@ ili2db.dispName = "Construcción"
       Construccion,
@@ -1313,11 +1472,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     LC_PuntoTipo
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_PuntoTipo = (
       Catastro(
-        /** Punto referido a los soportes verticales que sirven de apoyo,utilizados en la construcción de alambradas, tendidos eléctricos y telefónicos, televisión por cable, para iluminar calles, plazas o estadios y en las actividades agrícolas.
+        /** Punto referido a los soportes verticales que sirven de apoyo, utilizados en la construcción de alambradas, tendidos eléctricos y telefónicos, televisión por cable, para iluminar calles, plazas o estadios y en las actividades agrícolas.
          */
         !!@ ili2db.dispName = "(Catastro) Poste"
         Poste,
-        /** Punto referido a las esquina o sección de los paramentos de las construcción y unidades de construcción.
+        /** Punto referido a las esquinas o sección de los paramentos de las construcciones y unidades de construcción.
          */
         !!@ ili2db.dispName = "(Catastro) Construcción"
         Construccion,
@@ -1325,7 +1484,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Catastro) Punto dinámico"
         Punto_Dinamico,
-        /** Punto referido a los elementos naturales de la vegetación  como los árboles, arbustos o cualquier otra especie de la fauna.
+        /** Punto referido a los elementos naturales de la vegetación como los árboles, arbustos o cualquier otra especie de la fauna.
          */
         !!@ ili2db.dispName = "(Catastro) Elemento natural"
         Elemento_Natural,
@@ -1333,11 +1492,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Catastro) Piedra"
         Piedra,
-        /** Puntos referido a las áreas de campos abiertos, zonas boscosas, desérticas o cualquier otro tipo de espacio donde no se aprecia una clara delimitación.
+        /** Punto referido a las áreas de campos abiertos, zonas boscosas, desérticas o cualquier otro tipo de espacio donde no se aprecia una clara delimitación.
          */
         !!@ ili2db.dispName = "(Catastro) Sin materialización"
         Sin_Materializacion,
-        /** Puntos referidos a los mojones utilizados en topografía que tienen datos de coordenadas espaciales.
+        /** Punto referido a los mojones utilizados en topografía que tienen datos de coordenadas espaciales.
          */
         !!@ ili2db.dispName = "(Catastro) Mojón"
         Mojon,
@@ -1345,7 +1504,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Catastro) Incrustación"
         Incrustacion,
-        /** Puntos referidos a las columnas verticales donde se encuentra materializado un punto con coordenadas espaciales.
+        /** Punto referido a las columnas verticales donde se encuentra materializado un punto con coordenadas espaciales.
          */
         !!@ ili2db.dispName = "(Catastro) Pilastra"
         Pilastra
@@ -1392,15 +1551,12 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Servidumbre) Energía eléctrica"
         Energia_Electrica,
-        /** Es el conjunto de actividades ordenadas a la distribución de gas combustible, por tubería u otro medio, desde un sitio de acopio de grandes volúmenes o desde un gasoducto central hasta la instalación de un consumidor final, incluyendo su conexión y medición. 
-         *  Se constituye la servidumbre a favor de la explotación de los gases derivados del petróleo.
-         *  Cuando sea necesario las empresas que prestan el servicio podrán pasar por predios ajenos por vía subterránea o superficial los cables o tuberías, ocupar temporalmente las zonas que requieren esos predios, remover los cultivos y obstáculos de toda clase que se encuentren en ellos, transitar, adelantar las obras y ejercer vigilancia en ellos y en general realizar todas las actividades necesarias para prestar el servicio.
-         *  Las líneas de distribución de gas combustible, podrán atravesar los ríos, caudales, líneas férreas, puentes, calles, caminos, y cruzar acueductos, oleoductos, y otras líneas o conducciones. (Art. 14 númeral 28, y artículo 57 de la Ley 142 de 1994).
+        /** Es el conjunto de actividades ordenadas a la distribución de gas combustible, por tubería u otro medio, desde un sitio de acopio de grandes volúmenes o desde un gasoducto central hasta la instalación de un consumidor final, incluyendo su conexión y medición. Se constituye la servidumbre a favor de la explotación de los gases derivados del petróleo.
+         *  Cuando sea necesario las empresas que prestan el servicio podrán pasar por predios ajenos por vía subterránea o superficial los cables o tuberías, ocupar temporalmente las zonas que requieren esos predios, remover los cultivos y obstáculos de toda clase que se encuentren en ellos, transitar, adelantar las obras y ejercer vigilancia en ellos y en general realizar todas las actividades necesarias para prestar el servicio. Las líneas de distribución de gas combustible, podrán atravesar los ríos, caudales, líneas férreas, puentes, calles, caminos, y cruzar acueductos, oleoductos, y otras líneas o conducciones. (Art. 14 númeral 28, y artículo 57 de la Ley 142 de 1994).
          */
         !!@ ili2db.dispName = "(Servidumbre) Gasoducto"
         Gasoducto,
-        /** Tiene por objeto dar luz a un espacio cualquiera, cerrado y techado. 
-         * Se llama predio sirviente el que debe permitir el paso de la luz y predio dominante el que tiene derecho a ella. (Artículos 931 al 935 del Código Civil).
+        /** Tiene por objeto dar luz a un espacio cualquiera, cerrado y techado. Se llama predio sirviente el que debe permitir el paso de la luz y predio dominante el que tiene derecho a ella. (Artículos 931 al 935 del Código Civil).
          */
         !!@ ili2db.dispName = "(Servidumbre) Luz"
         Luz,
@@ -1420,8 +1576,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Servidumbre) Legal de hidrocarburos"
         Legal_Hidrocarburos,
-        /** Es el conjunto de derechos y obligaciones que dimanan de la existencia y disfrute en común de una pared, cerca, vallado, etc. 
-         * En todos los casos, y aun cuando conste que una cerca o pared divisoria pertenece exclusivamente a uno de los predios contiguos, el dueño del otro predio tendrá el derecho de hacer la medianería en todo o en parte, aun sin el consentimiento de su vecino, pagándole la mitad del valor del terreno en que está hecho el cerramiento, y la mitad del valor actual de la porción del cerramiento cuya medianería pretende. (Artículo 912 del C.C.).
+        /** Es el conjunto de derechos y obligaciones que dimanan de la existencia y disfrute en común de una pared, cerca, vallado, etc. En todos los casos, y aun cuando conste que una cerca o pared divisoria pertenece exclusivamente a uno de los predios contiguos, el dueño del otro predio tendrá el derecho de hacer la medianería en todo o en parte, aun sin el consentimiento de su vecino, pagándole la mitad del valor del terreno en que está hecho el cerramiento, y la mitad del valor actual de la porción del cerramiento cuya medianería pretende. (Artículo 912 del C.C.).
          */
         !!@ ili2db.dispName = "(Servidumbre) Medianeria"
         Medianeria,
@@ -1437,7 +1592,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     );
 
     LC_ResultadoVisitaTipo = (
-      /** Tuvo acceso total al predio
+      /** Tuvo acceso total al predio.
        */
       !!@ ili2db.dispName = "Exitoso"
       Exitoso,
@@ -1448,23 +1603,23 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       /** Sin atención por parte de personas. Predio Desocupado.
        */
       !!@ ili2db.dispName = "No hay nadie"
-      No_hay_nadie,
+      No_Hay_Nadie,
       /** No permitieron acceso al predio.
        */
       !!@ ili2db.dispName = "No permitieron acceso"
-      No_permitieron_acceso,
+      No_Permitieron_Acceso,
       /** No hay adulto en el momento de la visita.
        */
-      !!@ ili2db.dispName = "Menor de Edad"
-      Menor_de_Edad,
+      !!@ ili2db.dispName = "Menor de edad"
+      Menor_Edad,
       /** Por temas de seguridad asociados a orden público no es posible el acceso.
        */
-      !!@ ili2db.dispName = "Situación de Orden Público"
-      Situacion_de_Orden_Publico,
+      !!@ ili2db.dispName = "Situación de orden público"
+      Situacion_Orden_Publico,
       /** Por limitaciones relacionadas con la topografía o accidentes geográficos no hubo acceso al predio.
        */
       !!@ ili2db.dispName = "Zona de difícil acceso"
-      Zona_de_dificil_acceso,
+      Zona_Dificil_Acceso,
       /** Otros casos no relacionados anteriormente.
        */
       !!@ ili2db.dispName = "Otro"
@@ -1472,7 +1627,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     );
 
     LC_SexoTipo = (
-      /** Que tiene órganos para fecundar
+      /** Que tiene órganos para fecundar.
        */
       !!@ ili2db.dispName = "Masculino"
       Masculino,
@@ -1492,11 +1647,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 1A"
         Tipo_1A,
-        /** Armazón: Madera; Muro: Material de bahareque, adobe, tapia; Cubierta: Zinc, teja de barro, Eternit rustico; Pisos: Cemento, madera burda
+        /** Armazón: Madera; Muro: Material de bahareque, adobe, tapia; Cubierta: Zinc, teja de barro, Eternit rustico; Pisos: Cemento, madera burda.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 1B"
         Tipo_1B,
-        /** Armazón: Madera Prefabricado, ladrillo o bloque; Muros en madera Prefabricado o Bloque; Cubierta: Zinc, teja de barro, Eternit rustico; Cubrimiento de Muros: Sin, Pañete, papel común; Pisos: Cemento, madera burda.Armazón: Madera Prefabricado, ladrillo o bloque; Muros en madera Prefabricado o Bloque; Cubierta: Zinc, teja de barro, Eternit rustico; Cubrimiento de Muros: Sin, Pañete, papel común; Pisos: Cemento, madera burda.
+        /** Armazón: Madera Prefabricado, ladrillo o bloque; Muros en madera Prefabricado o Bloque; Cubierta: Zinc, teja de barro, Eternit rustico; Cubrimiento de Muros: Sin, Pañete, papel común; Pisos: Cemento, madera burda.
          */
         !!@ ili2db.dispName = "(Residencial) Tipo 2A"
         Tipo_2A,
@@ -1548,109 +1703,101 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Comercial) Barrial 1"
         Barrial_1,
         /** Armazón: Ladrillo, bloque.
-         * Muros: Ladrillo y Bloque
-         * Cubierta: Zinc, Eternit o teja de barro
+         * Muros: Ladrillo y Bloque.
+         * Cubierta: Zinc, Eternit o teja de barro.
          * Fachada: pobre o sencilla.
-         * Cubrimiento de Muros: Pañete, papel común, ladrillo prensado, estuco, cerámica
-         * Pisos: cemento Baldosa común de cemento, Tablón Ladrillo
+         * Cubrimiento de Muros: Pañete, papel común, ladrillo prensado, estuco, cerámica.
+         * Pisos: cemento Baldosa común de cemento, Tablón Ladrillo.
          */
         !!@ ili2db.dispName = "(Comercial) Barrial 2"
         Barrial_2,
-        /** Armazón: Madera, ladrilló, bloque. Muros: Madera, bloque, concreto prefabricado. 
-         * Cubierta: Eternit o teja de barro, entrepiso, (cubierta provisional) prefabricado. 
-         * Fachada: Regular; Cubrimiento de Muros: Pañete, papel común, ladrillo prensado.
-         * Pisos:  Concreto, listón machihembrado, baldosa.
+        /** Armazón: Madera, ladrilló, bloque. Muros: Madera, bloque, concreto prefabricado. Cubierta: Eternit o teja de barro, entrepiso, (cubierta provisional) prefabricado. Fachada: Regular; Cubrimiento de Muros: Pañete, papel común, ladrillo prensado; Pisos:  Concreto, listón machihembrado, baldosa.
          */
         !!@ ili2db.dispName = "(Comercial) Sectorial 1"
         Sectorial_1,
         /** Armazón: Concreto hasta 3 pisos.
-         * Muros: Bloque, ladrillo
-         * Cubierta: Eternit, teja de barro placa concreto
+         * Muros: Bloque, ladrillo.
+         * Cubierta: Eternit, teja de barro placa concreto.
          * Fachada: Buena.
-         * Cubrimiento de Muros: Ladrillo a la vista, Estuco, cerámica, papel fino
-         * 
-         * Pisos: Tableta, caucho, acrílico, granito, baldosa fina
+         * Cubrimiento de Muros: Ladrillo a la vista, Estuco, cerámica, papel fino.
+         * Pisos: Tableta, caucho, acrílico, granito, baldosa fina.
          */
         !!@ ili2db.dispName = "(Comercial) Sectorial 2"
         Sectorial_2,
-        /** Armazón: Concreto hasta 3 pisos
-         * Muros: Concreto prefabricado, bloque o ladrillo
-         * Cubierta: Azotea, aluminio, placa sencilla con eternit o teja de barro
+        /** Armazón: Concreto hasta 3 pisos.
+         * Muros: Concreto prefabricado, bloque o ladrillo.
+         * Cubierta: Azotea, aluminio, placa sencilla con eternit o teja de barro.
          * Fachada: Buena.
-         * 
-         * Cubrimiento de Muros: Ladrillo a la vista, Estuco, Madera, piedra ornamental
-         * Pisos: Parquet, alfombra, retal de mármol ( grano pequeño); Cerámica fina
+         * Cubrimiento de Muros: Ladrillo a la vista, Estuco, Madera, piedra ornamental.
+         * Pisos: Parquet, alfombra, retal de mármol ( grano pequeño); Cerámica fina.
          */
         !!@ ili2db.dispName = "(Comercial) Especializado 1"
         Especializado_1,
         /** Armazón: Concreto 4 o más pisos
-         * Muros: Bloque ladrillo
-         * Cubierta: Placa Impermeabilizada cubierta lujosa u ornamental
+         * Muros: Bloque ladrillo.
+         * Cubierta: Placa Impermeabilizada cubierta lujosa u ornamental.
          * Fachada: Lujosa.
-         * Cubrimiento de Muros: Mármol, piedra ornamental Estucos especiales, otros lujosos
-         * Pisos: Parquet, alfombra, retal de mármol ( grano pequeño); Cerámica fina
+         * Cubrimiento de Muros: Mármol, piedra ornamental Estucos especiales, otros lujosos.
+         * Pisos: Parquet, alfombra, retal de mármol ( grano pequeño); Cerámica fina.
          */
         !!@ ili2db.dispName = "(Comercial) Especializado 2"
         Especializado_2
       ),
       Industrial(
         /** Armazón: Madera, prefabricado
-         * Muros: adobe, bahareque, tapia
-         * Cerchas: Madera
-         * Cubierta: Material de desecho, telas asfálticas
-         * 
-         * Fachada: Pobre
+         * Muros: adobe, bahareque, tapia.
+         * Cerchas: Madera.
+         * Cubierta: Material de desecho, telas asfálticas.
+         * Fachada: Pobre.
          * Cubrimiento de Muros:
-         * Sin cubrimiento
+         * Sin cubrimiento.
          * Pisos: tierra, cemento o madera burda.
          */
         !!@ ili2db.dispName = "(Industrial) Liviana 1"
         Liviana_1,
         /** Armazón: Prefabricado, Ladrillo, bloque.
-         * Muros: Prefabricado, Ladrillo, bloque
-         * Cubierta: Zinc, Eternit o teja de barro
+         * Muros: Prefabricado, Ladrillo, bloque.
+         * Cubierta: Zinc, Eternit o teja de barro.
          * Fachada: pobre o sencilla.
-         * 
          * Cubrimiento de Muros: Sin, Pañete, papel común, ladrillo prensado, estuco, cerámica
          * Pisos: Cemento Baldosa común de cemento, Tablón Ladrillo.
          */
         !!@ ili2db.dispName = "(Industrial) Liviana 2"
         Liviana_2,
-        /** Armazón: Muros confinados Ladrillo o bloque
-         * Muros: Ladrillo, bloque o concreto prefabricado
+        /** Armazón: Muros confinados Ladrillo o bloque.
+         * Muros: Ladrillo, bloque o concreto prefabricado.
          * Cubierta: Entrepiso
          * (cubierta provisional ) Prefabricado, teja eternit
          * Fachada: Regular.
-         * 
-         * Cubrimiento de Muros: Pañete, papel común, pañete, ladrillo prensado
+         * Cubrimiento de Muros: Pañete, papel común, pañete, ladrillo prensado.
          * Pisos: Concreto, Listón machi-ambrado, baldosa común.
          */
         !!@ ili2db.dispName = "(Industrial) Mediana 1"
         Mediana_1,
         /** Armazón: Concreto hasta 3 pisos.
-         * Muros: Bloque, ladrillo
-         * Cubierta: teja eternit, termo acústica o teja de barro
+         * Muros: Bloque, ladrillo.
+         * Cubierta: teja eternit, termo acústica o teja de barro.
          * Fachada: Buena.
-         * Cubrimiento de Muros: Ladrillo a la vista, Estuco, cerámica, papel fino
-         * Pisos: Tableta, caucho, acrílico, granito, baldosa fina
+         * Cubrimiento de Muros: Ladrillo a la vista, Estuco, cerámica, papel fino.
+         * Pisos: Tableta, caucho, acrílico, granito, baldosa fina.
          */
         !!@ ili2db.dispName = "(Industrial) Mediana 2"
         Mediana_2,
         /** Armazón: Concreto hasta 3 pisos
-         * Muros: Concreto prefabricado, bloque o ladrillo
+         * Muros: Concreto prefabricado, bloque o ladrillo.
          * Cubierta: Azotea, aluminio, placa sencilla con eternit o teja de barro
          * Fachada: Buena.
-         * Cubrimiento de Muros: Ladrillo a la vista, Estuco, Madera, piedra ornamental
-         * Pisos: Parquet, alfombra, retal de mármol ( grano pequeño); Cerámica fina
+         * Cubrimiento de Muros: Ladrillo a la vista, Estuco, Madera, piedra ornamental.
+         * Pisos: Parquet, alfombra, retal de mármol ( grano pequeño); Cerámica fina.
          */
         !!@ ili2db.dispName = "(Industrial) Pesada 1"
         Pesada_1,
         /** Armazón: Concreto 4 o más pisos
-         * Muros: Bloque ladrillo
-         * Cubierta: Placa Impermeabilizada cubierta lujosa u ornamental
+         * Muros: Bloque ladrillo.
+         * Cubierta: Placa Impermeabilizada cubierta lujosa u ornamental.
          * Fachada: Lujosa.
-         * Cubrimiento de Muros: Mármol, piedra ornamental Estucos especiales, otros lujosos
-         * Pisos: Parquet, alfombra, retal de mármol ( grano pequeño); Cerámica fina
+         * Cubrimiento de Muros: Mármol, piedra ornamental Estucos especiales, otros lujosos.
+         * Pisos: Parquet, alfombra, retal de mármol ( grano pequeño); Cerámica fina.
          */
         !!@ ili2db.dispName = "(Industrial) Pesada 2"
         Pesada_2
@@ -1695,19 +1842,19 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         Apartamentos_4_y_mas_pisos_en_PH,
         /** Es una vivienda que comprende una o más habitaciones, en un edificio de 4 o 5 pisos.
          */
-        !!@ ili2db.dispName = "(Residencial) Apartamentos en Edificio de 4 y 5 Pisos (Cartagena)"
+        !!@ ili2db.dispName = "(Residencial) Apartamentos en edificio de 4 y 5 pisos (Cartagena)"
         Apartamentos_En_Edificio_4_y_5_Pisos_Cartagena,
-        /** Es una vivienda que comprende una o más habitaciones, en un edificio de varios pisos 4 o más pisos
+        /** Es una vivienda que comprende una o más habitaciones, en un edificio de varios pisos 4 o más pisos.
          */
-        !!@ ili2db.dispName = "(Residencial) Apartamentos mas de 4 Pisos"
+        !!@ ili2db.dispName = "(Residencial) Apartamentos más de 4 pisos"
         Apartamentos_Mas_De_4_Pisos,
-        /** Dormitorios de las fuerzas armadas y militares
+        /** Dormitorios de las fuerzas armadas y militares.
          */
         !!@ ili2db.dispName = "(Residencial) Barracas"
         Barracas,
-        /** Típica casa con mampostería de piedra, pizarra y madera. Ha sido rehabilitada respetando escrupulosamente sus características exteriores y decorada con un interior tradicional
+        /** Típica casa con mampostería de piedra, pizarra y madera. Ha sido rehabilitada respetando escrupulosamente sus características exteriores y decorada con un interior tradicional.
          */
-        !!@ ili2db.dispName = "(Residencial) Casa Elbas"
+        !!@ ili2db.dispName = "(Residencial) Casa elbas"
         Casa_Elbas,
         /** Edificación destinada al almacenamiento o resguardo de enceres, generalmente ubicados en los sótanos y semisótanos de los edificios, junto a los parqueaderos. Las áreas de estos depósitos generalmente no supera los 25 metros cuadrados.
          */
@@ -1715,9 +1862,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         Depositos_Lockers,
         /** Es el lugar cubierto, destinado al estacionamiento privado de vehículos.
          */
-        !!@ ili2db.dispName = "(Residencial) Garajes Cubiertos"
+        !!@ ili2db.dispName = "(Residencial) Garajes cubiertos"
         Garajes_Cubiertos,
-        /** Es el lugar cubierto, destinado al estacionamiento privado o comunal en viviendas sometidas a régimen de propiedad  horizontal.
+        /** Es el lugar cubierto, destinado al estacionamiento privado o comunal en viviendas sometidas a régimen de propiedad horizontal.
          */
         !!@ ili2db.dispName = "(Residencial) Garajes en PH"
         Garajes_En_PH,
@@ -1731,82 +1878,82 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         Secadero_Ropa,
         /** Son las viviendas construidas durante el tiempo de la colonia española, se caracterizan por tener varias habitaciones, con ventanales que dan a uno o dos patios generalmente ubicados en el centro de la vivienda. Los principales materiales de la época era la tapia, bahareque, ladrillo, paja y teja.
          */
-        !!@ ili2db.dispName = "(Residencial) Vivienda Colonial"
+        !!@ ili2db.dispName = "(Residencial) Vivienda colonial"
         Vivienda_Colonial,
         /** Es una casa de tres niveles cuya función arquitectónica y ambiental principal, es dar albergue en forma adecuada a una familia.
          */
         !!@ ili2db.dispName = "(Residencial) Vivienda hasta 3 pisos"
         Vivienda_Hasta_3_Pisos,
-        /** Corresponde a edificaciones residenciales desarrolladas sobre un lote de terreno que comprende más de tres unidades prediales independientes, generalmente en edificios de varios pisos. Este tipo de vivienda prevé? áreas de servicios comunales cuya propiedad y utilización privada se definen en reglamentos de propiedad horizontal
+        /** Corresponde a edificaciones residenciales desarrolladas sobre un lote de terreno que comprende más de tres unidades prediales independientes, generalmente en edificios de varios pisos. Este tipo de vivienda prevé áreas de servicios comunales cuya propiedad y utilización privada se definen en reglamentos de propiedad horizontal.
          */
         !!@ ili2db.dispName = "(Residencial) Vivienda hasta 3 pisos en PH"
         Vivienda_Hasta_3_Pisos_En_PH,
         /** Es una vivienda acondicionada para la realización de actividades recreativas libres y el descanso.
          */
-        !!@ ili2db.dispName = "(Residencial) Vivienda Recreacional"
+        !!@ ili2db.dispName = "(Residencial) Vivienda recreacional"
         Vivienda_Recreacional,
-        /** Es una casa cuya función arquitectónica y ambiental principal, es brindar descanso y recreación. Este tipo de vivienda  prevé? áreas de servicios comunales cuya propiedad y utilización privada se definen en reglamentos de propiedad horizontal.
+        /** Es una casa cuya función arquitectónica y ambiental principal, es brindar descanso y recreación. Este tipo de vivienda prevé áreas de servicios comunales cuya propiedad y utilización privada se definen en reglamentos de propiedad horizontal.
          */
-        !!@ ili2db.dispName = "(Residencial) Vivienda Recreacional en PH"
+        !!@ ili2db.dispName = "(Residencial) Vivienda recreacional en PH"
         Vivienda_Recreacional_En_PH
       ),
       !!@ ili2db.dispName = "Comercial"
       Comercial(
-        /** Es el espacio construido para la ejecución la recepción, almacenamiento y movimientos de materiales, materias primas y productos semielaborados, hasta el punto de consumo por un cliente externo o interno
+        /** Es el espacio construido para la ejecución la recepción, almacenamiento y movimientos de materiales, materias primas y productos semielaborados, hasta el punto de consumo por un cliente externo o interno.
          */
-        !!@ ili2db.dispName = "(Comercial) Bodegas Comerciales - Grandes Almacenes"
+        !!@ ili2db.dispName = "(Comercial) Bodegas comerciales - Grandes almacenes"
         Bodegas_Comerciales_Grandes_Almacenes,
         /** Es el espacio construido para la ejecución la recepción, almacenamiento y movimientos de materiales, materias primas y productos semielaborados, hasta el punto de consumo por un cliente externo o interno sometido a régimen de propiedad horizontal.
          */
-        !!@ ili2db.dispName = "(Comercial) Bodegas Comerciales en PH"
+        !!@ ili2db.dispName = "(Comercial) Bodegas comerciales en PH"
         Bodegas_Comerciales_en_PH,
         /** es una construcción que consta de uno o varios edificios, por lo general de gran tamaño, que albergan servicios, locales y oficinas comerciales aglutinados en un espacio determinado concentrando mayor cantidad de clientes potenciales dentro del recinto.
          */
-        !!@ ili2db.dispName = "(Comercial) Centros Comerciales"
+        !!@ ili2db.dispName = "(Comercial) Centros comerciales"
         Centros_Comerciales,
         /** Es una construcción que consta de uno o varios edificios, por lo general de gran tamaño, que albergan servicios, locales y oficinas comerciales aglutinados en un espacio determinado concentrando mayor cantidad de clientes potenciales dentro del recinto, sometido a régimen de propiedad horizontal.
          */
-        !!@ ili2db.dispName = "(Comercial) Centros Comerciales en PH"
+        !!@ ili2db.dispName = "(Comercial) Centros comerciales en PH"
         Centros_Comerciales_en_PH,
-        /** Es la edificación o  Establecimiento que brinda servicios recreativos y tiene capacidad para ciertos juegos de azar
+        /** Es la edificación o establecimiento que brinda servicios recreativos y tiene capacidad para ciertos juegos de azar.
          */
         !!@ ili2db.dispName = "(Comercial) Clubes - Casinos"
         Clubes_Casinos,
-        /** Se denomina a la construcción en la cual se lleva a acabo una actividad socioeconómica que consiste en el intercambio de algunos materiales en el mercado de compra y venta de bienes
+        /** Se denomina a la construcción en la cual se lleva a acabo una actividad socioeconómica que consiste en el intercambio de algunos materiales en el mercado de compra y venta de bienes.
          */
         !!@ ili2db.dispName = "(Comercial) Comercio"
         Comercio,
-        /** Se denomina a la construcción con características arquitectónicas coloniales,  en el cual se lleva a acabo una actividad socioeconómica que consiste en el intercambio de algunos materiales en el mercado de compra y venta de bienes
+        /** Se denomina a la construcción con características arquitectónicas coloniales, en el cual se lleva a acabo una actividad socioeconómica que consiste en el intercambio de algunos materiales en el mercado de compra y venta de bienes.
          */
-        !!@ ili2db.dispName = "(Comercial) Comercio Colonial"
+        !!@ ili2db.dispName = "(Comercial) Comercio colonial"
         Comercio_Colonial,
-        /** Se denomina a la construcción en la cual se lleva a acabo una actividad socioeconómica que consiste en el intercambio de algunos materiales en el mercado de compra y venta de bienes sometida a régimen de propiedad horizontal
+        /** Se denomina a la construcción en la cual se lleva a acabo una actividad socioeconómica que consiste en el intercambio de algunos materiales en el mercado de compra y venta de bienes sometida a régimen de propiedad horizontal.
          */
         !!@ ili2db.dispName = "(Comercial) Comercio en PH"
         Comercio_en_PH,
         /** Establecimiento que ocupa un edificio total o parcialmente con uso exclusivo de sus servicios (entradas, ascensores, escaleras, etc.) y que ofrece alojamiento y posee características arquitectónicas coloniales.
          */
-        !!@ ili2db.dispName = "(Comercial) Hotel Colonial"
+        !!@ ili2db.dispName = "(Comercial) Hotel colonial"
         Hotel_Colonial,
-        /** Establecimiento que ocupa un edificio total o parcialmente con uso exclusivo de sus servicios (entradas, ascensores, escaleras, etc.) y que ofrece alojamiento
+        /** Establecimiento que ocupa un edificio total o parcialmente con uso exclusivo de sus servicios (entradas, ascensores, escaleras, etc.) y que ofrece alojamiento.
          */
         !!@ ili2db.dispName = "(Comercial) Hoteles"
         Hoteles,
-        /** Establecimiento que ocupa un edificio total o parcialmente que ofrece alojamiento
+        /** Establecimiento que ocupa un edificio total o parcialmente que ofrece alojamiento.
          */
         !!@ ili2db.dispName = "(Comercial) Hoteles en PH"
         Hoteles_en_PH,
-        /** Espacio construido en el que se  realiza un trabajo profesional de gestión, administración o atención médica
+        /** Espacio construido en el que se realiza un trabajo profesional de gestión, administración o atención médica.
          */
         !!@ ili2db.dispName = "(Comercial) Oficinas - Consultorios"
         Oficinas_Consultorios,
-        /** Espacio construido con características arquitectónicas coloniales en el que se  realiza un trabajo profesional de gestión, administración o atención médica
+        /** Espacio construido con características arquitectónicas coloniales en el que se realiza un trabajo profesional de gestión, administración o atención médica.
          */
-        !!@ ili2db.dispName = "(Comercial) Oficinas - Consultorios Coloniales"
+        !!@ ili2db.dispName = "(Comercial) Oficinas - Consultorios coloniales"
         Oficinas_Consultorios_Coloniales,
-        /** espacio construido en el que se  realiza un trabajo profesional de gestión, administración o atención médica, sometida a régimen de propiedad horizontal
+        /** Espacio construido en el que se realiza un trabajo profesional de gestión, administración o atención médica, sometida a régimen de propiedad horizontal.
          */
-        !!@ ili2db.dispName = "(Comercial) Oficinas Consultorios en PH"
+        !!@ ili2db.dispName = "(Comercial) Oficinas consultorios en PH"
         Oficinas_Consultorios_en_PH,
         /** Construcciones dedicadas al esparcimiento y a la diversión, generalmente son predios con grandes espacios, ejemplo parque el salitre.
          */
@@ -1816,21 +1963,21 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Comercial) Parqueaderos"
         Parqueaderos,
-        /** Es el espacio o se destina a guardar o arrendar espacios para depositar vehículos dentro de una edificación construida privado o comunal bajo régimen de propiedad horizontal
+        /** Es el espacio o se destina a guardar o arrendar espacios para depositar vehículos dentro de una edificación construida privado o comunal bajo régimen de propiedad horizontal.
          */
         !!@ ili2db.dispName = "(Comercial) Parqueaderos en PH"
         Parqueaderos_en_PH,
-        /** Vivienda que proporciona alojamiento y hospedaje temporal
+        /** Vivienda que proporciona alojamiento y hospedaje temporal.
          */
-        !!@ ili2db.dispName = "(Comercial) Pensiones y Residencias"
+        !!@ ili2db.dispName = "(Comercial) Pensiones y residencias"
         Pensiones_y_Residencias,
-        /** Edificaciones tipo bodega destinadas a la prestacion de un servicio público, como es la oferta de productos básicos, principalmente de origen agropecuario y consumo doméstico
+        /** Edificaciones tipo bodega destinadas a la prestacion de un servicio público, como es la oferta de productos básicos, principalmente de origen agropecuario y consumo doméstico.
          */
         !!@ ili2db.dispName = "(Comercial) Plaza de mercado"
         Plaza_Mercado,
         /** Establecimiento con características arquitectónicas coloniales en el que se preparan y sirven comidas.
          */
-        !!@ ili2db.dispName = "(Comercial) Restaurante Colonial"
+        !!@ ili2db.dispName = "(Comercial) Restaurante colonial"
         Restaurante_Colonial,
         /** Establecimiento en el que se preparan y sirven comidas.
          */
@@ -1844,7 +1991,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Comercial) Teatro - Cinemas"
         Teatro_Cinemas,
-        /** Establecimiento destinado a la proyección de películas cinematográficas sometida o la presentación de obras artísticas actores o musicales en un predio sometido en régimen de propiedad horizontal
+        /** Establecimiento destinado a la proyección de películas cinematográficas sometida o la presentación de obras artísticas actores o musicales en un predio sometido en régimen de propiedad horizontal.
          */
         !!@ ili2db.dispName = "(Comercial) Teatro - Cinemas en PH"
         Teatro_Cinemas_en_PH
@@ -1853,11 +2000,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Industrial(
         /** Infraestructura de bombeo.
          */
-        !!@ ili2db.dispName = "(Industrial) Bodega Casa Bomba"
+        !!@ ili2db.dispName = "(Industrial) Bodega casa bomba"
         Bodega_Casa_Bomba,
         /** Infraestructura de bombeo de bodegas sometidas a régimen de propiedad horizontal.
          */
-        !!@ ili2db.dispName = "(Industrial) Bodegas Casa Bomba en PH"
+        !!@ ili2db.dispName = "(Industrial) Bodegas casa bomba en PH"
         Bodegas_Casa_Bomba_en_PH,
         /** Conjunto de instalaciones dedicadas a esta actividad de transformar las materias primas en productos elaborados
          */
@@ -1914,11 +2061,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Anexo) Fuertes y Castillos"
         Fuertes_y_Castillos,
-        /** Edificación en la que se reúnen y consagran a los fieles que le rinden culto a un ser superior
+        /** Edificación en la que se reúnen y consagran a los fieles que le rinden culto a un ser superior.
          */
         !!@ ili2db.dispName = "(Institucional) Iglesia"
         Iglesia,
-        /** Edificación en la que se reúnen y consagran a los fieles que le rinden culto a un ser superior sometido a régimen de propiedad horizontal
+        /** Edificación en la que se reúnen y consagran a los fieles que le rinden culto a un ser superior sometido a régimen de propiedad horizontal.
          */
         !!@ ili2db.dispName = "(Institucional) Iglesia en PH"
         Iglesia_en_PH,
@@ -1926,7 +2073,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Institucional) Instalaciones militares"
         Instalaciones_Militares,
-        /** Construcción con características de una vivienda que se encarga de brindar educación y asistencia integral a los niños
+        /** Construcción con características de una vivienda que se encarga de brindar educación y asistencia integral a los niños.
          */
         !!@ ili2db.dispName = "(Institucional) Jardín infantil en casa"
         Jardin_Infantil_en_Casa,
@@ -1954,7 +2101,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Institucional) Seminarios, conventos"
         Seminarios_Conventos,
-        /** Edificio o sala destinados a la representación de obras de teatro o de otro tipo de espectáculos, que dispone de un escenario y gradas o asientos para el público, se caracterizan por sus condiciones arquitectónicas
+        /** Edificio o sala destinados a la representación de obras de teatro o de otro tipo de espectáculos, que dispone de un escenario y gradas o asientos para el público, se caracterizan por sus condiciones arquitectónicas.
          */
         !!@ ili2db.dispName = "(Institucional) Teatro"
         Teatro,
@@ -1971,9 +2118,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Anexo(
         /** Depósito de agua construido a nivel del terreno con el propósito de almacenar agua, o en el caso de las bañadera con el fin de hacer limpieza al ganado, estas construcciones son cubiertas para guardar de la intemperie.
          */
-        !!@ ili2db.dispName = "(Anexo) Albercas - Banaderas"
+        !!@ ili2db.dispName = "(Anexo) Albercas - Bañaderas"
         Albercas_Banaderas,
-        /** Nombre dado en zonas cafeteras a aquellas construcciones donde realizan el beneficio del café. Consiste en áreas cubiertas dentro de las cuales se encuentran los elementos destinados a la labor de seleccionar, lavar y despulpar el grano y su posterior empaque
+        /** Nombre dado en zonas cafeteras a aquellas construcciones donde realizan el beneficio del café. Consiste en áreas cubiertas dentro de las cuales se encuentran los elementos destinados a la labor de seleccionar, lavar y despulpar el grano y su posterior empaque.
          */
         !!@ ili2db.dispName = "(Anexo) Beneficiaderos"
         Beneficiaderos,
@@ -1985,11 +2132,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Anexo) Canchas"
         Canchas,
-        /** Superficie  terreno rectangular cruzada al medio por una red baja.
+        /** Superficie terreno rectangular cruzada al medio por una red baja.
          */
-        !!@ ili2db.dispName = "(Anexo) Canchas de Tenis"
+        !!@ ili2db.dispName = "(Anexo) Canchas de tenis"
         Canchas_de_Tenis,
-        /** Es una vía de transporte de dominio y uso público, proyectada y construida fundamentalmente para la circulación de vehículos automóviles
+        /** Es una vía de transporte de dominio y uso público, proyectada y construida fundamentalmente para la circulación de vehículos automóviles.
          */
         !!@ ili2db.dispName = "(Anexo) Carretera"
         Carretera,
@@ -1997,9 +2144,9 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Anexo) Cerramiento"
         Cerramiento,
-        /** Construcción anexa conformada por unos cimientos, muros y placa base
+        /** Construcción anexa conformada por unos cimientos, muros y placa base.
          */
-        !!@ ili2db.dispName = "(Anexo) Cimientos, Estructura, Muros y Placa Base"
+        !!@ ili2db.dispName = "(Anexo) Cimientos, estructura, muros y placa base"
         Cimientos_Estructura_Muros_y_Placa_Base,
         /** Construcciòn destinada a la cría y albergue de cerdos. Se utiliza cualesquiera de los tres nombres enunciados según la región donde se ubique; los elementos que la conforman son: estructura, muros y pisos.
          */
@@ -2013,7 +2160,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Anexo) Contenedor"
         Contenedor,
-        /** Sitio cerrado y descubierto que se utiliza par la cría y albergue de ganado generalmente vacuno. consta de los elementos estructura  y pisos.
+        /** Sitio cerrado y descubierto que se utiliza par la cría y albergue de ganado generalmente vacuno. consta de los elementos estructura y pisos.
          */
         !!@ ili2db.dispName = "(Anexo) Corrales"
         Corrales,
@@ -2029,7 +2176,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Anexo) Estación de sistema de transporte"
         Estacion_Sistema_Transporte,
-        /** Unidad construida con destino a la cría y/o protección de aves principalmente para explotación avícola.  Conformada por estructura cubierta pisos y muros que son parcialmente elaborados en ladrillo y el resto descubierto o con algún material provisional (plásticos, alambres, etc.).
+        /** Unidad construida con destino a la cría y/o protección de aves principalmente para explotación avícola. Conformada por estructura cubierta pisos y muros que son parcialmente elaborados en ladrillo y el resto descubierto o con algún material provisional (plásticos, alambres, etc.).
          */
         !!@ ili2db.dispName = "(Anexo) Galpones - Gallineros"
         Galpones_Gallineros,
@@ -2041,15 +2188,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Anexo) Kioscos"
         Kioscos,
-        /** Son depósitos construidos mediante la excavación y compactación de la tierra que almacenan agua de cualquier calidad por un periodo determinado
+        /** Son depósitos construidos mediante la excavación y compactación de la tierra que almacenan agua de cualquier calidad por un periodo determinado.
          */
-        !!@ ili2db.dispName = "(Anexo) Lagunas de Oxidación"
+        !!@ ili2db.dispName = "(Anexo) Lagunas de oxidación"
         Lagunas_de_Oxidacion,
         /** Cobertizo dentro de una edificación de mayor extensión o patio cubierto, clasificados según su estructura, pisos y el material de la cubierta.
          */
         !!@ ili2db.dispName = "(Anexo) Marquesinas - Patios Cubiertos"
         Marquesinas_Patios_Cubiertos,
-        /** Deberán diferenciarse de acuerdo a su estructura, longitud, capacidad, usos turísticos o de carga
+        /** Deberán diferenciarse de acuerdo a su estructura, longitud, capacidad, usos turísticos o de carga.
          */
         !!@ ili2db.dispName = "(Anexo) Muelles"
         Muelles,
@@ -2061,7 +2208,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Anexo) Pérgolas"
         Pergolas,
-        /** Estanque artificial con destino al deporte o a la recreación.  Se diferencia por sus acabados y especificaciones técnicas para su mantenimiento y operación; sus dimensiones deben darse en unidades de área (m2).
+        /** Estanque artificial con destino al deporte o a la recreación. Se diferencia por sus acabados y especificaciones técnicas para su mantenimiento y operación; sus dimensiones deben darse en unidades de área (m2).
          */
         !!@ ili2db.dispName = "(Anexo) Piscinas"
         Piscinas,
@@ -2069,7 +2216,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Anexo) Pista aeropuerto"
         Pista_Aeropuerto,
-        /** Perforaciones profundas  manuales para extraer agua subterránea.  Medida en metros de profundidad.
+        /** Perforaciones profundas manuales para extraer agua subterránea. Medida en metros de profundidad.
          */
         !!@ ili2db.dispName = "(Anexo) Pozos"
         Pozos,
@@ -2077,21 +2224,21 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Anexo) Ramadas - Cobertizos - Caneyes"
         Ramadas_Cobertizos_Caneyes,
-        /** Construcciones elaboradas con el objeto de secar en condiciones naturales el café principalmente, aunque es común su uso en otros productos.  Consta de estructura y pisos para su calificación
+        /** Construcciones elaboradas con el objeto de secar en condiciones naturales el café principalmente, aunque es común su uso en otros productos. Consta de estructura y pisos para su calificación.
          */
         !!@ ili2db.dispName = "(Anexo) Secaderos"
         Secaderos,
-        /** Construcción de grandes dimensiones que sirve para almacén o depósito, se exceptúan los silos cafeteros
+        /** Construcción de grandes dimensiones que sirve para almacén o depósito, se exceptúan los silos cafeteros.
          */
         !!@ ili2db.dispName = "(Anexo) Silos"
         Silos,
         /** Depósitos subterráneos o de altura, construidos en zonas con deficiencias en abastecimiento para el consumo de los habitantes o para el uso agrícola.  El elemento a calificar es la estructura relacionada con la capacidad de almacenamiento medida en metros cúbicos.
          *  
-         * Se excluyen de este tipo de construcción los tanques de almacenamiento domiciliario
+         * Se excluyen de este tipo de construcción los tanques de almacenamiento domiciliario.
          */
         !!@ ili2db.dispName = "(Anexo) Tanques"
         Tanques,
-        /** Deslizadores construidos alrededor de piscinas, medidos en metros lineales.  Se clasifican según su altura y materiales de construcción
+        /** Deslizadores construidos alrededor de piscinas, medidos en metros lineales. Se clasifican según su altura y materiales de construcción.
          */
         !!@ ili2db.dispName = "(Anexo) Toboganes"
         Toboganes,
@@ -2101,15 +2248,15 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         Torre_de_Control,
         /** Son estructuras diseñadas para disminuir la temperatura del agua y otros medios.
          */
-        !!@ ili2db.dispName = "(Anexo) Torres de Enfriamiento"
+        !!@ ili2db.dispName = "(Anexo) Torres de enfriamiento"
         Torres_de_Enfriamiento,
-        /** Se le asigna a las unidades prediales no edificadas o por construir
+        /** Se le asigna a las unidades prediales no edificadas o por construir.
          */
         !!@ ili2db.dispName = "(Anexo) Unidad predial por construir"
         Unidad_Predial_por_Construir,
-        /** Parte de la infraestructura ferroviaria que une dos puntos determinados del territorio
+        /** Parte de la infraestructura ferroviaria que une dos puntos determinados del territorio.
          */
-        !!@ ili2db.dispName = "(Anexo) Vía Férrea"
+        !!@ ili2db.dispName = "(Anexo) Vía férrea"
         Via_Ferrea
       )
     );
@@ -2193,7 +2340,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_AgrupacionInteresados =
     END LC_AgrupacionInteresados;
 
-    /** Clase para determinar el tipo de calificación para las unidades de construcción, permite 3 opciones: a) calificación por tipologias constructivas, b)calificación total de la ficha de calificación de construcción y c) calificación parcial de la ficha de calificación de construcción como lo puede ser fachada y estructura.
+    /** Clase para determinar el tipo de calificación para las unidades de construcción, permite 3 opciones: a) calificación por tipologías constructivas, b)calificación total de la ficha de calificación de construcción y c) calificación parcial de la ficha de calificación de construcción como lo puede ser fachada y estructura.
      */
     CLASS LC_CalificacionUnidadConstruccion (ABSTRACT) =
     END LC_CalificacionUnidadConstruccion;
@@ -2203,7 +2350,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "Construcción"
     CLASS LC_Construccion
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
-      /** Identificado de la unidad de construcción, su codificación puede ser por letras del abecedario.
+      /** Identificador de la unidad de construcción, su codificación puede ser por letras del abecedario.
        */
       !!@ ili2db.dispName = "Identificador"
       Identificador : MANDATORY TEXT*20;
@@ -2241,11 +2388,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Anio_Construccion : 1550 .. 2500;
       /** Es el valor comercial de las edificaciones de un predio de acuerdo con: sus características de estructura, uso, acabados, conservación y edad de las mismas.
        */
-      !!@ ili2db.dispName = "Ávaluo de construcción"
+      !!@ ili2db.dispName = "Avalúo de construcción"
       Avaluo_Construccion : LADM_COL_V3_1.LADM_Nucleo.Peso;
       /** Es la estimación del valor de un inmueble a una fecha determinada conforme a las reglas del mercado inmobiliario y la normatividad vigente.
        */
-      !!@ ili2db.dispName = "Avalúo comercial construccion"
+      !!@ ili2db.dispName = "Avalúo comercial construcción"
       Avaluo_Comercial_Construccion : LADM_COL_V3_1.LADM_Nucleo.Peso;
       /** Área total construida.
        */
@@ -2356,7 +2503,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Tipo"
       Tipo : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_DerechoTipo;
-      /** Indica la fracción del derecho en relación a la forma de tenencia y el área que esta ocupa dentro de la extensión del predio. ?
+      /** Indica la fracción del derecho en relación a la forma de tenencia y el área que esta ocupa dentro de la extensión del predio.
        * 
        * Expresado en tanto por uno (0.0000000000 a 1.0000000000).
        */
@@ -2376,8 +2523,12 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Numero_FMI : TEXT*80;
     END LC_EstructuraNovedadFMI;
 
+    /** Clase que permite identificar las modificaciones que puede tener el número predial producto de la dinámica inmobiliaria identificada en el levantamiento catastral.
+     */
     !!@ ili2db.dispName = "(LC) Estructura Novedad Número Predial"
     STRUCTURE LC_EstructuraNovedadNumeroPredial =
+      /** El predio no sufre modificación del código predial nacional de 30 dígitos de acuerdo con la estructura.
+       */
       !!@ ili2db.dispName = "Número predial"
       Numero_Predial : MANDATORY TEXT*30;
       !!@ ili2db.dispName = "Tipo de novedad"
@@ -2427,7 +2578,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Metadato (EXTENDED) : MTEXT;
     END LC_FuenteEspacial;
 
-    /** Calificación de la construccion según los item determinados para calificar.
+    /** Calificación de la construccion según los ítem determinados para calificar.
      */
     !!@ ili2db.dispName = "Grupo Calificación"
     CLASS LC_GrupoCalificacion =
@@ -2585,7 +2736,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
      */
     !!@ ili2db.dispName = "Objeto Construcción"
     CLASS LC_ObjetoConstruccion =
-      /** Item de la calificación de construcción según la método de calificación vigente.
+      /** Ítem de la calificación de construcción según la método de calificación vigente.
        */
       !!@ ili2db.dispName = "Tipo de objeto de construcción"
       Tipo_Objeto_Construccion : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_ObjetoConstruccionTipo;
@@ -2641,7 +2792,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Municipio"
       Municipio : MANDATORY TEXT*3;
-      /** Identificador único temporal de cada predio que se asigna en el desarrollo del levantamiento catastral. Puede ser un atributo en el cual se almacene el NUPRE.
+      /** Identificador único temporal de cada predio que se asigna en el desarrollo del levantamiento catastral. Puede ser un atributo en el cual se almacene el CÓDIGO HOMOLOGADO suministrado por la autoridad catastral.
        */
       !!@ ili2db.dispName = "Identificador único de operación"
       Id_Operacion : MANDATORY TEXT*30;
@@ -2715,7 +2866,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       MANDATORY CONSTRAINT Tipo <> #Transporte ;
     END LC_Predio;
 
-    /** Puntos topograficos o geodesicos utilizados como amarre para la ejecución del levantamiento catastral.
+    /** Puntos topográficos o geodésicos utilizados como amarre para la ejecución del levantamiento catastral.
      */
     !!@ ili2db.dispName = "Punto Control"
     CLASS LC_PuntoControl
@@ -2750,7 +2901,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "Punto Lindero"
     CLASS LC_PuntoLindero
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_Punto =
-      /** Nombre o código que identifica el punto lindero
+      /** Nombre o código que identifica el punto lindero.
        */
       !!@ ili2db.dispName = "ID del punto de lindero"
       ID_Punto_Lindero : MANDATORY TEXT*255;
@@ -2817,7 +2968,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Geometria (EXTENDED) : MANDATORY ISO19107_PLANAS_V3_0.GM_MultiSurface3D;
     END LC_Terreno;
 
-    /** Proceso mediante el cual se le asigna un puntaje a las edificaciones de acuerdo a sus características constructivas
+    /** Proceso mediante el cual se le asigna un puntaje a las edificaciones de acuerdo a sus características constructivas.
      */
     !!@ ili2db.dispName = "Calificación Convencional"
     CLASS LC_CalificacionConvencional
@@ -2893,7 +3044,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Tipo_Documento_Reconocedor : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_InteresadoDocumentoTipo;
       /** Indica el número de documento del reconocedor predial encargado de efectuar el levantamiento catastral.
        */
-      !!@ ili2db.dispName = "Numero de documento del reconocedor predial"
+      !!@ ili2db.dispName = "Número de documento del reconocedor predial"
       Numero_Documento_Reconocedor : MANDATORY TEXT*50;
       /** Primer nombre del delegado de ejecutar las actividades catastrales en campo en el predio.
        */
@@ -2915,6 +3066,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Resultado de la visita predial"
       Resultado_Visita : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_ResultadoVisitaTipo;
+      /** Atributo que permite la descripción de otra situación no descrita en el dominio LC_ResultadoVisitaTipo.
+       */
+      !!@ ili2db.dispName = "Resultado de visita Otro ¿Cúal?"
+      Otro_Cual_Resultado_Visita : TEXT*255;
       /** Indica si dentro del proceso de formación o actualización catastral se suscribe acta de colindancia para el predio objeto de levantamiento catastral.
        */
       !!@ ili2db.dispName = "¿Se suscribe acta de colindancia?"
@@ -2923,7 +3078,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Despojo o abandono"
       Despojo_Abandono : BOOLEAN;
-      /** Es una variable alfanumérica que clasifica los inmuebles residenciales que deben recibir servicios públicos, se asigna a nivel predial.?
+      /** Es una variable alfanumérica que clasifica los inmuebles residenciales que deben recibir servicios públicos, se asigna a nivel predial
+       * 
        * -Los dominios que toma la variable corresponden del carácter 1 al 6.
        */
       !!@ ili2db.dispName = "Estrato"
@@ -3019,12 +3175,12 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       lc_ofertas_mercado_inmobiliario -- {0..*} LC_OfertasMercadoInmobiliario;
     END lc_predio_ofertas_mercado_inmobiliario;
 
-    /** La servidumbre predial o simple servidumbre, es un gravamen sobre un predio, en utilidad de otro predio de distinto dueño
+    /** La servidumbre predial o simple servidumbre, es un gravamen sobre un predio, en utilidad de otro predio de distinto dueño.
      */
     !!@ ili2db.dispName = "Servidumbre de Tránsito"
     CLASS LC_ServidumbreTransito
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
-      /** Área total de la servidumbre metros cuadrados.
+      /** Área total de la servidumbre en metros cuadrados.
        */
       !!@ ili2db.dispName = "Área de la servidumbre"
       Area_Servidumbre : MANDATORY 0.0 .. 99999999999999.9 [LADM_COL_V3_1.m2];
@@ -3052,7 +3208,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     !!@ ili2db.dispName = "Unidad de Construcción"
     CLASS LC_UnidadConstruccion
     EXTENDS LADM_COL_V3_1.LADM_Nucleo.COL_UnidadEspacial =
-      /** Identificado de la unidad de construcción, su codificación puede ser por letras del abecedario.
+      /** Identificador de la unidad de construcción, su codificación puede ser por letras del abecedario.
        */
       !!@ ili2db.dispName = "Identificador"
       Identificador : MANDATORY TEXT*20;
@@ -3064,11 +3220,11 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Tipo de construcción"
       Tipo_Construccion : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_ConstruccionTipo;
-      /** Indica el tipo de dominio de la unidad de construcción: común y privado.
+      /** Es la caracterización del conjunto de valores que describe a un atributo de la unidad de construcción para darle condición de dominio común o dominio privado.
        */
       !!@ ili2db.dispName = "Tipo de dominio"
       Tipo_Dominio : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_DominioConstruccionTipo;
-      /** Es la caracterización del conjunto de valores que describe a un atributo de la unidad de construcción para darle condición de dominio común o dominio privado.
+      /** Es el conjunto de elementos constructivos que conforman una edificación y que de acuerdo a sus características pueden ser consideradas convencionales cuando son de uso residencial, comercial e industrial o no convencionales cuando son anexos de la construcción.
        */
       !!@ ili2db.dispName = "Tipo de unidad de construcción"
       Tipo_Unidad_Construccion : MANDATORY Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_UnidadConstruccionTipo;
