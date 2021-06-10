@@ -645,8 +645,12 @@ VERSION "V1.2.0"  // 2019-08-13 // =
        */
       !!@ ili2db.dispName = "Fecha de entrega"
       Fecha_Entrega : INTERLIS.XMLDate;
+      /** Identificador único global. Corresponde al atributo de la clase en LADM.
+       */
       !!@ ili2db.dispName = "Espacio de nombres"
       Espacio_De_Nombres : MANDATORY CharacterString;
+      /** Identificador único local.
+       */
       !!@ ili2db.dispName = "Local ID"
       Local_Id : MANDATORY CharacterString;
     END ExtArchivo;

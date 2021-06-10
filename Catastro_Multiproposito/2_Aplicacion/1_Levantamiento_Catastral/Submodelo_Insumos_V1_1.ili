@@ -939,9 +939,13 @@ VERSION "V2.3"  // 2019-07-31 // =
       Secuencial_SNR
     );
 
-    SNR_EstadoPredioTipo = (
+    SNR_EstadoFMITipo = (
+      /** Corresponden a todos los folios que se encuentran activos y no han sido cerrados.
+       */
       !!@ ili2db.dispName = "Activo"
       Activo,
+      /** Siempre que se engloben varios predios o la venta de la parte restante de ellos o se cancelen por orden judicial o administrativa los títulos o documentos que la sustentan jurídicamente y no existan anotaciones vigentes, las matrículas inmobiliarias se cerrarán para el efecto o se hará una anotación que diga "Folio Cerrado".
+       */
       !!@ ili2db.dispName = "Cerrado"
       Cerrado,
       !!@ ili2db.dispName = "Trasladado"
@@ -1123,8 +1127,12 @@ VERSION "V2.3"  // 2019-07-31 // =
       Ciudad_Emisora : TEXT*255;
     END SNR_FuenteDerecho;
 
+    /** Son los actos jurídicos por los cuales unos interesados están relacionados con cada predio, pero no constituyen derechos, ni restricciones ni responsabilidades.
+     */
     !!@ ili2db.dispName = "(SNR) Publicidad"
     CLASS SNR_Publicidad =
+      /** Se refiere a la agrupación que códigos que registran publicidades.
+       */
       !!@ ili2db.dispName = "Tipo de publicidad"
       Tipo_Publicidad : Submodelo_Insumos_SNR_V2_0.SNR_PublicidadTipo;
       /** Es el tipo de descripciòn por la cual se hacen las incripciones en registro de acuerdo con lo contemplado en el art. 8 de la ley 1579 de 2012.
@@ -1233,14 +1241,20 @@ VERSION "V2.3"  // 2019-07-31 // =
        */
       !!@ ili2db.dispName = "Fecha de datos"
       Fecha_Datos : MANDATORY INTERLIS.XMLDate;
+      /** Identificador del estado del folio (cerrado, activo, trasladado).
+       */
       !!@ ili2db.dispName = "Estado"
-      Estado : Submodelo_Insumos_SNR_V2_0.SNR_EstadoPredioTipo;
+      Estado : Submodelo_Insumos_SNR_V2_0.SNR_EstadoFMITipo;
       /** Es un código único para identificar los inmuebles tanto en los sistemas de información catastral como registral. El NUPRE no implicará supresión de la numeración catastral ni registral asociada a la cédula catastral ni a la matrícula inmobiliaria actual.
        */
       !!@ ili2db.dispName = "Número único predial"
       NUPRE : TEXT*11;
+      /** Identificador del folio origen (matricula trasladada).
+       */
       !!@ ili2db.dispName = "Matrícula origen"
       Matricula_Origen : TEXT*50;
+      /** Identificador del folio destino(matrícula generada una vez realizado el traslado).
+       */
       !!@ ili2db.dispName = "Matrícula destino"
       Matricula_Destino : TEXT*50;
     END SNR_PredioRegistro;

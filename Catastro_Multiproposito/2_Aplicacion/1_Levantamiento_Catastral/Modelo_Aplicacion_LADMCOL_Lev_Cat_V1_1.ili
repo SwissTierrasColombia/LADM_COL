@@ -415,6 +415,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Estadios o coliseos) Tipo 40"
         Tipo_40
       ),
+      /** Recintos cerrados, generalmente circulares y descubiertos, donde se celebran las corridas de toros.
+       */
       !!@ ili2db.dispName = "Plaza de toros - código 43"
       Plazas_de_Toros(
         /** Plaza de toros con estructura en concreto y madera capacidad de más de 10000 espectadores.
@@ -426,6 +428,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Plaza de toros) Tipo 20"
         Tipo_20
       ),
+      /** Infraestructura Vial que consta de dos rieles paralelos con travesaños, por el que se desplazan los trenes.
+       */
       !!@ ili2db.dispName = "Vía férrea"
       Via_Ferrea(
         /** Via férrea de trocha  normal o estándar (4 pies, 8 1/2 pulgadas o 1435 metros) con capacidad de transporte mayor a 50 toneladas, conformada por una capa de balasto, sobre la cual se disponen traviesas de madera que soportan los rieles, entiéndase como trocha a la distancia mínima entre los dos rieles.
@@ -450,23 +454,25 @@ VERSION "V2.2.1"  // 2018-02-19 // =
         !!@ ili2db.dispName = "(Carreteras) Tipo 40"
         Tipo_40
       ),
-      !!@ ili2db.dispName = "Cimientos estructura muros placabase"
+      /** Corresponde a edificaciones cuyo avance de la construcción presenta únicamente cimientos, estructuras, muros y placabase.
+       */
+      !!@ ili2db.dispName = "Cimientos, estructura, muros y placabase"
       Cimientos_Estructura_Muros_Placabase(
         /** Cimientos y estructura soportes verticales (columnas) y horizontales (vigas) destinados a sostener la totalidad o parte de la futura construcción o edificación, acompañados de muros y placas base. Esta tipología se caracteriza por presentar de manera simultánea los 4 elementos (Cimientos, Estructura, Muro o Pared y Losa de Contra piso).
          */
-        !!@ ili2db.dispName = "(Cimientos estructura muros placabase) Tipo 80"
+        !!@ ili2db.dispName = "(Cimientos, estructura, muros y placabase) Tipo 80"
         Tipo_80,
         /** Cimentación y estructura con soportes verticales (columnas) y horizontales (vigas) destinados a sostener la totalidad o parte de la futura construcción o edificación, acompañados de muros o placas base. Esta tipología se caracteriza por presentar de manera simultánea 3 elementos (Cimientos, Estructura, y alguno de estos dos elementos Muro Pared o Losa en Contra piso).
          */
-        !!@ ili2db.dispName = "(Cimientos estructura muros placabase) Tipo 60"
+        !!@ ili2db.dispName = "(Cimientos, estructura, muros y placabase) Tipo 60"
         Tipo_60,
         /** Cimentación sin estructura destinada a sostener la totalidad o parte de una futura construcción o edificación, pueden estar acompañados de muros o placas base. Esta tipología se caracteriza por presentar de manera simultánea 2 elementos (Cimientos y alguno de estos dos elemetnos Muro - Pared o Losa de Contra piso).
          */
-        !!@ ili2db.dispName = "(Cimientos estructura muros placabase) Tipo 40"
+        !!@ ili2db.dispName = "(Cimientos, estructura, muros y placabase) Tipo 40"
         Tipo_40,
         /** Cimentación sin estructura, destinada a sostener la totalidad o parte de una futura construcción o edificación. Esta tipología se caracteriza por presentar un solo elemento, la cimentación.
          */
-        !!@ ili2db.dispName = "(Cimientos estructura muros placabase) Tipo 20"
+        !!@ ili2db.dispName = "(Cimientos, estructura, muros y placabase) Tipo 20"
         Tipo_20
       ),
       /** La infraestructura básica aeroportuaria está formada por las pistas, las pistas de carreteo, la zona de aparcamiento de los aviones, los puentes de embarque, las terminales de pasajeros y de carga y los intercambios de transporte en tierra.
@@ -756,7 +762,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Institucional,
       /** Se califica con destino minería e hidrocarburos, aquellos predios donde se hace aprovechamiento directo de los recursos minerales o transformación primaria de los mismos.
        */
-      !!@ ili2db.dispName = "Minería hidrocarburos"
+      !!@ ili2db.dispName = "Minería e hidrocarburos"
       Mineria_Hidrocarburos,
       /** Se califica con este destino, aquellos predios urbanos no construidos, ubicados en terrenos de grandes áreas que no han sido desarrollados y sin restricción legal para adelantar algún tipo de desarrollo urbanístico.
        */
@@ -808,16 +814,28 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     );
 
     LC_EstadoCivilTipo = (
+      /** Una persona casada que indica contar con una pareja con quien ha convivido menos de dos años.
+       */
       !!@ ili2db.dispName = "a. No está casado/a y vive en pareja hace menos de dos años"
       No_Casado_Vive_En_Pareja_Menos_2_Anios,
+      /** Una persona casada que indica contar con una pareja con quien ha convivido dos años o más.
+       */
       !!@ ili2db.dispName = "b. No está casado/a y vive en pareja hace dos años o más"
       No_Casado_Vive_En_Pareja_2_Anios_O_Mas,
+      /** Una persona que acaba de contraer matrimonio adquiere el estado civil de casado.
+       */
       !!@ ili2db.dispName = "c. Está casado/a"
       Casado,
+      /** Una persona que ha finalizado oficialmente con su matrimonio adquiere la calidad de divorciado. La separación matrimonial es una situación jurídica intermedia entre el matrimonio y el divorcio.
+       */
       !!@ ili2db.dispName = "d. Está separado/a ó divorciado/a?"
       Separado_Divorciado,
+      /** Viudez es el estado de haber perdido al cónyuge por fallecimiento.
+       */
       !!@ ili2db.dispName = "e. Está viudo/a"
       Viudo,
+      /** Una persona que no ha contraido matrimonio.
+       */
       !!@ ili2db.dispName = "f. Está soltero/a?"
       Soltero
     );
@@ -842,18 +860,35 @@ VERSION "V2.2.1"  // 2018-02-19 // =
     );
 
     LC_EstratoTipo = (
+      /** Corresponde al estrato bajo-bajo (1) que alberga a los usuarios con menores recursos, los cuales son beneficiarios de subsidios en los servicios públicos domiciliarios y demas aspectos descritos en las metodologias publicadas por el DANE.
+       */
       !!@ ili2db.dispName = "1. Bajo-bajo?"
       Bajo_Bajo_1,
+      /** Corresponde al estrato bajo (2) que alberga a los
+       * usuarios con menores recursos, los cuales son beneficiarios de subsidios en los servicios públicos domiciliarios y demas aspectos descritos en las metodologias publicadas por el DANE.
+       */
       !!@ ili2db.dispName = "2. Bajo"
       Bajo_2,
+      /** Corresponde al estrato medio-bajo (3) que alberga a los usuarios con menores recursos, los cuales son beneficiarios de subsidios en los servicios públicos domiciliarios  y demas aspectos descritos en las metodologias publicadas por el DANE.
+       */
       !!@ ili2db.dispName = "3. Medio-bajo?"
       Medio_Bajo_3,
+      /** El estrato medio (4) no es beneficiario de subsidios, ni debe pagar sobrecostos, paga exactamente el valor que la empresa de servicios públicos domiciliarios defina como costo de prestación del servicio y demas aspectos descritos en las metodologias publicadas por el DANE.
+       */
       !!@ ili2db.dispName = "4. Medio?"
       Medio_4,
+      /** El estrato medio-alto (5) corresponde a un estrato que alberga a usuarios con mayores recursos económicos, los cuales deben pagar sobrecostos (contribución) sobre el valor de los servicios públicos domiciliarios y demas aspectos descritos en las metodologias publicadas por el DANE.
+       */
       !!@ ili2db.dispName = "5. Medio-alto?"
       Medio_Alto_5,
+      /** El estrato alto (6) corresponde a un estrato que alberga a usuarios con mayores recursos económicos, los cuales deben pagar sobrecostos (contribución) sobre el valor de los servicios públicos domiciliarios y demas aspectos descritos en las metodologias publicadas por el DANE.
+       */
       !!@ ili2db.dispName = "6. Alto"
-      Alto_6
+      Alto_6,
+      /** Otro posible valor que no se encuentre en la tabla.
+       */
+      !!@ ili2db.dispName = "Otro"
+      Otro
     );
 
     LC_FotoidentificacionTipo = (
@@ -2515,10 +2550,16 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Fecha_Inicio_Tenencia : INTERLIS.XMLDate;
     END LC_Derecho;
 
+    /** Clase que permite identificar las modificaciones que puede tener el folio de matrícula inmobiliaria producto de la dinámica inmobiliaria identificada en el levantamiento catastral.
+     */
     !!@ ili2db.dispName = "(LC) Estructura Novedad FMI"
     STRUCTURE LC_EstructuraNovedadFMI =
+      /** Es el consecutivo que se asigna a cada oficina de registro de instrumentos públicos.
+       */
       !!@ ili2db.dispName = "Código ORIP"
       Codigo_ORIP : TEXT*3;
+      /** Es el consecutivo que se asigna a cada predio jurídico abierto en la ORIP.
+       */
       !!@ ili2db.dispName = "Número FMI"
       Numero_FMI : TEXT*80;
     END LC_EstructuraNovedadFMI;
@@ -2531,6 +2572,8 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Número predial"
       Numero_Predial : MANDATORY TEXT*30;
+      /** Indica los diferentes tipos de modificaciones que puede tener el número predial producto de la dinámica inmobiliaria identificada en el levantamiento catastral.
+       */
       !!@ ili2db.dispName = "Tipo de novedad"
       Tipo_Novedad : (
         !!@ ili2db.dispName = "Predio nuevo"
@@ -3084,6 +3127,10 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Estrato"
       Estrato : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_EstratoTipo;
+      /** Atributo que permite la descripción de otra situación no descrita en el dominio LC_EstratoTipo.
+       */
+      !!@ ili2db.dispName = "Otro estrato ¿Cúal?"
+      Otro_Cual_Estrato : TEXT*255;
     END LC_DatosAdicionalesLevantamientoCatastral;
 
     /** Puntos que definen los limites de las construcciones, unidad de construcción y servidumbres de transito.
