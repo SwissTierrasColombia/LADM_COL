@@ -2672,7 +2672,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
        */
       !!@ ili2db.dispName = "Segundo apellido"
       Segundo_Apellido : TEXT*100;
-      /** Hace referencia a los componentes fisiológicos del interesado, que pueden determinar la diferencia entre quien es mujer y quien es hombre.
+      /** Corresponde a “Masculino” y “Femenino” según como aparezca en el tipo de documento de identidad.
        */
       !!@ ili2db.dispName = "Sexo"
       Sexo : Modelo_Aplicacion_LADMCOL_Lev_Cat_V1_1.LC_SexoTipo;
