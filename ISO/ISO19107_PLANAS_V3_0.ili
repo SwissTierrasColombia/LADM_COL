@@ -6,16 +6,10 @@ VERSION "2016-03-07"  =
 
   DOMAIN
 
-    /** Clase que corresponde con el modelo núcleo LADM.
-     */
     GM_Point2D = COORD 3980000.000 .. 5700000.000 [INTERLIS.m], 1080000.000 .. 3100000.000 [INTERLIS.m] ,ROTATION 2 -> 1;
 
-    /** Clase que corresponde con el modelo núcleo LADM.
-     */
     GM_Curve2D = POLYLINE WITH (ARCS,STRAIGHTS) VERTEX GM_Point2D WITHOUT OVERLAPS>0.001;
 
-    /** Clase que corresponde con el modelo núcleo LADM.
-     */
     GM_Surface2D = SURFACE WITH (ARCS,STRAIGHTS) VERTEX GM_Point2D WITHOUT OVERLAPS>0.001;
 
     GM_Point3D = COORD 3980000.000 .. 5700000.000 [INTERLIS.m], 1080000.000 .. 3100000.000 [INTERLIS.m], -5000.000 .. 6000.000 [INTERLIS.m] ,ROTATION 2 -> 1;
@@ -27,30 +21,22 @@ VERSION "2016-03-07"  =
   STRUCTURE GM_Geometry2DListValue =
   END GM_Geometry2DListValue;
 
-  /** Clase que corresponde con el modelo núcleo LADM.
-   */
   STRUCTURE GM_Curve2DListValue =
     !!@ ili2db.dispName = "value"
     value : MANDATORY GM_Curve2D;
   END GM_Curve2DListValue;
 
-  /** Clase que corresponde con el modelo núcleo LADM.
-   */
   STRUCTURE GM_Surface2DListValue =
     !!@ ili2db.dispName = "value"
     value : MANDATORY GM_Surface2D;
   END GM_Surface2DListValue;
 
-  /** Clase que corresponde con el modelo núcleo LADM.
-   */
   !!@ ili2db.mapping = "MultiLine"
 STRUCTURE GM_MultiCurve2D =
     !!@ ili2db.dispName = "geometry"
     geometry : LIST {1..*} OF ISO19107_PLANAS_V3_0.GM_Curve2DListValue;
   END GM_MultiCurve2D;
 
-  /** Clase que corresponde con el modelo núcleo LADM.
-   */
   !!@ ili2db.mapping = "MultiSurface"
 STRUCTURE GM_MultiSurface2D =
     !!@ ili2db.dispName = "geometry"
