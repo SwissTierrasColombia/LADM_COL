@@ -2550,7 +2550,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Fecha_Inicio_Tenencia : INTERLIS.XMLDate;
     END LC_Derecho;
 
-    /** Clase que permite identificar las modificaciones que puede tener el folio de matrícula inmobiliaria producto de la dinámica inmobiliaria identificada en el levantamiento catastral.
+    /** Estructura que permite identificar las modificaciones que puede tener el folio de matrícula inmobiliaria producto de la dinámica inmobiliaria identificada en el levantamiento catastral.
      */
     !!@ ili2db.dispName = "(LC) Estructura Novedad FMI"
     STRUCTURE LC_EstructuraNovedadFMI =
@@ -2564,7 +2564,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
       Numero_FMI : TEXT*80;
     END LC_EstructuraNovedadFMI;
 
-    /** Clase que permite identificar las modificaciones que puede tener el número predial producto de la dinámica inmobiliaria identificada en el levantamiento catastral.
+    /** Estructura que permite identificar las modificaciones que puede tener el número predial producto de la dinámica inmobiliaria identificada en el levantamiento catastral.
      */
     !!@ ili2db.dispName = "(LC) Estructura Novedad Número Predial"
     STRUCTURE LC_EstructuraNovedadNumeroPredial =
