@@ -54,7 +54,7 @@ VERSION "V1.2.0"  // 2019-08-13 // =
          */
         !!@ ili2db.dispName = "Imagen"
         Imagen,
-        /** Archivo digital que contiene un escrito en que constan datos fidedignos o susceptibles de ser empleados como tales para probar algo.
+        /** Definición en la ISO 19115:2003.
          */
         !!@ ili2db.dispName = "Documento"
         Documento,
