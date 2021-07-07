@@ -1357,7 +1357,7 @@ VERSION "V2.2.1"  // 2018-02-19 // =
          */
         !!@ ili2db.dispName = "(Mobiliario de cocina) Bueno"
         Bueno,
-        /** Además de lo descrito en el anterior tipo, se encuentran trabajos en maderas finas y compactadores o trituradores de basura, muebles totalmente integrales cubriendo buena parte de los muros, donde el comedor auxiliar es parte de este mobiliario.  Su tamaño siempre es grande.
+        /** Lo encontramos en aquellas cocinas dotadas de gabinetes completos, inferiores y de pared en madera trabajada, planchan en metal inoxidable, normalmente con cocina integral; sistemas auxiliares de extracción y aireación. Se encuentran trabajos en maderas finas y compactadores o trituradores de basura, muebles totalmente integrales cubriendo buena parte de los muros, donde el comedor auxiliar es parte de este mobiliario.  Su tamaño siempre es grande.
          */
         !!@ ili2db.dispName = "(Mobiliario de cocina) Lujoso"
         Lujoso
