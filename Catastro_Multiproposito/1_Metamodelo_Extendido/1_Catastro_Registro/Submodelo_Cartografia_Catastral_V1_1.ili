@@ -14,6 +14,8 @@ VERSION "V2.2.1"  // 2018-04-19 // =
    */
   TOPIC LimitesOperativosCatastro =
 
+    /** Son los asentamientos rurales nucleados, con vivienda concentrada, que albergan servicios públicos, sociales, asistenciales, administrativos, recreativos y culturales, y que atienden la población dispersa de las veredas en su área de influencia.
+     */
     !!@ ili2db.dispName = "(CC) Centro poblado"
     CLASS CC_CentroPoblado =
       /** Código de identificación del centro poblado.
@@ -64,7 +66,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
        */
       !!@ ili2db.dispName = "Nombre del municipio"
       Nombre_Municipio : MANDATORY TEXT*255;
-      /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por limite del municipio.
+      /** Tipo de geometría y su representación georrefenciada que definen los límites y el área ocupada por límite del municipio.
        */
       !!@ ili2db.dispName = "Geometría"
       Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_MultiSurface3D;
@@ -137,15 +139,15 @@ VERSION "V2.2.1"  // 2018-04-19 // =
        */
       !!@ ili2db.dispName = "Código municipio"
       Codigo_Municipio : MANDATORY TEXT*5;
-      /** Tipo de avaluo del perimetro urbano que para efectos catastrales es 01.
+      /** Tipo de avalúo del perímetro urbano que para efectos catastrales es 01.
        */
       !!@ ili2db.dispName = "Tipo de avalúo"
       Tipo_Avaluo : TEXT*30;
-      /** Nombre geográfico del perimetro urbano, ejemplo, TABIO.
+      /** Nombre geográfico del perímetro urbano, ejemplo, TABIO.
        */
       !!@ ili2db.dispName = "Nombre geográfico"
       Nombre_Geografico : MANDATORY TEXT*50;
-      /** Código del nombre geográfico
+      /** Código del nombre geográfico.
        */
       !!@ ili2db.dispName = "Código nombre"
       Codigo_Nombre : TEXT*255;
@@ -155,7 +157,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_MultiSurface3D;
     END CC_PerimetroUrbano;
 
-    /** Es la delimitación física del suelo rual, determina su área y se representa gráficamente por una línea imaginaria continua que divide el suelo urbano del suelo rural y del suelo de expansión urbana.
+    /** Es la porción de terreno rural, conformado por manzanas (para el caso de suelo rural con comportamiento urbano), veredas o parte de una vereda y delimitado por accidentes geográficos naturales o culturales.
      */
     !!@ ili2db.dispName = "(CC) Sector rural"
     CLASS CC_SectorRural =
@@ -169,7 +171,7 @@ VERSION "V2.2.1"  // 2018-04-19 // =
       Geometria : MANDATORY ISO19107_PLANAS_V3_0.GM_MultiSurface3D;
     END CC_SectorRural;
 
-    /** Es la delimitación física del suelo urbano, determina su área y se representa gráficamente por una línea imaginaria continua que divide el suelo urbano del suelo rural y del suelo de expansión urbana.
+    /** Es la porción de terreno urbano, conformado por manzanas y delimitado por accidentes geográficos naturales o culturales.
      */
     !!@ ili2db.dispName = "(CC) Sector Urbano"
     CLASS CC_SectorUrbano =
